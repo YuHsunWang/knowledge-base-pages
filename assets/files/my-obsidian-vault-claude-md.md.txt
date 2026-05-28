@@ -1,0 +1,222 @@
+# LLM Wiki — 操作說明（給 Claude 看的）
+
+這是一個由 LLM 維護的知識庫，概念來自 Andrej Karpathy 的 LLM Wiki 設計。
+你（Claude）是這個 wiki 的**唯一維護者**。每次操作都要遵守以下規則。
+
+---
+
+## 本檔定位與 coding guidelines 分流
+
+本檔只管理 **D:\知識庫 Obsidian Vault** 的操作規則：資料夾權限、Wiki ingest/query/lint、知識整理、MkDocs/GitHub Pages 發布條件。
+
+Andrej Karpathy / multica-ai 的 coding 行為準則已獨立保存於：
+
+- `_system/spec/claude-coding-guidelines.md`
+- 原始來源：`https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md`
+
+使用規則：
+
+- 維護本知識庫、整理筆記、發布 docs 時，**優先遵守本檔**。
+- 進行 coding 任務、修改 scripts、或整理其他 coding repo 的 `CLAUDE.md` 時，**引用 `_system/spec/claude-coding-guidelines.md`**。
+- 不要把 coding-first 規則直接混入本檔主體，避免與 vault-specific 權限規則混淆。
+
+---
+
+## 資料夾結構
+
+```
+D:\知識庫\
+├── 📥 Sources/     ← 原始資料（文章、PDF、筆記），不要修改
+├── 📚 Wiki/        ← 你維護的知識頁面（markdown）
+├── 📝 Notes/       ← 使用者自己的筆記，你不要動
+└── CLAUDE.md       ← 本文件（你的操作手冊）
+```
+
+---
+
+## Wiki 頁面類型
+
+每個 Wiki 頁面屬於以下類型之一，用 frontmatter 標記：
+
+```yaml
+---
+type: concept      # 抽象概念、方法論、框架
+type: entity       # 具體事物：人、公司、工具、資料集
+type: synthesis    # 跨來源的綜合分析
+type: timeline     # 事件時序整理
+---
+```
+
+頁面命名規則：使用**繁體中文**，簡短清楚。例：`注意力機制.md`、`Andrej Karpathy.md`。
+
+---
+
+## 操作 1：Ingest（消化新資料）
+
+當使用者說「幫我消化這篇」或把檔案放進 `📥 Sources/` 時：
+
+1. 閱讀來源文件
+2. 找出其中的**實體、概念、主張、數據**
+3. 對每個重要項目：
+   - 若 `📚 Wiki/` 已有對應頁面 → **更新**該頁面（加入新資訊，保留舊資訊）
+   - 若沒有 → **新建**頁面
+4. 在每個更新/新建的頁面底部加上來源標記：
+   ```
+   **來源**：[文件名稱]（消化於 YYYY-MM-DD）
+   ```
+5. 更新 `📚 Wiki/_Index.md` 的頁面清單
+
+**黃金原則**：Wiki 是累積的。絕不刪除舊資訊，只增加與修正。
+
+---
+
+## 操作 2：Query（回答問題）
+
+當使用者問問題時：
+
+1. 讀取 `📚 Wiki/_Index.md` 確認有哪些頁面
+2. 讀取相關頁面
+3. 從 wiki 內容合成答案
+4. 若分析過程中有新洞見，可主動新增一個 `type: synthesis` 頁面
+
+---
+
+## 操作 3：Lint（健康檢查）
+
+當使用者說「幫我做 lint」時：
+
+1. 列出所有 Wiki 頁面
+2. 找出：
+   - 互相矛盾的主張
+   - 過時資訊（有明確日期可判斷）
+   - 孤兒頁面（沒有被其他頁面連結）
+   - 明顯的資訊缺口
+3. 產出報告，逐條列出問題與建議修正方式
+
+---
+
+## 格式規範
+
+- 內部連結用 Obsidian 語法：`[[頁面名稱]]`
+- 每個頁面最上方必須有 frontmatter（type 欄位）
+- 用 `## 小節標題` 組織內容，不要用超過三層標題
+- 數字、來源、日期要精確，不要模糊帶過
+
+---
+
+## 禁止事項
+
+- 不得修改 `📥 Sources/` 內的任何檔案
+- 不得修改 `📝 Notes/` 內的任何檔案
+- 不得在 wiki 頁面中捏造資訊——若不確定，寫「待確認」
+- 不得刪除有來源標記的資訊，只能標注「已更新」或「待驗證」
+
+---
+
+## 新知識工作流：Obsidian → GitHub → MkDocs
+
+本 Vault 的長期目標是：
+
+```text
+Claude / Codex / GPT
+        ↓
+Obsidian Vault（Single Source of Truth）
+        ↓
+GitHub Private Repo（版本控制 / 備份 / 專案管理）
+        ↓
+MkDocs（公開知識網站）
+        ↓
+GitHub Pages
+```
+
+### 目錄角色
+
+- `Inbox/`：所有新知識、AI 研究結果、未整理內容的入口。
+- `Knowledge/`：整理完成後的正式知識庫。
+- `Projects/`：專案型文件與研究結果。
+- `docs/`：MkDocs 公開網站來源，只放可公開、已整理完成的內容。
+- `📥 Sources/`：原始資料，不得任意修改。
+- `📚 Wiki/`：既有 LLM 維護 wiki，可逐步遷移或與 `Knowledge/` 並存。
+- `📝 Notes/`：使用者私人筆記，不得修改。
+
+### AI 產出規則
+
+當使用者提出問題時：
+
+1. 先回答問題。
+2. 再產生可保存版本。
+3. 轉換成 Obsidian Markdown 格式。
+4. 新內容預設先放 `Inbox/`，整理完成後再移至 `Knowledge/`。
+
+### 筆記標準格式
+
+所有正式知識筆記建議包含：
+
+```markdown
+---
+tags:
+  - Topic
+created: YYYY-MM-DD
+source: Claude/Codex/GPT/Hermes
+status: draft|complete
+publish: false
+---
+
+# 標題
+
+## 摘要
+
+## 問題背景
+
+## 核心概念
+
+## 實作範例
+
+## 我的理解
+
+## 延伸閱讀
+```
+
+### 發布至 MkDocs 的條件
+
+只有符合以下條件才能移入 `docs/`：
+
+- 已整理完成
+- 有摘要
+- 有案例或實作範例
+- 有自己的理解
+- 非草稿
+- 不含私人資訊、敏感資料或不適合公開的內容
+
+### 分類規則
+
+正式知識分類在 `Knowledge/`：
+
+- `AI/`
+- `DataScience/`
+- `MachineLearning/`
+- `SQL/`
+- `Python/`
+- `Statistics/`
+- `Trading/`
+- `Career/`
+- `Projects/`
+- `Notes/`
+
+MkDocs 公開網站分類在 `docs/`：
+
+- `ai/`
+- `sql/`
+- `python/`
+- `statistics/`
+- `trading/`
+- `data-science/`
+- `machine-learning/`
+- `projects/`
+- `career/`
+
+### Git / GitHub 規則
+
+- GitHub private repo 用於版本控制與備份。
+- 不要把大型原始資料、private data、API keys、token、`.env`、資料庫檔放進 Git。
+- GitHub Pages 只發布 `docs/` 經 MkDocs 產生的內容。
