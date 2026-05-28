@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/ai/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/ai/claude-md-knowledge-base-maintenance-principles/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
+    </url>
+    <url>
+         <loc>https://yuhsunwang.github.io/knowledge-base-pages/ai/claude-md-obsidian-llm-wiki-maintainer/</loc>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/career/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/data-science/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/projects/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/projects/toeic-master/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/python/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/sql/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/statistics/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
     <url>
          <loc>https://yuhsunwang.github.io/knowledge-base-pages/trading/</loc>
-         <lastmod>2026-05-27</lastmod>
+         <lastmod>2026-05-28</lastmod>
     </url>
 </urlset>

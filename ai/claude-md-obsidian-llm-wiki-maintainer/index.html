@@ -1,0 +1,1249 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="將 vault-specific CLAUDE.md 整理成公開筆記，說明如何用 AI 維護 Obsidian / LLM Wiki。">
+      
+      
+      
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/claude-md-obsidian-llm-wiki-maintainer/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者 - Shane's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claudemd-ai-obsidian" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Shane's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="切換深色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首頁
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Python
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../statistics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Statistics
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../trading/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Trading
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data-science/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data Science
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../machine-learning/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Machine Learning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../career/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Career
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Shane's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首頁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TOEIC Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../career/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claudemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        這份 CLAUDE.md 解決什麼問題
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心設計：把 AI 從聊天工具變成知識庫維護者
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-query-lint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三個基本操作：Ingest / Query / Lint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三個基本操作：Ingest / Query / Lint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingest：消化新資料
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query：回答問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lint：健康檢查
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料夾權限與安全邊界
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsidian-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        從 Obsidian 到 GitHub Pages 的發布流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="從 Obsidian 到 GitHub Pages 的發布流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI 產出的工作流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        發布到 MkDocs 的條件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 使用規則
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-guidelines-vault-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        為什麼要把 Coding Guidelines 與 Vault Rules 分開
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可複用的實作原則
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="claudemd-ai-obsidian">用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者<a class="headerlink" href="#claudemd-ai-obsidian" title="Permanent link">&para;</a></h1>
+<h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>這篇筆記整理了我目前在 Obsidian vault 裡使用的 <code>CLAUDE.md</code>——一份給 Claude 看的操作手冊，讓 AI 從一個逐輪聊天的工具，變成能夠持續維護、查詢、健康檢查我個人知識庫的「唯一維護者」。</p>
+<p>核心概念來自 Andrej Karpathy 對 LLM Wiki 的設計理念：AI 不只是回答問題的工具，而是知識庫的主動整理者。本文描述的是我的 vault-specific 版本，不是 Karpathy 原始設計，也不是 coding guideline——而是一個針對知識整理與發布工作流的操作規則集。</p>
+<hr />
+<h2 id="claudemd">這份 CLAUDE.md 解決什麼問題<a class="headerlink" href="#claudemd" title="Permanent link">&para;</a></h2>
+<p>一般人用 AI 的模式是：問問題→得到答案→結束。每次對話都是孤立的，AI 沒有記憶，知識也不會累積。</p>
+<p>這個問題在個人知識管理（PKM）場景裡特別明顯：你把一篇論文丟給 Claude，它給你一個摘要，但這個摘要不會自動和你之前整理的相關概念連結，也不會被存進你的筆記系統——除非你自己動手。</p>
+<p><code>CLAUDE.md</code> 要解決的就是這個問題。它做了三件事：</p>
+<ul>
+<li><strong>定義 AI 的角色與邊界</strong>：明確告訴 Claude「你是這個 wiki 的唯一維護者」，而不是一個泛用問答機器。</li>
+<li><strong>建立操作協議</strong>：Ingest 怎麼做、Query 怎麼回答、Lint 要檢查什麼，都有明確步驟。</li>
+<li><strong>設定資料夾權限</strong>：哪些資料夾可以動、哪些絕對不能碰，用結構性規則防止 AI 出軌。</li>
+</ul>
+<hr />
+<h2 id="ai">核心設計：把 AI 從聊天工具變成知識庫維護者<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<p>這個設計的關鍵轉換在於：把 AI 的行為從「回答」轉換為「維護」。</p>
+<p>傳統用法是：你問，AI 答。知識停在對話裡。</p>
+<p>LLM Wiki 的用法是：你餵資料，AI 整理進 wiki；你問問題，AI 從 wiki 合成答案；你定期讓 AI 做健康檢查，確保知識庫的一致性。</p>
+<p>這個轉換需要幾個前提：</p>
+<ul>
+<li>AI 每次進入對話時都能讀到這份操作手冊（<code>CLAUDE.md</code>），知道自己在哪個脈絡下工作。</li>
+<li>知識庫有固定的資料夾結構與頁面格式，讓 AI 知道去哪裡找、怎麼寫。</li>
+<li>有明確的「黃金原則」：Wiki 是累積的，只增加與修正，絕不刪除有來源標記的資訊。</li>
+</ul>
+<p>這個設計讓每次對話都不再是一次性的——AI 的輸出會沉澱進知識庫，下次對話可以在這個基礎上繼續。</p>
+<hr />
+<h2 id="ingest-query-lint">三個基本操作：Ingest / Query / Lint<a class="headerlink" href="#ingest-query-lint" title="Permanent link">&para;</a></h2>
+<h3 id="ingest">Ingest：消化新資料<a class="headerlink" href="#ingest" title="Permanent link">&para;</a></h3>
+<p>當我說「幫我消化這篇」，或把文件放進 <code>Sources/</code> 資料夾時，Claude 會：</p>
+<ol>
+<li>閱讀來源文件，提取實體、概念、主張、數據。</li>
+<li>逐一判斷：Wiki 裡是否已有對應頁面？</li>
+<li>有 → 更新（加入新資訊，保留舊資訊）。</li>
+<li>沒有 → 新建頁面。</li>
+<li>在每個更新或新建的頁面底部標記來源與日期。</li>
+<li>更新 <code>Wiki/_Index.md</code> 的頁面清單。</li>
+</ol>
+<p>黃金原則再強調一次：<strong>知識只能累積，不能被覆蓋刪除</strong>。</p>
+<h3 id="query">Query：回答問題<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
+<p>當我問問題時，Claude 不是直接用訓練資料回答，而是：</p>
+<ol>
+<li>先讀 <code>Wiki/_Index.md</code>，確認知識庫裡有哪些頁面。</li>
+<li>讀取相關頁面。</li>
+<li>從 wiki 內容合成答案。</li>
+<li>若分析過程中產生新洞見，主動新建一個 <code>type: synthesis</code> 的綜合分析頁面。</li>
+</ol>
+<p>這樣的設計讓答案有出處，也讓分析本身成為知識庫的一部分。</p>
+<h3 id="lint">Lint：健康檢查<a class="headerlink" href="#lint" title="Permanent link">&para;</a></h3>
+<p>當我說「幫我做 lint」，Claude 會掃描整個 Wiki，找出：</p>
+<ul>
+<li>互相矛盾的主張。</li>
+<li>過時資訊（有明確日期可判斷的）。</li>
+<li>孤兒頁面（沒有被其他頁面連結的）。</li>
+<li>明顯的資訊缺口。</li>
+</ul>
+<p>最後產出一份報告，逐條列出問題與建議修正方式。</p>
+<p>這個操作讓知識庫不會隨著時間累積變成一堆雜亂、矛盾的碎片。</p>
+<hr />
+<h2 id="_2">資料夾權限與安全邊界<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>這是 <code>CLAUDE.md</code> 最重要的「結構性保護」。我的 vault 有幾個資料夾有明確的讀寫限制：</p>
+<ul>
+<li><strong><code>Sources/</code></strong>：原始資料，只讀。Claude 可以讀來消化，但絕對不能修改。</li>
+<li><strong><code>Wiki/</code></strong>：Claude 的主戰場，可以建立與更新頁面。</li>
+<li><strong><code>Notes/</code></strong>：使用者私人筆記，Claude 不能動。</li>
+<li><strong><code>docs/</code></strong>：MkDocs 公開網站來源，只放已整理完成且通過發布條件的內容。</li>
+</ul>
+<p>這些限制不是信任問題，而是職責分工。<code>Sources/</code> 保留原始性，<code>Notes/</code> 保留私人空間，<code>Wiki/</code> 才是 AI 的工作區域。</p>
+<p>此外有幾條禁止事項：
+- 不捏造資訊。若不確定，寫「待確認」。
+- 不刪除有來源標記的資訊，只能標注「已更新」或「待驗證」。</p>
+<hr />
+<h2 id="obsidian-github-pages">從 Obsidian 到 GitHub Pages 的發布流程<a class="headerlink" href="#obsidian-github-pages" title="Permanent link">&para;</a></h2>
+<p>知識整理的最終目標是讓有價值的內容可以對外分享。整個流程是：</p>
+<div class="highlight"><pre><span></span><code>AI 協助整理（Claude / Codex / GPT）
+        ↓
+Obsidian Vault（單一事實來源）
+        ↓
+GitHub Private Repo（版本控制 / 備份）
+        ↓
+MkDocs（公開知識網站建置）
+        ↓
+GitHub Pages（對外發布）
+</code></pre></div>
+<h3 id="ai_1">AI 產出的工作流<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h3>
+<p>當 AI 回答問題或產生分析時：</p>
+<ol>
+<li>先回答問題。</li>
+<li>再產生可保存的版本。</li>
+<li>轉換成 Obsidian Markdown 格式。</li>
+<li>新內容預設先放 <code>Inbox/</code>，整理完成後再移至 <code>Knowledge/</code>。</li>
+</ol>
+<p>這個「先草稿，後整理」的設計避免了知識還沒成熟就被錯誤分類。</p>
+<h3 id="mkdocs">發布到 MkDocs 的條件<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h3>
+<p>不是所有筆記都適合公開。只有符合以下條件的內容才能移入 <code>docs/</code>：</p>
+<ul>
+<li>已整理完成，不是草稿。</li>
+<li>有摘要。</li>
+<li>有案例或實作範例。</li>
+<li>有自己的理解與詮釋（不只是轉述）。</li>
+<li>不含私人資訊、敏感資料或不適合公開的內容。</li>
+</ul>
+<h3 id="git">Git 使用規則<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GitHub private repo 用於版本控制與備份，不是發布管道。</li>
+<li>不把大型原始資料、private data、API keys、token、<code>.env</code>、資料庫檔放進 Git。</li>
+<li>GitHub Pages 只發布 MkDocs 從 <code>docs/</code> 產生的內容。</li>
+</ul>
+<hr />
+<h2 id="coding-guidelines-vault-rules">為什麼要把 Coding Guidelines 與 Vault Rules 分開<a class="headerlink" href="#coding-guidelines-vault-rules" title="Permanent link">&para;</a></h2>
+<p>這個分流設計是整個架構裡我最想強調的一個決策。</p>
+<p>我的 vault 根目錄有這份 <code>CLAUDE.md</code>，負責知識庫的操作規則。但我另外還有 coding 任務——修改 scripts、整理其他 repo 的 <code>CLAUDE.md</code>。這兩件事的規則是不同的，甚至有時候是互相矛盾的。</p>
+<p>Coding guideline（參考自 multica-ai 整理的 Andrej Karpathy coding 準則）強調的是：測試、最小化 diff、不要重構沒壞的東西。</p>
+<p>Vault rule 強調的是：只增加不刪除、保留來源標記、用 Obsidian 語法連結。</p>
+<p>如果把這兩套規則混在同一個文件裡，AI 在做知識整理時可能會套用 coding 思維（例如「刪除重複」），反而破壞 wiki 的累積性。</p>
+<p>解法是明確分流：
+- 維護知識庫、整理筆記、發布 docs 時，優先遵守 vault <code>CLAUDE.md</code>。
+- 進行 coding 任務時，引用獨立保存的 coding guideline 文件。
+- 兩份文件互不干擾。</p>
+<hr />
+<h2 id="_3">可複用的實作原則<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>如果你想在自己的 vault 複製這個設計，以下是最核心的幾個原則：</p>
+<p><strong>明確角色定義</strong>：在 <code>CLAUDE.md</code> 第一行就說清楚「你是這個 wiki 的唯一維護者」，而不是讓 AI 自己猜。</p>
+<p><strong>用資料夾結構代替規則描述</strong>：與其寫「不要動私人筆記」，不如直接定義 <code>Notes/</code> 是禁止修改區。結構比文字更難被誤解。</p>
+<p><strong>操作步驟要明確到可執行</strong>：「整理資料」是沒用的指令。「讀取來源 → 提取實體 → 比對 wiki → 更新或新建 → 標記來源 → 更新 index」才是可執行的步驟。</p>
+<p><strong>累積性是 wiki 的核心不變量</strong>：這一條必須寫進禁止事項，不能只是原則。AI 天生有「整合與刪除重複」的傾向，必須明確抑制。</p>
+<p><strong>發布條件要具體</strong>：「整理完成」不是條件，「有摘要 + 有案例 + 有自己的理解 + 非草稿」才是條件。模糊的條件等於沒有條件。</p>
+<p><strong>分流管理不同脈絡下的規則</strong>：如果你同時用 AI 做知識整理和 coding，把兩套規則放在不同文件，在不同脈絡下引用不同文件。</p>
+<hr />
+<h2 id="_4">延伸閱讀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Andrej Karpathy 關於 LLM Wiki 概念的討論（可搜尋其 X / Twitter 貼文與訪談）</li>
+<li>multica-ai 整理的 CLAUDE.md coding guideline（GitHub：<code>multica-ai/andrej-karpathy-skills</code>）</li>
+<li>MkDocs 官方文件（mkdocs.org）——用於設定 <code>docs/</code> 到 GitHub Pages 的發布流程</li>
+<li>Obsidian 官方文件——特別是 frontmatter 與內部連結（<code>[[]]</code> 語法）的設計</li>
+</ul>
+<hr />
+<p><em>本筆記整理自我目前 Obsidian vault 根目錄的 <code>CLAUDE.md</code>。核心概念參考 Andrej Karpathy 的 LLM Wiki 設計理念，以及 multica-ai 整理的 CLAUDE.md coding guideline，但本文重點是 vault-specific 的知識工作流，不代表 Karpathy 或 multica-ai 的原始設計。</em></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最後更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月28日 01:25:37 UTC">2026年5月28日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="建立日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月28日 01:25:37 UTC">2026年5月28日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
