@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Analysis, Data Science, Python, SQL, AI Agents, Trading Research">
+        <meta name="description" content="舊頁面已改名，請前往新的 Claude Code coding guideline 頁面。">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>從 Andrej Karpathy 的 CLAUDE.md 學到的知識庫維運法 - Shane's Knowledge Base</title>
+        <title>此頁已改名：Claude Code 寫程式準則 - Shane's Knowledge Base</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#andrej-karpathy-claudemd" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳轉到
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              從 Andrej Karpathy 的 CLAUDE.md 學到的知識庫維運法
+              此頁已改名：Claude Code 寫程式準則
             
           </span>
         </div>
@@ -814,141 +814,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        為什麼這份方法值得參考
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        一、先把頁面角色分清楚
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ingest" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        二、Ingest：新資料進來時的標準五步驟
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        三、Query：回答問題時，不要直接憑印象生成
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        四、Lint：定期健康檢查，防止知識腐敗
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        五、公開發布前，先過最小門檻
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        六、實務上最容易忽略的兩件事
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="六、實務上最容易忽略的兩件事">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1) 來源標註
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2) 索引更新
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        結語
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料來源
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -964,83 +829,10 @@
 
 
 
-<h1 id="andrej-karpathy-claudemd">從 Andrej Karpathy 的 CLAUDE.md 學到的知識庫維運法<a class="headerlink" href="#andrej-karpathy-claudemd" title="Permanent link">&para;</a></h1>
-<p>如果你把個人知識庫當成長期資產，而不是一次性的筆記輸出，那麼維運方式就會完全不同。這篇文章整理自 Andrej Karpathy 社群版本的 CLAUDE.md，重點不是「怎麼寫一篇筆記」，而是「怎麼讓知識庫越用越有價值」。</p>
-<h2 id="_1">為什麼這份方法值得參考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>多數知識庫失效，不是因為內容太少，而是因為缺乏維運紀律：</p>
-<ul>
-<li>新資料進來時沒有固定吸收流程</li>
-<li>舊內容過期了沒人發現</li>
-<li>相同主題散落多處，難以回收重用</li>
-</ul>
-<p>Karpathy 這套方法的核心在於：把知識庫當成可持續維護的系統，並讓 AI 代理負責重複且可規範化的工作。</p>
-<h2 id="_2">一、先把頁面角色分清楚<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>知識頁如果沒有型別，後續查詢與維護就會混亂。建議最少分成四類：</p>
-<ul>
-<li><strong>Concept</strong>：抽象概念、方法、框架</li>
-<li><strong>Entity</strong>：人、公司、工具、資料集</li>
-<li><strong>Synthesis</strong>：跨來源整合後的洞見</li>
-<li><strong>Timeline</strong>：事件時序與演進</li>
-</ul>
-<p>這個分類的價值，不在於漂亮，而在於你後續能快速回答三件事：</p>
-<ol>
-<li>這是定義型內容還是觀察型內容？</li>
-<li>這頁應該跟哪些頁建立連結？</li>
-<li>這頁下一次該怎麼被更新？</li>
-</ol>
-<h2 id="ingest">二、Ingest：新資料進來時的標準五步驟<a class="headerlink" href="#ingest" title="Permanent link">&para;</a></h2>
-<p>當你要「消化一篇文章、一份文件、一段會議紀錄」時，流程可以固定成五步：</p>
-<ol>
-<li>讀來源</li>
-<li>抽取實體、概念、主張與數據</li>
-<li>既有頁面就更新，沒有就新建</li>
-<li>在頁尾標註來源與時間</li>
-<li>更新索引頁（避免新頁成為孤兒）</li>
-</ol>
-<p>重點是：<strong>知識庫是累積系統，不是覆蓋系統</strong>。舊資訊不應隨意刪除，而是標記已更新、待驗證，保留可追溯脈絡。</p>
-<h2 id="query">三、Query：回答問題時，不要直接憑印象生成<a class="headerlink" href="#query" title="Permanent link">&para;</a></h2>
-<p>真正可靠的知識庫回答流程，應該是：</p>
-<ol>
-<li>先看索引，定位相關頁面</li>
-<li>讀頁面後再組合答案</li>
-<li>如果回答過程產生新結論，回寫成 synthesis</li>
-</ol>
-<p>這會把「一次性回答」變成「可回收資產」。下一次同主題提問，不用從零開始。</p>
-<h2 id="lint">四、Lint：定期健康檢查，防止知識腐敗<a class="headerlink" href="#lint" title="Permanent link">&para;</a></h2>
-<p>知識庫最怕的是沉默地過期。建議固定檢查四件事：</p>
-<ul>
-<li>互相矛盾的敘述</li>
-<li>有明確時效但已過期的內容</li>
-<li>沒有任何入鏈的孤兒頁</li>
-<li>長期反覆出現、卻沒有被整理成主題頁的缺口</li>
-</ul>
-<p>Lint 的輸出要是「問題 + 修正建議」，而不是只有問題清單。</p>
-<h2 id="_3">五、公開發布前，先過最小門檻<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>不是所有整理好的內容都適合公開。至少要滿足：</p>
-<ul>
-<li>內容已完成整理（非草稿）</li>
-<li>有摘要與可重用例子</li>
-<li>有作者自己的理解與限制說明</li>
-<li>不含個資、憑證、敏感識別資訊</li>
-</ul>
-<p>把這個門檻固定下來，你的公開內容品質會更穩，也更不容易誤洩漏。</p>
-<h2 id="_4">六、實務上最容易忽略的兩件事<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1">1) 來源標註<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>沒有來源，內容可信度會快速衰退；有來源，才有回頭驗證的能力。</p>
-<h3 id="2">2) 索引更新<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>很多知識庫不是缺內容，而是「找不到內容」。索引是檢索效率的地基。</p>
-<h2 id="_5">結語<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Karpathy 這份 CLAUDE.md 的價值，不在技巧清單，而在一個觀念：</p>
-<blockquote>
-<p><strong>把知識庫當成長期維護的系統。</strong></p>
-</blockquote>
-<p>當你有 ingest、query、lint 三個固定迴路，知識不只會增加，還會逐步變得更可用、更可驗證、更可重用。</p>
-<hr />
-<h2 id="_6">資料來源<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<ul>
-<li>原始文件：<a href="https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md">https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md</a></li>
-<li>本文為中文重述與實務化整理，保留方法論，非逐字翻譯。</li>
-</ul>
+<h1 id="_1">此頁已改名<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>這個頁面的原標題容易讓人誤會成「知識庫維運原則」。實際上，multica-ai/andrej-karpathy-skills 的 <code>CLAUDE.md</code> 更適合整理成 <strong>coding agent 寫程式準則</strong>。</p>
+<p>請前往新版頁面：</p>
+<p><a href="../claude-code-coding-guidelines/">Claude Code 寫程式準則：Andrej Karpathy 版本整理</a></p>
 
 
 
@@ -1063,7 +855,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月27日 19:51:54 UTC">2026年5月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月28日 03:38:22 UTC">2026年5月28日</span>
   </span>
 
     
