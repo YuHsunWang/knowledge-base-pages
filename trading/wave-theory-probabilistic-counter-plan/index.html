@@ -998,6 +998,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收紅 / 收黑與 K 線確認
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1204,6 +1215,45 @@ confirmed_at = 右側窗口完成的 K 棒時間
 <li>若規則能表達成 condition / effect，才進入程式。</li>
 <li>用人工標註案例驗證是否有預測力。</li>
 </ol>
+<h2 id="k">收紅 / 收黑與 K 線確認<a class="headerlink" href="#k" title="Permanent link">&para;</a></h2>
+<p>收紅收黑應納入 v0，但定位為「確認因子」而不是硬性波數定義。它用來判斷突破是否有效、修正是否結束、第五浪是否末端，以及 C 浪是否仍在延伸。</p>
+<p>基本特徵：</p>
+<div class="highlight"><pre><span></span><code>is_red = close &gt; open
+is_black = close &lt; open
+body_ratio = abs(close - open) / max(high - low, epsilon)
+close_location = (close - low) / max(high - low, epsilon)
+strong_red = is_red and body_ratio &gt;= 0.60 and close_location &gt;= 0.70
+strong_black = is_black and body_ratio &gt;= 0.60 and close_location &lt;= 0.30
+long_upper_shadow = upper_shadow_ratio &gt;= 0.50
+long_lower_shadow = lower_shadow_ratio &gt;= 0.50
+</code></pre></div>
+<p>建議新增 <code>candle_score</code>：</p>
+<div class="highlight"><pre><span></span><code>raw_score =
+  2.00 * rule_score
++ 1.00 * fibonacci_score
++ 0.75 * channel_score
++ 0.75 * momentum_score
++ 0.50 * candle_score
++ 0.50 * multi_timeframe_score
++ 0.50 * risk_reward_score
+- 1.00 * invalidation_risk_penalty
+</code></pre></div>
+<p>應用方式：</p>
+<ul>
+<li>第 3 浪啟動：突破第 1 浪高點後收紅，尤其強紅 K，提升第 3 浪信心。</li>
+<li>第 4 浪結束：回撤到合理區域後出現長下影、強紅或黑黑紅，提升第 5 浪啟動信心。</li>
+<li>第 5 浪末端：創高但收黑、長上影、實體縮小或動能背離，提升末端風險信心。</li>
+<li>ABC 完成：C 浪到達目標區後收紅、長下影或紅 K 吞噬，提升修正完成信心。</li>
+<li>C 浪延伸：到目標區後仍連續強黑，降低 ABC 完成信心。</li>
+</ul>
+<p>多空 trigger 應優先採用收盤確認：</p>
+<div class="highlight"><pre><span></span><code>bullish_trigger_confirmed = close &gt; trigger_level
+bearish_trigger_confirmed = close &lt; trigger_level
+</code></pre></div>
+<p>若只是盤中觸及，標記為：</p>
+<div class="highlight"><pre><span></span><code>touched_not_confirmed
+</code></pre></div>
+<p>這對台指期尤其重要，因為短線影線與假突破很多。</p>
 <h2 id="_11">實作模組<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>建議在 <code>D:\Claude\strategy</code> 中建立：</p>
 <div class="highlight"><pre><span></span><code>scripts/wave/
@@ -1248,6 +1298,7 @@ tests/wave/
 <li><code>D:\Claude\strategy\docs\plans\wave-theory-probabilistic-counter-plan.md</code></li>
 <li><code>D:\Claude\strategy\docs\research\wave-theory-rulebook.md</code></li>
 <li><code>D:\Claude\strategy\docs\research\wave-theory-source-ingestion.md</code></li>
+<li><code>D:\Claude\strategy\docs\research\wave-theory-candlestick-confirmation.md</code></li>
 </ul>
 
 
@@ -1271,7 +1322,7 @@ tests/wave/
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月5日 03:35:45 UTC">2026年6月5日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月5日 03:50:26 UTC">2026年6月5日</span>
   </span>
 
     
