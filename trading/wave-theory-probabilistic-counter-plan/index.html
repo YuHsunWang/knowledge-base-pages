@@ -1107,6 +1107,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實作進度：台指期每日報告入口
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1449,6 +1460,39 @@ tests/wave/
 <div class="highlight"><pre><span></span><code>242 passed, 2 warnings
 </code></pre></div>
 <p>這代表 wave v0 已具備「資料輸入 → 分析 → 文字報告 → 圖形輸出」的最小端到端工作流；後續可開始接實際台指期資料來源，或把圖檔附到每日 Telegram/Obsidian 報告。</p>
+<h2 id="_18">實作進度：台指期每日報告入口<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>本階段已新增 <code>run_txf_wave_daily.py</code>，把既有 TAIFEX 台指期 parquet 資料接上 wave v0 端到端流程。此階段由 Claude Code 以 TDD 完成，Hermes 負責獨立驗證、實測、commit/push 與知識庫同步。</p>
+<p>新增能力：</p>
+<ul>
+<li><code>resolve_default_txf_path()</code>：預設讀取 <code>data/taifex/txf_daily.parquet</code>，並沿用 WSL/Windows 路徑正規化。</li>
+<li><code>load_txf_daily_parquet()</code>：載入 parquet 並驗證必要欄位。</li>
+<li><code>select_front_month_ohlcv()</code>：從 TAIFEX 多合約資料中選出每日一筆 front-month OHLCV：</li>
+<li>保留 <code>contract_id == TX</code>。</li>
+<li>預設保留 <code>trading_session == position</code>。</li>
+<li>排除價差合約，例如 <code>202601/202602</code>。</li>
+<li>排除 OHLC 非正值。</li>
+<li>每日依 <code>volume</code>、<code>open_interest</code>、<code>contract_date</code> 做 deterministic tie-break。</li>
+<li><code>make_output_paths()</code>：依日期產生 <code>txf-wave-YYYY-MM-DD.md/json/png</code>。</li>
+<li><code>run_daily_report()</code>：載入資料、選 front-month、限制 lookback、執行 wave analyzer、輸出 JSON / Markdown / PNG。</li>
+<li>CLI <code>main()</code>：支援 <code>--input</code>、<code>--output-dir</code>、<code>--as-of-date</code>、<code>--lookback-bars</code>、pivot method 參數、<code>--no-json</code>、<code>--no-markdown</code>、<code>--no-plot</code>，並回傳 compact JSON summary。</li>
+</ul>
+<p>實際資料 smoke test：</p>
+<div class="highlight"><pre><span></span><code>as_of_date: 2026-05-21
+bar_count: 260
+pivot_count: 15
+scenario_count: 5
+outputs:
+  txf-wave-2026-05-21.json
+  txf-wave-2026-05-21.md
+  txf-wave-2026-05-21.png
+</code></pre></div>
+<p>PNG 驗證：</p>
+<div class="highlight"><pre><span></span><code>PNG magic bytes: b&#39;\x89PNG\r\n\x1a\n&#39;
+</code></pre></div>
+<p>目前測試狀態：</p>
+<div class="highlight"><pre><span></span><code>274 passed, 2 warnings
+</code></pre></div>
+<p>已修正一個 WSL shell + Windows Python 實測發現的 output path 問題：<code>output_dir=/mnt/d/...</code> 現在會正規化成 Windows Python 可寫入的實際路徑，避免輸出到錯誤的 <code>\mnt\d\...</code> 相對路徑。</p>
 
 
 
@@ -1471,7 +1515,7 @@ tests/wave/
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月5日 06:36:48 UTC">2026年6月5日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月5日 07:50:48 UTC">2026年6月5日</span>
   </span>
 
     
