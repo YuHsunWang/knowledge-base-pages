@@ -6,35 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Analysis, Data Science, Python, SQL, AI Agents, Trading Research">
+        <meta name="description" content="大戶集中度訊號 A/B、進出場邏輯、資料覆蓋與後續產業資金流研究延伸。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/taiwan-chip-counter-signal-backtest-system/">
       
       
-        <link rel="prev" href="../statistics/">
-      
-      
-        <link rel="next" href="../data-science/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Trading - Shane's Knowledge Base</title>
+        <title>台股籌碼反向訊號回測系統 - Shane's Knowledge Base</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trading-quant-research" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳轉到
         </a>
       
@@ -92,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trading
+              台股籌碼反向訊號回測系統
             
           </span>
         </div>
@@ -219,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -238,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai/" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -257,7 +253,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../sql/" class="md-tabs__link">
+      <a href="../../sql/" class="md-tabs__link">
         
   
   
@@ -276,7 +272,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../python/" class="md-tabs__link">
+      <a href="../../python/" class="md-tabs__link">
         
   
   
@@ -295,7 +291,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../statistics/" class="md-tabs__link">
+      <a href="../../statistics/" class="md-tabs__link">
         
   
   
@@ -312,11 +308,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -335,7 +329,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../data-science/" class="md-tabs__link">
+      <a href="../../data-science/" class="md-tabs__link">
         
   
   
@@ -354,7 +348,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../machine-learning/" class="md-tabs__link">
+      <a href="../../machine-learning/" class="md-tabs__link">
         
   
   
@@ -375,7 +369,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -395,7 +389,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../career/" class="md-tabs__link">
+      <a href="../../career/" class="md-tabs__link">
         
   
   
@@ -430,7 +424,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -460,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -487,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai/" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -514,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql/" class="md-nav__link">
+      <a href="../../sql/" class="md-nav__link">
         
   
   
@@ -541,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -568,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../statistics/" class="md-nav__link">
+      <a href="../../statistics/" class="md-nav__link">
         
   
   
@@ -592,37 +586,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trading
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -638,37 +605,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文章
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -680,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-science/" class="md-nav__link">
+      <a href="../../data-science/" class="md-nav__link">
         
   
   
@@ -707,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/" class="md-nav__link">
+      <a href="../../machine-learning/" class="md-nav__link">
         
   
   
@@ -759,7 +695,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../projects/" class="md-nav__link ">
               
   
   
@@ -803,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/toeic-master/" class="md-nav__link">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
         
   
   
@@ -838,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../career/" class="md-nav__link">
+      <a href="../../career/" class="md-nav__link">
         
   
   
@@ -885,10 +821,198 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文章
+        專案位置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        架構總覽
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026-05-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        進出場邏輯（2026-05-10 版本）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="進出場邏輯（2026-05-10 版本）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        訊號 A — 大戶↑ 散戶↓（偏多）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        訊號 B — 大戶↓ 散戶↑（偏空反向）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出場
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-big_chg-22026-05-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最新回測結果（前 100 大，big_chg ≥ 2%，2026-05-10）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最新回測結果（前 100 大，big_chg ≥ 2%，2026-05-10）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#an49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        訊號 A（n=49）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bn61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        訊號 B（n=61）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三組對比（訊號 A，12 週）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-50-a12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 格資金輪動（前 50 大訊號 A，12 筆訊號）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要發現
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料限制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finlab-twse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料覆蓋對照（finlab + TWSE 合併）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術踩坑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026-05-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最新研究延伸（2026-05-30）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相關頁面
       
     </span>
   </a>
@@ -912,28 +1036,375 @@
 
 
 
-<h1 id="trading-quant-research">Trading / Quant Research<a class="headerlink" href="#trading-quant-research" title="Permanent link">&para;</a></h1>
-<p>本區收錄已整理完成、適合公開發布的 Trading / Quant Research 筆記。</p>
-<h2 id="_1">文章<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="_1">台股籌碼反向訊號回測系統<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">專案位置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>D:\Claude\strategy\</code></p>
+<hr />
+<h2 id="_3">架構總覽<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>fetch_data.py          → data/chips/ + data/prices/
+（TDCC 大戶集中度 + yfinance 股價）
+
+fetch_finlab.py        → data/finlab/
+（finlab 三大法人/融資券/借券，2007~2018）
+
+fetch_twse.py          → data/twse/
+（TWSE/TPEX 公開資料，2019~今）
+
+fetch_us.py            → data/us_finlab/
+（finlab 美股 Nasdaq100，~2018截止）
+
+backtest.py            → results/detail.parquet + summary.csv
+analyze.py             → 深度分析
+</code></pre></div>
+<hr />
+<h2 id="2026-05-10">進出場邏輯（2026-05-10 版本）<a class="headerlink" href="#2026-05-10" title="Permanent link">&para;</a></h2>
+<h3 id="a">訊號 A — 大戶↑ 散戶↓（偏多）<a class="headerlink" href="#a" title="Permanent link">&para;</a></h3>
 <ul>
-<li>2026-06-06｜<a href="passive-components-industry-overview/">被動元件產業研究總覽</a></li>
-<li>2026-06-06｜<a href="passive-components-cycle-tracking-framework/">被動元件景氣循環與追蹤框架</a></li>
-<li>2026-06-06｜<a href="passive-components-product-matrix/">MLCC、晶片電阻與電感產品矩陣</a></li>
-<li>2026-06-06｜<a href="passive-components-data-sources-update-workflow/">被動元件資料來源與更新流程</a></li>
-<li>2026-06-06｜<a href="taiwan-passive-components-company-comparison/">台灣被動元件公司比較</a></li>
-<li>2026-06-06｜<a href="passive-components-monthly-tracker/">被動元件月度追蹤表</a></li>
-<li>2026-06-06｜<a href="passive-components-financial-data-tracker/">被動元件財務資料追蹤</a></li>
-<li>2026-06-06｜<a href="yageo-2327/">國巨 2327</a></li>
-<li>2026-06-06｜<a href="walsin-technology-2492/">華新科 2492</a></li>
-<li>2026-06-06｜<a href="holy-stone-3026/">禾伸堂 3026</a></li>
-<li>2026-06-06｜<a href="ta-i-technology-2478/">大毅 2478</a></li>
-<li>2026-06-06｜<a href="chilisin-and-magontec/">奇力新與美桓</a></li>
-<li>2026-06-06｜<a href="taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a></li>
-<li>2026-06-06｜<a href="taiwan-chip-counter-signal-backtest-system/">台股籌碼反向訊號回測系統</a></li>
-<li>2026-06-05｜<a href="wave-theory-probabilistic-counter-plan/">波浪理論機率式波數判斷系統規劃</a></li>
-<li>2026-06-05｜<a href="threads-txf-sentiment-following-research/">Threads 台指期情緒與跟單策略研究規劃</a></li>
-<li>2026-05-28｜<a href="serenity-style-industry-research-process/">Serenity 式產業研究流程</a></li>
-<li>2026-05-28｜<a href="basic-industry-analysis-sop/">基礎產業分析 SOP</a></li>
+<li><strong>籌碼條件</strong>：千張大戶持股比例連續 3 週上升，散戶連續 3 週下降</li>
+<li><strong>技術條件</strong>：進場日 MA5 &gt; MA10</li>
+<li><strong>額外條件（非前50大）</strong>：收盤 &gt; MA5</li>
+<li><strong>強度門檻</strong>：big_chg ≥ 2%（大戶 3 週累積增幅）</li>
+<li><strong>進場</strong>：訊號日後第一交易日<strong>開盤價</strong></li>
+</ul>
+<h3 id="b">訊號 B — 大戶↓ 散戶↑（偏空反向）<a class="headerlink" href="#b" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>籌碼條件</strong>：千張大戶連續 3 週下降，散戶連續 3 週上升</li>
+<li><strong>技術條件</strong>：MA5 &lt; MA10 且 收盤 &lt; MA5</li>
+<li><strong>強度門檻</strong>：big_chg ≥ 2%</li>
+<li><strong>進場</strong>：訊號日後第一交易日<strong>開盤價</strong></li>
+</ul>
+<h3 id="_4">出場<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>固定持有期（1 / 4 / 12 週）：持有期結束後第一交易日<strong>開盤價</strong>出場</li>
+<li>MA10 動態出場：收盤跌破 MA10 當日收盤價出場</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：訊號 B 的 MA10 出場績效差（-0.63%，勝率 37.7%），不建議使用。</p>
+</blockquote>
+<hr />
+<h2 id="100-big_chg-22026-05-10">最新回測結果（前 100 大，big_chg ≥ 2%，2026-05-10）<a class="headerlink" href="#100-big_chg-22026-05-10" title="Permanent link">&para;</a></h2>
+<h3 id="an49">訊號 A（n=49）<a class="headerlink" href="#an49" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>持有期</th>
+<th>平均報酬</th>
+<th>中位數</th>
+<th>勝率</th>
+<th>夏普</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 週</td>
+<td>+3.80%</td>
+<td>+1.13%</td>
+<td>51.0%</td>
+<td>2.47</td>
+</tr>
+<tr>
+<td>4 週</td>
+<td>+13.57%</td>
+<td>+8.52%</td>
+<td>73.5%</td>
+<td>2.07</td>
+</tr>
+<tr>
+<td>12 週</td>
+<td>+35.35%</td>
+<td>+18.65%</td>
+<td>87.8%</td>
+<td>1.57</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bn61">訊號 B（n=61）<a class="headerlink" href="#bn61" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>持有期</th>
+<th>平均報酬</th>
+<th>勝率</th>
+<th>夏普</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 週</td>
+<td>+5.08%</td>
+<td>62.3%</td>
+<td>1.59</td>
+</tr>
+<tr>
+<td>12 週</td>
+<td>+21.40%</td>
+<td>77.0%</td>
+<td>1.28</td>
+</tr>
+</tbody>
+</table>
+<h3 id="a12">三組對比（訊號 A，12 週）<a class="headerlink" href="#a12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>分組</th>
+<th>平均報酬</th>
+<th>勝率</th>
+<th>夏普</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前 50 大</td>
+<td>+41.98%</td>
+<td>91.7%</td>
+<td>1.49</td>
+<td></td>
+</tr>
+<tr>
+<td>51~100 大</td>
+<td>+34.88%</td>
+<td>89.2%</td>
+<td>1.74</td>
+<td>甜蜜區</td>
+</tr>
+<tr>
+<td>100 大以外</td>
+<td>+12.26%</td>
+<td>65.0%</td>
+<td>—</td>
+<td>跌 -10% 率 19.6%，風險大</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-50-a12">5 格資金輪動（前 50 大訊號 A，12 筆訊號）<a class="headerlink" href="#5-50-a12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>持有期</th>
+<th>NAV</th>
+<th>報酬</th>
+<th>MDD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 週</td>
+<td>143.98</td>
+<td>+44%</td>
+<td>-3.6%</td>
+</tr>
+<tr>
+<td>4 週</td>
+<td>190.26</td>
+<td>+90%</td>
+<td>-5.3%</td>
+</tr>
+<tr>
+<td>12 週</td>
+<td>325.79</td>
+<td>+226%</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">重要發現<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>訊號 B 跳空方向顯著</strong>：跳空↓進場 4 週勝率 65.1%（夏普 1.48）；跳空↑進場 4 週勝率 41.4%（虧損），p&lt;0.001</li>
+<li><strong>訊號 A 跳空方向不顯著</strong>：跳空↑/↓差異無統計意義（p&gt;0.05）</li>
+<li><strong>big_chg ≥ 2% 過濾效果強</strong>：樣本減少 76%，12 週平均報酬從 +8.6% 升至 +17.4%</li>
+</ol>
+<hr />
+<h2 id="_6">資料限制<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>TDCC 籌碼只保留約 <strong>46 週歷史</strong>（無法延伸）</li>
+<li>finlab 免費版資料截止 <strong>2018-12-28</strong>（每日 500 MB 上限）</li>
+<li>股價資料有 <strong>3 年歷史</strong>（yfinance，from ~2023-04）</li>
+<li>Goodinfo 有反爬蟲保護，無法自動化批量抓取歷史籌碼</li>
+</ul>
+<hr />
+<h2 id="finlab-twse">資料覆蓋對照（finlab + TWSE 合併）<a class="headerlink" href="#finlab-twse" title="Permanent link">&para;</a></h2>
+<p>格式：Wide Parquet，<code>index=日期</code>，<code>columns=股票代號</code></p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>類別</th>
+<th>finlab 範圍</th>
+<th>twse 範圍</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>foreign_net</code></td>
+<td>三大法人</td>
+<td>2012~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>foreign_buy/sell</code></td>
+<td>三大法人</td>
+<td>2012~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>trust_net</code></td>
+<td>三大法人</td>
+<td>2012~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dealer_net</code></td>
+<td>三大法人</td>
+<td>2012~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dealer_hedge_net</code></td>
+<td>三大法人</td>
+<td>2012~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>margin_balance/buy/sell</code></td>
+<td>融資融券</td>
+<td>2009~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>margin_util</code></td>
+<td>融資融券</td>
+<td>2009~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>short_balance/sell/cover</code></td>
+<td>融資融券</td>
+<td>2009~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>short_util</code></td>
+<td>融資融券</td>
+<td>2009~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>offset_trade</code></td>
+<td>融資融券</td>
+<td>2009~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>borrow_balance</code></td>
+<td>借券</td>
+<td>2007~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>lend_sell</code></td>
+<td>借券</td>
+<td>2007~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>lend_sell_balance</code></td>
+<td>借券</td>
+<td>2007~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>pe/pb/div_yield</code></td>
+<td>評價指標</td>
+<td>2010~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rev_monthly/yoy/mom</code></td>
+<td>月營收（月頻）</td>
+<td>2005~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dir_hold_ratio/inc/dec</code></td>
+<td>董監持股（月頻）</td>
+<td>2004~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>dir_pledge_ratio</code></td>
+<td>董監持股（月頻）</td>
+<td>2004~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+<tr>
+<td><code>inv_1000k_ratio/count</code></td>
+<td>大戶集中度（週頻）</td>
+<td>2018</td>
+<td>—</td>
+<td>主要用 data/chips/</td>
+</tr>
+<tr>
+<td><code>daytrade_vol</code></td>
+<td>當沖</td>
+<td>2014~2018</td>
+<td>2019~今</td>
+<td></td>
+</tr>
+<tr>
+<td><code>taiex_return</code></td>
+<td>大盤基準</td>
+<td>2007~2018</td>
+<td>—</td>
+<td>finlab only</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">技術踩坑<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>finlab FinlabDataFrame</strong>：回傳的不是普通 DataFrame，不能直接操作 index。必須先 <code>df = pd.DataFrame(raw)</code> 轉換後再操作</li>
+<li><strong>pyarrow 版本</strong>：pandas 3.0.3 需要 pyarrow &gt;= 13.0.0（已升級至 24.0.0）</li>
+<li><strong>Windows 路徑</strong>：Claude Code 的 Bash 工具不能用 Windows 路徑（<code>D:\...</code>），要用 PowerShell 工具</li>
+</ul>
+<hr />
+<h2 id="2026-05-30">最新研究延伸（2026-05-30）<a class="headerlink" href="#2026-05-30" title="Permanent link">&para;</a></h2>
+<p>本頁原本整理較早期的台股籌碼訊號 A/B 與資料覆蓋。後續已另開新頁，專門記錄 2026-05-30 這輪「大戶增持 / 散戶減少 + 產業資金流」研究，包括：</p>
+<ul>
+<li>固定半導體 / 電子零組件產業版本</li>
+<li>TDCC 公告延遲 lag 0/3/5/7 敏感度</li>
+<li>動態產業資金流 Top 1 / Top 3 / Top 5</li>
+<li>固定產業 vs 動態輪動 vs 混合策略比較</li>
+<li>月份 / 季度 cohort 檢查</li>
+<li>外資 / 投信資料缺口診斷</li>
+</ul>
+<p>詳見：<a href="../taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a>。</p>
+<hr />
+<h2 id="_8">相關頁面<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a></li>
+<li>交易策略資料來源與處理流程</li>
+<li>TXF net_delta 策略研究</li>
 </ul>
 
 
@@ -1022,10 +1493,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
