@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="650" viewBox="0 0 1180 650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="40" y="65" font-family="Microsoft JhengHei, sans-serif" font-size="42" font-weight="700" fill="#111">圖四：台灣公司研究追蹤地圖</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+<line x1="210" y1="255" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="580" y1="255" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="950" y1="255" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="390" y1="465" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="760" y1="465" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="60" y="130" width="300" height="120" rx="18" fill="#d0bfff" stroke="#1e1e1e" stroke-width="3"/>
+<text x="210.0" y="158.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">國巨</text>
+<text x="210.0" y="190.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">平台型/AI品類拆分</text>
+<text x="210.0" y="222.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：商譽槓桿</text>
+<rect x="430" y="130" width="300" height="120" rx="18" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="3"/>
+<text x="580.0" y="158.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">華新科</text>
+<text x="580.0" y="190.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">MLCC/電阻循環</text>
+<text x="580.0" y="222.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：標準品壓力</text>
+<rect x="800" y="130" width="300" height="120" rx="18" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="3"/>
+<text x="950.0" y="158.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">禾伸堂</text>
+<text x="950.0" y="190.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">製造+代理</text>
+<text x="950.0" y="222.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：庫存應收</text>
+<rect x="240" y="340" width="300" height="120" rx="18" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="3"/>
+<text x="390.0" y="368.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">大毅</text>
+<text x="390.0" y="400.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">電阻專業</text>
+<text x="390.0" y="432.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：厚膜商品化</text>
+<rect x="610" y="340" width="300" height="120" rx="18" fill="#c3fae8" stroke="#1e1e1e" stroke-width="3"/>
+<text x="760.0" y="368.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">奇力新/美桓</text>
+<text x="760.0" y="400.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">電感磁性</text>
+<text x="760.0" y="432.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：中國競爭</text>
+<rect x="445" y="500" width="390" height="80" rx="18" fill="#fff3bf" stroke="#1e1e1e" stroke-width="3"/>
+<text x="640.0" y="524.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">共同檢查：品類→規格→客戶階段→營收占比→毛</text>
+<text x="640.0" y="556.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">利率→紅旗</text>
+</svg>

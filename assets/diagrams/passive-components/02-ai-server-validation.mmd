@@ -1,0 +1,46 @@
+%%{init: {"theme": "default"}}%%
+flowchart LR
+    S["題材/傳聞\n(AI server受益)"]
+
+    S --> B1{"品類確認"}
+    B1 --> P1["MLCC\n(去耦/濾波)"]
+    B1 --> P2["功率電感\n(VRM多相電源)"]
+    B1 --> P3["鉭容/薄膜容\n(穩壓/瞬態)"]
+    B1 --> P4["電流感測電阻\n(電流監控)"]
+
+    P1 --> B2{"規格驗證"}
+    P2 --> B2
+    P3 --> B2
+    P4 --> B2
+
+    B2 --> SP["規格落點\n低ESL/高Isat\n低DCR/低TCR"]
+    SP --> B3{"供應鏈階段"}
+
+    B3 --> ST1["未確認"]
+    B3 --> ST2["送樣中"]
+    B3 --> ST3["進入AVL"]
+    B3 --> ST4["小量量產"]
+    B3 --> ST5["大量量產"]
+
+    ST3 --> B4{"財務驗證"}
+    ST4 --> B4
+    ST5 --> B4
+
+    B4 --> F1["營收占比\n(公司揭露/估算)"]
+    B4 --> F2["毛利率\n(高於/低於公司平均)"]
+    B4 --> F3["訂單類型\n(急單/短約/長約)"]
+
+    F1 --> CON{"可投資結論?"}
+    F2 --> CON
+    F3 --> CON
+
+    CON -->|"六格完整"| YES["有依據納入thesis"]
+    CON -->|"送樣/未確認"| NO["標記待確認\n不外推EPS"]
+
+    style ST1 fill:#ffdddd
+    style ST2 fill:#fff3cd
+    style ST3 fill:#d4edda
+    style ST4 fill:#d4edda
+    style ST5 fill:#d4edda
+    style YES fill:#d4edda
+    style NO fill:#ffdddd
