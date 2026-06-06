@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="從需求、電氣架構、3D routing、BOM、製造工法到品質驗證，整理線束工程的實作方法與導入建議。">
+        <meta name="description" content="建立 AI Agent 的測試、評測、觀測、回歸與上線 gate，讓 Agent 能被穩定比較、除錯與迭代。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/engineering/harness-engineering-implementation-guide/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/ai-agent-harness-engineering/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>Harness Engineering 線束工程實作指南 - Shane's Knowledge Base</title>
+        <title>AI Agent Harness Engineering 實作指南 - Shane's Knowledge Base</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#harness-engineering" class="md-skip">
+        <a href="#ai-agent-harness-engineering" class="md-skip">
           跳轉到
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Harness Engineering 線束工程實作指南
+              AI Agent Harness Engineering 實作指南
             
           </span>
         </div>
@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../ai/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -317,25 +317,6 @@
     
   
   Trading
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Engineering
 
       </a>
     </li>
@@ -500,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -635,33 +616,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../data-science/" class="md-nav__link">
         
   
@@ -737,7 +691,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -759,14 +713,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -878,10 +832,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#harness-engineering_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        什麼是 Harness Engineering？
+        架構圖
       
     </span>
   </a>
@@ -889,10 +843,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#agent-harness" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心交付物
+        為什麼 Agent 需要 Harness？
       
     </span>
   </a>
@@ -903,19 +857,19 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        推薦實作流程
+        核心元件
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="推薦實作流程">
+    <nav class="md-nav" aria-label="核心元件">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 需求定義：先建立「線束需求表」
+        1. 任務規格
       
     </span>
   </a>
@@ -923,10 +877,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-from-to" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 電氣架構：建立 from-to 與保護策略
+        2. 測試案例庫
       
     </span>
   </a>
@@ -934,10 +888,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-agent-runner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 線材、端子與接插件選型
+        3. Agent Runner
       
     </span>
   </a>
@@ -945,43 +899,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-3d-routing" class="md-nav__link">
+  <a href="#4-trace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 3D Routing：把線束放進真實空間
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-formboard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 製造工程：從設計轉成 formboard 與工法
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. 品質驗證：把標準變成檢查表
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-bom" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. 變更控制：避免圖面、BOM、現場版本不同步
+        4. Trace 與可觀測性
       
     </span>
   </a>
@@ -997,19 +918,30 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工具選擇建議
+        評分方法
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="工具選擇建議">
+    <nav class="md-nav" aria-label="評分方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        小型團隊 / 初期專案
+        規則型評分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llm-as-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLM-as-judge
       
     </span>
   </a>
@@ -1020,7 +952,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中大型產品 / 多版本產品
+        人工抽審
       
     </span>
   </a>
@@ -1036,19 +968,19 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        導入路線圖
+        實作方法
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="導入路線圖">
+    <nav class="md-nav" aria-label="實作方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#1-harness" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 0 階段：盤點現況
+        第 1 步：先定義最小可用 Harness
       
     </span>
   </a>
@@ -1056,10 +988,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 1 階段：建立資料基準
+        第 2 步：把測試拆成三層
       
     </span>
   </a>
@@ -1067,10 +999,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 2 階段：導入設計審查
+        第 3 步：建立基準線
       
     </span>
   </a>
@@ -1078,10 +1010,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
+  <a href="#4-release-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 3 階段：半自動化
+        第 4 步：建立 Release Gate
       
     </span>
   </a>
@@ -1089,10 +1021,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-plm" class="md-nav__link">
+  <a href="#5-ci" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 4 階段：模型化與 PLM 整合
+        第 5 步：接上 CI / 排程
       
     </span>
   </a>
@@ -1108,7 +1040,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        實作檢查表
+        工具選擇建議
       
     </span>
   </a>
@@ -1119,6 +1051,172 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
+        常見錯誤
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常見錯誤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 只看最後答案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 測試案例太乾淨
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 沒有版本比較
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 沒有成本 gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-llm-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. LLM judge 沒校準
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        導入路線圖
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="導入路線圖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 階段：觀測先行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-golden-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 階段：Golden Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scorers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 階段：Scorers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-regression-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 階段：Regression Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-production-shadow-eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 階段：Production Shadow Eval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 階段：自動化改善迴圈
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實作檢查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         我的建議
       
     </span>
@@ -1127,7 +1225,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考來源
@@ -1154,197 +1252,248 @@
 
 
 
-<h1 id="harness-engineering">Harness Engineering 線束工程實作指南<a class="headerlink" href="#harness-engineering" title="Permanent link">&para;</a></h1>
+<h1 id="ai-agent-harness-engineering">AI Agent Harness Engineering 實作指南<a class="headerlink" href="#ai-agent-harness-engineering" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>本文將 <strong>harness engineering</strong> 解讀為 <strong>wire / wiring harness engineering（線束工程）</strong>：把電氣連接需求轉成可製造、可安裝、可檢驗、可維修的線束產品與工程資料。</p>
+<p>這裡的 <strong>Harness Engineering</strong> 指的是 AI Agent 的「測試與評測 harness」：用一套可重跑、可觀測、可比較、可阻擋退步的工程框架，把 Agent 從 demo 變成可維護產品。</p>
 </blockquote>
 <h2 id="_1">一句話結論<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>線束工程的重點不是「把線接起來」，而是建立一套從需求、電氣架構、3D 路由、線材/端子選型、製造圖、BOM、測試到變更控制都能串起來的資料流程。若沒有這套流程，問題通常會出現在量產後：線長不準、端子錯配、干涉、壓接不良、版本混亂、維修困難與成本失控。</p>
+<p>AI Agent Harness Engineering 的核心不是再寫更多 prompt，而是建立一個 <strong>任務規格 → 測試案例 → Agent runner → trace → 評分器 → 報告 → release gate</strong> 的閉環。每次改模型、prompt、工具、memory、權限或資料來源，都要能用同一組 harness 做回歸測試，知道到底是變好、變壞、變貴，還是只是看起來更會講話。</p>
 <hr />
-<h2 id="harness-engineering_1">什麼是 Harness Engineering？<a class="headerlink" href="#harness-engineering_1" title="Permanent link">&para;</a></h2>
-<p>線束工程是跨領域工程，介於電氣設計、機構設計、製造工程與品質工程之間。</p>
-<p>它要回答幾個問題：</p>
-<ul>
-<li>哪些電源、訊號、通訊線路需要連接？</li>
-<li>每條線需要多大電流、電壓、溫度、抗干擾與機械保護？</li>
-<li>線要走哪條路徑，如何避開熱源、銳邊、運動件與 EMI 風險？</li>
-<li>要用什麼接插件、端子、線材、保護套管、固定件與標籤？</li>
-<li>製造現場如何切線、剝線、壓接、組裝、包覆、檢驗？</li>
-<li>需求變更後，如何同步圖面、BOM、測試與現場工法？</li>
-</ul>
+<h2 id="_2">架構圖<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><img alt="AI Agent Harness Engineering 評測閉環架構" src="../../assets/diagrams/ai-agent-harness/ai-agent-harness-architecture.png" /></p>
 <hr />
-<h2 id="_2">核心交付物<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>一個成熟的線束工程流程，至少應交付以下資料：</p>
+<h2 id="agent-harness">為什麼 Agent 需要 Harness？<a class="headerlink" href="#agent-harness" title="Permanent link">&para;</a></h2>
+<p>一般 LLM app 可能只需要測輸入輸出；但 Agent 會做更多事：</p>
 <ul>
-<li><strong>電氣連接資料</strong>：from-to list、接插件 pin-out、線號、線徑、顏色、訊號名稱。</li>
-<li><strong>機構路由資料</strong>：3D routing、分支點、固定點、彎曲半徑、與周邊零件間隙。</li>
-<li><strong>材料與 BOM</strong>：線材、端子、接插件、seal、clip、tube、tape、label、保護套管。</li>
-<li><strong>製造資料</strong>：formboard / nailboard、切線長度、剝線長度、壓接規格、包覆方式、標籤位置。</li>
-<li><strong>品質驗證資料</strong>：導通、短路、耐壓、壓接拉力、外觀、尺寸、標籤與追溯碼。</li>
-<li><strong>變更紀錄</strong>：版本、ECR / ECO、變更原因、影響範圍、舊版處理方式。</li>
+<li>多步推理與規劃</li>
+<li>呼叫工具</li>
+<li>讀寫檔案或外部系統</li>
+<li>查詢資料庫或 RAG</li>
+<li>依照中間結果改變路徑</li>
+<li>可能產生副作用，例如發訊息、開 issue、下單、更新文件</li>
 </ul>
-<hr />
-<h2 id="_3">推薦實作流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. 需求定義：先建立「線束需求表」<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>不要一開始就畫線。先把需求整理成表格：</p>
+<p>因此，評測不能只看最後答案。好的 harness 要能回答：</p>
 <ul>
-<li>系統 / 子系統</li>
-<li>電源、接地、訊號、通訊類型</li>
-<li>電流、電壓、功率、保險絲需求</li>
-<li>使用環境：溫度、水氣、油污、震動、彎折、戶外 / 車內 / 機箱內</li>
-<li>法規或客戶規範</li>
-<li>可維修性與裝配順序</li>
-</ul>
-<p><strong>建議</strong>：第一版可用 spreadsheet，但每一列都要有唯一 ID。後續所有 schematic、BOM、測試項目都要能追回這個 ID。</p>
-<h3 id="2-from-to">2. 電氣架構：建立 from-to 與保護策略<a class="headerlink" href="#2-from-to" title="Permanent link">&para;</a></h3>
-<p>這一步要把功能需求轉成電氣連接：</p>
-<ul>
-<li>定義 ECU / 控制器 / 感測器 / 致動器 / 電源模組。</li>
-<li>建立 connector pin-out。</li>
-<li>建立 from-to list。</li>
-<li>確認電源分配、保險絲、接地點與 shield drain。</li>
-<li>區分高電流、低電平訊號、通訊線與高 EMI 風險線路。</li>
-</ul>
-<p><strong>常見錯誤</strong>：只做點對點連線，沒有同步定義保護、接地、保險絲與 EMI 策略，後面很容易返工。</p>
-<h3 id="3">3. 線材、端子與接插件選型<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>選型不只看電流，還要看環境與製造能力：</p>
-<ul>
-<li>線徑：電流、壓降、溫升、束線降額。</li>
-<li>絕緣材料：PVC、XLPE、Teflon 等，依溫度、柔軟度與成本選擇。</li>
-<li>端子：壓接範圍、鍍層、拉力要求、工具相容性。</li>
-<li>接插件：防水等級、lock、CPA/TPA、pin 密度、維修便利性。</li>
-<li>保護材料：corrugated tube、braid、heat shrink、tape、grommet。</li>
-</ul>
-<p><strong>建議</strong>：建立 approved parts list。不要每個專案重新選料，否則 BOM、採購與品質管理會失控。</p>
-<h3 id="4-3d-routing">4. 3D Routing：把線束放進真實空間<a class="headerlink" href="#4-3d-routing" title="Permanent link">&para;</a></h3>
-<p>3D routing 的目標不是漂亮，而是確認能裝、能用、能修：</p>
-<ul>
-<li>避開熱源、銳邊與運動件。</li>
-<li>保留裝配公差與維修空間。</li>
-<li>控制彎曲半徑與拉力。</li>
-<li>確認固定點、clip、grommet 與穿孔位置。</li>
-<li>確認線束不會和鈑金、機構件、管路干涉。</li>
-</ul>
-<p><strong>建議</strong>：電氣工程師與機構工程師要共同 review。線束通常是系統最後才被放進去，但最容易被所有部件擠壓。</p>
-<h3 id="5-formboard">5. 製造工程：從設計轉成 formboard 與工法<a class="headerlink" href="#5-formboard" title="Permanent link">&para;</a></h3>
-<p>量產需要的不只是設計圖，而是製造可執行資料：</p>
-<ul>
-<li>formboard / nailboard 展開圖</li>
-<li>分支點、固定點與標籤位置</li>
-<li>切線長度與剝線長度</li>
-<li>壓接端子與壓接工具</li>
-<li>熱縮、包膠、套管、綁扎規格</li>
-<li>製程檢查點</li>
-</ul>
-<p><strong>建議</strong>：設計端要及早和製造端 review。若設計圖到現場才發現無法壓接、無法套管、無法裝配，返工成本會很高。</p>
-<h3 id="6">6. 品質驗證：把標準變成檢查表<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
-<p>線束品質不應只靠終檢，應該分成製程內檢查與出貨檢查：</p>
-<ul>
-<li>導通與短路測試</li>
-<li>耐壓 / 絕緣測試（依產品需求）</li>
-<li>壓接高度、壓接外觀、拉力測試</li>
-<li>connector pin 位置與鎖扣確認</li>
-<li>尺寸、分支長度、標籤與外觀</li>
-<li>防水件、seal、grommet 安裝狀態</li>
-</ul>
-<p>IPC/WHMA-A-620 常被用作 cable / wire harness assembly 的驗收與品質語言；航太或高可靠度場景則可參考 NASA 的 cable/harness workmanship 標準思路。</p>
-<h3 id="7-bom">7. 變更控制：避免圖面、BOM、現場版本不同步<a class="headerlink" href="#7-bom" title="Permanent link">&para;</a></h3>
-<p>線束最怕「圖改了，但 BOM 沒改」、「BOM 改了，但 formboard 沒改」、「現場照舊版做」。因此需要：</p>
-<ul>
-<li>每條線、每個接插件、每個材料都有唯一料號或 ID。</li>
-<li>每次變更都記錄原因、影響範圍與生效版本。</li>
-<li>設計、採購、製造、測試使用同一套版本。</li>
-<li>舊版庫存如何處理要明確。</li>
+<li>是否完成任務？</li>
+<li>有沒有違反工具權限或安全邊界？</li>
+<li>中間 tool calls 是否合理？</li>
+<li>成本、延遲、重試次數是否可接受？</li>
+<li>trace 是否足以除錯？</li>
+<li>新版本是否比舊版本退步？</li>
 </ul>
 <hr />
-<h2 id="_4">工具選擇建議<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">小型團隊 / 初期專案<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>適合用：spreadsheet + 2D CAD + 3D CAD + 明確命名規則。</p>
-<p>最低要求：</p>
+<h2 id="_3">核心元件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 任務規格<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>每個測試案例都應該有明確規格，而不是只放一句 prompt。</p>
+<p>建議欄位：</p>
 <ul>
-<li>from-to list 有唯一 ID。</li>
-<li>BOM、線表、測試表能互相對應。</li>
-<li>每次改版有版本號與變更紀錄。</li>
+<li><code>task_id</code>：唯一 ID</li>
+<li><code>user_goal</code>：使用者目標</li>
+<li><code>initial_state</code>：初始資料、檔案、資料庫或 mock API 狀態</li>
+<li><code>allowed_tools</code>：允許使用的工具</li>
+<li><code>forbidden_actions</code>：禁止行為</li>
+<li><code>success_criteria</code>：成功條件</li>
+<li><code>failure_criteria</code>：明確失敗條件</li>
+<li><code>expected_artifacts</code>：預期產物，例如檔案、JSON、commit、報告</li>
+<li><code>max_cost</code> / <code>max_latency</code>：成本與時間上限</li>
 </ul>
-<h3 id="_6">中大型產品 / 多版本產品<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>建議導入模型化 E/E 系統設計工具，例如 Siemens Capital、Zuken E3.series、CATIA Electrical 等級的解決方案。重點不是品牌，而是要讓 schematic、3D routing、BOM、formboard 與測試資料從同一份資料模型輸出。</p>
-<p>導入前先問三個問題：</p>
+<h3 id="2">2. 測試案例庫<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>測試案例不要只收「正常題」。至少要有五類：</p>
+<ul>
+<li><strong>Golden tasks</strong>：最重要、每次 release 都要過。</li>
+<li><strong>Regression tasks</strong>：過去壞過的案例，修好後永久保留。</li>
+<li><strong>Adversarial tasks</strong>：誘導越權、忽略規則、資料外洩、亂用工具。</li>
+<li><strong>Long-horizon tasks</strong>：多步工具、長上下文、跨檔案、跨系統任務。</li>
+<li><strong>Production shadow tasks</strong>：從真實使用紀錄匿名化或抽樣而來。</li>
+</ul>
+<h3 id="3-agent-runner">3. Agent Runner<a class="headerlink" href="#3-agent-runner" title="Permanent link">&para;</a></h3>
+<p>Runner 的任務是用穩定方式執行 Agent：</p>
+<ul>
+<li>固定模型、temperature、prompt、工具版本。</li>
+<li>建立隔離沙盒，避免測試污染真實環境。</li>
+<li>對外部 API 做 mock 或 record/replay。</li>
+<li>收集 token、成本、延遲、重試、錯誤。</li>
+<li>對有副作用的工具使用 dry-run 或假端點。</li>
+</ul>
+<h3 id="4-trace">4. Trace 與可觀測性<a class="headerlink" href="#4-trace" title="Permanent link">&para;</a></h3>
+<p>Agent 測試最重要的不是只有 final answer，而是完整過程：</p>
+<ul>
+<li>每一步 reasoning summary 或 action summary</li>
+<li>tool call 名稱、參數、回傳、錯誤</li>
+<li>狀態變更，例如檔案 diff、資料庫變化、memory 寫入</li>
+<li>成本、延遲、重試</li>
+<li>失敗時的最後可見狀態</li>
+</ul>
+<p>沒有 trace 的 Agent 很難除錯；它可能答對，但方法錯；也可能答錯，但只差一個工具參數。</p>
+<hr />
+<h2 id="_4">評分方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>不要只用單一總分。建議分成多個評分器：</p>
+<p><img alt="AI Agent Harness 評分維度矩陣" src="../../assets/diagrams/ai-agent-harness/ai-agent-harness-scorecard.png" /></p>
+<h3 id="_5">規則型評分<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>適合明確可檢查的項目：</p>
+<ul>
+<li>JSON schema 是否正確</li>
+<li>檔案是否存在</li>
+<li>測試是否通過</li>
+<li>SQL 結果是否符合預期</li>
+<li>是否呼叫禁止工具</li>
+<li>成本與延遲是否超標</li>
+</ul>
+<h3 id="llm-as-judge">LLM-as-judge<a class="headerlink" href="#llm-as-judge" title="Permanent link">&para;</a></h3>
+<p>適合半結構化或語意型任務：</p>
+<ul>
+<li>摘要是否保留關鍵事實</li>
+<li>回答是否符合使用者目標</li>
+<li>是否有幻覺或不支援的主張</li>
+<li>是否遵守風格與格式</li>
+</ul>
+<p>但 LLM-as-judge 不應單獨作為上線依據。最好搭配：</p>
+<ul>
+<li>明確 rubric</li>
+<li>少量人工抽審</li>
+<li>多 judge 或固定 judge model</li>
+<li>對 judge 本身做校準</li>
+</ul>
+<h3 id="_6">人工抽審<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>適合高風險任務：</p>
+<ul>
+<li>會產生外部副作用</li>
+<li>涉及法律、醫療、金融或安全</li>
+<li>需要判斷商業語氣與使用者信任</li>
+<li>目前評分器還不穩定</li>
+</ul>
+<hr />
+<h2 id="_7">實作方法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1-harness">第 1 步：先定義最小可用 Harness<a class="headerlink" href="#1-harness" title="Permanent link">&para;</a></h3>
+<p>不要一開始做大平台。先建立最小版本：</p>
+<div class="highlight"><pre><span></span><code><span class="nt">task_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent_file_edit_001</span>
+<span class="nt">user_goal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">修正指定檔案中的 bug，並保持測試通過</span>
+<span class="nt">allowed_tools</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read_file</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">patch</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminal</span>
+<span class="nt">success_criteria</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">指定測試通過</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git diff 只修改相關檔案</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">回覆包含修改摘要與驗證方式</span>
+<span class="nt">failure_criteria</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">修改 unrelated files</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">未執行測試卻宣稱通過</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">產生無法套用的 patch</span>
+<span class="nt">max_latency_seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+</code></pre></div>
+<h3 id="2_1">第 2 步：把測試拆成三層<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Unit eval</strong>：單一步驟，例如工具參數、JSON schema、分類結果。</li>
+<li><strong>Scenario eval</strong>：完整任務，例如「讀 issue → 改檔 → 測試 → 回報」。</li>
+<li><strong>Production eval</strong>：從真實任務抽樣，定期回放與比較版本。</li>
+</ul>
+<h3 id="3">第 3 步：建立基準線<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>先跑目前版本，記錄：</p>
+<ul>
+<li>通過率</li>
+<li>平均成本</li>
+<li>p50 / p95 延遲</li>
+<li>平均 tool call 次數</li>
+<li>常見失敗類型</li>
+<li>人工抽審通過率</li>
+</ul>
+<p>之後任何改動都和這個 baseline 比較。</p>
+<h3 id="4-release-gate">第 4 步：建立 Release Gate<a class="headerlink" href="#4-release-gate" title="Permanent link">&para;</a></h3>
+<p>建議 gate 分級：</p>
+<ul>
+<li><strong>Blocker</strong>：安全越權、資料外洩、工具副作用錯誤、核心任務退步。</li>
+<li><strong>Warning</strong>：成本上升、延遲上升、非核心任務小幅退步。</li>
+<li><strong>Monitor</strong>：可接受但需觀察，例如 judge 分數波動。</li>
+</ul>
+<h3 id="5-ci">第 5 步：接上 CI / 排程<a class="headerlink" href="#5-ci" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每個 PR 跑小型 smoke eval。</li>
+<li>每日跑完整 regression eval。</li>
+<li>每週跑 production shadow eval。</li>
+<li>每次換模型或 prompt 必跑 golden tasks。</li>
+</ul>
+<hr />
+<h2 id="_8">工具選擇建議<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>工具不是重點，但可以加速落地：</p>
+<ul>
+<li><strong>OpenAI Evals</strong>：適合建立可重跑的 eval 任務與評分流程。</li>
+<li><strong>promptfoo</strong>：適合 prompt / model / provider 比較與 CI 測試。</li>
+<li><strong>LangSmith Evaluation</strong>：適合 LangChain / LangGraph 類應用的 trace、dataset、experiment 與評測。</li>
+<li><strong>Ragas</strong>：適合 RAG 任務的 retrieval / answer quality 評測。</li>
+<li><strong>DeepEval</strong>：適合用 Python 寫測試式 LLM eval，整合到 CI。</li>
+</ul>
+<p>選型建議：</p>
+<ul>
+<li>如果你主要做 prompt / provider 比較：先看 promptfoo。</li>
+<li>如果你已經用 LangChain / LangGraph：優先看 LangSmith。</li>
+<li>如果你是 RAG 系統：加入 Ragas 類指標。</li>
+<li>如果你想把 eval 寫得像單元測試：看 DeepEval 或自建 pytest harness。</li>
+<li>如果你要長期累積標準 eval：可以參考 OpenAI Evals 的 dataset / runner / scorer 思路。</li>
+</ul>
+<hr />
+<h2 id="_9">常見錯誤<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1. 只看最後答案<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>Agent 的錯誤常發生在中間步驟：用錯工具、查錯資料、忽略錯誤、越權操作。只看 final answer 會漏掉這些問題。</p>
+<h3 id="2_2">2. 測試案例太乾淨<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p>真實使用者會給模糊指令、缺少上下文、臨時改需求、要求副作用。Harness 必須包含這些情境。</p>
+<h3 id="3_1">3. 沒有版本比較<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>如果沒有 baseline，就不知道新 prompt 是真的變好，還是只是某幾題變好、其他退步。</p>
+<h3 id="4-gate">4. 沒有成本 gate<a class="headerlink" href="#4-gate" title="Permanent link">&para;</a></h3>
+<p>Agent 可能通過任務，但成本或延遲高到不可用。成本、延遲、tool call 次數都應該成為 gate。</p>
+<h3 id="5-llm-judge">5. LLM judge 沒校準<a class="headerlink" href="#5-llm-judge" title="Permanent link">&para;</a></h3>
+<p>LLM judge 也會漂移。重要任務要用人工樣本校準 judge，並保留固定 rubric。</p>
+<hr />
+<h2 id="_10">導入路線圖<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="0">第 0 階段：觀測先行<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<p>先把 trace 打完整，不急著評分。目標是知道 Agent 到底做了什麼。</p>
+<h3 id="1-golden-tasks">第 1 階段：Golden Tasks<a class="headerlink" href="#1-golden-tasks" title="Permanent link">&para;</a></h3>
+<p>選 20–50 個最重要任務，建立 success / failure criteria。</p>
+<h3 id="2-scorers">第 2 階段：Scorers<a class="headerlink" href="#2-scorers" title="Permanent link">&para;</a></h3>
+<p>先做規則型 scorer，再補 LLM-as-judge，最後加人工抽審。</p>
+<h3 id="3-regression-gate">第 3 階段：Regression Gate<a class="headerlink" href="#3-regression-gate" title="Permanent link">&para;</a></h3>
+<p>每次改 prompt、model、tool 或 memory 都跑 regression。</p>
+<h3 id="4-production-shadow-eval">第 4 階段：Production Shadow Eval<a class="headerlink" href="#4-production-shadow-eval" title="Permanent link">&para;</a></h3>
+<p>從真實任務抽樣，匿名化後回放，建立長期趨勢。</p>
+<h3 id="5">第 5 階段：自動化改善迴圈<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>把失敗案例分類，回寫成新測試，形成「每次事故都變成 regression case」的流程。</p>
+<hr />
+<h2 id="_11">實作檢查表<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] 每個任務是否有明確成功 / 失敗條件？</li>
+<li>[ ] 測試是否固定模型、prompt、工具與資料版本？</li>
+<li>[ ] 是否記錄完整 trace，而不是只有 final answer？</li>
+<li>[ ] 是否能檢查 tool call 參數與副作用？</li>
+<li>[ ] 是否有 golden tasks 與 regression tasks？</li>
+<li>[ ] 是否有成本、延遲與 tool call 次數 gate？</li>
+<li>[ ] LLM judge 是否有 rubric 與人工校準？</li>
+<li>[ ] 是否能比較新舊版本差異？</li>
+<li>[ ] 是否接到 CI 或排程？</li>
+<li>[ ] 每次 production incident 是否會回寫成測試？</li>
+</ul>
+<hr />
+<h2 id="_12">我的建議<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>如果要實作，我會先做一個很小但能持續累積的 harness：</p>
 <ol>
-<li>現在最大的痛點是設計錯誤、版本混亂、製造效率，還是報價速度？</li>
-<li>是否已有穩定的零件庫、接插件庫與命名規則？</li>
-<li>工程、製造、採購與品質是否願意共用同一份資料源？</li>
+<li>用 YAML / JSON 定義 20 個 golden tasks。</li>
+<li>Runner 固定模型、prompt、tools，並輸出 trace JSON。</li>
+<li>Scorer 先做規則型檢查：格式、檔案、tool call、成本、延遲。</li>
+<li>對開放式回答再加 LLM-as-judge，但一定要有 rubric。</li>
+<li>把每次失敗案例加回 regression set。</li>
+<li>每次改 prompt、模型、工具權限前後都跑同一組測試。</li>
 </ol>
-<p>如果答案是否定的，先導入流程與資料規範，再導入工具；否則工具只會把混亂數位化。</p>
+<p>最重要的原則是：<strong>不要追求一次到位的大型 eval 平台；先讓每一次 agent 改動都能被比較與回歸。</strong></p>
 <hr />
-<h2 id="_7">導入路線圖<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="0">第 0 階段：盤點現況<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<h2 id="_13">參考來源<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <ul>
-<li>蒐集現有線表、BOM、圖面、測試表與變更紀錄。</li>
-<li>找出最常出錯的 10 類問題。</li>
-<li>統一命名規則：connector、wire、terminal、splice、branch、bundle。</li>
+<li>OpenAI Evals：可重跑 eval、dataset、runner、scorer 的開源框架。https://github.com/openai/evals</li>
+<li>promptfoo：prompt / model / provider 評測與 CI 工具。https://github.com/promptfoo/promptfoo</li>
+<li>LangSmith Evaluation：dataset、experiment、trace 與 evaluator 概念。https://docs.langchain.com/langsmith/evaluation-concepts</li>
+<li>Ragas：RAG 評測框架。https://docs.ragas.io/en/stable/</li>
+<li>DeepEval：LLM evaluation framework，可用 Python 測試風格整合。https://github.com/confident-ai/deepeval</li>
+<li>Anthropic：Building effective agents，強調 workflow / agent pattern 與工具設計。https://www.anthropic.com/engineering/building-effective-agents</li>
 </ul>
-<h3 id="1_1">第 1 階段：建立資料基準<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>建立 approved parts list。</li>
-<li>建立標準線表欄位。</li>
-<li>建立 connector pin-out 模板。</li>
-<li>建立基本設計規則：線徑、顏色、彎曲半徑、固定距離、保護材料。</li>
-</ul>
-<h3 id="2">第 2 階段：導入設計審查<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>每次設計 release 前至少檢查：</p>
-<ul>
-<li>電流 / 線徑 / 保險絲是否一致。</li>
-<li>接插件與端子是否相容。</li>
-<li>routing 是否干涉或過度彎折。</li>
-<li>BOM 是否與圖面一致。</li>
-<li>formboard 是否能製造。</li>
-<li>測試表是否涵蓋所有線路。</li>
-</ul>
-<h3 id="3_1">第 3 階段：半自動化<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>從 from-to list 自動產生測試清單。</li>
-<li>從 BOM 自動檢查未核准料號。</li>
-<li>從線表自動檢查缺失欄位。</li>
-<li>用版本號把設計、BOM、製造與測試綁定。</li>
-</ul>
-<h3 id="4-plm">第 4 階段：模型化與 PLM 整合<a class="headerlink" href="#4-plm" title="Permanent link">&para;</a></h3>
-<ul>
-<li>schematic、3D routing、formboard、BOM、測試資料共用資料模型。</li>
-<li>與 PLM / ERP / MES 串接。</li>
-<li>建立變更影響分析。</li>
-<li>建立製造現場的 digital work instruction。</li>
-</ul>
-<hr />
-<h2 id="_8">實作檢查表<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ul>
-<li>[ ] 每條線是否有唯一 ID？</li>
-<li>[ ] 每個 connector pin 是否有訊號名稱、方向與端點？</li>
-<li>[ ] 線徑是否經過電流、壓降與溫升檢查？</li>
-<li>[ ] fuse / breaker 是否能保護線材？</li>
-<li>[ ] routing 是否避開熱源、銳邊與運動件？</li>
-<li>[ ] 彎曲半徑與固定距離是否符合規範？</li>
-<li>[ ] 端子、線材與壓接工具是否相容？</li>
-<li>[ ] BOM、線表、圖面與測試表是否同版本？</li>
-<li>[ ] 是否有壓接拉力、導通、短路與外觀檢查？</li>
-<li>[ ] 變更後是否同步更新 formboard 與現場工法？</li>
-</ul>
-<hr />
-<h2 id="_9">我的建議<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<p>如果你要實際導入，我會建議不要一開始追求完整工具平台，而是先做三件事：</p>
-<ol>
-<li><strong>建立標準資料表</strong>：需求表、from-to list、BOM、測試表先統一欄位與 ID。</li>
-<li><strong>建立設計規則</strong>：線徑、端子、接插件、保護材料、routing、檢驗標準先文件化。</li>
-<li><strong>建立 release gate</strong>：每次 release 前用 checklist 檢查電氣、機構、製造、品質與版本一致性。</li>
-</ol>
-<p>等這三件事穩定後，再導入模型化工具。否則導入工具只會加速產生更多不一致資料。</p>
-<hr />
-<h2 id="_10">參考來源<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<ul>
-<li>NASA Technical Standards System：NASA-STD-8739.4, <em>Workmanship Standard for Crimping, Interconnecting Cables, Harnesses, and Wiring</em>。https://standards.nasa.gov/standard/nasa/nasa-std-87394</li>
-<li>IPC certification page：IPC/WHMA-A-620, <em>Requirements and Acceptance for Cable and Wire Harness Assemblies</em> 的說明。https://www.electronics.org/ipc-certifications</li>
-<li>Siemens Capital E/E systems：E/E systems development and digital twin context。https://www.siemens.com/en-us/products/capital/</li>
-</ul>
-<p><em>本文為工程方法整理，不替代客戶規範、產業標準、正式安全認證或公司內部工程規範。</em></p>
+<p><em>本文為 AI Agent 工程實作整理，不是特定工具或供應商的操作手冊。</em></p>
 
 
 
@@ -1367,7 +1516,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 08:12:16 UTC">2026年6月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 08:24:09 UTC">2026年6月6日</span>
   </span>
 
     
@@ -1377,7 +1526,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 08:12:16 UTC">2026年6月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 08:24:09 UTC">2026年6月6日</span>
   </span>
 
     
