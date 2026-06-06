@@ -1,0 +1,49 @@
+/* Reader-facing page polish: wider content area and crisp card-style images. */
+.md-grid {
+  max-width: 82rem;
+}
+
+.md-content__inner {
+  padding-top: 1.25rem;
+}
+
+.md-typeset {
+  font-size: 0.84rem;
+  line-height: 1.78;
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.md-typeset h2 {
+  margin-top: 2.15rem;
+  font-weight: 760;
+}
+
+.md-typeset p:has(> img) {
+  margin: 1.8rem 0 2.25rem;
+  text-align: center;
+}
+
+.md-typeset p > img {
+  display: inline-block;
+  width: min(100%, 1120px);
+  height: auto;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.10);
+}
+
+.md-typeset blockquote {
+  border-left: 0.22rem solid var(--md-primary-fg-color);
+  background: rgba(63, 81, 181, 0.06);
+  border-radius: 0 12px 12px 0;
+  padding: 0.8rem 1rem;
+}
+
+.md-typeset ul li,
+.md-typeset ol li {
+  margin-bottom: 0.25rem;
+}
