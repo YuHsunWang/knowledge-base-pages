@@ -1,43 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620">
+<svg xmlns="http://www.w3.org/2000/svg" width="1550" height="900" viewBox="0 0 1550 900">
 <rect width="100%" height="100%" fill="white"/>
-<text x="40" y="65" font-family="Microsoft JhengHei, sans-serif" font-size="42" font-weight="700" fill="#111">圖三：車規認證與商業化路徑</text>
-<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
-<line x1="255" y1="195" x2="290" y2="195" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="490" y1="195" x2="525" y2="195" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="725" y1="195" x2="760" y2="195" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="960" y1="195" x2="995" y2="195" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="230" y1="245" x2="230" y2="355" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="515" y1="245" x2="515" y2="355" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="800" y1="245" x2="800" y2="355" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="1085" y1="245" x2="1085" y2="355" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<rect x="60" y="150" width="190" height="90" rx="18" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="3"/>
-<text x="155.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">AEC-Q200</text>
-<text x="155.0" y="211.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">可靠度門票</text>
-<rect x="295" y="150" width="190" height="90" rx="18" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="3"/>
-<text x="390.0" y="163.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">Tier-1/OEM</text>
-<text x="390.0" y="195.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e"> AVL</text>
-<text x="390.0" y="227.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">供應商名單</text>
-<rect x="530" y="150" width="190" height="90" rx="18" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="3"/>
-<text x="625.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">PPAP</text>
-<text x="625.0" y="211.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">量產前核准</text>
-<rect x="765" y="150" width="190" height="90" rx="18" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="3"/>
-<text x="860.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">量產出貨</text>
-<text x="860.0" y="211.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">營收驗證</text>
-<rect x="1000" y="150" width="190" height="90" rx="18" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="3"/>
-<text x="1095.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">長期可靠度</text>
-<text x="1095.0" y="211.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">形成壁壘</text>
-<rect x="125" y="360" width="210" height="75" rx="18" fill="#c3fae8" stroke="#1e1e1e" stroke-width="3"/>
-<text x="230.0" y="381.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">BMS</text>
-<text x="230.0" y="413.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">感測/保護</text>
-<rect x="410" y="360" width="210" height="75" rx="18" fill="#c3fae8" stroke="#1e1e1e" stroke-width="3"/>
-<text x="515.0" y="381.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">OBC/DC-DC</text>
-<text x="515.0" y="413.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">電容/電感</text>
-<rect x="695" y="360" width="210" height="75" rx="18" fill="#c3fae8" stroke="#1e1e1e" stroke-width="3"/>
-<text x="800.0" y="381.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">Inverter</text>
-<text x="800.0" y="413.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">薄膜/電阻</text>
-<rect x="980" y="360" width="210" height="75" rx="18" fill="#c3fae8" stroke="#1e1e1e" stroke-width="3"/>
-<text x="1085.0" y="381.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">ADAS</text>
-<text x="1085.0" y="413.5" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">RF/EMI</text>
-<rect x="250" y="500" width="760" height="70" rx="18" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="3"/>
-<text x="630.0" y="535.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：只說車規認證，卻沒有 AVL / PPAP / 量產 / 營收占比。</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+<text x="50" y="75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="40" font-weight="700" fill="#1f1f1f" text-anchor="start"><tspan x="50" dy="0">圖三：車規認證與商業化路徑</tspan></text>
+<rect x="80" y="160" width="240" height="95" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
+<text x="200.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="200.0" dy="0">AEC-Q200</tspan><tspan x="200.0" dy="27.5">可靠度門票</tspan></text>
+<rect x="395" y="160" width="250" height="95" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
+<text x="520.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="520.0" dy="0">Tier-1 / OEM AVL</tspan><tspan x="520.0" dy="27.5">供應商名單</tspan></text>
+<rect x="720" y="160" width="240" height="95" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
+<text x="840.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="840.0" dy="0">PPAP</tspan><tspan x="840.0" dy="27.5">量產前核准</tspan></text>
+<rect x="1030" y="160" width="240" height="95" rx="18" fill="#b2f2bb" stroke="#1f1f1f" stroke-width="3"/>
+<text x="1150.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1150.0" dy="0">量產出貨</tspan><tspan x="1150.0" dy="27.5">營收驗證</tspan></text>
+<rect x="1320" y="160" width="190" height="95" rx="18" fill="#b2f2bb" stroke="#1f1f1f" stroke-width="3"/>
+<text x="1415.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1415.0" dy="0">長期可靠度</tspan><tspan x="1415.0" dy="27.5">形成壁壘</tspan></text>
+<rect x="130" y="390" width="250" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
+<text x="255.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="255.0" dy="0">BMS</tspan><tspan x="255.0" dy="27.5">感測 / 保護</tspan></text>
+<rect x="485" y="390" width="260" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
+<text x="615.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="615.0" dy="0">OBC / DC-DC</tspan><tspan x="615.0" dy="27.5">電容 / 電感</tspan></text>
+<rect x="870" y="390" width="250" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
+<text x="995.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="995.0" dy="0">Inverter</tspan><tspan x="995.0" dy="27.5">薄膜 / 電阻</tspan></text>
+<rect x="1220" y="390" width="220" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
+<text x="1330.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1330.0" dy="0">ADAS</tspan><tspan x="1330.0" dy="27.5">RF / EMI</tspan></text>
+<line x1="330" y1="207.5" x2="385" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="655" y1="207.5" x2="710" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="970" y1="207.5" x2="1020" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="1280" y1="207.5" x2="1310" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="200.0" y1="265" x2="255.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="520.0" y1="265" x2="615.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="1150.0" y1="265" x2="995.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="1415.0" y1="265" x2="1330.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="290" y="640" width="970" height="85" rx="18" fill="#ffc9c9" stroke="#1f1f1f" stroke-width="3"/>
+<text x="775.0" y="682.5" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="775.0" dy="0">紅旗：只說車規認證，卻沒有 AVL / PPAP / 量產 / 營收占比。</tspan></text>
 </svg>

@@ -1,33 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="650" viewBox="0 0 1180 650">
+<svg xmlns="http://www.w3.org/2000/svg" width="1550" height="980" viewBox="0 0 1550 980">
 <rect width="100%" height="100%" fill="white"/>
-<text x="40" y="65" font-family="Microsoft JhengHei, sans-serif" font-size="42" font-weight="700" fill="#111">圖四：台灣公司研究追蹤地圖</text>
-<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
-<line x1="210" y1="255" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="580" y1="255" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="950" y1="255" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="390" y1="465" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="760" y1="465" x2="640" y2="505" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<rect x="60" y="130" width="300" height="120" rx="18" fill="#d0bfff" stroke="#1e1e1e" stroke-width="3"/>
-<text x="210.0" y="158.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">國巨</text>
-<text x="210.0" y="190.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">平台型/AI品類拆分</text>
-<text x="210.0" y="222.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：商譽槓桿</text>
-<rect x="430" y="130" width="300" height="120" rx="18" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="3"/>
-<text x="580.0" y="158.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">華新科</text>
-<text x="580.0" y="190.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">MLCC/電阻循環</text>
-<text x="580.0" y="222.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：標準品壓力</text>
-<rect x="800" y="130" width="300" height="120" rx="18" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="3"/>
-<text x="950.0" y="158.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">禾伸堂</text>
-<text x="950.0" y="190.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">製造+代理</text>
-<text x="950.0" y="222.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：庫存應收</text>
-<rect x="240" y="340" width="300" height="120" rx="18" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="3"/>
-<text x="390.0" y="368.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">大毅</text>
-<text x="390.0" y="400.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">電阻專業</text>
-<text x="390.0" y="432.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：厚膜商品化</text>
-<rect x="610" y="340" width="300" height="120" rx="18" fill="#c3fae8" stroke="#1e1e1e" stroke-width="3"/>
-<text x="760.0" y="368.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">奇力新/美桓</text>
-<text x="760.0" y="400.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">電感磁性</text>
-<text x="760.0" y="432.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">紅旗：中國競爭</text>
-<rect x="445" y="500" width="390" height="80" rx="18" fill="#fff3bf" stroke="#1e1e1e" stroke-width="3"/>
-<text x="640.0" y="524.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">共同檢查：品類→規格→客戶階段→營收占比→毛</text>
-<text x="640.0" y="556.0" text-anchor="middle" dominant-baseline="middle" font-family="Microsoft JhengHei, sans-serif" font-size="24" fill="#1e1e1e">利率→紅旗</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+<text x="50" y="75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="40" font-weight="700" fill="#1f1f1f" text-anchor="start"><tspan x="50" dy="0">圖四：台灣公司研究追蹤地圖</tspan></text>
+<rect x="70" y="150" width="330" height="125" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
+<text x="235.0" y="185.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="235.0" dy="0">國巨</tspan><tspan x="235.0" dy="27.5">平台型 / AI品類拆分</tspan><tspan x="235.0" dy="27.5">紅旗：商譽槓桿</tspan></text>
+<rect x="610" y="150" width="330" height="125" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
+<text x="775.0" y="185.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="775.0" dy="0">華新科</tspan><tspan x="775.0" dy="27.5">MLCC / 電阻循環</tspan><tspan x="775.0" dy="27.5">紅旗：標準品壓力</tspan></text>
+<rect x="1150" y="150" width="330" height="125" rx="18" fill="#ffd8a8" stroke="#1f1f1f" stroke-width="3"/>
+<text x="1315.0" y="185.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1315.0" dy="0">禾伸堂</tspan><tspan x="1315.0" dy="27.5">製造 + 代理</tspan><tspan x="1315.0" dy="27.5">紅旗：庫存 / 應收</tspan></text>
+<rect x="70" y="455" width="330" height="125" rx="18" fill="#b2f2bb" stroke="#1f1f1f" stroke-width="3"/>
+<text x="235.0" y="490.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="235.0" dy="0">大毅</tspan><tspan x="235.0" dy="27.5">電阻專業</tspan><tspan x="235.0" dy="27.5">紅旗：厚膜商品化</tspan></text>
+<rect x="1150" y="455" width="330" height="125" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
+<text x="1315.0" y="490.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1315.0" dy="0">奇力新 / 美桓</tspan><tspan x="1315.0" dy="27.5">電感磁性</tspan><tspan x="1315.0" dy="27.5">紅旗：中國競爭</tspan></text>
+<rect x="460" y="720" width="630" height="130" rx="18" fill="#fff3bf" stroke="#1f1f1f" stroke-width="3"/>
+<text x="775.0" y="757.5" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="775.0" dy="0">共同檢查流程</tspan><tspan x="775.0" dy="27.5">品類 → 規格 → 客戶階段 → 營收占比</tspan><tspan x="775.0" dy="27.5">→ 毛利率 → 紅旗</tspan></text>
+<line x1="235" y1="655" x2="1315" y2="655" stroke="#333" stroke-width="3"/>
+<line x1="235" y1="283" x2="235" y2="340" stroke="#333" stroke-width="3"/>
+<line x1="235" y1="340" x2="500" y2="340" stroke="#333" stroke-width="3"/>
+<line x1="500" y1="340" x2="500" y2="655" stroke="#333" stroke-width="3"/>
+<line x1="500" y1="631" x2="500" y2="653" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="775" y1="283" x2="775" y2="655" stroke="#333" stroke-width="3"/>
+<line x1="775" y1="631" x2="775" y2="653" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="1315" y1="283" x2="1315" y2="340" stroke="#333" stroke-width="3"/>
+<line x1="1315" y1="340" x2="1050" y2="340" stroke="#333" stroke-width="3"/>
+<line x1="1050" y1="340" x2="1050" y2="655" stroke="#333" stroke-width="3"/>
+<line x1="1050" y1="631" x2="1050" y2="653" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="235" y1="588" x2="235" y2="655" stroke="#333" stroke-width="3"/>
+<line x1="235" y1="631" x2="235" y2="653" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="1315" y1="588" x2="1315" y2="655" stroke="#333" stroke-width="3"/>
+<line x1="1315" y1="631" x2="1315" y2="653" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="775.0" y1="663" x2="775.0" y2="710" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
 </svg>
