@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="分享我目前用來讓 Claude 維護 Obsidian / LLM Wiki 的 vault-specific CLAUDE.md 原文。">
+        <meta name="description" content="從需求、電氣架構、3D routing、BOM、製造工法到品質驗證，整理線束工程的實作方法與導入建議。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/my-obsidian-vault-claude-md/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/engineering/harness-engineering-implementation-guide/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>我的 Obsidian Vault CLAUDE.md 原文 - Shane's Knowledge Base</title>
+        <title>Harness Engineering 線束工程實作指南 - Shane's Knowledge Base</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#obsidian-vault-claudemd" class="md-skip">
+        <a href="#harness-engineering" class="md-skip">
           跳轉到
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              我的 Obsidian Vault CLAUDE.md 原文
+              Harness Engineering 線束工程實作指南
             
           </span>
         </div>
@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -329,7 +329,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../engineering/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -500,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -635,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../engineering/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -860,6 +860,285 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句話結論
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harness-engineering_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什麼是 Harness Engineering？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心交付物
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推薦實作流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推薦實作流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 需求定義：先建立「線束需求表」
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-from-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 電氣架構：建立 from-to 與保護策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 線材、端子與接插件選型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-3d-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 3D Routing：把線束放進真實空間
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-formboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 製造工程：從設計轉成 formboard 與工法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 品質驗證：把標準變成檢查表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 變更控制：避免圖面、BOM、現場版本不同步
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具選擇建議
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具選擇建議">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小型團隊 / 初期專案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中大型產品 / 多版本產品
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        導入路線圖
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="導入路線圖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 階段：盤點現況
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 階段：建立資料基準
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 階段：導入設計審查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 階段：半自動化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-plm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 階段：模型化與 PLM 整合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實作檢查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我的建議
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        參考來源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -875,199 +1154,197 @@
 
 
 
-<h1 id="obsidian-vault-claudemd">我的 Obsidian Vault CLAUDE.md 原文<a class="headerlink" href="#obsidian-vault-claudemd" title="Permanent link">&para;</a></h1>
-<p>這一頁是我目前 Obsidian vault 根目錄 <code>CLAUDE.md</code> 的公開版本，作為「<a href="../claude-md-obsidian-llm-wiki-maintainer/">用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者</a>」的附錄。</p>
+<h1 id="harness-engineering">Harness Engineering 線束工程實作指南<a class="headerlink" href="#harness-engineering" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>本文將 <strong>harness engineering</strong> 解讀為 <strong>wire / wiring harness engineering（線束工程）</strong>：把電氣連接需求轉成可製造、可安裝、可檢驗、可維修的線束產品與工程資料。</p>
+</blockquote>
+<h2 id="_1">一句話結論<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>線束工程的重點不是「把線接起來」，而是建立一套從需求、電氣架構、3D 路由、線材/端子選型、製造圖、BOM、測試到變更控制都能串起來的資料流程。若沒有這套流程，問題通常會出現在量產後：線長不準、端子錯配、干涉、壓接不良、版本混亂、維修困難與成本失控。</p>
+<hr />
+<h2 id="harness-engineering_1">什麼是 Harness Engineering？<a class="headerlink" href="#harness-engineering_1" title="Permanent link">&para;</a></h2>
+<p>線束工程是跨領域工程，介於電氣設計、機構設計、製造工程與品質工程之間。</p>
+<p>它要回答幾個問題：</p>
 <ul>
-<li>GitHub Pages 閱讀版：本頁</li>
-<li>原始文字下載版：<a href="../../assets/files/my-obsidian-vault-claude-md.md.txt">my-obsidian-vault-claude-md.md.txt</a></li>
+<li>哪些電源、訊號、通訊線路需要連接？</li>
+<li>每條線需要多大電流、電壓、溫度、抗干擾與機械保護？</li>
+<li>線要走哪條路徑，如何避開熱源、銳邊、運動件與 EMI 風險？</li>
+<li>要用什麼接插件、端子、線材、保護套管、固定件與標籤？</li>
+<li>製造現場如何切線、剝線、壓接、組裝、包覆、檢驗？</li>
+<li>需求變更後，如何同步圖面、BOM、測試與現場工法？</li>
 </ul>
 <hr />
-<h1 id="llm-wiki-claude">LLM Wiki — 操作說明（給 Claude 看的）<a class="headerlink" href="#llm-wiki-claude" title="Permanent link">&para;</a></h1>
-<p>這是一個由 LLM 維護的知識庫，概念來自 Andrej Karpathy 的 LLM Wiki 設計。
-你（Claude）是這個 wiki 的<strong>唯一維護者</strong>。每次操作都要遵守以下規則。</p>
-<hr />
-<h2 id="coding-guidelines">本檔定位與 coding guidelines 分流<a class="headerlink" href="#coding-guidelines" title="Permanent link">&para;</a></h2>
-<p>本檔只管理 <strong>D:\知識庫 Obsidian Vault</strong> 的操作規則：資料夾權限、Wiki ingest/query/lint、知識整理、MkDocs/GitHub Pages 發布條件。</p>
-<p>Andrej Karpathy / multica-ai 的 coding 行為準則已獨立保存於：</p>
+<h2 id="_2">核心交付物<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>一個成熟的線束工程流程，至少應交付以下資料：</p>
 <ul>
-<li><code>_system/spec/claude-coding-guidelines.md</code></li>
-<li>原始來源：<code>https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md</code></li>
-</ul>
-<p>使用規則：</p>
-<ul>
-<li>維護本知識庫、整理筆記、發布 docs 時，<strong>優先遵守本檔</strong>。</li>
-<li>進行 coding 任務、修改 scripts、或整理其他 coding repo 的 <code>CLAUDE.md</code> 時，<strong>引用 <code>_system/spec/claude-coding-guidelines.md</code></strong>。</li>
-<li>不要把 coding-first 規則直接混入本檔主體，避免與 vault-specific 權限規則混淆。</li>
+<li><strong>電氣連接資料</strong>：from-to list、接插件 pin-out、線號、線徑、顏色、訊號名稱。</li>
+<li><strong>機構路由資料</strong>：3D routing、分支點、固定點、彎曲半徑、與周邊零件間隙。</li>
+<li><strong>材料與 BOM</strong>：線材、端子、接插件、seal、clip、tube、tape、label、保護套管。</li>
+<li><strong>製造資料</strong>：formboard / nailboard、切線長度、剝線長度、壓接規格、包覆方式、標籤位置。</li>
+<li><strong>品質驗證資料</strong>：導通、短路、耐壓、壓接拉力、外觀、尺寸、標籤與追溯碼。</li>
+<li><strong>變更紀錄</strong>：版本、ECR / ECO、變更原因、影響範圍、舊版處理方式。</li>
 </ul>
 <hr />
-<h2 id="_1">資料夾結構<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>D:\知識庫\
-├── 📥 Sources/     ← 原始資料（文章、PDF、筆記），不要修改
-├── 📚 Wiki/        ← 你維護的知識頁面（markdown）
-├── 📝 Notes/       ← 使用者自己的筆記，你不要動
-└── CLAUDE.md       ← 本文件（你的操作手冊）
-</code></pre></div>
+<h2 id="_3">推薦實作流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 需求定義：先建立「線束需求表」<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>不要一開始就畫線。先把需求整理成表格：</p>
+<ul>
+<li>系統 / 子系統</li>
+<li>電源、接地、訊號、通訊類型</li>
+<li>電流、電壓、功率、保險絲需求</li>
+<li>使用環境：溫度、水氣、油污、震動、彎折、戶外 / 車內 / 機箱內</li>
+<li>法規或客戶規範</li>
+<li>可維修性與裝配順序</li>
+</ul>
+<p><strong>建議</strong>：第一版可用 spreadsheet，但每一列都要有唯一 ID。後續所有 schematic、BOM、測試項目都要能追回這個 ID。</p>
+<h3 id="2-from-to">2. 電氣架構：建立 from-to 與保護策略<a class="headerlink" href="#2-from-to" title="Permanent link">&para;</a></h3>
+<p>這一步要把功能需求轉成電氣連接：</p>
+<ul>
+<li>定義 ECU / 控制器 / 感測器 / 致動器 / 電源模組。</li>
+<li>建立 connector pin-out。</li>
+<li>建立 from-to list。</li>
+<li>確認電源分配、保險絲、接地點與 shield drain。</li>
+<li>區分高電流、低電平訊號、通訊線與高 EMI 風險線路。</li>
+</ul>
+<p><strong>常見錯誤</strong>：只做點對點連線，沒有同步定義保護、接地、保險絲與 EMI 策略，後面很容易返工。</p>
+<h3 id="3">3. 線材、端子與接插件選型<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>選型不只看電流，還要看環境與製造能力：</p>
+<ul>
+<li>線徑：電流、壓降、溫升、束線降額。</li>
+<li>絕緣材料：PVC、XLPE、Teflon 等，依溫度、柔軟度與成本選擇。</li>
+<li>端子：壓接範圍、鍍層、拉力要求、工具相容性。</li>
+<li>接插件：防水等級、lock、CPA/TPA、pin 密度、維修便利性。</li>
+<li>保護材料：corrugated tube、braid、heat shrink、tape、grommet。</li>
+</ul>
+<p><strong>建議</strong>：建立 approved parts list。不要每個專案重新選料，否則 BOM、採購與品質管理會失控。</p>
+<h3 id="4-3d-routing">4. 3D Routing：把線束放進真實空間<a class="headerlink" href="#4-3d-routing" title="Permanent link">&para;</a></h3>
+<p>3D routing 的目標不是漂亮，而是確認能裝、能用、能修：</p>
+<ul>
+<li>避開熱源、銳邊與運動件。</li>
+<li>保留裝配公差與維修空間。</li>
+<li>控制彎曲半徑與拉力。</li>
+<li>確認固定點、clip、grommet 與穿孔位置。</li>
+<li>確認線束不會和鈑金、機構件、管路干涉。</li>
+</ul>
+<p><strong>建議</strong>：電氣工程師與機構工程師要共同 review。線束通常是系統最後才被放進去，但最容易被所有部件擠壓。</p>
+<h3 id="5-formboard">5. 製造工程：從設計轉成 formboard 與工法<a class="headerlink" href="#5-formboard" title="Permanent link">&para;</a></h3>
+<p>量產需要的不只是設計圖，而是製造可執行資料：</p>
+<ul>
+<li>formboard / nailboard 展開圖</li>
+<li>分支點、固定點與標籤位置</li>
+<li>切線長度與剝線長度</li>
+<li>壓接端子與壓接工具</li>
+<li>熱縮、包膠、套管、綁扎規格</li>
+<li>製程檢查點</li>
+</ul>
+<p><strong>建議</strong>：設計端要及早和製造端 review。若設計圖到現場才發現無法壓接、無法套管、無法裝配，返工成本會很高。</p>
+<h3 id="6">6. 品質驗證：把標準變成檢查表<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>線束品質不應只靠終檢，應該分成製程內檢查與出貨檢查：</p>
+<ul>
+<li>導通與短路測試</li>
+<li>耐壓 / 絕緣測試（依產品需求）</li>
+<li>壓接高度、壓接外觀、拉力測試</li>
+<li>connector pin 位置與鎖扣確認</li>
+<li>尺寸、分支長度、標籤與外觀</li>
+<li>防水件、seal、grommet 安裝狀態</li>
+</ul>
+<p>IPC/WHMA-A-620 常被用作 cable / wire harness assembly 的驗收與品質語言；航太或高可靠度場景則可參考 NASA 的 cable/harness workmanship 標準思路。</p>
+<h3 id="7-bom">7. 變更控制：避免圖面、BOM、現場版本不同步<a class="headerlink" href="#7-bom" title="Permanent link">&para;</a></h3>
+<p>線束最怕「圖改了，但 BOM 沒改」、「BOM 改了，但 formboard 沒改」、「現場照舊版做」。因此需要：</p>
+<ul>
+<li>每條線、每個接插件、每個材料都有唯一料號或 ID。</li>
+<li>每次變更都記錄原因、影響範圍與生效版本。</li>
+<li>設計、採購、製造、測試使用同一套版本。</li>
+<li>舊版庫存如何處理要明確。</li>
+</ul>
 <hr />
-<h2 id="wiki">Wiki 頁面類型<a class="headerlink" href="#wiki" title="Permanent link">&para;</a></h2>
-<p>每個 Wiki 頁面屬於以下類型之一，用 frontmatter 標記：</p>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">concept</span><span class="w">      </span><span class="c1"># 抽象概念、方法論、框架</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity</span><span class="w">       </span><span class="c1"># 具體事物：人、公司、工具、資料集</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">synthesis</span><span class="w">    </span><span class="c1"># 跨來源的綜合分析</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timeline</span><span class="w">     </span><span class="c1"># 事件時序整理</span>
-<span class="nn">---</span>
-</code></pre></div>
-<p>頁面命名規則：使用<strong>繁體中文</strong>，簡短清楚。例：<code>注意力機制.md</code>、<code>Andrej Karpathy.md</code>。</p>
-<hr />
-<h2 id="1ingest">操作 1：Ingest（消化新資料）<a class="headerlink" href="#1ingest" title="Permanent link">&para;</a></h2>
-<p>當使用者說「幫我消化這篇」或把檔案放進 <code>📥 Sources/</code> 時：</p>
+<h2 id="_4">工具選擇建議<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">小型團隊 / 初期專案<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>適合用：spreadsheet + 2D CAD + 3D CAD + 明確命名規則。</p>
+<p>最低要求：</p>
+<ul>
+<li>from-to list 有唯一 ID。</li>
+<li>BOM、線表、測試表能互相對應。</li>
+<li>每次改版有版本號與變更紀錄。</li>
+</ul>
+<h3 id="_6">中大型產品 / 多版本產品<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>建議導入模型化 E/E 系統設計工具，例如 Siemens Capital、Zuken E3.series、CATIA Electrical 等級的解決方案。重點不是品牌，而是要讓 schematic、3D routing、BOM、formboard 與測試資料從同一份資料模型輸出。</p>
+<p>導入前先問三個問題：</p>
 <ol>
-<li>閱讀來源文件</li>
-<li>找出其中的<strong>實體、概念、主張、數據</strong></li>
-<li>對每個重要項目：</li>
-<li>若 <code>📚 Wiki/</code> 已有對應頁面 → <strong>更新</strong>該頁面（加入新資訊，保留舊資訊）</li>
-<li>若沒有 → <strong>新建</strong>頁面</li>
-<li>在每個更新/新建的頁面底部加上來源標記：
-   <div class="highlight"><pre><span></span><code>**來源**：[文件名稱]（消化於 YYYY-MM-DD）
-</code></pre></div></li>
-<li>更新 <code>📚 Wiki/_Index.md</code> 的頁面清單</li>
+<li>現在最大的痛點是設計錯誤、版本混亂、製造效率，還是報價速度？</li>
+<li>是否已有穩定的零件庫、接插件庫與命名規則？</li>
+<li>工程、製造、採購與品質是否願意共用同一份資料源？</li>
 </ol>
-<p><strong>黃金原則</strong>：Wiki 是累積的。絕不刪除舊資訊，只增加與修正。</p>
+<p>如果答案是否定的，先導入流程與資料規範，再導入工具；否則工具只會把混亂數位化。</p>
 <hr />
-<h2 id="2query">操作 2：Query（回答問題）<a class="headerlink" href="#2query" title="Permanent link">&para;</a></h2>
-<p>當使用者問問題時：</p>
+<h2 id="_7">導入路線圖<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="0">第 0 階段：盤點現況<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<ul>
+<li>蒐集現有線表、BOM、圖面、測試表與變更紀錄。</li>
+<li>找出最常出錯的 10 類問題。</li>
+<li>統一命名規則：connector、wire、terminal、splice、branch、bundle。</li>
+</ul>
+<h3 id="1_1">第 1 階段：建立資料基準<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>建立 approved parts list。</li>
+<li>建立標準線表欄位。</li>
+<li>建立 connector pin-out 模板。</li>
+<li>建立基本設計規則：線徑、顏色、彎曲半徑、固定距離、保護材料。</li>
+</ul>
+<h3 id="2">第 2 階段：導入設計審查<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>每次設計 release 前至少檢查：</p>
+<ul>
+<li>電流 / 線徑 / 保險絲是否一致。</li>
+<li>接插件與端子是否相容。</li>
+<li>routing 是否干涉或過度彎折。</li>
+<li>BOM 是否與圖面一致。</li>
+<li>formboard 是否能製造。</li>
+<li>測試表是否涵蓋所有線路。</li>
+</ul>
+<h3 id="3_1">第 3 階段：半自動化<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>從 from-to list 自動產生測試清單。</li>
+<li>從 BOM 自動檢查未核准料號。</li>
+<li>從線表自動檢查缺失欄位。</li>
+<li>用版本號把設計、BOM、製造與測試綁定。</li>
+</ul>
+<h3 id="4-plm">第 4 階段：模型化與 PLM 整合<a class="headerlink" href="#4-plm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>schematic、3D routing、formboard、BOM、測試資料共用資料模型。</li>
+<li>與 PLM / ERP / MES 串接。</li>
+<li>建立變更影響分析。</li>
+<li>建立製造現場的 digital work instruction。</li>
+</ul>
+<hr />
+<h2 id="_8">實作檢查表<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] 每條線是否有唯一 ID？</li>
+<li>[ ] 每個 connector pin 是否有訊號名稱、方向與端點？</li>
+<li>[ ] 線徑是否經過電流、壓降與溫升檢查？</li>
+<li>[ ] fuse / breaker 是否能保護線材？</li>
+<li>[ ] routing 是否避開熱源、銳邊與運動件？</li>
+<li>[ ] 彎曲半徑與固定距離是否符合規範？</li>
+<li>[ ] 端子、線材與壓接工具是否相容？</li>
+<li>[ ] BOM、線表、圖面與測試表是否同版本？</li>
+<li>[ ] 是否有壓接拉力、導通、短路與外觀檢查？</li>
+<li>[ ] 變更後是否同步更新 formboard 與現場工法？</li>
+</ul>
+<hr />
+<h2 id="_9">我的建議<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>如果你要實際導入，我會建議不要一開始追求完整工具平台，而是先做三件事：</p>
 <ol>
-<li>讀取 <code>📚 Wiki/_Index.md</code> 確認有哪些頁面</li>
-<li>讀取相關頁面</li>
-<li>從 wiki 內容合成答案</li>
-<li>若分析過程中有新洞見，可主動新增一個 <code>type: synthesis</code> 頁面</li>
+<li><strong>建立標準資料表</strong>：需求表、from-to list、BOM、測試表先統一欄位與 ID。</li>
+<li><strong>建立設計規則</strong>：線徑、端子、接插件、保護材料、routing、檢驗標準先文件化。</li>
+<li><strong>建立 release gate</strong>：每次 release 前用 checklist 檢查電氣、機構、製造、品質與版本一致性。</li>
 </ol>
+<p>等這三件事穩定後，再導入模型化工具。否則導入工具只會加速產生更多不一致資料。</p>
 <hr />
-<h2 id="3lint">操作 3：Lint（健康檢查）<a class="headerlink" href="#3lint" title="Permanent link">&para;</a></h2>
-<p>當使用者說「幫我做 lint」時：</p>
-<ol>
-<li>列出所有 Wiki 頁面</li>
-<li>找出：</li>
-<li>互相矛盾的主張</li>
-<li>過時資訊（有明確日期可判斷）</li>
-<li>孤兒頁面（沒有被其他頁面連結）</li>
-<li>明顯的資訊缺口</li>
-<li>產出報告，逐條列出問題與建議修正方式</li>
-</ol>
-<hr />
-<h2 id="_2">格式規範<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_10">參考來源<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <ul>
-<li>內部連結用 Obsidian 語法：<code>[[頁面名稱]]</code></li>
-<li>每個頁面最上方必須有 frontmatter（type 欄位）</li>
-<li>用 <code>## 小節標題</code> 組織內容，不要用超過三層標題</li>
-<li>數字、來源、日期要精確，不要模糊帶過</li>
+<li>NASA Technical Standards System：NASA-STD-8739.4, <em>Workmanship Standard for Crimping, Interconnecting Cables, Harnesses, and Wiring</em>。https://standards.nasa.gov/standard/nasa/nasa-std-87394</li>
+<li>IPC certification page：IPC/WHMA-A-620, <em>Requirements and Acceptance for Cable and Wire Harness Assemblies</em> 的說明。https://www.electronics.org/ipc-certifications</li>
+<li>Siemens Capital E/E systems：E/E systems development and digital twin context。https://www.siemens.com/en-us/products/capital/</li>
 </ul>
-<hr />
-<h2 id="_3">禁止事項<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li>不得修改 <code>📥 Sources/</code> 內的任何檔案</li>
-<li>不得修改 <code>📝 Notes/</code> 內的任何檔案</li>
-<li>不得在 wiki 頁面中捏造資訊——若不確定，寫「待確認」</li>
-<li>不得刪除有來源標記的資訊，只能標注「已更新」或「待驗證」</li>
-</ul>
-<hr />
-<h2 id="obsidian-github-mkdocs">新知識工作流：Obsidian → GitHub → MkDocs<a class="headerlink" href="#obsidian-github-mkdocs" title="Permanent link">&para;</a></h2>
-<p>本 Vault 的長期目標是：</p>
-<div class="highlight"><pre><span></span><code>Claude / Codex / GPT
-        ↓
-Obsidian Vault（Single Source of Truth）
-        ↓
-GitHub Private Repo（版本控制 / 備份 / 專案管理）
-        ↓
-MkDocs（公開知識網站）
-        ↓
-GitHub Pages
-</code></pre></div>
-<h3 id="_4">目錄角色<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>Inbox/</code>：所有新知識、AI 研究結果、未整理內容的入口。</li>
-<li><code>Knowledge/</code>：整理完成後的正式知識庫。</li>
-<li><code>Projects/</code>：專案型文件與研究結果。</li>
-<li><code>docs/</code>：MkDocs 公開網站來源，只放可公開、已整理完成的內容。</li>
-<li><code>📥 Sources/</code>：原始資料，不得任意修改。</li>
-<li><code>📚 Wiki/</code>：既有 LLM 維護 wiki，可逐步遷移或與 <code>Knowledge/</code> 並存。</li>
-<li><code>📝 Notes/</code>：使用者私人筆記，不得修改。</li>
-</ul>
-<h3 id="ai">AI 產出規則<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h3>
-<p>當使用者提出問題時：</p>
-<ol>
-<li>先回答問題。</li>
-<li>再產生可保存版本。</li>
-<li>轉換成 Obsidian Markdown 格式。</li>
-<li>新內容預設先放 <code>Inbox/</code>，整理完成後再移至 <code>Knowledge/</code>。</li>
-</ol>
-<h3 id="_5">筆記標準格式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>所有正式知識筆記建議包含：</p>
-<div class="highlight"><pre><span></span><code>---
-tags:
-<span class="w">  </span><span class="k">-</span><span class="w"> </span>Topic
-created: YYYY-MM-DD
-source: Claude/Codex/GPT/Hermes
-status: draft|complete
-<span class="gu">publish: false</span>
-<span class="gu">---</span>
-
-<span class="gh"># 標題</span>
-
-<span class="gu">## 摘要</span>
-
-<span class="gu">## 問題背景</span>
-
-<span class="gu">## 核心概念</span>
-
-<span class="gu">## 實作範例</span>
-
-<span class="gu">## 我的理解</span>
-
-<span class="gu">## 延伸閱讀</span>
-</code></pre></div>
-<h3 id="mkdocs">發布至 MkDocs 的條件<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h3>
-<p>只有符合以下條件才能移入 <code>docs/</code>：</p>
-<ul>
-<li>已整理完成</li>
-<li>有摘要</li>
-<li>有案例或實作範例</li>
-<li>有自己的理解</li>
-<li>非草稿</li>
-<li>不含私人資訊、敏感資料或不適合公開的內容</li>
-</ul>
-<h3 id="_6">分類規則<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>正式知識分類在 <code>Knowledge/</code>：</p>
-<ul>
-<li><code>AI/</code></li>
-<li><code>DataScience/</code></li>
-<li><code>MachineLearning/</code></li>
-<li><code>SQL/</code></li>
-<li><code>Python/</code></li>
-<li><code>Statistics/</code></li>
-<li><code>Trading/</code></li>
-<li><code>Career/</code></li>
-<li><code>Projects/</code></li>
-<li><code>Notes/</code></li>
-</ul>
-<p>MkDocs 公開網站分類在 <code>docs/</code>：</p>
-<ul>
-<li><code>ai/</code></li>
-<li><code>sql/</code></li>
-<li><code>python/</code></li>
-<li><code>statistics/</code></li>
-<li><code>trading/</code></li>
-<li><code>data-science/</code></li>
-<li><code>machine-learning/</code></li>
-<li><code>projects/</code></li>
-<li><code>career/</code></li>
-</ul>
-<h3 id="git-github">Git / GitHub 規則<a class="headerlink" href="#git-github" title="Permanent link">&para;</a></h3>
-<ul>
-<li>GitHub private repo 用於版本控制與備份。</li>
-<li>不要把大型原始資料、private data、API keys、token、<code>.env</code>、資料庫檔放進 Git。</li>
-<li>GitHub Pages 只發布 <code>docs/</code> 經 MkDocs 產生的內容。</li>
-</ul>
+<p><em>本文為工程方法整理，不替代客戶規範、產業標準、正式安全認證或公司內部工程規範。</em></p>
 
 
 
@@ -1090,7 +1367,7 @@ status: draft|complete
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月28日 02:55:32 UTC">2026年5月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 08:12:16 UTC">2026年6月6日</span>
   </span>
 
     
@@ -1100,7 +1377,7 @@ status: draft|complete
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月26日 02:15:25 UTC">2026年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 08:12:16 UTC">2026年6月6日</span>
   </span>
 
     
