@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="被動元件週期五階段、景氣分數模型、月度儀表板與法說會追蹤問題。">
+        <meta name="description" content="被動元件週期五階段、景氣分數模型、Dashboard v2、警示燈與估值框架。">
       
       
       
@@ -936,6 +936,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dashboard-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        景氣 Dashboard v2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="景氣 Dashboard v2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心指標
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        輔助指標
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        警示燈
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        估值框架
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1038,6 +1099,61 @@
 <li>Capex 投向低階標準品還是車用/工控/AI 高階產能？</li>
 <li>是否仍有存貨跌價損失？</li>
 </ul>
+<hr />
+<h2 id="dashboard-v2">景氣 Dashboard v2<a class="headerlink" href="#dashboard-v2" title="Permanent link">&para;</a></h2>
+<p>第二輪深化研究後，原本的景氣分數模型應升級為「核心指標 + 輔助指標 + 警示燈」。權重仍屬研究假設，需用歷史資料回測與實務經驗逐步校準。</p>
+<h3 id="_10">核心指標<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>月營收 YoY / MoM 三個月趨勢</strong>：避免單月工作天數與急單干擾。</li>
+<li><strong>ASP / spot price</strong>：區分現貨價、代理報價、合約價；不可混用。</li>
+<li><strong>Lead time</strong>：只可按品類與規格追蹤，例如高容 MLCC、車規 MLCC、標準厚膜電阻。</li>
+<li><strong>稼動率</strong>：需搭配毛利率與庫存判讀；公司自報需交叉驗證。</li>
+<li><strong>DSI / 存貨天數</strong>：判斷是否仍在去庫存或已進入補庫。</li>
+<li><strong>DSO / 應收帳款週轉</strong>：避免營收成長來自放寬授信或通路壓貨。</li>
+<li><strong>毛利率</strong>：拆 ASP、稼動率、產品 mix、匯率與一次性因素。</li>
+<li><strong>Capex</strong>：判斷是否擴產過熱或轉向高階產能。</li>
+</ul>
+<h3 id="_11">輔助指標<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>日系同業（Murata、TDK、Taiyo Yuden）法說語氣。</li>
+<li>中國同業（風華、三環、順絡）報價與擴產動態。</li>
+<li>AI GPU / AI server ODM 出貨節奏。</li>
+<li>NEV 月銷量與車用電子子系統需求。</li>
+<li>PMI、工控/能源/通訊基礎設施需求。</li>
+<li>通路商與代理商庫存週數。</li>
+</ul>
+<h3 id="_12">警示燈<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>紅燈：過熱 / 高檔反轉風險</strong></p>
+<ul>
+<li>Lead time 拉長 + spot premium 擴大 + Capex 擴張。</li>
+<li>月營收強但 DSI 同步上升。</li>
+<li>法說語氣過度樂觀且市場用高峰 EPS 評價低 P/E。</li>
+</ul>
+<p><strong>黃燈：復甦確認中</strong></p>
+<ul>
+<li>月營收連續 2–3 個月 MoM 改善。</li>
+<li>ASP 止跌或部分規格回升。</li>
+<li>稼動率回升但 DSI 未惡化。</li>
+<li>毛利率 QoQ 改善但仍低於歷史中位數。</li>
+</ul>
+<p><strong>綠燈：築底 / 左側觀察</strong></p>
+<ul>
+<li>月營收跌幅收斂。</li>
+<li>DSI 開始下降。</li>
+<li>法說從保守轉中性。</li>
+<li>估值以 P/B、EV/EBITDA、正常化 EPS 判斷，而非高峰/低谷 EPS。</li>
+</ul>
+<h2 id="_13">估值框架<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>被動元件是週期股，不能只用單一 P/E 判斷便宜或昂貴。</p>
+<ul>
+<li><strong>景氣底部</strong>：看 P/B、EV/EBITDA、正常化 EPS；避免被低谷 EPS 造成的高 P/E 嚇出場。</li>
+<li><strong>復甦期</strong>：看毛利率修復彈性、稼動率回升與產品 mix。</li>
+<li><strong>過熱期</strong>：避免用高峰 EPS 算出低 P/E 後追高。</li>
+<li><strong>國巨</strong>：需額外看淨負債、商譽、併購整合與平台化產品 mix。</li>
+<li><strong>華新科</strong>：較接近 MLCC / 電阻景氣純度標的。</li>
+<li><strong>禾伸堂</strong>：必須拆代理與製造，不能直接與純製造廠比較。</li>
+<li><strong>大毅</strong>：關鍵在高階電阻占比，而不是標準厚膜電阻出貨量。</li>
+</ul>
 <p><strong>來源</strong>：Hermes + Claude Code 協作被動元件產業研究（整理於 2026-06-06）</p>
 
 
@@ -1061,7 +1177,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 05:25:41 UTC">2026年6月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 06:19:29 UTC">2026年6月6日</span>
   </span>
 
     

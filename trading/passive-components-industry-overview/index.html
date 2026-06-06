@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="券商研究員風格的被動元件總覽：MLCC、晶片電阻、電感、AI/車用/工控需求、景氣循環與資料來源。">
+        <meta name="description" content="券商研究員風格的被動元件總覽：MLCC、晶片電阻、電感、AI/車用/工控、景氣循環與資料來源。">
       
       
       
@@ -1228,6 +1228,45 @@ EV 全球銷量               各研究機構               每月
 <li>Samsung Electro-Mechanics IR：待確認正確 URL</li>
 <li>Vishay IR：本次測試 timeout，需重試</li>
 </ul>
+<hr />
+<h2 id="_22">深化研究：從題材到驗證<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>第二輪深化研究與雙重審稿後，對本產業研究新增一條核心原則：<strong>AI server、EV、車用都是需求方向，不是投資結論</strong>。任何「受益 AI / 受益車用」敘事都必須落到以下六個可驗證欄位：</p>
+<div class="highlight"><pre><span></span><code>品類：MLCC / 鉭容 / 功率電感 / 電流感測電阻 / 其他
+規格：高容、小型、低 ESL/ESR、高 Isat、低 DCR、車規等
+供應鏈階段：未確認 / 送樣 / AVL / 小量量產 / 大量量產
+營收占比：待確認 / 公司揭露 / 估算
+毛利率：低於平均 / 接近平均 / 高於平均 / 待確認
+風險：客戶集中 / 規格不足 / 中國競爭 / 日韓壓制 / 需求波動
+</code></pre></div>
+<h3 id="ai-server">AI server 研究原則<a class="headerlink" href="#ai-server" title="Permanent link">&para;</a></h3>
+<p>AI server / GPU power architecture 可能拉動 MLCC、鉭質/聚合物電容、功率電感、電流感測電阻，但不能用單一 GPU rack 顆數直接外推公司 EPS。需確認：</p>
+<ul>
+<li>是否進入 ODM AVL。</li>
+<li>是 sample qualification 還是 production shipment。</li>
+<li>AI 相關營收是否拆分品類。</li>
+<li>AI 產品毛利率是否高於公司平均。</li>
+<li>訂單是現貨急單、短約、長約，還是 blanket order。</li>
+</ul>
+<p>詳見：<a href="../ai-server-passive-components-validation-framework/">AI Server 被動元件需求驗證框架</a>。</p>
+<h3 id="_23">車規研究原則<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>車規被動元件需拆成三階段：</p>
+<ol>
+<li>AEC-Q200 或元件層可靠度測試。</li>
+<li>Tier-1 / OEM AVL。</li>
+<li>PPAP / 量產出貨 / 長期可靠度紀錄。</li>
+</ol>
+<p>AEC-Q200 是門票，不等於量產營收。詳見：<a href="../automotive-passive-components-qualification-path/">車規被動元件認證路徑</a>。</p>
+<h3 id="_24">競爭格局研究原則<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>台廠與日韓中美歐競爭者的比較不能只看總市占率。需按規格分層：</p>
+<ul>
+<li>日韓：高端 MLCC、小型化、高可靠度、車規與 RF。</li>
+<li>台廠：中高階、利基品、平台化、供應彈性。</li>
+<li>中國：標準品成本競爭，逐步往中高階滲透。</li>
+<li>美歐：精密電阻、電流感測、薄膜電容與高可靠度應用。</li>
+</ul>
+<p>詳見：<a href="../passive-components-competitive-landscape-taiwan-japan-china/">被動元件競爭格局：台日中比較</a>。</p>
+<h3 id="_25">來源品質守則<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>本輪審稿已排除或降級幾類高風險數字：GB200 單機架 MLCC 顆數、AI server MLCC 精確市占、Sunlord 直接供應 NVIDIA、BaTiO₃ 具體價格/庫存、未重算 PE/PB、市調 CAGR/TAM。這些若無公司 IR、MOPS、TWSE、ODM、一級供應商或高品質市調佐證，不能寫成確定事實。</p>
 <p><strong>來源</strong>：Hermes + Claude Code 協作被動元件產業研究（整理於 2026-06-06）</p>
 
 
@@ -1251,7 +1290,7 @@ EV 全球銷量               各研究機構               每月
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 05:25:41 UTC">2026年6月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 06:19:29 UTC">2026年6月6日</span>
   </span>
 
     

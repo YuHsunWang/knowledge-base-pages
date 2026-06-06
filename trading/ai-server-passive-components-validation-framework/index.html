@@ -6,35 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Analysis, Data Science, Python, SQL, AI Agents, Trading Research">
+        <meta name="description" content="將 AI server / GPU power architecture 題材拆成品類、規格、AVL、量產、營收占比與毛利率驗證問題。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/ai-server-passive-components-validation-framework/">
       
       
-        <link rel="prev" href="../statistics/">
-      
-      
-        <link rel="next" href="../data-science/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Trading - Shane's Knowledge Base</title>
+        <title>AI Server 被動元件需求驗證框架 - Shane's Knowledge Base</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trading-quant-research" class="md-skip">
+        <a href="#ai-server" class="md-skip">
           跳轉到
         </a>
       
@@ -92,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trading
+              AI Server 被動元件需求驗證框架
             
           </span>
         </div>
@@ -219,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -238,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai/" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -257,7 +253,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../sql/" class="md-tabs__link">
+      <a href="../../sql/" class="md-tabs__link">
         
   
   
@@ -276,7 +272,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../python/" class="md-tabs__link">
+      <a href="../../python/" class="md-tabs__link">
         
   
   
@@ -295,7 +291,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../statistics/" class="md-tabs__link">
+      <a href="../../statistics/" class="md-tabs__link">
         
   
   
@@ -312,11 +308,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -335,7 +329,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../data-science/" class="md-tabs__link">
+      <a href="../../data-science/" class="md-tabs__link">
         
   
   
@@ -354,7 +348,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../machine-learning/" class="md-tabs__link">
+      <a href="../../machine-learning/" class="md-tabs__link">
         
   
   
@@ -375,7 +369,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -395,7 +389,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../career/" class="md-tabs__link">
+      <a href="../../career/" class="md-tabs__link">
         
   
   
@@ -430,7 +424,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -460,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -487,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai/" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -514,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql/" class="md-nav__link">
+      <a href="../../sql/" class="md-nav__link">
         
   
   
@@ -541,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -568,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../statistics/" class="md-nav__link">
+      <a href="../../statistics/" class="md-nav__link">
         
   
   
@@ -592,37 +586,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trading
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -638,37 +605,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文章
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -680,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-science/" class="md-nav__link">
+      <a href="../../data-science/" class="md-nav__link">
         
   
   
@@ -707,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/" class="md-nav__link">
+      <a href="../../machine-learning/" class="md-nav__link">
         
   
   
@@ -759,7 +695,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../projects/" class="md-nav__link ">
               
   
   
@@ -803,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/toeic-master/" class="md-nav__link">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
         
   
   
@@ -838,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../career/" class="md-nav__link">
+      <a href="../../career/" class="md-nav__link">
         
   
   
@@ -888,7 +824,90 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文章
+        核心原則
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        需求拆解：品類 × 功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="需求拆解：品類 × 功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MLCC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        鉭質 / 聚合物 / 薄膜電容
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        功率電感 / 磁性元件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        電流感測電阻
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        研究結論模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不建議直接引用的數字
       
     </span>
   </a>
@@ -912,33 +931,92 @@
 
 
 
-<h1 id="trading-quant-research">Trading / Quant Research<a class="headerlink" href="#trading-quant-research" title="Permanent link">&para;</a></h1>
-<p>本區收錄已整理完成、適合公開發布的 Trading / Quant Research 筆記。</p>
-<h2 id="_1">文章<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="ai-server">AI Server 被動元件需求驗證框架<a class="headerlink" href="#ai-server" title="Permanent link">&para;</a></h1>
+<p>關聯頁面：<a href="../passive-components-industry-overview/">被動元件產業研究總覽</a>、<a href="../passive-components-product-matrix/">MLCC、晶片電阻與電感產品矩陣</a>、<a href="../passive-components-cycle-tracking-framework/">被動元件景氣循環與追蹤框架</a>、<a href="../taiwan-passive-components-company-comparison/">台灣被動元件公司比較</a>。</p>
+<h2 id="_1">核心原則<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>AI server / GPU power architecture 可能是高規格被動元件的結構性需求來源，但<strong>不能用單一機架用量或題材字眼直接外推台廠營收</strong>。研究上必須拆成：品類、規格、供應鏈資格、量產狀態、營收占比與毛利率貢獻。</p>
+<p>需要避免的錯誤：</p>
 <ul>
-<li>2026-06-06｜<a href="passive-components-industry-overview/">被動元件產業研究總覽</a></li>
-<li>2026-06-06｜<a href="passive-components-cycle-tracking-framework/">被動元件景氣循環與追蹤框架</a></li>
-<li>2026-06-06｜<a href="passive-components-product-matrix/">MLCC、晶片電阻與電感產品矩陣</a></li>
-<li>2026-06-06｜<a href="ai-server-passive-components-validation-framework/">AI Server 被動元件需求驗證框架</a></li>
-<li>2026-06-06｜<a href="automotive-passive-components-qualification-path/">車規被動元件認證路徑</a></li>
-<li>2026-06-06｜<a href="passive-components-upstream-materials-process-bottlenecks/">被動元件上游材料與製程瓶頸</a></li>
-<li>2026-06-06｜<a href="passive-components-competitive-landscape-taiwan-japan-china/">被動元件競爭格局：台日中比較</a></li>
-<li>2026-06-06｜<a href="passive-components-data-sources-update-workflow/">被動元件資料來源與更新流程</a></li>
-<li>2026-06-06｜<a href="taiwan-passive-components-company-comparison/">台灣被動元件公司比較</a></li>
-<li>2026-06-06｜<a href="passive-components-monthly-tracker/">被動元件月度追蹤表</a></li>
-<li>2026-06-06｜<a href="passive-components-financial-data-tracker/">被動元件財務資料追蹤</a></li>
-<li>2026-06-06｜<a href="yageo-2327/">國巨 2327</a></li>
-<li>2026-06-06｜<a href="walsin-technology-2492/">華新科 2492</a></li>
-<li>2026-06-06｜<a href="holy-stone-3026/">禾伸堂 3026</a></li>
-<li>2026-06-06｜<a href="ta-i-technology-2478/">大毅 2478</a></li>
-<li>2026-06-06｜<a href="chilisin-and-magontec/">奇力新與美桓</a></li>
-<li>2026-06-06｜<a href="taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a></li>
-<li>2026-06-06｜<a href="taiwan-chip-counter-signal-backtest-system/">台股籌碼反向訊號回測系統</a></li>
-<li>2026-06-05｜<a href="wave-theory-probabilistic-counter-plan/">波浪理論機率式波數判斷系統規劃</a></li>
-<li>2026-06-05｜<a href="threads-txf-sentiment-following-research/">Threads 台指期情緒與跟單策略研究規劃</a></li>
-<li>2026-05-28｜<a href="serenity-style-industry-research-process/">Serenity 式產業研究流程</a></li>
-<li>2026-05-28｜<a href="basic-industry-analysis-sop/">基礎產業分析 SOP</a></li>
+<li>不把「GB200 / AI server 被動元件用量」直接等同於「台廠受益」。</li>
+<li>不把 sample qualification 誤寫成 production shipment。</li>
+<li>不把「通路文章 / 市調摘要」的用量、市占或 CAGR 當作一級事實。</li>
+<li>不把「AI 相關營收」與「AI server 直接出貨」混用；公司口徑可能包含資料中心、網通、電源、鉭容、電感或其他高階品。</li>
 </ul>
+<h2 id="_2">需求拆解：品類 × 功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="mlcc">MLCC<a class="headerlink" href="#mlcc" title="Permanent link">&para;</a></h3>
+<p>AI server GPU board、CPU board、HBM / memory power、VRM 周邊需要大量去耦與濾波電容。研究重點不是總顆數，而是規格帶：</p>
+<ul>
+<li>高容量、小型化。</li>
+<li>低 ESL / ESR。</li>
+<li>高頻響應。</li>
+<li>耐熱與可靠度。</li>
+<li>高層數與良率。</li>
+</ul>
+<p><strong>可驗證問題</strong>：</p>
+<ol>
+<li>台廠產品是否落在 AI server GPU board 的主流容值 / 耐壓 / 尺寸規格？</li>
+<li>是否已進入 ODM AVL，例如廣達、鴻海、緯創、英業達等 AI server 供應鏈？</li>
+<li>是樣品認證、設計導入，還是量產出貨？</li>
+<li>AI server MLCC 毛利率是否高於公司平均？是否有公司法說或 IR 量化？</li>
+<li>訂單是現貨急單、短約、長約，還是 blanket order？</li>
+<li>是否集中於單一 ODM / CSP 客戶，或具備多客戶分散性？</li>
+</ol>
+<h2 id="_3">鉭質 / 聚合物 / 薄膜電容<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>高功率電源架構需要穩壓、濾波、瞬態電流支援。國巨因 KEMET 併購後具有鉭質、薄膜、鋁電解與高可靠度電容產品線，但仍需拆清楚 AI exposure 來自哪一品類。</p>
+<p><strong>可驗證問題</strong>：</p>
+<ol>
+<li>公司揭露的 AI 相關營收中，鉭容、MLCC、電感、電阻各占多少？</li>
+<li>鉭容 AI server 應用是 GPU board、power module 還是資料中心電源供應器？</li>
+<li>KEMET / Pulse 等併購資產是否真的帶來 AI server 交叉銷售？</li>
+<li>AI 相關產品毛利率是否高於集團平均？</li>
+</ol>
+<h2 id="_4">功率電感 / 磁性元件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>AI server VRM 多相電源架構提高功率電感需求。理論上功率電感與高功率 GPU 平台連動直接，但台廠是否受益取決於規格與 AVL。</p>
+<p>關鍵規格：</p>
+<ul>
+<li>高飽和電流 Isat。</li>
+<li>低 DCR。</li>
+<li>低損耗。</li>
+<li>溫升控制。</li>
+<li>一體成型或高可靠封裝。</li>
+</ul>
+<p><strong>可驗證問題</strong>：</p>
+<ol>
+<li>奇力新 / 美桓 / 國巨集團磁性元件是否進入 AI server power module 或 ODM AVL？</li>
+<li>產品是一體成型功率電感、繞線型電感，還是一般磁珠 / EMI 元件？</li>
+<li>是否已量產出貨，或仍在送樣？</li>
+<li>競爭者如 TDK、Murata、Sunlord 是否已在同一客戶具備更高份額？</li>
+<li>若市場傳出 Sunlord 進入 NVIDIA 供應鏈，需確認是直接供應、經 power module 供應，還是經 ODM 間接導入。</li>
+</ol>
+<h2 id="_5">電流感測電阻<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>AI server power management 需要電流偵測、保護與監控。電流感測電阻可能受益，但台廠受益程度需驗證。</p>
+<p><strong>可驗證問題</strong>：</p>
+<ol>
+<li>大毅 / 國巨 / 華新科是否具備低阻值、低 TCR、高功率電流感測電阻規格？</li>
+<li>是否通過 AI server power module 客戶認證？</li>
+<li>毛利率是否高於標準厚膜電阻？</li>
+<li>中國或日系競爭者是否在同規格更具成本或可靠度優勢？</li>
+</ol>
+<h2 id="_6">研究結論模板<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>在建立 AI server thesis 前，至少要完成以下六格：</p>
+<div class="highlight"><pre><span></span><code>公司：
+品類：MLCC / 鉭容 / 功率電感 / 電流感測電阻 / 其他
+規格：
+供應鏈階段：未確認 / 送樣 / AVL / 小量量產 / 大量量產
+營收占比：待確認 / 公司揭露 / 估算
+毛利率：低於平均 / 接近平均 / 高於平均 / 待確認
+風險：客戶集中 / 規格不足 / 中國競爭 / 日韓壓制 / 需求波動
+</code></pre></div>
+<h2 id="_7">不建議直接引用的數字<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>以下數字若無公司 IR、ODM、NVIDIA、生產商或高品質市調佐證，暫不寫入正式結論：</p>
+<ul>
+<li>GB200 / NVL72 單機架 MLCC 總顆數。</li>
+<li>AI server 高端 MLCC 精確市占率。</li>
+<li>單機架功率電感顆數。</li>
+<li>AI server 被動元件 TAM / CAGR。</li>
+<li>供應鏈傳聞中的直接供貨關係。</li>
+</ul>
+<p><strong>來源</strong>：Claude Code 被動元件深化 memo + Hermes 雙重審稿（整理於 2026-06-06）。</p>
 
 
 
@@ -971,7 +1049,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月26日 02:15:25 UTC">2026年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 06:19:29 UTC">2026年6月6日</span>
   </span>
 
     
@@ -1026,10 +1104,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
