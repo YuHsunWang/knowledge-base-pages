@@ -703,19 +703,186 @@
 </ul>
 <hr />
 <h2 id="_3">圖一：被動元件產業鏈全貌<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><img alt="被動元件產業鏈全貌" src="../../assets/diagrams/passive-components/01-industry-tree.png" /></p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph UP["⬆ 上游材料"]
+        U1["BaTiO₃ 粉體\nMLCC 介電"]
+        U2["Ni / RuO₂\n電極漿料"]
+        U3["鐵氧體 / 磁粉芯\n電感磁性材料"]
+        U4["NiCr / Cu 合金\n精密電阻"]
+    end
+
+    subgraph COMP["⚙ 元件製造"]
+        C1["MLCC\n標準品 / 車規 / 高頻"]
+        C2["晶片電阻\n厚膜 / 薄膜 / 電流感測"]
+        C3["功率電感\n一體成型 / 繞線"]
+        C4["鉭容 / 薄膜電容\n高可靠度"]
+    end
+
+    subgraph APP["🎯 終端應用"]
+        A1["AI Server / HPC\nVRM / 去耦"]
+        A2["電動車 EV\nBMS / OBC / 逆變器"]
+        A3["工控 / 能源\n儲能 / 再生能源"]
+        A4["消費電子\n手機 / PC"]
+    end
+
+    subgraph CO["🏭 台灣公司"]
+        T1["國巨 2327\n平台型"]
+        T2["華新科 2492\nMLCC / 電阻"]
+        T3["禾伸堂 3026\n製造 + 代理"]
+        T4["大毅 2478\n電阻專業"]
+        T5["奇力新\n電感磁性"]
+    end
+
+    subgraph KPI["📊 追蹤指標"]
+        K1["月營收 MoM / YoY"]
+        K2["MLCC 現貨報價"]
+        K3["Lead Time 週數"]
+        K4["稼動率 / 毛利率"]
+        K5["庫存天數 DSI"]
+        K6["AI / 車用占比"]
+    end
+
+    U1 &amp; U2 --&gt; C1
+    U2 &amp; U4 --&gt; C2
+    U3 --&gt; C3
+    C1 --&gt; A1 &amp; A2 &amp; A3 &amp; A4
+    C2 --&gt; A1 &amp; A2 &amp; A3
+    C3 --&gt; A1 &amp; A2
+    C4 --&gt; A2 &amp; A3
+    A1 --&gt; T1 &amp; T2 &amp; T5
+    A2 --&gt; T1 &amp; T2 &amp; T4
+    A3 --&gt; T1 &amp; T4
+    A4 --&gt; T2 &amp; T3
+    T1 &amp; T2 &amp; T3 &amp; T4 &amp; T5 --&gt; K1
+    C1 --&gt; K2 &amp; K3
+    T1 &amp; T2 --&gt; K4 &amp; K5
+    A1 &amp; A2 --&gt; K6
+
+    style UP fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style COMP fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style APP fill:#fef9c3,stroke:#ca8a04,color:#713f12
+    style CO fill:#fce7f3,stroke:#db2777,color:#831843
+    style KPI fill:#e8eaf6,stroke:#3f51b5,color:#1a237e</code></pre>
 <p><strong>閱讀重點</strong>：上游材料與製程決定規格與良率；元件品類決定終端應用；應用再對應到台廠曝險；最後用月營收、ASP / lead time、稼動率、毛利率、DSI 與 AI / 車用占比追蹤。</p>
 <hr />
 <h2 id="ai-server">圖二：AI Server 需求驗證流程<a class="headerlink" href="#ai-server" title="Permanent link">&para;</a></h2>
-<p><img alt="AI Server 需求驗證流程" src="../../assets/diagrams/passive-components/02-ai-server-validation.png" /></p>
+<pre class="mermaid"><code>flowchart LR
+    S["💡 題材 / 傳聞\nAI server 受益"]
+    S --&gt; B1{"品類確認"}
+    B1 --&gt; P1["MLCC\n去耦 / 濾波"]
+    B1 --&gt; P2["功率電感\nVRM 多相電源"]
+    B1 --&gt; P3["鉭容 / 薄膜容\n穩壓 / 瞬態"]
+    B1 --&gt; P4["電流感測電阻\n電流監控"]
+    P1 &amp; P2 &amp; P3 &amp; P4 --&gt; B2{"規格驗證"}
+    B2 --&gt; SP["規格落點\n低 ESL · 高 Isat\n低 DCR · 低 TCR"]
+    SP --&gt; B3{"供應鏈階段"}
+    B3 --&gt; ST1["⚠ 未確認"]
+    B3 --&gt; ST2["🔬 送樣中"]
+    B3 --&gt; ST3["📋 進入 AVL"]
+    B3 --&gt; ST4["📦 小量量產"]
+    B3 --&gt; ST5["🚀 大量量產"]
+    ST3 &amp; ST4 &amp; ST5 --&gt; B4{"財務驗證"}
+    B4 --&gt; F1["營收占比\n公司揭露 / 估算"]
+    B4 --&gt; F2["毛利率\n高於 / 低於公司平均"]
+    B4 --&gt; F3["訂單類型\n急單 / 短約 / 長約"]
+    F1 &amp; F2 &amp; F3 --&gt; CON{"可投資結論？"}
+    CON --&gt;|六格完整| YES["✅ 有依據納入 thesis"]
+    CON --&gt;|送樣 / 未確認| NO["🚫 標記待確認\n不外推 EPS"]
+
+    style ST1 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style ST2 fill:#fef9c3,stroke:#eab308,color:#713f12
+    style ST3 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style ST4 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style ST5 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style YES fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style NO fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style B1 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style B2 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style B3 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style B4 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style CON fill:#e8eaf6,stroke:#3f51b5,color:#1a237e</code></pre>
 <p><strong>閱讀重點</strong>：AI server 不是直接等於投資結論。必須逐步確認品類、規格、供應鏈階段、營收占比、毛利率與訂單類型。未確認者應停留在「待確認清單」。</p>
 <hr />
 <h2 id="_4">圖三：車規認證與商業化路徑<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p><img alt="車規認證與商業化路徑" src="../../assets/diagrams/passive-components/03-automotive-qualification.png" /></p>
+<pre class="mermaid"><code>flowchart TD
+    START(["元件開發完成\nMLCC / 電阻 / 電感"])
+    START --&gt; S1["階段一\nAEC-Q200\n元件層可靠度認證"]
+    S1 --&gt; Q1{"通過測試？"}
+    Q1 --&gt;|否| BACK1["改善材料 / 製程\n重新認證"]
+    BACK1 --&gt; S1
+    Q1 --&gt;|是| NOTE1["⚠ AEC-Q200 是門票\n不等於商業化終點"]
+    NOTE1 --&gt; S2["階段二\nTier-1 / OEM AVL\n客戶合格廠商名單"]
+    S2 --&gt; C1["歐系 Tier-1\nBosch / Denso 等"]
+    S2 --&gt; C2["中國 NEV\n比亞迪 / 理想等"]
+    S2 --&gt; C3["其他 Tier-1\n模組廠間接"]
+    C1 &amp; C2 &amp; C3 --&gt; S3["階段三\nPPAP · 量產出貨\n長期可靠度紀錄"]
+    S3 --&gt; Q3{"量產出貨？"}
+    Q3 --&gt;|是| VALUE["✅ 可量化\n營收 / 毛利貢獻"]
+    Q3 --&gt;|否| RISK["⚠ 認證成本無法轉營收\n客戶平台延期風險"]
+    VALUE --&gt; TRACK["持續追蹤\n年度出貨量 · 車用占比 YoY\n毛利率 vs 公司平均 · PCN 風險"]
+
+    subgraph SUBSYS["車用子系統切入點"]
+        BMS["BMS\n電流感測 / 高壓 MLCC"]
+        OBC["OBC / DC-DC\n高壓 MLCC / 功率電感"]
+        INV["Inverter\n高壓 MLCC / 電流感測"]
+        ADAS["ADAS / 車載通訊\nRF MLCC / 磁珠 / CMC"]
+    end
+
+    S2 -.-&gt;|對應| SUBSYS
+
+    style NOTE1 fill:#fef9c3,stroke:#eab308,color:#713f12
+    style VALUE fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style RISK fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style TRACK fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style SUBSYS fill:#f3f4f6,stroke:#6b7280
+    style Q1 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style Q3 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e</code></pre>
 <p><strong>閱讀重點</strong>：AEC-Q200 是門票，不等於量產。真正商業化需要 Tier-1 / OEM AVL、PPAP、量產出貨與長期可靠度紀錄。BMS、OBC / DC-DC、Inverter、ADAS 的元件需求也不同。</p>
 <hr />
 <h2 id="_5">圖四：台灣公司研究追蹤地圖<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><img alt="台灣公司研究追蹤地圖" src="../../assets/diagrams/passive-components/04-company-tracking-map.png" /></p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph GK["國巨 2327 — 平台型"]
+        GK1["產品曝險\nMLCC + 電阻\n鉭容 + 電感 + 感測器"]
+        GK2["核心研究問題\nKEMET 整合進度\n各事業部毛利貢獻\nAI 品類拆分"]
+        GK3["⚠ 紅旗\n商譽 / 財務槓桿\n標準品 ASP 壓力\nAI 敘事不透明"]
+    end
+    subgraph HX["華新科 2492 — 景氣純度計"]
+        HX1["產品曝險\nMLCC + 電阻\n景氣純度較高"]
+        HX2["核心研究問題\nMLCC ASP 止跌？\n車規 / AI AVL 狀態\n標準品占比下降？"]
+        HX3["⚠ 紅旗\n景氣回升被過度外推\n業外損益影響 EPS 品質"]
+    end
+    subgraph HS["禾伸堂 3026 — 製造 + 代理"]
+        HS1["產品曝險\n自有 MLCC\n+ 代理日系品牌"]
+        HS2["核心研究問題\n製造 vs 代理毛利拆分\n代理庫存領先訊號"]
+        HS3["⚠ 紅旗\n代理線變動風險\n通路庫存堆積\n毛利率混估"]
+    end
+    subgraph DY["大毅 2478 — 電阻專業"]
+        DY1["產品曝險\n厚膜 / 薄膜\n電流感測\n抗硫化電阻"]
+        DY2["核心研究問題\n高階電阻占比？\n車用 / AI power\n認證狀態"]
+        DY3["⚠ 紅旗\n標準品商品化\n高階占比不透明\n敘事停留送樣"]
+    end
+    subgraph QX["奇力新 — 電感磁性"]
+        QX1["產品曝險\n功率電感\nRF 電感 / 磁珠\n共模扼流圈"]
+        QX2["核心研究問題\nAI VRM 量產？\n車用 OBC / BMS 認證\n國巨整合效益"]
+        QX3["⚠ 紅旗\n資訊透明度下降\n順絡競爭滲透\n送樣 vs 量產口徑"]
+    end
+
+    GK1 --- GK2 --- GK3
+    HX1 --- HX2 --- HX3
+    HS1 --- HS2 --- HS3
+    DY1 --- DY2 --- DY3
+    QX1 --- QX2 --- QX3
+
+    style GK1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style HX1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style HS1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style DY1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style QX1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style GK3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style HX3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style HS3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style DY3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style QX3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d</code></pre>
 <p><strong>閱讀重點</strong>：五家台廠的研究問題不同，但共同檢查順序一致：品類 → 規格 → 客戶階段 → 營收占比 → 毛利率 → 紅旗。</p>
 <hr />
 <h2 id="_6">新增資料型圖表：營收、獲利率與估值快照<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -768,7 +935,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月6日 07:57:33 UTC">2026年6月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月7日 10:18:43 UTC">2026年6月7日</span>
   </span>
 
     

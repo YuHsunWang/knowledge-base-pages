@@ -1,33 +1,33 @@
 %%{init: {"theme": "default"}}%%
 flowchart LR
-    subgraph GK["國巨 2327\n(平台型)"]
-        GK1["產品曝險\nMLCC+電阻\n+鉭容+電感\n+感測器"]
-        GK2["核心研究問題\nKEMET整合進度\n各事業部毛利貢獻\nAI品類拆分"]
-        GK3["紅旗\n商譽/財務槓桿\n標準品ASP壓力\nAI敘事不透明"]
+    subgraph GK["國巨 2327 — 平台型"]
+        GK1["產品曝險\nMLCC + 電阻\n鉭容 + 電感 + 感測器"]
+        GK2["核心研究問題\nKEMET 整合進度\n各事業部毛利貢獻\nAI 品類拆分"]
+        GK3["⚠ 紅旗\n商譽 / 財務槓桿\n標準品 ASP 壓力\nAI 敘事不透明"]
     end
 
-    subgraph HX["華新科 2492\n(循環溫度計)"]
-        HX1["產品曝險\nMLCC+電阻\n景氣純度較高"]
-        HX2["核心研究問題\nMLCC ASP止跌?\n車規/AI AVL狀態\n標準品占比下降?"]
-        HX3["紅旗\n景氣回升被過度外推\n業外損益影響EPS品質"]
+    subgraph HX["華新科 2492 — 景氣純度計"]
+        HX1["產品曝險\nMLCC + 電阻\n景氣純度較高"]
+        HX2["核心研究問題\nMLCC ASP 止跌？\n車規 / AI AVL 狀態\n標準品占比下降？"]
+        HX3["⚠ 紅旗\n景氣回升被過度外推\n業外損益影響 EPS 品質"]
     end
 
-    subgraph HS["禾伸堂 3026\n(製造+代理)"]
-        HS1["產品曝險\n自有MLCC\n+代理日系品牌"]
-        HS2["核心研究問題\n製造vs代理毛利拆分\n代理庫存領先訊號"]
-        HS3["紅旗\n代理線變動風險\n通路庫存堆積\n毛利率混估"]
+    subgraph HS["禾伸堂 3026 — 製造 + 代理"]
+        HS1["產品曝險\n自有 MLCC\n+ 代理日系品牌"]
+        HS2["核心研究問題\n製造 vs 代理毛利拆分\n代理庫存領先訊號"]
+        HS3["⚠ 紅旗\n代理線變動風險\n通路庫存堆積\n毛利率混估"]
     end
 
-    subgraph DY["大毅 2478\n(電阻專業)"]
-        DY1["產品曝險\n厚膜/薄膜\n電流感測\n抗硫化電阻"]
-        DY2["核心研究問題\n高階電阻占比?\n車用/AI power\n認證狀態"]
-        DY3["紅旗\n標準品商品化\n高階占比不透明\n敘事停留送樣"]
+    subgraph DY["大毅 2478 — 電阻專業"]
+        DY1["產品曝險\n厚膜 / 薄膜\n電流感測\n抗硫化電阻"]
+        DY2["核心研究問題\n高階電阻占比？\n車用 / AI power\n認證狀態"]
+        DY3["⚠ 紅旗\n標準品商品化\n高階占比不透明\n敘事停留送樣"]
     end
 
-    subgraph QX["奇力新/美桓\n(電感磁性)"]
-        QX1["產品曝險\n功率電感\nRF電感/磁珠\n共模扼流圈"]
-        QX2["核心研究問題\nAI VRM量產?\n車用OBC/BMS認證\n國巨整合效益"]
-        QX3["紅旗\n資訊透明度下降\n順絡競爭滲透\n送樣vs量產口徑"]
+    subgraph QX["奇力新 — 電感磁性"]
+        QX1["產品曝險\n功率電感\nRF 電感 / 磁珠\n共模扼流圈"]
+        QX2["核心研究問題\nAI VRM 量產？\n車用 OBC / BMS 認證\n國巨整合效益"]
+        QX3["⚠ 紅旗\n資訊透明度下降\n順絡競爭滲透\n送樣 vs 量產口徑"]
     end
 
     GK1 --- GK2 --- GK3
@@ -36,13 +36,14 @@ flowchart LR
     DY1 --- DY2 --- DY3
     QX1 --- QX2 --- QX3
 
-    style GK3 fill:#ffdddd
-    style HX3 fill:#ffdddd
-    style HS3 fill:#ffdddd
-    style DY3 fill:#ffdddd
-    style QX3 fill:#ffdddd
-    style GK1 fill:#dce8f9
-    style HX1 fill:#dce8f9
-    style HS1 fill:#dce8f9
-    style DY1 fill:#dce8f9
-    style QX1 fill:#dce8f9
+    style GK1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style HX1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style HS1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style DY1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style QX1 fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+
+    style GK3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style HX3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style HS3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style DY3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style QX3 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d

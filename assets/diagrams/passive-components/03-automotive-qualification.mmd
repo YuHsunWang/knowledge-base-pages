@@ -1,41 +1,38 @@
 %%{init: {"theme": "default"}}%%
 flowchart TD
-    START["元件開發完成\n(MLCC/電阻/電感)"]
+    START(["元件開發完成\nMLCC / 電阻 / 電感"])
 
     START --> S1["階段一\nAEC-Q200\n元件層可靠度認證"]
-
-    S1 --> Q1{"通過測試?"}
-    Q1 -->|否| BACK1["改善材料/製程\n重新認證"]
+    S1 --> Q1{"通過測試？"}
+    Q1 -->|否| BACK1["改善材料 / 製程\n重新認證"]
     BACK1 --> S1
-
-    Q1 -->|是| NOTE1["⚠ 門票\n≠ 商業化終點"]
+    Q1 -->|是| NOTE1["⚠ AEC-Q200 是門票\n不等於商業化終點"]
 
     NOTE1 --> S2["階段二\nTier-1 / OEM AVL\n客戶合格廠商名單"]
+    S2 --> C1["歐系 Tier-1\nBosch / Denso 等"]
+    S2 --> C2["中國 NEV\n比亞迪 / 理想等"]
+    S2 --> C3["其他 Tier-1\n模組廠間接"]
 
-    S2 --> Q2{"進入AVL?"}
-    Q2 --> C1["歐系 Tier-1\n(Bosch/Denso等)"]
-    Q2 --> C2["中國 NEV\n(比亞迪/理想等)"]
-    Q2 --> C3["其他 Tier-1\n(模組廠間接)"]
+    C1 & C2 & C3 --> S3["階段三\nPPAP · 量產出貨\n長期可靠度紀錄"]
+    S3 --> Q3{"量產出貨？"}
+    Q3 -->|是| VALUE["✅ 可量化\n營收 / 毛利貢獻"]
+    Q3 -->|否| RISK["⚠ 認證成本無法轉營收\n客戶平台延期風險"]
 
-    C1 --> S3["階段三\nPPAP / 量產出貨\n長期可靠度紀錄"]
-    C2 --> S3
-    C3 --> S3
-
-    S3 --> Q3{"量產出貨?"}
-    Q3 -->|是| VALUE["✅ 產生可量化\n營收/毛利貢獻"]
-    Q3 -->|否| RISK["⚠ 認證成本\n無法轉為營收\n客戶平台延期風險"]
-
-    VALUE --> TRACK["持續追蹤:\n• 年度出貨量\n• 車用占比YoY\n• 毛利率vs公司平均\n• PCN/替代料號風險"]
+    VALUE --> TRACK["持續追蹤\n年度出貨量 · 車用占比 YoY\n毛利率 vs 公司平均 · PCN 風險"]
 
     subgraph SUBSYS["車用子系統切入點"]
-        BMS["BMS\n電流感測/高壓MLCC"]
-        OBC["OBC/DC-DC\n高壓MLCC/功率電感"]
-        INV["Inverter\n高壓MLCC/電流感測"]
-        ADAS["ADAS/車載通訊\nRF MLCC/磁珠/CMC"]
+        BMS["BMS\n電流感測 / 高壓 MLCC"]
+        OBC["OBC / DC-DC\n高壓 MLCC / 功率電感"]
+        INV["Inverter\n高壓 MLCC / 電流感測"]
+        ADAS["ADAS / 車載通訊\nRF MLCC / 磁珠 / CMC"]
     end
 
-    S2 -.-> SUBSYS
+    S2 -.->|對應| SUBSYS
 
-    style NOTE1 fill:#fff3cd
-    style VALUE fill:#d4edda
-    style RISK fill:#ffdddd
+    style NOTE1 fill:#fef9c3,stroke:#eab308,color:#713f12
+    style VALUE fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style RISK fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style TRACK fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style SUBSYS fill:#f3f4f6,stroke:#6b7280
+    style Q1 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
+    style Q3 fill:#e8eaf6,stroke:#3f51b5,color:#1a237e
