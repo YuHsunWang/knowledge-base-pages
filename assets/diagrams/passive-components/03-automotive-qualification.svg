@@ -1,33 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1550" height="900" viewBox="0 0 1550 900">
-<rect width="100%" height="100%" fill="white"/>
-<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
-<text x="50" y="75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="40" font-weight="700" fill="#1f1f1f" text-anchor="start"><tspan x="50" dy="0">圖三：車規認證與商業化路徑</tspan></text>
-<rect x="80" y="160" width="240" height="95" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="200.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="200.0" dy="0">AEC-Q200</tspan><tspan x="200.0" dy="27.5">可靠度門票</tspan></text>
-<rect x="395" y="160" width="250" height="95" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="520.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="520.0" dy="0">Tier-1 / OEM AVL</tspan><tspan x="520.0" dy="27.5">供應商名單</tspan></text>
-<rect x="720" y="160" width="240" height="95" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="840.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="840.0" dy="0">PPAP</tspan><tspan x="840.0" dy="27.5">量產前核准</tspan></text>
-<rect x="1030" y="160" width="240" height="95" rx="18" fill="#b2f2bb" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1150.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1150.0" dy="0">量產出貨</tspan><tspan x="1150.0" dy="27.5">營收驗證</tspan></text>
-<rect x="1320" y="160" width="190" height="95" rx="18" fill="#b2f2bb" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1415.0" y="193.75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1415.0" dy="0">長期可靠度</tspan><tspan x="1415.0" dy="27.5">形成壁壘</tspan></text>
-<rect x="130" y="390" width="250" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="255.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="255.0" dy="0">BMS</tspan><tspan x="255.0" dy="27.5">感測 / 保護</tspan></text>
-<rect x="485" y="390" width="260" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="615.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="615.0" dy="0">OBC / DC-DC</tspan><tspan x="615.0" dy="27.5">電容 / 電感</tspan></text>
-<rect x="870" y="390" width="250" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="995.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="995.0" dy="0">Inverter</tspan><tspan x="995.0" dy="27.5">薄膜 / 電阻</tspan></text>
-<rect x="1220" y="390" width="220" height="80" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1330.0" y="416.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1330.0" dy="0">ADAS</tspan><tspan x="1330.0" dy="27.5">RF / EMI</tspan></text>
-<line x1="330" y1="207.5" x2="385" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="655" y1="207.5" x2="710" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="970" y1="207.5" x2="1020" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="1280" y1="207.5" x2="1310" y2="207.5" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="200.0" y1="265" x2="255.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="520.0" y1="265" x2="615.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="1150.0" y1="265" x2="995.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="1415.0" y1="265" x2="1330.0" y2="380" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<rect x="290" y="640" width="970" height="85" rx="18" fill="#ffc9c9" stroke="#1f1f1f" stroke-width="3"/>
-<text x="775.0" y="682.5" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="775.0" dy="0">紅旗：只說車規認證，卻沒有 AVL / PPAP / 量產 / 營收占比。</tspan></text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050" font-family="Noto Sans CJK TC, Noto Sans CJK SC, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbfcfe"/><stop offset="1" stop-color="#f3f5f9"/>
+  </linearGradient>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#27324a" flood-opacity="0.10"/>
+  </filter>
+  <marker id="aFaint" markerWidth="11" markerHeight="11" refX="7.5" refY="4" orient="auto">
+    <path d="M0,0 L9,4 L0,8 Z" fill="#8a93a6"/>
+  </marker>
+  <marker id="aViolet" markerWidth="12" markerHeight="12" refX="8" refY="4.2" orient="auto">
+    <path d="M0,0 L9.5,4.2 L0,8.4 Z" fill="#8b5cf6"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1800" height="1050" fill="url(#bg)"/>
+<rect x="1" y="1" width="1798" height="1048" rx="22" fill="none" stroke="#e9ecf3"/>
+
+<text x="72" y="78" font-size="22" font-weight="bold" letter-spacing="3" fill="#b45309">QUALIFICATION · 認證≠量產</text>
+<text x="70" y="132" font-size="46" font-weight="bold" fill="#1f2430">車規認證與商業化路徑</text>
+<text x="72" y="172" font-size="22" fill="#5b6472">AEC-Q200 是門票,不是終點;要走完 AVL → PPAP → 量產 → 長期可靠度才算商業化</text>
+<rect x="80" y="262" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M98,262 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#6366f1"/><text x="106" y="324" font-size="27" font-weight="bold" fill="#4338ca">① 元件開發完成</text><text x="106" y="365" font-size="20" fill="#5b6472">MLCC / 電阻 / 電感</text><text x="106" y="398" font-size="20" fill="#5b6472">送認證前準備</text><rect x="502" y="262" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M520,262 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#6366f1"/><text x="528" y="324" font-size="27" font-weight="bold" fill="#4338ca">② AEC-Q200</text><text x="528" y="365" font-size="20" fill="#5b6472">元件層可靠度認證</text><text x="528" y="398" font-size="20" fill="#5b6472">⚠ 是門票,非終點</text><rect x="924" y="262" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M942,262 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#0ea5e9"/><text x="950" y="324" font-size="27" font-weight="bold" fill="#0369a1">③ Tier-1 / OEM AVL</text><text x="950" y="365" font-size="20" fill="#5b6472">客戶合格廠商名單</text><text x="950" y="398" font-size="20" fill="#5b6472">歐系 / 中國 NEV / 模組廠</text><rect x="1346" y="262" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M1364,262 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#0ea5e9"/><text x="1372" y="324" font-size="27" font-weight="bold" fill="#0369a1">④ PPAP 量產前核准</text><text x="1372" y="365" font-size="20" fill="#5b6472">生產件核准程序</text><text x="1372" y="398" font-size="20" fill="#5b6472">品質系統查核</text><rect x="1346" y="648" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M1364,648 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#f59e0b"/><text x="1372" y="710" font-size="27" font-weight="bold" fill="#b45309">⑤ 量產出貨</text><text x="1372" y="751" font-size="20" fill="#5b6472">營收驗證</text><text x="1372" y="784" font-size="20" fill="#5b6472">車用占比 YoY</text><rect x="713" y="648" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M731,648 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#f59e0b"/><text x="739" y="710" font-size="27" font-weight="bold" fill="#b45309">⑥ 長期可靠度</text><text x="739" y="751" font-size="20" fill="#5b6472">形成替換壁壘</text><text x="739" y="784" font-size="20" fill="#5b6472">PCN 風險控管</text><rect x="80" y="648" width="372" height="188" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M98,648 h336 a18,18 0 0 1 18,18 v6 h-372 v-6 a18,18 0 0 1 18,-18 z" fill="#14b8a6"/><text x="106" y="710" font-size="27" font-weight="bold" fill="#0f766e">✅ 可量化貢獻</text><text x="106" y="751" font-size="20" fill="#5b6472">營收 / 毛利可拆分</text><text x="106" y="784" font-size="20" fill="#5b6472">車用認證護城河</text><line x1="458" y1="356.0" x2="494" y2="356.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="880" y1="356.0" x2="916" y2="356.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="1302" y1="356.0" x2="1338" y2="356.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="1532.0" y1="456" x2="1532.0" y2="640" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="1340" y1="742.0" x2="1093" y2="742.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="707" y1="742.0" x2="460" y2="742.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><path d="M899.0,642 C899.0,492 688.0,608 688.0,458" fill="none" stroke="#8b5cf6" stroke-width="2.6" stroke-dasharray="9 7" marker-end="url(#aViolet)"/><text x="643.5" y="544.0" font-size="20" font-weight="bold" fill="#6d28d9">認證未過 / PCN → 改善材料·製程 · 重新認證</text><circle cx="78" cy="974" r="8" fill="#6366f1"/><text x="96" y="980" font-size="21" fill="#5b6472">開發 / 認證</text><circle cx="332" cy="974" r="8" fill="#0ea5e9"/><text x="350" y="980" font-size="21" fill="#5b6472">客戶導入</text><circle cx="520" cy="974" r="8" fill="#f59e0b"/><text x="538" y="980" font-size="21" fill="#5b6472">量產 / 可靠度</text><circle cx="796" cy="974" r="8" fill="#14b8a6"/><text x="814" y="980" font-size="21" fill="#5b6472">可量化貢獻</text></svg>

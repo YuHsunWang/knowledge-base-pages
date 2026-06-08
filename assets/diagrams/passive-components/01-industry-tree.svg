@@ -1,61 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850">
-<rect width="100%" height="100%" fill="white"/>
-<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
-<text x="50" y="75" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="40" font-weight="700" fill="#1f1f1f" text-anchor="start"><tspan x="50" dy="0">圖一：被動元件產業鏈全貌</tspan></text>
-<rect x="80" y="130" width="230" height="64" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="195.0" y="162.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="24" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="195.0" dy="0">上游材料</tspan></text>
-<rect x="365" y="130" width="230" height="64" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="480.0" y="162.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="24" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="480.0" dy="0">元件製造</tspan></text>
-<rect x="650" y="130" width="230" height="64" rx="18" fill="#ffd8a8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="765.0" y="162.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="24" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="765.0" dy="0">終端應用</tspan></text>
-<rect x="935" y="130" width="230" height="64" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1050.0" y="162.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="24" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1050.0" dy="0">台灣公司</tspan></text>
-<rect x="1220" y="130" width="230" height="64" rx="18" fill="#fff3bf" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1335.0" y="162.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="24" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1335.0" dy="0">追蹤指標</tspan></text>
-<rect x="80" y="235" width="230" height="64" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="195.0" y="267.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="195.0" dy="0">BaTiO3粉體</tspan></text>
-<rect x="80" y="330" width="230" height="64" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="195.0" y="362.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="195.0" dy="0">Ni/RuO2電極</tspan></text>
-<rect x="80" y="425" width="230" height="64" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="195.0" y="457.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="195.0" dy="0">鐵氧體/磁粉芯</tspan></text>
-<rect x="80" y="520" width="230" height="64" rx="18" fill="#c3fae8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="195.0" y="552.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="195.0" dy="0">NiCr/Cu合金</tspan></text>
-<rect x="365" y="235" width="230" height="64" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="480.0" y="267.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="480.0" dy="0">MLCC</tspan></text>
-<rect x="365" y="330" width="230" height="64" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="480.0" y="362.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="480.0" dy="0">晶片電阻</tspan></text>
-<rect x="365" y="425" width="230" height="64" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="480.0" y="457.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="480.0" dy="0">功率電感</tspan></text>
-<rect x="365" y="520" width="230" height="64" rx="18" fill="#a5d8ff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="480.0" y="552.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="480.0" dy="0">鉭容/薄膜電容</tspan></text>
-<rect x="650" y="235" width="230" height="64" rx="18" fill="#ffd8a8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="765.0" y="253.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="765.0" dy="0">AI Server /</tspan><tspan x="765.0" dy="27.5">HPC</tspan></text>
-<rect x="650" y="330" width="230" height="64" rx="18" fill="#ffd8a8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="765.0" y="362.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="765.0" dy="0">EV車用</tspan></text>
-<rect x="650" y="425" width="230" height="64" rx="18" fill="#ffd8a8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="765.0" y="457.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="765.0" dy="0">工控 / 能源</tspan></text>
-<rect x="650" y="520" width="230" height="64" rx="18" fill="#ffd8a8" stroke="#1f1f1f" stroke-width="3"/>
-<text x="765.0" y="552.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="765.0" dy="0">消費電子</tspan></text>
-<rect x="935" y="235" width="230" height="64" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1050.0" y="267.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1050.0" dy="0">國巨</tspan></text>
-<rect x="935" y="330" width="230" height="64" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1050.0" y="362.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1050.0" dy="0">華新科</tspan></text>
-<rect x="935" y="425" width="230" height="64" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1050.0" y="457.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1050.0" dy="0">禾伸堂</tspan></text>
-<rect x="935" y="520" width="230" height="64" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1050.0" y="552.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1050.0" dy="0">大毅</tspan></text>
-<rect x="935" y="615" width="230" height="64" rx="18" fill="#d0bfff" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1050.0" y="647.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1050.0" dy="0">奇力新 / 美桓</tspan></text>
-<rect x="1220" y="235" width="230" height="64" rx="18" fill="#fff3bf" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1335.0" y="267.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1335.0" dy="0">月營收</tspan></text>
-<rect x="1220" y="330" width="230" height="64" rx="18" fill="#fff3bf" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1335.0" y="348.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1335.0" dy="0">ASP /</tspan><tspan x="1335.0" dy="27.5">Lead time</tspan></text>
-<rect x="1220" y="425" width="230" height="64" rx="18" fill="#fff3bf" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1335.0" y="457.0" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1335.0" dy="0">稼動率 / 毛利率</tspan></text>
-<rect x="1220" y="520" width="230" height="64" rx="18" fill="#fff3bf" stroke="#1f1f1f" stroke-width="3"/>
-<text x="1335.0" y="538.25" font-family="Microsoft JhengHei, Noto Sans CJK TC, sans-serif" font-size="22" font-weight="400" fill="#1f1f1f" text-anchor="middle"><tspan x="1335.0" dy="0">DSI /</tspan><tspan x="1335.0" dy="27.5">AI車用占比</tspan></text>
-<line x1="322" y1="457.0" x2="353" y2="457.0" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="607" y1="457.0" x2="638" y2="457.0" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="892" y1="457.0" x2="923" y2="457.0" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-<line x1="1177" y1="457.0" x2="1208" y2="457.0" stroke="#333" stroke-width="4" marker-end="url(#arrow)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050" font-family="Noto Sans CJK TC, Noto Sans CJK SC, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fbfcfe"/><stop offset="1" stop-color="#f3f5f9"/>
+  </linearGradient>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#27324a" flood-opacity="0.10"/>
+  </filter>
+  <marker id="aFaint" markerWidth="11" markerHeight="11" refX="7.5" refY="4" orient="auto">
+    <path d="M0,0 L9,4 L0,8 Z" fill="#8a93a6"/>
+  </marker>
+  <marker id="aViolet" markerWidth="12" markerHeight="12" refX="8" refY="4.2" orient="auto">
+    <path d="M0,0 L9.5,4.2 L0,8.4 Z" fill="#8b5cf6"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1800" height="1050" fill="url(#bg)"/>
+<rect x="1" y="1" width="1798" height="1048" rx="22" fill="none" stroke="#e9ecf3"/>
+
+<text x="72" y="78" font-size="22" font-weight="bold" letter-spacing="3" fill="#0f766e">VALUE CHAIN · 產業鏈</text>
+<text x="70" y="132" font-size="46" font-weight="bold" fill="#1f2430">被動元件產業鏈全貌</text>
+<text x="72" y="172" font-size="22" fill="#5b6472">上游材料 → 元件製造 → 終端應用 → 台廠曝險 → 追蹤指標</text>
+<rect x="43" y="320" width="330" height="340" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M61,320 h294 a18,18 0 0 1 18,18 v6 h-330 v-6 a18,18 0 0 1 18,-18 z" fill="#14b8a6"/><text x="69" y="382" font-size="27" font-weight="bold" fill="#0f766e">上游材料</text><text x="69" y="423" font-size="20" fill="#5b6472">BaTiO₃ 粉體</text><text x="69" y="456" font-size="20" fill="#5b6472">Ni / RuO₂ 漿料</text><text x="69" y="489" font-size="20" fill="#5b6472">鐵氧體 / 磁粉芯</text><text x="69" y="522" font-size="20" fill="#5b6472">NiCr / Cu 合金</text><rect x="389" y="320" width="330" height="340" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M407,320 h294 a18,18 0 0 1 18,18 v6 h-330 v-6 a18,18 0 0 1 18,-18 z" fill="#0ea5e9"/><text x="415" y="382" font-size="27" font-weight="bold" fill="#0369a1">元件製造</text><text x="415" y="423" font-size="20" fill="#5b6472">MLCC</text><text x="415" y="456" font-size="20" fill="#5b6472">晶片電阻</text><text x="415" y="489" font-size="20" fill="#5b6472">功率電感</text><text x="415" y="522" font-size="20" fill="#5b6472">鉭容 / 薄膜電容</text><rect x="735" y="320" width="330" height="340" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M753,320 h294 a18,18 0 0 1 18,18 v6 h-330 v-6 a18,18 0 0 1 18,-18 z" fill="#f59e0b"/><text x="761" y="382" font-size="27" font-weight="bold" fill="#b45309">終端應用</text><text x="761" y="423" font-size="20" fill="#5b6472">AI Server / HPC</text><text x="761" y="456" font-size="20" fill="#5b6472">電動車 EV</text><text x="761" y="489" font-size="20" fill="#5b6472">工控 / 能源</text><text x="761" y="522" font-size="20" fill="#5b6472">消費電子</text><rect x="1081" y="320" width="330" height="340" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M1099,320 h294 a18,18 0 0 1 18,18 v6 h-330 v-6 a18,18 0 0 1 18,-18 z" fill="#8b5cf6"/><text x="1107" y="382" font-size="27" font-weight="bold" fill="#6d28d9">台灣公司</text><text x="1107" y="423" font-size="20" fill="#5b6472">國巨 2327</text><text x="1107" y="456" font-size="20" fill="#5b6472">華新科 2492</text><text x="1107" y="489" font-size="20" fill="#5b6472">禾伸堂 3026</text><text x="1107" y="522" font-size="20" fill="#5b6472">大毅 2478</text><text x="1107" y="555" font-size="20" fill="#5b6472">奇力新</text><rect x="1427" y="320" width="330" height="340" rx="18" fill="#ffffff" stroke="#e6e8ef" filter="url(#soft)"/><path d="M1445,320 h294 a18,18 0 0 1 18,18 v6 h-330 v-6 a18,18 0 0 1 18,-18 z" fill="#6366f1"/><text x="1453" y="382" font-size="27" font-weight="bold" fill="#4338ca">追蹤指標</text><text x="1453" y="423" font-size="20" fill="#5b6472">月營收 MoM/YoY</text><text x="1453" y="456" font-size="20" fill="#5b6472">MLCC 現貨報價</text><text x="1453" y="489" font-size="20" fill="#5b6472">Lead time 週數</text><text x="1453" y="522" font-size="20" fill="#5b6472">稼動率 / 毛利率</text><text x="1453" y="555" font-size="20" fill="#5b6472">DSI · AI車用占比</text><line x1="377" y1="490.0" x2="383" y2="490.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="723" y1="490.0" x2="729" y2="490.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="1069" y1="490.0" x2="1075" y2="490.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><line x1="1415" y1="490.0" x2="1421" y2="490.0" stroke="#8a93a6" stroke-width="2.4" marker-end="url(#aFaint)"/><circle cx="78" cy="974" r="8" fill="#14b8a6"/><text x="96" y="980" font-size="21" fill="#5b6472">材料</text><circle cx="222" cy="974" r="8" fill="#0ea5e9"/><text x="240" y="980" font-size="21" fill="#5b6472">元件</text><circle cx="366" cy="974" r="8" fill="#f59e0b"/><text x="384" y="980" font-size="21" fill="#5b6472">應用</text><circle cx="510" cy="974" r="8" fill="#8b5cf6"/><text x="528" y="980" font-size="21" fill="#5b6472">公司</text><circle cx="654" cy="974" r="8" fill="#6366f1"/><text x="672" y="980" font-size="21" fill="#5b6472">指標</text></svg>
