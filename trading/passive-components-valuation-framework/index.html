@@ -6,35 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Analysis, Data Science, Python, SQL, AI Agents, Trading Research">
+        <meta name="description" content="週期股估值方法（P/B band、正常化EPS、EV/EBITDA、景氣位置×估值矩陣）與台廠當前估值快照，解決「現在貴不貴、何時買」的問題。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/passive-components-valuation-framework/">
       
       
-        <link rel="prev" href="../ai/">
-      
-      
-        <link rel="next" href="../projects/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Trading - Shane's Knowledge Base</title>
+        <title>被動元件估值框架 - Shane's Knowledge Base</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trading-quant-research" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳轉到
         </a>
       
@@ -96,7 +92,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trading
+              被動元件估值框架
             
           </span>
         </div>
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -242,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai/" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -259,11 +255,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -284,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -326,7 +320,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
@@ -356,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -383,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai/" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -407,37 +401,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trading
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -453,37 +420,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文章
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -520,7 +456,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../projects/" class="md-nav__link ">
               
   
   
@@ -564,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/toeic-master/" class="md-nav__link">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
         
   
   
@@ -619,10 +555,115 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#pe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文章
+        一、為什麼週期股不能看 PE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、四種較可靠的估值法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、四種較可靠的估值法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pb-band" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. P/B band（週期股首選）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mid-cycle-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 正常化 / mid-cycle EPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-evebitda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. EV/EBITDA（跨資本結構）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 相對日系錨定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、景氣位置 × 估值矩陣（核心判斷表）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、台廠當前估值快照（2026-05，需持續更新）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、2026 估值情境（分析師共識框架）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        待補（需歷史數據）
       
     </span>
   </a>
@@ -654,28 +695,158 @@
 
 
 
-<h1 id="trading-quant-research">Trading / Quant Research<a class="headerlink" href="#trading-quant-research" title="Permanent link">&para;</a></h1>
-<p>本區收錄已整理完成、適合公開發布的 Trading / Quant Research 筆記。</p>
-<h2 id="_1">文章<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="_1">被動元件估值框架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>補齊<a href="../passive-components-industry-overview/">被動元件產業研究總覽</a>的估值缺口。原研究偏框架，缺「現在貴不貴、何時買」的判斷工具。
+<strong>核心警告：被動元件是週期股，禁用單一時點 PE。</strong> 同一檔在不同 EPS 基礎下，PE 可從個位數到 60 倍天差地別。</p>
+</blockquote>
+<h2 id="pe">一、為什麼週期股不能看 PE<a class="headerlink" href="#pe" title="Permanent link">&para;</a></h2>
+<p>以國巨為例，市場上同時出現這些「本益比」：</p>
+<table>
+<thead>
+<tr>
+<th>說法</th>
+<th>PE</th>
+<th>用的 EPS 基礎</th>
+<th>來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「本益比僅 7 倍」</td>
+<td>7×</td>
+<td>用景氣峰值/未來樂觀 EPS</td>
+<td>分析師喊盤（峰值E陷阱）</td>
+</tr>
+<tr>
+<td>「約 20 倍」</td>
+<td>~20×</td>
+<td>近期年化</td>
+<td>經濟日報</td>
+</tr>
+<tr>
+<td>「29.8 倍」</td>
+<td>29.8×</td>
+<td>落後12月 EPS</td>
+<td>財報狗</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>同一家公司差 4 倍以上</strong>，全看分母用哪個 E。週期股在景氣高點 EPS 最高、PE 看似最低（最危險的買點）；景氣低點 EPS 最低、PE 看似最高（常是最佳買點）。<strong>這就是 PE 陷阱。</strong></p>
+<h2 id="_2">二、四種較可靠的估值法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-pb-band">1. P/B band（週期股首選）<a class="headerlink" href="#1-pb-band" title="Permanent link">&para;</a></h3>
 <ul>
-<li>2026-06-06｜<a href="passive-components-industry-overview/">被動元件產業研究總覽</a></li>
-<li>2026-06-08｜<a href="passive-components-company-universe/">被動元件台股公司全圖</a></li>
-<li>2026-06-08｜<a href="passive-components-valuation-framework/">被動元件估值框架</a></li>
-<li>2026-06-08｜<a href="passive-components-market-sizing/">被動元件市場量化</a></li>
-<li>2026-06-06｜<a href="passive-components-research-diagrams-decision-map/">被動元件研究結構圖與決策地圖</a></li>
-<li>2026-06-06｜<a href="passive-components-monthly-tracker/">被動元件月度追蹤表</a></li>
-<li>2026-06-06｜<a href="yageo-2327/">國巨 2327</a></li>
-<li>2026-06-06｜<a href="walsin-technology-2492/">華新科 2492</a></li>
-<li>2026-06-06｜<a href="holy-stone-3026/">禾伸堂 3026</a></li>
-<li>2026-06-06｜<a href="ta-i-technology-2478/">大毅 2478</a></li>
-<li>2026-06-06｜<a href="chilisin-and-magontec/">奇力新與美桓</a></li>
-<li>2026-06-06｜<a href="taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a></li>
-<li>2026-06-06｜<a href="taiwan-chip-counter-signal-backtest-system/">台股籌碼反向訊號回測系統</a></li>
-<li>2026-06-05｜<a href="wave-theory-probabilistic-counter-plan/">波浪理論機率式波數判斷系統規劃</a></li>
-<li>2026-06-05｜<a href="threads-txf-sentiment-following-research/">Threads 台指期情緒與跟單策略研究規劃</a></li>
-<li>2026-05-28｜<a href="serenity-style-industry-research-process/">Serenity 式產業研究流程</a></li>
-<li>2026-05-28｜<a href="basic-industry-analysis-sop/">基礎產業分析 SOP</a></li>
+<li>週期股獲利波動大但淨值相對穩定，P/B 比 PE 穩健。</li>
+<li>用法：抓個股歷史 P/B 區間，現價落在低位（接近歷史下緣）＝相對便宜，高位（紅色區）＝偏貴。</li>
+<li>現況：國巨 P/B 河流圖目前在<strong>紅色（偏高）區間</strong>（statementdog）。</li>
 </ul>
+<h3 id="2-mid-cycle-eps">2. 正常化 / mid-cycle EPS<a class="headerlink" href="#2-mid-cycle-eps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>用跨一個完整景氣循環（含高低點）的平均獲利當分母，避開峰值E陷阱。</li>
+<li>正常化 PE 才能跨景氣位置比較。</li>
+</ul>
+<h3 id="3-evebitda">3. EV/EBITDA（跨資本結構）<a class="headerlink" href="#3-evebitda" title="Permanent link">&para;</a></h3>
+<ul>
+<li>國巨因併購（KEMET/Pulse）背負淨負債，PE 會失真；EV/EBITDA 把負債算進來，比較公允。</li>
+<li>適合拿來和日系（村田、TDK）對比。</li>
+</ul>
+<h3 id="4">4. 相對日系錨定<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>村田、TDK、太陽誘電的估值是高端錨；台廠因產品階較低、週期性較高，通常折價。</li>
+<li>折價收斂（台廠往利基/車規/AI 移動成功）是 re-rating 訊號。</li>
+</ul>
+<h2 id="_3">三、景氣位置 × 估值矩陣（核心判斷表）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>景氣階段</th>
+<th>P/B</th>
+<th>預估 PE 表象</th>
+<th>正確解讀</th>
+<th>動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>過熱</td>
+<td>高（紅區）</td>
+<td>看似低（峰值E）</td>
+<td><strong>最危險</strong>：用峰值E算便宜是假象</td>
+<td>減碼/避開</td>
+</tr>
+<tr>
+<td>衰退/去庫</td>
+<td>下殺</td>
+<td>飆高（E崩）</td>
+<td>PE 高是 E 崩，不代表貴</td>
+<td>觀察、分批佈局起點</td>
+</tr>
+<tr>
+<td>築底</td>
+<td>歷史低位</td>
+<td>極高或轉虧</td>
+<td>最佳風險報酬區</td>
+<td><strong>分批買進</strong></td>
+</tr>
+<tr>
+<td>復甦初期</td>
+<td>中低→回升</td>
+<td>開始回落</td>
+<td>正常化 PE 合理</td>
+<td>加碼/續抱</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2026-05">四、台廠當前估值快照（2026-05，需持續更新）<a class="headerlink" href="#2026-05" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>數字為公開資料整理，可信度標記：▲法說/財報直接 △媒體/分析師估算。下單前請再核對。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>股價區間</th>
+<th>PE（落後）</th>
+<th>全年EPS估</th>
+<th>P/B 位階</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>國巨 2327</td>
+<td>623~784 元△</td>
+<td>~20~30×△（峰值算法喊到 7×）</td>
+<td>倒吃甘蔗△</td>
+<td>紅區（偏高）△</td>
+<td>平台型，宜用 EV/EBITDA</td>
+</tr>
+<tr>
+<td>華新科 2492</td>
+<td>220+ 元△</td>
+<td>逼近 30×△</td>
+<td>~7.5 元△；Q1 1.69、毛利18.3%▲</td>
+<td>待補</td>
+<td>景氣 beta，對 MLCC ASP 最敏感</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2026">五、2026 估值情境（分析師共識框架）<a class="headerlink" href="#2026" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>空方情境</strong>：CSP 客戶調節庫存 → 估值回歷史區間<strong>中值，PE 約 12~14 倍</strong>。</li>
+<li><strong>多方情境</strong>：Vera Rubin 平台順利放量 → 市場以未來兩年<strong>複合成長 25%</strong> 計，<strong>25 倍 PE 為共識</strong>。</li>
+<li>短線：已提前反映多利多，追高風險升高（2026-05 多家媒體一致觀點）。</li>
+</ul>
+<p>→ 研究操作：把「現價隱含的 EPS 成長假設」算出來，對照你判斷的景氣位置與 AI 放量機率，決定是站多方還是空方情境。</p>
+<hr />
+<h2 id="_4">待補（需歷史數據）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] 各公司歷史 P/B / EV/EBITDA 區間數列（建回歸：毛利率 vs MLCC 現貨價 vs 估值）。</li>
+<li>[ ] 村田/TDK/太陽誘電當前 EV/EBITDA、P/B，建立日台估值折價表。</li>
+<li>[ ] 鋁電解/電感/代理各次族群的估值區間（蜜望實、立隆電、臺慶科等）。</li>
+<li>[ ] 正常化 EPS 試算（需 2018~2026 完整循環獲利數列）。</li>
+</ul>
+<p><strong>來源</strong>：財報狗（國巨 PE/PB）、經濟日報、今周刊、優分析（2026-05 估值情境）；數字為整理，使用前請核實。</p>
 
 
 
@@ -708,7 +879,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月26日 02:15:25 UTC">2026年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月8日 03:55:40 UTC">2026年6月8日</span>
   </span>
 
     
@@ -738,44 +909,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="頁腳" >
-        
-          
-          <a href="../ai/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: AI">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一頁
-              </span>
-              <div class="md-ellipsis">
-                AI
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../projects/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Projects 首頁">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一頁
-              </span>
-              <div class="md-ellipsis">
-                Projects 首頁
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -819,10 +952,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
