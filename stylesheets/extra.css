@@ -73,11 +73,16 @@
 
 .md-typeset p > img {
   display: inline-block;
-  width: min(100%, 1120px);
+  width: min(100%, 680px);
   height: auto;
   border-radius: 14px;
   background: #fff;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.10);
+}
+
+/* Wide multi-panel figures opt in to a larger cap */
+.md-typeset p > img.wide {
+  width: min(100%, 1040px);
 }
 
 /* ── Blockquote ──────────────────────────────────────────────── */

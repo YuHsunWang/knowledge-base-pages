@@ -810,7 +810,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Learning curve：underfitting vs overfitting" src="../assets/learning_curve.png" />
+<p><img alt="Learning curve：underfitting vs overfitting" class="wide" src="../assets/learning_curve.png" />
 <em>圖：左 underfitting（train/val 都高且收斂在一起）；右 overfitting（train 低、val 高、落差大）。</em></p>
 <p><strong>解法</strong>：
 - High Bias → 加複雜度、加特徵、降正則化、訓練更久。
@@ -901,7 +901,7 @@
 - <strong>L2 (Ridge)</strong> <code>Σwᵢ²</code>：參數均勻縮小、<strong>不歸零</strong>；預設首選、NN 的 weight decay。
 - <strong>L1 (Lasso)</strong> <code>Σ|wᵢ|</code>：不重要參數<strong>直接歸零</strong>（自動特徵選擇）；特徵多但少數重要時用。
 - <strong>Elastic Net</strong>：L1+L2 折衷（<code>l1_ratio</code>），特徵數&gt;樣本數時好用。</p>
-<p><img alt="L1 與 L2 的幾何解釋" src="../assets/l1_l2_geometry.png" />
+<p><img alt="L1 與 L2 的幾何解釋" class="wide" src="../assets/l1_l2_geometry.png" />
 <em>圖：L1（菱形）的最低損失等高線容易交在「角」上 → 某些權重歸零（稀疏）；L2（圓）通常交在非軸點。</em>
 - <code>λ</code>（sklearn 的 <code>alpha</code>）用 CV 調：太小→過擬合、太大→欠擬合。注意 <code>LogisticRegression</code> 用 <code>C=1/λ</code>，方向相反。
 - <strong>其他正則化</strong>：Dropout（NN，隨機關神經元 0.2~0.5）、Early stopping、Data Augmentation。Dropout 訓練/推論差異與 BatchNorm 細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
@@ -1036,7 +1036,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 17:47:59 UTC">2026年6月13日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 17:59:25 UTC">2026年6月13日</span>
   </span>
 
     
