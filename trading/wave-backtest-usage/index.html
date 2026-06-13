@@ -6,35 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Analysis, Data Science, Python, SQL, AI Agents, Trading Research">
+        <meta name="description" content="wave_backtest_v2.py 與 wave_backtest_mtf_v2.py 的執行方式、參數說明、回測結果與注意事項。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/wave-backtest-usage/">
       
       
-        <link rel="prev" href="../ai/">
-      
-      
-        <link rel="next" href="../projects/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Trading - Shane's Knowledge Base</title>
+        <title>波浪回測系統使用說明 - Shane's Knowledge Base</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trading-quant-research" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳轉到
         </a>
       
@@ -96,7 +92,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trading
+              波浪回測系統使用說明
             
           </span>
         </div>
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -242,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai/" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -259,11 +255,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -284,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -326,7 +320,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
@@ -356,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -383,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai/" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -407,37 +401,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trading
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -453,37 +420,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文章
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -520,7 +456,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../projects/" class="md-nav__link ">
               
   
   
@@ -564,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/toeic-master/" class="md-nav__link">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
         
   
   
@@ -619,10 +555,160 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文章
+        概覽
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        執行方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="執行方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wave_backtest_v2py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wave_backtest_v2.py（日線回測）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wave_backtest_mtf_v2pymtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wave_backtest_mtf_v2.py（MTF 回測）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最新回測結果（2026-06-13）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最新回測結果（2026-06-13）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wave_backtest_v2py_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wave_backtest_v2.py — 日線
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wave_backtest_mtf_v2py-mtf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wave_backtest_mtf_v2.py — 盤中 MTF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        策略邏輯摘要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="策略邏輯摘要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zigzag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        雙度 Zigzag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fib 回撤帶進場
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        風險管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注意事項
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相關頁面
       
     </span>
   </a>
@@ -654,24 +740,331 @@
 
 
 
-<h1 id="trading-quant-research">Trading / Quant Research<a class="headerlink" href="#trading-quant-research" title="Permanent link">&para;</a></h1>
-<p>本區收錄已整理完成、適合公開發布的 Trading / Quant Research 筆記。</p>
-<h2 id="_1">文章<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="_1">波浪回測系統使用說明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概覽<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>兩個回測腳本位於 <code>D:\Claude\strategy\scripts\wave\</code>：</p>
+<table>
+<thead>
+<tr>
+<th>腳本</th>
+<th>用途</th>
+<th>資料來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wave_backtest_v2.py</code></td>
+<td>Daily K 線，雙度 Zigzag，無前瞻偏差</td>
+<td>台指期日線 Parquet（2019~2026）</td>
+</tr>
+<tr>
+<td><code>wave_backtest_mtf_v2.py</code></td>
+<td>日線設定攻擊波方向 + 盤中（5m/15m/60m）Fib 進場</td>
+<td>日線 + 1 分K Parquet</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">執行方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>前置條件</strong>：工作目錄必須切換至 <code>D:\Claude\strategy</code>（腳本內部使用相對路徑 import），且中文輸出需設定編碼。</p>
+<h3 id="wave_backtest_v2py">wave_backtest_v2.py（日線回測）<a class="headerlink" href="#wave_backtest_v2py" title="Permanent link">&para;</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Set-Location</span> <span class="s1">&#39;D:\Claude\strategy&#39;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">$env:PYTHONIOENCODING</span> <span class="p">=</span> <span class="s1">&#39;utf-8&#39;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">&amp;</span> <span class="s1">&#39;C:\Users\User\anaconda3\python.exe&#39;</span> <span class="n">-X</span> <span class="n">utf8</span> <span class="n">scripts</span><span class="p">/</span><span class="n">wave</span><span class="p">/</span><span class="n">wave_backtest_v2</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-both</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>說明</th>
+<th>預設</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--variant A</code></td>
+<td>純結構確認（Zigzag 幾何）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>--variant B</code></td>
+<td>結構 + 進場日 K 棒方向確認</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>--both</code></td>
+<td>同時跑 A 和 B，方便對比</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>--years N</code></td>
+<td>回測年數（從最新日期往回算）</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>策略邏輯</strong>：</p>
+<ol>
+<li>大級別 Zigzag（門檻 8%）判斷攻擊波方向（多/空）。</li>
+<li>小級別 Zigzag（門檻 3.5%）捕捉回撤結構。</li>
+<li>當小回撤終點落在攻擊腿的 Fib 0.382～0.786 回撤帶內，確認後下一根 K 棒開盤進場。</li>
+<li>止損設在攻擊腿起點，目標設在 1.0 倍與 1.618 倍延伸位。</li>
+<li>出場觸發：止損 / 止盈 / 大級別方向翻轉（flip）。</li>
+</ol>
+<p>Variant B 額外要求：進場日 K 棒與交易方向一致（多單需紅 K 且收盤位置 ≥ 0.5；空單需黑 K 且收盤位置 ≤ 0.5）。</p>
+<hr />
+<h3 id="wave_backtest_mtf_v2pymtf">wave_backtest_mtf_v2.py（MTF 回測）<a class="headerlink" href="#wave_backtest_mtf_v2pymtf" title="Permanent link">&para;</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Set-Location</span> <span class="s1">&#39;D:\Claude\strategy&#39;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">$env:PYTHONIOENCODING</span> <span class="p">=</span> <span class="s1">&#39;utf-8&#39;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">&amp;</span> <span class="s1">&#39;C:\Users\User\anaconda3\python.exe&#39;</span> <span class="n">-X</span> <span class="n">utf8</span> <span class="n">scripts</span><span class="p">/</span><span class="n">wave</span><span class="p">/</span><span class="n">wave_backtest_mtf_v2</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-all-tf</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>說明</th>
+<th>預設</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--entry-tf 5m</code></td>
+<td>僅跑 5 分鐘進場 TF</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>--entry-tf 15m</code></td>
+<td>僅跑 15 分鐘進場 TF</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>--entry-tf 60m</code></td>
+<td>僅跑 60 分鐘進場 TF</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>--all-tf</code></td>
+<td>同時跑 5m / 15m / 60m</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>策略邏輯</strong>：</p>
 <ul>
-<li>2026-06-13｜<a href="wave-backtest-usage/">波浪回測系統使用說明</a></li>
-<li>2026-06-06｜<a href="passive-components-industry-overview/">被動元件產業研究總覽</a></li>
-<li>2026-06-08｜<a href="passive-components-company-universe/">被動元件台股公司全圖</a></li>
-<li>2026-06-08｜<a href="passive-components-valuation-framework/">被動元件估值框架</a></li>
-<li>2026-06-08｜<a href="passive-components-market-sizing/">被動元件市場量化</a></li>
-<li>2026-06-06｜<a href="passive-components-research-diagrams-decision-map/">被動元件研究結構圖與決策地圖</a></li>
-<li>2026-06-06｜<a href="passive-components-monthly-tracker/">被動元件月度追蹤表</a></li>
-<li>2026-06-08｜<a href="passive-components-stock-tracker/">台灣被動元件個股追蹤</a></li>
-<li>2026-06-06｜<a href="taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a></li>
-<li>2026-06-06｜<a href="taiwan-chip-counter-signal-backtest-system/">台股籌碼反向訊號回測系統</a></li>
-<li>2026-06-05｜<a href="wave-theory-probabilistic-counter-plan/">波浪理論機率式波數判斷系統規劃</a></li>
-<li>2026-06-05｜<a href="threads-txf-sentiment-following-research/">Threads 台指期情緒與跟單策略研究規劃</a></li>
-<li>2026-05-28｜<a href="serenity-style-industry-research-process/">Serenity 式產業研究流程</a></li>
-<li>2026-05-28｜<a href="basic-industry-analysis-sop/">基礎產業分析 SOP</a></li>
+<li>日線 Zigzag（完整 7 年歷史）提供每日攻擊波方向（bias）。Bias 使用當天之前的已收盤日K，無前瞻。</li>
+<li>盤中 TF 只在 bias 方向尋找 Fib 回撤進場機會（variant B：同時需 K 棒確認）。</li>
+<li>進場 TF 小級別門檻依時框自動調整：5m=0.6%，15m=1.0%，60m=1.8%。</li>
+<li>出場觸發：止損 / 止盈 / 日線 bias 翻轉。</li>
+</ul>
+<hr />
+<h2 id="2026-06-13">最新回測結果（2026-06-13）<a class="headerlink" href="#2026-06-13" title="Permanent link">&para;</a></h2>
+<h3 id="wave_backtest_v2py_1">wave_backtest_v2.py — 日線<a class="headerlink" href="#wave_backtest_v2py_1" title="Permanent link">&para;</a></h3>
+<p>資料範圍：2019-01-02 → 2026-05-21 ｜ 回測期間：2019-05-21 → 2026-05-21（1703 根日K）</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>Variant A（純結構）</th>
+<th>Variant B（結構+K棒）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>交易次數</td>
+<td>30（多 21 / 空 9）</td>
+<td>23（多 17 / 空 6）</td>
+</tr>
+<tr>
+<td>勝率</td>
+<td>53.3%（16W / 14L）</td>
+<td>60.9%（14W / 9L）</td>
+</tr>
+<tr>
+<td>多單勝率</td>
+<td>57.1%</td>
+<td>64.7%</td>
+</tr>
+<tr>
+<td>空單勝率</td>
+<td>44.4%</td>
+<td>50.0%</td>
+</tr>
+<tr>
+<td>總損益</td>
+<td>+6,784 pts（NT$ +1,356,800）</td>
+<td>+9,032 pts（NT$ +1,806,400）</td>
+</tr>
+<tr>
+<td>買進持有基準</td>
+<td>+30,986 pts</td>
+<td>+30,986 pts</td>
+</tr>
+<tr>
+<td>獲利因子 (PF)</td>
+<td>1.55</td>
+<td>2.19</td>
+</tr>
+<tr>
+<td>平均獲利</td>
+<td>+1,189.0 pts</td>
+<td>+1,189.0 pts</td>
+</tr>
+<tr>
+<td>平均虧損</td>
+<td>-874.3 pts</td>
+<td>-846.0 pts</td>
+</tr>
+<tr>
+<td>平均持有</td>
+<td>32.1 天</td>
+<td>28.4 天</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td>3.03</td>
+<td>5.27</td>
+</tr>
+<tr>
+<td>最大回撤</td>
+<td>5,833 pts</td>
+<td>5,318 pts</td>
+</tr>
+<tr>
+<td>出場：止損 / 止盈 / 翻轉</td>
+<td>5 / 16 / 9</td>
+<td>4 / 15 / 4</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>警告（Sharpe）</strong>：A=3.03、B=5.27 均超過 2。回測樣本 30/23 筆，7 年；需排除以下偏差後才能信任：(1) 參數選擇在樣本內（8%/3.5% 門檻是否反覆調過？）、(2) Fib 帶 0.382～0.786 範圍有多少自由度、(3) 日線資料起點 2019 為牛市主升段。建議做 walk-forward 或 Monte Carlo permutation 再評估。</p>
+</blockquote>
+<hr />
+<h3 id="wave_backtest_mtf_v2py-mtf">wave_backtest_mtf_v2.py — 盤中 MTF<a class="headerlink" href="#wave_backtest_mtf_v2py-mtf" title="Permanent link">&para;</a></h3>
+<p>資料範圍：1 分K 約 2025-06-29 → 2026-06-05（僅約 1 年）</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>5m 進場</th>
+<th>15m 進場</th>
+<th>60m 進場</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>交易次數</td>
+<td>47（多 44 / 空 3）</td>
+<td>14（多 14 / 空 0）</td>
+<td>4（多 4 / 空 0）</td>
+</tr>
+<tr>
+<td>勝率</td>
+<td>61.7%</td>
+<td>64.3%</td>
+<td>100.0%</td>
+</tr>
+<tr>
+<td>多單勝率</td>
+<td>63.6%</td>
+<td>64.3%</td>
+<td>100.0%</td>
+</tr>
+<tr>
+<td>空單勝率</td>
+<td>33.3%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>總損益</td>
+<td>+2,708 pts（NT$ +541,600）</td>
+<td>+259 pts（NT$ +51,800）</td>
+<td>+4,370 pts（NT$ +874,000）</td>
+</tr>
+<tr>
+<td>買進持有基準</td>
+<td>+23,024 pts</td>
+<td>+22,996 pts</td>
+<td>+22,996 pts</td>
+</tr>
+<tr>
+<td>獲利因子 (PF)</td>
+<td>1.39</td>
+<td>1.07</td>
+<td>inf</td>
+</tr>
+<tr>
+<td>平均獲利</td>
+<td>+333.9 pts</td>
+<td>+450.3 pts</td>
+<td>+1,092.5 pts</td>
+</tr>
+<tr>
+<td>平均虧損</td>
+<td>-387.4 pts</td>
+<td>-758.8 pts</td>
+<td>0 pts</td>
+</tr>
+<tr>
+<td>平均持有</td>
+<td>41.9 小時</td>
+<td>83.8 小時</td>
+<td>353.8 小時</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td>2.29</td>
+<td>0.45</td>
+<td>29.62</td>
+</tr>
+<tr>
+<td>最大回撤</td>
+<td>1,153 pts</td>
+<td>2,348 pts</td>
+<td>0 pts</td>
+</tr>
+<tr>
+<td>出場：止損 / 止盈 / 翻轉</td>
+<td>16 / 31 / 0</td>
+<td>5 / 9 / 0</td>
+<td>0 / 4 / 0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>警告（60m）</strong>：4 筆交易、Sharpe 29.62、MDD 0 — 樣本量嚴重不足，無任何統計意義，數字不可用於策略評估。</p>
+<p><strong>警告（MTF 樣本期）</strong>：盤中資料僅涵蓋約 1 年（2025-06 → 2026-06），且恰逢台股多頭期（多空比嚴重失衡：5m 多/空 = 44/3），空單表現無法評估。</p>
+</blockquote>
+<hr />
+<h2 id="_4">策略邏輯摘要<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="zigzag">雙度 Zigzag<a class="headerlink" href="#zigzag" title="Permanent link">&para;</a></h3>
+<p>同一份 OHLCV 計算兩組 Zigzag：
+- <strong>大級別</strong>（日線 8%、盤中依 TF）：識別主要攻擊波與回調浪，決定交易方向。
+- <strong>小級別</strong>（日線 3.5%、盤中依 TF）：在攻擊波方向內捕捉次級回撤，找進場時機。</p>
+<h3 id="fib">Fib 回撤帶進場<a class="headerlink" href="#fib" title="Permanent link">&para;</a></h3>
+<p>進場條件：當小級別 pivot 確認，且該回撤幅度落在攻擊腿的 0.382～0.786 Fibonacci 回撤區間，下一根 K 棒開盤進場（t+1 執行，無前瞻）。</p>
+<h3 id="_5">風險管理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>止損：攻擊腿起點（浪的起源點）</li>
+<li>止盈一：攻擊腿幅度的 1.0 倍延伸（波浪等幅）</li>
+<li>止盈二：1.618 倍延伸（黃金比例延伸）</li>
+<li>動態出場：大級別方向翻轉（flip）時，下一根 K 棒開盤強制平倉</li>
+</ul>
+<hr />
+<h2 id="_6">注意事項<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>執行目錄</strong>：必須在 <code>D:\Claude\strategy</code> 下執行，腳本內部用 <code>sys.path.insert</code> 插入兩層父目錄，若工作目錄不對會 ImportError。</li>
+<li><strong>Python 路徑</strong>：使用 <code>C:\Users\User\anaconda3\python.exe</code>，不可用 conda activate 後的 python（環境不同）。</li>
+<li><strong>中文編碼</strong>：PowerShell 下需 <code>$env:PYTHONIOENCODING = 'utf-8'</code> 搭配 <code>-X utf8</code>，否則中文輸出亂碼（注意 PowerShell 變數設定語法：<code>$env:VAR = 'value'</code>，不是 <code>:VAR = 'value'</code>）。</li>
+<li><strong>盤中資料範圍</strong>：1 分K 僅涵蓋約 1 年（2025-06 → 2026-06），MTF 回測期短、空單樣本極少，結果僅能評估進場時機品質，不能評估策略長期穩健性。</li>
+<li><strong>完整測試套件</strong>：381 tests passed（執行 <code>pytest</code> 於策略根目錄確認）。</li>
+<li><strong>高 Sharpe 警示</strong>：日線 Variant B Sharpe 5.27 遠超過 2，應優先做樣本外（walk-forward）驗證，再考慮實盤。</li>
+</ul>
+<hr />
+<h2 id="_7">相關頁面<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../wave-theory-probabilistic-counter-plan/">波浪計數器系統規劃</a></li>
 </ul>
 
 
@@ -705,7 +1098,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月26日 02:15:25 UTC">2026年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 07:39:47 UTC">2026年6月13日</span>
   </span>
 
     
@@ -735,44 +1128,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="頁腳" >
-        
-          
-          <a href="../ai/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: AI">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一頁
-              </span>
-              <div class="md-ellipsis">
-                AI
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../projects/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Projects 首頁">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一頁
-              </span>
-              <div class="md-ellipsis">
-                Projects 首頁
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -816,10 +1171,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
