@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="舊頁面已改名，請前往新的 Claude Code coding guideline 頁面。">
+        <meta name="description" content="數值/類別/缺失值/時間特徵的處理、特徵交互與特徵選擇的完整實務整理，含面試常考點。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/claude-md-knowledge-base-maintenance-principles/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/feature-engineering/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>此頁已改名：Claude Code 寫程式準則 - Shane's Knowledge Base</title>
+        <title>特徵工程心法 - Shane's Knowledge Base</title>
       
     
     
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              此頁已改名：Claude Code 寫程式準則
+              特徵工程心法
             
           </span>
         </div>
@@ -238,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -257,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../machine-learning/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -396,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -423,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine-learning/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -594,6 +594,130 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        數值型特徵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="數值型特徵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nnsvmknn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        縮放（線性模型/NN/SVM/KNN 需要；樹模型不用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分箱（Binning）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        變換（Transformation）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        類別型特徵
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缺失值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        時間特徵
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特徵交互
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特徵選擇
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imbalanced-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        imbalanced data 常用手法
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -617,10 +741,90 @@
 
 
 
-<h1 id="_1">此頁已改名<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>這個頁面的原標題容易讓人誤會成「知識庫維運原則」。實際上，multica-ai/andrej-karpathy-skills 的 <code>CLAUDE.md</code> 更適合整理成 <strong>coding agent 寫程式準則</strong>。</p>
-<p>請前往新版頁面：</p>
-<p><a href="../claude-code-coding-guidelines/">Claude Code 寫程式準則：Andrej Karpathy 版本整理</a></p>
+<h1 id="_1">特徵工程心法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>「Garbage in, garbage out.」業界 DS 約 80% 時間在這裡。Kaggle 賽到後段，大家都用 LightGBM，<strong>贏的是特徵工程</strong>。好特徵往往勝過複雜模型。</p>
+</blockquote>
+<h2 id="_2">數值型特徵<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="nnsvmknn">縮放（線性模型/NN/SVM/KNN 需要；樹模型不用）<a class="headerlink" href="#nnsvmknn" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">RobustScaler</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># StandardScaler：均值0、標準差1 —— 通用首選</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># MinMaxScaler ：縮到 [0,1] —— 需固定範圍輸入（如 NN）</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># RobustScaler ：用中位數與 IQR —— 有異常值時</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">面試常考</p>
+<p><strong>樹模型不需要標準化</strong>——CART 分裂只看閾值（大小順序），與絕對數值無關。線性模型靠 <code>w·x</code>，尺度差太大會讓梯度偏向大數值特徵、收斂慢又跑歪。</p>
+</div>
+<h3 id="binning">分箱（Binning）<a class="headerlink" href="#binning" title="Permanent link">&para;</a></h3>
+<p>連續變數切成類別（年齡→兒童/青年/中年/老年）：處理非線性、降噪、增可解釋性。</p>
+<h3 id="transformation">變換（Transformation）<a class="headerlink" href="#transformation" title="Permanent link">&para;</a></h3>
+<p>Log（處理右偏，如收入/人口）、Square root（較溫和）、Box-Cox（自動找最佳變換）。</p>
+<h2 id="_3">類別型特徵<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>編碼</th>
+<th>做法</th>
+<th>適用 / 注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>One-Hot</strong></td>
+<td>每類別一欄 0/1</td>
+<td>類別少（&lt;10）；多會維度爆炸</td>
+</tr>
+<tr>
+<td><strong>Label</strong></td>
+<td>紅→0、黃→1…</td>
+<td>有序（學歷）OK；無序給線性模型會誤判大小，樹模型可處理</td>
+</tr>
+<tr>
+<td><strong>Target</strong></td>
+<td>類別→該類別 target 均值</td>
+<td>高基數（郵遞區號/商品 ID）最有用；<strong>易 leak，必須 CV-based</strong></td>
+</tr>
+<tr>
+<td><strong>Frequency</strong></td>
+<td>類別→出現頻率</td>
+<td>高基數的輕量替代</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">缺失值<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>策略：刪除（缺失 &gt;50% 考慮）、填均值/中位數（隨機缺失）、填眾數（類別）、填特殊值（−999/「未知」讓模型自學）、模型預測填補（MICE）、<strong>保留缺失當特徵</strong>。</p>
+<div class="admonition tip">
+<p class="admonition-title">業界領悟</p>
+<p>加一個 <strong><code>is_missing</code> 布林旗標</strong>常有奇效——缺失本身可能就是訊號（沒填收入的人行為模式本就不同）。</p>
+</div>
+<h2 id="_5">時間特徵<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>從 datetime 抽：年/月/日/時/星期幾、是否週末/假日、距某重要日幾天。<strong>周期性用 sin/cos</strong>（讓 23 點與 0 點在數值上相近）：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour_sin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour_cos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h2 id="_6">特徵交互<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>兩特徵組出新特徵：BMI = 體重 / 身高²、座標×距離…—<strong>業務領悟常在這裡贏</strong>。</p>
+<h2 id="_7">特徵選擇<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>過濾式（Filter）</strong>：刪低變異、用相關係數/互信息選前 N；快但不看交互。</li>
+<li><strong>包裝式（Wrapper）</strong>：RFE 遞迴消除；慢但考慮與模型互動。</li>
+<li><strong>嵌入式（Embedded）</strong>：L1 正則化（不重要係數歸零）、樹模型 feature importance。</li>
+</ul>
+<h2 id="imbalanced-data">imbalanced data 常用手法<a class="headerlink" href="#imbalanced-data" title="Permanent link">&para;</a></h2>
+<p>SMOTE（合成少數類）、上/下採樣、<code>class_weight</code>。</p>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>樹模型為何不用標準化、線性要</strong>：樹只看大小順序、縮放不改分裂；線性靠 w·x，尺度差會讓梯度偏向大數值特徵。</li>
+<li><strong>One-Hot 維度爆炸怎麼辦</strong>：改 Target Encoding（配 CV 防 leak）/ Frequency Encoding / NN Embedding；樹模型可用 Label Encoding。</li>
+<li><strong>缺失為何有時保留不填</strong>：缺失本身是訊號，加 <code>is_missing</code> flag 比填均值更保留資訊。</li>
+<li><strong>Target Encoding 的 leakage 與防法</strong>：用整個訓練集均值 encode 等於看到自己的 label；用 <strong>CV-based</strong>（每折只用其他折的均值）來防。</li>
+</ul>
+</div>
+<blockquote>
+<p>📌 延伸：縮放/正則化見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念</a>〉，端到端的 Pipeline 防 leakage 見〈<a href="../geron-hands-on-ml-notes/">Géron Ch1–9 重點整理</a>〉。</p>
+</blockquote>
 
 
 
@@ -643,7 +847,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月28日 03:38:22 UTC">2026年5月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 12:32:29 UTC">2026年6月13日</span>
   </span>
 
     
@@ -653,7 +857,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月27日 19:35:09 UTC">2026年5月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 12:32:29 UTC">2026年6月13日</span>
   </span>
 
     

@@ -6,11 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="整理一套從景氣循環、產業成長動能到財報數據的基礎產業分析流程，避免依賴媒體消息決策。">
+        <meta name="description" content="Data Scientist / ML 面試最常考的核心觀念整理——ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證、評估指標，每節附面試口答。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/basic-industry-analysis-sop/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/ml-interview-core-concepts/">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>基礎產業分析 SOP - Shane's Knowledge Base</title>
+        <title>ML 面試核心觀念 - Shane's Knowledge Base</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sop" class="md-skip">
+        <a href="#ml" class="md-skip">
           跳轉到
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              基礎產業分析 SOP
+              ML 面試核心觀念
             
           </span>
         </div>
@@ -257,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../machine-learning/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -276,7 +276,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../../trading/" class="md-tabs__link">
         
   
   
@@ -423,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine-learning/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -450,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../trading/" class="md-nav__link">
         
   
   
@@ -601,10 +601,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心觀念：打破資訊食物鏈的劣勢
+        0. 一眼地圖
       
     </span>
   </a>
@@ -612,22 +612,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-ml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三步驟研究方法
+        1. ML 三大類型
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="三步驟研究方法">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bias-variance-tradeoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bias-Variance Tradeoff（最核心的判斷框架）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gradient-descent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Gradient Descent（訓練之魂）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 線性回歸 vs 邏輯回歸
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-l1-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 正則化（L1 / L2 / 其他）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-rf-xgboost-lightgbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 樹模型家族：RF / XGBoost / LightGBM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cross-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Cross-Validation（交叉驗證）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 評估指標全整理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 評估指標全整理">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STEP 1｜判斷景氣循環位置 + 產品生命週期
+        分類：從混淆矩陣出發
       
     </span>
   </a>
@@ -635,21 +712,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-6" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STEP 2｜評估產業 6 大成長動能
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        STEP 3｜核實 3 大財報數據
+        回歸
       
     </span>
   </a>
@@ -658,17 +724,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        心得歸納
-      
-    </span>
-  </a>
   
 </li>
       
@@ -697,75 +752,262 @@
 
 
 
-<h1 id="sop">基礎產業分析 SOP<a class="headerlink" href="#sop" title="Permanent link">&para;</a></h1>
-<p>原文網址：<a href="https://www.facebook.com/share/p/1BVdTXqSMZ/">Facebook 貼文</a></p>
+<h1 id="ml">ML 面試核心觀念<a class="headerlink" href="#ml" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>這是一份面試導向的觀念速查——把 DS/ML 面試最高頻的八個主題整理成「核心觀念 + 程式碼 + 面試口答」。與〈<a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a>〉互補：那篇照書走章節，這篇照觀念打面試。</p>
+</blockquote>
+<h2 id="0">0. 一眼地圖<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p>ML 三大類型（在學什麼）→ Bias-Variance（怎麼判斷學壞了）→ 梯度下降（怎麼學）→ 線性/邏輯回歸（最基本的兩個模型）→ 正則化（怎麼不過擬合）→ 樹模型家族（業界 tabular 主力）→ 交叉驗證（怎麼公正評估）→ 評估指標（用什麼數字衡量）。</p>
 <hr />
-<h2 id="_1">核心觀念：打破資訊食物鏈的劣勢<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>財經資訊的傳遞順序</strong>：企業高層 → 市場主力 → 內部親友 → 金融從業者 → 媒體 → 一般大眾</p>
-<p>散戶若依賴新聞做決策，永遠處於資訊鏈末端，成為接盤者。<strong>解法是建立系統化的基礎分析 SOP，而非追逐消息。</strong></p>
+<h2 id="1-ml">1. ML 三大類型<a class="headerlink" href="#1-ml" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>監督式</strong>：資料有 label，學「輸入→輸出」映射。</li>
+<li>回歸（連續值，指標 MAE/MSE/RMSE/R²）、分類（類別，指標 Accuracy/P/R/F1/AUC）。</li>
+<li><strong>非監督式</strong>：資料無 label，自己找模式。</li>
+<li>分群（K-Means/DBSCAN）、降維（PCA/t-SNE）、關聯規則（購物籃）。</li>
+<li><strong>其他</strong>：半監督、自監督（BERT 的 masked LM）、強化學習（AlphaGo）。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>監督 vs 非監督</strong>：差在有沒有 label。實務 ~80% 是監督；非監督多用於 label 很貴前的探索或異常檢測。</li>
+<li><strong>K-Means vs PCA</strong>：一個是分群（輸出「屬於哪群」）、一個是降維（輸出低維表示）；常先 PCA 再 K-Means。</li>
+<li><strong>應用場景</strong>：監督→金融違約預測；非監督→電商客戶分群。</li>
+</ul>
+</div>
 <hr />
-<h2 id="_2">三步驟研究方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="step-1">STEP 1｜判斷景氣循環位置 + 產品生命週期<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h3>
+<h2 id="2-bias-variance-tradeoff">2. Bias-Variance Tradeoff（最核心的判斷框架）<a class="headerlink" href="#2-bias-variance-tradeoff" title="Permanent link">&para;</a></h2>
+<p>誤差分解：<code>Total Error = Bias² + Variance + Irreducible Error</code>
+- <strong>Bias 高 = 太簡單 = underfitting</strong>（如用線性回歸擬合非線性）。
+- <strong>Variance 高 = 太複雜 = overfitting</strong>（如深度 20 的決策樹背住訓練集）。
+- <strong>Irreducible</strong>：資料本身雜訊，換模型也減不掉。</p>
+<p><strong>用 train/validation error 診斷：</strong></p>
 <table>
 <thead>
 <tr>
-<th>景氣階段</th>
-<th>特徵</th>
-<th>操作策略</th>
+<th>Training</th>
+<th>Validation</th>
+<th>診斷</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>復甦期</td>
-<td>失業率高點反轉、耐久財回升</td>
-<td>積極布局、放大部位</td>
+<td>高</td>
+<td>高（接近 train）</td>
+<td>High Bias → Underfitting</td>
 </tr>
 <tr>
-<td>成長期</td>
-<td>企業獲利穩、就業增長</td>
-<td>穩健持續買進</td>
+<td>低</td>
+<td>高（差距大）</td>
+<td>High Variance → Overfitting</td>
 </tr>
 <tr>
-<td>榮景期</td>
-<td>透支性消費、固定投資衝頂</td>
-<td>彈性持股、提高現金與避險</td>
-</tr>
-<tr>
-<td>衰退期</td>
-<td>數據全面轉弱</td>
-<td>持有債券與美元、等待落底</td>
+<td>低</td>
+<td>低</td>
+<td>好模型</td>
 </tr>
 </tbody>
 </table>
-<p>產品週期同樣要追蹤：<strong>成長期是利潤最快衝頂的階段，成熟期競爭加劇利潤下滑，要提早調整。</strong></p>
-<p><img alt="景氣循環四階段與操作" src="../../assets/diagrams/industry-sop/industry-sop-01-business-cycle.png" /></p>
+<p><strong>解法</strong>：
+- High Bias → 加複雜度、加特徵、降正則化、訓練更久。
+- High Variance → 加資料（最有效最貴）、加正則化、簡化模型、CV 調參、Ensemble、Dropout、Early stopping。</p>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<p>先看 train/val error 組合判斷：兩者都高=underfitting（加複雜度）；train 低 val 高=overfitting（先試正則化，再考慮蒐集更多資料）。</p>
+</div>
 <hr />
-<h3 id="step-2-6">STEP 2｜評估產業 6 大成長動能<a class="headerlink" href="#step-2-6" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>發展趨勢</strong> — 技術變革與規格演進</li>
-<li><strong>產業變革</strong> — 消費習慣與傳統產業革新</li>
-<li><strong>政策法規</strong> — 扶植或打壓的政策方向</li>
-<li><strong>經營績效</strong> — 市佔率、新客戶、擴廠進度</li>
-<li><strong>獲利關鍵</strong> — 原料成本、良率、匯率對毛利的影響</li>
-<li><strong>企業投資</strong> — 擴廠後訂單掌握度、新事業發展</li>
-</ol>
-<hr />
-<h3 id="step-3-3">STEP 3｜核實 3 大財報數據<a class="headerlink" href="#step-3-3" title="Permanent link">&para;</a></h3>
+<h2 id="3-gradient-descent">3. Gradient Descent（訓練之魂）<a class="headerlink" href="#3-gradient-descent" title="Permanent link">&para;</a></h2>
+<p>一句話：站在哪、看哪個方向最陡下坡、踏一步、重複。更新公式 <code>θ ← θ − α·∇L(θ)</code>（α＝learning rate，負號＝往下坡）。</p>
+<p><strong>三種變形</strong>：
+- <strong>Batch</strong>：用全部資料算一次梯度，穩但慢。
+- <strong>SGD</strong>：一筆就更新，快但震盪大。
+- <strong>Mini-Batch（業界標準）</strong>：一小批（32/64/128/256），能吃 GPU 平行、小震盪還能幫忙逃離 local minima。</p>
+<p><strong>Learning rate</strong>：太小→收斂超慢；太大→震盪甚至發散。常用起點 0.001/0.01，搭配 scheduler（先大後小）。</p>
+<p><strong>進階優化器</strong>：Momentum（慣性）、RMSProp（每參數自適應 lr）、<strong>Adam（=兩者結合，業界預設，99% NN 用它）</strong>。高維空間真正常見的不是 local minima 而是 <strong>saddle point</strong>。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">dw</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">w</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">dw</span><span class="p">;</span> <span class="n">b</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">db</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
 <ul>
-<li><strong>營收</strong>：月營收 YoY 成長 &gt;30% → 波段機會；連續多季成長 → 長線確認</li>
-<li><strong>毛利率</strong>：年毛利率成長 &gt;3% → 短線爆發；連續上升 → 結構性改善；下滑則需警覺</li>
-<li><strong>營業費用率</strong>：費用率隨營收下降 → 淨利放大；費用率暴增 &gt;3% → 需深究原因</li>
+<li><strong>為何往梯度反方向</strong>：梯度指向上升最快方向，要最小化 loss 就往反方向走。</li>
+<li><strong>Batch/Mini/SGD</strong>：Batch 穩慢、SGD 快震盪、Mini-batch 折衷且能用 GPU，業界標準。</li>
+<li><strong>為何用 Adam</strong>：Momentum+RMSProp、自適應 lr、預設好用；但 SGD+Momentum+好 schedule 有時泛化更佳（進階）。</li>
 </ul>
+</div>
 <hr />
-<h2 id="_3">心得歸納<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>投資的本質是<strong>資訊與認知的競爭，而非消息靈通的競爭。</strong></p>
-</blockquote>
+<h2 id="4-vs">4. 線性回歸 vs 邏輯回歸<a class="headerlink" href="#4-vs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>線性回歸</th>
+<th>邏輯回歸</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任務</td>
+<td>回歸</td>
+<td>分類</td>
+</tr>
+<tr>
+<td>輸出</td>
+<td>連續值</td>
+<td>機率 [0,1]</td>
+</tr>
+<tr>
+<td>激活</td>
+<td>無</td>
+<td>Sigmoid / Softmax</td>
+</tr>
+<tr>
+<td>損失</td>
+<td>MSE</td>
+<td>Cross-Entropy</td>
+</tr>
+<tr>
+<td>解析解</td>
+<td>有</td>
+<td>無（須迭代）</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>與其追媒體二手資訊，不如建立能獨立判斷的分析框架</li>
-<li>景氣循環、產業動能、財報三層架構，從宏觀到微觀層層收斂，降低決策的隨機性</li>
-<li>真正的優勢來自紀律與系統，而非運氣或內線</li>
+<li><strong>線性回歸三假設</strong>：線性關係、樣本獨立、殘差常態 N(0,σ²)。</li>
+<li><strong>邏輯回歸</strong>：先算線性組合 z，再用 <strong>Sigmoid</strong> <code>σ(z)=1/(1+e⁻ᶻ)</code> 壓到 [0,1]；多元分類用 <strong>Softmax</strong>。decision boundary 是線性的（P=0.5 ⟺ w·x=0）。</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>為何叫「回歸」</strong>：核心仍是線性回歸 z=w·x，只是再過 Sigmoid 變機率。</li>
+<li><strong>為何不能用 MSE</strong>：邏輯回歸配 MSE 損失非凸、易卡 local minima；Cross-Entropy 來自最大似然、曲面 convex、收斂有保證。</li>
+<li><strong>是線性模型嗎</strong>：是，decision boundary 線性；非線性問題要用 kernel SVM 或樹模型。</li>
+</ul>
+</div>
+<hr />
+<h2 id="5-l1-l2">5. 正則化（L1 / L2 / 其他）<a class="headerlink" href="#5-l1-l2" title="Permanent link">&para;</a></h2>
+<p>在 loss 加懲罰：<code>Loss = 原損失 + λ × 參數懲罰</code>。
+- <strong>L2 (Ridge)</strong> <code>Σwᵢ²</code>：參數均勻縮小、<strong>不歸零</strong>；預設首選、NN 的 weight decay。
+- <strong>L1 (Lasso)</strong> <code>Σ|wᵢ|</code>：不重要參數<strong>直接歸零</strong>（自動特徵選擇）；特徵多但少數重要時用。
+- <strong>Elastic Net</strong>：L1+L2 折衷（<code>l1_ratio</code>），特徵數&gt;樣本數時好用。
+- <code>λ</code>（sklearn 的 <code>alpha</code>）用 CV 調：太小→過擬合、太大→欠擬合。注意 <code>LogisticRegression</code> 用 <code>C=1/λ</code>，方向相反。
+- <strong>其他正則化</strong>：Dropout（NN，隨機關神經元 0.2~0.5）、Early stopping、Data Augmentation。</p>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>L1 vs L2 怎麼選</strong>：特徵多疑多數無用→L1（選特徵）；特徵都有貢獻→L2；不確定→L2 或 Elastic Net。</li>
+<li><strong>L1 為何稀疏</strong>：幾何上 L1 可行域是菱形（角在軸上），與損失等高線最可能交在軸上 → 部分參數精確歸零。</li>
+<li><strong>為何先標準化</strong>：否則 L2 對大尺度特徵懲罰更多，懲罰變成跟尺度相關而非重要性。</li>
+</ul>
+</div>
+<hr />
+<h2 id="6-rf-xgboost-lightgbm">6. 樹模型家族：RF / XGBoost / LightGBM<a class="headerlink" href="#6-rf-xgboost-lightgbm" title="Permanent link">&para;</a></h2>
+<p>單棵決策樹幾乎必過擬合、不穩定，實務只當 Ensemble 的零件。兩條路線：</p>
+<ul>
+<li><strong>Bagging（並行）→ Random Forest</strong>：許多樹各吃 bootstrap 子集 + 每節點隨機選特徵子集 → 投票/平均，<strong>降 Variance</strong>。不易過擬合、可平行、有 feature importance、預設就好用。關鍵參數 <code>n_estimators</code>、<code>max_features</code>（分類預設 √n、回歸 n/3）、<code>max_depth</code>。</li>
+<li><strong>Boosting（串行）→ XGBoost / LightGBM / CatBoost</strong>：每棵新樹專修前面的錯誤，<strong>降 Bias</strong>。</li>
+<li><strong>XGBoost</strong>：level-wise 生長、Kaggle 經典、需手動 encode 類別。</li>
+<li><strong>LightGBM（業界主力）</strong>：leaf-wise 生長、比 XGBoost 快約 10×、原生支援類別變數；小資料（&lt;10k）易過擬合。</li>
+<li><strong>CatBoost</strong>：類別變數處理最佳、預設就強。</li>
+<li>關鍵參數：<code>max_depth</code>/<code>num_leaves</code>、<code>learning_rate</code>（小→需更多樹）、<code>n_estimators</code>、<strong><code>early_stopping_rounds</code>（必加）</strong>、<code>subsample</code>/<code>colsample_bytree</code>（隨機性防過擬合）。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>Bagging vs Boosting</strong>：Bagging 並行降 Variance（RF）；Boosting 串行修錯降 Bias（XGB/LGBM）。</li>
+<li><strong>RF 為何不易過擬合</strong>：兩層隨機（bootstrap 樣本 + 隨機特徵子集）→ 樹間相關性低，集成後 Variance 下降。</li>
+<li><strong>XGB vs LGBM</strong>：level-wise vs <strong>leaf-wise</strong>（每次分裂減損最多的葉）；leaf-wise 通常更準更快，小資料易過擬合。實務先 LGBM 再 Optuna 調參。</li>
+<li><strong>類別變數處理</strong>：One-hot / Label / Target Encoding；CatBoost 原生最佳。</li>
+</ul>
+</div>
+<hr />
+<h2 id="7-cross-validation">7. Cross-Validation（交叉驗證）<a class="headerlink" href="#7-cross-validation" title="Permanent link">&para;</a></h2>
+<p>單次切 train/test 受切分運氣影響大、小資料尤甚。<strong>K-Fold</strong>：切 K 份（常 5/10），輪流 1 份驗證其餘訓練，取平均。</p>
+<p><strong>變形</strong>：
+- <strong>Stratified K-Fold</strong>：保持每折類別比例 → 分類/imbalanced 首選。
+- <strong>TimeSeriesSplit</strong>：時序不能用未來預測過去，只能過去→未來。
+- <strong>Group K-Fold</strong>：同組（如同一病人多筆）須在同一折。
+- <strong>LOO</strong>：K=N，成本高、少用。</p>
+<p>⚠️ <strong>最常見的 Data Leakage</strong>：在 CV 前就用全部資料做標準化/特徵選擇。正解是用 <code>Pipeline</code> 把前處理+模型包起來，讓每折各自 fit：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())])</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">StratifiedKFold</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>為何用 CV / 用哪種</strong>：避免單次切分的運氣；最常 5-Fold，分類用 Stratified，時序用 TimeSeriesSplit。</li>
+<li><strong>Data Leakage</strong>：訓練不當用到驗證/測試資訊（典型：CV 前全量標準化）；用 Pipeline 讓每折分開處理。</li>
+<li><strong>K 選多少</strong>：5 或 10；資料少 K 設大（如 1000 筆用 10-Fold）。</li>
+<li><strong>選超參數+評估別用同一份</strong>：用 train/val/test 三切或 nested CV。</li>
+</ul>
+</div>
+<hr />
+<h2 id="8">8. 評估指標全整理<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="_1">分類：從混淆矩陣出發<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>TP/TN 對；FP＝誤報、FN＝漏報。
+- <strong>Accuracy</strong> <code>(TP+TN)/All</code>：imbalanced 有陷阱（全猜多數類也高分）。
+- <strong>Precision</strong> <code>TP/(TP+FP)</code>：「我說是正的有多少真的是」→ 誤報成本高用（垃圾郵件）。
+- <strong>Recall</strong> <code>TP/(TP+FN)</code>：「真正的正抓到多少」→ 漏報成本高用（癌症篩檢）。
+- <strong>F1</strong> ＝ P/R 調和平均（兩個都高才高）→ imbalanced 首選。
+- <strong>ROC-AUC</strong>：排序能力、與 threshold 無關（0.5 亂猜、1.0 完美）→ imbalanced 評估最常用。</p>
+<table>
+<thead>
+<tr>
+<th>情境</th>
+<th>指標</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平衡資料</td>
+<td>Accuracy</td>
+</tr>
+<tr>
+<td>不平衡</td>
+<td>F1、AUC</td>
+</tr>
+<tr>
+<td>漏報成本高（診斷/詐騙）</td>
+<td>Recall</td>
+</tr>
+<tr>
+<td>誤報成本高（垃圾郵件/推薦）</td>
+<td>Precision</td>
+</tr>
+<tr>
+<td>排名/機率</td>
+<td>AUC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">回歸<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>MAE</strong>：絕對誤差、對 outlier 不敏感。</li>
+<li><strong>MSE</strong>：平方誤差、重罰 outlier、常當訓練損失。</li>
+<li><strong>RMSE</strong>：MSE 開根號、單位同 y、報告最常用。</li>
+<li><strong>R²</strong>：解釋多少 % 變異（≤1，可負）。</li>
+<li><strong>MAPE</strong>：百分比誤差、業務友善，但 y 有 0 會爆。</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred_proba</span><span class="p">)</span>   <span class="c1"># 注意要用機率</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">🎤 面試口答</p>
+<ul>
+<li><strong>P vs R</strong>：誤報貴用 Precision、漏報貴用 Recall、都重要看 F1。</li>
+<li><strong>imbalanced 不能用 Accuracy</strong>：99% 健康全猜健康也 99%；看 F1/AUC 才露出沒學到少數類。</li>
+<li><strong>AUC vs Accuracy</strong>：AUC 是排序能力、與 threshold 無關；Accuracy 隨 threshold 變動。開發看 AUC，部署再依情境定 threshold。</li>
+<li>口訣：<strong>Accuracy 看全局、Precision 看抓得準、Recall 看抓得全、F1 調和、AUC 看排序。</strong></li>
+</ul>
+</div>
 
 
 
@@ -788,7 +1030,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月8日 07:07:34 UTC">2026年6月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 12:32:29 UTC">2026年6月13日</span>
   </span>
 
     
@@ -798,7 +1040,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月28日 03:51:33 UTC">2026年5月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 12:32:29 UTC">2026年6月13日</span>
   </span>
 
     
