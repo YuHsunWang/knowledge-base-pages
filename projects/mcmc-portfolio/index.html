@@ -664,16 +664,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="方法概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        結果
+        迭代流程圖
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -681,7 +687,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        怎麼跑
+        參數收斂過程
       
     </span>
   </a>
@@ -692,7 +698,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        技術重點
+        結果
       
     </span>
   </a>
@@ -701,6 +707,28 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        怎麼跑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術重點
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         限制
@@ -772,16 +800,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="方法概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        結果
+        迭代流程圖
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -789,7 +823,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        怎麼跑
+        參數收斂過程
       
     </span>
   </a>
@@ -800,7 +834,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        技術重點
+        結果
       
     </span>
   </a>
@@ -809,6 +843,28 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        怎麼跑
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術重點
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         限制
@@ -928,8 +984,34 @@
 <li><strong>研究用 Notebook</strong>（<code>MCMC_L1_portfolio.ipynb</code>）：完整推導與視覺化。</li>
 <li><strong>GPU-ready 向量化版本</strong>（<code>mcmc_gpu_parallel.py</code>）：用 CuPy 加速，沒有 CUDA 時自動 fallback 到 NumPy。</li>
 </ul>
+<h3 id="_3">迭代流程圖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A["初始化使用者參數&lt;br/&gt;a_u、s_u = 1 + z_u、C_switch"] --&gt; B["初始化族群超參數&lt;br/&gt;θ_a、Σ_a、θ_switch、σ_switch"]
+    B --&gt; C{"每次 MCMC 迭代"}
+    C --&gt; D["以 log-normal random walk&lt;br/&gt;提出新參數 a_u*、z_u*、C_switch*&lt;br/&gt;再設 s_u* = 1 + z_u*"]
+    D --&gt; E["計算 ΔU、選擇機率 P(Y｜·)、&lt;br/&gt;likelihood 比值、prior 比值與 proposal 修正"]
+    E --&gt; F{"Metropolis-Hastings&lt;br/&gt;以 α = min(1, r) 接受"}
+    F --&gt;|接受| G["用提議值取代目前參數"]
+    F --&gt;|拒絕| H["保留目前參數"]
+    G --&gt; I["更新族群超參數&lt;br/&gt;θ_a、Σ_a、θ_switch、σ_switch"]
+    H --&gt; I
+    I --&gt; J["預測序列、計算訓練準確率"]
+    J --&gt; K["儲存後驗樣本與接受率"]
+    K --&gt; C
+    C --&gt;|n_iter 次後| L["後驗樣本與收斂診斷"]</code></pre>
 <hr />
-<h2 id="_3">結果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">參數收斂過程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>下圖是 realistic 稀疏興趣情境（100 位使用者、10,000 次迭代）的收斂診斷：</p>
+<p><img alt="MCMC 收斂診斷" src="../../assets/figures/mcmc-portfolio/convergence.png" /></p>
+<p>四個面板的解讀：</p>
+<ul>
+<li><strong>(a) 接受率</strong>：三組參數的 Metropolis-Hastings 接受率很快進入穩定區間（偏好 <code>a_u</code> 約 0.05、多樣性 <code>s_u</code> 約 0.89、轉換成本 <code>C_switch</code> 約 0.79）。<code>a_u</code> 接受率較低是因為它是 10 維向量、提案一次要全部接受，屬正常現象。</li>
+<li><strong>(b) 訓練準確率</strong>：在數百次迭代內就從隨機水準衝到約 0.71 並維持平穩，代表取樣器很快找到合理的參數區域。</li>
+<li><strong>(c) 族群超參數</strong>：<code>θ_switch</code> 幾乎立即收斂，<code>θ_s</code>（族群多樣性）則逐步爬升後在約 3.5 上下穩定震盪——典型的階層模型 burn-in 後混合行為。</li>
+<li><strong>(d) 使用者層級軌跡</strong>：5 位抽樣使用者的多樣性參數 <code>s_u</code> 軌跡持續混合、沒有卡死，顯示鏈在使用者層級也有良好的探索性。</li>
+</ul>
+<hr />
+<h2 id="_5">結果<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>包含的結果檔皆為 <strong>100 位使用者 × 10,000 次 MCMC 迭代</strong>，跑在兩種合成情境上。評估指標為 held-out 測試集上的下一類別 Top-1 / Top-3 準確率與序列相似度。</p>
 <table>
 <thead>
@@ -964,13 +1046,14 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="Held-out benchmark 比較" src="../../assets/figures/mcmc-portfolio/benchmark.png" /></p>
 <p>重點：</p>
 <ul>
 <li>MCMC 偏好模型在兩種情境下都<strong>穩定勝過</strong>熱門度與使用者頻率 baseline。</li>
 <li>在比較貼近真實的「稀疏興趣」情境（每人少數主要興趣、session 多停在同一意圖叢集）下，連 Markov 轉移 baseline 都被它在 Top-1、Top-3、序列相似度三項全面超越。</li>
 </ul>
 <hr />
-<h2 id="_4">怎麼跑<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_6">怎麼跑<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </span></code></pre></div>
 <p>小型 demo：</p>
@@ -984,7 +1067,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>cupy-cuda12x
 </span></code></pre></div>
 <hr />
-<h2 id="_5">技術重點<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_7">技術重點<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>自訂 Metropolis-Hastings 取樣器，含使用者層級 + 族群層級（hierarchical）參數更新。</li>
 <li>帶外部「停止」選項的多項 logit 選擇模型。</li>
@@ -993,7 +1076,7 @@
 <li>使用合成瀏覽資料，可完全重現、可公開分享。</li>
 </ul>
 <hr />
-<h2 id="_6">限制<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_8">限制<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
 <li>資料為合成資料，目的是可重現的公開展示，不是真實業務表現。</li>
 <li>轉換成本矩陣是基於轉移頻率的經驗代理，不是真實 switching cost 的因果估計。</li>
@@ -1023,7 +1106,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月13日 23:32:04 UTC">2026年6月13日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月14日 04:05:48 UTC">2026年6月14日</span>
   </span>
 
     
