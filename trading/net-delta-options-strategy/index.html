@@ -6,35 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Analysis, Data Science, Python, SQL, AI Agents, Trading Research">
+        <meta name="description" content="用 TXO 選擇權的淨 Delta 部位（net delta exposure）做布林通道順勢突破、輔以 GEX 與外資期貨 OI 對齊確認的台指期當沖策略；含主/備援自動切換與每日自動化流程。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/net-delta-options-strategy/">
       
       
-        <link rel="prev" href="..">
-      
-      
-        <link rel="next" href="../machine-learning/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>AI - Shane's Knowledge Base</title>
+        <title>net_delta 選擇權部位策略（多指標版） - Shane's Knowledge Base</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ai-ai-agent" class="md-skip">
+        <a href="#net_delta" class="md-skip">
           跳轉到
         </a>
       
@@ -96,7 +92,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AI
+              net_delta 選擇權部位策略（多指標版）
             
           </span>
         </div>
@@ -223,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -240,11 +236,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -263,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../machine-learning/" class="md-tabs__link">
+      <a href="../../machine-learning/" class="md-tabs__link">
         
   
   
@@ -282,7 +276,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../trading/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -303,7 +297,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -345,7 +339,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
@@ -375,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -399,37 +393,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -445,48 +412,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文章
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        附件
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -498,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/" class="md-nav__link">
+      <a href="../../machine-learning/" class="md-nav__link">
         
   
   
@@ -525,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -579,7 +504,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../projects/" class="md-nav__link ">
               
   
   
@@ -623,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/toeic-master/" class="md-nav__link">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
         
   
   
@@ -651,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/mcmc-portfolio/" class="md-nav__link">
+      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
         
   
   
@@ -706,10 +631,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文章
+        1. 核心直覺
       
     </span>
   </a>
@@ -717,10 +642,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        附件
+        2. 訊號來源
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rank17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 進場規則（主策略 rank17）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 主／備援自動切換
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-out-of-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 績效（Out-of-sample）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 注意事項
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 自動化流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dclaudestrategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 檔案對照（D:\Claude\strategy）
       
     </span>
   </a>
@@ -752,20 +743,218 @@
 
 
 
-<h1 id="ai-ai-agent">AI / AI Agent<a class="headerlink" href="#ai-ai-agent" title="Permanent link">&para;</a></h1>
-<p>本區收錄已整理完成、適合公開發布的 AI / AI Agent 筆記。</p>
-<h2 id="_1">文章<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="net_delta">net_delta 選擇權部位策略（多指標版）<a class="headerlink" href="#net_delta" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">性質說明</p>
+<p>本頁記錄的是一套<strong>研究/回測</strong>策略（out-of-sample 模擬），非投資建議、也非實單對帳績效。所有點數皆為台指（TX）點數，換算金額需自行乘上契約點值。</p>
+</div>
+<h2 id="1">1. 核心直覺<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>每天所有 TXO 選擇權的<strong>淨 Delta 部位</strong>（call 與 put 的 <code>delta × 未平倉量</code> 加總）反映了整體市場的方向性押注：</p>
 <ul>
-<li>2026-06-18｜<a href="prompt-engineering-core-techniques/">Prompt Engineering 核心技術：Chaining、CoT 與 Loop</a></li>
-<li>2026-06-11｜<a href="9router-ai-router-token-saver/">9Router：多 AI Provider 本機路由器與 Token 節省</a></li>
-<li>2026-06-06｜<a href="ai-agent-harness-engineering/">AI Agent Harness Engineering 實作指南</a></li>
-<li>2026-05-28｜<a href="claude-md-obsidian-llm-wiki-maintainer/">用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者</a></li>
-<li>2026-05-28｜<a href="claude-code-coding-guidelines/">Claude Code 寫程式準則：Andrej Karpathy 版本整理</a></li>
+<li><code>net_delta_exp &gt; 0</code> → 市場偏多（call-heavy）</li>
+<li><code>net_delta_exp &lt; 0</code> → 市場偏空（put-heavy）</li>
 </ul>
-<h2 id="_2">附件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>當淨 Delta 明顯偏離近期常態（<strong>布林通道突破</strong>）時，視為方向性力量轉強，<strong>順勢</strong>在台指期當沖一日；再用 GEX（造市商 gamma 暴露）與<strong>外資期貨未平倉</strong>等指標<strong>對齊確認</strong>，過濾掉方向不一致的雜訊。</p>
+<h2 id="2">2. 訊號來源<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>資料鏈（皆 TAIFEX/FinMind 公開資料，不需券商 API）：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>fetch_txf.py        EOD TXF 期貨日資料 → txf_daily.parquet
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>fetch_taifex.py     EOD TXO 選擇權日資料 → txo_daily.parquet
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        ▼
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>compute_option_greeks.py   Black-Scholes delta / gamma / iv → option_greeks_daily.parquet
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        │  （標的＝TXF 近月收盤；到期＝月選當月第三個週三、週選第 n 個週三；無風險利率固定 1%）
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ▼
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>compute_market_signals.py  → signal_daily.parquet（每日一行）
+</span></code></pre></div>
+<p><code>signal_daily.parquet</code> 的主要欄位：</p>
+<table>
+<thead>
+<tr>
+<th>類別</th>
+<th>欄位</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>淨 Delta</td>
+<td><code>net_delta_exp</code> <code>call_delta_exp</code> <code>put_delta_exp</code></td>
+<td>全市場方向性押注（Σ delta×OI）</td>
+</tr>
+<tr>
+<td>GEX</td>
+<td><code>total_gex</code> <code>max_gex_strike</code> <code>min_gex_strike</code></td>
+<td>造市商 gamma 暴露總量與上下 gamma wall</td>
+</tr>
+<tr>
+<td>Vol skew</td>
+<td><code>atm_iv</code> <code>skew_25d</code> <code>put_call_iv_ratio</code></td>
+<td>近月 ATM IV、25Δ 偏斜（put−call）、IV 比</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-rank17">3. 進場規則（主策略 rank17）<a class="headerlink" href="#3-rank17" title="Permanent link">&para;</a></h2>
+<p>參數來自 2024-12-31 以前樣本內（IS）grid search 的 rank=17（0=第一名），OOS 不重新最佳化：</p>
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>值</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>band_type</code></td>
+<td>bollinger</td>
+<td>對 <code>net_delta_exp</code> 套布林通道</td>
+</tr>
+<tr>
+<td><code>window</code></td>
+<td>15</td>
+<td>通道回看天數</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>1.1</td>
+<td>通道寬度（標準差倍數）</td>
+</tr>
+<tr>
+<td><code>direction</code></td>
+<td>follow</td>
+<td>突破上軌做多、跌破下軌做空（順勢）</td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td>both_align</td>
+<td>需與輔助指標（外資期貨 OI／現貨）方向一致才進場</td>
+</tr>
+<tr>
+<td><code>spot_window</code></td>
+<td>3</td>
+<td>現貨確認視窗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>執行</strong>：T 日收盤產生訊號 → <strong>T+1 開盤進場、T+1 收盤出場</strong>（持有 1 日）；來回成本 2 點。</p>
+<h2 id="4">4. 主／備援自動切換<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p><code>decide_net_delta_active_strategy.py</code> 每日判斷下一期要用主策略或備援：</p>
 <ul>
-<li>2026-05-28｜<a href="my-obsidian-vault-claude-md/">我的 Obsidian Vault CLAUDE.md 原文</a></li>
+<li><strong>主策略</strong>＝rank17（bollinger）；<strong>備援</strong>＝rank1（keltner 通道版，其餘參數相同）。</li>
+<li>切換條件（任一成立即切備援）：主策略<strong>近 12 筆 PF &lt; 0.8</strong>，或<strong>連續虧損 ≥ 4 筆</strong>。</li>
+<li>切到備援後固定持續 <strong>8 個訊號</strong>（cooldown）再重新評估。</li>
 </ul>
+<blockquote>
+<p>截至 2026-06-16 的判定：<strong>採用主策略（healthy）</strong>，近 12 筆 PF ≈ 11.7、連虧 1 筆，未觸發切換。</p>
+</blockquote>
+<h2 id="5-out-of-sample">5. 績效（Out-of-sample）<a class="headerlink" href="#5-out-of-sample" title="Permanent link">&para;</a></h2>
+<p>OOS 評估區間 <strong>2025-01-02 → 2026-06-15</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>主策略 rank17 (bollinger)</th>
+<th>備援 rank1 (keltner)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>交易數</td>
+<td>29</td>
+<td>33</td>
+</tr>
+<tr>
+<td>勝率</td>
+<td>62.1%</td>
+<td>60.6%</td>
+</tr>
+<tr>
+<td>總點數</td>
+<td><strong>+2281</strong></td>
+<td>+2213</td>
+</tr>
+<tr>
+<td>平均每筆</td>
+<td>+78.7</td>
+<td>+67.1</td>
+</tr>
+<tr>
+<td>Profit Factor</td>
+<td>2.32</td>
+<td>2.23</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td>1.42</td>
+<td>1.39</td>
+</tr>
+<tr>
+<td>Max DD</td>
+<td>-862</td>
+<td>-777</td>
+</tr>
+<tr>
+<td>Calmar</td>
+<td>1.83</td>
+<td>1.97</td>
+</tr>
+<tr>
+<td>最大連虧</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>分年（rank17）：2025 +989 點（25 筆）、2026 YTD +1292 點（4 筆）。
+樣本內參考（rank17，2023-01-03 → 2024-12-31）：47 筆、勝率 59.6%、+1986 點、PF 1.89、Sharpe 0.93。</p>
+<p><img alt="net_delta rank17 OOS 權益曲線（2023 起，標示 2025 OOS 起點）" src="../../assets/trading/net-delta-rank17-equity.png" /></p>
+<h2 id="6">6. 注意事項<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>低頻</strong>：OOS 約 1.5 年只有 ~29 筆交易；單筆樣本少，績效指標的信賴區間要保守看。</li>
+<li><strong>點數非金額</strong>：pnl 單位為 TX 指數點，未含稅費以外的滑價假設（只扣 2 點來回成本）。</li>
+<li><strong>回測非實單</strong>：上述為 OOS 模擬，未考慮實際成交、流動性與夜盤跳空執行風險。</li>
+<li><strong>資料相依</strong>：訊號依賴 TXO greeks，需每日更新 EOD 選擇權資料（見下節自動化）。</li>
+</ul>
+<h2 id="7">7. 自動化流程<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>已加入每日排程（Windows 工作排程器，任務名稱 <strong>Claude-NetDelta-Daily</strong>，平日 18:30）：</p>
+<p><code>schedule/fetch_netdelta_daily.ps1</code> 用 10 天滾動視窗依序跑
+<code>fetch_txf → fetch_taifex → compute_option_greeks → compute_market_signals → backtest OOS(rank17, rank1) → decide</code>，
+跑完推一則 Discord 摘要（最新訊號日＋主/備援決策＋近 30 日觸發）。任何遲到或缺口隔日自動補上。</p>
+<h2 id="8-dclaudestrategy">8. 檔案對照（<code>D:\Claude\strategy</code>）<a class="headerlink" href="#8-dclaudestrategy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>檔案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抓 EOD 期貨/選擇權</td>
+<td><code>fetch_txf.py</code>、<code>fetch_taifex.py</code></td>
+</tr>
+<tr>
+<td>計算 greeks</td>
+<td><code>compute_option_greeks.py</code></td>
+</tr>
+<tr>
+<td>計算訊號</td>
+<td><code>compute_market_signals.py</code></td>
+</tr>
+<tr>
+<td>OOS 回測</td>
+<td><code>backtest_net_delta_multi_indicator_oos.py --rank 17 / --rank 1</code></td>
+</tr>
+<tr>
+<td>主/備援決策</td>
+<td><code>decide_net_delta_active_strategy.py</code></td>
+</tr>
+<tr>
+<td>每日排程</td>
+<td><code>schedule/fetch_netdelta_daily.ps1</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -788,7 +977,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月18日 15:38:44 UTC">2026年6月18日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月17日 04:26:04 UTC">2026年6月17日</span>
   </span>
 
     
@@ -798,7 +987,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月26日 02:15:25 UTC">2026年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月17日 04:26:04 UTC">2026年6月17日</span>
   </span>
 
     
@@ -828,44 +1017,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="頁腳" >
-        
-          
-          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="上一頁: 首頁">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一頁
-              </span>
-              <div class="md-ellipsis">
-                首頁
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../machine-learning/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Machine Learning">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一頁
-              </span>
-              <div class="md-ellipsis">
-                Machine Learning
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -909,10 +1060,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
