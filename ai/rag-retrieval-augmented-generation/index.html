@@ -1,0 +1,1711 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="從 Naive RAG 到 Advanced RAG，涵蓋索引、檢索、生成三階段，Query Transformation、Re-ranking、Self-RAG、Graph RAG、PixelRAG 等進階技術，以及 RAGAS 評估框架與工具選型。">
+      
+      
+      
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/rag-retrieval-augmented-generation/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>RAG 完整指南：檢索增強生成的原理、架構與實作 - Shane's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans TC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rag" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Shane's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RAG 完整指南：檢索增強生成的原理、架構與實作
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="切換深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="切換淺色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換淺色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首頁
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../machine-learning/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Machine Learning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../trading/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Trading
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Shane&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    Shane's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首頁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TOEIC Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bayesian MCMC 瀏覽偏好模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        為什麼需要 RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG 三階段架構
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一階段：索引（Indexing）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一階段：索引（Indexing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-document-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 文件載入（Document Loading）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 文件分塊（Chunking）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 嵌入（Embedding）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-vector-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 向量資料庫（Vector Database）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二階段：檢索（Retrieval）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二階段：檢索（Retrieval）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 基礎向量檢索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-hybrid-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 混合搜尋（Hybrid Search）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-query-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Query Transformation（查詢轉換）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-re-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 重排序（Re-ranking）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第三階段：生成（Generation）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三階段：生成（Generation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Prompt 設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Context 放置位置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced RAG 技術
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced RAG 技術">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naive-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naive RAG 的常見問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-RAG
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-ragmicrosoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph RAG（Microsoft）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pixelragberkeley-skylab-bair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PixelRAG（Berkeley SkyLab / BAIR）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corrective-ragcrag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Corrective RAG（CRAG）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG 評估框架
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RAG 評估框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ragas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAGAS 指標
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golden-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        黃金測試集（Golden Dataset）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具生態與選型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具生態與選型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主流框架比較
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag-langchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最小可行 RAG 實作（LangChain）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術選型指南
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三層 RAG 演進比較
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="rag">RAG 完整指南：檢索增強生成的原理、架構與實作<a class="headerlink" href="#rag" title="Permanent link">&para;</a></h1>
+<h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>大型語言模型（LLM）天生有兩個限制：<strong>知識截止日</strong>與<strong>幻覺</strong>。RAG（Retrieval-Augmented Generation，檢索增強生成）是目前業界最主流的解決方案——在生成答案之前，先從外部知識庫撈出相關文件，再把它們塞進 Prompt，讓模型「有憑有據」地回答。</p>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th>純 LLM</th>
+<th>RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知識來源</td>
+<td>訓練資料（固定）</td>
+<td>外部知識庫（可更新）</td>
+</tr>
+<tr>
+<td>幻覺風險</td>
+<td>高</td>
+<td>低（有文件支撐）</td>
+</tr>
+<tr>
+<td>可追溯性</td>
+<td>無</td>
+<td>可引用來源</td>
+</tr>
+<tr>
+<td>更新成本</td>
+<td>重新訓練（高）</td>
+<td>更新索引（低）</td>
+</tr>
+<tr>
+<td>延遲</td>
+<td>低</td>
+<td>較高（多一次檢索）</td>
+</tr>
+</tbody>
+</table>
+<p>RAG 不是萬能的。它適合「知識密集型」任務（文件問答、客服、法規查詢），不適合純推理或創作任務。</p>
+<hr />
+<h2 id="rag_1">為什麼需要 RAG<a class="headerlink" href="#rag_1" title="Permanent link">&para;</a></h2>
+<p>LLM 在訓練後知識便固定下來。面對以下情境，單靠模型本身無法可靠回答：</p>
+<ul>
+<li><strong>時效性問題</strong>：「今天台股大盤收幾點？」</li>
+<li><strong>私有領域知識</strong>：公司內部文件、個人筆記、私有資料庫</li>
+<li><strong>長尾細節</strong>：訓練資料中罕見的專業技術文件</li>
+<li><strong>可信度要求</strong>：需要引用具體來源的法律、醫療場景</li>
+</ul>
+<p>RAG 的核心思路：<strong>不改模型，改 Prompt</strong>。把外部知識即時注入 Prompt，讓模型用提供的文件作答，而不是憑記憶猜測。</p>
+<hr />
+<h2 id="rag_2">RAG 三階段架構<a class="headerlink" href="#rag_2" title="Permanent link">&para;</a></h2>
+<p><img alt="RAG 三階段架構" src="../../assets/diagrams/rag/01-rag-pipeline.png" /></p>
+<p>整個 RAG 系統分為兩個時間維度：</p>
+<p><strong>離線（Indexing）</strong>：資料準備階段，只需執行一次（或增量更新）。</p>
+<p><strong>線上（Query → Retrieve → Generate）</strong>：每次用戶提問都會走一遍。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[離線]  Document → Chunk → Embed → Vector DB
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                                        ↓
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>[線上]  Query → Embed → 相似度搜尋 → Top-K Chunks → Prompt → LLM → Answer
+</span></code></pre></div>
+<hr />
+<h2 id="indexing">第一階段：索引（Indexing）<a class="headerlink" href="#indexing" title="Permanent link">&para;</a></h2>
+<h3 id="11-document-loading">1.1 文件載入（Document Loading）<a class="headerlink" href="#11-document-loading" title="Permanent link">&para;</a></h3>
+<p>原始文件格式多元，需轉換為純文字：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDF</td>
+<td><code>pypdf</code>, <code>pdfplumber</code>, <code>unstructured</code></td>
+</tr>
+<tr>
+<td>Word/Excel</td>
+<td><code>python-docx</code>, <code>openpyxl</code></td>
+</tr>
+<tr>
+<td>HTML/網頁</td>
+<td><code>BeautifulSoup</code>, <code>Playwright</code></td>
+</tr>
+<tr>
+<td>資料庫</td>
+<td>SQL → 文字摘要</td>
+</tr>
+<tr>
+<td>程式碼</td>
+<td>直接讀取 + AST 解析</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-chunking">1.2 文件分塊（Chunking）<a class="headerlink" href="#12-chunking" title="Permanent link">&para;</a></h3>
+<p>文件通常比 LLM 的 context window 大，必須切分。切法直接影響檢索品質。</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>原理</th>
+<th>適用場景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fixed-size</strong></td>
+<td>每 N 個 token 切一塊</td>
+<td>快速原型</td>
+</tr>
+<tr>
+<td><strong>Sentence</strong></td>
+<td>以句子為邊界</td>
+<td>連貫性要求高</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td>遞迴嘗試段落→句→字符</td>
+<td>通用首選（LangChain 預設）</td>
+</tr>
+<tr>
+<td><strong>Semantic</strong></td>
+<td>依語意相似度決定邊界</td>
+<td>效果好但成本高</td>
+</tr>
+<tr>
+<td><strong>Document-specific</strong></td>
+<td>利用 Markdown/HTML 結構</td>
+<td>有結構的技術文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重疊（Overlap）</strong>：相鄰 chunk 保留一段重疊文字，避免跨邊界的重要資訊被切斷。常見設定：chunk_size=512, overlap=50。</p>
+<h3 id="13-embedding">1.3 嵌入（Embedding）<a class="headerlink" href="#13-embedding" title="Permanent link">&para;</a></h3>
+<p>用 Embedding Model 把每個 chunk 轉成向量，語意相近的 chunk 向量距離相近。</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text-embedding-3-small</code> (OpenAI)</td>
+<td>便宜、快速，適合一般用途</td>
+</tr>
+<tr>
+<td><code>text-embedding-3-large</code> (OpenAI)</td>
+<td>準確率高，成本較高</td>
+</tr>
+<tr>
+<td><code>nomic-embed-text</code></td>
+<td>本機部署，免 API 費</td>
+</tr>
+<tr>
+<td><code>bge-m3</code></td>
+<td>多語言支援強（含中文）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重點</strong>：查詢與文件必須用<strong>同一個</strong> Embedding Model。</p>
+<h3 id="14-vector-database">1.4 向量資料庫（Vector Database）<a class="headerlink" href="#14-vector-database" title="Permanent link">&para;</a></h3>
+<p>儲存向量並支援快速近似最近鄰搜尋（ANN）。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>特性</th>
+<th>適用規模</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chroma</strong></td>
+<td>本機輕量，零設定</td>
+<td>原型、個人專案</td>
+</tr>
+<tr>
+<td><strong>FAISS</strong></td>
+<td>Meta 開源，純記憶體，超快</td>
+<td>研究、離線批次</td>
+</tr>
+<tr>
+<td><strong>Qdrant</strong></td>
+<td>自架或雲端，過濾能力強</td>
+<td>中大型生產</td>
+</tr>
+<tr>
+<td><strong>Pinecone</strong></td>
+<td>全託管，無需維運</td>
+<td>快速上線</td>
+</tr>
+<tr>
+<td><strong>pgvector</strong></td>
+<td>PostgreSQL 外掛，SQL+向量合一</td>
+<td>已有 PG 基礎設施</td>
+</tr>
+<tr>
+<td><strong>Weaviate</strong></td>
+<td>圖譜+向量混合</td>
+<td>需關係查詢</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="retrieval">第二階段：檢索（Retrieval）<a class="headerlink" href="#retrieval" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 基礎向量檢索<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>用戶問題 → Embed → 向量相似度搜尋 → 取回 Top-K chunks。</p>
+<p>相似度計算方式：</p>
+<ul>
+<li><strong>Cosine Similarity</strong>（方向相似，最常用）</li>
+<li><strong>Dot Product</strong>（向量已正規化時等同 Cosine）</li>
+<li><strong>L2 Distance</strong>（歐氏距離，適合密集向量）</li>
+</ul>
+<h3 id="22-hybrid-search">2.2 混合搜尋（Hybrid Search）<a class="headerlink" href="#22-hybrid-search" title="Permanent link">&para;</a></h3>
+<p>純向量搜尋對精確關鍵字（如人名、型號）不如傳統關鍵字搜尋（BM25）。<strong>混合搜尋</strong>結合兩者：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>最終分數 = α × 向量相似度 + (1-α) × BM25 分數
+</span></code></pre></div>
+<p>或使用 <strong>RRF（Reciprocal Rank Fusion）</strong> 合併排名，不需調 α。</p>
+<h3 id="23-query-transformation">2.3 Query Transformation（查詢轉換）<a class="headerlink" href="#23-query-transformation" title="Permanent link">&para;</a></h3>
+<p>用戶的原始問題往往措辭不佳，轉換後再搜尋效果更好：</p>
+<p><img alt="Query Transformation 策略" src="../../assets/diagrams/rag/02-query-transformation.png" /></p>
+<p><strong>Multi-Query</strong>：讓 LLM 把一個問題改寫成 3-5 個不同角度的問法，分別搜尋再去重。適合問題表達不精確的情境。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 概念示意</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">original_query</span> <span class="o">=</span> <span class="s2">&quot;RAG 效果不好怎麼辦？&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">generated_queries</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">generate</span><span class="p">([</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">&quot;RAG 系統準確率低的原因&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="s2">&quot;如何提升 RAG 檢索召回率&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="s2">&quot;Retrieval-Augmented Generation 常見問題&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">])</span>
+</span></code></pre></div>
+<p><strong>HyDE（Hypothetical Document Embedding）</strong>：讓 LLM 先假設一個理想答案，用答案去搜尋而非用問題搜尋。因為答案的語意空間與文件更接近。</p>
+<p><strong>Step-Back Prompting</strong>：先問更廣泛的背景問題（step-back），再搜尋，增加相關上下文。</p>
+<p><strong>Query Decomposition</strong>：把複雜問題拆解為子問題，各自搜尋後合併答案。</p>
+<h3 id="24-re-ranking">2.4 重排序（Re-ranking）<a class="headerlink" href="#24-re-ranking" title="Permanent link">&para;</a></h3>
+<p>初次 Top-K 結果（如 Top-20）可能順序不對，用更精準（但更慢）的 Cross-Encoder 模型重排，再取 Top-5。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>向量搜尋（快）→ Top-20 候選 → Cross-Encoder 重排（慢但準）→ Top-5 → LLM
+</span></code></pre></div>
+<p>常用 Re-ranker：
+- <code>cross-encoder/ms-marco-MiniLM-L-6-v2</code>（英文）
+- Cohere Rerank API（多語言，SaaS）
+- <code>bge-reranker-large</code>（中英文皆可）</p>
+<hr />
+<h2 id="generation">第三階段：生成（Generation）<a class="headerlink" href="#generation" title="Permanent link">&para;</a></h2>
+<h3 id="31-prompt">3.1 Prompt 設計<a class="headerlink" href="#31-prompt" title="Permanent link">&para;</a></h3>
+<p>將檢索到的 chunks 組合進 Prompt，標準模板：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>你是一個知識問答助理。請根據以下「參考資料」回答用戶問題。
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>如果參考資料中沒有足夠資訊，請明確說「資料中未找到相關內容」，不要憑空猜測。
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>## 參考資料
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>{retrieved_chunks}
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>## 用戶問題
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>{user_query}
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>## 回答
+</span></code></pre></div>
+<p>關鍵設計原則：
+- <strong>明確限制來源</strong>：防止模型混用訓練知識
+- <strong>處理無資訊情境</strong>：讓模型說「不知道」而非幻覺
+- <strong>可引用來源</strong>：要求模型標注引用的文件編號</p>
+<h3 id="32-context">3.2 Context 放置位置<a class="headerlink" href="#32-context" title="Permanent link">&para;</a></h3>
+<p>研究顯示 LLM 對 Prompt 中間位置的文字注意力最低（Lost in the Middle 現象）。將<strong>最相關的文件放在最前面或最後面</strong>。</p>
+<hr />
+<h2 id="advanced-rag">Advanced RAG 技術<a class="headerlink" href="#advanced-rag" title="Permanent link">&para;</a></h2>
+<h3 id="naive-rag">Naive RAG 的常見問題<a class="headerlink" href="#naive-rag" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>原因</th>
+<th>解法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>召回率低</td>
+<td>問題與文件語意差異大</td>
+<td>HyDE、Multi-Query</td>
+</tr>
+<tr>
+<td>精確度低</td>
+<td>Top-K 有雜訊</td>
+<td>Re-ranking</td>
+</tr>
+<tr>
+<td>跨文件推理失敗</td>
+<td>資訊分散在多份文件</td>
+<td>Graph RAG</td>
+</tr>
+<tr>
+<td>回答不忠實</td>
+<td>模型忽視上下文</td>
+<td>Self-RAG</td>
+</tr>
+<tr>
+<td>視覺內容遺失</td>
+<td>文字 parsing 丟棄表格/圖表</td>
+<td>PixelRAG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="self-rag">Self-RAG<a class="headerlink" href="#self-rag" title="Permanent link">&para;</a></h3>
+<p>讓 LLM 自己決定：「這個問題需要檢索嗎？檢索到的結果有用嗎？我的回答是否忠實於來源？」</p>
+<p>引入三個特殊 Token：
+- <code>[Retrieve]</code>：判斷是否需要檢索
+- <code>[IsRel]</code>：判斷檢索結果是否相關
+- <code>[IsSup]</code>：判斷回答是否被來源支持</p>
+<h3 id="graph-ragmicrosoft">Graph RAG（Microsoft）<a class="headerlink" href="#graph-ragmicrosoft" title="Permanent link">&para;</a></h3>
+<p>傳統 RAG 把文件當孤立片段，無法理解實體之間的關係。Graph RAG 先從文件中抽取實體與關係，建成知識圖譜，再用圖結構做跨文件推理。</p>
+<p>適合：大量文件、需要理解複雜關係的場景（如組織架構、因果鏈）。</p>
+<h3 id="pixelragberkeley-skylab-bair">PixelRAG（Berkeley SkyLab / BAIR）<a class="headerlink" href="#pixelragberkeley-skylab-bair" title="Permanent link">&para;</a></h3>
+<p>傳統 RAG 把文件 parse 成文字——這個過程會丟棄表格結構、圖表數值、排版資訊。PixelRAG 的做法完全相反：<strong>不解析，直接截圖</strong>。</p>
+<p><strong>核心流程：</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>文件 / 網頁
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    ↓  pixelshot（Playwright / CDP）
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>截圖 Tiles（圖片分塊）
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    ↓  Qwen3-VL-Embedding（LoRA fine-tuned on screenshot data）
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>視覺向量
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    ↓  FAISS 相似度索引
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    ↓  VLM 讀取截圖回答問題
+</span></code></pre></div>
+<p>傳統 RAG 碰到「表格第三欄第五行的數值是多少？」這類問題會失敗，因為 HTML parsing 後表格結構已不存在。PixelRAG 保留了整頁的視覺結構，VLM 直接看圖就能找到答案。</p>
+<p><strong>技術細節：</strong>
+- Embedding 模型：<code>Qwen/Qwen3-VL-Embedding-2B</code>，在 Wikipedia 截圖資料上 LoRA fine-tune
+- 預建索引：8.28M 筆 Wikipedia 頁面，提供公開 API（<code>api.pixelrag.ai</code>）
+- 索引大小：FAISS 索引約 217 GB</p>
+<p><strong>快速試用：</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pixelrag
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># 截圖並搜尋 Wikipedia 預建索引（無需 API key）</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>pixelshot<span class="w"> </span>https://en.wikipedia.org/wiki/Python<span class="w"> </span>--output<span class="w"> </span>./tiles
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.pixelrag.ai/search<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;queries&quot;: [{&quot;text&quot;: &quot;Python 的發明者是誰？&quot;}], &quot;n_docs&quot;: 5}&#39;</span>
+</span></code></pre></div>
+<p><strong>與 Graph RAG 的差異：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PixelRAG</th>
+<th>Graph RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>索引的是什麼</td>
+<td>頁面截圖（像素）</td>
+<td>實體關係圖譜</td>
+</tr>
+<tr>
+<td>解決的問題</td>
+<td>視覺內容被 parsing 丟失</td>
+<td>跨文件多跳推理</td>
+</tr>
+<tr>
+<td>讀取模型</td>
+<td>VLM（看圖）</td>
+<td>LLM（讀文字+圖譜）</td>
+</tr>
+<tr>
+<td>適合場景</td>
+<td>含大量表格/圖表的文件</td>
+<td>需理解實體關係的大量文件</td>
+</tr>
+</tbody>
+</table>
+<p>適合：含豐富視覺結構的文件（財報表格、技術規格書、網頁截圖）。</p>
+<h3 id="corrective-ragcrag">Corrective RAG（CRAG）<a class="headerlink" href="#corrective-ragcrag" title="Permanent link">&para;</a></h3>
+<p>加入「反思」步驟：評估檢索到的文件品質。
+- 品質高 → 直接生成
+- 品質低 → 用搜尋引擎補充
+- 模糊 → 混合兩者</p>
+<hr />
+<h2 id="rag_3">RAG 評估框架<a class="headerlink" href="#rag_3" title="Permanent link">&para;</a></h2>
+<p>評估 RAG 系統需要同時衡量<strong>檢索品質</strong>與<strong>生成品質</strong>。</p>
+<h3 id="ragas">RAGAS 指標<a class="headerlink" href="#ragas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>評估對象</th>
+<th>含義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Faithfulness</strong></td>
+<td>生成</td>
+<td>答案是否完全基於檢索到的上下文（不幻覺）</td>
+</tr>
+<tr>
+<td><strong>Answer Relevancy</strong></td>
+<td>生成</td>
+<td>答案是否回應了用戶問題</td>
+</tr>
+<tr>
+<td><strong>Context Precision</strong></td>
+<td>檢索</td>
+<td>檢索到的文件有多少是真正相關的（精確度）</td>
+</tr>
+<tr>
+<td><strong>Context Recall</strong></td>
+<td>檢索</td>
+<td>真正相關的文件有多少被成功檢索（召回率）</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ragas</span><span class="w"> </span><span class="kn">import</span> <span class="n">evaluate</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ragas.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">faithfulness</span><span class="p">,</span> <span class="n">answer_relevancy</span><span class="p">,</span> <span class="n">context_precision</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">dataset</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">faithfulness</span><span class="p">,</span> <span class="n">answer_relevancy</span><span class="p">,</span> <span class="n">context_precision</span><span class="p">],</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="golden-dataset">黃金測試集（Golden Dataset）<a class="headerlink" href="#golden-dataset" title="Permanent link">&para;</a></h3>
+<p>自動評估需要事先準備「問題-答案-來源」三元組。方法：
+1. 從文件中讓 LLM 自動生成 Q&amp;A 對（合成測試集）
+2. 人工標注少量高品質測試案例作為核心基準</p>
+<hr />
+<h2 id="_2">工具生態與選型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">主流框架比較<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>定位</th>
+<th>優點</th>
+<th>缺點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LangChain</strong></td>
+<td>通用 LLM 應用框架</td>
+<td>生態最大、整合最多</td>
+<td>抽象層厚、debug 困難</td>
+</tr>
+<tr>
+<td><strong>LlamaIndex</strong></td>
+<td>專注於資料索引與查詢</td>
+<td>RAG 功能最完整</td>
+<td>較 LangChain 小衆</td>
+</tr>
+<tr>
+<td><strong>Haystack</strong></td>
+<td>企業級搜尋+RAG</td>
+<td>生產成熟度高</td>
+<td>學習曲線較陡</td>
+</tr>
+<tr>
+<td><strong>DSPy</strong></td>
+<td>自動最佳化 Prompt</td>
+<td>系統性調優</td>
+<td>概念抽象，新穎</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rag-langchain">最小可行 RAG 實作（LangChain）<a class="headerlink" href="#rag-langchain" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.document_loaders</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyPDFLoader</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain.text_splitter</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAIEmbeddings</span><span class="p">,</span> <span class="n">ChatOpenAI</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.vectorstores</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chroma</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain.chains</span><span class="w"> </span><span class="kn">import</span> <span class="n">RetrievalQA</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 1. 載入文件</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">loader</span> <span class="o">=</span> <span class="n">PyPDFLoader</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">)</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">docs</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1"># 2. 分塊</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="n">splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">chunk_overlap</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">chunks</span> <span class="o">=</span> <span class="n">splitter</span><span class="o">.</span><span class="n">split_documents</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># 3. 建立索引</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="n">vectordb</span> <span class="o">=</span> <span class="n">Chroma</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">OpenAIEmbeddings</span><span class="p">())</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="c1"># 4. 建立 RAG Chain</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="n">qa</span> <span class="o">=</span> <span class="n">RetrievalQA</span><span class="o">.</span><span class="n">from_chain_type</span><span class="p">(</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">),</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    <span class="n">retriever</span><span class="o">=</span><span class="n">vectordb</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span><span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}),</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="p">)</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="c1"># 5. 查詢</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="n">answer</span> <span class="o">=</span> <span class="n">qa</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;這份文件的主要結論是什麼？&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="_4">技術選型指南<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>情境</th>
+<th>建議方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>快速原型、個人專案</td>
+<td>Chroma + LangChain + OpenAI Embedding</td>
+</tr>
+<tr>
+<td>需要中文支援</td>
+<td>bge-m3 Embedding + Qdrant</td>
+</tr>
+<tr>
+<td>本機部署（無 API 費用）</td>
+<td>Ollama + nomic-embed + Chroma</td>
+</tr>
+<tr>
+<td>企業生產環境</td>
+<td>Pinecone/Qdrant + 混合搜尋 + Cohere Rerank</td>
+</tr>
+<tr>
+<td>大量關係型知識</td>
+<td>Graph RAG（Microsoft GraphRAG 開源版）</td>
+</tr>
+<tr>
+<td>文件含表格/圖表/視覺結構</td>
+<td>PixelRAG（<code>pip install pixelrag</code>）</td>
+</tr>
+<tr>
+<td>需要自動調優</td>
+<td>DSPy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="rag_4">三層 RAG 演進比較<a class="headerlink" href="#rag_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Naive RAG</th>
+<th>Advanced RAG</th>
+<th>Modular RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查詢處理</td>
+<td>直接使用原始問題</td>
+<td>Query Transformation</td>
+<td>自訂模組組合</td>
+</tr>
+<tr>
+<td>檢索方式</td>
+<td>純向量搜尋</td>
+<td>混合搜尋 + Re-rank</td>
+<td>可插拔策略</td>
+</tr>
+<tr>
+<td>品質控制</td>
+<td>無</td>
+<td>Self-RAG / CRAG</td>
+<td>任意評估模組</td>
+</tr>
+<tr>
+<td>實作複雜度</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>適用階段</td>
+<td>PoC</td>
+<td>Beta / Production</td>
+<td>大規模調優</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>延伸閱讀：<a href="../prompt-engineering-core-techniques/">Prompt Engineering 核心技術</a> ｜ <a href="../ai-agent-harness-engineering/">AI Agent Harness Engineering</a></em></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最後更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月18日 17:10:26 UTC">2026年6月18日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="建立日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月18日 17:10:26 UTC">2026年6月18日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/YuHsunWang" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
