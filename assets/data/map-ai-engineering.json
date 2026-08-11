@@ -1,0 +1,1182 @@
+{
+ "meta": {
+  "source": "mkdocs.yml nav + docs/ai/*.md frontmatter"
+ },
+ "unit": "篇",
+ "goLabel": "閱讀這篇",
+ "hint": "滑過節點看主題之間的依賴，點文章看它涵蓋什麼，並可直接前往。",
+ "columns": [
+  {
+   "key": "a",
+   "title": "輸入",
+   "sub": "餵給模型什麼"
+  },
+  {
+   "key": "b",
+   "title": "系統",
+   "sub": "讓它讀得到、做得到"
+  },
+  {
+   "key": "c",
+   "title": "營運",
+   "sub": "評估、工具鏈與維運"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "g1",
+   "column": "a",
+   "name": "Prompt 與 Context 工程",
+   "desc": "餵給模型什麼",
+   "items": [
+    "prompt-engineering-core-techniques",
+    "context-engineering",
+    "context-engineering-in-practice",
+    "reasoning-models-test-time-compute"
+   ]
+  },
+  {
+   "id": "g2",
+   "column": "a",
+   "name": "成本與 Token 優化",
+   "desc": "餵得省一點",
+   "items": [
+    "9router-ai-router-token-saver",
+    "caveman-token-compression-skill",
+    "prompt-caching-cost-latency"
+   ]
+  },
+  {
+   "id": "g3",
+   "column": "b",
+   "name": "RAG 與檢索系統",
+   "desc": "讓模型讀到外部知識",
+   "items": [
+    "fine-tuning-vs-rag-vs-prompting",
+    "rag-retrieval-augmented-generation",
+    "embeddings-and-vector-databases",
+    "rag-advanced-techniques",
+    "graphrag-knowledge-graph-retrieval",
+    "agentic-rag-2026"
+   ]
+  },
+  {
+   "id": "g4",
+   "column": "b",
+   "name": "Agent 工程",
+   "desc": "讓模型會用工具、能自主",
+   "items": [
+    "ai-agent-harness-engineering",
+    "coding-agent-workflow-sop",
+    "structured-output-and-tool-use",
+    "multi-agent-orchestration",
+    "ai-agent-security-and-permissions"
+   ]
+  },
+  {
+   "id": "g5",
+   "column": "c",
+   "name": "評估、記憶與觀測",
+   "desc": "知道它到底做得好不好",
+   "items": [
+    "llm-evaluation-in-practice",
+    "llm-evaluation-advanced",
+    "agent-observability",
+    "agent-memory-systems"
+   ]
+  },
+  {
+   "id": "g6",
+   "column": "c",
+   "name": "Claude Code / Skills / MCP",
+   "desc": "實際落地的工具鏈",
+   "items": [
+    "claude-code-coding-guidelines",
+    "superpowers-claude-code-skills",
+    "claude-code-discipline-frameworks",
+    "anthropic-document-skills",
+    "mcp-ecosystem-guide",
+    "mcp-builder-skill"
+   ]
+  },
+  {
+   "id": "g7",
+   "column": "c",
+   "name": "用 AI 維護知識庫",
+   "desc": "本站自己的用例",
+   "items": [
+    "claude-md-obsidian-llm-wiki-maintainer",
+    "my-obsidian-vault-claude-md"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "9router-ai-router-token-saver",
+   "label": "9Router 本機路由器",
+   "href": "9router-ai-router-token-saver/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "介紹開源本機 AI 路由器 9Router：格式翻譯、三層 Fallback 路由與 Token 壓縮（RTK），並說明 Claude Code/Cursor 等整合設定。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill",
+     "href": "caveman-token-compression-skill/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "agent-memory-systems",
+   "label": "Agent Memory 系統",
+   "href": "agent-memory-systems/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "整理 MemGPT、CoALA 論文與業界框架的 Agent 記憶系統：短期/長期記憶分類、向量記憶架構，以及記憶腐化與更新策略。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Context Engineering：超越 Prompt Engineering 的下一個前線",
+     "href": "context-engineering/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "agent-observability",
+   "label": "Agent Observability",
+   "href": "agent-observability/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "整理 OpenTelemetry GenAI 規格與觀測平台文件：Trace/Span 觀測原語、正確性/成本/效能訊號、Agent 特有 failure mode，及與評估的分工。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Memory 系統：短期/長期記憶、向量記憶與記憶腐化更新策略",
+     "href": "agent-memory-systems/",
+     "section": "ai"
+    },
+    {
+     "label": "AI Agent 安全與權限：Browser、File、Shell、GitHub、Gmail 的工具權限怎麼控管",
+     "href": "ai-agent-security-and-permissions/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 進階：Cost-Aware 評估、線上 A/B 與離線指標的對齊",
+     "href": "llm-evaluation-advanced/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 實務：RAG 評估、Agent Trajectory、Golden Dataset 與 LLM-as-Judge 的限制",
+     "href": "llm-evaluation-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "Multi-Agent 協作：Orchestration 模式、通訊協定與失敗隔離",
+     "href": "multi-agent-orchestration/",
+     "section": "ai"
+    },
+    {
+     "label": "Prompt Caching：用前綴快取砍掉成本與延遲",
+     "href": "prompt-caching-cost-latency/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "agentic-rag-2026",
+   "label": "Agentic RAG：換控制流",
+   "href": "agentic-rag-2026/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "RAG 完整指南續篇：比較 Naive/Advanced/Agentic/GraphRAG/Adaptive RAG 架構光譜、GraphRAG 家族、混合檢索與 query 轉換技巧及評估指標。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "GraphRAG：用知識圖譜做檢索——適合什麼、代價是什麼",
+     "href": "graphrag-knowledge-graph-retrieval/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 實務：RAG 評估、Agent Trajectory、Golden Dataset 與 LLM-as-Judge 的限制",
+     "href": "llm-evaluation-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness",
+     "href": "rag-advanced-techniques/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "ai-agent-harness-engineering",
+   "label": "AI Agent Harness Engineering",
+   "href": "ai-agent-harness-engineering/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "建立 AI Agent 的測試、評測、觀測、回歸與上線 gate，讓 Agent 能被穩定比較、除錯與迭代。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Observability：用 Trace 看清 Agent 在做什麼（Tool Calls、Cost、Latency、Failure Modes）",
+     "href": "agent-observability/",
+     "section": "ai"
+    },
+    {
+     "label": "AI Agent 安全與權限：Browser、File、Shell、GitHub、Gmail 的工具權限怎麼控管",
+     "href": "ai-agent-security-and-permissions/",
+     "section": "ai"
+    },
+    {
+     "label": "Coding Agent 工作流：從 Issue 到 PR 的實際 SOP",
+     "href": "coding-agent-workflow-sop/",
+     "section": "ai"
+    },
+    {
+     "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
+     "href": "context-engineering-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "MCP 生態系指南：Server 類型、Local vs Remote、Auth 與 Security Boundary",
+     "href": "mcp-ecosystem-guide/",
+     "section": "ai"
+    },
+    {
+     "label": "Multi-Agent 協作：Orchestration 模式、通訊協定與失敗隔離",
+     "href": "multi-agent-orchestration/",
+     "section": "ai"
+    },
+    {
+     "label": "Prompt Engineering 核心技術：Chaining、CoT 與 Loop",
+     "href": "prompt-engineering-core-techniques/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    },
+    {
+     "label": "Structured Output 與 Tool Use 機制：JSON Schema、Constrained Decoding 與可靠性",
+     "href": "structured-output-and-tool-use/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "ai-agent-security-and-permissions",
+   "label": "AI Agent 安全與權限",
+   "href": "ai-agent-security-and-permissions/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "整理資安研究與 OWASP 文件：Prompt Injection、致命三角、Agents Rule of Two、OWASP 過度代理，及 Browser/File/Shell/GitHub/Gmail 逐工具權限控管。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Multi-Agent 協作：Orchestration 模式、通訊協定與失敗隔離",
+     "href": "multi-agent-orchestration/",
+     "section": "ai"
+    },
+    {
+     "label": "Structured Output 與 Tool Use 機制：JSON Schema、Constrained Decoding 與可靠性",
+     "href": "structured-output-and-tool-use/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "anthropic-document-skills",
+   "label": "Anthropic Agent Skills",
+   "href": "anthropic-document-skills/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "整理 Anthropic 官方文件：Agent Skills 漸進揭露架構（L1-L3）、官方 Document Skills（PPTX/XLSX/DOCX/PDF）用法與跨平台差異、第三方 skill 安全提醒。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "MCP Builder：用 Skill 引導蓋出生產級 MCP Server",
+     "href": "mcp-builder-skill/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "caveman-token-compression-skill",
+   "label": "Caveman Token 壓縮",
+   "href": "caveman-token-compression-skill/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "介紹 Claude Code skill Caveman：用穴居人語氣壓縮 agent 輸出約 65% token，涵蓋機制、指令與安裝方式。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Observability：用 Trace 看清 Agent 在做什麼（Tool Calls、Cost、Latency、Failure Modes）",
+     "href": "agent-observability/",
+     "section": "ai"
+    },
+    {
+     "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
+     "href": "context-engineering-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "Prompt Caching：用前綴快取砍掉成本與延遲",
+     "href": "prompt-caching-cost-latency/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "claude-code-coding-guidelines",
+   "label": "Claude Code 寫程式準則",
+   "href": "claude-code-coding-guidelines/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-05-28"
+    ]
+   ],
+   "note": "整理自 multica-ai/andrej-karpathy-skills 的 CLAUDE.md，作為 coding agent 執行程式任務時的行為準則參考。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Coding Agent 工作流：從 Issue 到 PR 的實際 SOP",
+     "href": "coding-agent-workflow-sop/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "claude-code-discipline-frameworks",
+   "label": "Claude Code 紀律框架對比",
+   "href": "claude-code-discipline-frameworks/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "對比 Claude Code 三個紀律框架 Superpowers、GSD、gstack 各自約束的軸線（流程/環境/角色）與疊用方式。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Coding Agent 工作流：從 Issue 到 PR 的實際 SOP",
+     "href": "coding-agent-workflow-sop/",
+     "section": "ai"
+    },
+    {
+     "label": "Multi-Agent 協作：Orchestration 模式、通訊協定與失敗隔離",
+     "href": "multi-agent-orchestration/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "claude-md-obsidian-llm-wiki-maintainer",
+   "label": "用 CLAUDE.md 維護 Obsidian 知識庫",
+   "href": "claude-md-obsidian-llm-wiki-maintainer/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-05-28"
+    ]
+   ],
+   "note": "將 vault-specific CLAUDE.md 整理成公開筆記，說明如何用 AI 維護 Obsidian / LLM Wiki。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Claude Code 寫程式準則：Andrej Karpathy 版本整理",
+     "href": "claude-code-coding-guidelines/",
+     "section": "ai"
+    },
+    {
+     "label": "我的 Obsidian Vault CLAUDE.md 原文",
+     "href": "my-obsidian-vault-claude-md/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "coding-agent-workflow-sop",
+   "label": "Coding Agent 工作流 SOP",
+   "href": "coding-agent-workflow-sop/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-20"
+    ]
+   ],
+   "note": "整理 Anthropic 工程文件的 coding agent SOP：Issue→Plan→Implement→Test→Review→PR 六階段流程與每步的怎麼做／為什麼。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "AI Agent Harness Engineering 實作指南",
+     "href": "ai-agent-harness-engineering/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "context-engineering",
+   "label": "Context Engineering",
+   "href": "context-engineering/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "介紹 Context Engineering 概念：與 Prompt Engineering 的四個差異、context 組成、五個管理技巧與三個常見失敗模式。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX）",
+     "href": "anthropic-document-skills/",
+     "section": "ai"
+    },
+    {
+     "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
+     "href": "context-engineering-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "Fine-tuning vs RAG vs Prompting：何時用哪個（決策框架）",
+     "href": "fine-tuning-vs-rag-vs-prompting/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 實務：RAG 評估、Agent Trajectory、Golden Dataset 與 LLM-as-Judge 的限制",
+     "href": "llm-evaluation-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "MCP Builder：用 Skill 引導蓋出生產級 MCP Server",
+     "href": "mcp-builder-skill/",
+     "section": "ai"
+    },
+    {
+     "label": "MCP 生態系指南：Server 類型、Local vs Remote、Auth 與 Security Boundary",
+     "href": "mcp-ecosystem-guide/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "context-engineering-in-practice",
+   "label": "Context Engineering 實作篇",
+   "href": "context-engineering-in-practice/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "Context Engineering 實作篇：Context Budget、Memory、Retrieval、Tool Result 壓縮四個槓桿怎麼組合，含 Anthropic 內部評估數字。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Memory 系統：短期/長期記憶、向量記憶與記憶腐化更新策略",
+     "href": "agent-memory-systems/",
+     "section": "ai"
+    },
+    {
+     "label": "Context Engineering：超越 Prompt Engineering 的下一個前線",
+     "href": "context-engineering/",
+     "section": "ai"
+    },
+    {
+     "label": "Prompt Caching：用前綴快取砍掉成本與延遲",
+     "href": "prompt-caching-cost-latency/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness",
+     "href": "rag-advanced-techniques/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    },
+    {
+     "label": "Reasoning Models 與 Test-time Compute：把算力花在推論，以及過猶不及",
+     "href": "reasoning-models-test-time-compute/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "embeddings-and-vector-databases",
+   "label": "Embeddings 與向量資料庫",
+   "href": "embeddings-and-vector-databases/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "整理 embedding 模型選型（MTEB 評測）、向量資料庫比較（Pinecone/Weaviate/Milvus/Qdrant）與 HNSW/IVF 等 ANN 索引取捨。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Memory 系統：短期/長期記憶、向量記憶與記憶腐化更新策略",
+     "href": "agent-memory-systems/",
+     "section": "ai"
+    },
+    {
+     "label": "Fine-tuning vs RAG vs Prompting：何時用哪個（決策框架）",
+     "href": "fine-tuning-vs-rag-vs-prompting/",
+     "section": "ai"
+    },
+    {
+     "label": "GraphRAG：用知識圖譜做檢索——適合什麼、代價是什麼",
+     "href": "graphrag-knowledge-graph-retrieval/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness",
+     "href": "rag-advanced-techniques/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "fine-tuning-vs-rag-vs-prompting",
+   "label": "該不該用 RAG：vs Fine-tuning / Prompting",
+   "href": "fine-tuning-vs-rag-vs-prompting/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "決策框架：Prompting、RAG、Fine-tuning 各改變什麼、對應問題類型、成本量級與生產系統三者並用的組合方式。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agentic RAG（2026）：從固定檢索到會規劃、自我修正的檢索迴圈",
+     "href": "agentic-rag-2026/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "graphrag-knowledge-graph-retrieval",
+   "label": "GraphRAG：換索引標的",
+   "href": "graphrag-knowledge-graph-retrieval/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "介紹 GraphRAG 用知識圖譜做檢索：建圖到檢索四階段、Local/Global 查詢、前處理與推論代價，及與一般 RAG 的選型比較。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agentic RAG（2026）：從固定檢索到會規劃、自我修正的檢索迴圈",
+     "href": "agentic-rag-2026/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness",
+     "href": "rag-advanced-techniques/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "llm-evaluation-advanced",
+   "label": "LLM Evaluation 進階",
+   "href": "llm-evaluation-advanced/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "LLM Evaluation 進階篇：Cost-Aware 評估三個切入點，以及離線指標和線上 A/B 怎麼對齊不失真。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "LLM Evaluation 實務：RAG 評估、Agent Trajectory、Golden Dataset 與 LLM-as-Judge 的限制",
+     "href": "llm-evaluation-in-practice/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "llm-evaluation-in-practice",
+   "label": "LLM Evaluation 實務",
+   "href": "llm-evaluation-in-practice/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "LLM Evaluation 實務地圖：RAG 評估（RAGAS 四指標）、Agent Trajectory 評估、Golden Dataset 建置與 LLM-as-Judge 的限制。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Observability：用 Trace 看清 Agent 在做什麼（Tool Calls、Cost、Latency、Failure Modes）",
+     "href": "agent-observability/",
+     "section": "ai"
+    },
+    {
+     "label": "Embeddings 與向量資料庫實務：模型選型、ANN 索引與生產考量",
+     "href": "embeddings-and-vector-databases/",
+     "section": "ai"
+    },
+    {
+     "label": "GraphRAG：用知識圖譜做檢索——適合什麼、代價是什麼",
+     "href": "graphrag-knowledge-graph-retrieval/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 進階：Cost-Aware 評估、線上 A/B 與離線指標的對齊",
+     "href": "llm-evaluation-advanced/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness",
+     "href": "rag-advanced-techniques/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    },
+    {
+     "label": "Reasoning Models 與 Test-time Compute：把算力花在推論，以及過猶不及",
+     "href": "reasoning-models-test-time-compute/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "mcp-builder-skill",
+   "label": "MCP Builder Skill",
+   "href": "mcp-builder-skill/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "介紹 Claude Code skill MCP Builder：用四階段工作流（研究規劃、實作、審查、建評估）引導蓋出生產級 MCP Server。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "MCP 生態系指南：Server 類型、Local vs Remote、Auth 與 Security Boundary",
+     "href": "mcp-ecosystem-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "mcp-ecosystem-guide",
+   "label": "MCP 生態系指南",
+   "href": "mcp-ecosystem-guide/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-20"
+    ]
+   ],
+   "note": "MCP 生態系概念地圖：Host/Client/Server 三方角色、Tools/Resources/Prompts 三種 primitive、Local vs Remote 傳輸與信任邊界。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Observability：用 Trace 看清 Agent 在做什麼（Tool Calls、Cost、Latency、Failure Modes）",
+     "href": "agent-observability/",
+     "section": "ai"
+    },
+    {
+     "label": "AI Agent 安全與權限：Browser、File、Shell、GitHub、Gmail 的工具權限怎麼控管",
+     "href": "ai-agent-security-and-permissions/",
+     "section": "ai"
+    },
+    {
+     "label": "Structured Output 與 Tool Use 機制：JSON Schema、Constrained Decoding 與可靠性",
+     "href": "structured-output-and-tool-use/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "multi-agent-orchestration",
+   "label": "Multi-Agent 協作",
+   "href": "multi-agent-orchestration/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "Multi-Agent 協作：Supervisor/Pipeline/Mesh/Event-Driven/Swarm 編排模式、Handoff 通訊協定，及失敗最常發生在交接的落地建議。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agent Memory 系統：短期/長期記憶、向量記憶與記憶腐化更新策略",
+     "href": "agent-memory-systems/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "my-obsidian-vault-claude-md",
+   "label": "我的 Obsidian Vault CLAUDE.md",
+   "href": "my-obsidian-vault-claude-md/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-05-28"
+    ]
+   ],
+   "note": "分享我目前用來讓 Claude 維護 Obsidian / LLM Wiki 的 vault-specific CLAUDE.md 原文。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者",
+     "href": "claude-md-obsidian-llm-wiki-maintainer/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "prompt-caching-cost-latency",
+   "label": "Prompt Caching",
+   "href": "prompt-caching-cost-latency/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "介紹 Prompt Caching 原理：前綴比對規則、Anthropic 與 OpenAI 做法比較、精確定價數字，及會悄悄破壞快取的常見坑。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "LLM Evaluation 進階：Cost-Aware 評估、線上 A/B 與離線指標的對齊",
+     "href": "llm-evaluation-advanced/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "prompt-engineering-core-techniques",
+   "label": "Prompt Engineering 核心技術",
+   "href": "prompt-engineering-core-techniques/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-18"
+    ]
+   ],
+   "note": "三種核心 Prompt Engineering 技術的原理、適用場景與實作要點，附圖解說明。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Context Engineering：超越 Prompt Engineering 的下一個前線",
+     "href": "context-engineering/",
+     "section": "ai"
+    },
+    {
+     "label": "Fine-tuning vs RAG vs Prompting：何時用哪個（決策框架）",
+     "href": "fine-tuning-vs-rag-vs-prompting/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    },
+    {
+     "label": "Reasoning Models 與 Test-time Compute：把算力花在推論，以及過猶不及",
+     "href": "reasoning-models-test-time-compute/",
+     "section": "ai"
+    },
+    {
+     "label": "Structured Output 與 Tool Use 機制：JSON Schema、Constrained Decoding 與可靠性",
+     "href": "structured-output-and-tool-use/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "rag-advanced-techniques",
+   "label": "RAG 進階技術：六個槓桿",
+   "href": "rag-advanced-techniques/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness 六個槓桿，把 naive RAG 推向生產級。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agentic RAG（2026）：從固定檢索到會規劃、自我修正的檢索迴圈",
+     "href": "agentic-rag-2026/",
+     "section": "ai"
+    },
+    {
+     "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
+     "href": "context-engineering-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "Embeddings 與向量資料庫實務：模型選型、ANN 索引與生產考量",
+     "href": "embeddings-and-vector-databases/",
+     "section": "ai"
+    },
+    {
+     "label": "GraphRAG：用知識圖譜做檢索——適合什麼、代價是什麼",
+     "href": "graphrag-knowledge-graph-retrieval/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 實務：RAG 評估、Agent Trajectory、Golden Dataset 與 LLM-as-Judge 的限制",
+     "href": "llm-evaluation-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 完整指南：檢索增強生成的原理、架構與實作",
+     "href": "rag-retrieval-augmented-generation/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "rag-retrieval-augmented-generation",
+   "label": "RAG 完整指南",
+   "href": "rag-retrieval-augmented-generation/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "RAG 系列的入門與總覽：為什麼需要 RAG、索引/檢索/生成三階段骨架、生成端的 Prompt 設計、Self-RAG 與 PixelRAG 等架構變體、框架選型與最小可行實作，並附全系列閱讀路徑。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Agentic RAG（2026）：從固定檢索到會規劃、自我修正的檢索迴圈",
+     "href": "agentic-rag-2026/",
+     "section": "ai"
+    },
+    {
+     "label": "Context Engineering：超越 Prompt Engineering 的下一個前線",
+     "href": "context-engineering/",
+     "section": "ai"
+    },
+    {
+     "label": "Embeddings 與向量資料庫實務：模型選型、ANN 索引與生產考量",
+     "href": "embeddings-and-vector-databases/",
+     "section": "ai"
+    },
+    {
+     "label": "Fine-tuning vs RAG vs Prompting：何時用哪個（決策框架）",
+     "href": "fine-tuning-vs-rag-vs-prompting/",
+     "section": "ai"
+    },
+    {
+     "label": "GraphRAG：用知識圖譜做檢索——適合什麼、代價是什麼",
+     "href": "graphrag-knowledge-graph-retrieval/",
+     "section": "ai"
+    },
+    {
+     "label": "LLM Evaluation 實務：RAG 評估、Agent Trajectory、Golden Dataset 與 LLM-as-Judge 的限制",
+     "href": "llm-evaluation-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness",
+     "href": "rag-advanced-techniques/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "reasoning-models-test-time-compute",
+   "label": "Reasoning Models 與 Test-time Compute",
+   "href": "reasoning-models-test-time-compute/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "介紹 Test-time Compute 推理模型：Sequential/Parallel 兩種擴展方向、Anthropic Adaptive Thinking/Effort 機制與想太多的反效果。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
+     "href": "context-engineering-in-practice/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "structured-output-and-tool-use",
+   "label": "Structured Output 與 Tool Use",
+   "href": "structured-output-and-tool-use/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "拆解 Structured Output 與 Tool Use 機制：Constrained Decoding 保證格式、失敗恢復模式，及結構化輸出與推理能力的取捨。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Reasoning Models 與 Test-time Compute：把算力花在推論，以及過猶不及",
+     "href": "reasoning-models-test-time-compute/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "superpowers-claude-code-skills",
+   "label": "Superpowers Skill 框架",
+   "href": "superpowers-claude-code-skills/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-19"
+    ]
+   ],
+   "note": "介紹 Claude Code skill 框架 Superpowers：七階段強制工作流（Brainstorm 到 Finish Branch）、Markdown 化的鐵律機制與已知限制。",
+   "fresh": {
+    "state": "fresh",
+    "days": 4,
+    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Claude Code 紀律框架對比：Superpowers / GSD / gstack",
+     "href": "claude-code-discipline-frameworks/",
+     "section": "ai"
+    },
+    {
+     "label": "Coding Agent 工作流：從 Issue 到 PR 的實際 SOP",
+     "href": "coding-agent-workflow-sop/",
+     "section": "ai"
+    }
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "g1",
+   "to": "g3"
+  },
+  {
+   "from": "g1",
+   "to": "g4"
+  },
+  {
+   "from": "g3",
+   "to": "g5"
+  },
+  {
+   "from": "g4",
+   "to": "g5"
+  },
+  {
+   "from": "g4",
+   "to": "g6"
+  },
+  {
+   "from": "g2",
+   "to": "g4",
+   "style": "dashed"
+  },
+  {
+   "from": "g6",
+   "to": "g7",
+   "style": "dashed"
+  }
+ ],
+ "legend": [
+  {
+   "swatch": "var(--kb-signal)",
+   "text": "青框＝同一篇出現在多個節點"
+  },
+  {
+   "swatch": "#C89A2E",
+   "text": "琥珀點＝接近複查期限"
+  },
+  {
+   "swatch": "var(--kb-accent)",
+   "text": "朱點＝已逾期未複查"
+  },
+  {
+   "text": "實線＝建議的閱讀順序｜虛線＝可獨立閱讀"
+  }
+ ]
+}

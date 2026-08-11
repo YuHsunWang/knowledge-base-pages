@@ -1,0 +1,4849 @@
+<!DOCTYPE html><html lang="zh-TW" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="把被動元件的基本面研究接到目標價：情境化 EPS 建構、逐家分流的估值錨、目標價矩陣、現價反推隱含假設，附華新科完整試算。">
+      
+      
+      
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/passive-components-target-price/">
+      
+      
+        <link rel="prev" href="../passive-components-valuation-framework/">
+      
+      
+        <link rel="next" href="../../projects/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>被動元件目標價評估 - Shane's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans TC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/kb-map.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="被動元件目標價評估 - Shane's Knowledge Base">
+<meta property="og:description" content="把被動元件的基本面研究接到目標價：情境化 EPS 建構、逐家分流的估值錨、目標價矩陣、現價反推隱含假設，附華新科完整試算。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/trading/passive-components-target-price.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/trading/passive-components-target-price/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="被動元件目標價評估 - Shane's Knowledge Base">
+<meta property="twitter:description" content="把被動元件的基本面研究接到目標價：情境化 EPS 建構、逐家分流的估值錨、目標價矩陣、現價反推隱含假設，附華新科完整試算。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/trading/passive-components-target-price.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="Shane's Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Shane's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              被動元件目標價評估
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber" aria-label="切換深色模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber" aria-label="切換淺色模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換淺色模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首頁
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../machine-learning/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Trading Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  標籤
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Shane's Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
+
+    </a>
+    Shane's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首頁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt 與 Context 工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt 與 Context 工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/prompt-engineering-core-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering 核心技術
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/context-engineering-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering 實作篇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/reasoning-models-test-time-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reasoning Models 與 Test-time Compute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG 與檢索系統
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG 與檢索系統
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 該不該用 RAG：vs Fine-tuning / Prompting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rag-retrieval-augmented-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · RAG 完整指南（入門與總覽）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/embeddings-and-vector-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · Embeddings 與向量資料庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rag-advanced-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · RAG 進階技術：六個槓桿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · GraphRAG：換索引標的
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agentic-rag-2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · Agentic RAG：換控制流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent 工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent 工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ai-agent-harness-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent Harness Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/coding-agent-workflow-sop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Agent 工作流 SOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/structured-output-and-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output 與 Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/multi-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent 協作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ai-agent-security-and-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent 安全與權限
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    評估、記憶與觀測
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    評估、記憶與觀測
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/llm-evaluation-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Evaluation 實務
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/llm-evaluation-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Evaluation 進階
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agent-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agent-memory-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Memory 系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code / Skills / MCP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Claude Code / Skills / MCP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-coding-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code 寫程式準則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/superpowers-claude-code-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Superpowers Skill 框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-discipline-frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code 紀律框架對比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/anthropic-document-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anthropic Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/mcp-ecosystem-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 生態系指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/mcp-builder-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Builder Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    成本與 Token 優化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    成本與 Token 優化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/9router-ai-router-token-saver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9Router 本機路由器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/caveman-token-compression-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Caveman Token 壓縮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/prompt-caching-cost-latency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 AI 維護知識庫
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    用 AI 維護知識庫
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 CLAUDE.md 維護 Obsidian 知識庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/my-obsidian-vault-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    我的 Obsidian Vault CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../machine-learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    觀念地基
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    觀念地基
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/ml-interview-core-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · ML 面試核心觀念（主題式速查）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/geron-hands-on-ml-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/deep-learning-training-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · 深度學習訓練基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    動手實作
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    動手實作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 特徵工程心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/sklearn-pipeline-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · sklearn Pipeline 與前處理模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/model-evaluation-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · 模型評估與 Cross-Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    綜合應用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    綜合應用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/ml-case-studies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · 常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計與實驗
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    統計與實驗
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/statistics-ab-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 · 統計推論與 A/B 測試
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading Research
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trading Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    策略研究與回測
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    策略研究與回測
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wave-backtest-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    波浪回測系統使用說明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台股大戶散戶產業資金流策略研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wave-theory-probabilistic-counter-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    波浪理論機率式波數判斷系統規劃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threads-txf-sentiment-following-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threads 台指期情緒與跟單策略研究規劃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net-delta-options-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net_delta 選擇權部位策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台股籌碼反向訊號回測系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    產業研究方法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    產業研究方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-industry-analysis-sop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基礎產業分析 SOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serenity-style-industry-research-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serenity 式產業研究流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../leo-satellite-supply-chain-exposure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    低軌衛星供應鏈曝險
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    被動元件專題
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    被動元件專題
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-research-diagrams-decision-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 研究結構圖與決策地圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-industry-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · 產業研究總覽（框架＋閱讀地圖）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-market-sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 市場量化（數字骨架）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-company-universe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · 台股公司全圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-stock-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 台灣個股追蹤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-monthly-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · 月度追蹤表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../passive-components-valuation-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · 估值框架（貴不貴）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · 目標價評估（該給多少）
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · 目標價評估（該給多少）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、目標價的三段拆解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、目標價的三段拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三個一定要避開的錯誤
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、Step 1｜建立 EPS 基礎
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、Step 1｜建立 EPS 基礎">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 量價拆解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三種 EPS 基礎，用途完全不同
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 EPS 品質調整（最容易被跳過的一步）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、Step 2｜選估值錨（逐家分流）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Step 2｜選估值錨（逐家分流）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        倍數要從哪裡來
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、Step 3｜情境矩陣與現價反推
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、Step 3｜情境矩陣與現價反推">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 為什麼用矩陣而不是單一數字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 反推法：現價隱含什麼假設
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2492" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、完整試算：華新科 2492
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、完整試算：華新科 2492">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 已知數字（站上既有）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 EPS 品質調整
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 營收情境
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 目標價矩陣
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 用股價反推隱含假設
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 這個試算目前的缺陷（誠實揭露）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、目標價的維護紀律
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、目標價的維護紀律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新節奏
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、常見錯誤檢查清單
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/cvs-radar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVS-Radar 超商選品雷達
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TOEIC Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bayesian MCMC 瀏覽偏好模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    標籤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、目標價的三段拆解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、目標價的三段拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三個一定要避開的錯誤
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、Step 1｜建立 EPS 基礎
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、Step 1｜建立 EPS 基礎">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 量價拆解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三種 EPS 基礎，用途完全不同
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 EPS 品質調整（最容易被跳過的一步）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、Step 2｜選估值錨（逐家分流）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Step 2｜選估值錨（逐家分流）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        倍數要從哪裡來
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、Step 3｜情境矩陣與現價反推
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、Step 3｜情境矩陣與現價反推">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 為什麼用矩陣而不是單一數字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 反推法：現價隱含什麼假設
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2492" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、完整試算：華新科 2492
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、完整試算：華新科 2492">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 已知數字（站上既有）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 EPS 品質調整
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 營收情境
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 目標價矩陣
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 用股價反推隱含假設
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 這個試算目前的缺陷（誠實揭露）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、目標價的維護紀律
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、目標價的維護紀律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新節奏
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、常見錯誤檢查清單
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="導覽列">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首頁
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Trading Research
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../passive-components-research-diagrams-decision-map/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    被動元件專題
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags">
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:passive-components" class="md-tag">Passive Components</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:valuation" class="md-tag">Valuation</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="_1">被動元件目標價評估<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>本專題的最後一步。<a href="../passive-components-valuation-framework/">估值框架</a>回答「現在貴不貴」，本頁回答「該給多少目標價、憑什麼給、什麼時候該推翻」。
+<strong>核心立場：週期股的目標價不是一個數字，是一組帶條件的情境。</strong> 只報單一目標價而不寫失效條件，等於沒有研究。
+資料基準：月營收 2026-07-10（11506）、獲利 115Q1、股價快照 2026-05。全文標記：▲法說/財報直接　△媒體/分析師估算　◇本頁示範假設。</p>
+</blockquote>
+<h2 id="_2">一、目標價的三段拆解<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>目標價永遠可以寫成同一個式子：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>目標價 = EPS 基礎 × 合理倍數
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>      （或 BVPS × 合理 P/B，或 EBITDA × EV/EBITDA 後扣淨負債）
+</span></code></pre></div>
+<p>週期股的麻煩在於，<strong>分子與分母會同時往同一個方向錯</strong>：景氣高點時 EPS 最高、市場也願意給最高倍數；景氣低點時 EPS 最低、倍數也被壓到最低。兩邊同時失真，就是週期股目標價最常見的破口。</p>
+<p>所以流程必須拆成三段，每段各自可被檢查：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/passive-components/10-target-price-scenarios.png" data-desc-position="bottom"><img alt="目標價的三段拆解" src="../../assets/diagrams/passive-components/10-target-price-scenarios.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>步驟</th>
+<th>產出</th>
+<th>對應本站頁面</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1｜建立 EPS 基礎</td>
+<td>三種 EPS（落後／當年／正常化）＋品質調整</td>
+<td><a href="../passive-components-monthly-tracker/">月度追蹤表</a>、<a href="../passive-components-stock-tracker/">個股追蹤</a></td>
+</tr>
+<tr>
+<td>Step 2｜選估值錨與倍數</td>
+<td>依景氣位置與公司體質決定用什麼倍數、給多少</td>
+<td><a href="../passive-components-valuation-framework/">估值框架</a>、<a href="../passive-components-market-sizing/">市場量化</a></td>
+</tr>
+<tr>
+<td>Step 3｜情境化與反推</td>
+<td>三情境目標價矩陣＋現價隱含假設＋失效條件</td>
+<td>本頁、<a href="../passive-components-research-diagrams-decision-map/">決策地圖</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">三個一定要避開的錯誤<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>峰值 E × 高倍數（double counting）</strong>：用景氣高點的 EPS，再給景氣高點的倍數，目標價會被放大兩次。這是「本益比僅 7 倍」這類喊盤的算術來源。</li>
+<li><strong>拿賣方共識目標價當錨</strong>：共識目標價本身是別人的 EPS 假設 × 別人的倍數假設，直接引用等於跳過 Step 1 和 Step 2。它只能當作「市場現在相信什麼」的樣本。</li>
+<li><strong>把題材當倍數擴張的理由</strong>：AI／車用是需求方向，不是倍數。倍數要擴張，必須先看到毛利率結構性上移或營收波動度下降，而不是新聞標題變多。</li>
+</ol>
+<hr>
+<h2 id="step-1-eps">二、Step 1｜建立 EPS 基礎<a class="headerlink" href="#step-1-eps" title="Permanent link">¶</a></h2>
+<h3 id="21">2.1 量價拆解<a class="headerlink" href="#21" title="Permanent link">¶</a></h3>
+<p>被動元件的營收永遠可以拆成兩個獨立變數：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>營收 = 出貨量 × ASP
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>獲利 = 營收 × 營益率（營益率同時受 ASP、稼動率、產品 mix 三者影響）
+</span></code></pre></div>
+<p>分開看的理由：<strong>AI／車用是量增故事，ASP 回升才是毛利彈性的來源。</strong> 量增而 ASP 不動，毛利率只靠稼動率的營運槓桿改善，幅度有限；ASP 一旦轉正，毛利率的斜率會陡得多。詳見<a href="../passive-components-market-sizing/">市場量化</a>的量價拆解原則。</p>
+<h3 id="22-eps">2.2 三種 EPS 基礎，用途完全不同<a class="headerlink" href="#22-eps" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>EPS 基礎</th>
+<th>怎麼算</th>
+<th>適用場合</th>
+<th>陷阱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>落後 12 月 EPS</td>
+<td>已公告四季加總</td>
+<td>對照歷史 PE 區間</td>
+<td>在景氣轉折點永遠指向錯的方向</td>
+</tr>
+<tr>
+<td>當年年化 EPS</td>
+<td>已知季 ＋ 剩餘季預估</td>
+<td>判斷今年的價格合理性</td>
+<td>在景氣高點會變成峰值 E</td>
+</tr>
+<tr>
+<td>正常化 / mid-cycle EPS</td>
+<td>跨完整循環（含高低點）的平均獲利</td>
+<td><strong>跨景氣位置比較、算長期目標價</strong></td>
+<td>需要完整循環數列，本站尚缺（見<a href="../passive-components-industry-overview/#research-gaps">研究缺口總表</a>）</td>
+</tr>
+</tbody>
+</table>
+<p>實務做法：<strong>三個都算出來並列，不要只留一個。</strong> 三者之間的差距本身就是資訊——落後 EPS 遠低於當年年化，代表你正站在復甦段；反過來就是轉折風險。</p>
+<h3 id="23-eps">2.3 EPS 品質調整（最容易被跳過的一步）<a class="headerlink" href="#23-eps" title="Permanent link">¶</a></h3>
+<p>拿到帳面 EPS 之後，至少要做四項調整才能拿去乘倍數：</p>
+<ul>
+<li><strong>業外損益</strong>：處分利益、投資收益、匯兌。這類獲利不該給成長倍數，甚至不該給倍數（改用資產法看）。判斷訊號：<strong>淨利率高於營益率</strong>。</li>
+<li><strong>非控制權益</strong>：合併報表的稅後淨利不等於歸屬母公司淨利，EPS 用的是後者。兩者落差大的公司（有大量非全資子公司）不能直接用「稅後淨利 ÷ 股數」回推。</li>
+<li><strong>併購合併報表效果</strong>：國巨這類平台型公司的營收／獲利 YoY 含併購事業併表，<strong>有機成長率才是估值該用的基礎</strong>。</li>
+<li><strong>股本變動</strong>：現金增資、可轉債轉換造成的稀釋。</li>
+</ul>
+<hr>
+<h2 id="step-2">三、Step 2｜選估值錨（逐家分流）<a class="headerlink" href="#step-2" title="Permanent link">¶</a></h2>
+<p>同一套倍數套四家公司是錯的。四家的獲利結構不同，估值錨也應該不同：</p>
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>主錨</th>
+<th>次錨</th>
+<th>為什麼是這個錨</th>
+<th>用錯錨會怎樣</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>國巨 2327</strong></td>
+<td>EV/EBITDA ＋ 事業部 SOTP</td>
+<td>正常化 EPS</td>
+<td>併購背負淨負債使 PE 失真；六大產品線（磁性 25.2%／鉭容 24.3%／MLCC 19.0%／電阻 13.5%／感測器 13.0%）毛利差異大 ▲</td>
+<td>用合併 EPS × 單一倍數，會把高毛利 Specialty 與標準品混為一談，也忽略槓桿</td>
+</tr>
+<tr>
+<td><strong>華新科 2492</strong></td>
+<td>P/B band</td>
+<td>本業（剔除業外）正常化 EPS × 倍數</td>
+<td>景氣純度最高、EPS 波動最大而淨值相對穩定</td>
+<td>用帳面 EPS 給成長倍數，等於替業外損益付成長股的價錢</td>
+</tr>
+<tr>
+<td><strong>禾伸堂 3026</strong></td>
+<td>分部估值（自製 42%／代理 23%／模組 14% ▲）</td>
+<td>帳面 PE 僅作交叉檢查</td>
+<td>製造與代理是兩種生意，代理的合理倍數本來就低</td>
+<td>用單一 PE 會系統性高估代理部分</td>
+</tr>
+<tr>
+<td><strong>大毅 2478</strong></td>
+<td>轉型後正常化 EPS</td>
+<td>P/B</td>
+<td>產品 mix 正從厚膜電阻轉向保護感測元件（2026 目標各 50% ▲），歷史 EPS 不具代表性</td>
+<td>用轉型前歷史區間會低估；用 2025Q3 單季暴增年化會高估</td>
+</tr>
+<tr>
+<td><strong>奇力新／美桓</strong></td>
+<td>無獨立估值</td>
+<td>—</td>
+<td>已併入國巨磁性元件部門，無獨立財報</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">倍數要從哪裡來<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>三個來源，優先序由高到低：</p>
+<ol>
+<li><strong>公司自身的歷史區間</strong>（P/B band、正常化 PE band）——最可靠，但需要跨循環數列。</li>
+<li><strong>日系相對錨</strong>：村田、TDK、太陽誘電是高端錨，台廠因產品階較低、週期性較高而折價。<strong>折價收斂本身就是 re-rating 訊號</strong>，但要先驗證台廠真的往車規／高頻／AI 移動成功，而不是只有新聞。</li>
+<li><strong>景氣位置對應的倍數帶</strong>（下表）——最粗，但在缺歷史數列時可作為第一版判斷。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>景氣階段</th>
+<th>該用的 EPS 基礎</th>
+<th>倍數態度</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>過熱</td>
+<td><strong>正常化 EPS</strong>（絕不用當年年化）</td>
+<td>給低標</td>
+<td>當年 EPS 是峰值，倍數也在高位，兩邊都要打折</td>
+</tr>
+<tr>
+<td>衰退／去庫</td>
+<td>正常化 EPS</td>
+<td>中低標</td>
+<td>帳面 E 崩使 PE 失真，改看 P/B 下緣</td>
+</tr>
+<tr>
+<td>築底</td>
+<td>正常化 EPS 或下一年復甦 EPS</td>
+<td>中標</td>
+<td>風險報酬最佳區，但復甦時點不確定，別給高倍數</td>
+</tr>
+<tr>
+<td>復甦初期</td>
+<td>當年年化 EPS</td>
+<td>中高標</td>
+<td>唯一可以用當年 EPS 且倍數有擴張空間的階段</td>
+</tr>
+</tbody>
+</table>
+<p>完整的景氣階段判讀訊號見<a href="../passive-components-industry-overview/">產業研究總覽</a>的景氣循環判斷框架。</p>
+<hr>
+<h2 id="step-3">四、Step 3｜情境矩陣與現價反推<a class="headerlink" href="#step-3" title="Permanent link">¶</a></h2>
+<h3 id="41">4.1 為什麼用矩陣而不是單一數字<a class="headerlink" href="#41" title="Permanent link">¶</a></h3>
+<p>單一目標價會隱藏兩個假設（EPS 與倍數），讀者無法檢查是哪一個在驅動結論。<strong>目標價矩陣把兩個假設攤開成兩軸</strong>，你可以直接指出「現價落在哪一格」，也就是市場正在同時假設什麼樣的獲利與什麼樣的倍數。</p>
+<h3 id="42">4.2 反推法：現價隱含什麼假設<a class="headerlink" href="#42" title="Permanent link">¶</a></h3>
+<p>這是把基本面研究變成可證偽命題的關鍵一招：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>現價 ÷ 你認為合理的倍數 = 市場隱含的 EPS
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>隱含 EPS ÷ 你的基準情境 EPS = 市場要求的獲利成長幅度
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>→ 這個成長要成立，需要哪些「可驗證事件」？
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>→ 把那些事件寫進追蹤清單，逐月逐季勾銷或推翻
+</span></code></pre></div>
+<p>可驗證事件必須是能被查證的具體項目，例如：是否進入 Tier-1 ODM 的 AVL、AEC-Q200 通過品項與對應客戶、AI／車用占比的實際數字、稼動率水位、ASP 是否止跌。空泛的「AI 需求強勁」不算。驗證流程見<a href="../passive-components-research-diagrams-decision-map/">決策地圖</a>圖二與圖三。</p>
+<hr>
+<h2 id="2492">五、完整試算：華新科 2492<a class="headerlink" href="#2492" title="Permanent link">¶</a></h2>
+<blockquote>
+<p><strong>示範用途，不構成投資建議。</strong> 選華新科的理由：景氣純度最高、estimation 過程最能看清每一步；且它同時具備「業外占比高」這個最典型的 EPS 品質問題。
+資料基準：月營收至 2026 年 6 月（2026-07-10 公告）、損益至 115Q1、股價採站上 2026-05 快照 220 元 △。<strong>實際使用前請以最新股價與財報重算。</strong></p>
+</blockquote>
+<h3 id="51">5.1 已知數字（站上既有）<a class="headerlink" href="#51" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>數字</th>
+<th>標記</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026 Q1 營收</td>
+<td>9,538.4 百萬</td>
+<td>▲</td>
+</tr>
+<tr>
+<td>2026 Q1 營業利益 / 營益率</td>
+<td>718.9 百萬 / 7.54%</td>
+<td>▲</td>
+</tr>
+<tr>
+<td>2026 Q1 稅後淨利 / EPS</td>
+<td>987.4 百萬 / 1.69 元</td>
+<td>▲</td>
+</tr>
+<tr>
+<td>2026 Q1 毛利率</td>
+<td>18.3%</td>
+<td>▲</td>
+</tr>
+<tr>
+<td>4／5／6 月營收</td>
+<td>3,705／3,700／3,961 百萬</td>
+<td>▲</td>
+</tr>
+<tr>
+<td>已發行普通股</td>
+<td>485,204,774 股</td>
+<td>▲</td>
+</tr>
+<tr>
+<td>股價快照（2026-05）</td>
+<td>220+ 元</td>
+<td>△</td>
+</tr>
+<tr>
+<td>市場全年 EPS 估</td>
+<td>~7.5 元</td>
+<td>△</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-eps">5.2 EPS 品質調整<a class="headerlink" href="#52-eps" title="Permanent link">¶</a></h3>
+<p>帳面 Q1 EPS 1.69 元，但：</p>
+<ul>
+<li>稅後淨利 987.4 ÷ 4.852 億股 = 2.03 元，與 EPS 1.69 元有落差 → <strong>歸屬母公司比例約 83%</strong>，其餘為非控制權益。</li>
+<li>本業稅後 EPS ≈ 營業利益 718.9 × (1 − 20% 稅率 ◇) × 83% ÷ 4.852 億股 ≈ <strong>0.98 元</strong>。</li>
+<li><strong>業外＋其他貢獻 ≈ 1.69 − 0.98 = 0.71 元，約占帳面 EPS 四成。</strong></li>
+</ul>
+<p>→ 這正是<a href="../passive-components-monthly-tracker/">月度追蹤表</a>列為 P0 的「華新科淨利率高於營益率」疑點。<strong>在 Q2 完整損益表釐清業外來源之前，帳面 EPS 的四成不應該拿去乘成長倍數。</strong></p>
+<h3 id="53">5.3 營收情境<a class="headerlink" href="#53" title="Permanent link">¶</a></h3>
+<p>Q2 營收 = 3,705 + 3,700 + 3,961 = <strong>11,366 百萬，QoQ +19.2%</strong>；H1 合計 20,904 百萬。以 H2 相對 H1 的三種假設展開：</p>
+<table>
+<thead>
+<tr>
+<th>情境</th>
+<th>H2 vs H1 ◇</th>
+<th>全年營收</th>
+<th>全年營益率 ◇</th>
+<th>本業 EPS</th>
+<th>業外 EPS ◇</th>
+<th>帳面 EPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空方（去庫再起）</td>
+<td>持平</td>
+<td>41,800</td>
+<td>7.5%</td>
+<td>4.3</td>
+<td>2.0</td>
+<td><strong>6.3</strong></td>
+</tr>
+<tr>
+<td>基準（復甦延續）</td>
+<td>+10%</td>
+<td>43,900</td>
+<td>9.0%</td>
+<td>5.4</td>
+<td>2.5</td>
+<td><strong>7.9</strong></td>
+</tr>
+<tr>
+<td>多方（ASP 上行＋mix 改善）</td>
+<td>+20%</td>
+<td>46,000</td>
+<td>11.0%</td>
+<td>6.9</td>
+<td>3.0</td>
+<td><strong>9.9</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>交叉檢查：基準情境帳面 EPS 7.9 元 vs 市場估 ~7.5 元 △，差距約 5%，方向一致 → 情境假設沒有明顯脫離現實。差額主要來自 Q2 實際營收優於年初預估。</p>
+</blockquote>
+<h3 id="54">5.4 目標價矩陣<a class="headerlink" href="#54" title="Permanent link">¶</a></h3>
+<p><strong>用帳面 EPS（含業外）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>帳面 EPS ＼ 倍數</th>
+<th>12×</th>
+<th>16×</th>
+<th>20×</th>
+<th>25×</th>
+<th>30×</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空方 6.3</td>
+<td>76</td>
+<td>101</td>
+<td>126</td>
+<td>158</td>
+<td>189</td>
+</tr>
+<tr>
+<td>基準 7.9</td>
+<td>95</td>
+<td>126</td>
+<td>158</td>
+<td>198</td>
+<td><strong>237</strong></td>
+</tr>
+<tr>
+<td>多方 9.9</td>
+<td>119</td>
+<td>158</td>
+<td>198</td>
+<td><strong>248</strong></td>
+<td>297</td>
+</tr>
+</tbody>
+</table>
+<p><strong>用本業 EPS（剔除業外，週期股較保守的作法）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>本業 EPS ＼ 倍數</th>
+<th>12×</th>
+<th>16×</th>
+<th>20×</th>
+<th>25×</th>
+<th>30×</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空方 4.3</td>
+<td>52</td>
+<td>69</td>
+<td>86</td>
+<td>108</td>
+<td>129</td>
+</tr>
+<tr>
+<td>基準 5.4</td>
+<td>65</td>
+<td>86</td>
+<td>108</td>
+<td>135</td>
+<td>162</td>
+</tr>
+<tr>
+<td>多方 6.9</td>
+<td>83</td>
+<td>110</td>
+<td>138</td>
+<td>172</td>
+<td><strong>207</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="55">5.5 用股價反推隱含假設<a class="headerlink" href="#55" title="Permanent link">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">以下用的是 2026-05 的股價快照 220 元 △，不是當前市價</p>
+<p>這一節示範的是<strong>反推的作法</strong>，不是對今天股價的判斷。股價每天都在動，隱含倍數會跟著整組改變。
+要實際使用，請把 220 換成當下股價重算一次——三張表的相對關係不變，但結論可能完全不同。</p>
+</div>
+<p>以 220 元計：</p>
+<table>
+<thead>
+<tr>
+<th>用哪個 EPS</th>
+<th>隱含倍數</th>
+<th>解讀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基準帳面 7.9</td>
+<td><strong>27.8×</strong></td>
+<td>接近站上記錄的「PE 逼近 30×」△</td>
+</tr>
+<tr>
+<td>多方帳面 9.9</td>
+<td>22.2×</td>
+<td>需要 H2 營收再 +20% 且營益率上看 11%</td>
+</tr>
+<tr>
+<td>多方本業 6.9</td>
+<td><strong>31.9×</strong></td>
+<td>即使最樂觀的本業情境，倍數仍在 30× 之上</td>
+</tr>
+</tbody>
+</table>
+<p>反向問：若給復甦中段較合理的 16×（◇假設），要撐住 220 元需要帳面 EPS <strong>13.8 元</strong>——相對基準情境 7.9 元要再成長 <strong>+75%</strong>。</p>
+<p><strong>結論不是「該賣」，而是三個必須被驗證的命題：</strong></p>
+<ol>
+<li><strong>業外的可持續性</strong>——四成 EPS 來自業外，若為一次性，本業支撐的價位遠低於現價。驗證點：2026Q2 完整損益表（8 月中旬）。</li>
+<li><strong>倍數擴張的正當性</strong>——要撐 25× 以上，需要毛利率結構性上移（高階 mix 提升），而非單純景氣回升。驗證點：車用／AI 占比與其毛利率是否高於公司平均。</li>
+<li><strong>H2 營收動能</strong>——多方情境要求 H2 較 H1 再 +20%。驗證點：7、8 月月營收是否延續 6 月 +25.8% YoY 的幅度。</li>
+</ol>
+<h3 id="56">5.6 這個試算目前的缺陷（誠實揭露）<a class="headerlink" href="#56" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>缺 P/B band 歷史數列</strong>：華新科的主錨應該是 P/B，但站上尚未建立歷史區間，本試算只能退而使用 EPS × 倍數。這是<a href="../passive-components-industry-overview/#research-gaps">研究缺口總表</a>的優先項。</li>
+<li><strong>倍數帶（12–30×）是示範刻度 ◇</strong>，不是華新科的實證歷史區間。</li>
+<li><strong>業外 EPS 2.0／2.5／3.0 元是外推 Q1 單季的假設 ◇</strong>，Q2 財報公布後必須重算。</li>
+<li><strong>股價為 2026-05 快照</strong>，與當前市價存在落差。</li>
+</ul>
+<hr>
+<h2 id="_5">六、目標價的維護紀律<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>一個沒有失效條件的目標價會變成執念。每個目標價都要同時寫下：</p>
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>內容</th>
+<th>為什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>情境與機率</td>
+<td>三情境各自的 EPS、倍數、目標價</td>
+<td>避免用單一數字隱藏假設</td>
+</tr>
+<tr>
+<td>關鍵假設</td>
+<td>最影響結果的 2–3 個變數</td>
+<td>知道要盯什麼</td>
+</tr>
+<tr>
+<td>失效條件（falsifier）</td>
+<td>什麼數字出現代表這個情境已死</td>
+<td>沒有失效條件的判斷不可證偽</td>
+</tr>
+<tr>
+<td>重估觸發</td>
+<td>哪些欄位翻轉就要重跑一次</td>
+<td>把重估變成流程而非情緒</td>
+</tr>
+<tr>
+<td>資料基準日</td>
+<td>所有數字的截止日</td>
+<td>避免拿舊數字做新決策</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">更新節奏<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>頻率</th>
+<th>做什麼</th>
+<th>來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每月（10 日後）</td>
+<td>月營收 MoM／YoY → 檢查營收情境是否偏離</td>
+<td><a href="../passive-components-monthly-tracker/">月度追蹤表</a></td>
+</tr>
+<tr>
+<td>每季（法說後）</td>
+<td>毛利率、營益率、業外、庫存天數、ASP、稼動率、AI／車用占比 → 重算 EPS 情境</td>
+<td><a href="../passive-components-stock-tracker/">個股追蹤</a></td>
+</tr>
+<tr>
+<td>每半年</td>
+<td>重排三情境機率、檢查景氣階段是否轉換 → 重選倍數帶</td>
+<td><a href="../passive-components-valuation-framework/">估值框架</a></td>
+</tr>
+<tr>
+<td>事件觸發</td>
+<td>併購、增資、重大認證通過、大客戶變動</td>
+<td>隨時</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_7">七、常見錯誤檢查清單<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>發布任何目標價之前，逐項自問：</p>
+<ul>
+<li>[ ] 我的 EPS 是哪一種基礎？落後、當年年化，還是正常化？有沒有寫清楚？</li>
+<li>[ ] 業外、非控制權益、併購併表效果調整過了嗎？</li>
+<li>[ ] 我給的倍數，理由是自身歷史區間、日系折價，還是單純「別人也給這個數」？</li>
+<li>[ ] 有沒有同時用峰值 EPS 和高倍數？</li>
+<li>[ ] 三個情境都寫了嗎？還是只寫了自己相信的那個？</li>
+<li>[ ] 每個情境都綁了可驗證事件嗎？事件是具體可查的嗎？</li>
+<li>[ ] 失效條件寫了嗎？什麼數字出現我會承認錯了？</li>
+<li>[ ] 資料基準日標了嗎？股價是哪一天的？</li>
+<li>[ ] 這個目標價的多空結論，有沒有可能只是我在替既有部位找理由？</li>
+</ul>
+<hr>
+<h2 id="_8">延伸閱讀（本站）<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../passive-components-valuation-framework/">被動元件估值框架</a> — 「現在貴不貴」的前一步</li>
+<li><a href="../passive-components-monthly-tracker/">被動元件月度追蹤表</a> — 每月更新 EPS 情境的數字來源</li>
+<li><a href="../passive-components-stock-tracker/">台灣被動元件個股追蹤</a> — 各家的 thesis 與每季追問清單</li>
+<li><a href="../passive-components-industry-overview/">被動元件產業研究總覽</a> — 景氣階段判讀與研究缺口總表</li>
+<li><a href="../passive-components-research-diagrams-decision-map/">被動元件研究結構圖與決策地圖</a> — AI／車規的驗證流程圖</li>
+</ul>
+<p><strong>來源</strong>：本頁的公司數字全部取自本站既有頁面，原始來源為 MOPS t21sc03（11506 月營收，2026-07-10 公告）、TWSE t187ap14（115Q1 損益）、TWSE OpenAPI（股本）、華新科法說整理與財經媒體估算（股價與市場 EPS 估 △）。倍數帶、稅率、業外外推與 H2 營收假設為本頁示範假設 ◇，非市場共識。</p>
+<p><em>本頁為研究方法紀錄與示範試算，不構成任何投資建議或買賣依據。</em></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最後更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 11:43:20 UTC">2026年8月8日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="建立日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月7日 09:02:21 UTC">2026年8月7日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="頁腳">
+        
+          
+          <a href="../passive-components-valuation-framework/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 6 · 估值框架（貴不貴）">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                6 · 估值框架（貴不貴）
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../projects/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Projects">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一頁
+              </span>
+              <div class="md-ellipsis">
+                Projects
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/YuHsunWang" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/glightbox-close.js"></script>
+      
+        <script src="../../javascripts/kb-apparatus.js"></script>
+      
+        <script src="../../javascripts/kb-map.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": false, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

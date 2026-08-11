@@ -1,0 +1,209 @@
+/* 知識庫互動地圖 — 通用樣式
+ *
+ * 配色全部消費 extra.css 的「靛與朱」token，本檔不定義任何顏色常數，
+ * 站台切換明暗主題時地圖自動跟著走，不需維護第二套配色。
+ * 唯一例外是欄位色：那是各張地圖自己的語意，定義在下方且刻意選在靛色系內。
+ */
+
+.kbmap {
+  --c-a: #A8752E;                 /* 第一欄：赭 */
+  --c-b: #3D4A8A;                 /* 第二欄：靛 */
+  --c-c: var(--kb-celadon);       /* 第三欄：青 */
+  --c-d: var(--kb-accent);        /* 第四欄（少用）：朱 */
+  --wire: color-mix(in srgb, var(--kb-fg-faint) 70%, transparent);
+  margin: 1.4rem 0 1.8rem;
+}
+[data-md-color-scheme="slate"] .kbmap { --c-a: #C79A4E; --c-b: #7C89D6; }
+
+.kbmap__bar {
+  display: flex; flex-wrap: wrap; gap: .5rem; align-items: center;
+  padding: .55rem .7rem; margin-bottom: .45rem;
+  background: var(--kb-ground-2); border: 1px solid var(--kb-rule); border-radius: .6rem;
+}
+.kbmap__lab { font-size: .68rem; font-weight: 700; letter-spacing: .12em; color: var(--kb-fg-faint); }
+.kbmap__f {
+  font: inherit; font-size: .74rem; cursor: pointer; padding: .15rem .7rem;
+  border-radius: 999px; border: 1px solid var(--kb-rule-firm);
+  background: transparent; color: var(--kb-fg-muted);
+}
+.kbmap__f:hover { border-color: var(--kb-fg-faint); color: var(--kb-fg); }
+.kbmap__f:focus-visible { outline: 2px solid var(--kb-fg); outline-offset: 2px; }
+.kbmap__f[aria-pressed="true"] { background: var(--kb-accent); border-color: var(--kb-accent); color: #fff; }
+.kbmap__hint { font-size: .7rem; color: var(--kb-fg-faint); margin: 0 0 .55rem; }
+
+/* 直向：每一段（上游／中游／下游）是一個橫幅，由上往下堆疊，段內的節點
+   自動換行。原本的三欄版需要 1000px 才排得下，但內容欄只有 794px，等於
+   必定橫向捲動——版面方向跟可用空間對不上。 */
+.kbmap__stage { position: relative; }
+.kbmap__band { position: relative; z-index: 2; }
+.kbmap__band + .kbmap__band { margin-top: 1.1rem; }
+/* 小標放在左側直條，而不是橫跨整段的標題列：段落之間的分隔靠色條本身，
+   版面少一層水平線，節點也能從最上緣就開始排。 */
+.kbmap__band {
+  display: grid; grid-template-columns: 6.4rem minmax(0, 1fr); gap: .85rem;
+}
+.kbmap__rail {
+  border-left: 3px solid; padding: .1rem 0 .1rem .5rem;
+  align-self: start; position: sticky; top: 4.2rem;
+}
+.kbmap__rail b {
+  display: block; font-size: .74rem; font-weight: 800; letter-spacing: .16em;
+}
+.kbmap__rail small {
+  display: block; font-size: .64rem; font-weight: 600; line-height: 1.5;
+  color: var(--kb-fg-faint); margin-top: .15rem;
+}
+.kbmap__rail--a { border-color: var(--c-a); }
+.kbmap__rail--a b { color: var(--c-a); }
+.kbmap__rail--b { border-color: var(--c-b); }
+.kbmap__rail--b b { color: var(--c-b); }
+.kbmap__rail--c { border-color: var(--c-c); }
+.kbmap__rail--c b { color: var(--c-c); }
+.kbmap__rail--d { border-color: var(--c-d); }
+.kbmap__rail--d b { color: var(--c-d); }
+.kbmap__nodes {
+  display: grid; gap: .6rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+/* 連線畫在卡片底下（z-index 1）。直向排版時節點會換行，長連線必然從卡片
+   後面穿過而時隱時現——靜止時壓得很淡，讓它只當作「有流向」的底層紋理；
+   真正要看哪條接哪條時滑過節點，該節點的線會亮起、其餘再淡下去。 */
+.kbmap__wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.kbmap__wires path { fill: none; stroke: var(--wire); stroke-width: 1.5; opacity: .38; }
+.kbmap__wires path.is-dashed { stroke-dasharray: 6 5; }
+.kbmap__wires path.is-hot { stroke: var(--c-b); stroke-width: 2.6; opacity: 1; }
+.kbmap__wires path.is-faded { opacity: .1; }
+
+.kbmap__node {
+  background: var(--kb-ground-2); border: 1px solid var(--kb-rule);
+  border-radius: .6rem; padding: .5rem .6rem .6rem; box-shadow: var(--kb-shadow);
+}
+.kbmap__node--a { border-top: 3px solid var(--c-a); }
+.kbmap__node--b { border-top: 3px solid var(--c-b); }
+.kbmap__node--c { border-top: 3px solid var(--c-c); }
+.kbmap__node--d { border-top: 3px solid var(--c-d); }
+.kbmap__node h3 { margin: 0; font-size: .82rem; font-weight: 800; line-height: 1.4; }
+.kbmap__node--a h3 { color: var(--c-a); }
+.kbmap__node--b h3 { color: var(--c-b); }
+.kbmap__node--c h3 { color: var(--c-c); }
+.kbmap__node--d h3 { color: var(--c-d); }
+.kbmap__desc { font-size: .66rem; color: var(--kb-fg-faint); margin-top: .05rem; }
+
+.kbmap__chips { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .42rem; }
+.kbmap__chip {
+  font: inherit; font-size: .74rem; line-height: 1.5; cursor: pointer;
+  padding: .1rem .45rem; border-radius: .35rem; text-align: left;
+  border: 1px solid var(--kb-rule); background: var(--kb-ground); color: var(--kb-fg);
+  display: inline-flex; gap: .28rem; align-items: baseline;
+}
+.kbmap__chip code {
+  font-size: .66rem; color: var(--kb-fg-faint); background: none;
+  padding: 0; font-variant-numeric: tabular-nums;
+}
+.kbmap__chip:hover { border-color: var(--kb-fg-faint); }
+.kbmap__chip:focus-visible { outline: 2px solid var(--kb-fg); outline-offset: 2px; }
+.kbmap__chip.is-accent {
+  border-color: var(--kb-accent-line); background: var(--kb-accent-soft);
+  color: var(--kb-accent); font-weight: 700;
+}
+.kbmap__chip.is-accent code { color: var(--kb-accent); }
+.kbmap__chip.is-echo {
+  border-color: var(--kb-signal);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--kb-signal) 45%, transparent);
+}
+.kbmap__chip.is-sel { background: var(--kb-fg); color: var(--kb-ground); border-color: var(--kb-fg); }
+.kbmap__chip.is-sel code { color: var(--kb-ground); }
+.kbmap__chip.is-dim { opacity: .22; }
+
+.kbmap__dot {
+  width: .42rem; height: .42rem; border-radius: 50%;
+  align-self: center; flex: 0 0 auto;
+}
+.kbmap__dot--due { background: #C89A2E; }
+.kbmap__dot--overdue { background: var(--kb-accent); }
+
+.kbmap__seg {
+  border: 1px dashed var(--c-c); color: var(--c-c); border-radius: .35rem;
+  padding: .12rem .5rem; font-size: .7rem; font-weight: 700;
+}
+
+/* 預覽卡：比詳情卡窄、無互動元件，只給標題與一句話。
+   pointer-events:none 是關鍵——它會蓋在 chip 附近，能被滑鼠打到的話
+   會立刻觸發 mouseleave 造成閃爍。 */
+.kbmap__peek {
+  position: absolute; z-index: 39; width: min(17rem, calc(100vw - 1.5rem));
+  background: var(--kb-ground-2); border: 1px solid var(--kb-rule-firm);
+  border-radius: .5rem; padding: .5rem .6rem; box-shadow: var(--kb-shadow-lift);
+  pointer-events: none;
+}
+.kbmap__peek-t { font-size: .78rem; font-weight: 800; line-height: 1.4; }
+.kbmap__peek-n {
+  font-size: .7rem; line-height: 1.55; color: var(--kb-fg-muted); margin-top: .2rem;
+}
+.kbmap__peek-f {
+  font-size: .64rem; color: var(--kb-fg-faint); margin-top: .3rem;
+  padding-top: .25rem; border-top: 1px solid var(--kb-rule);
+}
+.kbmap__peek .kbmap__arrow { background: var(--kb-ground-2); }
+
+.kbmap__pop {
+  position: absolute; z-index: 40; width: min(20rem, calc(100vw - 1.5rem));
+  background: var(--kb-ground-2); border: 1px solid var(--kb-rule-firm);
+  border-radius: .6rem; padding: .8rem .85rem .85rem; box-shadow: var(--kb-shadow-lift);
+}
+.kbmap__arrow {
+  position: absolute; width: 11px; height: 11px; background: var(--kb-ground-2);
+  border-left: 1px solid var(--kb-rule-firm); border-bottom: 1px solid var(--kb-rule-firm);
+}
+.kbmap__pop[data-side="right"] .kbmap__arrow { left: -6px; transform: rotate(45deg); }
+.kbmap__pop[data-side="left"] .kbmap__arrow { right: -6px; transform: rotate(225deg); }
+.kbmap__pop[data-side="below"] .kbmap__arrow { top: -6px; transform: rotate(135deg); }
+.kbmap__pop h4 { margin: 0; font-size: .98rem; font-weight: 800; line-height: 1.4; padding-right: 1.2rem; }
+.kbmap__code { font-size: .7rem; color: var(--kb-fg-faint); font-variant-numeric: tabular-nums; }
+.kbmap__x {
+  position: absolute; top: .3rem; right: .35rem; border: 0; background: transparent;
+  cursor: pointer; color: var(--kb-fg-faint); font-size: 1.1rem; line-height: 1;
+  padding: .1rem .25rem; border-radius: .3rem; font-family: inherit;
+}
+.kbmap__x:hover { color: var(--kb-fg); background: var(--kb-ground); }
+.kbmap__x:focus-visible { outline: 2px solid var(--kb-fg); outline-offset: 1px; }
+.kbmap__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
+.kbmap__tag {
+  font-size: .66rem; padding: .05rem .45rem; border-radius: 999px;
+  border: 1px solid var(--kb-rule-firm); color: var(--kb-fg-muted);
+}
+.kbmap__tag--accent { border-color: var(--kb-accent-line); color: var(--kb-accent); background: var(--kb-accent-soft); }
+.kbmap__tag--multi { border-color: var(--kb-signal); color: var(--kb-signal); }
+.kbmap__pop dl {
+  margin: .6rem 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr);
+  gap: .3rem .6rem; font-size: .74rem;
+}
+.kbmap__pop dt { color: var(--kb-fg-faint); white-space: nowrap; margin: 0; }
+.kbmap__pop dd { margin: 0; }
+.kbmap__note {
+  margin: .55rem 0 0; padding-top: .5rem; border-top: 1px solid var(--kb-rule);
+  font-size: .72rem; color: var(--kb-fg-muted);
+}
+.kbmap__back {
+  margin-top: .55rem; padding-top: .5rem; border-top: 1px solid var(--kb-rule);
+}
+.kbmap__back-h {
+  font-size: .66rem; font-weight: 700; letter-spacing: .06em;
+  color: var(--kb-signal);
+}
+.kbmap__back ul { margin: .3rem 0 0; padding-left: .9rem; }
+.kbmap__back li { font-size: .72rem; line-height: 1.5; margin: 0; }
+.kbmap__back-more { font-size: .66rem; color: var(--kb-fg-faint); margin-top: .2rem; }
+.kbmap__go { display: inline-block; margin-top: .6rem; font-size: .74rem; font-weight: 700; }
+
+.kbmap__legend {
+  display: flex; flex-wrap: wrap; gap: .8rem; margin-top: .65rem;
+  font-size: .68rem; color: var(--kb-fg-muted);
+}
+.kbmap__legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: .25rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .kbmap__chip { transition: box-shadow .12s ease, background-color .12s ease, opacity .12s ease; }
+  .kbmap__wires path { transition: stroke .14s ease, opacity .14s ease, stroke-width .14s ease; }
+}

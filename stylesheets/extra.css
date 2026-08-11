@@ -1,156 +1,646 @@
-/* ── Custom color depth ──────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════
+   靛與朱 (Indigo & Vermilion) — Knowledge Base visual system
+   DEV-114. Plan: _system/spec/2026-07-30-ui-redesign-plan.md
+
+   Layer 1 only. No overrides/ templates: the Material team has
+   announced that MkDocs 2.0 rewrites the theming system, breaks all
+   theme overrides, and ships no migration path. Layout re-composition
+   here is done with CSS on Material's existing DOM instead.
+
+   Colour has exactly one source: the --kb-* tokens below. Component
+   rules must never inline a raw hex or rgba() value — that scattering
+   is what put the previous palette out of sync with its own docs.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Token layer: light ──────────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  --kb-ink:        #151A32;
+  --kb-vermilion:  #C6362C;
+  --kb-celadon:    #4E7D6F;
+
+  --kb-ground:     #EEF0F6;
+  --kb-ground-2:   #E3E6EF;
+  --kb-ground-3:   #D7DBE8;
+  --kb-fg:         #1B2038;
+  --kb-fg-muted:   #4E5678;
+  --kb-fg-faint:   #7A82A3;
+  --kb-rule:       #C3C8DA;
+  --kb-rule-firm:  #9AA1BC;
+
+  --kb-accent:      var(--kb-vermilion);
+  --kb-accent-soft: rgba(198, 54, 44, 0.10);
+  --kb-accent-line: rgba(198, 54, 44, 0.28);
+  --kb-signal:      var(--kb-celadon);
+  --kb-mark:        rgba(92, 100, 136, 0.30);
+  --kb-shadow:      0 1px 0 rgba(27, 32, 56, 0.05), 0 10px 28px -14px rgba(27, 32, 56, 0.24);
+  --kb-shadow-lift: 0 14px 34px -14px rgba(27, 32, 56, 0.30);
+
+  /* map Material's own variables onto the tokens */
+  --md-default-bg-color:        var(--kb-ground);
+  --md-default-bg-color--light: var(--kb-ground-2);
+  --md-default-fg-color:        var(--kb-fg);
+  --md-default-fg-color--light: var(--kb-fg-muted);
+  --md-default-fg-color--lighter:  var(--kb-fg-faint);
+  --md-default-fg-color--lightest: var(--kb-rule);
+  --md-code-bg-color:           var(--kb-ground-2);
+}
+
+/* ── Token layer: dark ───────────────────────────────────────── */
+[data-md-color-scheme="slate"] {
+  --kb-ink:        #151A32;
+  --kb-vermilion:  #E4574B;
+  --kb-celadon:    #7FB0A1;
+
+  --kb-ground:     #151A32;
+  --kb-ground-2:   #1C2240;
+  --kb-ground-3:   #252C4E;
+  --kb-fg:         #E7E9F3;
+  --kb-fg-muted:   #A8AFCB;
+  --kb-fg-faint:   #757D9F;
+  --kb-rule:       #2E3558;
+  --kb-rule-firm:  #454D75;
+
+  --kb-accent:      var(--kb-vermilion);
+  --kb-accent-soft: rgba(228, 87, 75, 0.14);
+  --kb-accent-line: rgba(228, 87, 75, 0.34);
+  --kb-signal:      var(--kb-celadon);
+  --kb-mark:        rgba(168, 175, 203, 0.26);
+  --kb-shadow:      0 1px 0 rgba(0, 0, 0, 0.30), 0 10px 30px -14px rgba(0, 0, 0, 0.60);
+  --kb-shadow-lift: 0 16px 38px -14px rgba(0, 0, 0, 0.70);
+
+  --md-default-bg-color:        var(--kb-ground);
+  --md-default-bg-color--light: var(--kb-ground-2);
+  --md-default-bg-color--lighter: var(--kb-ground-3);
+  --md-default-fg-color:        var(--kb-fg);
+  --md-default-fg-color--light: var(--kb-fg-muted);
+  --md-default-fg-color--lighter:  var(--kb-fg-faint);
+  --md-default-fg-color--lightest: var(--kb-rule);
+  --md-code-bg-color:           var(--kb-ground-2);
+}
+
+/* Primary/accent are keyed on the attribute values still set in
+   mkdocs.yml ("teal"/"amber"); these override them wholesale. */
 [data-md-color-primary="teal"] {
-  --md-primary-fg-color:        #00695c;
-  --md-primary-fg-color--light: #4db6ac;
-  --md-primary-fg-color--dark:  #00363a;
+  --md-primary-fg-color:        var(--kb-accent);
+  --md-primary-fg-color--light: var(--kb-accent);
+  --md-primary-fg-color--dark:  var(--kb-accent);
+  --md-primary-bg-color:        #FFFFFF;
+}
+[data-md-color-accent="amber"] {
+  --md-accent-fg-color: var(--kb-accent);
+}
+/* Material hardcodes the slate link colour at [scheme][primary]
+   specificity (0,2,0) — match it to win. */
+[data-md-color-scheme="slate"][data-md-color-primary="teal"] {
+  --md-typeset-a-color: var(--kb-accent);
+}
+[data-md-color-scheme="default"][data-md-color-primary="teal"] {
+  --md-typeset-a-color: var(--kb-accent);
 }
 
-/* ── Layout ─────────────────────────────────────────────────── */
-.md-grid {
-  max-width: 84rem;
+/* ── Type roles ──────────────────────────────────────────────
+   CJK display faces cannot be self-hosted at a sane weight, so the
+   system carries the voice: scale, weight, tracking, measure and
+   tabular numerals — not a novelty face.                        */
+:root {
+  --kb-face-display: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
+  --kb-face-data: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+  /* 內文行寬 = 38 個漢字（漢字為全形，1 字剛好 1em）。
+     刻意用 rem 而非 em：em 是相對「元素自己」的字級，同一個 38em 套在
+     大字級的標題上會算出更寬的值，等於沒有限制。Material 的
+     .md-typeset 字級固定是 0.85rem，所以 38em(內文) = 38 × 0.85 = 32.3rem，
+     換成 rem 後不論套在哪個字級的元素上都是同一條右緣。 */
+  --kb-measure: 32.3rem;
 }
 
-.md-content__inner {
-  padding-top: 0;
+/* ── Shell / layout ─────────────────────────────────────────── */
+/* 88rem 的版面比內容需要的寬得多：文字欄固定 --kb-measure，剩下的空間
+   全變成文字欄與右側 TOC 之間的死空白（1600px 螢幕上實測 261px），
+   看起來像沒排好而不是留白。收到 64rem 後死空白降到 84px（正常的欄間距），
+   文字欄寬度完全不變。表格會自動重排，實測各寬度都不需要橫向捲動。
+   注意這只在視窗比 64rem 寬時生效，筆電與手機的版面完全不受影響。 */
+.md-grid { max-width: 64rem; }
+.md-content__inner { padding-top: 0; }
+
+/* 收窄 grid 解決了死空白，但留下左右不對稱：文字欄靠左貼齊內容框，餘裕
+   全堆在右邊。1600px 實測——左側導覽到正文只有 26px，正文到右側 TOC 卻有
+   110px，讀的時候會被左邊那欄壓住。
+   餘裕就是「內容框 794 − 文字欄 711 = 83px」，往左推一半（1.9rem＝42px）
+   後左右各 68px。文字欄寬度完全不變；而且推的是整個內容框，所以表格與
+   程式碼區塊（刻意 opt-out 限寬的）左緣仍與正文對齊——這是不改用
+   margin-inline: auto 置中文字欄的原因，那會讓寬內容比正文更靠左。
+   只在 grid 觸頂（≥ 90em ≈ 1440px）時才有餘裕可分；以下維持原樣。 */
+@media screen and (min-width: 90em) {
+  .md-content__inner { padding-left: 1.9rem; }
 }
 
-/* ── Typography ─────────────────────────────────────────────── */
+.md-header {
+  background: var(--kb-ground);
+  color: var(--kb-fg);
+  border-bottom: 1px solid var(--kb-rule);
+  box-shadow: none;
+}
+.md-header__title { font-weight: 600; letter-spacing: 0.01em; }
+.md-tabs {
+  background: var(--kb-ground);
+  color: var(--kb-fg-muted);
+  border-bottom: 1px solid var(--kb-rule);
+}
+.md-tabs__link { opacity: 1; color: var(--kb-fg-muted); font-size: 0.76rem; }
+.md-tabs__link:hover { color: var(--kb-fg); }
+.md-tabs__link--active {
+  color: var(--kb-fg);
+  border-bottom: 2px solid var(--kb-accent);
+  padding-bottom: 2px;
+}
+.md-search__form {
+  background: var(--kb-ground-2);
+  border: 1px solid var(--kb-rule);
+  border-radius: 4px;
+  box-shadow: none;
+}
+.md-search__form:hover { background: var(--kb-ground-3); }
+
+/* A plotted index mark in place of the default logo slot. */
+.md-header__button.md-logo { position: relative; }
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg { display: none; }
+.md-header__button.md-logo::before {
+  content: "";
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  box-sizing: border-box;
+  border: 1px solid var(--kb-rule-firm);
+  background:
+    linear-gradient(var(--kb-accent), var(--kb-accent)) center / 100% 1px no-repeat,
+    linear-gradient(var(--kb-accent), var(--kb-accent)) center / 1px 100% no-repeat;
+  transform: rotate(-3deg);
+  animation: kb-mark-in 480ms cubic-bezier(0.16, 1.2, 0.3, 1) both;
+}
+.md-header__button.md-logo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.32rem;
+  height: 0.32rem;
+  background: var(--kb-accent);
+  transform: translate(-50%, -50%);
+}
+@keyframes kb-mark-in {
+  0%   { transform: scale(1.3) rotate(-8deg); opacity: 0; }
+  60%  { opacity: 1; }
+  100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+/* ── Index rail (primary nav, re-composed) ──────────────────── */
+.md-sidebar--primary { width: 12.5rem; }
+.md-nav--primary > .md-nav__title { display: none; }
+
+.md-nav__list .md-nav__item { border-left: 2px solid transparent; }
+.md-nav__link {
+  font-size: 0.75rem;
+  color: var(--kb-fg-muted);
+  padding-block: 0.28rem;
+  transition: color 150ms ease, background 150ms ease;
+}
+.md-nav__link:hover { color: var(--kb-fg); background: var(--kb-ground-2); }
+.md-nav__link--active,
+.md-nav__item--active > .md-nav__link {
+  color: var(--kb-fg);
+  font-weight: 600;
+}
+.md-nav__item--active { border-left-color: var(--kb-accent); background: var(--kb-accent-soft); }
+
+.md-nav--primary .md-nav__item--section > .md-nav__link {
+  font-family: var(--kb-face-data);
+  font-size: 0.63rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kb-fg-faint);
+}
+
+/* per-section article counts on the header tabs, injected by kb-apparatus.js
+   from the build-time section-counts.json */
+.kb-count {
+  font-family: var(--kb-face-data);
+  font-size: 0.6rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--kb-fg-faint);
+  margin-left: 0.35rem;
+  vertical-align: 0.15em;
+}
+.md-tabs__link--active .kb-count { color: var(--kb-accent); }
+
+/* Staggered rail entry — JS numbers every visible item in document order. */
+.md-nav--primary .md-nav__item {
+  animation: kb-rail-in 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--kb-i, 0) * 24ms);
+}
+@keyframes kb-rail-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Apparatus column (secondary TOC, re-composed) ──────────── */
+.md-sidebar--secondary { width: 13rem; }
+.md-nav--secondary .md-nav__title {
+  font-family: var(--kb-face-data);
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kb-fg-faint);
+  box-shadow: none;
+  background: none;
+}
+.md-nav--secondary .md-nav__link { font-size: 0.72rem; }
+.md-nav--secondary .md-nav__item { border-left: 1px solid var(--kb-rule); padding-left: 0.6rem; }
+.md-nav--secondary .md-nav__link--active { color: var(--kb-accent); }
+
+/* The TOC scrollwrap and readout are sidebar siblings. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--secondary:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .md-sidebar--secondary:not([hidden]) > .md-sidebar__scrollwrap {
+    flex: 0 0 max-content;
+    height: max-content;
+    min-height: 0;
+  }
+  .md-sidebar--secondary:not([hidden]) > .kb-readout { flex: 0 0 auto; }
+}
+
+/* readout block injected into the secondary sidebar */
+.kb-readout {
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--kb-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.kb-readout h4 {
+  margin: 0 0 0.3rem;
+  font-family: var(--kb-face-data);
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kb-fg-faint);
+  font-weight: 500;
+}
+.kb-readout div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px dotted var(--kb-rule);
+  color: var(--kb-fg-muted);
+}
+.kb-readout b {
+  font-family: var(--kb-face-data);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--kb-fg);
+}
+
+/* ── Typography: the reading contract ───────────────────────── */
 .md-typeset {
   font-size: 0.85rem;
-  line-height: 1.82;
+  line-height: 1.8;
+}
+/* prose holds the measure; wide content opts out below */
+.md-typeset > p,
+.md-typeset > ul,
+.md-typeset > ol,
+.md-typeset > blockquote {
+  max-width: var(--kb-measure);
+}
+
+/* 標題跟著內文對齊，不要跟著媒體區塊撐滿。
+   實測同一頁上曾有五條不同的右緣（內文 711、清單 722、表格 375–839、
+   程式碼 971、H2 底線 971）。程式碼／表格／mermaid／圖片的滿寬是刻意的
+   （見下方各自的 max-width: none），但標題是文字不是媒體——H2 的底線
+   比內文多伸出 260px 純粹是漏設限寬，看起來最突兀。 */
+.md-typeset > h1,
+.md-typeset > h2,
+.md-typeset > h3,
+.md-typeset > h4 {
+  max-width: var(--kb-measure);
+}
+
+/* CJK 標題斷行：中文字之間到處都是合法斷點，瀏覽器會把術語從中間切開
+   （實測 h1「RAG 完整指南：檢索增強生成…」被切成「檢索增強」/「生成」）。
+   keep-all 讓中文只在標點與空白處斷，line-break: strict 避免標點跑到行首。
+   遇到過長的無標點中文段時，既有的 overflow-wrap: break-word 仍會兜底，
+   實測 360px 下最長的 16 字標題也不會溢出。只套用在標題；內文中文本來就
+   該任意換行。 */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  word-break: keep-all;
+  line-break: strict;
 }
 
 .md-typeset h1 {
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--md-primary-fg-color);
-}
-
-.md-typeset h2 {
-  margin-top: 2.2rem;
+  font-family: var(--kb-face-display);
   font-weight: 700;
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-  padding-bottom: 0.3rem;
+  font-size: 1.85rem;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--kb-fg);
+  text-wrap: balance;
 }
-
+.md-typeset h2 {
+  font-family: var(--kb-face-display);
+  margin-top: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  border-bottom: 2px solid var(--kb-fg);
+  padding-bottom: 0.32rem;
+  text-wrap: balance;
+}
 .md-typeset h3 {
+  font-family: var(--kb-face-display);
   font-weight: 600;
+  margin-top: 1.8rem;
+}
+.md-typeset h4 {
+  font-family: var(--kb-face-data);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kb-fg-faint);
 }
 
-/* ── Home cards ──────────────────────────────────────────────── */
-.md-typeset .grid.cards > ul > li {
-  border-radius: 12px;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-top: 3px solid var(--md-default-fg-color--lightest);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-top-color 0.18s ease;
-}
+.md-typeset ul li,
+.md-typeset ol li { margin-bottom: 0.28rem; }
 
-.md-typeset .grid.cards > ul > li:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 105, 92, 0.14);
-  border-top-color: var(--md-primary-fg-color);
-}
-
-/* ── Code blocks ────────────────────────────────────────────── */
-.md-typeset pre > code {
-  font-size: 0.8rem;
-  border-radius: 8px;
-}
-
-.md-typeset code {
-  background: rgba(0, 105, 92, 0.08);
+/* ── Home hero: flat ground + plotted field, no gradient ────── */
+.md-typeset .hero-banner {
+  position: relative;
+  margin: 0 0 2.4rem;
+  padding: 3rem 2.2rem 2.6rem;
+  border: 1px solid var(--kb-rule);
   border-radius: 4px;
+  background: var(--kb-ground-2);
+  overflow: hidden;
+  text-align: left;
+  box-shadow: none;
+}
+.md-typeset .hero-banner > :not(.kb-field) { position: relative; }
+.kb-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.md-typeset .hero-banner h1 {
+  margin: 0 0 0.5rem;
+  border: none;
+  color: var(--kb-fg);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+.md-typeset .hero-banner p {
+  margin: 0;
+  max-width: 34em;
+  color: var(--kb-fg-muted);
+  font-size: 0.86rem;
+}
+/* eyebrow above the hero title, injected by JS */
+.kb-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--kb-face-data);
+  font-size: 0.63rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kb-fg-faint);
+  margin-bottom: 0.6rem;
+}
+.kb-eyebrow::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  max-width: 9rem;
+  background: var(--kb-rule);
+}
+
+/* published-count strip, injected by JS */
+.kb-gate {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+  border: 1px solid var(--kb-rule);
+  border-radius: 4px;
+  background: var(--kb-ground);
+  overflow: hidden;
+}
+.kb-gate > div {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.kb-gate > div + div { border-left: 1px solid var(--kb-rule); }
+.kb-gate b {
+  font-family: var(--kb-face-data);
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--kb-fg);
+}
+.kb-gate span {
+  font-family: var(--kb-face-data);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kb-fg-faint);
+}
+.kb-gate > div:first-child b { color: var(--kb-accent); }
+
+/* ── Home cards: flat, ruled, hairline — not floating boxes ─── */
+.md-typeset .grid.cards > ul > li {
+  padding: 1.3rem 1.2rem;
+  border: 1px solid var(--kb-rule);
+  border-top: 2px solid var(--kb-rule-firm);
+  border-radius: 3px;
+  background: var(--kb-ground-2);
+  box-shadow: none;
+  transition: border-top-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-3px);
+  border-top-color: var(--kb-accent);
+  box-shadow: var(--kb-shadow-lift);
+}
+.md-typeset .grid.cards .card-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-bottom: 0.7rem;
+  border-radius: 3px;
+  background: var(--kb-accent-soft);
+  color: var(--kb-accent);
+}
+.md-typeset .grid.cards .card-badge svg { width: 1.3rem; height: 1.3rem; }
+
+/* ── Code: full width, tokenised, copy button preserved ─────── */
+.md-typeset pre > code {
+  font-size: 0.78rem;
+  border-radius: 3px;
+}
+.md-typeset .highlight {
+  max-width: none;
+  border: 1px solid var(--kb-rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.md-typeset .highlight pre { margin: 0; }
+.md-typeset code {
+  background: var(--kb-accent-soft);
+  border-radius: 3px;
   padding: 0.05em 0.35em;
   font-size: 0.83em;
 }
+/* keep Material's line highlight readable on the new grounds */
+.md-typeset .highlight .hll {
+  background: var(--kb-accent-soft);
+  box-shadow: inset 2px 0 0 var(--kb-accent);
+}
+
+/* ── Blockquote: rule, not tinted box ───────────────────────── */
+.md-typeset blockquote {
+  border-left: 2px solid var(--kb-accent);
+  background: none;
+  border-radius: 0;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  color: var(--kb-fg-muted);
+  font-family: var(--kb-face-display);
+}
+
+/* ── Tables: hairline grid, tabular numerals, own scroller ──── */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--kb-rule);
+  border-radius: 3px;
+  box-shadow: none;
+  font-variant-numeric: tabular-nums;
+}
+.md-typeset table:not([class]) th {
+  background: var(--kb-ground-3);
+  color: var(--kb-fg);
+  font-weight: 600;
+  font-family: var(--kb-face-data);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.md-typeset table:not([class]) tr:hover td { background: var(--kb-accent-soft); }
+.md-typeset .md-typeset__table { max-width: none; overflow-x: auto; }
+
+/* ── Admonitions / details ──────────────────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 3px;
+  border-left-width: 2px;
+  box-shadow: none;
+  max-width: var(--kb-measure);
+}
+
+/* ── Mermaid: never clip, keep labels legible in both themes ── */
+.md-typeset .mermaid {
+  max-width: none;
+  overflow-x: auto;
+  background: var(--kb-ground-2);
+  border: 1px solid var(--kb-rule);
+  border-radius: 3px;
+  padding: 0.8rem;
+}
+/* do not impose a fill/stroke on diagram internals — Material's
+   mermaid theming already reacts to the scheme, and blanket SVG
+   rules are what crop nodes and flatten label contrast. */
 
 /* ── Images ─────────────────────────────────────────────────── */
 .md-typeset p:has(> img) {
   margin: 1.8rem 0 2.25rem;
+  max-width: none;
   text-align: center;
 }
-
 .md-typeset p > img {
   display: inline-block;
   width: min(100%, 680px);
   height: auto;
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.10);
+  border-radius: 3px;
+  border: 1px solid var(--kb-rule);
+  background: var(--kb-ground-2);
+  box-shadow: var(--kb-shadow);
+}
+.md-typeset p > img.wide { width: min(100%, 1040px); }
+
+/* ── Tag chips ──────────────────────────────────────────────── */
+.md-typeset .md-tag {
+  background: var(--kb-ground-2);
+  border: 1px solid var(--kb-rule);
+  border-radius: 2px;
+  font-family: var(--kb-face-data);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  color: var(--kb-fg-muted);
+}
+.md-typeset .md-tag:hover { border-color: var(--kb-accent); color: var(--kb-accent); }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.md-footer { background: var(--kb-ground-2); border-top: 1px solid var(--kb-rule); }
+.md-footer-meta { background: var(--kb-ground-2); }
+.md-footer__link { color: var(--kb-fg-muted); }
+
+/* ── Focus: always visible, always vermilion ────────────────── */
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible,
+.md-tabs__link:focus-visible,
+.md-header__button:focus-visible,
+.md-clipboard:focus-visible {
+  outline: 2px solid var(--kb-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-/* Wide multi-panel figures opt in to a larger cap */
-.md-typeset p > img.wide {
-  width: min(100%, 1040px);
+/* ── Narrow widths ──────────────────────────────────────────── */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title {
+    display: block;
+    background: var(--kb-ground-2);
+    color: var(--kb-fg);
+  }
+  .md-nav--primary .md-nav__item { animation: none; }
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .hero-banner { padding: 2rem 1.2rem 1.8rem; }
+  .kb-gate { width: 100%; }
+  .kb-gate > div { flex: 1 1 40%; }
+  .kb-gate > div:nth-child(3) { border-left: 0; }
 }
 
-/* ── Blockquote ──────────────────────────────────────────────── */
-.md-typeset blockquote {
-  border-left: 3px solid var(--md-primary-fg-color);
-  background: rgba(0, 105, 92, 0.05);
-  border-radius: 0 10px 10px 0;
-  padding: 0.8rem 1.1rem;
-}
-
-/* ── Tables ──────────────────────────────────────────────────── */
-.md-typeset table:not([class]) {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: none;
-}
-
-.md-typeset table:not([class]) th {
-  background-color: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
-  font-weight: 600;
-}
-
-.md-typeset table:not([class]) tr:hover td {
-  background: rgba(0, 105, 92, 0.04);
-}
-
-/* ── Admonitions ─────────────────────────────────────────────── */
-.md-typeset .admonition,
-.md-typeset details {
-  border-radius: 8px;
-}
-
-/* ── List spacing ────────────────────────────────────────────── */
-.md-typeset ul li,
-.md-typeset ol li {
-  margin-bottom: 0.28rem;
-}
-
-/* ── Dark mode overrides ─────────────────────────────────────── */
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color: #0d1117;
-  --md-default-bg-color--light: #161b22;
-  --md-default-bg-color--lighter: #1c2128;
-}
-
-[data-md-color-scheme="slate"] .md-typeset code {
-  background: rgba(0, 150, 136, 0.15);
-}
-
-[data-md-color-scheme="slate"] .md-typeset p > img {
-  background: #161b22;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-}
-
-[data-md-color-scheme="slate"] .md-typeset blockquote {
-  background: rgba(0, 150, 136, 0.08);
-}
-
-[data-md-color-scheme="slate"] .hero-banner {
-  background: linear-gradient(140deg, #060d18 0%, #001a15 55%, #004d40 100%);
-}
-
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-}
-
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
-  box-shadow: 0 12px 32px rgba(0, 150, 136, 0.2);
+/* ── Reduced motion: the reading site must obey this ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  .md-header__button.md-logo::before,
+  .md-header__button.md-logo::after,
+  .md-nav--primary .md-nav__item {
+    animation: none !important;
+  }
+  .md-typeset .grid.cards > ul > li,
+  .md-nav__link {
+    transition: none !important;
+  }
+  .md-typeset .grid.cards > ul > li:hover { transform: none; }
 }

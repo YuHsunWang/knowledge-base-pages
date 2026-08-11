@@ -1,0 +1,5032 @@
+<!DOCTYPE html><html lang="zh-TW" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="從假設檢定、型一型二錯誤到樣本數與 MDE 計算，再到 A/B 測試的完整設計流程與七個實務謬誤（peeking、SRM、多重比較、辛普森悖論等），含可複現的計算範例。">
+      
+      
+      
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/statistics-ab-testing/">
+      
+      
+        <link rel="prev" href="../ml-case-studies/">
+      
+      
+        <link rel="next" href="../../trading/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>統計推論與 A/B 測試 - Shane's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans TC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/kb-map.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="統計推論與 A/B 測試 - Shane's Knowledge Base">
+<meta property="og:description" content="從假設檢定、型一型二錯誤到樣本數與 MDE 計算，再到 A/B 測試的完整設計流程與七個實務謬誤（peeking、SRM、多重比較、辛普森悖論等），含可複現的計算範例。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/statistics-ab-testing.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/statistics-ab-testing/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="統計推論與 A/B 測試 - Shane's Knowledge Base">
+<meta property="twitter:description" content="從假設檢定、型一型二錯誤到樣本數與 MDE 計算，再到 A/B 測試的完整設計流程與七個實務謬誤（peeking、SRM、多重比較、辛普森悖論等），含可複現的計算範例。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/statistics-ab-testing.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ab" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="Shane's Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Shane's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              統計推論與 A/B 測試
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber" aria-label="切換深色模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber" aria-label="切換淺色模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換淺色模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首頁
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../trading/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Trading Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  標籤
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Shane's Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
+
+    </a>
+    Shane's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首頁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt 與 Context 工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt 與 Context 工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/prompt-engineering-core-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering 核心技術
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/context-engineering-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering 實作篇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/reasoning-models-test-time-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reasoning Models 與 Test-time Compute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG 與檢索系統
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG 與檢索系統
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 該不該用 RAG：vs Fine-tuning / Prompting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rag-retrieval-augmented-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · RAG 完整指南（入門與總覽）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/embeddings-and-vector-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · Embeddings 與向量資料庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rag-advanced-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · RAG 進階技術：六個槓桿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · GraphRAG：換索引標的
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agentic-rag-2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · Agentic RAG：換控制流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent 工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent 工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ai-agent-harness-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent Harness Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/coding-agent-workflow-sop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Agent 工作流 SOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/structured-output-and-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output 與 Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/multi-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent 協作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ai-agent-security-and-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent 安全與權限
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    評估、記憶與觀測
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    評估、記憶與觀測
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/llm-evaluation-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Evaluation 實務
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/llm-evaluation-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Evaluation 進階
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agent-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agent-memory-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Memory 系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code / Skills / MCP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Claude Code / Skills / MCP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-coding-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code 寫程式準則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/superpowers-claude-code-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Superpowers Skill 框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-discipline-frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code 紀律框架對比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/anthropic-document-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anthropic Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/mcp-ecosystem-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 生態系指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/mcp-builder-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Builder Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    成本與 Token 優化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    成本與 Token 優化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/9router-ai-router-token-saver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9Router 本機路由器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/caveman-token-compression-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Caveman Token 壓縮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/prompt-caching-cost-latency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 AI 維護知識庫
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    用 AI 維護知識庫
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 CLAUDE.md 維護 Obsidian 知識庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/my-obsidian-vault-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    我的 Obsidian Vault CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    觀念地基
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    觀念地基
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml-interview-core-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · ML 面試核心觀念（主題式速查）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geron-hands-on-ml-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-learning-training-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · 深度學習訓練基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    動手實作
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    動手實作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 特徵工程心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · sklearn Pipeline 與前處理模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · 模型評估與 Cross-Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    綜合應用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    綜合應用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml-case-studies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · 常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計與實驗
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    統計與實驗
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 · 統計推論與 A/B 測試
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 · 統計推論與 A/B 測試
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前情提要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、假設檢定：夠用就好的最小框架
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、假設檢定：夠用就好的最小框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 基本結構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-p-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 p-value 的正確定義（最常被誤解的一個概念）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 型一 / 型二錯誤與檢定力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-p-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 信賴區間比 p-value 更該報
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、樣本數與 MDE：實驗設計的核心
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、樣本數與 MDE：實驗設計的核心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 四個變數綁在一起
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 計算公式與實例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 從樣本數到「這個實驗做不做得起」
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ab_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、A/B 測試完整流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、A/B 測試完整流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1：定義假設與指標
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2pre-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2：事前登記（pre-registration）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3：隨機分派與品質檢查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4：跑滿，不要偷看
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5：分析與決策
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、七個會讓結論失效的實務謬誤
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、七個會讓結論失效的實務謬誤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-peeking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 偷看（Peeking）— 最常見也最致命
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-srm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 樣本比例不符（SRM）— 最被低估的紅旗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 多重比較
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 辛普森悖論
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 新奇效應與首因效應
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 統計顯著 ≠ 業務顯著
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-harking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 事後挖分群（HARKing）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ab_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、什麼時候不該用 A/B 測試
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、幾個容易搞混的判斷
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        來源與參考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../trading/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading Research
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trading Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    策略研究與回測
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    策略研究與回測
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/wave-backtest-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    波浪回測系統使用說明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台股大戶散戶產業資金流策略研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/wave-theory-probabilistic-counter-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    波浪理論機率式波數判斷系統規劃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/threads-txf-sentiment-following-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threads 台指期情緒與跟單策略研究規劃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/net-delta-options-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net_delta 選擇權部位策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台股籌碼反向訊號回測系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    產業研究方法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    產業研究方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/basic-industry-analysis-sop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基礎產業分析 SOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/serenity-style-industry-research-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serenity 式產業研究流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/leo-satellite-supply-chain-exposure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    低軌衛星供應鏈曝險
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    被動元件專題
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    被動元件專題
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-research-diagrams-decision-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 研究結構圖與決策地圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-industry-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · 產業研究總覽（框架＋閱讀地圖）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-market-sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 市場量化（數字骨架）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-company-universe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · 台股公司全圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-stock-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 台灣個股追蹤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-monthly-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · 月度追蹤表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-valuation-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · 估值框架（貴不貴）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-target-price/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · 目標價評估（該給多少）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/cvs-radar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVS-Radar 超商選品雷達
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TOEIC Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bayesian MCMC 瀏覽偏好模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    標籤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前情提要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、假設檢定：夠用就好的最小框架
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、假設檢定：夠用就好的最小框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 基本結構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-p-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 p-value 的正確定義（最常被誤解的一個概念）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 型一 / 型二錯誤與檢定力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-p-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 信賴區間比 p-value 更該報
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、樣本數與 MDE：實驗設計的核心
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、樣本數與 MDE：實驗設計的核心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 四個變數綁在一起
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 計算公式與實例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 從樣本數到「這個實驗做不做得起」
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ab_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、A/B 測試完整流程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、A/B 測試完整流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1：定義假設與指標
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2pre-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2：事前登記（pre-registration）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3：隨機分派與品質檢查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4：跑滿，不要偷看
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5：分析與決策
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、七個會讓結論失效的實務謬誤
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、七個會讓結論失效的實務謬誤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-peeking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 偷看（Peeking）— 最常見也最致命
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-srm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 樣本比例不符（SRM）— 最被低估的紅旗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 多重比較
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 辛普森悖論
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 新奇效應與首因效應
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 統計顯著 ≠ 業務顯著
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-harking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 事後挖分群（HARKing）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ab_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、什麼時候不該用 A/B 測試
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、幾個容易搞混的判斷
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        來源與參考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="導覽列">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首頁
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    統計與實驗
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags">
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:ab-testing" class="md-tag">A/B Testing</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:statistics" class="md-tag">Statistics</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="ab">統計推論與 A/B 測試<a class="headerlink" href="#ab" title="Permanent link">¶</a></h1>
+<h2 id="_1">前情提要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>假設你把結帳頁的按鈕從藍色改成橘色。這週看數字，轉換率從 5.0% 變成 5.5%。</p>
+<p>老闆問：「所以有效嗎？可以全面上線嗎？」</p>
+<p>這個問題比看起來難很多。5.0% → 5.5% 可能是真的變好，也可能只是這週剛好有幾個人多買了——<strong>同樣一群人、同樣一個網站，你什麼都不改，兩週的轉換率本來就不會一模一樣</strong>。要區分「真的有效」和「剛好而已」，就是統計推論在做的事；而 A/B 測試，是把這件事做得可信的一套流程。</p>
+<p>本頁講的就是這一整套：怎麼設計、怎麼算、怎麼判讀，以及那些會讓整個結論悄悄失效的地方。</p>
+<blockquote>
+<p><strong>本頁定位</strong>：本區「統計與實驗」軌的唯一一頁。重心放在<strong>實務實驗設計</strong>——假設檢定只寫到能正確使用的程度，主力在樣本數計算、實驗流程與常見謬誤。
+與監督式學習那三軌互補：模型評估（見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉）問的是「模型準不準」，本頁問的是「這個改動有沒有效」。兩者都在做推論，但實驗有<strong>隨機分派</strong>，因果宣稱的強度完全不同。</p>
+</blockquote>
+<h2 id="_2">摘要<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>一句話：<strong>A/B 測試的難處從來不是算 p-value，而是在算之前把實驗設計對、在算之後不要過度解讀。</strong></p>
+<p>三個最該記住的：</p>
+<ol>
+<li><strong>先算樣本數，再決定做不做。</strong> 算出來要跑 90 天的實驗，就不該用 A/B 測試回答——這是設計階段就該退回的問題，不是跑到一半才發現。</li>
+<li><strong>不要偷看。</strong> 每天看一次「顯著了沒」，假陽性率會從 5% 膨脹到 20% 上下（本頁附模擬）。</li>
+<li><strong>統計顯著 ≠ 該上線。</strong> 信賴區間下界仍低於「值得做」的門檻時，顯著只代表「有差」，不代表「划算」。</li>
+</ol>
+<hr>
+<h2 id="_3">一、假設檢定：夠用就好的最小框架<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="11">1.1 基本結構<a class="headerlink" href="#11" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>元件</th>
+<th>意義</th>
+<th>A/B 測試裡對應什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H₀（虛無假設）</strong></td>
+<td>「沒有差異」——預設立場</td>
+<td>新版與舊版轉換率相同</td>
+</tr>
+<tr>
+<td><strong>H₁（對立假設）</strong></td>
+<td>「有差異」——你想證明的</td>
+<td>新版轉換率不同於舊版</td>
+</tr>
+<tr>
+<td><strong>α（顯著水準）</strong></td>
+<td>願意承擔的誤判率，慣例 0.05</td>
+<td>100 次沒效果的實驗，容許 5 次誤判為有效</td>
+</tr>
+<tr>
+<td><strong>p-value</strong></td>
+<td>見下方定義</td>
+<td>由實驗資料算出</td>
+</tr>
+<tr>
+<td><strong>決策</strong></td>
+<td>p &lt; α 就拒絕 H₀</td>
+<td>「有統計顯著差異」</td>
+</tr>
+</tbody>
+</table>
+<p>檢定邏輯是<strong>反證法</strong>：先假設沒差異，再看「如果真的沒差異，我觀察到這麼極端的結果有多不尋常」。夠不尋常，就推翻沒差異的假設。</p>
+<h3 id="12-p-value">1.2 p-value 的正確定義（最常被誤解的一個概念）<a class="headerlink" href="#12-p-value" title="Permanent link">¶</a></h3>
+<blockquote>
+<p><strong>p-value ＝ 假設 H₀ 為真的前提下，觀察到「目前這個結果或更極端結果」的機率。</strong></p>
+</blockquote>
+<p>它是「<strong>在沒有差異的世界裡，這筆資料有多罕見</strong>」，不是別的。三個常見錯誤說法：</p>
+<table>
+<thead>
+<tr>
+<th>錯誤說法</th>
+<th>錯在哪</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌「p=0.03 代表 H₀ 為真的機率只有 3%」</td>
+<td>方向反了。p 是 <code>P(資料 \| H₀)</code>，不是 <code>P(H₀ \| 資料)</code>。後者要用貝氏方法才算得出來。</td>
+</tr>
+<tr>
+<td>❌「p=0.03 代表新版有 97% 機率更好」</td>
+<td>同一個錯誤的變形。p-value 完全沒有告訴你效果的大小或方向的可信度。</td>
+</tr>
+<tr>
+<td>❌「p=0.20 代表兩版沒有差異」</td>
+<td><strong>不顯著 ≠ 無差異</strong>，只是「證據不足以推翻沒差異」。樣本數不夠時，真實存在的差異一樣會不顯著。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">釐清</p>
+<p>p-value 衡量的是<strong>資料與虛無假設的相容程度</strong>，不是「假設為真的機率」，也不是效果的大小。
+這個區別有實際後果：p-value 再小，也沒說效果值不值得做。因此報告結果時應該同時給<strong>效果量與信賴區間</strong>，而不是只講顯不顯著。</p>
+</div>
+<h3 id="13">1.3 型一 / 型二錯誤與檢定力<a class="headerlink" href="#13" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>H₀ 實際為真（沒差異）</th>
+<th>H₀ 實際為假（有差異）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>拒絕 H₀</strong>（判定有效）</td>
+<td><strong>型一錯誤（α）</strong> 假陽性：把沒用的功能上線</td>
+<td>✅ 正確</td>
+</tr>
+<tr>
+<td><strong>不拒絕 H₀</strong>（判定無效）</td>
+<td>✅ 正確</td>
+<td><strong>型二錯誤（β）</strong> 假陰性：把有用的功能砍掉</td>
+</tr>
+</tbody>
+</table>
+<p>這四格用圖看更直觀。關鍵在於：<strong>同一條判定門檻，會在「其實沒差異」和「其實有差異」這兩個世界裡，各自造成一種錯誤</strong>：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/01-type-i-ii-error.png" data-desc-position="bottom"><img alt="型一/型二錯誤與檢定力" src="../../assets/diagrams/statistics-ab-testing/01-type-i-ii-error.png"></a></p>
+<ul>
+<li>左邊那條曲線是「沒有差異」的世界。它右尾超過門檻的那一塊，就是 <strong>α</strong>——明明沒效果，卻剛好抽到夠極端的樣本而被判定有效。</li>
+<li>右邊那條是「真的有差異」的世界。它落在門檻左邊的那一塊，就是 <strong>β</strong>——明明有效果，卻沒被偵測到。</li>
+<li>剩下的那塊（右曲線在門檻右側）就是<strong>檢定力 Power = 1 − β</strong>：真的有差異時，能抓到的機率。業界慣例 <strong>0.8</strong>。</li>
+</ul>
+<p>從圖上可以直接看出一件重要的事：<strong>把門檻往右推（α 調嚴），灰色的 α 區塊會縮小，但橘色的 β 區塊會同時變大。</strong> 兩者是蹺蹺板，要同時壓低，只能把兩條曲線變瘦——也就是<strong>加樣本</strong>。</p>
+<p><strong>業務語言</strong>：α 是「上線了沒用的東西」的成本，β 是「錯過有用的東西」的成本。哪個貴，就往哪邊調。改版成本極高的功能可以把 α 設嚴一點；探索性的小改動可以容忍高一點的 α。</p>
+<div class="admonition note">
+<p class="admonition-title">釐清：慣例背後的隱含假設</p>
+<p>α=0.05 搭配 power=0.8（即 β=0.2）是業界慣例，但這組數字並非中性——它隱含「<strong>假陰性的容忍度是假陽性的四倍</strong>」，背後的假設是「上線沒用的東西」通常比「錯過有用的東西」更貴。
+這個假設不是永遠成立。探索階段的小改動、可隨時回退的功能，錯過的成本反而更高，此時把 power 拉高（或容忍較大的 α）才合理。慣例是預設值，不是規範。</p>
+</div>
+<h3 id="14-p-value">1.4 信賴區間比 p-value 更該報<a class="headerlink" href="#14-p-value" title="Permanent link">¶</a></h3>
+<p>95% 信賴區間的意思是：<strong>用同樣方法重複做很多次實驗，約 95% 的區間會蓋住真值。</strong>（不是「真值有 95% 機率落在這個區間」——真值是固定的，隨機的是區間。）</p>
+<p>實務上它比 p-value 有用，因為它同時給出<strong>方向、大小、精確度</strong>三件事：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>相對提升 +10.0%，95% CI [+3.0%, +17.0%]
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  → 顯著（區間不含 0），但真實效果可能只有 +3%
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  → 如果 +3% 不值得做，這個「顯著」就不足以支撐上線
+</span></code></pre></div>
+<hr>
+<h2 id="mde">二、樣本數與 MDE：實驗設計的核心<a class="headerlink" href="#mde" title="Permanent link">¶</a></h2>
+<p><strong>這一節是整頁最該學會的東西。</strong> 大部分失敗的 A/B 測試不是分析錯，是樣本數從一開始就不夠。</p>
+<h3 id="21">2.1 四個變數綁在一起<a class="headerlink" href="#21" title="Permanent link">¶</a></h3>
+<p>樣本數、顯著水準、檢定力、效果大小——<strong>定下三個，第四個就固定了</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>變數</th>
+<th>通常怎麼決定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>α</td>
+<td>慣例 0.05</td>
+</tr>
+<tr>
+<td>Power (1−β)</td>
+<td>慣例 0.8</td>
+</tr>
+<tr>
+<td><strong>MDE</strong>（最小可偵測效果）</td>
+<td><strong>業務決定</strong>：多小的提升才值得做？</td>
+</tr>
+<tr>
+<td><strong>n</strong>（每組樣本數）</td>
+<td>由上面三個算出來</td>
+</tr>
+</tbody>
+</table>
+<p>MDE 這個縮寫拆開來看就清楚了：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>M = Minimum      最小
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>D = Detectable   可偵測
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>E = Effect       效果
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>→「小到這個程度的效果，我還想要偵測得出來」
+</span></code></pre></div>
+<p><strong>MDE 是業務問題不是統計問題。</strong> 問的是「轉換率提升多少，才值得投入這次開發與後續維護」。設得太小 → 樣本數爆炸、實驗跑不完；設得太大 → 真實的中等效果偵測不到。</p>
+<h3 id="22">2.2 計算公式與實例<a class="headerlink" href="#22" title="Permanent link">¶</a></h3>
+<p>比較兩組比例（轉換率）時，每組所需樣本數：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>n = 2 × (z_{1−α/2} + z_{1−β})² × p̄(1−p̄) / δ²
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>α=0.05, power=0.8 時：(1.96 + 0.842)² ≈ 7.85
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>p̄ = 兩組預期比例的平均，δ = 絕對差異
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">sample_size_proportion</span><span class="p">(</span><span class="n">baseline</span><span class="p">,</span> <span class="n">relative_lift</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="sd">"""回傳每組所需樣本數（雙尾檢定）"""</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">z_a</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">z_b</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">power</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">p2</span> <span class="o">=</span> <span class="n">baseline</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">relative_lift</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">delta</span> <span class="o">=</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">baseline</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">p_bar</span> <span class="o">=</span> <span class="p">(</span><span class="n">baseline</span> <span class="o">+</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">z_a</span> <span class="o">+</span> <span class="n">z_b</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p_bar</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p_bar</span><span class="p">)</span> <span class="o">/</span> <span class="n">delta</span> <span class="o">**</span> <span class="mi">2</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">sample_size_proportion</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">)</span>   <span class="c1"># → 31,235 每組</span>
+</span></code></pre></div>
+<p><strong>基準轉換率 5% 時，不同 MDE 的樣本需求：</strong></p>
+<table>
+<thead>
+<tr>
+<th>想偵測的相對提升</th>
+<th>絕對差異</th>
+<th>每組樣本數</th>
+<th>兩組合計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+5% (5.00%→5.25%)</td>
+<td>0.25pp</td>
+<td>122,125</td>
+<td>244,249</td>
+</tr>
+<tr>
+<td><strong>+10% (5.00%→5.50%)</strong></td>
+<td>0.50pp</td>
+<td><strong>31,235</strong></td>
+<td><strong>62,469</strong></td>
+</tr>
+<tr>
+<td>+20% (5.00%→6.00%)</td>
+<td>1.00pp</td>
+<td>8,159</td>
+<td>16,318</td>
+</tr>
+</tbody>
+</table>
+<p>把整條曲線畫出來，這個關係會非常有感：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/02-sample-size-vs-mde.png" data-desc-position="bottom"><img alt="樣本數與 MDE 的平方反比" src="../../assets/diagrams/statistics-ab-testing/02-sample-size-vs-mde.png"></a></p>
+<blockquote>
+<p><strong>關鍵直覺：樣本數與效果大小的平方成反比。</strong> MDE 砍半 → 樣本數變四倍。這是為什麼「想偵測很小的提升」在實務上幾乎不可行——圖左邊那段陡到幾乎垂直，就是很多實驗跑不完的原因。</p>
+</blockquote>
+<p><strong>基準轉換率也很關鍵</strong>（同樣要偵測 +10% 相對提升）：</p>
+<table>
+<thead>
+<tr>
+<th>基準轉換率</th>
+<th>每組樣本數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2%</td>
+<td>80,683</td>
+</tr>
+<tr>
+<td>5%</td>
+<td>31,235</td>
+</tr>
+<tr>
+<td>10%</td>
+<td>14,752</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>低轉換率的指標貴得多。</strong> 這也是為什麼實驗常選較上游、較高頻的指標當主要指標。</p>
+<h3 id="23">2.3 從樣本數到「這個實驗做不做得起」<a class="headerlink" href="#23" title="Permanent link">¶</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>每組 31,235 人，每日進入實驗約 5,000 人（兩組合計）
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>→ 62,469 ÷ 5,000 ≈ 12.5 天 → 進位到完整週期 = 14 天
+</span></code></pre></div>
+<p><strong>最少跑滿一個完整週（通常兩週）</strong>，理由是消除星期效應——週末與平日的使用者行為結構不同，只跑五天等於在一個有偏的子母體上做實驗。</p>
+<div class="admonition tip">
+<p class="admonition-title">設計階段就該退回的實驗</p>
+<p>算出來要跑 90 天，代表這個問題不適合用 A/B 測試回答。選項是：放大 MDE（只測有感的大改動）、換更上游的指標、改用其他方法（見 §五）。<strong>不要硬跑然後在第 30 天因為「看起來顯著了」就停。</strong></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">釐清：MDE 不是「預期會漲多少」</p>
+<p>MDE 常被誤填成「我猜這次改版會帶來多少提升」。它其實是<strong>決策門檻</strong>——低於這個幅度就不值得做，所以實驗也不需要有能力偵測它。
+兩者混淆的後果很具體：把 MDE 填成樂觀的預期值（例如「應該會漲 20%」），算出來的樣本數會遠低於實際所需；真實效果若只有 +8%，實驗就會因檢定力不足而看不出來，得到「沒效果」的錯誤結論。</p>
+</div>
+<hr>
+<h2 id="ab_1">三、A/B 測試完整流程<a class="headerlink" href="#ab_1" title="Permanent link">¶</a></h2>
+<p>整個流程與兩個把關點，先用一張圖建立全貌，再逐步看每一步在做什麼：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/04-ab-test-workflow.png" data-desc-position="bottom"><img alt="A/B 測試流程與把關點" src="../../assets/diagrams/statistics-ab-testing/04-ab-test-workflow.png"></a></p>
+<h3 id="step-1">Step 1：定義假設與指標<a class="headerlink" href="#step-1" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>指標類型</th>
+<th>作用</th>
+<th>數量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>主要指標（OEC）</strong></td>
+<td>決策依據，事前就定死</td>
+<td><strong>只能一個</strong></td>
+</tr>
+<tr>
+<td><strong>護欄指標（Guardrail）</strong></td>
+<td>確保沒有傷到其他地方（延遲、退訂率、客訴）</td>
+<td>3–5 個</td>
+</tr>
+<tr>
+<td><strong>輔助指標</strong></td>
+<td>幫助理解機制，<strong>不可用來翻轉決策</strong></td>
+<td>不限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>主要指標只能一個</strong>，否則就落入多重比較（§四之三），而且「哪個指標好看就報哪個」是最常見的自我欺騙。</p>
+<h3 id="step-2pre-registration">Step 2：事前登記（pre-registration）<a class="headerlink" href="#step-2pre-registration" title="Permanent link">¶</a></h3>
+<p>開跑前寫下並凍結：假設、主要指標、MDE、樣本數、預計天數、決策規則（什麼結果 → 什麼行動）。</p>
+<p>這一步的價值不在流程完備，而在<strong>把「事後找理由」這條路先堵死</strong>。</p>
+<h3 id="step-3">Step 3：隨機分派與品質檢查<a class="headerlink" href="#step-3" title="Permanent link">¶</a></h3>
+<ul>
+<li>分派單位要與分析單位一致（通常是 user 而非 session，否則同一人可能落入兩組）。</li>
+<li>用穩定的 hash（如 <code>hash(user_id + experiment_id)</code>）確保同一人每次都進同一組。</li>
+<li><strong>開跑後 24 小時先檢查 SRM</strong>（§四之二），有問題立刻停、修好重跑。</li>
+</ul>
+<h3 id="step-4">Step 4：跑滿，不要偷看<a class="headerlink" href="#step-4" title="Permanent link">¶</a></h3>
+<p>跑到預定樣本數／天數才分析。需要中途監控時用 §四之一的正規方法。</p>
+<h3 id="step-5">Step 5：分析與決策<a class="headerlink" href="#step-5" title="Permanent link">¶</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">proportions_ztest</span><span class="p">,</span> <span class="n">confint_proportions_2indep</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1550</span><span class="p">,</span> <span class="mi">1705</span><span class="p">]</span>      <span class="c1"># 各組轉換數（[對照, 實驗]）</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">nobs</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">31000</span><span class="p">,</span> <span class="mi">31000</span><span class="p">]</span>    <span class="c1"># 各組樣本數</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># z = -2.791, p = 0.0053</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># ⚠️ 注意符號：函式算的是 prop1 - prop2（對照 - 實驗），</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">#    所以「實驗組勝出」會得到負的 z。雙尾 p 值不受影響。</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">confint_proportions_2indep</span><span class="p">(</span><span class="mi">1705</span><span class="p">,</span> <span class="mi">31000</span><span class="p">,</span> <span class="mi">1550</span><span class="p">,</span> <span class="mi">31000</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'wald'</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># 絕對差異的 95% CI = [+0.00149, +0.00851]，即 [+0.15pp, +0.85pp]</span>
+</span></code></pre></div>
+<p>上面這組數字的完整結論長這樣：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>對照組 5.000%  →  實驗組 5.500%
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>相對提升 +10.0%，|z| = 2.791，p = 0.0053
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>95% CI（絕對差）[+0.15pp, +0.85pp] → 相對 [+3.0%, +17.0%]
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>決策：顯著。但區間下界僅 +3.0%，若 MDE 定的「值得做」門檻是 +5%，
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>      則證據不足以支撐上線 —— 需延長實驗收窄區間，或接受風險上線。
+</span></code></pre></div>
+<p><strong>這就是為什麼要報信賴區間</strong>：單看 p=0.0053 會直接得出「上線」，看了區間才發現真實效果可能只有 +3%。</p>
+<hr>
+<h2 id="_4">四、七個會讓結論失效的實務謬誤<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h3 id="41-peeking">4.1 偷看（Peeking）— 最常見也最致命<a class="headerlink" href="#41-peeking" title="Permanent link">¶</a></h3>
+<p>每次「現在顯著了嗎」都是一次額外檢定，假陽性率會累積膨脹。</p>
+<p><strong>A/A 測試模擬</strong>（兩組真實無差異，α=0.05，每次檢定門檻不變，3,000 次模擬）：</p>
+<table>
+<thead>
+<tr>
+<th>中途檢查次數</th>
+<th>實際假陽性率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1（只在結束時看）</td>
+<td>4.6% ✅</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8.6%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>14.5%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>19.6% ⚠️</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/03-peeking-false-positive.png" data-desc-position="bottom"><img alt="偷看導致假陽性膨脹" src="../../assets/diagrams/statistics-ab-testing/03-peeking-false-positive.png"></a></p>
+<blockquote>
+<p>每天看一次、跑兩週，假陽性率約是宣稱值的<strong>四倍</strong>。意思是：明明沒效果的實驗，有五分之一會被你判定成功。</p>
+</blockquote>
+<p><strong>正確做法</strong>：</p>
+<ul>
+<li>跑滿預定樣本數才分析（最簡單）。</li>
+<li>真的需要中途停止，用<strong>序貫檢定</strong>（sequential testing）：alpha spending function、O'Brien-Fleming boundary，或 always-valid p-value。這些方法會把中途檢查的次數算進門檻。</li>
+<li>只在<strong>護欄指標嚴重惡化</strong>時中途喊停——那是止損，不是取勝。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">釐清：問題不在「看」，而在「用同一個門檻看很多次」</p>
+<p>常見的誤解是「監控實驗進度有什麼不對」。監控本身沒問題——<strong>用單次檢定的門檻反覆判定勝負才是問題</strong>。α=0.05 的保證只對「檢定一次」成立，檢定十次就等於給了自己十次撿到假陽性的機會。
+所以序貫檢定不是禁止中途看，而是把「會看幾次」事前納入門檻計算。實務上的分界是：<strong>中途看護欄指標用來止損，不用來宣告勝利。</strong></p>
+</div>
+<h3 id="42-srm">4.2 樣本比例不符（SRM）— 最被低估的紅旗<a class="headerlink" href="#42-srm" title="Permanent link">¶</a></h3>
+<p>分派設定 50/50，實際卻不是 50/50，代表<strong>分派或記錄環節有 bug</strong>。這時任何結論都不可信，因為兩組的組成已經不可比。</p>
+<p>用卡方檢定驗：</p>
+<table>
+<thead>
+<tr>
+<th>實際分派</th>
+<th>比例</th>
+<th>χ²</th>
+<th>p</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10,000 / 10,300</td>
+<td>49.3% / 50.7%</td>
+<td>4.43</td>
+<td>0.035</td>
+<td>⚠️ 可疑</td>
+</tr>
+<tr>
+<td>10,000 / 10,100</td>
+<td>49.8% / 50.3%</td>
+<td>0.50</td>
+<td>0.481</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>50,000 / 50,600</td>
+<td>49.7% / 50.3%</td>
+<td>3.58</td>
+<td>0.059</td>
+<td>邊緣，要查</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">chisquare</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">chisquare</span><span class="p">([</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10300</span><span class="p">])</span>   <span class="c1"># p = 0.035 → 查！</span>
+</span></code></pre></div>
+<p><strong>常見成因</strong>：重新導向造成的流失差異、某組載入較慢導致跳出、機器人流量分佈不均、記錄事件在某組漏發。</p>
+<blockquote>
+<p><strong>SRM 的正確反應是停下來找 bug，不是調整分析方法把它「修正」掉。</strong> 這是少數「發現了就該中止實驗」的訊號。</p>
+</blockquote>
+<h3 id="43">4.3 多重比較<a class="headerlink" href="#43" title="Permanent link">¶</a></h3>
+<p>同時檢定多個指標或多個分群，至少一個假陽性的機率會快速上升：</p>
+<table>
+<thead>
+<tr>
+<th>獨立檢定數</th>
+<th>至少一個假陽性</th>
+<th>Bonferroni 校正後的 α'</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5.0%</td>
+<td>0.0500</td>
+</tr>
+<tr>
+<td>3</td>
+<td>14.3%</td>
+<td>0.0167</td>
+</tr>
+<tr>
+<td>5</td>
+<td>22.6%</td>
+<td>0.0100</td>
+</tr>
+<tr>
+<td>10</td>
+<td>40.1%</td>
+<td>0.0050</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>64.2%</strong></td>
+<td>0.0025</td>
+</tr>
+</tbody>
+</table>
+<p><strong>檢定 20 個指標，有三分之二的機率至少撿到一個「顯著」——即使全部都沒效果。</strong></p>
+<p>處理方式：主要指標只設一個（最有效的預防）；必須多重檢定時用 Bonferroni（保守）或 <strong>Benjamini-Hochberg FDR</strong>（較不保守，指標多時實用）；分群分析一律視為探索性，結論要用新實驗驗證。</p>
+<h3 id="44">4.4 辛普森悖論<a class="headerlink" href="#44" title="Permanent link">¶</a></h3>
+<p>整體看 A 贏，但每個分群看都是 B 贏——當各分群的樣本比例不均時會發生。</p>
+<p>實務上最常見的觸發情境：實驗中途調整流量分配比例（例如前三天 10/90、之後 50/50）。這會讓兩組在「早期使用者 vs 後期使用者」的組成上失衡，而這兩群的基礎轉換率本來就不同。</p>
+<p><strong>預防</strong>：分派比例定了就不要中途改；分析時同時看整體與主要分群，兩者矛盾就去找組成差異。</p>
+<h3 id="45">4.5 新奇效應與首因效應<a class="headerlink" href="#45" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>新奇效應（Novelty）</strong>：使用者只是因為「不一樣」而多點，效果會隨時間衰減。</li>
+<li><strong>首因效應（Primacy）</strong>：老使用者需要時間適應新版，初期表現被低估。</li>
+</ul>
+<p>兩者都會讓<strong>短期結果誤導長期判斷</strong>，方向還相反。</p>
+<p><strong>診斷方式</strong>：把效果按「使用者進入實驗後的第幾天」拆開看。健康的效果應該大致平穩；單調衰減到接近零就是新奇效應。必要時對新舊使用者分開分析。</p>
+<h3 id="46">4.6 統計顯著 ≠ 業務顯著<a class="headerlink" href="#46" title="Permanent link">¶</a></h3>
+<p>樣本夠大時，任何微小差異都會顯著。轉換率 5.00% → 5.02% 在百萬級樣本下 p 值可以很漂亮，但這 0.02pp 可能連開發成本都不夠付。</p>
+<p><strong>決策應該回到事前定義的 MDE</strong>：效果的信賴區間下界有沒有超過「值得做」的門檻。這也是 §三 Step 5 那個例子的重點。</p>
+<h3 id="47-harking">4.7 事後挖分群（HARKing）<a class="headerlink" href="#47-harking" title="Permanent link">¶</a></h3>
+<p>實驗整體不顯著，於是開始切分群——「在 iOS 使用者身上顯著」「在新用戶身上顯著」——切二十刀總會找到一刀顯著（見 §4.3）。</p>
+<p><strong>規則</strong>：分群假設必須<strong>事前</strong>提出並納入樣本數計算；事後發現的分群結論一律標記為「待驗證假設」，要用獨立的新實驗確認才能拿來做決策。</p>
+<hr>
+<h2 id="ab_2">五、什麼時候不該用 A/B 測試<a class="headerlink" href="#ab_2" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>情境</th>
+<th>為什麼不行</th>
+<th>替代方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>流量太小，算出來要跑幾個月</td>
+<td>樣本數不足</td>
+<td>放大 MDE、換上游指標、質性研究</td>
+</tr>
+<tr>
+<td>有網路效應（社群、雙邊市場）</td>
+<td>兩組會互相影響，違反 SUTVA 假設</td>
+<td>叢集隨機（依地區/時段分派）、切換式設計</td>
+</tr>
+<tr>
+<td>改動無法分版（品牌、定價策略）</td>
+<td>技術上或法律上無法同時存在兩版</td>
+<td>前後測 + 對照地區、合成控制法</td>
+</tr>
+<tr>
+<td>長期效果為主（留存、品牌認知）</td>
+<td>實驗週期無法涵蓋</td>
+<td>長期追蹤研究、代理指標 + 事後驗證</td>
+</tr>
+<tr>
+<td>罕見但嚴重的事件（重大故障）</td>
+<td>樣本數需求極大</td>
+<td>監控告警而非實驗</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>「這個問題適不適合用 A/B 測試回答」是設計階段的第一道判斷，比後續任何分析技巧都更早決定實驗的成敗。硬把不適用的問題塞進 A/B 框架，得到的數字再漂亮也不成立。</p>
+</blockquote>
+<hr>
+<h2 id="_5">六、幾個容易搞混的判斷<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>前面各節的重點，換成「實際遇到時怎麼判斷」的形式收尾。</p>
+<table>
+<thead>
+<tr>
+<th>情況</th>
+<th>常見的直覺反應</th>
+<th>應該怎麼判斷</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>實驗跑一半就顯著了</td>
+<td>提早結束，趕快上線</td>
+<td>不能。這是 peeking，假陽性率已膨脹（§4.1）。除非事前就採用序貫檢定</td>
+</tr>
+<tr>
+<td>p = 0.06</td>
+<td>「差一點，算有效吧」或「沒效」</td>
+<td>兩者都不對。看信賴區間與效果量，區分是<strong>真的沒效</strong>還是<strong>樣本不足</strong>，再決定延長或放棄</td>
+</tr>
+<tr>
+<td>兩組人數不一樣多</td>
+<td>用加權或比例調整「修正」</td>
+<td>先做 SRM 卡方檢定（§4.2）。顯著偏離代表分派或記錄有 bug，該停下來查，不是調整算法</td>
+</tr>
+<tr>
+<td>主要指標顯著了</td>
+<td>直接上線</td>
+<td>再看兩件事：信賴區間下界是否超過事前定的 MDE 門檻、護欄指標有無惡化</td>
+</tr>
+<tr>
+<td>整體不顯著，但某分群顯著</td>
+<td>「至少對這群有效」</td>
+<td>視為<strong>待驗證假設</strong>，不能直接當結論（§4.7）。要用獨立的新實驗確認</td>
+</tr>
+<tr>
+<td>效果隨時間衰減</td>
+<td>「實驗失敗了」</td>
+<td>可能是新奇效應（§4.5）。按進入實驗後的天數拆開看，並分開檢視新舊使用者</td>
+</tr>
+<tr>
+<td>樣本數算出來要跑三個月</td>
+<td>先跑再說，之後看情況</td>
+<td>設計階段就該退回：放大 MDE、換上游指標，或改用其他方法（§五）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_6">延伸閱讀（本站）<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — 同樣在做推論，但對象是模型性能而非產品改動</li>
+<li><a href="../ml-interview-core-concepts/">ML 面試核心觀念</a> — 分類指標的定義（本頁的轉換率檢定會用到）</li>
+<li><a href="../ml-case-studies/">常見 ML Case Study</a> — 模型上線後常以 A/B 測試驗證業務價值</li>
+<li><a href="../feature-engineering/">特徵工程心法</a> — 實驗資料的清理與分群變數處理</li>
+</ul>
+<h2 id="_7">來源與參考<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>本頁的樣本數、多重比較與 SRM 數字皆以標準公式計算，peeking 一節為本頁自行模擬（A/A 測試、3,000 次重複、α=0.05），計算方式已附於各節程式碼，可自行複現。</p>
+<ul>
+<li>Kohavi, R., Tang, D., Xu, Y.《Trustworthy Online Controlled Experiments》(Cambridge University Press, 2020) — 業界實驗設計的標準參考，SRM、OEC、護欄指標等概念出處</li>
+<li><a href="https://exp-platform.com/large-scale/">Kohavi et al., "Online Controlled Experiments at Large Scale" (KDD 2013)</a></li>
+<li><a href="https://www.statsmodels.org/stable/stats.html">statsmodels: Statistics for proportions</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats 官方文件</a></li>
+<li><a href="https://www.evanmiller.org/how-not-to-run-an-ab-test.html">Evan Miller, "How Not To Run An A/B Test"</a> — peeking 問題的經典說明</li>
+<li>Wasserstein, R. L. &amp; Lazar, N. A., "The ASA Statement on p-Values" (<em>The American Statistician</em>, 2016) — p-value 誤用的官方聲明</li>
+</ul>
+<p><em>本頁為方法整理，公式與慣例（α=0.05、power=0.8）為業界通用設定，實際專案請依決策成本調整。</em></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最後更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="建立日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 07:54:22 UTC">2026年8月8日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="頁腳">
+        
+          
+          <a href="../ml-case-studies/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 7 · 常見 ML Case Study">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                7 · 常見 ML Case Study
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../trading/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Trading Research">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一頁
+              </span>
+              <div class="md-ellipsis">
+                Trading Research
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/YuHsunWang" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/glightbox-close.js"></script>
+      
+        <script src="../../javascripts/kb-apparatus.js"></script>
+      
+        <script src="../../javascripts/kb-map.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": false, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

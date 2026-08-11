@@ -206,17 +206,22 @@ publish: false
 MkDocs 公開網站分類在 `docs/`：
 
 - `ai/`
-- `sql/`
-- `python/`
-- `statistics/`
 - `trading/`
-- `data-science/`
 - `machine-learning/`
 - `projects/`
-- `career/`
 
 ### Git / GitHub 規則
 
 - GitHub private repo 用於版本控制與備份。
 - 不要把大型原始資料、private data、API keys、token、`.env`、資料庫檔放進 Git。
 - GitHub Pages 只發布 `docs/` 經 MkDocs 產生的內容。
+
+---
+
+## 公開子集 vs 私人母集（避免重複漂移）
+
+延續「`docs/` 是精選公開子集、Obsidian 為母集」的原則，補充重複管理規則（2026-06-13 立）：
+
+- `docs/` 是 Obsidian 的**精選公開子集**。一篇研究升級進 `docs/` 後，**不要在 📚 Wiki 留同主題的舊複本**；`docs` 為該主題權威版，數字、結論以 `docs` 為準。
+- 既有重複舊複本搬到 `📚 Wiki/_archive/`（不刪、可還原；Obsidian `[[wikilink]]` 依檔名解析，搬資料夾不斷連），避免「以為是私料、其實是公開舊版」的混淆。
+- 真正只存在 Obsidian、未公開的知識（私人框架、工作筆記、未整理草稿等）才留在 Wiki 主體——這是 Wiki 相對 `docs` 的真正價值。

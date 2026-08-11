@@ -1,0 +1,445 @@
+{
+ "meta": {
+  "source": "mkdocs.yml nav + docs/machine-learning/*.md frontmatter"
+ },
+ "unit": "篇",
+ "goLabel": "閱讀這篇",
+ "hint": "滑過節點看閱讀順序，點文章看它涵蓋什麼、更新頻率，並可直接前往。",
+ "columns": [
+  {
+   "key": "a",
+   "title": "觀念",
+   "sub": "懂原理"
+  },
+  {
+   "key": "b",
+   "title": "實作",
+   "sub": "做得出來"
+  },
+  {
+   "key": "c",
+   "title": "應用與驗證",
+   "sub": "接起來、並確認有效"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "column": "a",
+   "name": "觀念地基",
+   "desc": "先看懂在做什麼",
+   "items": [
+    "ml-interview-core-concepts",
+    "geron-hands-on-ml-notes",
+    "deep-learning-training-fundamentals"
+   ]
+  },
+  {
+   "id": "n2",
+   "column": "b",
+   "name": "動手實作",
+   "desc": "做得出一個能交付的模型",
+   "items": [
+    "feature-engineering",
+    "sklearn-pipeline-templates",
+    "model-evaluation-cross-validation"
+   ]
+  },
+  {
+   "id": "n3",
+   "column": "c",
+   "name": "綜合應用",
+   "desc": "把前兩軌接起來",
+   "items": [
+    "ml-case-studies"
+   ]
+  },
+  {
+   "id": "n4",
+   "column": "c",
+   "name": "統計與實驗",
+   "desc": "判斷差異是不是真的",
+   "items": [
+    "statistics-ab-testing"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "deep-learning-training-fundamentals",
+   "label": "深度學習訓練基礎",
+   "href": "deep-learning-training-fundamentals/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "神經網路訓練的核心零件——激活函數、損失函數、優化器、反向傳播、正則化技巧（Dropout/BatchNorm）、訓練實務與 CNN 入門，含面試口答。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "href": "geron-hands-on-ml-notes/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 面試核心觀念",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "feature-engineering",
+   "label": "特徵工程心法",
+   "href": "feature-engineering/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "數值/類別/缺失值/時間特徵的處理、特徵交互與特徵選擇的完整實務整理，含面試常考點。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "href": "geron-hands-on-ml-notes/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 面試核心觀念",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "sklearn Pipeline 與資料前處理模板",
+     "href": "sklearn-pipeline-templates/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "統計推論與 A/B 測試",
+     "href": "statistics-ab-testing/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "geron-hands-on-ml-notes",
+   "label": "Géron《Hands-On ML》Ch1–9",
+   "href": "geron-hands-on-ml-notes/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "Hands-On Machine Learning（Aurélien Géron）第 1–9 章的學習筆記整併版——核心觀念、scikit-learn 程式碼、與面試口答重點。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "深度學習訓練基礎",
+     "href": "deep-learning-training-fundamentals/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "特徵工程心法",
+     "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 面試核心觀念",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "sklearn Pipeline 與資料前處理模板",
+     "href": "sklearn-pipeline-templates/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "ml-case-studies",
+   "label": "常見 ML Case Study",
+   "href": "ml-case-studies/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "四種任務類型的端到端解題思路——問題定義、資料陷阱、指標選擇、建模策略與常見失誤，附程式碼範本。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "特徵工程心法",
+     "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 面試核心觀念",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "sklearn Pipeline 與資料前處理模板",
+     "href": "sklearn-pipeline-templates/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "統計推論與 A/B 測試",
+     "href": "statistics-ab-testing/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "CVS Radar：超商商品評價雷達",
+     "href": "../projects/cvs-radar/",
+     "section": "projects"
+    }
+   ]
+  },
+  {
+   "id": "ml-interview-core-concepts",
+   "label": "ML 面試核心觀念",
+   "href": "ml-interview-core-concepts/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "Data Scientist / ML 面試最常考的核心觀念整理——ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證、評估指標，每節附面試口答。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "深度學習訓練基礎",
+     "href": "deep-learning-training-fundamentals/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "特徵工程心法",
+     "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "href": "geron-hands-on-ml-notes/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "統計推論與 A/B 測試",
+     "href": "statistics-ab-testing/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "model-evaluation-cross-validation",
+   "label": "模型評估與 Cross-Validation",
+   "href": "model-evaluation-cross-validation/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "從指標選擇、CV 策略到 Nested CV——建立不漏水的模型評估流程，含分類/回歸指標速查、常見陷阱與程式碼範本。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "深度學習訓練基礎",
+     "href": "deep-learning-training-fundamentals/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "特徵工程心法",
+     "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "href": "geron-hands-on-ml-notes/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 面試核心觀念",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "sklearn Pipeline 與資料前處理模板",
+     "href": "sklearn-pipeline-templates/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "統計推論與 A/B 測試",
+     "href": "statistics-ab-testing/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Bayesian MCMC 瀏覽偏好模型",
+     "href": "../projects/mcmc-portfolio/",
+     "section": "projects"
+    }
+   ]
+  },
+  {
+   "id": "sklearn-pipeline-templates",
+   "label": "sklearn Pipeline 與前處理模板",
+   "href": "sklearn-pipeline-templates/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-21"
+    ]
+   ],
+   "note": "從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合，再到儲存部署——可直接複製使用的實務模板。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "特徵工程心法",
+     "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "href": "geron-hands-on-ml-notes/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "statistics-ab-testing",
+   "label": "統計推論與 A/B 測試",
+   "href": "statistics-ab-testing/",
+   "meta": [
+    [
+     "首次發布",
+     "2026-08-08"
+    ]
+   ],
+   "note": "從假設檢定、型一型二錯誤到樣本數與 MDE 計算，再到 A/B 測試的完整設計流程與七個實務謬誤（peeking、SRM、多重比較、辛普森悖論等），含可複現的計算範例。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 面試核心觀念",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    }
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2"
+  },
+  {
+   "from": "n2",
+   "to": "n3"
+  },
+  {
+   "from": "n1",
+   "to": "n4",
+   "style": "dashed"
+  }
+ ],
+ "legend": [
+  {
+   "swatch": "var(--kb-signal)",
+   "text": "青框＝同一篇出現在多個節點"
+  },
+  {
+   "swatch": "#C89A2E",
+   "text": "琥珀點＝接近複查期限"
+  },
+  {
+   "swatch": "var(--kb-accent)",
+   "text": "朱點＝已逾期未複查"
+  },
+  {
+   "text": "實線＝建議的閱讀順序｜虛線＝可獨立閱讀"
+  }
+ ]
+}
