@@ -259,8 +259,32 @@
     pushHistory(state);
   }
 
-  function fail(host, error) {
+  function showShell(host, failed) {
     host.replaceChildren();
+    host.classList.add('kb-galaxy-scope');
+    buildStarfield(host);
+    var link = document.createElement('a');
+    link.className = 'kb-galaxy__fallback';
+    link.href = '#learning-paths';
+    link.textContent = failed ? '地圖載入失敗 · 前往文章清單 ↓' : '前往文章清單 ↓';
+    link.addEventListener('click', function (event) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
+          event.shiftKey || event.altKey) return;
+      var target = document.getElementById('learning-paths');
+      if (!target) return;
+      event.preventDefault();
+      event.stopPropagation();
+      window.history.replaceState(window.history.state, '', link.href);
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      target.scrollIntoView();
+    });
+    host.appendChild(link);
+  }
+
+  function fail(host, error) {
+    if (!host.isConnected || document.querySelector('[data-kbgalaxy]') !== host) return;
+    showShell(host, true);
     host.classList.remove('is-selecting');
     delete host.dataset.ready;
     delete host.dataset.level;
@@ -325,7 +349,6 @@
     var currentEntries = [];
     var transitioning = false;
     var disposed = false;
-    var disposeHeader = null;
     var live = span('kb-galaxy-live');
     live.setAttribute('aria-live', 'polite');
     live.setAttribute('aria-atomic', 'true');
@@ -523,7 +546,6 @@
       host.dataset.level = 'L' + state.level;
       host.dataset.nodeCount = String(view.nodes.length);
       document.documentElement.classList.add('kb-galaxy-ready');
-      if (!disposeHeader) disposeHeader = createHeaderController(host);
       current = state;
       currentCamera = camera;
       currentEntries = entries;
@@ -571,7 +593,9 @@
         if (push) pushHistory(next);
         host.classList.remove('is-selecting');
         renderResolved(next, results[0], previous, Boolean(previous));
-      }).catch(function (error) { fail(host, error); });
+      }).catch(function (error) {
+        if (!disposed) fail(host, error);
+      });
     }
 
     function zoomOut() {
@@ -630,7 +654,6 @@
 
     return function () {
       disposed = true;
-      if (disposeHeader) disposeHeader();
       window.removeEventListener('popstate', onPopState);
       document.removeEventListener('keydown', onKeyDown);
       document.documentElement.classList.remove('kb-galaxy-ready');
@@ -649,14 +672,22 @@
     }
     activeHost = null;
     if (!host) return;
+    activeHost = host;
     host.dataset.kbGalaxyReady = '1';
-    host.replaceChildren();
+    showShell(host, false);
+    var disposeHeader = createHeaderController(host);
+    var disposeController = null;
+    var disposed = false;
+    activeCleanup = function () {
+      disposed = true;
+      disposeHeader();
+      if (disposeController) disposeController();
+    };
     loadMap(host.dataset.kbgalaxy).then(function (bundle) {
-      if (!host.isConnected || document.querySelector('[data-kbgalaxy]') !== host) return;
-      activeCleanup = createController(host, bundle);
-      activeHost = host;
+      if (disposed || !host.isConnected || document.querySelector('[data-kbgalaxy]') !== host) return;
+      disposeController = createController(host, bundle);
     }).catch(function (error) {
-      if (host.isConnected) fail(host, error);
+      if (!disposed) fail(host, error);
     });
   }
 
