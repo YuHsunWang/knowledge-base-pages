@@ -1,0 +1,69 @@
+{
+ "id": "home-galaxy",
+ "title": "Knowledge Galaxy",
+ "mode": "domain-selector",
+ "center": {
+  "label": "Knowledge Core"
+ },
+ "regions": [
+  {
+   "id": "ai",
+   "label": "AI Engineering",
+   "href": "ai/",
+   "x": 0.22,
+   "y": 0.27,
+   "size": "major",
+   "kind": "domain",
+   "description": "Prompt、Context、RAG 到 Agent 與 MCP",
+   "mobile": {
+    "x": 0.28,
+    "y": 0.16
+   },
+   "sectionMap": "assets/data/map-ai-engineering.json"
+  },
+  {
+   "id": "ml",
+   "label": "Machine Learning",
+   "href": "machine-learning/",
+   "x": 0.77,
+   "y": 0.31,
+   "size": "major",
+   "kind": "domain",
+   "description": "機器學習、深度學習與特徵工程",
+   "mobile": {
+    "x": 0.72,
+    "y": 0.37
+   },
+   "sectionMap": "assets/data/map-machine-learning.json"
+  },
+  {
+   "id": "trading",
+   "label": "Trading Research",
+   "href": "trading/",
+   "x": 0.74,
+   "y": 0.73,
+   "size": "major",
+   "kind": "domain",
+   "description": "策略回測、產業研究與被動元件",
+   "mobile": {
+    "x": 0.28,
+    "y": 0.62
+   },
+   "sectionMap": "assets/data/map-trading.json"
+  },
+  {
+   "id": "projects",
+   "label": "Projects",
+   "href": "projects/",
+   "x": 0.25,
+   "y": 0.71,
+   "size": "medium",
+   "kind": "satellite",
+   "description": "把前面的知識實作出來的地方",
+   "mobile": {
+    "x": 0.72,
+    "y": 0.87
+   }
+  }
+ ]
+}

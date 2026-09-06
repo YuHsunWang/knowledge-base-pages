@@ -69,6 +69,7 @@
    "id": "deep-learning-training-fundamentals",
    "label": "深度學習訓練基礎",
    "href": "deep-learning-training-fundamentals/",
+   "step": "3",
    "meta": [
     [
      "首次發布",
@@ -97,6 +98,7 @@
    "id": "feature-engineering",
    "label": "特徵工程心法",
    "href": "feature-engineering/",
+   "step": "4",
    "meta": [
     [
      "首次發布",
@@ -145,6 +147,7 @@
    "id": "geron-hands-on-ml-notes",
    "label": "Géron《Hands-On ML》Ch1–9",
    "href": "geron-hands-on-ml-notes/",
+   "step": "2",
    "meta": [
     [
      "首次發布",
@@ -188,6 +191,7 @@
    "id": "ml-case-studies",
    "label": "常見 ML Case Study",
    "href": "ml-case-studies/",
+   "step": "7",
    "meta": [
     [
      "首次發布",
@@ -236,6 +240,7 @@
    "id": "ml-interview-core-concepts",
    "label": "ML 面試核心觀念",
    "href": "ml-interview-core-concepts/",
+   "step": "1",
    "meta": [
     [
      "首次發布",
@@ -284,6 +289,7 @@
    "id": "model-evaluation-cross-validation",
    "label": "模型評估與 Cross-Validation",
    "href": "model-evaluation-cross-validation/",
+   "step": "6",
    "meta": [
     [
      "首次發布",
@@ -342,6 +348,7 @@
    "id": "sklearn-pipeline-templates",
    "label": "sklearn Pipeline 與前處理模板",
    "href": "sklearn-pipeline-templates/",
+   "step": "5",
    "meta": [
     [
      "首次發布",
@@ -380,6 +387,7 @@
    "id": "statistics-ab-testing",
    "label": "統計推論與 A/B 測試",
    "href": "statistics-ab-testing/",
+   "step": "8",
    "meta": [
     [
      "首次發布",
@@ -425,6 +433,112 @@
    "style": "dashed"
   }
  ],
+ "galaxy": {
+  "id": "machine-learning-galaxy",
+  "title": "Machine Learning",
+  "mode": "region-index",
+  "host": "machine-learning/index.md",
+  "center": {
+   "label": "Machine Learning"
+  },
+  "regions": [
+   {
+    "id": "ml-foundations",
+    "anchorId": "ml-foundations",
+    "label": "觀念地基",
+    "href": "#ml-foundations",
+    "description": "先看懂在做什麼",
+    "count": 3,
+    "members": [
+     "ml-interview-core-concepts",
+     "geron-hands-on-ml-notes",
+     "deep-learning-training-fundamentals"
+    ],
+    "x": 0.22,
+    "y": 0.27,
+    "mobile": {
+     "x": 0.3,
+     "y": 0.14
+    },
+    "size": "major",
+    "kind": "domain"
+   },
+   {
+    "id": "ml-practice",
+    "anchorId": "ml-practice",
+    "label": "動手實作",
+    "href": "#ml-practice",
+    "description": "做得出一個能交付的模型",
+    "count": 3,
+    "members": [
+     "feature-engineering",
+     "sklearn-pipeline-templates",
+     "model-evaluation-cross-validation"
+    ],
+    "x": 0.76,
+    "y": 0.29,
+    "mobile": {
+     "x": 0.7,
+     "y": 0.38
+    },
+    "size": "major",
+    "kind": "domain"
+   },
+   {
+    "id": "ml-applications",
+    "anchorId": "ml-applications",
+    "label": "綜合應用",
+    "href": "#ml-applications",
+    "description": "把前兩軌接起來",
+    "count": 1,
+    "members": [
+     "ml-case-studies"
+    ],
+    "x": 0.72,
+    "y": 0.73,
+    "mobile": {
+     "x": 0.3,
+     "y": 0.62
+    },
+    "size": "medium",
+    "kind": "satellite"
+   },
+   {
+    "id": "statistics-experiments",
+    "anchorId": "statistics-experiments",
+    "label": "統計與實驗",
+    "href": "#statistics-experiments",
+    "description": "判斷差異是不是真的",
+    "count": 1,
+    "members": [
+     "statistics-ab-testing"
+    ],
+    "x": 0.24,
+    "y": 0.72,
+    "mobile": {
+     "x": 0.7,
+     "y": 0.86
+    },
+    "size": "medium",
+    "kind": "satellite"
+   }
+  ],
+  "edges": [
+   {
+    "from": "ml-foundations",
+    "to": "ml-practice"
+   },
+   {
+    "from": "ml-practice",
+    "to": "ml-applications"
+   },
+   {
+    "from": "ml-foundations",
+    "to": "statistics-experiments",
+    "style": "dashed"
+   }
+  ]
+ },
  "legend": [
   {
    "swatch": "var(--kb-signal)",

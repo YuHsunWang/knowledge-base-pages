@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""產生三張互動地圖的資料檔。
+"""產生四張互動地圖的資料檔與三區 Knowledge Galaxy payload。
 
 每張地圖的「內容」來自站上既有來源，本檔只額外定義**結構**（欄位、節點、連線）
 ——那是來源檔案沒有的資訊：
@@ -26,7 +26,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 DOCS = ROOT / "docs"
 OUT_DIR = Path(__file__).resolve().parent
+LAYOUT_PATH = OUT_DIR / "galaxy-layout.json"
 FAILURES = []
+SECTION_MAPS = {
+    "ai": "map-ai-engineering.json",
+    "machine-learning": "map-machine-learning.json",
+    "trading": "map-trading.json",
+}
 
 
 # ─────────────────────────── 共用工具 ───────────────────────────
@@ -51,6 +57,32 @@ def nav_entries(section):
                                   cfg, re.M):
         out.append((label.strip(), path.strip()))
     return out
+
+
+def nav_groups(section, nav_title):
+    """從 mkdocs.yml 取某區的「分組 → article slug」，保留 nav 順序。"""
+    cfg = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+    match = re.search(
+        rf"^  - {re.escape(nav_title)}:\s*$\n(.*?)(?=^  - |\Z)",
+        cfg,
+        re.M | re.S,
+    )
+    if not match:
+        return {}
+    groups, current = {}, None
+    for line in match.group(1).split("\n"):
+        group = re.match(r"^\s{6}- ([^:\n]+):\s*$", line)
+        if group:
+            current = group.group(1).strip()
+            groups[current] = []
+            continue
+        article = re.match(
+            rf"^\s+- [^:\n]+:\s*{re.escape(section)}/([a-z0-9-]+)\.md\s*$",
+            line,
+        )
+        if article and current:
+            groups[current].append(article.group(1))
+    return groups
 
 
 LINK_RE = re.compile(r"\]\((?!https?:|#|mailto:)([^)\s#]+\.md)(?:#[^)]*)?\)")
@@ -246,12 +278,10 @@ def build_passive():
 
 # ─────────────────────── 2. Machine Learning ───────────────────────
 ML_NODES = [
-    ("n1", "a", "觀念地基", "先看懂在做什麼",
-     ["ml-interview-core-concepts", "geron-hands-on-ml-notes", "deep-learning-training-fundamentals"]),
-    ("n2", "b", "動手實作", "做得出一個能交付的模型",
-     ["feature-engineering", "sklearn-pipeline-templates", "model-evaluation-cross-validation"]),
-    ("n3", "c", "綜合應用", "把前兩軌接起來", ["ml-case-studies"]),
-    ("n4", "c", "統計與實驗", "判斷差異是不是真的", ["statistics-ab-testing"]),
+    ("n1", "a", "觀念地基", "先看懂在做什麼", None),
+    ("n2", "b", "動手實作", "做得出一個能交付的模型", None),
+    ("n3", "c", "綜合應用", "把前兩軌接起來", None),
+    ("n4", "c", "統計與實驗", "判斷差異是不是真的", None),
 ]
 ML_EDGES = [
     {"from": "n1", "to": "n2"},
@@ -279,12 +309,23 @@ AI_EDGES = [
     {"from": "g6", "to": "g7", "style": "dashed"},
 ]
 
+# ─────────────────────── 4. Trading Research ───────────────────────
+TRADING_NODES = [
+    ("t1", "a", "策略研究與回測", "研究訊號、回測方法與否證", None),
+    ("t2", "b", "產業研究方法", "建立可重複的產業研究流程", None),
+    ("t3", "c", "被動元件專題", "用被動元件走完產業研究流程", None),
+]
+TRADING_EDGES = [
+    {"from": "t2", "to": "t3"},
+]
+
 
 GRAPH = {}
 
 
-def build_section(section, nodes, edges, columns, out_name, hint, group_map=None):
-    """ML / AI 共用：節點成員取自 nav 分組，描述取自各檔 frontmatter。"""
+def build_section(section, nodes, edges, columns, out_name, hint, group_map, layout,
+                  galaxy_id, galaxy_title):
+    """AI / ML / Trading 共用：文章與 Galaxy 顯示資料由站台來源合成。"""
     entries = nav_entries(section)
     check(bool(entries), f"[{section}] 從 mkdocs.yml 讀不到任何 nav 條目")
     if not entries:
@@ -295,9 +336,15 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map=None
 
     node_defs = []
     for nid, col, name, desc, members in nodes:
-        if members is None:                       # AI：成員由 nav 分組決定
+        if members is None:
             members = group_map.get(name, [])
         node_defs.append((nid, col, name, desc, members))
+
+    node_ids = {nid for nid, *_ in node_defs}
+    check(not (node_ids - set(layout)),
+          f"[{section}] galaxy layout 缺少節點：{sorted(node_ids - set(layout))}")
+    check(not (set(layout) - node_ids),
+          f"[{section}] galaxy layout 有不存在的節點：{sorted(set(layout) - node_ids)}")
 
     mapped = {m for _, _, _, _, ms in node_defs for m in ms}
     check(not (mapped - set(stem_label)),
@@ -310,6 +357,7 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map=None
     items = []
     for stem in sorted(mapped):
         fm = frontmatter(DOCS / section / f"{stem}.md")
+        step_match = re.match(r"^(\d+)\s*·\s*", stem_label[stem])
         label = re.sub(r"^\d+\s*·\s*", "", stem_label[stem])
         label = re.sub(r"（[^）]*）$", "", label).strip()
         meta = []
@@ -322,6 +370,7 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map=None
             # 子路徑；寫成 ../ 會跳到站根。
             "id": stem, "label": label,
             "href": f"{stem}/",
+            "step": step_match.group(1) if step_match else None,
             "meta": meta,
             "note": fm.get("description", ""),
             "fresh": fresh,
@@ -331,6 +380,43 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map=None
                           for s in sources],
         })
 
+    region_ids = {
+        nid: layout[nid].get("anchorId")
+        for nid, *_ in node_defs
+        if nid in layout
+    }
+    regions = []
+    for nid, _col, name, desc, members in node_defs:
+        if nid not in layout:
+            continue
+        placement = layout[nid]
+        region = {
+            "id": placement.get("anchorId"),
+            "anchorId": placement.get("anchorId"),
+            "label": name,
+            "href": "#" + str(placement.get("anchorId")),
+            "description": desc,
+            "count": len(members),
+            "members": members,
+        }
+        for key in ("x", "y", "mobile", "size", "kind"):
+            if key in placement:
+                region[key] = placement[key]
+        regions.append(region)
+
+    galaxy = {
+        "id": galaxy_id,
+        "title": galaxy_title,
+        "mode": "region-index",
+        "host": f"{section}/index.md",
+        "center": {"label": galaxy_title},
+        "regions": regions,
+        "edges": [
+            {**edge, "from": region_ids.get(edge["from"]),
+             "to": region_ids.get(edge["to"])}
+            for edge in edges
+        ],
+    }
     write(out_name, {
         "meta": {"source": f"mkdocs.yml nav + docs/{section}/*.md frontmatter"},
         "unit": "篇", "goLabel": "閱讀這篇",
@@ -340,6 +426,7 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map=None
                   for i, c, n, d, m in node_defs],
         "items": items,
         "edges": edges,
+        "galaxy": galaxy,
         "legend": [{"swatch": "var(--kb-signal)", "text": "青框＝同一篇出現在多個節點"},
                    {"swatch": "#C89A2E", "text": "琥珀點＝接近複查期限"},
                    {"swatch": "var(--kb-accent)", "text": "朱點＝已逾期未複查"},
@@ -347,27 +434,33 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map=None
     })
 
 
-def ai_groups():
-    """AI 區：用 mkdocs.yml 的縮排分組還原「主題 → 文章」對應。"""
-    cfg = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
-    block = cfg.split("- AI Engineering:")[1].split("- Machine Learning:")[0]
-    groups, current = {}, None
-    for line in block.split("\n"):
-        g = re.match(r"^\s{6}- ([^:\n]+):\s*$", line)
-        if g:
-            current = g.group(1).strip()
-            groups[current] = []
-            continue
-        a = re.match(r"^\s+- [^:\n]+:\s*ai/([a-z0-9-]+)\.md\s*$", line)
-        if a and current:
-            groups[current].append(a.group(1))
-    return groups
+def build_home_galaxy():
+    """Derive each drillable domain's section-map pointer from its path."""
+    path = OUT_DIR / "map-home.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    for region in data.get("regions", []):
+        section = region.get("href", "").strip("/")
+        if section in SECTION_MAPS:
+            region["sectionMap"] = f"assets/data/{SECTION_MAPS[section]}"
+        else:
+            region.pop("sectionMap", None)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"wrote {path.name}  領域 {len(data.get('regions', []))}")
 
 
 def main():
     global GRAPH
+    FAILURES.clear()
+    layout = json.loads(LAYOUT_PATH.read_text(encoding="utf-8"))
+    section_names = {"ai", "machine-learning", "trading"}
+    check(not (section_names - set(layout)),
+          f"[galaxy layout] 缺少 section：{sorted(section_names - set(layout))}")
+    check(not (set(layout) - section_names),
+          f"[galaxy layout] 有不存在的 section：{sorted(set(layout) - section_names)}")
     GRAPH = backlink_graph()
     build_passive()
+    if FAILURES:
+        _report_failures()
     build_section(
         "machine-learning", ML_NODES, ML_EDGES,
         [{"key": "a", "title": "觀念", "sub": "懂原理"},
@@ -375,6 +468,9 @@ def main():
          {"key": "c", "title": "應用與驗證", "sub": "接起來、並確認有效"}],
         "map-machine-learning.json",
         "滑過節點看閱讀順序，點文章看它涵蓋什麼、更新頻率，並可直接前往。",
+        nav_groups("machine-learning", "Machine Learning"),
+        layout["machine-learning"],
+        "machine-learning-galaxy", "Machine Learning",
     )
     build_section(
         "ai", AI_NODES, AI_EDGES,
@@ -383,14 +479,32 @@ def main():
          {"key": "c", "title": "營運", "sub": "評估、工具鏈與維運"}],
         "map-ai-engineering.json",
         "滑過節點看主題之間的依賴，點文章看它涵蓋什麼，並可直接前往。",
-        group_map=ai_groups(),
+        nav_groups("ai", "AI Engineering"),
+        layout["ai"],
+        "ai-engineering-galaxy", "AI Engineering",
     )
+    build_section(
+        "trading", TRADING_NODES, TRADING_EDGES,
+        [{"key": "a", "title": "策略", "sub": "訊號、回測與否證"},
+         {"key": "b", "title": "研究方法", "sub": "建立可重複流程"},
+         {"key": "c", "title": "產業專題", "sub": "用個案走完流程"}],
+        "map-trading.json",
+        "滑過節點看研究路徑，點文章看內容、更新頻率，並可直接前往。",
+        nav_groups("trading", "Trading Research"),
+        layout["trading"],
+        "trading-research-galaxy", "Trading Research",
+    )
+    build_home_galaxy()
     if FAILURES:
-        print("", file=sys.stderr)
-        for f in FAILURES:
-            print(f"FAIL  {f}", file=sys.stderr)
-        print("\n地圖結構已與站台內容不同步，請更新 gen_maps.py 或對應頁面。", file=sys.stderr)
-        raise SystemExit(1)
+        _report_failures()
+
+
+def _report_failures():
+    print("", file=sys.stderr)
+    for failure in FAILURES:
+        print(f"FAIL  {failure}", file=sys.stderr)
+    print("\n地圖結構已與站台內容不同步，請更新 gen_maps.py 或對應頁面。", file=sys.stderr)
+    raise SystemExit(1)
 
 
 if __name__ == "__main__":

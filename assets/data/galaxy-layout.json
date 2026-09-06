@@ -1,0 +1,162 @@
+{
+  "ai": {
+    "g1": {
+      "anchorId": "prompt-context",
+      "x": 0.18,
+      "y": 0.2,
+      "mobile": {
+        "x": 0.34,
+        "y": 0.11
+      },
+      "size": "medium",
+      "kind": "domain"
+    },
+    "g2": {
+      "anchorId": "cost-tokens",
+      "x": 0.29,
+      "y": 0.79,
+      "mobile": {
+        "x": 0.66,
+        "y": 0.76
+      },
+      "size": "medium",
+      "kind": "domain"
+    },
+    "g3": {
+      "anchorId": "rag-systems",
+      "x": 0.5,
+      "y": 0.17,
+      "mobile": {
+        "x": 0.66,
+        "y": 0.24
+      },
+      "size": "major",
+      "kind": "domain"
+    },
+    "g4": {
+      "anchorId": "agent-engineering",
+      "x": 0.82,
+      "y": 0.2,
+      "mobile": {
+        "x": 0.34,
+        "y": 0.37
+      },
+      "size": "major",
+      "kind": "domain"
+    },
+    "g5": {
+      "anchorId": "evaluation-memory-observability",
+      "x": 0.16,
+      "y": 0.51,
+      "mobile": {
+        "x": 0.66,
+        "y": 0.5
+      },
+      "size": "medium",
+      "kind": "domain"
+    },
+    "g6": {
+      "anchorId": "claude-code-mcp",
+      "x": 0.84,
+      "y": 0.51,
+      "mobile": {
+        "x": 0.34,
+        "y": 0.63
+      },
+      "size": "major",
+      "kind": "domain"
+    },
+    "g7": {
+      "anchorId": "knowledge-base-ops",
+      "x": 0.71,
+      "y": 0.79,
+      "mobile": {
+        "x": 0.34,
+        "y": 0.89
+      },
+      "size": "medium",
+      "kind": "domain"
+    }
+  },
+  "machine-learning": {
+    "n1": {
+      "anchorId": "ml-foundations",
+      "x": 0.22,
+      "y": 0.27,
+      "mobile": {
+        "x": 0.3,
+        "y": 0.14
+      },
+      "size": "major",
+      "kind": "domain"
+    },
+    "n2": {
+      "anchorId": "ml-practice",
+      "x": 0.76,
+      "y": 0.29,
+      "mobile": {
+        "x": 0.7,
+        "y": 0.38
+      },
+      "size": "major",
+      "kind": "domain"
+    },
+    "n3": {
+      "anchorId": "ml-applications",
+      "x": 0.72,
+      "y": 0.73,
+      "mobile": {
+        "x": 0.3,
+        "y": 0.62
+      },
+      "size": "medium",
+      "kind": "satellite"
+    },
+    "n4": {
+      "anchorId": "statistics-experiments",
+      "x": 0.24,
+      "y": 0.72,
+      "mobile": {
+        "x": 0.7,
+        "y": 0.86
+      },
+      "size": "medium",
+      "kind": "satellite"
+    }
+  },
+  "trading": {
+    "t1": {
+      "anchorId": "strategy-backtesting",
+      "x": 0.2,
+      "y": 0.31,
+      "mobile": {
+        "x": 0.32,
+        "y": 0.16
+      },
+      "size": "major",
+      "kind": "domain"
+    },
+    "t2": {
+      "anchorId": "industry-research",
+      "x": 0.77,
+      "y": 0.3,
+      "mobile": {
+        "x": 0.68,
+        "y": 0.5
+      },
+      "size": "medium",
+      "kind": "domain"
+    },
+    "t3": {
+      "anchorId": "passive-components-topic",
+      "x": 0.55,
+      "y": 0.75,
+      "mobile": {
+        "x": 0.32,
+        "y": 0.84
+      },
+      "size": "major",
+      "kind": "satellite"
+    }
+  }
+}

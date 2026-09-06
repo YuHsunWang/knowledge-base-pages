@@ -1,0 +1,810 @@
+{
+ "meta": {
+  "source": "mkdocs.yml nav + docs/trading/*.md frontmatter"
+ },
+ "unit": "篇",
+ "goLabel": "閱讀這篇",
+ "hint": "滑過節點看研究路徑，點文章看內容、更新頻率，並可直接前往。",
+ "columns": [
+  {
+   "key": "a",
+   "title": "策略",
+   "sub": "訊號、回測與否證"
+  },
+  {
+   "key": "b",
+   "title": "研究方法",
+   "sub": "建立可重複流程"
+  },
+  {
+   "key": "c",
+   "title": "產業專題",
+   "sub": "用個案走完流程"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "t1",
+   "column": "a",
+   "name": "策略研究與回測",
+   "desc": "研究訊號、回測方法與否證",
+   "items": [
+    "wave-backtest-usage",
+    "taiwan-large-retail-sector-flow-strategy",
+    "wave-theory-probabilistic-counter-plan",
+    "threads-txf-sentiment-following-research",
+    "net-delta-options-strategy",
+    "taiwan-chip-counter-signal-backtest-system"
+   ]
+  },
+  {
+   "id": "t2",
+   "column": "b",
+   "name": "產業研究方法",
+   "desc": "建立可重複的產業研究流程",
+   "items": [
+    "basic-industry-analysis-sop",
+    "serenity-style-industry-research-process",
+    "leo-satellite-supply-chain-exposure"
+   ]
+  },
+  {
+   "id": "t3",
+   "column": "c",
+   "name": "被動元件專題",
+   "desc": "用被動元件走完產業研究流程",
+   "items": [
+    "passive-components-research-diagrams-decision-map",
+    "passive-components-industry-overview",
+    "passive-components-market-sizing",
+    "passive-components-company-universe",
+    "passive-components-stock-tracker",
+    "passive-components-monthly-tracker",
+    "passive-components-valuation-framework",
+    "passive-components-target-price"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "basic-industry-analysis-sop",
+   "label": "基礎產業分析 SOP",
+   "href": "basic-industry-analysis-sop/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-05-28"
+    ]
+   ],
+   "note": "整理一套從景氣循環、產業成長動能到財報數據的基礎產業分析流程，避免依賴媒體消息決策。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "台灣上市櫃 LEO 衛星供應鏈：真實曝險可辨，耐久投資性仍待驗證",
+     "href": "leo-satellite-supply-chain-exposure/",
+     "section": "trading"
+    },
+    {
+     "label": "Serenity 式產業研究流程",
+     "href": "serenity-style-industry-research-process/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "leo-satellite-supply-chain-exposure",
+   "label": "低軌衛星供應鏈曝險",
+   "href": "leo-satellite-supply-chain-exposure/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-07-11"
+    ]
+   ],
+   "note": "以投資級標準拆解台股低軌衛星供應鏈——昇達科、華通等節點的真實經濟曝險、估值與可證偽判斷，附完整 R0–R5 研究方法與證據軌跡。資料基準 2026-07-08。",
+   "fresh": {
+    "state": "fresh",
+    "days": 57,
+    "label": "每季複查｜2026-07-11 更新｜35 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Serenity 式產業研究流程",
+     "href": "serenity-style-industry-research-process/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "net-delta-options-strategy",
+   "label": "net_delta 選擇權部位策略",
+   "href": "net-delta-options-strategy/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-17"
+    ]
+   ],
+   "note": "用 TXO 選擇權的淨 Delta 部位（net delta exposure）做布林通道順勢突破、輔以 GEX 與外資期貨 OI 對齊確認的台指期當沖策略；含主/備援自動切換與每日自動化流程。",
+   "fresh": {
+    "state": "archived",
+    "label": "已停止更新"
+   },
+   "backlinks": [
+    {
+     "label": "台股籌碼反向訊號回測系統",
+     "href": "taiwan-chip-counter-signal-backtest-system/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-company-universe",
+   "label": "台股公司全圖",
+   "href": "passive-components-company-universe/",
+   "step": "3",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-08"
+    ]
+   ],
+   "note": "台股被動元件相關公司按品類分組（MLCC/鋁電解/電阻/電感/保護/振盪/代理/上游），補齊產業研究的公司覆蓋面。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究結構圖與決策地圖",
+     "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣被動元件個股追蹤",
+     "href": "passive-components-stock-tracker/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-industry-overview",
+   "label": "產業研究總覽",
+   "href": "passive-components-industry-overview/",
+   "step": "1",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "券商研究員風格的被動元件總覽：MLCC、晶片電阻、電感、AI/車用/工控、景氣循環與資料來源。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "基礎產業分析 SOP",
+     "href": "basic-industry-analysis-sop/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣上市櫃 LEO 衛星供應鏈：真實曝險可辨，耐久投資性仍待驗證",
+     "href": "leo-satellite-supply-chain-exposure/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件台股公司全圖",
+     "href": "passive-components-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件市場量化",
+     "href": "passive-components-market-sizing/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件月度追蹤表",
+     "href": "passive-components-monthly-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究結構圖與決策地圖",
+     "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣被動元件個股追蹤",
+     "href": "passive-components-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件估值框架",
+     "href": "passive-components-valuation-framework/",
+     "section": "trading"
+    },
+    {
+     "label": "Serenity 式產業研究流程",
+     "href": "serenity-style-industry-research-process/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-market-sizing",
+   "label": "市場量化",
+   "href": "passive-components-market-sizing/",
+   "step": "2",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-08"
+    ]
+   ],
+   "note": "全球 MLCC 市場規模、各廠市占率、台廠定位、品類 TAM 與 ASP，補齊產業研究的「數字骨架」。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件台股公司全圖",
+     "href": "passive-components-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件估值框架",
+     "href": "passive-components-valuation-framework/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-monthly-tracker",
+   "label": "月度追蹤表",
+   "href": "passive-components-monthly-tracker/",
+   "step": "5",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "國巨、華新科、禾伸堂、大毅的月營收、獲利品質、估值快照與下一步驗證清單。",
+   "fresh": {
+    "state": "due",
+    "days": 30,
+    "label": "每月複查｜2026-08-07 更新｜再 1 天到期"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究結構圖與決策地圖",
+     "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣被動元件個股追蹤",
+     "href": "passive-components-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件估值框架",
+     "href": "passive-components-valuation-framework/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-research-diagrams-decision-map",
+   "label": "研究結構圖與決策地圖",
+   "href": "passive-components-research-diagrams-decision-map/",
+   "step": "0",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "用產業樹、AI server 驗證流程、車規認證流程與公司追蹤地圖，把被動元件研究框架視覺化。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件月度追蹤表",
+     "href": "passive-components-monthly-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣被動元件個股追蹤",
+     "href": "passive-components-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-stock-tracker",
+   "label": "台灣個股追蹤",
+   "href": "passive-components-stock-tracker/",
+   "step": "4",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-08"
+    ]
+   ],
+   "note": "國巨/華新科/禾伸堂/大毅/奇力新五家台廠的定位、基本資料、研究 thesis、每季追問清單與應用別占比,合併為單一追蹤頁。月度數字見月度追蹤表。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件台股公司全圖",
+     "href": "passive-components-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件月度追蹤表",
+     "href": "passive-components-monthly-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-target-price",
+   "label": "目標價評估",
+   "href": "passive-components-target-price/",
+   "step": "7",
+   "meta": [
+    [
+     "首次發布",
+     "2026-08-07"
+    ]
+   ],
+   "note": "把被動元件的基本面研究接到目標價：情境化 EPS 建構、逐家分流的估值錨、目標價矩陣、現價反推隱含假設，附華新科完整試算。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件市場量化",
+     "href": "passive-components-market-sizing/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件月度追蹤表",
+     "href": "passive-components-monthly-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究結構圖與決策地圖",
+     "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣被動元件個股追蹤",
+     "href": "passive-components-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件估值框架",
+     "href": "passive-components-valuation-framework/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-valuation-framework",
+   "label": "估值框架",
+   "href": "passive-components-valuation-framework/",
+   "step": "6",
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-08"
+    ]
+   ],
+   "note": "週期股估值方法（P/B band、正常化EPS、EV/EBITDA、景氣位置×估值矩陣）與台廠當前估值快照，解決「現在貴不貴、何時買」的問題。",
+   "fresh": {
+    "state": "fresh",
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件市場量化",
+     "href": "passive-components-market-sizing/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件月度追蹤表",
+     "href": "passive-components-monthly-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究結構圖與決策地圖",
+     "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣被動元件個股追蹤",
+     "href": "passive-components-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "serenity-style-industry-research-process",
+   "label": "Serenity 式產業研究流程",
+   "href": "serenity-style-industry-research-process/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-05-28"
+    ]
+   ],
+   "note": "整理 Serenity / aleabitoreddit 的「未知瓶頸」研究方法，作為科技產業與供應鏈研究的質化分析框架。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "基礎產業分析 SOP",
+     "href": "basic-industry-analysis-sop/",
+     "section": "trading"
+    },
+    {
+     "label": "台灣上市櫃 LEO 衛星供應鏈：真實曝險可辨，耐久投資性仍待驗證",
+     "href": "leo-satellite-supply-chain-exposure/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "台股大戶散戶產業資金流策略研究",
+     "href": "taiwan-large-retail-sector-flow-strategy/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "taiwan-chip-counter-signal-backtest-system",
+   "label": "台股籌碼反向訊號回測系統",
+   "href": "taiwan-chip-counter-signal-backtest-system/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "大戶集中度訊號 A/B、進出場邏輯、資料覆蓋與後續產業資金流研究延伸。",
+   "fresh": {
+    "state": "archived",
+    "label": "已停止更新"
+   },
+   "backlinks": [
+    {
+     "label": "net_delta 選擇權部位策略（多指標版）",
+     "href": "net-delta-options-strategy/",
+     "section": "trading"
+    },
+    {
+     "label": "台股大戶散戶產業資金流策略研究",
+     "href": "taiwan-large-retail-sector-flow-strategy/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "taiwan-large-retail-sector-flow-strategy",
+   "label": "台股大戶散戶產業資金流策略研究",
+   "href": "taiwan-large-retail-sector-flow-strategy/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "大戶增持/散戶減少訊號結合固定電子產業、動態產業 flow Top 1、混合策略與 cohort 檢查。",
+   "fresh": {
+    "state": "fresh",
+    "days": 34,
+    "label": "每季複查｜2026-08-03 更新｜58 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "台股籌碼反向訊號回測系統",
+     "href": "taiwan-chip-counter-signal-backtest-system/",
+     "section": "trading"
+    },
+    {
+     "label": "Threads 台指期情緒與跟單策略研究方法紀錄",
+     "href": "threads-txf-sentiment-following-research/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "threads-txf-sentiment-following-research",
+   "label": "Threads 台指期情緒與跟單策略研究規劃",
+   "href": "threads-txf-sentiment-following-research/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "記錄以 Threads 社群資料建立台指期作者績效評分、加權情緒訊號與跟單／反指標策略的方法與限制。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "波浪理論機率式波數判斷方法紀錄",
+     "href": "wave-theory-probabilistic-counter-plan/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "wave-backtest-usage",
+   "label": "波浪回測系統使用說明",
+   "href": "wave-backtest-usage/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "記錄 wave_backtest_v2.py 與 wave_backtest_mtf_v2.py 的回測方法、參數、結果與注意事項。",
+   "fresh": {
+    "state": "fresh",
+    "days": 38,
+    "label": "每季複查｜2026-07-30 更新｜54 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "net_delta 選擇權部位策略（多指標版）",
+     "href": "net-delta-options-strategy/",
+     "section": "trading"
+    },
+    {
+     "label": "波浪理論機率式波數判斷方法紀錄",
+     "href": "wave-theory-probabilistic-counter-plan/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "wave-theory-probabilistic-counter-plan",
+   "label": "波浪理論機率式波數判斷系統規劃",
+   "href": "wave-theory-probabilistic-counter-plan/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "記錄台指期／小台波浪理論判斷的多情境排名與相對信心評分方法，整合 Fibonacci、通道、動能與 K 線確認。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Threads 台指期情緒與跟單策略研究方法紀錄",
+     "href": "threads-txf-sentiment-following-research/",
+     "section": "trading"
+    },
+    {
+     "label": "波浪回測方法與結果紀錄",
+     "href": "wave-backtest-usage/",
+     "section": "trading"
+    }
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "t2",
+   "to": "t3"
+  }
+ ],
+ "galaxy": {
+  "id": "trading-research-galaxy",
+  "title": "Trading Research",
+  "mode": "region-index",
+  "host": "trading/index.md",
+  "center": {
+   "label": "Trading Research"
+  },
+  "regions": [
+   {
+    "id": "strategy-backtesting",
+    "anchorId": "strategy-backtesting",
+    "label": "策略研究與回測",
+    "href": "#strategy-backtesting",
+    "description": "研究訊號、回測方法與否證",
+    "count": 6,
+    "members": [
+     "wave-backtest-usage",
+     "taiwan-large-retail-sector-flow-strategy",
+     "wave-theory-probabilistic-counter-plan",
+     "threads-txf-sentiment-following-research",
+     "net-delta-options-strategy",
+     "taiwan-chip-counter-signal-backtest-system"
+    ],
+    "x": 0.2,
+    "y": 0.31,
+    "mobile": {
+     "x": 0.32,
+     "y": 0.16
+    },
+    "size": "major",
+    "kind": "domain"
+   },
+   {
+    "id": "industry-research",
+    "anchorId": "industry-research",
+    "label": "產業研究方法",
+    "href": "#industry-research",
+    "description": "建立可重複的產業研究流程",
+    "count": 3,
+    "members": [
+     "basic-industry-analysis-sop",
+     "serenity-style-industry-research-process",
+     "leo-satellite-supply-chain-exposure"
+    ],
+    "x": 0.77,
+    "y": 0.3,
+    "mobile": {
+     "x": 0.68,
+     "y": 0.5
+    },
+    "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "passive-components-topic",
+    "anchorId": "passive-components-topic",
+    "label": "被動元件專題",
+    "href": "#passive-components-topic",
+    "description": "用被動元件走完產業研究流程",
+    "count": 8,
+    "members": [
+     "passive-components-research-diagrams-decision-map",
+     "passive-components-industry-overview",
+     "passive-components-market-sizing",
+     "passive-components-company-universe",
+     "passive-components-stock-tracker",
+     "passive-components-monthly-tracker",
+     "passive-components-valuation-framework",
+     "passive-components-target-price"
+    ],
+    "x": 0.55,
+    "y": 0.75,
+    "mobile": {
+     "x": 0.32,
+     "y": 0.84
+    },
+    "size": "major",
+    "kind": "satellite"
+   }
+  ],
+  "edges": [
+   {
+    "from": "industry-research",
+    "to": "passive-components-topic"
+   }
+  ]
+ },
+ "legend": [
+  {
+   "swatch": "var(--kb-signal)",
+   "text": "青框＝同一篇出現在多個節點"
+  },
+  {
+   "swatch": "#C89A2E",
+   "text": "琥珀點＝接近複查期限"
+  },
+  {
+   "swatch": "var(--kb-accent)",
+   "text": "朱點＝已逾期未複查"
+  },
+  {
+   "text": "實線＝建議的閱讀順序｜虛線＝可獨立閱讀"
+  }
+ ]
+}

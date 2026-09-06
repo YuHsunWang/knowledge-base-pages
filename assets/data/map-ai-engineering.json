@@ -41,9 +41,9 @@
    "name": "成本與 Token 優化",
    "desc": "餵得省一點",
    "items": [
+    "prompt-caching-cost-latency",
     "9router-ai-router-token-saver",
-    "caveman-token-compression-skill",
-    "prompt-caching-cost-latency"
+    "caveman-token-compression-skill"
    ]
   },
   {
@@ -66,11 +66,11 @@
    "name": "Agent 工程",
    "desc": "讓模型會用工具、能自主",
    "items": [
-    "ai-agent-harness-engineering",
-    "coding-agent-workflow-sop",
     "structured-output-and-tool-use",
-    "multi-agent-orchestration",
-    "ai-agent-security-and-permissions"
+    "ai-agent-security-and-permissions",
+    "coding-agent-workflow-sop",
+    "ai-agent-harness-engineering",
+    "multi-agent-orchestration"
    ]
   },
   {
@@ -79,10 +79,10 @@
    "name": "評估、記憶與觀測",
    "desc": "知道它到底做得好不好",
    "items": [
-    "llm-evaluation-in-practice",
-    "llm-evaluation-advanced",
+    "agent-memory-systems",
     "agent-observability",
-    "agent-memory-systems"
+    "llm-evaluation-in-practice",
+    "llm-evaluation-advanced"
    ]
   },
   {
@@ -115,6 +115,7 @@
    "id": "9router-ai-router-token-saver",
    "label": "9Router 本機路由器",
    "href": "9router-ai-router-token-saver/",
+   "step": "2",
    "meta": [
     [
      "首次發布",
@@ -124,8 +125,8 @@
    "note": "介紹開源本機 AI 路由器 9Router：格式翻譯、三層 Fallback 路由與 Token 壓縮（RTK），並說明 Claude Code/Cursor 等整合設定。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -139,6 +140,7 @@
    "id": "agent-memory-systems",
    "label": "Agent Memory 系統",
    "href": "agent-memory-systems/",
+   "step": "1",
    "meta": [
     [
      "首次發布",
@@ -162,6 +164,7 @@
    "id": "agent-observability",
    "label": "Agent Observability",
    "href": "agent-observability/",
+   "step": "2",
    "meta": [
     [
      "首次發布",
@@ -210,6 +213,7 @@
    "id": "agentic-rag-2026",
    "label": "Agentic RAG：換控制流",
    "href": "agentic-rag-2026/",
+   "step": "4",
    "meta": [
     [
      "首次發布",
@@ -219,8 +223,8 @@
    "note": "RAG 完整指南續篇：比較 Naive/Advanced/Agentic/GraphRAG/Adaptive RAG 架構光譜、GraphRAG 家族、混合檢索與 query 轉換技巧及評估指標。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -249,6 +253,7 @@
    "id": "ai-agent-harness-engineering",
    "label": "AI Agent Harness Engineering",
    "href": "ai-agent-harness-engineering/",
+   "step": "4",
    "meta": [
     [
      "首次發布",
@@ -312,6 +317,7 @@
    "id": "ai-agent-security-and-permissions",
    "label": "AI Agent 安全與權限",
    "href": "ai-agent-security-and-permissions/",
+   "step": "2",
    "meta": [
     [
      "首次發布",
@@ -340,6 +346,7 @@
    "id": "anthropic-document-skills",
    "label": "Anthropic Agent Skills",
    "href": "anthropic-document-skills/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -349,8 +356,8 @@
    "note": "整理 Anthropic 官方文件：Agent Skills 漸進揭露架構（L1-L3）、官方 Document Skills（PPTX/XLSX/DOCX/PDF）用法與跨平台差異、第三方 skill 安全提醒。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -364,6 +371,7 @@
    "id": "caveman-token-compression-skill",
    "label": "Caveman Token 壓縮",
    "href": "caveman-token-compression-skill/",
+   "step": "3",
    "meta": [
     [
      "首次發布",
@@ -373,8 +381,8 @@
    "note": "介紹 Claude Code skill Caveman：用穴居人語氣壓縮 agent 輸出約 65% token，涵蓋機制、指令與安裝方式。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -398,6 +406,7 @@
    "id": "claude-code-coding-guidelines",
    "label": "Claude Code 寫程式準則",
    "href": "claude-code-coding-guidelines/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -407,8 +416,8 @@
    "note": "整理自 multica-ai/andrej-karpathy-skills 的 CLAUDE.md，作為 coding agent 執行程式任務時的行為準則參考。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -422,6 +431,7 @@
    "id": "claude-code-discipline-frameworks",
    "label": "Claude Code 紀律框架對比",
    "href": "claude-code-discipline-frameworks/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -431,8 +441,8 @@
    "note": "對比 Claude Code 三個紀律框架 Superpowers、GSD、gstack 各自約束的軸線（流程/環境/角色）與疊用方式。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -451,6 +461,7 @@
    "id": "claude-md-obsidian-llm-wiki-maintainer",
    "label": "用 CLAUDE.md 維護 Obsidian 知識庫",
    "href": "claude-md-obsidian-llm-wiki-maintainer/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -460,8 +471,8 @@
    "note": "將 vault-specific CLAUDE.md 整理成公開筆記，說明如何用 AI 維護 Obsidian / LLM Wiki。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -480,6 +491,7 @@
    "id": "coding-agent-workflow-sop",
    "label": "Coding Agent 工作流 SOP",
    "href": "coding-agent-workflow-sop/",
+   "step": "3",
    "meta": [
     [
      "首次發布",
@@ -503,6 +515,7 @@
    "id": "context-engineering",
    "label": "Context Engineering",
    "href": "context-engineering/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -556,6 +569,7 @@
    "id": "context-engineering-in-practice",
    "label": "Context Engineering 實作篇",
    "href": "context-engineering-in-practice/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -604,6 +618,7 @@
    "id": "embeddings-and-vector-databases",
    "label": "Embeddings 與向量資料庫",
    "href": "embeddings-and-vector-databases/",
+   "step": "2",
    "meta": [
     [
      "首次發布",
@@ -613,8 +628,8 @@
    "note": "整理 embedding 模型選型（MTEB 評測）、向量資料庫比較（Pinecone/Weaviate/Milvus/Qdrant）與 HNSW/IVF 等 ANN 索引取捨。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -648,6 +663,7 @@
    "id": "fine-tuning-vs-rag-vs-prompting",
    "label": "該不該用 RAG：vs Fine-tuning / Prompting",
    "href": "fine-tuning-vs-rag-vs-prompting/",
+   "step": "0",
    "meta": [
     [
      "首次發布",
@@ -676,6 +692,7 @@
    "id": "graphrag-knowledge-graph-retrieval",
    "label": "GraphRAG：換索引標的",
    "href": "graphrag-knowledge-graph-retrieval/",
+   "step": "4",
    "meta": [
     [
      "首次發布",
@@ -709,6 +726,7 @@
    "id": "llm-evaluation-advanced",
    "label": "LLM Evaluation 進階",
    "href": "llm-evaluation-advanced/",
+   "step": "4",
    "meta": [
     [
      "首次發布",
@@ -732,6 +750,7 @@
    "id": "llm-evaluation-in-practice",
    "label": "LLM Evaluation 實務",
    "href": "llm-evaluation-in-practice/",
+   "step": "3",
    "meta": [
     [
      "首次發布",
@@ -785,6 +804,7 @@
    "id": "mcp-builder-skill",
    "label": "MCP Builder Skill",
    "href": "mcp-builder-skill/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -794,8 +814,8 @@
    "note": "介紹 Claude Code skill MCP Builder：用四階段工作流（研究規劃、實作、審查、建評估）引導蓋出生產級 MCP Server。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -809,6 +829,7 @@
    "id": "mcp-ecosystem-guide",
    "label": "MCP 生態系指南",
    "href": "mcp-ecosystem-guide/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -818,8 +839,8 @@
    "note": "MCP 生態系概念地圖：Host/Client/Server 三方角色、Tools/Resources/Prompts 三種 primitive、Local vs Remote 傳輸與信任邊界。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -843,6 +864,7 @@
    "id": "multi-agent-orchestration",
    "label": "Multi-Agent 協作",
    "href": "multi-agent-orchestration/",
+   "step": "5",
    "meta": [
     [
      "首次發布",
@@ -866,6 +888,7 @@
    "id": "my-obsidian-vault-claude-md",
    "label": "我的 Obsidian Vault CLAUDE.md",
    "href": "my-obsidian-vault-claude-md/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -875,8 +898,8 @@
    "note": "分享我目前用來讓 Claude 維護 Obsidian / LLM Wiki 的 vault-specific CLAUDE.md 原文。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -890,6 +913,7 @@
    "id": "prompt-caching-cost-latency",
    "label": "Prompt Caching",
    "href": "prompt-caching-cost-latency/",
+   "step": "1",
    "meta": [
     [
      "首次發布",
@@ -899,8 +923,8 @@
    "note": "介紹 Prompt Caching 原理：前綴比對規則、Anthropic 與 OpenAI 做法比較、精確定價數字，及會悄悄破壞快取的常見坑。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -914,6 +938,7 @@
    "id": "prompt-engineering-core-techniques",
    "label": "Prompt Engineering 核心技術",
    "href": "prompt-engineering-core-techniques/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -957,6 +982,7 @@
    "id": "rag-advanced-techniques",
    "label": "RAG 進階技術：六個槓桿",
    "href": "rag-advanced-techniques/",
+   "step": "3",
    "meta": [
     [
      "首次發布",
@@ -1005,6 +1031,7 @@
    "id": "rag-retrieval-augmented-generation",
    "label": "RAG 完整指南",
    "href": "rag-retrieval-augmented-generation/",
+   "step": "1",
    "meta": [
     [
      "首次發布",
@@ -1058,6 +1085,7 @@
    "id": "reasoning-models-test-time-compute",
    "label": "Reasoning Models 與 Test-time Compute",
    "href": "reasoning-models-test-time-compute/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -1081,6 +1109,7 @@
    "id": "structured-output-and-tool-use",
    "label": "Structured Output 與 Tool Use",
    "href": "structured-output-and-tool-use/",
+   "step": "1",
    "meta": [
     [
      "首次發布",
@@ -1104,6 +1133,7 @@
    "id": "superpowers-claude-code-skills",
    "label": "Superpowers Skill 框架",
    "href": "superpowers-claude-code-skills/",
+   "step": null,
    "meta": [
     [
      "首次發布",
@@ -1113,8 +1143,8 @@
    "note": "介紹 Claude Code skill 框架 Superpowers：七階段強制工作流（Brainstorm 到 Finish Branch）、Markdown 化的鐵律機制與已知限制。",
    "fresh": {
     "state": "fresh",
-    "days": 4,
-    "label": "每季複查｜2026-08-08 更新｜88 天內有效"
+    "days": 29,
+    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
    },
    "backlinks": [
     {
@@ -1162,6 +1192,205 @@
    "style": "dashed"
   }
  ],
+ "galaxy": {
+  "id": "ai-engineering-galaxy",
+  "title": "AI Engineering",
+  "mode": "region-index",
+  "host": "ai/index.md",
+  "center": {
+   "label": "AI Engineering"
+  },
+  "regions": [
+   {
+    "id": "prompt-context",
+    "anchorId": "prompt-context",
+    "label": "Prompt 與 Context 工程",
+    "href": "#prompt-context",
+    "description": "餵給模型什麼",
+    "count": 4,
+    "members": [
+     "prompt-engineering-core-techniques",
+     "context-engineering",
+     "context-engineering-in-practice",
+     "reasoning-models-test-time-compute"
+    ],
+    "x": 0.18,
+    "y": 0.2,
+    "mobile": {
+     "x": 0.34,
+     "y": 0.11
+    },
+    "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "cost-tokens",
+    "anchorId": "cost-tokens",
+    "label": "成本與 Token 優化",
+    "href": "#cost-tokens",
+    "description": "餵得省一點",
+    "count": 3,
+    "members": [
+     "prompt-caching-cost-latency",
+     "9router-ai-router-token-saver",
+     "caveman-token-compression-skill"
+    ],
+    "x": 0.29,
+    "y": 0.79,
+    "mobile": {
+     "x": 0.66,
+     "y": 0.76
+    },
+    "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "rag-systems",
+    "anchorId": "rag-systems",
+    "label": "RAG 與檢索系統",
+    "href": "#rag-systems",
+    "description": "讓模型讀到外部知識",
+    "count": 6,
+    "members": [
+     "fine-tuning-vs-rag-vs-prompting",
+     "rag-retrieval-augmented-generation",
+     "embeddings-and-vector-databases",
+     "rag-advanced-techniques",
+     "graphrag-knowledge-graph-retrieval",
+     "agentic-rag-2026"
+    ],
+    "x": 0.5,
+    "y": 0.17,
+    "mobile": {
+     "x": 0.66,
+     "y": 0.24
+    },
+    "size": "major",
+    "kind": "domain"
+   },
+   {
+    "id": "agent-engineering",
+    "anchorId": "agent-engineering",
+    "label": "Agent 工程",
+    "href": "#agent-engineering",
+    "description": "讓模型會用工具、能自主",
+    "count": 5,
+    "members": [
+     "structured-output-and-tool-use",
+     "ai-agent-security-and-permissions",
+     "coding-agent-workflow-sop",
+     "ai-agent-harness-engineering",
+     "multi-agent-orchestration"
+    ],
+    "x": 0.82,
+    "y": 0.2,
+    "mobile": {
+     "x": 0.34,
+     "y": 0.37
+    },
+    "size": "major",
+    "kind": "domain"
+   },
+   {
+    "id": "evaluation-memory-observability",
+    "anchorId": "evaluation-memory-observability",
+    "label": "評估、記憶與觀測",
+    "href": "#evaluation-memory-observability",
+    "description": "知道它到底做得好不好",
+    "count": 4,
+    "members": [
+     "agent-memory-systems",
+     "agent-observability",
+     "llm-evaluation-in-practice",
+     "llm-evaluation-advanced"
+    ],
+    "x": 0.16,
+    "y": 0.51,
+    "mobile": {
+     "x": 0.66,
+     "y": 0.5
+    },
+    "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "claude-code-mcp",
+    "anchorId": "claude-code-mcp",
+    "label": "Claude Code / Skills / MCP",
+    "href": "#claude-code-mcp",
+    "description": "實際落地的工具鏈",
+    "count": 6,
+    "members": [
+     "claude-code-coding-guidelines",
+     "superpowers-claude-code-skills",
+     "claude-code-discipline-frameworks",
+     "anthropic-document-skills",
+     "mcp-ecosystem-guide",
+     "mcp-builder-skill"
+    ],
+    "x": 0.84,
+    "y": 0.51,
+    "mobile": {
+     "x": 0.34,
+     "y": 0.63
+    },
+    "size": "major",
+    "kind": "domain"
+   },
+   {
+    "id": "knowledge-base-ops",
+    "anchorId": "knowledge-base-ops",
+    "label": "用 AI 維護知識庫",
+    "href": "#knowledge-base-ops",
+    "description": "本站自己的用例",
+    "count": 2,
+    "members": [
+     "claude-md-obsidian-llm-wiki-maintainer",
+     "my-obsidian-vault-claude-md"
+    ],
+    "x": 0.71,
+    "y": 0.79,
+    "mobile": {
+     "x": 0.34,
+     "y": 0.89
+    },
+    "size": "medium",
+    "kind": "domain"
+   }
+  ],
+  "edges": [
+   {
+    "from": "prompt-context",
+    "to": "rag-systems"
+   },
+   {
+    "from": "prompt-context",
+    "to": "agent-engineering"
+   },
+   {
+    "from": "rag-systems",
+    "to": "evaluation-memory-observability"
+   },
+   {
+    "from": "agent-engineering",
+    "to": "evaluation-memory-observability"
+   },
+   {
+    "from": "agent-engineering",
+    "to": "claude-code-mcp"
+   },
+   {
+    "from": "cost-tokens",
+    "to": "agent-engineering",
+    "style": "dashed"
+   },
+   {
+    "from": "claude-code-mcp",
+    "to": "knowledge-base-ops",
+    "style": "dashed"
+   }
+  ]
+ },
  "legend": [
   {
    "swatch": "var(--kb-signal)",
