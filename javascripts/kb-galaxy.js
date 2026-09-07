@@ -302,12 +302,24 @@
     var pointerY = null;
     var passive = { passive: true };
 
+    /* Hysteresis, and the reason for it: the revealed header is as tall as the
+       whole plate chrome, so a single threshold at headerHeight swallowed
+       .kb-galaxy__back at y 15-59. Aiming for that button crossed the
+       threshold first, the header dropped over it, and the pointer could
+       never reach it — the button was dead to the mouse while still working
+       for Tab and Esc. Arming only at the very top edge keeps the button
+       clear; the wider release threshold then keeps the header in place while
+       the pointer travels down into it. */
+    var ARM_BAND = 10;
+
     function update() {
       frame = 0;
       var headerHeight = header.getBoundingClientRect().height;
+      var revealed = header.classList.contains('kb-galaxy-header--revealed');
       var pastCanvas = host.getBoundingClientRect().bottom <= headerHeight;
       var focusWithin = header.contains(document.activeElement);
-      var pointerNearTop = pointerY !== null && pointerY <= headerHeight;
+      var band = revealed ? headerHeight : ARM_BAND;
+      var pointerNearTop = pointerY !== null && pointerY <= band;
       header.classList.toggle(
         'kb-galaxy-header--revealed',
         pastCanvas || focusWithin || pointerNearTop
@@ -532,10 +544,22 @@
             changeLevel(zoomState, entry, true, true);
           });
         } else if (node.article) {
+          /* Dim the plate behind the picked star while the page transition
+             fades out, so leaving the galaxy reads as travelling into that
+             article rather than as the map vanishing. */
+          anchor.addEventListener('click', function (event) {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
+                event.shiftKey || event.altKey) return;
+            host.classList.add('is-selecting');
+            anchor.classList.add('kb-galaxy-node--diving');
+          });
+          /* Space activates the anchor itself. Assigning location.href here
+             forced a full document load and dropped out of navigation.instant,
+             which Enter on the same star never did. */
           anchor.addEventListener('keydown', function (event) {
             if (event.key !== ' ') return;
             event.preventDefault();
-            window.location.href = anchor.href;
+            anchor.click();
           });
         }
       });

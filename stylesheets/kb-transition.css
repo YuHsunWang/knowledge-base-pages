@@ -1,0 +1,66 @@
+/* 靛與朱 — navigation transition.
+ *
+ * Opacity only. Nothing here may change size, position or flow: the galaxy
+ * pages settle their geometry at first paint (kb-galaxy.css) and any animated
+ * box would put the layout shift straight back.
+ */
+
+[data-md-component="main"] {
+  will-change: opacity;
+}
+
+html.kb-nav-out [data-md-component="main"] {
+  opacity: 0;
+  transition: opacity 120ms ease-in;
+}
+
+@keyframes kb-nav-arrive {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+[data-md-component="main"].kb-nav-in {
+  animation: kb-nav-arrive 180ms ease-out;
+}
+
+/* Diving into a star: the plate dims behind the article node that was picked,
+   so the fade-out reads as travel rather than as the page giving up. Reuses
+   the is-selecting plate treatment that level changes already use. */
+.kb-world.is-selecting .kb-galaxy-node--diving {
+  opacity: 1;
+}
+
+.kb-galaxy-node--diving {
+  z-index: 3;
+  transform: scale(1.35);
+  transition: transform 220ms cubic-bezier(0.2, 0.76, 0.2, 1);
+}
+
+.kb-galaxy-node--diving .kb-galaxy-node__halo {
+  opacity: 0.9;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.kb-galaxy-node--diving .kb-galaxy-node__label {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.kb-nav-out [data-md-component="main"] {
+    opacity: 1;
+    transition: none;
+  }
+
+  [data-md-component="main"].kb-nav-in {
+    animation: none;
+  }
+
+  .kb-galaxy-node--diving {
+    transform: none;
+    transition: none;
+  }
+
+  .kb-galaxy-node--diving .kb-galaxy-node__halo {
+    transform: translate(-50%, -50%);
+  }
+}

@@ -125,8 +125,8 @@
    "note": "介紹開源本機 AI 路由器 9Router：格式翻譯、三層 Fallback 路由與 Token 壓縮（RTK），並說明 Claude Code/Cursor 等整合設定。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -223,8 +223,8 @@
    "note": "RAG 完整指南續篇：比較 Naive/Advanced/Agentic/GraphRAG/Adaptive RAG 架構光譜、GraphRAG 家族、混合檢索與 query 轉換技巧及評估指標。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -356,8 +356,8 @@
    "note": "整理 Anthropic 官方文件：Agent Skills 漸進揭露架構（L1-L3）、官方 Document Skills（PPTX/XLSX/DOCX/PDF）用法與跨平台差異、第三方 skill 安全提醒。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -381,8 +381,8 @@
    "note": "介紹 Claude Code skill Caveman：用穴居人語氣壓縮 agent 輸出約 65% token，涵蓋機制、指令與安裝方式。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -416,8 +416,8 @@
    "note": "整理自 multica-ai/andrej-karpathy-skills 的 CLAUDE.md，作為 coding agent 執行程式任務時的行為準則參考。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -441,8 +441,8 @@
    "note": "對比 Claude Code 三個紀律框架 Superpowers、GSD、gstack 各自約束的軸線（流程/環境/角色）與疊用方式。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -471,8 +471,8 @@
    "note": "將 vault-specific CLAUDE.md 整理成公開筆記，說明如何用 AI 維護 Obsidian / LLM Wiki。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -628,8 +628,8 @@
    "note": "整理 embedding 模型選型（MTEB 評測）、向量資料庫比較（Pinecone/Weaviate/Milvus/Qdrant）與 HNSW/IVF 等 ANN 索引取捨。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -814,8 +814,8 @@
    "note": "介紹 Claude Code skill MCP Builder：用四階段工作流（研究規劃、實作、審查、建評估）引導蓋出生產級 MCP Server。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -839,8 +839,8 @@
    "note": "MCP 生態系概念地圖：Host/Client/Server 三方角色、Tools/Resources/Prompts 三種 primitive、Local vs Remote 傳輸與信任邊界。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -898,8 +898,8 @@
    "note": "分享我目前用來讓 Claude 維護 Obsidian / LLM Wiki 的 vault-specific CLAUDE.md 原文。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -923,8 +923,8 @@
    "note": "介紹 Prompt Caching 原理：前綴比對規則、Anthropic 與 OpenAI 做法比較、精確定價數字，及會悄悄破壞快取的常見坑。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
@@ -1143,8 +1143,8 @@
    "note": "介紹 Claude Code skill 框架 Superpowers：七階段強制工作流（Brainstorm 到 Finish Branch）、Markdown 化的鐵律機制與已知限制。",
    "fresh": {
     "state": "fresh",
-    "days": 29,
-    "label": "每季複查｜2026-08-08 更新｜63 天內有效"
+    "days": 30,
+    "label": "每季複查｜2026-08-08 更新｜62 天內有效"
    },
    "backlinks": [
     {
