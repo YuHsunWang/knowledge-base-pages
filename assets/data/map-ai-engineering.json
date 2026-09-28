@@ -72,7 +72,12 @@
     "ai-agent-harness-engineering",
     "multi-agent-orchestration",
     "omp-remote-coding-agent-guide",
-    "omp-cheat-sheet"
+    "omp-models-and-daily-coding",
+    "omp-collab-remote-control",
+    "omp-config-permissions-security",
+    "omp-mobile-notifications-workflow",
+    "omp-cheat-sheet",
+    "omp-cheat-sheet-web"
    ]
   },
   {
@@ -913,35 +918,16 @@
   },
   {
    "id": "omp-cheat-sheet",
-   "label": "OMP 指令速查表",
+   "label": "速查表",
    "href": "omp-cheat-sheet/",
-   "step": "7",
+   "step": null,
    "meta": [
     [
      "首次發布",
      "2026-09-29"
     ]
    ],
-   "note": "Oh My Pi（OMP）安裝、模型、Session、Collab 遠端控制、設定與權限的常用指令，一頁查完。",
-   "fresh": {
-    "state": "fresh",
-    "days": -1,
-    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
-   },
-   "backlinks": []
-  },
-  {
-   "id": "omp-remote-coding-agent-guide",
-   "label": "OMP 遠端 Coding Agent 指南",
-   "href": "omp-remote-coding-agent-guide/",
-   "step": "6",
-   "meta": [
-    [
-     "首次發布",
-     "2026-09-29"
-    ]
-   ],
-   "note": "以私人筆電作為 OMP Host，設定模型、Collab 遠端控制、工具權限與手機通知的實作教學。",
+   "note": "在私人筆電上操作 Oh My Pi（OMP）的常用指令：安裝、模型、Session、開啟 Collab、設定與權限，一頁查完。",
    "fresh": {
     "state": "fresh",
     "days": -1,
@@ -949,8 +935,293 @@
    },
    "backlinks": [
     {
-     "label": "OMP 指令速查表",
+     "label": "OMP 速查表（網頁）",
+     "href": "omp-cheat-sheet-web/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（3/5）：Collab 遠端控制",
+     "href": "omp-collab-remote-control/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（4/5）：設定、權限與安全",
+     "href": "omp-config-permissions-security/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（5/5）：手機通知與日常流程",
+     "href": "omp-mobile-notifications-workflow/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（2/5）：模型角色與日常 Coding",
+     "href": "omp-models-and-daily-coding/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（1/5）：概念、架構與安裝",
+     "href": "omp-remote-coding-agent-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "omp-cheat-sheet-web",
+   "label": "速查表",
+   "href": "omp-cheat-sheet-web/",
+   "step": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "從其他電腦或手機的瀏覽器操作 Oh My Pi（OMP）：加入 Collab Session、批准 Shell、常用 Prompt 與安全提醒，一頁查完。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "OMP 指令速查表（本機）",
      "href": "omp-cheat-sheet/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（3/5）：Collab 遠端控制",
+     "href": "omp-collab-remote-control/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（4/5）：設定、權限與安全",
+     "href": "omp-config-permissions-security/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（5/5）：手機通知與日常流程",
+     "href": "omp-mobile-notifications-workflow/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（2/5）：模型角色與日常 Coding",
+     "href": "omp-models-and-daily-coding/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（1/5）：概念、架構與安裝",
+     "href": "omp-remote-coding-agent-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "omp-collab-remote-control",
+   "label": "Collab 遠端控制",
+   "href": "omp-collab-remote-control/",
+   "step": "3",
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "OMP 遠端 Coding Agent 系列第 3 篇：用 Collab 從其他電腦與手機控制筆電上的 OMP，含指令、自動啟動與多專案。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "OMP 速查表（網頁）",
+     "href": "omp-cheat-sheet-web/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（4/5）：設定、權限與安全",
+     "href": "omp-config-permissions-security/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（5/5）：手機通知與日常流程",
+     "href": "omp-mobile-notifications-workflow/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（2/5）：模型角色與日常 Coding",
+     "href": "omp-models-and-daily-coding/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（1/5）：概念、架構與安裝",
+     "href": "omp-remote-coding-agent-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "omp-config-permissions-security",
+   "label": "設定、權限與安全",
+   "href": "omp-config-permissions-security/",
+   "step": "4",
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "OMP 遠端 Coding Agent 系列第 4 篇：Approval Mode、config.yml、AGENTS.md、專案設定、自訂 Provider 與 API Key 安全。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "OMP 遠端 Coding Agent（3/5）：Collab 遠端控制",
+     "href": "omp-collab-remote-control/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（5/5）：手機通知與日常流程",
+     "href": "omp-mobile-notifications-workflow/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（2/5）：模型角色與日常 Coding",
+     "href": "omp-models-and-daily-coding/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（1/5）：概念、架構與安裝",
+     "href": "omp-remote-coding-agent-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "omp-mobile-notifications-workflow",
+   "label": "手機通知與日常流程",
+   "href": "omp-mobile-notifications-workflow/",
+   "step": "5",
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "OMP 遠端 Coding Agent 系列第 5 篇：用 Extension 與 ntfy 推送手機通知，以及從早到晚的日常操作流程。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "OMP 遠端 Coding Agent（3/5）：Collab 遠端控制",
+     "href": "omp-collab-remote-control/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（4/5）：設定、權限與安全",
+     "href": "omp-config-permissions-security/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（2/5）：模型角色與日常 Coding",
+     "href": "omp-models-and-daily-coding/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（1/5）：概念、架構與安裝",
+     "href": "omp-remote-coding-agent-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "omp-models-and-daily-coding",
+   "label": "模型角色與日常 Coding",
+   "href": "omp-models-and-daily-coding/",
+   "step": "2",
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "OMP 遠端 Coding Agent 系列第 2 篇：Model Roles、模型切換、Thinking Level、Prompt 寫法與 Session 管理。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "OMP 遠端 Coding Agent（3/5）：Collab 遠端控制",
+     "href": "omp-collab-remote-control/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（4/5）：設定、權限與安全",
+     "href": "omp-config-permissions-security/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（5/5）：手機通知與日常流程",
+     "href": "omp-mobile-notifications-workflow/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（1/5）：概念、架構與安裝",
+     "href": "omp-remote-coding-agent-guide/",
+     "section": "ai"
+    }
+   ]
+  },
+  {
+   "id": "omp-remote-coding-agent-guide",
+   "label": "概念、架構與安裝",
+   "href": "omp-remote-coding-agent-guide/",
+   "step": "1",
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "OMP 遠端 Coding Agent 系列第 1 篇：為什麼把 Agent 放在私人筆電、整體架構、安裝與第一次設定。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "OMP 指令速查表（本機）",
+     "href": "omp-cheat-sheet/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（3/5）：Collab 遠端控制",
+     "href": "omp-collab-remote-control/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（4/5）：設定、權限與安全",
+     "href": "omp-config-permissions-security/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（5/5）：手機通知與日常流程",
+     "href": "omp-mobile-notifications-workflow/",
+     "section": "ai"
+    },
+    {
+     "label": "OMP 遠端 Coding Agent（2/5）：模型角色與日常 Coding",
+     "href": "omp-models-and-daily-coding/",
      "section": "ai"
     }
    ]
@@ -1320,7 +1591,7 @@
     "label": "Agent 工程",
     "href": "#agent-engineering",
     "description": "讓模型會用工具、能自主",
-    "count": 7,
+    "count": 12,
     "members": [
      "structured-output-and-tool-use",
      "ai-agent-security-and-permissions",
@@ -1328,7 +1599,12 @@
      "ai-agent-harness-engineering",
      "multi-agent-orchestration",
      "omp-remote-coding-agent-guide",
-     "omp-cheat-sheet"
+     "omp-models-and-daily-coding",
+     "omp-collab-remote-control",
+     "omp-config-permissions-security",
+     "omp-mobile-notifications-workflow",
+     "omp-cheat-sheet",
+     "omp-cheat-sheet-web"
     ],
     "x": 0.82,
     "y": 0.2,

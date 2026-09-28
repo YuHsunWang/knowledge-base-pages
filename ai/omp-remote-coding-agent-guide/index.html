@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="以私人筆電作為 OMP Host，設定模型、Collab 遠端控制、工具權限與手機通知的實作教學。">
+        <meta name="description" content="OMP 遠端 Coding Agent 系列第 1 篇：為什麼把 Agent 放在私人筆電、整體架構、安裝與第一次設定。">
       
       
       
@@ -13,7 +13,7 @@
         <link rel="prev" href="../multi-agent-orchestration/">
       
       
-        <link rel="next" href="../omp-cheat-sheet/">
+        <link rel="next" href="../omp-models-and-daily-coding/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>Oh My Pi（OMP）遠端 Coding Agent 完整設定與使用指南 - Shane's Knowledge Base</title>
+        <title>OMP 遠端 Coding Agent（1/5）：概念、架構與安裝 - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Oh My Pi（OMP）遠端 Coding Agent 完整設定與使用指南 - Shane's Knowledge Base">
-<meta property="og:description" content="以私人筆電作為 OMP Host，設定模型、Collab 遠端控制、工具權限與手機通知的實作教學。">
+<meta property="og:title" content="OMP 遠端 Coding Agent（1/5）：概念、架構與安裝 - Shane's Knowledge Base">
+<meta property="og:description" content="OMP 遠端 Coding Agent 系列第 1 篇：為什麼把 Agent 放在私人筆電、整體架構、安裝與第一次設定。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/omp-remote-coding-agent-guide.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/omp-remote-coding-agent-guide/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Oh My Pi（OMP）遠端 Coding Agent 完整設定與使用指南 - Shane's Knowledge Base">
-<meta property="twitter:description" content="以私人筆電作為 OMP Host，設定模型、Collab 遠端控制、工具權限與手機通知的實作教學。">
+<meta property="twitter:title" content="OMP 遠端 Coding Agent（1/5）：概念、架構與安裝 - Shane's Knowledge Base">
+<meta property="twitter:description" content="OMP 遠端 Coding Agent 系列第 1 篇：為什麼把 Agent 放在私人筆電、整體架構、安裝與第一次設定。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/omp-remote-coding-agent-guide.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oh-my-piomp-coding-agent" class="md-skip">
+        <a href="#omp-coding-agent15" class="md-skip">
           跳轉到
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Oh My Pi（OMP）遠端 Coding Agent 完整設定與使用指南
+              OMP 遠端 Coding Agent（1/5）：概念、架構與安裝
             
           </span>
         </div>
@@ -988,8 +988,6 @@
       
         
       
-        
-      
     
     
     
@@ -1186,6 +1184,76 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · OMP 遠端 Coding Agent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6 · OMP 遠端 Coding Agent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -1201,7 +1269,7 @@
   <span class="md-ellipsis">
     
   
-    6 · OMP 遠端 Coding Agent 指南
+    1 · 概念、架構與安裝
   
 
     
@@ -1219,7 +1287,7 @@
   <span class="md-ellipsis">
     
   
-    6 · OMP 遠端 Coding Agent 指南
+    1 · 概念、架構與安裝
   
 
     
@@ -1284,15 +1352,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-omp" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 安裝 OMP
+        2. 各裝置的分工
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 安裝 OMP">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 完整架構
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-omp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 安裝 OMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 安裝 OMP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1323,32 +1413,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 第一次初始化
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Provider 登入
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. 查看可用模型
+        5. 第一次初始化
       
     </span>
   </a>
@@ -1356,10 +1424,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-omp-model-roles" class="md-nav__link">
+  <a href="#6-provider" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. OMP 的 Model Roles
+        6. Provider 登入
       
     </span>
   </a>
@@ -1370,46 +1438,7 @@
   <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. 模型切換
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. 模型切換">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#role-cycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Role Cycle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        模型選擇策略
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-thinking-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Thinking Level
+        7. 查看可用模型
       
     </span>
   </a>
@@ -1417,419 +1446,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. 基本使用
+        8. 第一次設定建議順序
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. 建議的 Prompt 模板
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Session 保存與繼續
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Collab：遠端控制
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. Collab：遠端控制">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collab 控制流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        13. 其他電腦使用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        14. 手機使用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#15-collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        15. Collab 指令
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#16-collab-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        16. Collab URL 是敏感憑證
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#17-collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        17. 自動開啟 Collab
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#18-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        18. Host 筆電必須保持在線
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#19-approval-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        19. Approval Mode
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="19. Approval Mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        更細設定
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#20-configyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        20. 推薦 config.yml
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#21-agentsmd-omp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        21. AGENTS.md：讓 OMP 記住專案規則
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#22-project-specific-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        22. Project-specific Config
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#23-openai-compatible-provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        23. 自訂 OpenAI-compatible Provider
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#24-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        24. API Key 安全
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#25-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        25. Notification 的兩個層次
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="25. Notification 的兩個層次">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-omp-ui-terminal-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. OMP UI / Terminal Notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-push-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. 真正的手機 Push Notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#26-push-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        26. 手機 Push Notification 架構
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="26. 手機 Push Notification 架構">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        完成任務後推送手機通知
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#27-omp-extension" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        27. OMP Extension
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#28-ntfy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        28. ntfy 通知概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#29-extension" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        29. 手機通知 Extension 範例骨架
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#30-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        30. 推薦日常 Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="30. 推薦日常 Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        早上
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        換到其他電腦
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        開始工作
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        中午離開電腦
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        31. 多專案使用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#32-omp-claude-code-web" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        32. OMP 與 Claude Code Web 的差異
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        33. 建議最終架構
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        34. 第一次設定建議順序
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="34. 第一次設定建議順序">
+    <nav class="md-nav" aria-label="8. 第一次設定建議順序">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1948,54 +1573,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#35-checklist" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        35. 安全 Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#36-agentsmd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        36. 推薦的 AGENTS.md
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#38" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        38. 最終建議
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#39" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        39. 官方參考資料
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#37" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        37. 日常操作速查表
+        參考資料
       
     </span>
   </a>
@@ -2018,14 +1599,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-cheat-sheet/" class="md-nav__link">
+      <a href="../omp-models-and-daily-coding/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    7 · OMP 指令速查表
+    2 · 模型角色與日常 Coding
   
 
     
@@ -2034,6 +1615,154 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omp-collab-remote-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · Collab 遠端控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omp-config-permissions-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 設定、權限與安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omp-mobile-notifications-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · 手機通知與日常流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omp-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    速查表（本機）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omp-cheat-sheet-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    速查表（網頁）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -4367,15 +4096,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-omp" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 安裝 OMP
+        2. 各裝置的分工
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 安裝 OMP">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 完整架構
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-omp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 安裝 OMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 安裝 OMP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4406,32 +4157,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 第一次初始化
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Provider 登入
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. 查看可用模型
+        5. 第一次初始化
       
     </span>
   </a>
@@ -4439,10 +4168,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-omp-model-roles" class="md-nav__link">
+  <a href="#6-provider" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. OMP 的 Model Roles
+        6. Provider 登入
       
     </span>
   </a>
@@ -4453,46 +4182,7 @@
   <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. 模型切換
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. 模型切換">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#role-cycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Role Cycle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        模型選擇策略
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-thinking-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Thinking Level
+        7. 查看可用模型
       
     </span>
   </a>
@@ -4500,419 +4190,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. 基本使用
+        8. 第一次設定建議順序
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. 建議的 Prompt 模板
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Session 保存與繼續
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. Collab：遠端控制
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. Collab：遠端控制">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collab 控制流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        13. 其他電腦使用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        14. 手機使用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#15-collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        15. Collab 指令
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#16-collab-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        16. Collab URL 是敏感憑證
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#17-collab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        17. 自動開啟 Collab
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#18-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        18. Host 筆電必須保持在線
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#19-approval-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        19. Approval Mode
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="19. Approval Mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        更細設定
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#20-configyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        20. 推薦 config.yml
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#21-agentsmd-omp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        21. AGENTS.md：讓 OMP 記住專案規則
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#22-project-specific-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        22. Project-specific Config
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#23-openai-compatible-provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        23. 自訂 OpenAI-compatible Provider
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#24-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        24. API Key 安全
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#25-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        25. Notification 的兩個層次
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="25. Notification 的兩個層次">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-omp-ui-terminal-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. OMP UI / Terminal Notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-push-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. 真正的手機 Push Notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#26-push-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        26. 手機 Push Notification 架構
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="26. 手機 Push Notification 架構">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        完成任務後推送手機通知
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#27-omp-extension" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        27. OMP Extension
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#28-ntfy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        28. ntfy 通知概念
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#29-extension" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        29. 手機通知 Extension 範例骨架
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#30-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        30. 推薦日常 Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="30. 推薦日常 Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        早上
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        換到其他電腦
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        開始工作
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        中午離開電腦
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        31. 多專案使用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#32-omp-claude-code-web" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        32. OMP 與 Claude Code Web 的差異
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        33. 建議最終架構
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        34. 第一次設定建議順序
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="34. 第一次設定建議順序">
+    <nav class="md-nav" aria-label="8. 第一次設定建議順序">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5031,54 +4317,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#35-checklist" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        35. 安全 Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#36-agentsmd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        36. 推薦的 AGENTS.md
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#38" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        38. 最終建議
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#39" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        39. 官方參考資料
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#37" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        37. 日常操作速查表
+        參考資料
       
     </span>
   </a>
@@ -5158,6 +4400,24 @@
   
 
       
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    6 · OMP 遠端 Coding Agent
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
     </ol>
   </nav>
 
@@ -5193,12 +4453,24 @@
 
 
 
-<h1 id="oh-my-piomp-coding-agent">Oh My Pi（OMP）遠端 Coding Agent 完整設定與使用指南<a class="headerlink" href="#oh-my-piomp-coding-agent" title="Permanent link">¶</a></h1>
+<h1 id="omp-coding-agent15">OMP 遠端 Coding Agent（1/5）：概念、架構與安裝<a class="headerlink" href="#omp-coding-agent15" title="Permanent link">¶</a></h1>
 <h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>私人筆電執行 OMP，其他電腦與手機透過 Collab 在瀏覽器控制同一工作階段；Shell、檔案修改與測試仍在筆電執行。</p>
+<p>把 OMP 跑在私人筆電，其他電腦和手機只用瀏覽器控制它。本篇說明這個架構，並完成安裝、登入與模型確認。</p>
 <blockquote>
 <p>資料基準：2026-09。執行前請以 <code>omp --help</code>、<code>omp config list</code> 與 <code>omp models</code> 核對目前版本支援的選項。</p>
 </blockquote>
+<details class="info">
+<summary>系列目錄</summary>
+<ol>
+<li><a href="./">概念、架構與安裝</a></li>
+<li><a href="../omp-models-and-daily-coding/">模型角色與日常 Coding</a></li>
+<li><a href="../omp-collab-remote-control/">Collab 遠端控制</a></li>
+<li><a href="../omp-config-permissions-security/">設定、權限與安全</a></li>
+<li><a href="../omp-mobile-notifications-workflow/">手機通知與日常流程</a></li>
+<li><a href="../omp-cheat-sheet/">指令速查表（本機）</a></li>
+<li><a href="../omp-cheat-sheet-web/">指令速查表（網頁）</a></li>
+</ol>
+</details>
 <h2 id="1">1. 使用情境<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
 <p>這套設定的分工：</p>
 <ul>
@@ -5224,877 +4496,142 @@
 <p>在他人管理的電腦或網路上使用時，必須遵守該環境的 IT、安全與資料處理政策。不應使用 OMP Collab 來規避明確禁止的外部工具、資料外傳限制或安全控制。</p>
 </div>
 <hr>
-<h2 id="2-omp">2. 安裝 OMP<a class="headerlink" href="#2-omp" title="Permanent link">¶</a></h2>
+<h2 id="2">2. 各裝置的分工<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>私人筆電
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>= 唯一真正的 Dev Host
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>其他電腦
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>= Browser Controller
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>手機
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>= Browser Controller + Push Notification
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>OMP
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>= Local Coding Agent
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Collab
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>= Remote Control Channel
+</span></code></pre></div>
+<hr>
+<h2 id="3">3. 完整架構<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/06-final-architecture.png" data-desc-position="bottom"><img alt="OMP 遠端 Coding Agent 最終架構" src="../../assets/diagrams/omp-remote/06-final-architecture.png"></a></p>
+<p><em>圖 2：OMP 遠端 Coding Agent 最終架構</em></p>
+<hr>
+<h2 id="4-omp">4. 安裝 OMP<a class="headerlink" href="#4-omp" title="Permanent link">¶</a></h2>
 <h3 id="macos-linux">macOS / Linux<a class="headerlink" href="#macos-linux" title="Permanent link">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omp.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omp.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
 <p>或使用 Homebrew：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>install<span class="w"> </span>can1357/tap/omp
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew<span class="w"> </span>install<span class="w"> </span>can1357/tap/omp
 </span></code></pre></div>
 <p>安裝完成：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>omp<span class="w"> </span>--version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>omp<span class="w"> </span>--version
 </span></code></pre></div>
 <p>查看 CLI：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>omp<span class="w"> </span>--help
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>omp<span class="w"> </span>--help
 </span></code></pre></div>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3>
 <p>PowerShell：</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">omp</span><span class="p">.</span><span class="n">sh</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">omp</span><span class="p">.</span><span class="n">sh</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
 </span></code></pre></div>
 <hr>
-<h2 id="3">3. 第一次初始化<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<h2 id="5">5. 第一次初始化<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
 <p>執行：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>omp<span class="w"> </span>setup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>omp<span class="w"> </span>setup
 </span></code></pre></div>
 <p>OMP 主要的全域設定位置通常是：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>~/.omp/agent/config.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~/.omp/agent/config.yml
 </span></code></pre></div>
 <p>自訂模型 / Provider：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~/.omp/agent/models.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>~/.omp/agent/models.yml
 </span></code></pre></div>
 <p>專案設定可放：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>your-project/
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>└── .omp/
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    └── config.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>your-project/
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>└── .omp/
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    └── config.yml
 </span></code></pre></div>
 <p>查看設定：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>omp<span class="w"> </span>config<span class="w"> </span>list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>omp<span class="w"> </span>config<span class="w"> </span>list
 </span></code></pre></div>
 <p>查單一設定：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>omp<span class="w"> </span>config<span class="w"> </span>get<span class="w"> </span>tools.approvalMode
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>omp<span class="w"> </span>config<span class="w"> </span>get<span class="w"> </span>tools.approvalMode
 </span></code></pre></div>
 <p>查看目前 Agent 設定路徑：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>omp<span class="w"> </span>config<span class="w"> </span>path
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>omp<span class="w"> </span>config<span class="w"> </span>path
 </span></code></pre></div>
 <hr>
-<h2 id="4-provider">4. Provider 登入<a class="headerlink" href="#4-provider" title="Permanent link">¶</a></h2>
+<h2 id="6-provider">6. Provider 登入<a class="headerlink" href="#6-provider" title="Permanent link">¶</a></h2>
 <p>最簡單：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>omp<span class="w"> </span>login
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>omp<span class="w"> </span>login
 </span></code></pre></div>
 <p>再從選單選擇 Provider。</p>
 <p>例如：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>omp<span class="w"> </span>login<span class="w"> </span>anthropic
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>omp<span class="w"> </span>login<span class="w"> </span>anthropic
 </span></code></pre></div>
 <p>或：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>omp<span class="w"> </span>login<span class="w"> </span>openai
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>omp<span class="w"> </span>login<span class="w"> </span>openai
 </span></code></pre></div>
 <p>實際可用 Provider 請以：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>omp<span class="w"> </span>login
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>omp<span class="w"> </span>login
 </span></code></pre></div>
 <p>目前版本列出的項目為準。</p>
 <hr>
-<h2 id="5">5. 查看可用模型<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
+<h2 id="7">7. 查看可用模型<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
 <p>列出模型：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>omp<span class="w"> </span>models
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>omp<span class="w"> </span>models
 </span></code></pre></div>
 <p>尋找 Claude：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>omp<span class="w"> </span>models<span class="w"> </span>find<span class="w"> </span>claude
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>omp<span class="w"> </span>models<span class="w"> </span>find<span class="w"> </span>claude
 </span></code></pre></div>
 <p>尋找 GPT：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>omp<span class="w"> </span>models<span class="w"> </span>find<span class="w"> </span>gpt
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>omp<span class="w"> </span>models<span class="w"> </span>find<span class="w"> </span>gpt
 </span></code></pre></div>
 <p>尋找 Gemini：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>omp<span class="w"> </span>models<span class="w"> </span>find<span class="w"> </span>gemini
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>omp<span class="w"> </span>models<span class="w"> </span>find<span class="w"> </span>gemini
 </span></code></pre></div>
 <p>使用 OMP 時，不建議直接照抄網路文章中的模型名稱。</p>
 <p>應先執行：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>omp<span class="w"> </span>models
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>omp<span class="w"> </span>models
 </span></code></pre></div>
 <p>再以目前帳號與 Provider 實際可用的模型名稱設定。</p>
 <hr>
-<h2 id="6-omp-model-roles">6. OMP 的 Model Roles<a class="headerlink" href="#6-omp-model-roles" title="Permanent link">¶</a></h2>
-<p>OMP 可按工作類型切換模型。常見角色：</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>default</code></td>
-<td>日常主要 Coding</td>
-</tr>
-<tr>
-<td><code>smol</code></td>
-<td>快速、低成本工作</td>
-</tr>
-<tr>
-<td><code>slow</code></td>
-<td>深度推理、疑難除錯</td>
-</tr>
-<tr>
-<td><code>plan</code></td>
-<td>規劃與架構分析</td>
-</tr>
-<tr>
-<td><code>vision</code></td>
-<td>圖片 / 視覺相關</td>
-</tr>
-<tr>
-<td><code>advisor</code></td>
-<td>第二模型 Review</td>
-</tr>
-<tr>
-<td><code>task</code></td>
-<td>Subagent 工作</td>
-</tr>
-<tr>
-<td><code>designer</code></td>
-<td>設計相關</td>
-</tr>
-</tbody>
-</table>
-<p>範例：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">modelRoles</span><span class="p">:</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anthropic/claude-sonnet-4-5</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nt">smol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai/gpt-4.1-mini</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">slow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anthropic/claude-opus-4-5:high</span>
-</span></code></pre></div>
-<blockquote>
-<p>上述模型名稱僅示範設定格式；實際名稱請以 <code>omp models</code> 的清單為準。</p>
-</blockquote>
-<hr>
-<h2 id="7">7. 模型切換<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
-<p>進入 OMP：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>omp
-</span></code></pre></div>
-<p>在互動介面輸入：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>/model
-</span></code></pre></div>
-<p>也可在啟動時指定：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>omp<span class="w"> </span>--model<span class="w"> </span>&lt;provider&gt;/&lt;model&gt;
-</span></code></pre></div>
-<p>或：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>omp<span class="w"> </span>--model<span class="w"> </span>slow
-</span></code></pre></div>
-<p>或使用 Role 參照寫法：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>omp<span class="w"> </span>--model<span class="w"> </span>@slow
-</span></code></pre></div>
-<h3 id="role-cycle">Role Cycle<a class="headerlink" href="#role-cycle" title="Permanent link">¶</a></h3>
-<p>設定：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">cycleOrder</span><span class="p">:</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">smol</span>
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">slow</span>
-</span></code></pre></div>
-<p>設定後可在這三個 Role 間切換。</p>
-<h3 id="_3">模型選擇策略<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/02-model-role-strategy.png" data-desc-position="bottom"><img alt="模型角色切換策略" src="../../assets/diagrams/omp-remote/02-model-role-strategy.png"></a></p>
-<p><em>圖 2：模型角色切換策略</em></p>
-<p>可依工作量選擇 Role：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>smol
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>→ 搜尋
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>→ 小改動
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>→ 低成本 subtask
-</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>
-</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>default
-</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>→ 日常 Coding
-</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>→ Feature 開發
-</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>→ 一般 Debug
-</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>
-</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>slow
-</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>→ Architecture
-</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>→ Difficult debugging
-</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>→ Security analysis
-</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>
-</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>plan
-</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>→ 需求拆解
-</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>→ Implementation plan
-</span></code></pre></div>
-<hr>
-<h2 id="8-thinking-level">8. Thinking Level<a class="headerlink" href="#8-thinking-level" title="Permanent link">¶</a></h2>
-<p>如果模型支援 reasoning：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>omp<span class="w"> </span>--thinking<span class="w"> </span>high
-</span></code></pre></div>
-<p>常見等級：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>off
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>minimal
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>low
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>medium
-</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>high
-</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>xhigh
-</span></code></pre></div>
-<p>是否真正支援取決於 Provider / Model。</p>
-<hr>
-<h2 id="9">9. 基本使用<a class="headerlink" href="#9" title="Permanent link">¶</a></h2>
-<p>進入專案：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/my-project
-</span></code></pre></div>
-<p>啟動：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>omp
-</span></code></pre></div>
-<p>範例 Prompt：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>先閱讀整個專案架構。
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
-</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>不要修改任何檔案。
-</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>
-</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>請說明：
-</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>1. frontend
-</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>2. backend
-</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>3. database
-</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>4. API
-</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>5. authentication
-</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>
-</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>彼此之間的關係。
-</span></code></pre></div>
-<p>Debug：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>找出 login API 為什麼偶爾會出現 500。
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>先：
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>1. 重現
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>2. 找 root cause
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>3. 分析影響範圍
-</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>
-</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>在我確認之前不要修改程式。
-</span></code></pre></div>
-<p>修改：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>執行剛才的修正。
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>完成後：
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>1. 跑相關 tests
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>2. 顯示失敗測試
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>3. 顯示 git diff summary
-</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>4. 不要 commit
-</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>5. 不要 push
-</span></code></pre></div>
-<hr>
-<h2 id="10-prompt">10. 建議的 Prompt 模板<a class="headerlink" href="#10-prompt" title="Permanent link">¶</a></h2>
-<p>不要只輸入：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>fix bug
-</span></code></pre></div>
-<p>推薦：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>分析這個 bug。
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>要求：
-</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>
-</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>1. 先重現問題
-</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>2. 找 root cause
-</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>3. 在修改前先說明計畫
-</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>4. 列出可能受影響檔案
-</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>5. 修改後跑 tests
-</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>6. 檢查 regression
-</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>7. 最後輸出 git diff summary
-</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>8. 不要 push
-</span></code></pre></div>
-<p>大型工作：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>orchestrate
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
-</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>完成 payment service refactor。
-</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
-</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>要求：
-</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>
-</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>1. 分析現有 architecture
-</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>2. 建立 implementation plan
-</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>3. 拆成適合平行處理的工作
-</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>4. 實作
-</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>5. 執行相關測試
-</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a>6. Review git diff
-</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>7. 不要 push
-</span></code></pre></div>
-<hr>
-<h2 id="11-session">11. Session 保存與繼續<a class="headerlink" href="#11-session" title="Permanent link">¶</a></h2>
-<p>正常啟動：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>omp
-</span></code></pre></div>
-<p>繼續最近 session：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>omp<span class="w"> </span>--continue
-</span></code></pre></div>
-<p>或：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>omp<span class="w"> </span>-c
-</span></code></pre></div>
-<p>從歷史 session 選：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>omp<span class="w"> </span>--resume
-</span></code></pre></div>
-<p>指定 session：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>omp<span class="w"> </span>--resume<span class="w"> </span>&lt;session-id&gt;
-</span></code></pre></div>
-<p>Fork：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>omp<span class="w"> </span>--fork<span class="w"> </span>&lt;session&gt;
-</span></code></pre></div>
-<hr>
-<h2 id="12-collab">12. Collab：遠端控制<a class="headerlink" href="#12-collab" title="Permanent link">¶</a></h2>
-<p>在私人筆電：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/my-project
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>omp
-</span></code></pre></div>
-<p>進入 OMP 後：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>/collab
-</span></code></pre></div>
-<p>OMP 會顯示：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Join from another terminal:
-</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>omp join "..."
-</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
-</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>Browser:
-</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>https://my.omp.sh/#...
-</span></code></pre></div>
-<p>OMP 也會顯示 QR Code。</p>
-<h3 id="collab">Collab 控制流程<a class="headerlink" href="#collab" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/03-collab-sequence.png" data-desc-position="bottom"><img alt="Collab 資料與控制流程" src="../../assets/diagrams/omp-remote/03-collab-sequence.png"></a></p>
-<p><em>圖 3：Collab 資料與控制流程</em></p>
-<p><strong>工具由私人筆電的 Host 執行。</strong></p>
-<hr>
-<h2 id="13">13. 其他電腦使用<a class="headerlink" href="#13" title="Permanent link">¶</a></h2>
-<p>其他電腦用瀏覽器開啟 Collab URL，無須安裝 OMP：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>https://my.omp.sh/#你的-session-key
-</span></code></pre></div>
-<p>例如：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>幫我查看目前 git status。
-</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
-</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>先不要修改任何東西。
-</span></code></pre></div>
-<p>實際流程：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>其他電腦 Browser
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>      ↓
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>OMP Collab
-</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>      ↓
-</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>私人筆電 OMP
-</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>      ↓
-</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>Git / Docker / Files / DB
-</span></code></pre></div>
-<hr>
-<h2 id="14">14. 手機使用<a class="headerlink" href="#14" title="Permanent link">¶</a></h2>
-<p>手機 Safari / Chrome 打開同一個 Collab URL。</p>
-<p>或者：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>/collab
-</span></code></pre></div>
-<p>後直接掃 QR Code。</p>
-<p>例如外出時：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>現在進度到哪？
-</span></code></pre></div>
-<p>或：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>分析目前失敗的 test。
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
-</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>先不要修改 database migration。
-</span></code></pre></div>
-<hr>
-<h2 id="15-collab">15. Collab 指令<a class="headerlink" href="#15-collab" title="Permanent link">¶</a></h2>
-<p>完整控制：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>/collab
-</span></code></pre></div>
-<p>唯讀：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>/collab view
-</span></code></pre></div>
-<p>狀態：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>/collab status
-</span></code></pre></div>
-<p>停止：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>/collab stop
-</span></code></pre></div>
-<p>Guest 離開：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>/leave
-</span></code></pre></div>
-<p>查看 Active Hosts：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>omp<span class="w"> </span>collab<span class="w"> </span>list
-</span></code></pre></div>
-<p>取得連結：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>omp<span class="w"> </span>collab<span class="w"> </span>link<span class="w"> </span>&lt;instanceId&gt;
-</span></code></pre></div>
-<p>唯讀連結：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>omp<span class="w"> </span>collab<span class="w"> </span>link<span class="w"> </span>&lt;instanceId&gt;<span class="w"> </span>--view
-</span></code></pre></div>
-<hr>
-<h2 id="16-collab-url">16. Collab URL 是敏感憑證<a class="headerlink" href="#16-collab-url" title="Permanent link">¶</a></h2>
-<div class="admonition danger">
-<p class="admonition-title">Collab URL 是敏感憑證</p>
-<p>Full-control Collab URL 必須當成 Password。</p>
-</div>
-<p>不要：</p>
-<ul>
-<li>貼到 Slack 公開頻道</li>
-<li>貼到 GitHub Issue</li>
-<li>放在公開 Notion</li>
-<li>放進 Repository</li>
-<li>寄到多人 Mailing List</li>
-</ul>
-<p>Full-control 使用者可能可以：</p>
-<ul>
-<li>發送 Prompt</li>
-<li>Interrupt Agent</li>
-<li>讓 Host 執行 Tool</li>
-<li>間接操作你的開發環境</li>
-</ul>
-<p>需要分享畫面時，優先：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>/collab view
-</span></code></pre></div>
-<hr>
-<h2 id="17-collab">17. 自動開啟 Collab<a class="headerlink" href="#17-collab" title="Permanent link">¶</a></h2>
-<p>設定 Full Control：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.autoStart<span class="w"> </span>control
-</span></code></pre></div>
-<p>唯讀：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.autoStart<span class="w"> </span>view
-</span></code></pre></div>
-<p>關閉：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.autoStart<span class="w"> </span>off
-</span></code></pre></div>
-<p>設定名稱：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.displayName<span class="w"> </span>Shane-Laptop
-</span></code></pre></div>
-<hr>
-<h2 id="18-host">18. Host 筆電必須保持在線<a class="headerlink" href="#18-host" title="Permanent link">¶</a></h2>
-<p>這套架構的必要條件：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>私人筆電
-</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>= 真正的 Agent Host
-</span></code></pre></div>
-<p>因此：</p>
-<table>
-<thead>
-<tr>
-<th>狀態</th>
-<th>可否遠端工作</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>筆電開機 + OMP 執行中</td>
-<td>可以</td>
-</tr>
-<tr>
-<td>OMP 關閉</td>
-<td>不行</td>
-</tr>
-<tr>
-<td>筆電睡眠</td>
-<td>通常不行</td>
-</tr>
-<tr>
-<td>筆電斷網</td>
-<td>不行</td>
-</tr>
-<tr>
-<td>筆電關機</td>
-<td>不行</td>
-</tr>
-</tbody>
-</table>
-<p>因此應調整：</p>
-<ul>
-<li>macOS / Windows Sleep</li>
-<li>Lid close 行為</li>
-<li>Network sleep</li>
-<li>Power settings</li>
-</ul>
-<hr>
-<h2 id="19-approval-mode">19. Approval Mode<a class="headerlink" href="#19-approval-mode" title="Permanent link">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">安全設定</p>
-<p>遠端使用尤其重要。請先確認工具核准模式，再開放遠端控制。</p>
-</div>
-<p>常見模式：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>always-ask
-</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>write
-</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>yolo
-</span></code></pre></div>
-<p>概念：</p>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th style="text-align: right;">Read</th>
-<th style="text-align: right;">Write</th>
-<th style="text-align: right;">Shell / Exec</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>always-ask</code></td>
-<td style="text-align: right;">自動</td>
-<td style="text-align: right;">問</td>
-<td style="text-align: right;">問</td>
-</tr>
-<tr>
-<td><code>write</code></td>
-<td style="text-align: right;">自動</td>
-<td style="text-align: right;">自動</td>
-<td style="text-align: right;">問</td>
-</tr>
-<tr>
-<td><code>yolo</code></td>
-<td style="text-align: right;">自動</td>
-<td style="text-align: right;">自動</td>
-<td style="text-align: right;">自動</td>
-</tr>
-</tbody>
-</table>
-<p>遠端操作推薦先使用：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>tools.approvalMode<span class="w"> </span>write
-</span></code></pre></div>
-<p>再視需要調整。</p>
-<h3 id="_4">更細設定<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="nt">tools</span><span class="p">:</span>
-</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="w">  </span><span class="nt">approvalMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
-</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="w">  </span><span class="nt">approval</span><span class="p">:</span>
-</span><span id="__span-71-4"><a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a><span class="w">    </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prompt</span>
-</span></code></pre></div>
-<p>這樣：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>讀檔
-</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>→ 自動
-</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>
-</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>寫檔
-</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>→ 自動
-</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a>
-</span><span id="__span-72-7"><a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a>Shell
-</span><span id="__span-72-8"><a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a>→ 要你確認
-</span></code></pre></div>
-<hr>
-<h2 id="20-configyml">20. 推薦 config.yml<a class="headerlink" href="#20-configyml" title="Permanent link">¶</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="nt">modelRoles</span><span class="p">:</span>
-</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_MAIN_MODEL</span>
-</span><span id="__span-73-3"><a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a><span class="w">  </span><span class="nt">smol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_FAST_CHEAP_MODEL</span>
-</span><span id="__span-73-4"><a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a><span class="w">  </span><span class="nt">slow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_REASONING_MODEL</span>
-</span><span id="__span-73-5"><a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a><span class="w">  </span><span class="nt">plan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_PLANNING_MODEL</span>
-</span><span id="__span-73-6"><a id="__codelineno-73-6" name="__codelineno-73-6" href="#__codelineno-73-6"></a>
-</span><span id="__span-73-7"><a id="__codelineno-73-7" name="__codelineno-73-7" href="#__codelineno-73-7"></a><span class="nt">cycleOrder</span><span class="p">:</span>
-</span><span id="__span-73-8"><a id="__codelineno-73-8" name="__codelineno-73-8" href="#__codelineno-73-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">smol</span>
-</span><span id="__span-73-9"><a id="__codelineno-73-9" name="__codelineno-73-9" href="#__codelineno-73-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
-</span><span id="__span-73-10"><a id="__codelineno-73-10" name="__codelineno-73-10" href="#__codelineno-73-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">slow</span>
-</span><span id="__span-73-11"><a id="__codelineno-73-11" name="__codelineno-73-11" href="#__codelineno-73-11"></a>
-</span><span id="__span-73-12"><a id="__codelineno-73-12" name="__codelineno-73-12" href="#__codelineno-73-12"></a><span class="nt">tools</span><span class="p">:</span>
-</span><span id="__span-73-13"><a id="__codelineno-73-13" name="__codelineno-73-13" href="#__codelineno-73-13"></a><span class="w">  </span><span class="nt">approvalMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
-</span><span id="__span-73-14"><a id="__codelineno-73-14" name="__codelineno-73-14" href="#__codelineno-73-14"></a><span class="w">  </span><span class="nt">approval</span><span class="p">:</span>
-</span><span id="__span-73-15"><a id="__codelineno-73-15" name="__codelineno-73-15" href="#__codelineno-73-15"></a><span class="w">    </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prompt</span>
-</span><span id="__span-73-16"><a id="__codelineno-73-16" name="__codelineno-73-16" href="#__codelineno-73-16"></a>
-</span><span id="__span-73-17"><a id="__codelineno-73-17" name="__codelineno-73-17" href="#__codelineno-73-17"></a><span class="nt">collab</span><span class="p">:</span>
-</span><span id="__span-73-18"><a id="__codelineno-73-18" name="__codelineno-73-18" href="#__codelineno-73-18"></a><span class="w">  </span><span class="nt">autoStart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">control</span>
-</span><span id="__span-73-19"><a id="__codelineno-73-19" name="__codelineno-73-19" href="#__codelineno-73-19"></a><span class="w">  </span><span class="nt">relayUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wss://my.omp.sh</span>
-</span><span id="__span-73-20"><a id="__codelineno-73-20" name="__codelineno-73-20" href="#__codelineno-73-20"></a><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shane-Laptop</span>
-</span></code></pre></div>
-<p>位置：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>~/.omp/agent/config.yml
-</span></code></pre></div>
-<p>模型名稱請先：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>omp<span class="w"> </span>models
-</span></code></pre></div>
-<p>再填入。</p>
-<hr>
-<h2 id="21-agentsmd-omp">21. AGENTS.md：讓 OMP 記住專案規則<a class="headerlink" href="#21-agentsmd-omp" title="Permanent link">¶</a></h2>
-<p>Repository：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>AGENTS.md
-</span></code></pre></div>
-<p>範例：</p>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="gh"># Project Instructions</span>
-</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>
-</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a><span class="k">-</span><span class="w"> </span>Python 使用 uv
-</span><span id="__span-77-4"><a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a><span class="k">-</span><span class="w"> </span>修改完成後執行 pytest
-</span><span id="__span-77-5"><a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a><span class="k">-</span><span class="w"> </span>不要直接修改 production database
-</span><span id="__span-77-6"><a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a><span class="k">-</span><span class="w"> </span>不要直接 push main
-</span><span id="__span-77-7"><a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a><span class="k">-</span><span class="w"> </span>Migration 必須先取得使用者確認
-</span><span id="__span-77-8"><a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a><span class="k">-</span><span class="w"> </span>TypeScript 使用 strict mode
-</span><span id="__span-77-9"><a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a><span class="k">-</span><span class="w"> </span>Commit message 使用 Conventional Commits
-</span></code></pre></div>
-<p>這樣就不需要每次重新提醒。</p>
-<hr>
-<h2 id="22-project-specific-config">22. Project-specific Config<a class="headerlink" href="#22-project-specific-config" title="Permanent link">¶</a></h2>
-<p>例如工作專案：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>~/Projects/work/.omp/config.yml
-</span></code></pre></div>
-<p>可以比較保守：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="nt">tools</span><span class="p">:</span>
-</span><span id="__span-79-2"><a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a><span class="w">  </span><span class="nt">approvalMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always-ask</span>
-</span></code></pre></div>
-<p>私人專案：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>~/Projects/personal/.omp/config.yml
-</span></code></pre></div>
-<p>可以：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="nt">tools</span><span class="p">:</span>
-</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a><span class="w">  </span><span class="nt">approvalMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
-</span></code></pre></div>
-<hr>
-<h2 id="23-openai-compatible-provider">23. 自訂 OpenAI-compatible Provider<a class="headerlink" href="#23-openai-compatible-provider" title="Permanent link">¶</a></h2>
-<p>檔案：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>~/.omp/agent/models.yml
-</span></code></pre></div>
-<p>範例：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="nt">providers</span><span class="p">:</span>
-</span><span id="__span-83-2"><a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a><span class="w">  </span><span class="nt">my-provider</span><span class="p">:</span>
-</span><span id="__span-83-3"><a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a><span class="w">    </span><span class="nt">baseUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.example.com/v1</span>
-</span><span id="__span-83-4"><a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a><span class="w">    </span><span class="nt">api</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai-completions</span>
-</span><span id="__span-83-5"><a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a><span class="w">    </span><span class="nt">apiKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MY_API_KEY</span>
-</span><span id="__span-83-6"><a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a><span class="w">    </span><span class="nt">models</span><span class="p">:</span>
-</span><span id="__span-83-7"><a id="__codelineno-83-7" name="__codelineno-83-7" href="#__codelineno-83-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-model</span>
-</span><span id="__span-83-8"><a id="__codelineno-83-8" name="__codelineno-83-8" href="#__codelineno-83-8"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My Model</span>
-</span><span id="__span-83-9"><a id="__codelineno-83-9" name="__codelineno-83-9" href="#__codelineno-83-9"></a><span class="w">        </span><span class="nt">contextWindow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128000</span>
-</span><span id="__span-83-10"><a id="__codelineno-83-10" name="__codelineno-83-10" href="#__codelineno-83-10"></a><span class="w">        </span><span class="nt">maxTokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8192</span>
-</span></code></pre></div>
-<p>API Key 不要直接硬編碼。</p>
-<p>例如：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MY_API_KEY</span><span class="o">=</span><span class="s2">"..."</span>
-</span></code></pre></div>
-<p>然後：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>omp<span class="w"> </span>models<span class="w"> </span>my-provider
-</span></code></pre></div>
-<hr>
-<h2 id="24-api-key">24. API Key 安全<a class="headerlink" href="#24-api-key" title="Permanent link">¶</a></h2>
-<div class="admonition danger">
-<p class="admonition-title">API Key 安全</p>
-<p>API Key 請透過環境變數或 Provider 登入管理，不要提交至 Git。</p>
-</div>
-<p>不要：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="nt">apiKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sk-xxxxxxxx</span>
-</span></code></pre></div>
-<p>然後 commit 進 Git。</p>
-<p>推薦：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="nt">apiKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OPENAI_API_KEY</span>
-</span></code></pre></div>
-<p>再設定：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s2">"..."</span>
-</span></code></pre></div>
-<p>或者使用：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>omp<span class="w"> </span>login
-</span></code></pre></div>
-<hr>
-<h2 id="25-notification">25. Notification 的兩個層次<a class="headerlink" href="#25-notification" title="Permanent link">¶</a></h2>
-<p>OMP 介面通知與手機推播分開設定：</p>
-<h3 id="a-omp-ui-terminal-notification">A. OMP UI / Terminal Notification<a class="headerlink" href="#a-omp-ui-terminal-notification" title="Permanent link">¶</a></h3>
-<p>例如 extension 可以：</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a><span class="nx">ctx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="s2">"Task complete"</span><span class="p">,</span><span class="w"> </span><span class="s2">"info"</span><span class="p">);</span>
-</span></code></pre></div>
-<p>這主要作用於 OMP UI / Host terminal。</p>
-<h3 id="b-push-notification">B. 真正的手機 Push Notification<a class="headerlink" href="#b-push-notification" title="Permanent link">¶</a></h3>
-<p>如果想：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>OMP 完成工作
-</span><span id="__span-91-2"><a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a>↓
-</span><span id="__span-91-3"><a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a>iPhone / Android 鎖屏通知
-</span></code></pre></div>
-<p>應另外接：</p>
-<ul>
-<li>ntfy</li>
-<li>Telegram Bot</li>
-<li>Pushover</li>
-<li>Discord Webhook</li>
-<li>Slack Webhook</li>
-</ul>
-<hr>
-<h2 id="26-push-notification">26. 手機 Push Notification 架構<a class="headerlink" href="#26-push-notification" title="Permanent link">¶</a></h2>
-<h3 id="_5">完成任務後推送手機通知<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/04-mobile-push.png" data-desc-position="bottom"><img alt="手機 Push Notification 流程" src="../../assets/diagrams/omp-remote/04-mobile-push.png"></a></p>
-<p><em>圖 4：手機 Push Notification 流程</em></p>
-<p>完成任務後的流程：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>手機送出：
-</span><span id="__span-92-2"><a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a>「幫我完成測試與 refactor」
-</span><span id="__span-92-3"><a id="__codelineno-92-3" name="__codelineno-92-3" href="#__codelineno-92-3"></a>
-</span><span id="__span-92-4"><a id="__codelineno-92-4" name="__codelineno-92-4" href="#__codelineno-92-4"></a>↓
-</span><span id="__span-92-5"><a id="__codelineno-92-5" name="__codelineno-92-5" href="#__codelineno-92-5"></a>
-</span><span id="__span-92-6"><a id="__codelineno-92-6" name="__codelineno-92-6" href="#__codelineno-92-6"></a>鎖手機
-</span><span id="__span-92-7"><a id="__codelineno-92-7" name="__codelineno-92-7" href="#__codelineno-92-7"></a>
-</span><span id="__span-92-8"><a id="__codelineno-92-8" name="__codelineno-92-8" href="#__codelineno-92-8"></a>↓
-</span><span id="__span-92-9"><a id="__codelineno-92-9" name="__codelineno-92-9" href="#__codelineno-92-9"></a>
-</span><span id="__span-92-10"><a id="__codelineno-92-10" name="__codelineno-92-10" href="#__codelineno-92-10"></a>私人筆電上的 OMP 繼續工作
-</span><span id="__span-92-11"><a id="__codelineno-92-11" name="__codelineno-92-11" href="#__codelineno-92-11"></a>
-</span><span id="__span-92-12"><a id="__codelineno-92-12" name="__codelineno-92-12" href="#__codelineno-92-12"></a>↓
-</span><span id="__span-92-13"><a id="__codelineno-92-13" name="__codelineno-92-13" href="#__codelineno-92-13"></a>
-</span><span id="__span-92-14"><a id="__codelineno-92-14" name="__codelineno-92-14" href="#__codelineno-92-14"></a>agent_end
-</span><span id="__span-92-15"><a id="__codelineno-92-15" name="__codelineno-92-15" href="#__codelineno-92-15"></a>
-</span><span id="__span-92-16"><a id="__codelineno-92-16" name="__codelineno-92-16" href="#__codelineno-92-16"></a>↓
-</span><span id="__span-92-17"><a id="__codelineno-92-17" name="__codelineno-92-17" href="#__codelineno-92-17"></a>
-</span><span id="__span-92-18"><a id="__codelineno-92-18" name="__codelineno-92-18" href="#__codelineno-92-18"></a>Push Service
-</span><span id="__span-92-19"><a id="__codelineno-92-19" name="__codelineno-92-19" href="#__codelineno-92-19"></a>
-</span><span id="__span-92-20"><a id="__codelineno-92-20" name="__codelineno-92-20" href="#__codelineno-92-20"></a>↓
-</span><span id="__span-92-21"><a id="__codelineno-92-21" name="__codelineno-92-21" href="#__codelineno-92-21"></a>
-</span><span id="__span-92-22"><a id="__codelineno-92-22" name="__codelineno-92-22" href="#__codelineno-92-22"></a>手機通知：
-</span><span id="__span-92-23"><a id="__codelineno-92-23" name="__codelineno-92-23" href="#__codelineno-92-23"></a>「OMP task completed」
-</span></code></pre></div>
-<hr>
-<h2 id="27-omp-extension">27. OMP Extension<a class="headerlink" href="#27-omp-extension" title="Permanent link">¶</a></h2>
-<p>Extension 可以放：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>~/.omp/agent/extensions/
-</span></code></pre></div>
-<p>例如：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>~/.omp/agent/extensions/mobile-notify.ts
-</span></code></pre></div>
-<p>最小 Extension：</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="k">import</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ExtensionAPI</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"@oh-my-pi/pi-coding-agent"</span><span class="p">;</span>
-</span><span id="__span-95-2"><a id="__codelineno-95-2" name="__codelineno-95-2" href="#__codelineno-95-2"></a>
-</span><span id="__span-95-3"><a id="__codelineno-95-3" name="__codelineno-95-3" href="#__codelineno-95-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">pi</span><span class="o">:</span><span class="w"> </span><span class="kt">ExtensionAPI</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-95-4"><a id="__codelineno-95-4" name="__codelineno-95-4" href="#__codelineno-95-4"></a><span class="w">  </span><span class="nx">pi</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"session_start"</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">_event</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-95-5"><a id="__codelineno-95-5" name="__codelineno-95-5" href="#__codelineno-95-5"></a><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="s2">"OMP extension loaded"</span><span class="p">,</span><span class="w"> </span><span class="s2">"info"</span><span class="p">);</span>
-</span><span id="__span-95-6"><a id="__codelineno-95-6" name="__codelineno-95-6" href="#__codelineno-95-6"></a><span class="w">  </span><span class="p">});</span>
-</span><span id="__span-95-7"><a id="__codelineno-95-7" name="__codelineno-95-7" href="#__codelineno-95-7"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>OMP Extension 可以註冊：</p>
-<ul>
-<li>Session event</li>
-<li>Agent event</li>
-<li>Slash command</li>
-<li>Tool</li>
-<li>UI notification</li>
-</ul>
-<hr>
-<h2 id="28-ntfy">28. ntfy 通知概念<a class="headerlink" href="#28-ntfy" title="Permanent link">¶</a></h2>
-<p>例如：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>curl<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-96-2"><a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">"OMP task completed"</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-96-3"><a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="w">  </span>https://ntfy.sh/YOUR_PRIVATE_TOPIC
-</span></code></pre></div>
-<p>Topic 名稱請視為 Secret。</p>
-<p>不要放進公開 Repository。</p>
-<p>可以使用環境變數：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NTFY_TOPIC</span><span class="o">=</span><span class="s2">"your-private-topic"</span>
-</span></code></pre></div>
-<p>Extension 再讀：</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">OMP_NTFY_TOPIC</span><span class="p">;</span>
-</span></code></pre></div>
-<hr>
-<h2 id="29-extension">29. 手機通知 Extension 範例骨架<a class="headerlink" href="#29-extension" title="Permanent link">¶</a></h2>
-<p>以下是概念範例，實際事件名稱與 API 應依目前 OMP Extension 文件核對：</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a><span class="k">import</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ExtensionAPI</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"@oh-my-pi/pi-coding-agent"</span><span class="p">;</span>
-</span><span id="__span-99-2"><a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a>
-</span><span id="__span-99-3"><a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">mobileNotify</span><span class="p">(</span><span class="nx">pi</span><span class="o">:</span><span class="w"> </span><span class="kt">ExtensionAPI</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-99-4"><a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a><span class="w">  </span><span class="nx">pi</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"agent_end"</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">_event</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-99-5"><a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">OMP_NTFY_TOPIC</span><span class="p">;</span>
-</span><span id="__span-99-6"><a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a>
-</span><span id="__span-99-7"><a id="__codelineno-99-7" name="__codelineno-99-7" href="#__codelineno-99-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">topic</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-99-8"><a id="__codelineno-99-8" name="__codelineno-99-8" href="#__codelineno-99-8"></a><span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="s2">"OMP_NTFY_TOPIC not configured"</span><span class="p">,</span><span class="w"> </span><span class="s2">"warning"</span><span class="p">);</span>
-</span><span id="__span-99-9"><a id="__codelineno-99-9" name="__codelineno-99-9" href="#__codelineno-99-9"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
-</span><span id="__span-99-10"><a id="__codelineno-99-10" name="__codelineno-99-10" href="#__codelineno-99-10"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-99-11"><a id="__codelineno-99-11" name="__codelineno-99-11" href="#__codelineno-99-11"></a>
-</span><span id="__span-99-12"><a id="__codelineno-99-12" name="__codelineno-99-12" href="#__codelineno-99-12"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-99-13"><a id="__codelineno-99-13" name="__codelineno-99-13" href="#__codelineno-99-13"></a><span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://ntfy.sh/</span><span class="si">${</span><span class="nx">topic</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-99-14"><a id="__codelineno-99-14" name="__codelineno-99-14" href="#__codelineno-99-14"></a><span class="w">        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span>
-</span><span id="__span-99-15"><a id="__codelineno-99-15" name="__codelineno-99-15" href="#__codelineno-99-15"></a><span class="w">        </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s2">"OMP task completed"</span><span class="p">,</span>
-</span><span id="__span-99-16"><a id="__codelineno-99-16" name="__codelineno-99-16" href="#__codelineno-99-16"></a><span class="w">      </span><span class="p">});</span>
-</span><span id="__span-99-17"><a id="__codelineno-99-17" name="__codelineno-99-17" href="#__codelineno-99-17"></a>
-</span><span id="__span-99-18"><a id="__codelineno-99-18" name="__codelineno-99-18" href="#__codelineno-99-18"></a><span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="s2">"Mobile notification sent"</span><span class="p">,</span><span class="w"> </span><span class="s2">"info"</span><span class="p">);</span>
-</span><span id="__span-99-19"><a id="__codelineno-99-19" name="__codelineno-99-19" href="#__codelineno-99-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-99-20"><a id="__codelineno-99-20" name="__codelineno-99-20" href="#__codelineno-99-20"></a><span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="s2">"Failed to send mobile notification"</span><span class="p">,</span><span class="w"> </span><span class="s2">"error"</span><span class="p">);</span>
-</span><span id="__span-99-21"><a id="__codelineno-99-21" name="__codelineno-99-21" href="#__codelineno-99-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-99-22"><a id="__codelineno-99-22" name="__codelineno-99-22" href="#__codelineno-99-22"></a><span class="w">  </span><span class="p">});</span>
-</span><span id="__span-99-23"><a id="__codelineno-99-23" name="__codelineno-99-23" href="#__codelineno-99-23"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>可逐步加入：</p>
-<ul>
-<li>Error notification</li>
-<li>Waiting-for-input notification</li>
-<li>Project name</li>
-<li>Git branch</li>
-<li>Task summary</li>
-<li>Session link</li>
-</ul>
-<hr>
-<h2 id="30-workflow">30. 推薦日常 Workflow<a class="headerlink" href="#30-workflow" title="Permanent link">¶</a></h2>
-<h3 id="_6">早上<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p>私人筆電：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/project-a
-</span><span id="__span-100-2"><a id="__codelineno-100-2" name="__codelineno-100-2" href="#__codelineno-100-2"></a>omp
-</span></code></pre></div>
-<p>啟用以下設定時：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-101-1"><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a><span class="nt">collab</span><span class="p">:</span>
-</span><span id="__span-101-2"><a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a><span class="w">  </span><span class="nt">autoStart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">control</span>
-</span></code></pre></div>
-<p>啟動 OMP 時會自動建立 Collab Session。</p>
-<hr>
-<h3 id="_7">換到其他電腦<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>其他電腦 Browser：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>my.omp.sh
-</span></code></pre></div>
-<p>加入自己的 session。</p>
-<p>輸入：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>先查看目前 git status。
-</span><span id="__span-103-2"><a id="__codelineno-103-2" name="__codelineno-103-2" href="#__codelineno-103-2"></a>
-</span><span id="__span-103-3"><a id="__codelineno-103-3" name="__codelineno-103-3" href="#__codelineno-103-3"></a>告訴我：
-</span><span id="__span-103-4"><a id="__codelineno-103-4" name="__codelineno-103-4" href="#__codelineno-103-4"></a>1. 現在 branch
-</span><span id="__span-103-5"><a id="__codelineno-103-5" name="__codelineno-103-5" href="#__codelineno-103-5"></a>2. 未 commit 修改
-</span><span id="__span-103-6"><a id="__codelineno-103-6" name="__codelineno-103-6" href="#__codelineno-103-6"></a>3. 最近完成到哪裡
-</span><span id="__span-103-7"><a id="__codelineno-103-7" name="__codelineno-103-7" href="#__codelineno-103-7"></a>
-</span><span id="__span-103-8"><a id="__codelineno-103-8" name="__codelineno-103-8" href="#__codelineno-103-8"></a>不要修改任何檔案。
-</span></code></pre></div>
-<hr>
-<h3 id="_8">開始工作<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>繼續完成 user dashboard。
-</span><span id="__span-104-2"><a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a>
-</span><span id="__span-104-3"><a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a>完成後：
-</span><span id="__span-104-4"><a id="__codelineno-104-4" name="__codelineno-104-4" href="#__codelineno-104-4"></a>1. 跑相關 tests
-</span><span id="__span-104-5"><a id="__codelineno-104-5" name="__codelineno-104-5" href="#__codelineno-104-5"></a>2. 檢查 lint
-</span><span id="__span-104-6"><a id="__codelineno-104-6" name="__codelineno-104-6" href="#__codelineno-104-6"></a>3. 顯示 git diff
-</span><span id="__span-104-7"><a id="__codelineno-104-7" name="__codelineno-104-7" href="#__codelineno-104-7"></a>4. 不要 push
-</span></code></pre></div>
-<hr>
-<h3 id="_9">中午離開電腦<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
-<p>手機打開同一個 session：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>現在進度到哪？
-</span></code></pre></div>
-<p>需要批准 Shell：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>Approve
-</span></code></pre></div>
-<p>完成後手機收到 Push Notification。</p>
-<hr>
-<h2 id="31">31. 多專案使用<a class="headerlink" href="#31" title="Permanent link">¶</a></h2>
-<p>例如同時處理三個專案：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-107-1"><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a>project-api
-</span><span id="__span-107-2"><a id="__codelineno-107-2" name="__codelineno-107-2" href="#__codelineno-107-2"></a>project-web
-</span><span id="__span-107-3"><a id="__codelineno-107-3" name="__codelineno-107-3" href="#__codelineno-107-3"></a>data-pipeline
-</span></code></pre></div>
-<p>各專案分別啟動 OMP。</p>
-<p>查看：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>omp<span class="w"> </span>collab<span class="w"> </span>list
-</span></code></pre></div>
-<p>Session 對應如下：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/05-multi-project.png" data-desc-position="bottom"><img alt="多專案與 Collab Session 配置" src="../../assets/diagrams/omp-remote/05-multi-project.png"></a></p>
-<p><em>圖 5：多專案與 Collab Session 配置</em></p>
-<hr>
-<h2 id="32-omp-claude-code-web">32. OMP 與 Claude Code Web 的差異<a class="headerlink" href="#32-omp-claude-code-web" title="Permanent link">¶</a></h2>
-<p>OMP 在私人筆電執行 Agent：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>AI Agent 真正執行位置
-</span><span id="__span-109-2"><a id="__codelineno-109-2" name="__codelineno-109-2" href="#__codelineno-109-2"></a>= 你的私人筆電
-</span></code></pre></div>
-<p>可直接使用該筆電上的：</p>
-<ul>
-<li>本機 Docker</li>
-<li>Local DB</li>
-<li>尚未 Push 的 Git 修改</li>
-<li>Local filesystem</li>
-<li>私有 <code>.env</code></li>
-<li>本機 Python / Node 環境</li>
-<li>大型 Dataset</li>
-</ul>
-<p>Cloud Coding Agent 通常在以下環境執行：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a>Cloud Sandbox
-</span></code></pre></div>
-<p>執行位置不同，能直接使用的資源也不同。</p>
-<hr>
-<h2 id="33">33. 建議最終架構<a class="headerlink" href="#33" title="Permanent link">¶</a></h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/06-final-architecture.png" data-desc-position="bottom"><img alt="OMP 遠端 Coding Agent 最終架構" src="../../assets/diagrams/omp-remote/06-final-architecture.png"></a></p>
-<p><em>圖 6：OMP 遠端 Coding Agent 最終架構</em></p>
-<hr>
-<h2 id="34">34. 第一次設定建議順序<a class="headerlink" href="#34" title="Permanent link">¶</a></h2>
+<h2 id="8">8. 第一次設定建議順序<a class="headerlink" href="#8" title="Permanent link">¶</a></h2>
 <h3 id="step-1">Step 1<a class="headerlink" href="#step-1" title="Permanent link">¶</a></h3>
 <p>安裝：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omp.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omp.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
 <h3 id="step-2">Step 2<a class="headerlink" href="#step-2" title="Permanent link">¶</a></h3>
 <p>初始化：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>omp<span class="w"> </span>setup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>omp<span class="w"> </span>setup
 </span></code></pre></div>
 <h3 id="step-3">Step 3<a class="headerlink" href="#step-3" title="Permanent link">¶</a></h3>
 <p>登入 Provider：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a>omp<span class="w"> </span>login
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>omp<span class="w"> </span>login
 </span></code></pre></div>
 <h3 id="step-4">Step 4<a class="headerlink" href="#step-4" title="Permanent link">¶</a></h3>
 <p>確認模型：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>omp<span class="w"> </span>models
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>omp<span class="w"> </span>models
 </span></code></pre></div>
 <h3 id="step-5">Step 5<a class="headerlink" href="#step-5" title="Permanent link">¶</a></h3>
 <p>設定 Approval：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-115-1"><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>tools.approvalMode<span class="w"> </span>write
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>tools.approvalMode<span class="w"> </span>write
 </span></code></pre></div>
 <h3 id="step-6">Step 6<a class="headerlink" href="#step-6" title="Permanent link">¶</a></h3>
 <p>設定 Collab：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-116-1"><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.autoStart<span class="w"> </span>control
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.autoStart<span class="w"> </span>control
 </span></code></pre></div>
 <h3 id="step-7">Step 7<a class="headerlink" href="#step-7" title="Permanent link">¶</a></h3>
 <p>設定名稱：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-117-1"><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.displayName<span class="w"> </span>Shane-Laptop
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.displayName<span class="w"> </span>Shane-Laptop
 </span></code></pre></div>
 <h3 id="step-8">Step 8<a class="headerlink" href="#step-8" title="Permanent link">¶</a></h3>
 <p>進專案：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-118-1"><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/your-project
-</span><span id="__span-118-2"><a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a>omp
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/your-project
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>omp
 </span></code></pre></div>
 <h3 id="step-9">Step 9<a class="headerlink" href="#step-9" title="Permanent link">¶</a></h3>
 <p>測試手機：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-119-1"><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a>/collab
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>/collab
 </span></code></pre></div>
 <p>掃 QR。</p>
 <h3 id="step-10">Step 10<a class="headerlink" href="#step-10" title="Permanent link">¶</a></h3>
@@ -6107,208 +4644,13 @@
 <li>筆電不會 Sleep</li>
 </ul>
 <hr>
-<h2 id="35-checklist">35. 安全 Checklist<a class="headerlink" href="#35-checklist" title="Permanent link">¶</a></h2>
-<p>在正式長期使用前確認：</p>
+<p>下一篇：<a href="../omp-models-and-daily-coding/">模型角色與日常 Coding</a></p>
+<h2 id="_3">參考資料<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <ul>
-<li>[ ] Full-control URL 沒有放到公開位置</li>
-<li>[ ] API Key 沒有 Commit</li>
-<li>[ ] <code>.env</code> 已加入 <code>.gitignore</code></li>
-<li>[ ] <code>approvalMode</code> 不是在不了解風險時直接使用完全自動模式</li>
-<li>[ ] <code>bash</code> 高風險命令需要確認</li>
-<li>[ ] Production DB 有額外保護</li>
-<li>[ ] 不允許 Agent 自動 Push <code>main</code></li>
-<li>[ ] 不允許 Agent 自動 Deploy Production</li>
-<li>[ ] 其他電腦與網路的使用符合當地 IT Policy</li>
-<li>[ ] Host 筆電啟用磁碟加密</li>
-<li>[ ] Host 系統有登入密碼</li>
-<li>[ ] 不共用 Full-control Collab URL</li>
+<li>Oh My Pi repository：<a href="https://github.com/can1357/oh-my-pi">https://github.com/can1357/oh-my-pi</a></li>
+<li>CLI Reference：<a href="https://github.com/can1357/oh-my-pi/blob/main/docs/cli-reference.md">https://github.com/can1357/oh-my-pi/blob/main/docs/cli-reference.md</a></li>
+<li>Models：<a href="https://github.com/can1357/oh-my-pi/blob/main/docs/models.md">https://github.com/can1357/oh-my-pi/blob/main/docs/models.md</a></li>
 </ul>
-<hr>
-<h2 id="36-agentsmd">36. 推薦的 AGENTS.md<a class="headerlink" href="#36-agentsmd" title="Permanent link">¶</a></h2>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="gh"># Project Agent Rules</span>
-</span><span id="__span-120-2"><a id="__codelineno-120-2" name="__codelineno-120-2" href="#__codelineno-120-2"></a>
-</span><span id="__span-120-3"><a id="__codelineno-120-3" name="__codelineno-120-3" href="#__codelineno-120-3"></a><span class="gu">## General</span>
-</span><span id="__span-120-4"><a id="__codelineno-120-4" name="__codelineno-120-4" href="#__codelineno-120-4"></a>
-</span><span id="__span-120-5"><a id="__codelineno-120-5" name="__codelineno-120-5" href="#__codelineno-120-5"></a><span class="k">-</span><span class="w"> </span>Before modifying code, inspect the relevant implementation first.
-</span><span id="__span-120-6"><a id="__codelineno-120-6" name="__codelineno-120-6" href="#__codelineno-120-6"></a><span class="k">-</span><span class="w"> </span>For large changes, present a plan before editing.
-</span><span id="__span-120-7"><a id="__codelineno-120-7" name="__codelineno-120-7" href="#__codelineno-120-7"></a><span class="k">-</span><span class="w"> </span>Do not push code unless explicitly requested.
-</span><span id="__span-120-8"><a id="__codelineno-120-8" name="__codelineno-120-8" href="#__codelineno-120-8"></a><span class="k">-</span><span class="w"> </span>Do not deploy production unless explicitly requested.
-</span><span id="__span-120-9"><a id="__codelineno-120-9" name="__codelineno-120-9" href="#__codelineno-120-9"></a>
-</span><span id="__span-120-10"><a id="__codelineno-120-10" name="__codelineno-120-10" href="#__codelineno-120-10"></a><span class="gu">## Testing</span>
-</span><span id="__span-120-11"><a id="__codelineno-120-11" name="__codelineno-120-11" href="#__codelineno-120-11"></a>
-</span><span id="__span-120-12"><a id="__codelineno-120-12" name="__codelineno-120-12" href="#__codelineno-120-12"></a><span class="k">-</span><span class="w"> </span>Run relevant unit tests after code changes.
-</span><span id="__span-120-13"><a id="__codelineno-120-13" name="__codelineno-120-13" href="#__codelineno-120-13"></a><span class="k">-</span><span class="w"> </span>Run lint/typecheck when applicable.
-</span><span id="__span-120-14"><a id="__codelineno-120-14" name="__codelineno-120-14" href="#__codelineno-120-14"></a><span class="k">-</span><span class="w"> </span>If tests fail, report the failure before making unrelated changes.
-</span><span id="__span-120-15"><a id="__codelineno-120-15" name="__codelineno-120-15" href="#__codelineno-120-15"></a>
-</span><span id="__span-120-16"><a id="__codelineno-120-16" name="__codelineno-120-16" href="#__codelineno-120-16"></a><span class="gu">## Database</span>
-</span><span id="__span-120-17"><a id="__codelineno-120-17" name="__codelineno-120-17" href="#__codelineno-120-17"></a>
-</span><span id="__span-120-18"><a id="__codelineno-120-18" name="__codelineno-120-18" href="#__codelineno-120-18"></a><span class="k">-</span><span class="w"> </span>Never modify production database.
-</span><span id="__span-120-19"><a id="__codelineno-120-19" name="__codelineno-120-19" href="#__codelineno-120-19"></a><span class="k">-</span><span class="w"> </span>Ask before generating or applying migrations.
-</span><span id="__span-120-20"><a id="__codelineno-120-20" name="__codelineno-120-20" href="#__codelineno-120-20"></a><span class="k">-</span><span class="w"> </span>Never run destructive SQL without explicit approval.
-</span><span id="__span-120-21"><a id="__codelineno-120-21" name="__codelineno-120-21" href="#__codelineno-120-21"></a>
-</span><span id="__span-120-22"><a id="__codelineno-120-22" name="__codelineno-120-22" href="#__codelineno-120-22"></a><span class="gu">## Git</span>
-</span><span id="__span-120-23"><a id="__codelineno-120-23" name="__codelineno-120-23" href="#__codelineno-120-23"></a>
-</span><span id="__span-120-24"><a id="__codelineno-120-24" name="__codelineno-120-24" href="#__codelineno-120-24"></a><span class="k">-</span><span class="w"> </span>Never force-push.
-</span><span id="__span-120-25"><a id="__codelineno-120-25" name="__codelineno-120-25" href="#__codelineno-120-25"></a><span class="k">-</span><span class="w"> </span>Never push directly to main.
-</span><span id="__span-120-26"><a id="__codelineno-120-26" name="__codelineno-120-26" href="#__codelineno-120-26"></a><span class="k">-</span><span class="w"> </span>Show git diff summary before commit.
-</span><span id="__span-120-27"><a id="__codelineno-120-27" name="__codelineno-120-27" href="#__codelineno-120-27"></a>
-</span><span id="__span-120-28"><a id="__codelineno-120-28" name="__codelineno-120-28" href="#__codelineno-120-28"></a><span class="gu">## Security</span>
-</span><span id="__span-120-29"><a id="__codelineno-120-29" name="__codelineno-120-29" href="#__codelineno-120-29"></a>
-</span><span id="__span-120-30"><a id="__codelineno-120-30" name="__codelineno-120-30" href="#__codelineno-120-30"></a><span class="k">-</span><span class="w"> </span>Never print secrets.
-</span><span id="__span-120-31"><a id="__codelineno-120-31" name="__codelineno-120-31" href="#__codelineno-120-31"></a><span class="k">-</span><span class="w"> </span>Never commit .env files.
-</span><span id="__span-120-32"><a id="__codelineno-120-32" name="__codelineno-120-32" href="#__codelineno-120-32"></a><span class="k">-</span><span class="w"> </span>Never expose API keys or tokens.
-</span></code></pre></div>
-<hr>
-<h2 id="38">38. 最終建議<a class="headerlink" href="#38" title="Permanent link">¶</a></h2>
-<p>這套架構的分工：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>私人筆電
-</span><span id="__span-121-2"><a id="__codelineno-121-2" name="__codelineno-121-2" href="#__codelineno-121-2"></a>= 唯一真正的 Dev Host
-</span><span id="__span-121-3"><a id="__codelineno-121-3" name="__codelineno-121-3" href="#__codelineno-121-3"></a>
-</span><span id="__span-121-4"><a id="__codelineno-121-4" name="__codelineno-121-4" href="#__codelineno-121-4"></a>其他電腦
-</span><span id="__span-121-5"><a id="__codelineno-121-5" name="__codelineno-121-5" href="#__codelineno-121-5"></a>= Browser Controller
-</span><span id="__span-121-6"><a id="__codelineno-121-6" name="__codelineno-121-6" href="#__codelineno-121-6"></a>
-</span><span id="__span-121-7"><a id="__codelineno-121-7" name="__codelineno-121-7" href="#__codelineno-121-7"></a>手機
-</span><span id="__span-121-8"><a id="__codelineno-121-8" name="__codelineno-121-8" href="#__codelineno-121-8"></a>= Browser Controller + Push Notification
-</span><span id="__span-121-9"><a id="__codelineno-121-9" name="__codelineno-121-9" href="#__codelineno-121-9"></a>
-</span><span id="__span-121-10"><a id="__codelineno-121-10" name="__codelineno-121-10" href="#__codelineno-121-10"></a>OMP
-</span><span id="__span-121-11"><a id="__codelineno-121-11" name="__codelineno-121-11" href="#__codelineno-121-11"></a>= Local Coding Agent
-</span><span id="__span-121-12"><a id="__codelineno-121-12" name="__codelineno-121-12" href="#__codelineno-121-12"></a>
-</span><span id="__span-121-13"><a id="__codelineno-121-13" name="__codelineno-121-13" href="#__codelineno-121-13"></a>Collab
-</span><span id="__span-121-14"><a id="__codelineno-121-14" name="__codelineno-121-14" href="#__codelineno-121-14"></a>= Remote Control Channel
-</span></code></pre></div>
-<p>需要時可擴充：</p>
-<ol>
-<li>自動手機 Push Notification。</li>
-<li>自訂 OMP Extension。</li>
-<li>多 Project / 多 OMP Session。</li>
-<li>自訂模型 Provider。</li>
-<li><code>smol / default / slow / plan</code> 模型成本最佳化。</li>
-<li>更嚴格的 Tool Approval Policy。</li>
-<li>Self-hosted Collab relay。</li>
-<li>專案級 <code>.omp/config.yml</code>。</li>
-<li>更完整的 <code>AGENTS.md</code>。</li>
-<li>GitHub PR / CI 整合。</li>
-</ol>
-<hr>
-<h2 id="39">39. 官方參考資料<a class="headerlink" href="#39" title="Permanent link">¶</a></h2>
-<ul>
-<li>
-<p>Oh My Pi repository<br>
-  https://github.com/can1357/oh-my-pi</p>
-</li>
-<li>
-<p>Collab<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/collab.md</p>
-</li>
-<li>
-<p>Settings<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md</p>
-</li>
-<li>
-<p>Models<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/models.md</p>
-</li>
-<li>
-<p>CLI Reference<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/cli-reference.md</p>
-</li>
-<li>
-<p>Extensions<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/extensions.md</p>
-</li>
-<li>
-<p>Authoring Extensions<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/skills/authoring-extensions.md</p>
-</li>
-<li>
-<p>Configuration Usage<br>
-  https://github.com/can1357/oh-my-pi/blob/main/docs/config-usage.md</p>
-</li>
-</ul>
-<hr>
-<h2 id="37">37. 日常操作速查表<a class="headerlink" href="#37" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>目的</th>
-<th>指令</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>啟動</td>
-<td><code>omp</code></td>
-</tr>
-<tr>
-<td>繼續最近 session</td>
-<td><code>omp --continue</code></td>
-</tr>
-<tr>
-<td>選歷史 session</td>
-<td><code>omp --resume</code></td>
-</tr>
-<tr>
-<td>模型選擇</td>
-<td><code>/model</code></td>
-</tr>
-<tr>
-<td>查看模型</td>
-<td><code>omp models</code></td>
-</tr>
-<tr>
-<td>搜尋 Claude</td>
-<td><code>omp models find claude</code></td>
-</tr>
-<tr>
-<td>搜尋 GPT</td>
-<td><code>omp models find gpt</code></td>
-</tr>
-<tr>
-<td>啟動 Collab</td>
-<td><code>/collab</code></td>
-</tr>
-<tr>
-<td>唯讀 Collab</td>
-<td><code>/collab view</code></td>
-</tr>
-<tr>
-<td>Collab 狀態</td>
-<td><code>/collab status</code></td>
-</tr>
-<tr>
-<td>停止 Collab</td>
-<td><code>/collab stop</code></td>
-</tr>
-<tr>
-<td>Guest 離開</td>
-<td><code>/leave</code></td>
-</tr>
-<tr>
-<td>查看 Active Collab</td>
-<td><code>omp collab list</code></td>
-</tr>
-<tr>
-<td>查看設定</td>
-<td><code>omp config list</code></td>
-</tr>
-<tr>
-<td>查設定值</td>
-<td><code>omp config get &lt;key&gt;</code></td>
-</tr>
-<tr>
-<td>修改設定</td>
-<td><code>omp config set &lt;key&gt; &lt;value&gt;</code></td>
-</tr>
-<tr>
-<td>登入 Provider</td>
-<td><code>omp login</code></td>
-</tr>
-<tr>
-<td>安裝 / 初始化</td>
-<td><code>omp setup</code></td>
-</tr>
-</tbody>
-</table>
 
 
 
@@ -6331,7 +4673,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月28日 20:54:36 UTC">2026年9月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月28日 21:28:15 UTC">2026年9月28日</span>
   </span>
 
     
@@ -6393,13 +4735,13 @@
         
         
           
-          <a href="../omp-cheat-sheet/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 7 · OMP 指令速查表">
+          <a href="../omp-models-and-daily-coding/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 2 · 模型角色與日常 Coding">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                7 · OMP 指令速查表
+                2 · 模型角色與日常 Coding
               </div>
             </div>
             <div class="md-footer__button md-icon">
