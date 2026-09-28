@@ -13,7 +13,7 @@
         <link rel="prev" href="../multi-agent-orchestration/">
       
       
-        <link rel="next" href="../agent-memory-systems/">
+        <link rel="next" href="../omp-cheat-sheet/">
       
       
         
@@ -988,6 +988,8 @@
       
         
       
+        
+      
     
     
     
@@ -1479,7 +1481,7 @@
   <a href="#13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        13. 公司電腦使用
+        13. 其他電腦使用
       
     </span>
   </a>
@@ -1751,7 +1753,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        到公司
+        換到其他電腦
       
     </span>
   </a>
@@ -1773,7 +1775,7 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中午離開公司電腦
+        中午離開電腦
       
     </span>
   </a>
@@ -2004,6 +2006,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omp-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · OMP 指令速查表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4534,7 +4564,7 @@
   <a href="#13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        13. 公司電腦使用
+        13. 其他電腦使用
       
     </span>
   </a>
@@ -4806,7 +4836,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        到公司
+        換到其他電腦
       
     </span>
   </a>
@@ -4828,7 +4858,7 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中午離開公司電腦
+        中午離開電腦
       
     </span>
   </a>
@@ -5165,7 +5195,7 @@
 
 <h1 id="oh-my-piomp-coding-agent">Oh My Pi（OMP）遠端 Coding Agent 完整設定與使用指南<a class="headerlink" href="#oh-my-piomp-coding-agent" title="Permanent link">¶</a></h1>
 <h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>私人筆電執行 OMP，公司電腦與手機透過 Collab 在瀏覽器控制同一工作階段；Shell、檔案修改與測試仍在筆電執行。</p>
+<p>私人筆電執行 OMP，其他電腦與手機透過 Collab 在瀏覽器控制同一工作階段；Shell、檔案修改與測試仍在筆電執行。</p>
 <blockquote>
 <p>資料基準：2026-09。執行前請以 <code>omp --help</code>、<code>omp config list</code> 與 <code>omp models</code> 核對目前版本支援的選項。</p>
 </blockquote>
@@ -5173,14 +5203,14 @@
 <p>這套設定的分工：</p>
 <ul>
 <li>OMP、程式碼與 Docker、Python、Node.js、資料庫等服務留在私人筆電。</li>
-<li>公司電腦使用 Chrome / Edge 等瀏覽器，無須 Remote Desktop。</li>
+<li>其他電腦使用 Chrome / Edge 等瀏覽器，無須 Remote Desktop。</li>
 <li>手機透過 Safari / Chrome 控制同一個 OMP session。</li>
 </ul>
 <h3 id="_2">整體架構<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/omp-remote/01-overall-architecture.png" data-desc-position="bottom"><img alt="OMP 遠端控制整體架構" src="../../assets/diagrams/omp-remote/01-overall-architecture.png"></a></p>
 <p><em>圖 1：OMP 遠端控制整體架構</em></p>
-<p>公司電腦與手機只負責控制 OMP：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>公司 / 手機
+<p>其他電腦與手機只負責控制 OMP：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>其他電腦 / 手機
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>OMP Collab
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
@@ -5188,10 +5218,10 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>程式碼 / Bash / Docker / DB / Git
 </span></code></pre></div>
-<p>公司網路若允許瀏覽器連線至 OMP Collab 所需的 HTTPS / WebSocket，便可透過瀏覽器操作。</p>
+<p>所在網路若允許瀏覽器連線至 OMP Collab 所需的 HTTPS / WebSocket，便可透過瀏覽器操作。</p>
 <div class="admonition danger">
-<p class="admonition-title">公司 IT Policy</p>
-<p>必須遵守公司 IT、安全與資料處理政策。不應使用 OMP Collab 來規避公司明確禁止的外部工具、資料外傳限制或安全控制。</p>
+<p class="admonition-title">IT Policy</p>
+<p>在他人管理的電腦或網路上使用時，必須遵守該環境的 IT、安全與資料處理政策。不應使用 OMP Collab 來規避明確禁止的外部工具、資料外傳限制或安全控制。</p>
 </div>
 <hr>
 <h2 id="2-omp">2. 安裝 OMP<a class="headerlink" href="#2-omp" title="Permanent link">¶</a></h2>
@@ -5505,8 +5535,8 @@
 <p><em>圖 3：Collab 資料與控制流程</em></p>
 <p><strong>工具由私人筆電的 Host 執行。</strong></p>
 <hr>
-<h2 id="13">13. 公司電腦使用<a class="headerlink" href="#13" title="Permanent link">¶</a></h2>
-<p>公司電腦用瀏覽器開啟 Collab URL，無須安裝 OMP：</p>
+<h2 id="13">13. 其他電腦使用<a class="headerlink" href="#13" title="Permanent link">¶</a></h2>
+<p>其他電腦用瀏覽器開啟 Collab URL，無須安裝 OMP：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>https://my.omp.sh/#你的-session-key
 </span></code></pre></div>
 <p>例如：</p>
@@ -5515,7 +5545,7 @@
 </span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>先不要修改任何東西。
 </span></code></pre></div>
 <p>實際流程：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>公司 Browser
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>其他電腦 Browser
 </span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>      ↓
 </span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>OMP Collab
 </span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>      ↓
@@ -5955,8 +5985,8 @@
 </span></code></pre></div>
 <p>啟動 OMP 時會自動建立 Collab Session。</p>
 <hr>
-<h3 id="_7">到公司<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>公司電腦 Browser：</p>
+<h3 id="_7">換到其他電腦<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>其他電腦 Browser：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>my.omp.sh
 </span></code></pre></div>
 <p>加入自己的 session。</p>
@@ -5981,7 +6011,7 @@
 </span><span id="__span-104-7"><a id="__codelineno-104-7" name="__codelineno-104-7" href="#__codelineno-104-7"></a>4. 不要 push
 </span></code></pre></div>
 <hr>
-<h3 id="_9">中午離開公司電腦<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<h3 id="_9">中午離開電腦<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
 <p>手機打開同一個 session：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>現在進度到哪？
 </span></code></pre></div>
@@ -6088,7 +6118,7 @@
 <li>[ ] Production DB 有額外保護</li>
 <li>[ ] 不允許 Agent 自動 Push <code>main</code></li>
 <li>[ ] 不允許 Agent 自動 Deploy Production</li>
-<li>[ ] 公司電腦使用符合公司 IT Policy</li>
+<li>[ ] 其他電腦與網路的使用符合當地 IT Policy</li>
 <li>[ ] Host 筆電啟用磁碟加密</li>
 <li>[ ] Host 系統有登入密碼</li>
 <li>[ ] 不共用 Full-control Collab URL</li>
@@ -6134,7 +6164,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>私人筆電
 </span><span id="__span-121-2"><a id="__codelineno-121-2" name="__codelineno-121-2" href="#__codelineno-121-2"></a>= 唯一真正的 Dev Host
 </span><span id="__span-121-3"><a id="__codelineno-121-3" name="__codelineno-121-3" href="#__codelineno-121-3"></a>
-</span><span id="__span-121-4"><a id="__codelineno-121-4" name="__codelineno-121-4" href="#__codelineno-121-4"></a>公司電腦
+</span><span id="__span-121-4"><a id="__codelineno-121-4" name="__codelineno-121-4" href="#__codelineno-121-4"></a>其他電腦
 </span><span id="__span-121-5"><a id="__codelineno-121-5" name="__codelineno-121-5" href="#__codelineno-121-5"></a>= Browser Controller
 </span><span id="__span-121-6"><a id="__codelineno-121-6" name="__codelineno-121-6" href="#__codelineno-121-6"></a>
 </span><span id="__span-121-7"><a id="__codelineno-121-7" name="__codelineno-121-7" href="#__codelineno-121-7"></a>手機
@@ -6301,7 +6331,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月28日 19:57:00 UTC">2026年9月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月28日 20:54:36 UTC">2026年9月28日</span>
   </span>
 
     
@@ -6363,13 +6393,13 @@
         
         
           
-          <a href="../agent-memory-systems/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 1 · Agent Memory 系統">
+          <a href="../omp-cheat-sheet/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 7 · OMP 指令速查表">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                1 · Agent Memory 系統
+                7 · OMP 指令速查表
               </div>
             </div>
             <div class="md-footer__button md-icon">

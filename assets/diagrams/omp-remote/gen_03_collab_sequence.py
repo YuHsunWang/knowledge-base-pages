@@ -14,7 +14,7 @@ s = [svg_head(W, H), title_block("SEQUENCE · COLLAB", P["teal"][1],
     "Collab 資料與控制流程", "Tools 在 Host 執行，結果傳回遠端瀏覽器。")]
 actors = [
     (70, 270, "indigo", "手機", []),
-    (410, 270, "indigo", "公司電腦", []),
+    (410, 270, "indigo", "其他電腦", []),
     (750, 270, "teal", "OMP Collab Relay", []),
     (1090, 270, "violet", "私人筆電 OMP Host", []),
     (1430, 270, "sky", "Git / Bash", ["Docker / DB"]),

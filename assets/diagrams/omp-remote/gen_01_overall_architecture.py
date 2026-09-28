@@ -13,7 +13,7 @@ s = [svg_head(W, H), title_block("ARCHITECTURE · OMP", P["indigo"][1],
     "OMP 遠端控制整體架構", "遠端裝置控制 Session；工具與程式碼保留在 Host。")]
 
 nodes = [
-    (70, 275, 290, 150, "indigo", "公司電腦", ["Chrome / Edge"]),
+    (70, 275, 290, 150, "indigo", "其他電腦", ["Chrome / Edge"]),
     (70, 515, 290, 150, "indigo", "手機", ["Safari / Chrome"]),
     (460, 395, 300, 165, "teal", "OMP Collab", ["my.omp.sh"]),
     (870, 395, 310, 165, "violet", "私人筆電", ["OMP Host"]),

@@ -3,17 +3,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="記錄以 Threads 社群資料建立台指期作者績效評分、加權情緒訊號與跟單／反指標策略的方法與限制。">
+        <meta name="description" content="Oh My Pi（OMP）安裝、模型、Session、Collab 遠端控制、設定與權限的常用指令，一頁查完。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/threads-txf-sentiment-following-research/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/omp-cheat-sheet/">
       
       
-        <link rel="prev" href="../wave-theory-probabilistic-counter-plan/">
+        <link rel="prev" href="../omp-remote-coding-agent-guide/">
       
       
-        <link rel="next" href="../net-delta-options-strategy/">
+        <link rel="next" href="../agent-memory-systems/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>Threads 台指期情緒與跟單策略研究方法紀錄 - Shane's Knowledge Base</title>
+        <title>OMP 指令速查表 - Shane's Knowledge Base</title>
       
     
     
@@ -66,17 +66,17 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Threads 台指期情緒與跟單策略研究方法紀錄 - Shane's Knowledge Base">
-<meta property="og:description" content="記錄以 Threads 社群資料建立台指期作者績效評分、加權情緒訊號與跟單／反指標策略的方法與限制。">
-<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/trading/threads-txf-sentiment-following-research.png">
+<meta property="og:title" content="OMP 指令速查表 - Shane's Knowledge Base">
+<meta property="og:description" content="Oh My Pi（OMP）安裝、模型、Session、Collab 遠端控制、設定與權限的常用指令，一頁查完。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/omp-cheat-sheet.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/trading/threads-txf-sentiment-following-research/">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/omp-cheat-sheet/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Threads 台指期情緒與跟單策略研究方法紀錄 - Shane's Knowledge Base">
-<meta property="twitter:description" content="記錄以 Threads 社群資料建立台指期作者績效評分、加權情緒訊號與跟單／反指標策略的方法與限制。">
-<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/trading/threads-txf-sentiment-following-research.png">
+<meta property="twitter:title" content="OMP 指令速查表 - Shane's Knowledge Base">
+<meta property="twitter:description" content="Oh My Pi（OMP）安裝、模型、Session、Collab 遠端控制、設定與權限的常用指令，一頁查完。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/omp-cheat-sheet.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#threads" class="md-skip">
+        <a href="#omp" class="md-skip">
           跳轉到
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Threads 台指期情緒與跟單策略研究方法紀錄
+              OMP 指令速查表
             
           </span>
         </div>
@@ -266,11 +266,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../ai/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -310,13 +312,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../trading/" class="md-tabs__link">
           
   
   
@@ -453,6 +453,8 @@
       
   
   
+    
+  
   
   
     
@@ -480,20 +482,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../ai/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -511,13 +516,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -553,17 +558,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
             
   
   
@@ -599,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/prompt-engineering-core-techniques/" class="md-nav__link">
+      <a href="../prompt-engineering-core-techniques/" class="md-nav__link">
         
   
   
@@ -627,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/context-engineering/" class="md-nav__link">
+      <a href="../context-engineering/" class="md-nav__link">
         
   
   
@@ -655,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/context-engineering-in-practice/" class="md-nav__link">
+      <a href="../context-engineering-in-practice/" class="md-nav__link">
         
   
   
@@ -683,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/reasoning-models-test-time-compute/" class="md-nav__link">
+      <a href="../reasoning-models-test-time-compute/" class="md-nav__link">
         
   
   
@@ -739,17 +747,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
             
   
   
@@ -785,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+      <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
         
   
   
@@ -813,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/rag-retrieval-augmented-generation/" class="md-nav__link">
+      <a href="../rag-retrieval-augmented-generation/" class="md-nav__link">
         
   
   
@@ -841,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/embeddings-and-vector-databases/" class="md-nav__link">
+      <a href="../embeddings-and-vector-databases/" class="md-nav__link">
         
   
   
@@ -869,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/rag-advanced-techniques/" class="md-nav__link">
+      <a href="../rag-advanced-techniques/" class="md-nav__link">
         
   
   
@@ -897,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+      <a href="../graphrag-knowledge-graph-retrieval/" class="md-nav__link">
         
   
   
@@ -925,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/agentic-rag-2026/" class="md-nav__link">
+      <a href="../agentic-rag-2026/" class="md-nav__link">
         
   
   
@@ -958,8 +969,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -982,18 +995,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
         
           
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
             
   
   
@@ -1011,7 +1027,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1029,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/structured-output-and-tool-use/" class="md-nav__link">
+      <a href="../structured-output-and-tool-use/" class="md-nav__link">
         
   
   
@@ -1057,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/ai-agent-security-and-permissions/" class="md-nav__link">
+      <a href="../ai-agent-security-and-permissions/" class="md-nav__link">
         
   
   
@@ -1085,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/coding-agent-workflow-sop/" class="md-nav__link">
+      <a href="../coding-agent-workflow-sop/" class="md-nav__link">
         
   
   
@@ -1113,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/ai-agent-harness-engineering/" class="md-nav__link">
+      <a href="../ai-agent-harness-engineering/" class="md-nav__link">
         
   
   
@@ -1141,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/multi-agent-orchestration/" class="md-nav__link">
+      <a href="../multi-agent-orchestration/" class="md-nav__link">
         
   
   
@@ -1169,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/omp-remote-coding-agent-guide/" class="md-nav__link">
+      <a href="../omp-remote-coding-agent-guide/" class="md-nav__link">
         
   
   
@@ -1194,10 +1210,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../ai/omp-cheat-sheet/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · OMP 指令速查表
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1213,6 +1256,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝與初始化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider 與模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        啟動與 Session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collab 遠端控制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approval-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        權限（Approval Mode）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ntfy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手機通知（ntfy）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一次設定：10 步
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        參考資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1249,17 +1422,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
         
           
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
             
   
   
@@ -1295,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/agent-memory-systems/" class="md-nav__link">
+      <a href="../agent-memory-systems/" class="md-nav__link">
         
   
   
@@ -1323,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/agent-observability/" class="md-nav__link">
+      <a href="../agent-observability/" class="md-nav__link">
         
   
   
@@ -1351,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/llm-evaluation-in-practice/" class="md-nav__link">
+      <a href="../llm-evaluation-in-practice/" class="md-nav__link">
         
   
   
@@ -1379,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/llm-evaluation-advanced/" class="md-nav__link">
+      <a href="../llm-evaluation-advanced/" class="md-nav__link">
         
   
   
@@ -1435,17 +1611,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
         
           
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
             
   
   
@@ -1481,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/claude-code-coding-guidelines/" class="md-nav__link">
+      <a href="../claude-code-coding-guidelines/" class="md-nav__link">
         
   
   
@@ -1509,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/superpowers-claude-code-skills/" class="md-nav__link">
+      <a href="../superpowers-claude-code-skills/" class="md-nav__link">
         
   
   
@@ -1537,7 +1716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/claude-code-discipline-frameworks/" class="md-nav__link">
+      <a href="../claude-code-discipline-frameworks/" class="md-nav__link">
         
   
   
@@ -1565,7 +1744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/anthropic-document-skills/" class="md-nav__link">
+      <a href="../anthropic-document-skills/" class="md-nav__link">
         
   
   
@@ -1593,7 +1772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/mcp-ecosystem-guide/" class="md-nav__link">
+      <a href="../mcp-ecosystem-guide/" class="md-nav__link">
         
   
   
@@ -1621,7 +1800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/mcp-builder-skill/" class="md-nav__link">
+      <a href="../mcp-builder-skill/" class="md-nav__link">
         
   
   
@@ -1671,17 +1850,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
             
   
   
@@ -1717,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/prompt-caching-cost-latency/" class="md-nav__link">
+      <a href="../prompt-caching-cost-latency/" class="md-nav__link">
         
   
   
@@ -1745,7 +1927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/9router-ai-router-token-saver/" class="md-nav__link">
+      <a href="../9router-ai-router-token-saver/" class="md-nav__link">
         
   
   
@@ -1773,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/caveman-token-compression-skill/" class="md-nav__link">
+      <a href="../caveman-token-compression-skill/" class="md-nav__link">
         
   
   
@@ -1821,17 +2003,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
         
           
-          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
             
   
   
@@ -1867,7 +2052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+      <a href="../claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
         
   
   
@@ -1895,7 +2080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/my-obsidian-vault-claude-md/" class="md-nav__link">
+      <a href="../my-obsidian-vault-claude-md/" class="md-nav__link">
         
   
   
@@ -2505,8 +2690,6 @@
       
   
   
-    
-  
   
   
     
@@ -2526,23 +2709,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../trading/" class="md-nav__link ">
               
   
   
@@ -2560,13 +2740,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2583,10 +2763,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2607,21 +2785,18 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked="">
-        
-          
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -2639,7 +2814,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2657,7 +2832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wave-backtest-usage/" class="md-nav__link">
+      <a href="../../trading/wave-backtest-usage/" class="md-nav__link">
         
   
   
@@ -2685,7 +2860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
+      <a href="../../trading/taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
         
   
   
@@ -2713,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wave-theory-probabilistic-counter-plan/" class="md-nav__link">
+      <a href="../../trading/wave-theory-probabilistic-counter-plan/" class="md-nav__link">
         
   
   
@@ -2738,37 +2913,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Threads 台指期情緒與跟單策略研究規劃
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../trading/threads-txf-sentiment-following-research/" class="md-nav__link">
         
   
   
@@ -2784,186 +2932,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        摘要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        研究問題
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料來源
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="資料來源">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        官方 API 路線
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#playwright" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Playwright 前端採樣路線
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        貼文標註
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        作者績效評分
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        防止未來函數
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        情緒指標
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        回測策略
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tradingview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TradingView 的角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小樣本採樣範圍
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        我的理解
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        延伸閱讀（本站）
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2976,7 +2944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../net-delta-options-strategy/" class="md-nav__link">
+      <a href="../../trading/net-delta-options-strategy/" class="md-nav__link">
         
   
   
@@ -3004,7 +2972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
+      <a href="../../trading/taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
         
   
   
@@ -3054,20 +3022,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -3103,7 +3068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic-industry-analysis-sop/" class="md-nav__link">
+      <a href="../../trading/basic-industry-analysis-sop/" class="md-nav__link">
         
   
   
@@ -3131,7 +3096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../serenity-style-industry-research-process/" class="md-nav__link">
+      <a href="../../trading/serenity-style-industry-research-process/" class="md-nav__link">
         
   
   
@@ -3159,7 +3124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../leo-satellite-supply-chain-exposure/" class="md-nav__link">
+      <a href="../../trading/leo-satellite-supply-chain-exposure/" class="md-nav__link">
         
   
   
@@ -3219,20 +3184,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4">
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
   
   
@@ -3268,7 +3230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-research-diagrams-decision-map/" class="md-nav__link">
+      <a href="../../trading/passive-components-research-diagrams-decision-map/" class="md-nav__link">
         
   
   
@@ -3296,7 +3258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-industry-overview/" class="md-nav__link">
+      <a href="../../trading/passive-components-industry-overview/" class="md-nav__link">
         
   
   
@@ -3324,7 +3286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-market-sizing/" class="md-nav__link">
+      <a href="../../trading/passive-components-market-sizing/" class="md-nav__link">
         
   
   
@@ -3352,7 +3314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-company-universe/" class="md-nav__link">
+      <a href="../../trading/passive-components-company-universe/" class="md-nav__link">
         
   
   
@@ -3380,7 +3342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-stock-tracker/" class="md-nav__link">
+      <a href="../../trading/passive-components-stock-tracker/" class="md-nav__link">
         
   
   
@@ -3408,7 +3370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-monthly-tracker/" class="md-nav__link">
+      <a href="../../trading/passive-components-monthly-tracker/" class="md-nav__link">
         
   
   
@@ -3436,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-valuation-framework/" class="md-nav__link">
+      <a href="../../trading/passive-components-valuation-framework/" class="md-nav__link">
         
   
   
@@ -3464,7 +3426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../passive-components-target-price/" class="md-nav__link">
+      <a href="../../trading/passive-components-target-price/" class="md-nav__link">
         
   
   
@@ -3732,7 +3694,40 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        研究問題
+        安裝與初始化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider 與模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        啟動與 Session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collab 遠端控制
       
     </span>
   </a>
@@ -3743,38 +3738,43 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料來源
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="資料來源">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        官方 API 路線
+        設定
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#playwright" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#approval-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Playwright 前端採樣路線
+        權限（Approval Mode）
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#ntfy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手機通知（ntfy）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一次設定：10 步
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3782,95 +3782,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        貼文標註
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        作者績效評分
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        防止未來函數
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        情緒指標
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        回測策略
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tradingview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TradingView 的角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        小樣本採樣範圍
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        我的理解
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        延伸閱讀（本站）
+        參考資料
       
     </span>
   </a>
@@ -3923,7 +3835,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Trading Research
+    AI Engineering
   </span>
 
         </a>
@@ -3938,10 +3850,10 @@
     
     
       <li class="md-path__item">
-        <a href="../wave-backtest-usage/" class="md-path__link">
+        <a href="../structured-output-and-tool-use/" class="md-path__link">
           
   <span class="md-ellipsis">
-    策略研究與回測
+    Agent 工程
   </span>
 
         </a>
@@ -3964,146 +3876,344 @@
       
       
       
-        <a href="../../tags/#tag:taiwan-market" class="md-tag">Taiwan Market</a>
+        <a href="../../tags/#tag:ai-agents" class="md-tag">AI Agents</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:trading-strategy" class="md-tag">Trading Strategy</a>
+        <a href="../../tags/#tag:coding-agent" class="md-tag">Coding Agent</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:omp" class="md-tag">OMP</a>
       
     
   </nav>
 
 
 
-<h1 id="threads">Threads 台指期情緒與跟單策略研究方法紀錄<a class="headerlink" href="#threads" title="Permanent link">¶</a></h1>
+<h1 id="omp">OMP 指令速查表<a class="headerlink" href="#omp" title="Permanent link">¶</a></h1>
 <h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>本頁記錄從 Threads 蒐集台指期相關公開貼文、解析發文方向、情緒與有效喊單，再依照發文者過往勝率、期望值與穩定度建立權重的方法，用於檢視台指期跟單策略、反指標策略與市場情緒。</p>
-<p>驗證狀態截至 2026-06-06：<code>threads_keyword_search</code> 權限尚未取得；本記錄未包含以該 API 資料驗證作者績效或策略表現的結果。</p>
-<p>核心想法不是直接「看到誰喊多就跟多」，而是把社群資料拆成三層：</p>
-<ul>
-<li>大眾情緒：整體 Threads 討論偏多或偏空。</li>
-<li>可信作者共識：過去有正期望值的作者目前偏向。</li>
-<li>反指標過熱：低分作者或雜訊帳號是否出現一致追多/追空。</li>
-</ul>
-<h2 id="_2">研究問題<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>本方法檢視下列問題：</p>
-<ul>
-<li>Threads 台指期相關貼文量是否足夠？</li>
-<li>有效交易訊號比例是否夠高？</li>
-<li>作者歷史勝率與期望值是否具有持續性？</li>
-<li>高分作者跟單是否優於全體平均？</li>
-<li>低分作者是否能作為反指標？</li>
-<li>加權情緒是否比原始情緒更有預測力？</li>
-<li>扣除台指期交易成本後是否仍有正期望值？</li>
-</ul>
-<h2 id="_3">資料來源<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<h3 id="api">官方 API 路線<a class="headerlink" href="#api" title="Permanent link">¶</a></h3>
-<p>Threads 官方 API 的 <code>keyword_search</code> 可用於搜尋公開貼文，參數包含 <code>q</code>、<code>search_type=RECENT|TOP</code>、<code>search_mode=KEYWORD|TAG</code>、<code>media_type=TEXT</code>、<code>since</code>、<code>until</code>、<code>limit</code> 等。公開搜尋通常需要 <code>threads_basic</code> 與 <code>threads_keyword_search</code> 權限。</p>
-<p>優點是資料結構化、時間欄位可靠、適合長期資料管線；缺點是需要權限申請與審核。</p>
-<h3 id="playwright">Playwright 前端採樣路線<a class="headerlink" href="#playwright" title="Permanent link">¶</a></h3>
-<p>Playwright 可用於低頻、保守的前端搜尋採樣：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Threads 搜尋頁
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>人工登入 browser profile
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>搜尋台指期 / 小台 / TXF / MTX 等關鍵字
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ↓
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>慢速捲動擷取可見貼文
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  ↓
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>解析 URL、作者、時間、文字
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  ↓
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>去重後輸出 JSONL
+<p>把 <a href="../omp-remote-coding-agent-guide/">OMP 遠端 Coding Agent 指南</a> 用到的指令收成一頁。<code>omp ...</code> 在私人筆電的終端機執行；<code>/...</code> 在 OMP 裡面輸入，其他電腦或手機的瀏覽器也能輸入。</p>
+<blockquote>
+<p>資料基準：2026-09。OMP 版本會變，實際可用選項以 <code>omp --help</code>、<code>omp config list</code>、<code>omp models</code> 為準。</p>
+</blockquote>
+<h2 id="_2">安裝與初始化<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># macOS / Linux</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omp.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
-<p>這條路線適合做資料可行性驗證，但不應被視為完整歷史資料源，也不應繞過登入牆、Captcha、速率限制或非公開內容。</p>
-<h2 id="_4">貼文標註<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>每篇貼文要轉成結構化訊號，例如：</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"is_trade_signal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"instrument"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TXF"</span><span class="p">,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long"</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">"time_horizon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intraday"</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">"entry_price"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">"stop_loss"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">"take_profit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nt">"sentiment_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nt">"is_after_the_fact"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># Windows PowerShell</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">omp</span><span class="p">.</span><span class="n">sh</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
 </span></code></pre></div>
-<p>貼文分類：</p>
-<ul>
-<li>明確交易訊號：例如「小台 23850 多，跌破 23800 停損」。</li>
-<li>方向判斷：例如「今天偏多看待」。</li>
-<li>情緒文：例如「多軍好強」「空軍被嘎」。</li>
-<li>事後回顧或炫耀文：例如「早就說會噴」，不得用於當時交易訊號。</li>
-<li>雜訊：廣告、無方向、非台指期相關內容。</li>
-</ul>
-<h2 id="_5">作者績效評分<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>作者分數不應只看勝率，而應重視期望值與穩定度：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>expectancy = win_rate × avg_win - loss_rate × avg_loss
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安裝（Homebrew）</td>
+<td><code>brew install can1357/tap/omp</code></td>
+</tr>
+<tr>
+<td>確認版本</td>
+<td><code>omp --version</code></td>
+</tr>
+<tr>
+<td>查看 CLI 說明</td>
+<td><code>omp --help</code></td>
+</tr>
+<tr>
+<td>第一次初始化</td>
+<td><code>omp setup</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="provider">Provider 與模型<a class="headerlink" href="#provider" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>登入 Provider（選單）</td>
+<td><code>omp login</code></td>
+</tr>
+<tr>
+<td>登入指定 Provider</td>
+<td><code>omp login anthropic</code> / <code>omp login openai</code></td>
+</tr>
+<tr>
+<td>列出可用模型</td>
+<td><code>omp models</code></td>
+</tr>
+<tr>
+<td>搜尋模型</td>
+<td><code>omp models find claude</code> / <code>gpt</code> / <code>gemini</code></td>
+</tr>
+<tr>
+<td>列出自訂 Provider 的模型</td>
+<td><code>omp models my-provider</code></td>
+</tr>
+<tr>
+<td>Session 內切換模型</td>
+<td><code>/model</code></td>
+</tr>
+<tr>
+<td>啟動時指定模型</td>
+<td><code>omp --model &lt;provider&gt;/&lt;model&gt;</code></td>
+</tr>
+<tr>
+<td>啟動時指定角色</td>
+<td><code>omp --model slow</code> 或 <code>omp --model @slow</code></td>
+</tr>
+<tr>
+<td>設定思考等級</td>
+<td><code>omp --thinking high</code></td>
+</tr>
+</tbody>
+</table>
+<p>思考等級：<code>off</code> · <code>minimal</code> · <code>low</code> · <code>medium</code> · <code>high</code> · <code>xhigh</code>（是否支援看模型）。</p>
+<p>模型角色：<code>default</code> 日常 · <code>smol</code> 快又便宜 · <code>slow</code> 深度推理 · <code>plan</code> 規劃 · <code>vision</code> 圖片 · <code>advisor</code> 第二意見 · <code>task</code> Subagent · <code>designer</code> 設計。</p>
+<h2 id="session">啟動與 Session<a class="headerlink" href="#session" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在專案內啟動</td>
+<td><code>cd ~/Projects/my-project &amp;&amp; omp</code></td>
+</tr>
+<tr>
+<td>繼續最近的 Session</td>
+<td><code>omp --continue</code> 或 <code>omp -c</code></td>
+</tr>
+<tr>
+<td>從歷史挑一個 Session</td>
+<td><code>omp --resume</code></td>
+</tr>
+<tr>
+<td>繼續指定 Session</td>
+<td><code>omp --resume &lt;session-id&gt;</code></td>
+</tr>
+<tr>
+<td>從某個 Session 分支</td>
+<td><code>omp --fork &lt;session&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="collab">Collab 遠端控制<a class="headerlink" href="#collab" title="Permanent link">¶</a></h2>
+<p>在 OMP 裡面輸入：</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開啟完整控制</td>
+<td><code>/collab</code></td>
+</tr>
+<tr>
+<td>開啟唯讀分享</td>
+<td><code>/collab view</code></td>
+</tr>
+<tr>
+<td>查看狀態</td>
+<td><code>/collab status</code></td>
+</tr>
+<tr>
+<td>停止 Collab</td>
+<td><code>/collab stop</code></td>
+</tr>
+<tr>
+<td>Guest 離開</td>
+<td><code>/leave</code></td>
+</tr>
+</tbody>
+</table>
+<p>在終端機執行：</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>列出執行中的 Host</td>
+<td><code>omp collab list</code></td>
+</tr>
+<tr>
+<td>取得連結</td>
+<td><code>omp collab link &lt;instanceId&gt;</code></td>
+</tr>
+<tr>
+<td>取得唯讀連結</td>
+<td><code>omp collab link &lt;instanceId&gt; --view</code></td>
+</tr>
+<tr>
+<td>從另一個終端機加入</td>
+<td><code>omp join "..."</code></td>
+</tr>
+</tbody>
+</table>
+<p>其他電腦或手機：用瀏覽器開 <code>https://my.omp.sh/#你的-session-key</code>，或掃 <code>/collab</code> 顯示的 QR Code。</p>
+<div class="admonition danger">
+<p class="admonition-title">Collab URL 等於密碼</p>
+<p>完整控制的 URL 可以送 Prompt，也能讓 Host 執行工具。不要貼到公開頻道、Issue、Repository 或群組信。只想給人看畫面時，用 <code>/collab view</code>。</p>
+</div>
+<h2 id="_3">設定<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>列出全部設定</td>
+<td><code>omp config list</code></td>
+</tr>
+<tr>
+<td>查一個設定值</td>
+<td><code>omp config get tools.approvalMode</code></td>
+</tr>
+<tr>
+<td>修改設定</td>
+<td><code>omp config set &lt;key&gt; &lt;value&gt;</code></td>
+</tr>
+<tr>
+<td>查看設定檔路徑</td>
+<td><code>omp config path</code></td>
+</tr>
+<tr>
+<td>啟動時自動開完整控制</td>
+<td><code>omp config set collab.autoStart control</code></td>
+</tr>
+<tr>
+<td>啟動時自動開唯讀</td>
+<td><code>omp config set collab.autoStart view</code></td>
+</tr>
+<tr>
+<td>關閉自動 Collab</td>
+<td><code>omp config set collab.autoStart off</code></td>
+</tr>
+<tr>
+<td>設定顯示名稱</td>
+<td><code>omp config set collab.displayName Shane-Laptop</code></td>
+</tr>
+</tbody>
+</table>
+<p>設定檔位置：</p>
+<table>
+<thead>
+<tr>
+<th>檔案</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.omp/agent/config.yml</code></td>
+<td>全域設定</td>
+</tr>
+<tr>
+<td><code>~/.omp/agent/models.yml</code></td>
+<td>自訂模型 / Provider</td>
+</tr>
+<tr>
+<td><code>your-project/.omp/config.yml</code></td>
+<td>專案設定</td>
+</tr>
+<tr>
+<td><code>~/.omp/agent/extensions/</code></td>
+<td>Extension</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code>（repo 根目錄）</td>
+<td>專案規則</td>
+</tr>
+</tbody>
+</table>
+<h2 id="approval-mode">權限（Approval Mode）<a class="headerlink" href="#approval-mode" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th style="text-align: right;">Read</th>
+<th style="text-align: right;">Write</th>
+<th style="text-align: right;">Shell / Exec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>always-ask</code></td>
+<td style="text-align: right;">自動</td>
+<td style="text-align: right;">問</td>
+<td style="text-align: right;">問</td>
+</tr>
+<tr>
+<td><code>write</code></td>
+<td style="text-align: right;">自動</td>
+<td style="text-align: right;">自動</td>
+<td style="text-align: right;">問</td>
+</tr>
+<tr>
+<td><code>yolo</code></td>
+<td style="text-align: right;">自動</td>
+<td style="text-align: right;">自動</td>
+<td style="text-align: right;">自動</td>
+</tr>
+</tbody>
+</table>
+<p>遠端使用建議從 <code>write</code> 開始：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>tools.approvalMode<span class="w"> </span>write
 </span></code></pre></div>
-<p>作者 edge 可設計為：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>author_edge_score = sample_shrinkage × normalized_expectancy_90d × stability_factor
+<h2 id="ntfy">手機通知（ntfy）<a class="headerlink" href="#ntfy" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NTFY_TOPIC</span><span class="o">=</span><span class="s2">"your-private-topic"</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-d<span class="w"> </span><span class="s2">"OMP task completed"</span><span class="w"> </span>https://ntfy.sh/YOUR_PRIVATE_TOPIC
 </span></code></pre></div>
-<p>分數應允許負值：</p>
-<ul>
-<li><code>+0.8</code>：高品質正向跟單者。</li>
-<li><code>+0.2</code>：略有參考價值。</li>
-<li><code>0.0</code>：無明顯 edge。</li>
-<li><code>-0.4</code>：偏反指標。</li>
-<li><code>-0.8</code>：強反指標。</li>
-</ul>
-<h2 id="_6">防止未來函數<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>任何時間點 T 的策略訊號，只能使用 T 以前已知的貼文與績效。</p>
-<p>例如在 2026-06-05 10:00 建立作者權重時，只能用該時間以前的作者歷史 outcomes，不得用之後的勝率或報酬。回測應採 walk-forward 更新作者分數，避免把未來績效帶回過去。</p>
-<h2 id="_7">情緒指標<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>可建立多層情緒序列：</p>
-<ul>
-<li><code>raw_sentiment</code>：不考慮作者能力的全體情緒。</li>
-<li><code>weighted_sentiment</code>：依作者 edge、貼文清晰度、信心與時間衰減加權。</li>
-<li><code>elite_sentiment</code>：高分作者群情緒。</li>
-<li><code>low_score_sentiment</code>：低分或反指標作者群情緒。</li>
-<li><code>dispersion</code>：高手與大眾情緒分歧度。</li>
-<li><code>overheat_score</code>：散戶過熱、發文量暴增與高手不跟隨時的風險分數。</li>
-</ul>
-<h2 id="_8">回測策略<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<p>可比較四種策略：</p>
-<ol>
-<li>全體加權情緒跟單。</li>
-<li>高分作者跟單。</li>
-<li>低分作者反指標。</li>
-<li>社群情緒 + 價格濾網。</li>
-</ol>
-<p>回測指標至少包含：交易次數、勝率、平均點數、總點數、profit factor、Sharpe、最大回撤、多空拆解與成本敏感度。</p>
-<h2 id="tradingview">TradingView 的角色<a class="headerlink" href="#tradingview" title="Permanent link">¶</a></h2>
-<p>TradingView Pro 適合作為視覺化與局部驗證工具，但不建議作為唯一回測引擎。</p>
-<p>Python 較適合處理文字標註、作者 walk-forward 評分、時間對齊與統計檢定；TradingView / Pine Script 則適合：</p>
-<ul>
-<li>在 TXF/MTX 圖上標示社群訊號。</li>
-<li>對指定期間做視覺 sanity check。</li>
-<li>用簡化策略檢查訊號與價格走勢是否合理。</li>
-</ul>
-<h2 id="_9">小樣本採樣範圍<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
-<p>Playwright 小樣本採樣工具：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scripts/social_txf/threads_playwright_scraper.py
+<div class="admonition warning">
+<p class="admonition-title">Topic 名稱也是 Secret</p>
+<p>知道 Topic 的人都能收到你的通知。用環境變數，不要寫進 Repository。</p>
+</div>
+<h2 id="10">第一次設定：10 步<a class="headerlink" href="#10" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omp.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w">           </span><span class="c1"># 1. 安裝</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>omp<span class="w"> </span>setup<span class="w">                                         </span><span class="c1"># 2. 初始化</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>omp<span class="w"> </span>login<span class="w">                                         </span><span class="c1"># 3. 登入 Provider</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>omp<span class="w"> </span>models<span class="w">                                        </span><span class="c1"># 4. 確認模型</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>tools.approvalMode<span class="w"> </span>write<span class="w">           </span><span class="c1"># 5. 權限</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.autoStart<span class="w"> </span>control<span class="w">           </span><span class="c1"># 6. 自動 Collab</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>omp<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>collab.displayName<span class="w"> </span>Shane-Laptop<span class="w">    </span><span class="c1"># 7. 顯示名稱</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">cd</span><span class="w"> </span>~/Projects/your-project<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>omp<span class="w">                 </span><span class="c1"># 8. 進專案啟動</span>
 </span></code></pre></div>
-<p>每個關鍵字以 50～200 篇作為小樣本，檢查：</p>
+<p>9. 在 OMP 輸入 <code>/collab</code>，用手機掃 QR Code。
+10. 確認手機能送 Prompt、Shell 需要批准、工具在筆電執行、筆電不會睡眠。</p>
+<h2 id="_4">參考資料<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <ul>
-<li>URL / 作者 / 時間 / 文字解析成功率。</li>
-<li>台指期相關比例。</li>
-<li>有效喊單比例。</li>
-<li>是否出現足夠多重複作者可建立作者分數。</li>
-</ul>
-<h2 id="_10">我的理解<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
-<p>這個題目的價值在於把社群雜訊轉成「可驗證的情緒與作者 edge」。如果高分作者與低分作者情緒出現分歧，例如低品質帳號極度偏多但高分作者不跟隨，可能比單純多空比例更有交易價值。</p>
-<p>這套方法將資料量、標註品質、作者 edge 持續性與扣成本後表現列為判讀社群訊號時必須分開檢視的條件；不宜據此直接作為盤中自動監控或部位建議的依據。</p>
-<h2 id="_11">延伸閱讀（本站）<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../taiwan-large-retail-sector-flow-strategy/">台股大戶散戶產業資金流策略研究</a> — 另一個資金／情緒訊號的策略研究</li>
-<li><a href="../wave-theory-probabilistic-counter-plan/">波浪理論機率式波數判斷方法紀錄</a> — 同以台指期為標的的研究方法紀錄</li>
+<li><a href="../omp-remote-coding-agent-guide/">OMP 遠端 Coding Agent 指南</a>（完整說明與架構圖）</li>
+<li>CLI Reference：<a href="https://github.com/can1357/oh-my-pi/blob/main/docs/cli-reference.md">https://github.com/can1357/oh-my-pi/blob/main/docs/cli-reference.md</a></li>
+<li>Collab：<a href="https://github.com/can1357/oh-my-pi/blob/main/docs/collab.md">https://github.com/can1357/oh-my-pi/blob/main/docs/collab.md</a></li>
+<li>Settings：<a href="https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md">https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md</a></li>
 </ul>
 
 
@@ -4127,7 +4237,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月28日 20:54:36 UTC">2026年9月28日</span>
   </span>
 
     
@@ -4137,7 +4247,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月5日 03:00:47 UTC">2026年6月5日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月28日 20:54:36 UTC">2026年9月28日</span>
   </span>
 
     
@@ -4172,7 +4282,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../wave-theory-probabilistic-counter-plan/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 波浪理論機率式波數判斷系統規劃">
+          <a href="../omp-remote-coding-agent-guide/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 6 · OMP 遠端 Coding Agent 指南">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4182,20 +4292,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                波浪理論機率式波數判斷系統規劃
+                6 · OMP 遠端 Coding Agent 指南
               </div>
             </div>
           </a>
         
         
           
-          <a href="../net-delta-options-strategy/" class="md-footer__link md-footer__link--next" aria-label="下一頁: net_delta 選擇權部位策略">
+          <a href="../agent-memory-systems/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 1 · Agent Memory 系統">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                net_delta 選擇權部位策略
+                1 · Agent Memory 系統
               </div>
             </div>
             <div class="md-footer__button md-icon">

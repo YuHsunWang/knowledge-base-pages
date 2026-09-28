@@ -12,7 +12,7 @@ W, H = 1800, 1080
 s = [svg_head(W, H), title_block("MULTI-PROJECT · OMP", P["violet"][1],
     "多專案與 Collab Session 配置", "一個專案對應一個 OMP 與 Collab Session。")]
 s.append(card(70, 490, 275, 150, "violet", "私人筆電", []))
-s.append(card(1430, 490, 300, 150, "indigo", "公司 Browser / 手機", []))
+s.append(card(1430, 490, 300, 150, "indigo", "其他電腦 / 手機", []))
 rows = [
     (240, "OMP: project-api", "Collab Session A"),
     (455, "OMP: project-web", "Collab Session B"),

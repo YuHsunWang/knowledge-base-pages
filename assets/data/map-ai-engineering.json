@@ -71,7 +71,8 @@
     "coding-agent-workflow-sop",
     "ai-agent-harness-engineering",
     "multi-agent-orchestration",
-    "omp-remote-coding-agent-guide"
+    "omp-remote-coding-agent-guide",
+    "omp-cheat-sheet"
    ]
   },
   {
@@ -911,6 +912,25 @@
    ]
   },
   {
+   "id": "omp-cheat-sheet",
+   "label": "OMP 指令速查表",
+   "href": "omp-cheat-sheet/",
+   "step": "7",
+   "meta": [
+    [
+     "首次發布",
+     "2026-09-29"
+    ]
+   ],
+   "note": "Oh My Pi（OMP）安裝、模型、Session、Collab 遠端控制、設定與權限的常用指令，一頁查完。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每月複查｜2026-09-29 更新｜32 天內有效"
+   },
+   "backlinks": []
+  },
+  {
    "id": "omp-remote-coding-agent-guide",
    "label": "OMP 遠端 Coding Agent 指南",
    "href": "omp-remote-coding-agent-guide/",
@@ -927,7 +947,13 @@
     "days": -1,
     "label": "每月複查｜2026-09-29 更新｜32 天內有效"
    },
-   "backlinks": []
+   "backlinks": [
+    {
+     "label": "OMP 指令速查表",
+     "href": "omp-cheat-sheet/",
+     "section": "ai"
+    }
+   ]
   },
   {
    "id": "prompt-caching-cost-latency",
@@ -1294,14 +1320,15 @@
     "label": "Agent 工程",
     "href": "#agent-engineering",
     "description": "讓模型會用工具、能自主",
-    "count": 6,
+    "count": 7,
     "members": [
      "structured-output-and-tool-use",
      "ai-agent-security-and-permissions",
      "coding-agent-workflow-sop",
      "ai-agent-harness-engineering",
      "multi-agent-orchestration",
-     "omp-remote-coding-agent-guide"
+     "omp-remote-coding-agent-guide",
+     "omp-cheat-sheet"
     ],
     "x": 0.82,
     "y": 0.2,

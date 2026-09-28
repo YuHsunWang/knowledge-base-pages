@@ -12,7 +12,7 @@ W, H = 1800, 1120
 s = [svg_head(W, H), title_block("ARCHITECTURE · FINAL", P["indigo"][1],
     "OMP 遠端 Coding Agent 最終架構", "遠端控制、Host 工具、模型與通知的整合架構。")]
 nodes = [
-    (70, 300, 290, 150, "indigo", "公司電腦", ["Chrome / Edge"]),
+    (70, 300, 290, 150, "indigo", "其他電腦", ["Chrome / Edge"]),
     (70, 550, 290, 150, "indigo", "手機", ["Safari / Chrome"]),
     (455, 420, 300, 155, "teal", "OMP Collab Relay", []),
     (870, 420, 315, 155, "violet", "私人筆電", ["OMP Host"]),
