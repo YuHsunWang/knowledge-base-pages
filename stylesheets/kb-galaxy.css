@@ -238,11 +238,19 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   align-items: center;
   gap: 0.15rem;
   width: max-content;
-  max-width: 11rem;
+  max-width: 12rem;
   text-align: center;
+  /* A soft dark backing so constellation lines pass behind the words. */
   transform: translateX(-50%);
   pointer-events: none;
   text-shadow: 0 0 0.6rem var(--kb-space), 0 0 0.2rem var(--kb-space);
+}
+
+/* Constellation lines only exist on the article layer; there a soft dark
+   backing lets them pass behind the words. */
+.kb-galaxy[data-level="L2"] .kb-galaxy-node__caption {
+  padding: 0.2rem 0.7rem;
+  background: radial-gradient(closest-side, var(--kb-space) 65%, transparent);
 }
 
 .kb-galaxy-node__label {
@@ -317,6 +325,20 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   transition: opacity 240ms ease;
 }
 
+.kb-galaxy-group {
+  position: absolute;
+  top: var(--node-y);
+  left: var(--node-x);
+  z-index: 1;
+  color: var(--kb-space-faint);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: kb-galaxy-arrive 420ms ease both;
+}
+
 .kb-galaxy-live {
   position: absolute;
   width: 1px;
@@ -335,7 +357,8 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   /* Articles run down one arm on a phone; captions sit beside the star. */
   .kb-galaxy[data-level="L2"] .kb-galaxy-node__caption {
     top: 50%;
-    left: calc(100% + 0.2rem);
+    left: calc(100% - 0.2rem);
+    padding: 0.1rem 0.3rem;
     align-items: flex-start;
     max-width: calc(100vw - var(--node-x) - var(--hit) - 1rem);
     text-align: left;
@@ -354,6 +377,7 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   .kb-galaxy[data-level="L1"] .kb-galaxy__title,
   .kb-galaxy[data-level="L2"] .kb-galaxy__title { left: 7.4rem; right: 0.9rem; }
   .kb-galaxy__hint { display: none; }
+  .kb-galaxy-group { transform: translateY(-50%); }
 }
 
 /* ── Reduced motion ──────────────────────────────────────────────
@@ -364,6 +388,7 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   }
 
   .kb-galaxy-overlay,
+  .kb-galaxy-group,
   .kb-galaxy-node,
   .kb-galaxy-node__ring,
   .kb-galaxy-node__note,

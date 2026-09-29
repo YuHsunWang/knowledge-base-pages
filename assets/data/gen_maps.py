@@ -85,6 +85,28 @@ def nav_groups(section, nav_title):
     return groups
 
 
+def nav_clusters(section):
+    """從 mkdocs.yml 取「文章 slug → 所屬子系列名稱」。
+
+    子系列是分組底下再巢狀一層的 nav 群組（例如 Agent 工程 → OMP 系列）；
+    Galaxy 把同一子系列畫成同一個星座。不在子系列裡的文章不列入。
+    """
+    cfg = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+    clusters, stack = {}, []
+    for line in cfg.split("\n"):
+        entry = re.match(r"^(\s+)- ([^:\n]+):\s*(\S*)\s*$", line)
+        if not entry:
+            continue
+        indent, label, target = len(entry.group(1)), entry.group(2).strip(), entry.group(3)
+        stack = [(i, name) for i, name in stack if i < indent]
+        article = re.fullmatch(rf"{re.escape(section)}/([a-z0-9-]+)\.md", target)
+        if article and len(stack) >= 3:
+            clusters[article.group(1)] = re.sub(r"^\d+\s*·\s*", "", stack[-1][1])
+        elif not target:
+            stack.append((indent, label))
+    return clusters
+
+
 LINK_RE = re.compile(r"\]\((?!https?:|#|mailto:)([^)\s#]+\.md)(?:#[^)]*)?\)")
 
 
@@ -354,6 +376,7 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map, lay
     if FAILURES:
         return
 
+    clusters = nav_clusters(section)
     items = []
     for stem in sorted(mapped):
         fm = frontmatter(DOCS / section / f"{stem}.md")
@@ -371,6 +394,7 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map, lay
             "id": stem, "label": label,
             "href": f"{stem}/",
             "step": step_match.group(1) if step_match else None,
+            "cluster": clusters.get(stem),
             "meta": meta,
             "note": fm.get("description", ""),
             "fresh": fresh,

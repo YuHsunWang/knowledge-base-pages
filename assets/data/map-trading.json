@@ -71,6 +71,7 @@
    "label": "基礎產業分析 SOP",
    "href": "basic-industry-analysis-sop/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -100,6 +101,7 @@
    "label": "低軌衛星供應鏈曝險",
    "href": "leo-satellite-supply-chain-exposure/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -125,6 +127,7 @@
    "label": "net_delta 選擇權部位策略",
    "href": "net-delta-options-strategy/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -149,6 +152,7 @@
    "label": "台股公司全圖",
    "href": "passive-components-company-universe/",
    "step": "3",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -184,6 +188,7 @@
    "label": "產業研究總覽",
    "href": "passive-components-industry-overview/",
    "step": "1",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -254,6 +259,7 @@
    "label": "市場量化",
    "href": "passive-components-market-sizing/",
    "step": "2",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -294,6 +300,7 @@
    "label": "月度追蹤表",
    "href": "passive-components-monthly-tracker/",
    "step": "5",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -339,6 +346,7 @@
    "label": "研究結構圖與決策地圖",
    "href": "passive-components-research-diagrams-decision-map/",
    "step": "0",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -379,6 +387,7 @@
    "label": "台灣個股追蹤",
    "href": "passive-components-stock-tracker/",
    "step": "4",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -419,6 +428,7 @@
    "label": "目標價評估",
    "href": "passive-components-target-price/",
    "step": "7",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -469,6 +479,7 @@
    "label": "估值框架",
    "href": "passive-components-valuation-framework/",
    "step": "6",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -519,6 +530,7 @@
    "label": "Serenity 式產業研究流程",
    "href": "serenity-style-industry-research-process/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -558,6 +570,7 @@
    "label": "台股籌碼反向訊號回測系統",
    "href": "taiwan-chip-counter-signal-backtest-system/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -587,6 +600,7 @@
    "label": "台股大戶散戶產業資金流策略研究",
    "href": "taiwan-large-retail-sector-flow-strategy/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -617,6 +631,7 @@
    "label": "Threads 台指期情緒與跟單策略研究規劃",
    "href": "threads-txf-sentiment-following-research/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -641,6 +656,7 @@
    "label": "波浪回測系統使用說明",
    "href": "wave-backtest-usage/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -671,6 +687,7 @@
    "label": "波浪理論機率式波數判斷系統規劃",
    "href": "wave-theory-probabilistic-counter-plan/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",

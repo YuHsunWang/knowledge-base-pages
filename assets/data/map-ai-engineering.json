@@ -123,6 +123,7 @@
    "label": "9Router 本機路由器",
    "href": "9router-ai-router-token-saver/",
    "step": "2",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -148,6 +149,7 @@
    "label": "Agent Memory 系統",
    "href": "agent-memory-systems/",
    "step": "1",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -172,6 +174,7 @@
    "label": "Agent Observability",
    "href": "agent-observability/",
    "step": "2",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -221,6 +224,7 @@
    "label": "Agentic RAG：換控制流",
    "href": "agentic-rag-2026/",
    "step": "4",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -261,6 +265,7 @@
    "label": "AI Agent Harness Engineering",
    "href": "ai-agent-harness-engineering/",
    "step": "4",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -325,6 +330,7 @@
    "label": "AI Agent 安全與權限",
    "href": "ai-agent-security-and-permissions/",
    "step": "2",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -354,6 +360,7 @@
    "label": "Anthropic Agent Skills",
    "href": "anthropic-document-skills/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -379,6 +386,7 @@
    "label": "Caveman Token 壓縮",
    "href": "caveman-token-compression-skill/",
    "step": "3",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -414,6 +422,7 @@
    "label": "Claude Code 寫程式準則",
    "href": "claude-code-coding-guidelines/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -439,6 +448,7 @@
    "label": "Claude Code 紀律框架對比",
    "href": "claude-code-discipline-frameworks/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -469,6 +479,7 @@
    "label": "用 CLAUDE.md 維護 Obsidian 知識庫",
    "href": "claude-md-obsidian-llm-wiki-maintainer/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -499,6 +510,7 @@
    "label": "Coding Agent 工作流 SOP",
    "href": "coding-agent-workflow-sop/",
    "step": "3",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -523,6 +535,7 @@
    "label": "Context Engineering",
    "href": "context-engineering/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -577,6 +590,7 @@
    "label": "Context Engineering 實作篇",
    "href": "context-engineering-in-practice/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -626,6 +640,7 @@
    "label": "Embeddings 與向量資料庫",
    "href": "embeddings-and-vector-databases/",
    "step": "2",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -671,6 +686,7 @@
    "label": "該不該用 RAG：vs Fine-tuning / Prompting",
    "href": "fine-tuning-vs-rag-vs-prompting/",
    "step": "0",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -700,6 +716,7 @@
    "label": "GraphRAG：換索引標的",
    "href": "graphrag-knowledge-graph-retrieval/",
    "step": "4",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -734,6 +751,7 @@
    "label": "LLM Evaluation 進階",
    "href": "llm-evaluation-advanced/",
    "step": "4",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -758,6 +776,7 @@
    "label": "LLM Evaluation 實務",
    "href": "llm-evaluation-in-practice/",
    "step": "3",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -812,6 +831,7 @@
    "label": "MCP Builder Skill",
    "href": "mcp-builder-skill/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -837,6 +857,7 @@
    "label": "MCP 生態系指南",
    "href": "mcp-ecosystem-guide/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -872,6 +893,7 @@
    "label": "Multi-Agent 協作",
    "href": "multi-agent-orchestration/",
    "step": "5",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -896,6 +918,7 @@
    "label": "我的 Obsidian Vault CLAUDE.md",
    "href": "my-obsidian-vault-claude-md/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -921,6 +944,7 @@
    "label": "速查表",
    "href": "omp-cheat-sheet/",
    "step": null,
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -971,6 +995,7 @@
    "label": "速查表",
    "href": "omp-cheat-sheet-web/",
    "step": null,
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -1021,6 +1046,7 @@
    "label": "Collab 遠端控制",
    "href": "omp-collab-remote-control/",
    "step": "3",
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -1066,6 +1092,7 @@
    "label": "設定、權限與安全",
    "href": "omp-config-permissions-security/",
    "step": "4",
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -1106,6 +1133,7 @@
    "label": "手機通知與日常流程",
    "href": "omp-mobile-notifications-workflow/",
    "step": "5",
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -1146,6 +1174,7 @@
    "label": "模型角色與日常 Coding",
    "href": "omp-models-and-daily-coding/",
    "step": "2",
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -1186,6 +1215,7 @@
    "label": "概念、架構與安裝",
    "href": "omp-remote-coding-agent-guide/",
    "step": "1",
+   "cluster": "OMP 遠端 Coding Agent",
    "meta": [
     [
      "首次發布",
@@ -1231,6 +1261,7 @@
    "label": "Prompt Caching",
    "href": "prompt-caching-cost-latency/",
    "step": "1",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -1256,6 +1287,7 @@
    "label": "Prompt Engineering 核心技術",
    "href": "prompt-engineering-core-techniques/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -1300,6 +1332,7 @@
    "label": "RAG 進階技術：六個槓桿",
    "href": "rag-advanced-techniques/",
    "step": "3",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -1349,6 +1382,7 @@
    "label": "RAG 完整指南",
    "href": "rag-retrieval-augmented-generation/",
    "step": "1",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -1403,6 +1437,7 @@
    "label": "Reasoning Models 與 Test-time Compute",
    "href": "reasoning-models-test-time-compute/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -1427,6 +1462,7 @@
    "label": "Structured Output 與 Tool Use",
    "href": "structured-output-and-tool-use/",
    "step": "1",
+   "cluster": null,
    "meta": [
     [
      "首次發布",
@@ -1451,6 +1487,7 @@
    "label": "Superpowers Skill 框架",
    "href": "superpowers-claude-code-skills/",
    "step": null,
+   "cluster": null,
    "meta": [
     [
      "首次發布",

@@ -161,39 +161,138 @@
       parent.w * scale, parent.h * scale);
   }
 
-  /* Articles sit on concentric ellipses, clockwise from the top in reading
-     order. Each ring holds as many stars as its perimeter has room for at
-     the article layer, so a new article never lands on an old one. A phone
-     is too narrow for captions around a ring: there the stars run down one
-     gently curved arm with the captions beside them. */
-  function ringLayout(count, vw, vh, mobile) {
-    if (count === 1) return [{ x: 0.5, y: 0.5 }];
-    if (mobile) {
-      // ponytail: one column; past ~20 articles per region the rows get tight on a phone.
-      return Array.from({ length: count }, function (_, i) {
-        var t = i / (count - 1);
-        return { x: 0.1 + 0.16 * Math.sin(Math.PI * t), y: 0.16 + t * 0.74 };
+  /* Articles in one nav sub-series form one constellation; the loose ones
+     share another. Each constellation gets its own share of the plate. */
+  function constellations(items) {
+    var groups = [];
+    var byLabel = {};
+    items.forEach(function (item, index) {
+      var key = item.cluster || '';
+      if (!byLabel[key]) {
+        byLabel[key] = { label: item.cluster || null, members: [] };
+        groups.push(byLabel[key]);
+      }
+      byLabel[key].members.push(index);
+    });
+    return groups;
+  }
+
+  /* Stars are laid down by a seeded walk: each one steps off the last at a
+     drifting angle, so a constellation reads as a hand-drawn figure yet
+     lands in the same place on every visit. A candidate is kept only if
+     its caption box clears every caption already placed, which is what
+     lets any number of articles share a region without stacking. Works in
+     article-layer pixels and returns fractions of the region box. */
+  function constellationLayout(items, vw, vh, mobile, seed) {
+    var random = seeded(seed);
+    var groups = constellations(items);
+    var points = new Array(items.length);
+    var placed = [];
+    var top = 0.17 * vh;
+    var bottom = 0.9 * vh;
+    var left = 0.07 * vw;
+    var right = 0.93 * vw;
+
+    function clear(x, y) {
+      return placed.every(function (p) {
+        return mobile ? Math.abs(y - p.y) >= 46 : Math.abs(x - p.x) >= 235 || Math.abs(y - p.y) >= 80;
       });
     }
-    var rx = 0.34;
-    var ry = 0.33;
-    var gap = 150;
-    var points = [];
-    var remaining = count;
-    for (var ring = 0; remaining > 0; ring++) {
-      var k = Math.pow(0.62, ring);
-      var a = rx * vw * k;
-      var b = ry * vh * k;
-      var room = Math.max(1, Math.floor(2 * Math.PI * Math.sqrt((a * a + b * b) / 2) / gap));
-      // ponytail: rings past the third take everything left; labels may crowd past ~60 articles per region.
-      var take = ring >= 2 ? remaining : Math.min(remaining, room);
-      for (var i = 0; i < take; i++) {
-        var angle = -Math.PI / 2 + (i + ring * 0.5) * 2 * Math.PI / take;
-        points.push({ x: 0.5 + Math.cos(angle) * rx * k, y: 0.5 + Math.sin(angle) * ry * k });
-      }
-      remaining -= take;
+
+    var segments = [];
+    function crosses(ax, ay, bx, by) {
+      function side(px, py, qx, qy, rx, ry) { return (qx - px) * (ry - py) - (qy - py) * (rx - px); }
+      return segments.some(function (g) {
+        if (g[2] === ax && g[3] === ay) return false;
+        return side(ax, ay, bx, by, g[0], g[1]) * side(ax, ay, bx, by, g[2], g[3]) < 0 &&
+          side(g[0], g[1], g[2], g[3], ax, ay) * side(g[0], g[1], g[2], g[3], bx, by) < 0;
+      });
     }
-    return points;
+
+    function put(index, x, y) {
+      points[index] = { x: x / vw, y: y / vh };
+      placed.push({ x: x, y: y });
+    }
+
+    if (mobile) {
+      /* A phone has room for captions only beside the stars: each
+         constellation runs down its own stretch of one wandering arm. */
+      var labelled = groups.filter(function (group) { return group.label; }).length;
+      var rowGap = Math.min(64, (bottom - top - 30 * labelled) / Math.max(1, items.length - 1));
+      var y = top;
+      groups.forEach(function (group) {
+        if (group.label) y += 30;
+        var x = 0.08 * vw + random() * 0.14 * vw;
+        group.members.forEach(function (index) {
+          put(index, x, y);
+          y += rowGap;
+          x = Math.max(0.06 * vw, Math.min(0.34 * vw, x + (random() - 0.5) * 0.18 * vw));
+        });
+        group.labelAt = { x: 0.06, y: (placed[placed.length - group.members.length].y - 30) / vh };
+      });
+      return { points: points, groups: groups };
+    }
+
+    var total = items.length;
+    var x0 = left;
+    groups.forEach(function (group) {
+      var x1 = x0 + (right - left) * group.members.length / total;
+      var cx = (x0 + x1) / 2;
+      var cy = (top + bottom) / 2;
+      var inside = function (x, y) { return x >= x0 + 60 && x <= x1 - 60 && y >= top && y <= bottom - 50; };
+      var px = x0 + 60 + random() * Math.max(1, (x1 - x0) * 0.4 - 60);
+      var py = top + 20 + random() * (bottom - top) * 0.35;
+      var heading = Math.atan2(cy - py, cx - px);
+      group.members.forEach(function (index, step) {
+        if (step > 0) {
+          var found = false;
+          for (var attempt = 0; attempt < 60 && !found; attempt++) {
+            var turn = heading + (random() - 0.5) * (2.2 + attempt * 0.08);
+            var reach = 170 + random() * 60 + attempt * 2;
+            var nx = px + Math.cos(turn) * reach;
+            var ny = py + Math.sin(turn) * reach * 0.75;
+            /* No near-vertical steps (the line would run down the whole
+               caption) and no step that crosses a line already drawn. */
+            var steep = attempt < 40 && Math.abs(Math.sin(turn)) > 0.9;
+            if (!steep && inside(nx, ny) && clear(nx, ny) && !crosses(px, py, nx, ny)) {
+              segments.push([px, py, nx, ny]);
+              heading = turn;
+              px = nx;
+              py = ny;
+              found = true;
+            }
+          }
+          for (var jump = 0; jump < 300 && !found; jump++) {
+            var jx = x0 + 60 + random() * (x1 - x0 - 120);
+            var jy = top + random() * (bottom - 50 - top);
+            if (clear(jx, jy)) {
+              segments.push([px, py, jx, jy]);
+              px = jx;
+              py = jy;
+              found = true;
+            }
+          }
+          // ponytail: past ~40 articles per region no clear spot is left and stars may crowd; add a page then.
+        }
+        put(index, px, py);
+      });
+      var ys = group.members.map(function (index) { return points[index].y * vh; });
+      var xs = group.members.map(function (index) { return points[index].x * vw; });
+      group.labelAt = {
+        x: (Math.min.apply(null, xs) + Math.max.apply(null, xs)) / 2 / vw,
+        y: (Math.min.apply(null, ys) - 42) / vh
+      };
+      x0 = x1;
+    });
+    /* A walk wanders off-centre; re-centre the whole figure so the region
+       caption one layer up sits under the stars rather than beside them. */
+    var xs = points.map(function (p) { return p.x; });
+    var ys = points.map(function (p) { return p.y; });
+    var dx = 0.5 - (Math.min.apply(null, xs) + Math.max.apply(null, xs)) / 2;
+    var dy = 0.52 - (Math.min.apply(null, ys) + Math.max.apply(null, ys)) / 2;
+    points.forEach(function (p) { p.x += dx; p.y += dy; });
+    groups.forEach(function (group) { group.labelAt.x += dx; group.labelAt.y += dy; });
+    return { points: points, groups: groups };
   }
 
   /* Two-armed spiral dust in the unit disc, tilted and turned per domain so
@@ -232,16 +331,19 @@
         domain.bornAt = bundle.bornAt;
         bundle.galaxy.regions.forEach(function (region) {
           var regionBox = childBox(box, pointFor(region, layout), REGION_SCALE);
-          var points = ringLayout(region.members.length, vw, vh, mobile);
+          var items = region.members.map(function (id) { return bundle.itemById[id]; });
+          var sky = constellationLayout(items, vw, vh, mobile, hashString(key + '/' + region.id));
+          function at(point) {
+            return { x: regionBox.x + (point.x - 0.5) * regionBox.w, y: regionBox.y + (point.y - 0.5) * regionBox.h };
+          }
           domain.regions.push({
             node: region,
             box: regionBox,
-            stars: region.members.map(function (id, index) {
-              return {
-                item: bundle.itemById[id],
-                x: regionBox.x + (points[index].x - 0.5) * regionBox.w,
-                y: regionBox.y + (points[index].y - 0.5) * regionBox.h
-              };
+            stars: items.map(function (item, index) {
+              return Object.assign({ item: item }, at(sky.points[index]));
+            }),
+            groups: sky.groups.map(function (group) {
+              return { label: group.label, members: group.members, labelAt: at(group.labelAt) };
             })
           });
         });
@@ -373,6 +475,19 @@
         var arrival = domain.bornAt ? Math.min(1, (now - domain.bornAt) / 600) : 1;
         if (arrival < 1) fading = true;
         domain.regions.forEach(function (region) {
+          /* Constellation lines, in reading order within each group only. */
+          context.globalAlpha = 0.32 * arrival * Math.min(1, s / 3);
+          context.strokeStyle = tokens.blue;
+          context.lineWidth = 1;
+          region.groups.forEach(function (group) {
+            context.beginPath();
+            group.members.forEach(function (index, step) {
+              var star = region.stars[index];
+              if (step) context.lineTo(sx(star.x), sy(star.y));
+              else context.moveTo(sx(star.x), sy(star.y));
+            });
+            context.stroke();
+          });
           region.stars.forEach(function (star) {
             var x = sx(star.x);
             var y = sy(star.y);
@@ -536,6 +651,7 @@
     var sections = {};
     var current = null;
     var currentEntries = [];
+    var currentTags = [];
     var transitioning = false;
     var disposed = false;
     var world = null;
@@ -688,11 +804,17 @@
           return {
             node: Object.assign({ count: region.node.members.length }, region.node),
             locate: function () {
+              /* Centre on the drawn figure, not the box: a phone's figure
+                 hugs the left edge so its captions fit one layer down. */
               var r = findRegion(world, state.domain, id);
+              var xs = r.stars.map(function (star) { return star.x; });
+              var ys = r.stars.map(function (star) { return star.y; });
+              var cx = (Math.min.apply(null, xs) + Math.max.apply(null, xs)) / 2;
+              var cy = (Math.min.apply(null, ys) + Math.max.apply(null, ys)) / 2;
               var reach = r.stars.reduce(function (most, star) {
-                return Math.max(most, Math.hypot(star.x - r.box.x, star.y - r.box.y));
+                return Math.max(most, Math.hypot(star.x - cx, star.y - cy));
               }, 0);
-              return { x: r.box.x, y: r.box.y, r: reach };
+              return { x: cx, y: cy, r: reach };
             }
           };
         });
@@ -712,6 +834,22 @@
           locate: function () {
             var s = findRegion(world, state.domain, state.region).stars[index];
             return { x: s.x, y: s.y, r: 0 };
+          }
+        };
+      });
+    }
+
+    /* Constellation names on the article layer; text only, not links. */
+    function groupTags(state) {
+      var region = findRegion(world, state.domain, state.region);
+      return region.groups.filter(function (group) { return group.label; }).map(function (group, index) {
+        var tag = span('kb-galaxy-group', group.label);
+        tag.setAttribute('aria-hidden', 'true');
+        return {
+          element: tag,
+          locate: function () {
+            var spot = findRegion(world, state.domain, state.region).groups.filter(function (g) { return g.label; })[index].labelAt;
+            return { x: spot.x, y: spot.y, r: 0 };
           }
         };
       });
@@ -813,8 +951,9 @@
     function renderLayer(state, view, previous, shouldFocus) {
       if (disposed) return;
       var entries = layerNodes(state).map(function (item, index) { return buildNode(item, state, index); });
-      entries.forEach(place);
-      overlay.replaceChildren.apply(overlay, entries.map(function (entry) { return entry.element; }));
+      var tags = state.level === 2 ? groupTags(state) : [];
+      entries.concat(tags).forEach(place);
+      overlay.replaceChildren.apply(overlay, tags.concat(entries).map(function (entry) { return entry.element; }));
       overlay.classList.remove('is-leaving');
       var level = 'L' + state.level;
       galaxy.dataset.level = level;
@@ -830,6 +969,7 @@
       document.documentElement.classList.add('kb-galaxy-ready');
       current = state;
       currentEntries = entries;
+      currentTags = tags;
       transitioning = false;
       announce(view, entries.length);
       var hasPendingFocus = pendingFocus && pendingFocus.level === state.level && pendingFocus.expires > Date.now();
@@ -916,7 +1056,7 @@
       if (disposed || !world) return;
       measure();
       if (current && !flight) camera = cameraFor(world, current);
-      currentEntries.forEach(place);
+      currentEntries.concat(currentTags).forEach(place);
       requestDraw();
     });
 
