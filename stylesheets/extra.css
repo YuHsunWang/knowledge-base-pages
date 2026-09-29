@@ -98,6 +98,19 @@
   --md-typeset-a-color: var(--kb-accent);
 }
 
+/* ── Token layer: night sky ──────────────────────────────────
+   The Knowledge Galaxy is always a night sky, in both schemes.
+   Plain hex on purpose: the galaxy canvas reads these values. */
+:root {
+  --kb-space:       #02040A;
+  --kb-space-2:     #0A1633;
+  --kb-space-star:  #EEF4FF;
+  --kb-space-blue:  #7CC0FF;
+  --kb-space-glow:  #2F6BFF;
+  --kb-space-fg:    #E8EEFB;
+  --kb-space-faint: #8A9CC2;
+}
+
 /* ── Type roles ──────────────────────────────────────────────
    CJK display faces cannot be self-hosted at a sane weight, so the
    system carries the voice: scale, weight, tracking, measure and
@@ -195,7 +208,11 @@
 }
 
 /* ── Index rail (primary nav, re-composed) ──────────────────── */
-.md-sidebar--primary { width: 12.5rem; }
+/* Desktop only: below 76.25em Material parks the drawer at left -12.1rem,
+   so a wider drawer left an 8px strip peeking in on every phone page. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary { width: 12.5rem; }
+}
 .md-nav--primary > .md-nav__title { display: none; }
 
 .md-nav__list .md-nav__item { border-left: 2px solid transparent; }

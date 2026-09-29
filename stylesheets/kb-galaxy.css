@@ -1,23 +1,18 @@
 /* ═══════════════════════════════════════════════════════════════
-   Knowledge Galaxy — domains, regions, and articles on one canvas
+   Knowledge Galaxy — domains, regions, and articles in one night sky
 
-   Drawn in the same visual language as the rest of the site: a
-   measuring-instrument plate. Hairlines, register marks, monospace
-   data type, celadon signal on indigo ground.
+   Stars, dust and glow are painted on one canvas by kb-galaxy.js; this
+   file styles only the plate, the chrome, and the clickable labels that
+   sit over the canvas.
 
    Colour has exactly one source: the --kb-* tokens in extra.css.
    No raw hex or rgba() below — see the header of extra.css.
    ═══════════════════════════════════════════════════════════════ */
 
 .kb-galaxy-scope {
-  --kb-galaxy-line:    color-mix(in srgb, var(--kb-fg-faint) 52%, transparent);
-  --kb-galaxy-line-2:  color-mix(in srgb, var(--kb-fg-faint) 34%, transparent);
-  --kb-galaxy-star:    color-mix(in srgb, var(--kb-fg-faint) 62%, transparent);
-  --kb-galaxy-domain:  var(--kb-signal);
-  --kb-galaxy-core:    var(--kb-accent);
-  --kb-galaxy-glow:    color-mix(in srgb, var(--kb-signal) 34%, transparent);
-  --kb-galaxy-glow-2:  color-mix(in srgb, var(--kb-accent) 30%, transparent);
-  --galaxy-duration: 620ms;
+  --kb-galaxy-ring: color-mix(in srgb, var(--kb-space-blue) 70%, transparent);
+  --kb-galaxy-halo: color-mix(in srgb, var(--kb-space-glow) 26%, transparent);
+  --kb-galaxy-shade: color-mix(in srgb, var(--kb-space) 85%, transparent);
 }
 
 /* The host settles geometry before any fetch; site chrome floats above
@@ -59,42 +54,19 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   min-height: 100svh;
   margin: 0 0 2.2rem calc(50% - 50vw);
   overflow: hidden;
-  border-top: 1px solid var(--kb-rule);
-  border-bottom: 1px solid var(--kb-rule);
   background:
-    radial-gradient(ellipse 62% 54% at 50% 50%,
-      color-mix(in srgb, var(--kb-ground-2) 88%, transparent) 0%,
-      transparent 78%),
-    linear-gradient(160deg, var(--kb-ground-2), var(--kb-ground));
+    radial-gradient(ellipse 70% 55% at 50% 45%,
+      color-mix(in srgb, var(--kb-space-2) 70%, transparent) 0%,
+      transparent 75%),
+    var(--kb-space);
+  color: var(--kb-space-fg);
   isolation: isolate;
 }
 
-/* Depth: darken the plate edges so the core reads as the light source.
-   Sits below the map (z-index 0 vs 1) so it never washes out the hairlines. */
-.kb-world::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 74% 68% at 50% 50%,
-    transparent 40%,
-    color-mix(in srgb, var(--kb-ink) 34%, transparent) 100%);
-}
-
-.kb-world::after {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  backdrop-filter: blur(3px);
-  transition: opacity var(--galaxy-duration, 620ms) ease;
-}
-
-.kb-world.is-selecting::after {
-  opacity: 0.55;
+/* extra.css pads the article 1.9rem on the left only at this width, so
+   the plain 50% - 50vw centring lands 0.95rem short of the viewport edge. */
+@media screen and (min-width: 90em) {
+  .kb-world { margin-left: calc(50% - 50vw - 0.95rem); }
 }
 
 /* ── Fallback links ──────────────────────────────────────────────
@@ -110,23 +82,34 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   bottom: 1.05rem;
 }
 
+.kb-world .kb-galaxy__fallback {
+  color: var(--kb-space-blue);
+}
+
 .kb-galaxy {
-  --camera-x: 0%;
-  --camera-y: 0%;
   position: absolute;
   z-index: 1;
   inset: 0;
 }
 
-@keyframes kb-galaxy-arrive {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* Material's `.md-typeset canvas`-style max-width rules must not squash it. */
+.kb-galaxy > canvas.kb-galaxy-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
 }
 
-.kb-galaxy-node,
-.kb-galaxy-center,
-.kb-galaxy-links {
-  animation: kb-galaxy-arrive 380ms ease;
+.kb-galaxy-overlay {
+  position: absolute;
+  inset: 0;
+  transition: opacity 180ms ease;
+}
+
+.kb-galaxy-overlay.is-leaving {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* ── Plate chrome ────────────────────────────────────────────── */
@@ -134,62 +117,55 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
 .kb-galaxy__hint {
   position: absolute;
   z-index: 4;
-  color: var(--kb-fg-faint);
-  font-family: var(--kb-face-data);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  color: var(--kb-space-faint);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   pointer-events: none;
 }
 
 .kb-galaxy__title {
-  top: 1.05rem;
-  left: 1.15rem;
+  top: 1.1rem;
+  left: 1.25rem;
+  color: var(--kb-space-fg);
+  font-weight: 600;
 }
 
 .kb-galaxy__hint {
-  right: 1.15rem;
-  bottom: 1.05rem;
-  font-weight: 400;
-  letter-spacing: 0.16em;
+  right: 1.25rem;
+  bottom: 1.1rem;
 }
 
-/* Corner register marks — the same drafting motif as the hero plate. */
-.kb-galaxy__reg {
+.kb-galaxy__back {
   position: absolute;
-  z-index: 4;
-  width: 0.7rem;
-  height: 0.7rem;
-  border: 0 solid var(--kb-fg-faint);
-  opacity: 0.55;
-  pointer-events: none;
+  z-index: 5;
+  top: 0.75rem;
+  left: 0.9rem;
+  min-height: 2.2rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--kb-space-blue) 45%, transparent);
+  border-radius: 999px;
+  color: var(--kb-space-fg);
+  background: var(--kb-galaxy-shade);
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
 }
 
-.kb-galaxy__reg[data-corner="tl"] { top: 0.6rem; left: 0.6rem; border-top-width: 1px; border-left-width: 1px; }
-.kb-galaxy__reg[data-corner="tr"] { top: 0.6rem; right: 0.6rem; border-top-width: 1px; border-right-width: 1px; }
-.kb-galaxy__reg[data-corner="bl"] { bottom: 0.6rem; left: 0.6rem; border-bottom-width: 1px; border-left-width: 1px; }
-.kb-galaxy__reg[data-corner="br"] { bottom: 0.6rem; right: 0.6rem; border-bottom-width: 1px; border-right-width: 1px; }
-
-/* ── Camera ──────────────────────────────────────────────────────
-   scale() BEFORE translate() so the offset lands in the map's own
-   coordinate space: S * (p + T) centres the target. The reverse order
-   gives T + S * p, which is short by a factor of S. */
-.kb-galaxy-camera {
-  position: absolute;
-  inset: 0;
-  transform: scale(1) translate(0, 0);
-  transform-origin: center;
-  transition: transform var(--galaxy-duration) cubic-bezier(0.2, 0.76, 0.2, 1);
-  will-change: transform;
+.kb-galaxy__back[hidden] {
+  display: none;
 }
 
-.kb-galaxy-camera.is-zoomed {
-  transform: scale(2.1) translate(var(--camera-x), var(--camera-y));
+.kb-galaxy__back:hover,
+.kb-galaxy__back:focus-visible {
+  border-color: var(--kb-space-blue);
+  outline: none;
 }
 
-.kb-galaxy-camera.is-zoomed-out {
-  transform: scale(0.55);
+.kb-galaxy[data-level="L1"] .kb-galaxy__title,
+.kb-galaxy[data-level="L2"] .kb-galaxy__title {
+  left: 8rem;
 }
 
 /* ── Starfield ───────────────────────────────────────────────── */
@@ -200,7 +176,7 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   width: var(--star-size);
   height: var(--star-size);
   border-radius: 50%;
-  background: var(--kb-galaxy-star);
+  background: var(--kb-space-star);
   opacity: var(--star-opacity);
   transform: translate(-50%, -50%);
   animation: kb-galaxy-twinkle var(--star-period) ease-in-out var(--star-delay) infinite;
@@ -209,325 +185,136 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
 
 @keyframes kb-galaxy-twinkle {
   0%, 100% { opacity: var(--star-opacity); }
-  50%      { opacity: calc(var(--star-opacity) * 0.34); }
+  50%      { opacity: calc(var(--star-opacity) * 0.3); }
 }
 
-/* ── Connectors ──────────────────────────────────────────────────
-   Drawn in normalised space with preserveAspectRatio="none", so the
-   lines stretch exactly as the node positions do. non-scaling-stroke
-   keeps the hairline a hairline. */
-/* Material ships `.md-typeset img, .md-typeset svg, .md-typeset video
-   { height: auto; max-width: 100% }` at specificity (0,1,1). A bare
-   `.kb-galaxy-links` (0,1,0) loses to it, height falls back to auto, and
-   the svg collapses onto its 1:1 viewBox ratio — a square that pushes the
-   connectors off the plate. The child selector below is (0,2,1) and wins
-   on specificity, so no !important is needed. */
-.kb-galaxy-camera > svg.kb-galaxy-links {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
+/* ── Nodes ───────────────────────────────────────────────────────
+   An anchor is a hit disc centred on its star or cluster; the caption
+   hangs below it. --hit comes from the camera, so the disc always
+   matches what the canvas draws underneath. */
+/* (0,2,0) outranks Material's `.md-typeset a` link colour. */
+.kb-galaxy .kb-galaxy-node {
+  color: var(--kb-space-fg);
 }
 
-.kb-galaxy-link {
-  fill: none;
-  stroke: var(--kb-galaxy-line-2);
-  stroke-width: 1;
-  stroke-dasharray: none;
-  transition: stroke 220ms ease, opacity 220ms ease;
-  opacity: 0.8;
-  vector-effect: non-scaling-stroke;
-}
-
-.kb-galaxy-link[data-style="dashed"] { stroke-dasharray: 3 4; }
-
-.kb-galaxy-link.is-lit {
-  stroke: var(--kb-galaxy-domain);
-  opacity: 1;
-}
-
-.kb-galaxy-links[data-layout="mobile"] { display: none; }
-
-/* ── Domain nodes ────────────────────────────────────────────── */
 .kb-galaxy-node {
-  --ring-size: 2.9rem;
-  --core-size: 0.62rem;
   position: absolute;
   top: var(--node-y);
   left: var(--node-x);
   z-index: 2;
-  width: 9.5rem;
-  min-width: 44px;
-  height: 5.4rem;
-  min-height: 44px;
-  color: var(--kb-fg);
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 220ms ease, opacity 220ms ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.kb-galaxy-node[data-size="medium"] {
-  --ring-size: 2.2rem;
-  --core-size: 0.48rem;
-}
-
-.kb-galaxy-node__halo,
-.kb-galaxy-node__ring,
-.kb-galaxy-node__core,
-.kb-galaxy-node__tick,
-.kb-galaxy-node__label,
-.kb-galaxy-node__count,
-.kb-galaxy-node__note,
-.kb-galaxy-node__step {
-  position: absolute;
-  left: 50%;
-  pointer-events: none;
-}
-
-.kb-galaxy[data-level="L1"] .kb-galaxy-node,
-.kb-galaxy[data-level="L2"] .kb-galaxy-node {
-  width: 11rem;
-}
-
-.kb-galaxy[data-level="L1"] .kb-galaxy-node__label,
-.kb-galaxy[data-level="L2"] .kb-galaxy-node__label {
-  max-width: 11rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.055em;
-  text-transform: none;
-}
-
-.kb-galaxy-node__count {
-  top: calc(50% + var(--ring-size) / 2 + 1.45rem);
-  width: max-content;
-  color: var(--kb-fg-faint);
-  font-family: var(--kb-face-data);
-  font-size: 0.52rem;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  opacity: 0.72;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
-
-.kb-galaxy-node__step {
-  top: 50%;
-  width: max-content;
-  color: var(--kb-ground);
-  font-family: var(--kb-face-data);
-  font-size: 0.46rem;
-  font-weight: 800;
-  line-height: 1;
-  transform: translate(-50%, -50%);
-}
-
-/* Soft light bloom, kept low so it never turns into a glowing card. */
-.kb-galaxy-node__halo {
-  top: 50%;
-  width: calc(var(--ring-size) * 2.1);
-  height: calc(var(--ring-size) * 2.1);
+  width: calc(var(--hit) * 2);
+  height: calc(var(--hit) * 2);
   border-radius: 50%;
-  background: radial-gradient(circle, var(--kb-galaxy-glow), transparent 62%);
-  opacity: 0.3;
-  transform: translate(-50%, -50%) scale(1);
-  transition: opacity 260ms ease, transform 260ms ease;
+  color: var(--kb-space-fg);
+  transform: translate(-50%, -50%);
+  -webkit-tap-highlight-color: transparent;
+  animation: kb-galaxy-arrive 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--order) * 28ms);
+}
+
+@keyframes kb-galaxy-arrive {
+  from { opacity: 0; translate: 0 0.35rem; }
+  to   { opacity: 1; translate: 0 0; }
 }
 
 .kb-galaxy-node__ring {
-  top: 50%;
-  width: var(--ring-size);
-  height: var(--ring-size);
-  border: 1px solid var(--kb-galaxy-line);
-  border-radius: 50%;
-  opacity: 0.85;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 260ms ease, border-color 220ms ease, opacity 220ms ease;
-}
-
-.kb-galaxy-node__core {
-  top: 50%;
-  width: var(--core-size);
-  height: var(--core-size);
-  border-radius: 50%;
-  background: var(--kb-galaxy-domain);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--kb-ground) 70%, transparent),
-              0 0 0.7rem var(--kb-galaxy-glow);
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 220ms ease;
-}
-
-.kb-galaxy-node[data-kind="satellite"] .kb-galaxy-node__core {
-  background: var(--kb-galaxy-core);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--kb-ground) 70%, transparent),
-              0 0 0.7rem var(--kb-galaxy-glow-2);
-}
-
-.kb-galaxy-node[data-kind="satellite"] .kb-galaxy-node__halo {
-  background: radial-gradient(circle, var(--kb-galaxy-glow-2), transparent 62%);
-}
-
-/* Crosshair ticks on the ring — apparatus, not decoration. */
-.kb-galaxy-node__tick {
-  top: 50%;
-  width: 1px;
-  height: 0.28rem;
-  background: var(--kb-fg-faint);
-  opacity: 0.7;
-  transform-origin: 50% calc(var(--ring-size) / 2 + 0.28rem);
-  transform: translate(-50%, calc(var(--ring-size) / -2 - 0.28rem)) rotate(var(--tick-angle));
-  transition: opacity 220ms ease;
-}
-
-.kb-galaxy-node__label {
-  top: calc(50% + var(--ring-size) / 2 + 0.6rem);
-  width: max-content;
-  max-width: 9.5rem;
-  color: var(--kb-fg);
-  font-family: var(--kb-face-data);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  opacity: 0.82;
-  text-align: center;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-  transition: opacity 180ms ease, color 180ms ease;
-}
-
-/* Description stays out of the way until the node is actually engaged,
-   keeping the home plate to: title, four regions, one hint. */
-.kb-galaxy-node__note {
-  top: calc(50% + var(--ring-size) / 2 + 1.5rem);
-  width: max-content;
-  max-width: 13.5rem;
-  color: var(--kb-fg-faint);
-  font-family: var(--kb-face-data);
-  font-size: 0.56rem;
-  letter-spacing: 0.04em;
-  line-height: 1.35;
-  opacity: 0;
-  text-align: center;
-  transform: translateX(-50%) translateY(-0.2rem);
-  transition: opacity 200ms ease, transform 200ms ease;
-}
-
-.kb-galaxy[data-level="L1"] .kb-galaxy-node__note {
-  top: calc(50% + var(--ring-size) / 2 + 2.15rem);
-  max-width: 11rem;
-}
-
-.kb-galaxy[data-level="L2"] .kb-galaxy-node__note {
-  max-width: 11rem;
-}
-
-.kb-galaxy-node:focus-visible {
-  border-radius: 4px;
-  outline: 2px solid var(--kb-galaxy-domain);
-  outline-offset: 2px;
-}
-
-.kb-galaxy-node:focus-visible .kb-galaxy-node__ring,
-.kb-galaxy-node:focus-visible .kb-galaxy-node__halo,
-.kb-galaxy-node:focus-visible .kb-galaxy-node__core,
-.kb-galaxy-node:focus-visible .kb-galaxy-node__label,
-.kb-galaxy-node:focus-visible .kb-galaxy-node__note,
-.kb-galaxy-node:focus-visible .kb-galaxy-node__tick {
-  --engaged: 1;
-}
-
-.kb-galaxy-node:focus-visible .kb-galaxy-node__ring {
-  border-color: var(--kb-galaxy-domain);
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.kb-galaxy-node:focus-visible .kb-galaxy-node__halo { opacity: 0.72; transform: translate(-50%, -50%) scale(1.12); }
-.kb-galaxy-node:focus-visible .kb-galaxy-node__core { transform: translate(-50%, -50%) scale(1.18); }
-.kb-galaxy-node:focus-visible .kb-galaxy-node__label { opacity: 1; }
-.kb-galaxy-node:focus-visible .kb-galaxy-node__note { opacity: 1; transform: translateX(-50%) translateY(0); }
-.kb-galaxy-node:focus-visible .kb-galaxy-node__tick { opacity: 0.9; }
-
-@media (hover: hover) and (pointer: fine) {
-  .kb-galaxy-node:hover .kb-galaxy-node__ring {
-    border-color: var(--kb-galaxy-domain);
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-
-  .kb-galaxy-node:hover .kb-galaxy-node__halo { opacity: 0.72; transform: translate(-50%, -50%) scale(1.12); }
-  .kb-galaxy-node:hover .kb-galaxy-node__core { transform: translate(-50%, -50%) scale(1.18); }
-  .kb-galaxy-node:hover .kb-galaxy-node__label { opacity: 1; }
-  .kb-galaxy-node:hover .kb-galaxy-node__note { opacity: 1; transform: translateX(-50%) translateY(0); }
-  .kb-galaxy-node:hover .kb-galaxy-node__tick { opacity: 0.9; }
-}
-
-/* Dimming happens only on selection, never on hover — otherwise the
-   whole plate flickers as the pointer crosses it. */
-.kb-world.is-selecting .kb-galaxy-node,
-.kb-world.is-selecting .kb-galaxy-center,
-.kb-world.is-selecting .kb-galaxy-star {
-  opacity: 0.2;
-}
-
-.kb-world.is-selecting .kb-galaxy-link { opacity: 0.12; }
-
-.kb-world.is-selecting .kb-galaxy-node.is-selected {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.06);
-}
-
-/* ── Knowledge Core ──────────────────────────────────────────── */
-.kb-galaxy-center {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  width: 9rem;
-  height: 7rem;
-  color: var(--kb-fg);
-  transform: translate(-50%, -50%);
-  transition: opacity 220ms ease;
+  inset: 0;
+  border: 1px solid var(--kb-galaxy-ring);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--kb-galaxy-halo), transparent 70%);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 200ms ease, transform 200ms ease;
   pointer-events: none;
 }
 
-.kb-galaxy-center__orbit,
-.kb-galaxy-center__orbit-2,
-.kb-galaxy-center__bloom,
-.kb-galaxy-center__core,
-.kb-galaxy-center__label {
+.kb-galaxy-node__caption {
   position: absolute;
+  top: calc(100% + 0.35rem);
   left: 50%;
-  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  width: max-content;
+  max-width: 11rem;
+  text-align: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+  text-shadow: 0 0 0.6rem var(--kb-space), 0 0 0.2rem var(--kb-space);
 }
 
-.kb-galaxy__back {
-  position: absolute;
-  z-index: 5;
-  top: 0.72rem;
-  left: 0.8rem;
-  min-height: 2.2rem;
-  padding: 0.4rem 0.58rem;
-  border: 1px solid var(--kb-accent-line);
-  border-radius: 3px;
-  color: var(--kb-accent);
-  background: color-mix(in srgb, var(--kb-ground-2) 84%, transparent);
-  font: 600 0.52rem/1 var(--kb-face-data);
+.kb-galaxy-node__label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+.kb-galaxy[data-level="L0"] .kb-galaxy-node__label {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+.kb-galaxy-node__count {
+  color: var(--kb-space-blue);
+  font-size: 0.66rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.kb-galaxy-node__step {
+  color: var(--kb-space-blue);
+  font-size: 0.62rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  cursor: pointer;
 }
 
-.kb-galaxy__back:hover,
-.kb-galaxy__back:focus-visible {
-  border-color: var(--kb-accent);
-  outline: 2px solid var(--kb-accent-line);
-  outline-offset: 2px;
+/* The description stays hidden on the deeper layers until a node is
+   engaged; on the home sky it is the only hint of what a galaxy holds. */
+/* Out of flow, so a hidden note never pushes its caption off its star. */
+.kb-galaxy-node__note {
+  position: absolute;
+  top: calc(100% + 0.2rem);
+  left: 50%;
+  width: max-content;
+  max-width: 13rem;
+  transform: translateX(-50%);
+  color: var(--kb-space-faint);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 200ms ease;
 }
 
-.kb-galaxy[data-level="L1"] .kb-galaxy__title,
-.kb-galaxy[data-level="L2"] .kb-galaxy__title {
-  left: 7.2rem;
+.kb-galaxy[data-level="L0"] .kb-galaxy-node__note {
+  opacity: 1;
+}
+
+.kb-galaxy-node:focus-visible {
+  outline: none;
+}
+
+.kb-galaxy-node:focus-visible .kb-galaxy-node__ring,
+.kb-galaxy-node.is-selected .kb-galaxy-node__ring {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kb-galaxy-node:focus-visible .kb-galaxy-node__note { opacity: 1; }
+
+@media (hover: hover) and (pointer: fine) {
+  .kb-galaxy-node:hover .kb-galaxy-node__ring { opacity: 1; transform: scale(1); }
+  .kb-galaxy-node:hover .kb-galaxy-node__note { opacity: 1; }
+  .kb-galaxy .kb-galaxy-node:hover { color: var(--kb-space-blue); }
+}
+
+/* Leaving for an article: everything but the picked star dims. */
+.kb-world.is-selecting .kb-galaxy-node:not(.kb-galaxy-node--diving),
+.kb-world.is-selecting .kb-galaxy-canvas {
+  opacity: 0.25;
+  transition: opacity 240ms ease;
 }
 
 .kb-galaxy-live {
@@ -542,88 +329,31 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   border: 0;
 }
 
-.kb-galaxy-center__orbit,
-.kb-galaxy-center__orbit-2 {
-  border: 1px solid var(--kb-galaxy-line-2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.kb-galaxy-center__orbit   { width: 3.1rem; height: 3.1rem; opacity: 0.9; }
-.kb-galaxy-center__orbit-2 { width: 5.3rem; height: 5.3rem; border-style: dashed; opacity: 0.55; }
-
-.kb-galaxy-center__bloom {
-  width: 6.4rem;
-  height: 6.4rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--kb-galaxy-glow-2), transparent 64%);
-  opacity: 0.5;
-  transform: translate(-50%, -50%);
-}
-
-.kb-galaxy-center__core {
-  width: 0.82rem;
-  height: 0.82rem;
-  border-radius: 50%;
-  background: var(--kb-galaxy-core);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--kb-ground) 70%, transparent),
-              0 0 1.1rem var(--kb-galaxy-glow-2);
-  transform: translate(-50%, -50%);
-}
-
-.kb-galaxy-center__label {
-  top: calc(50% + 3.4rem);
-  width: max-content;
-  color: var(--kb-fg-faint);
-  font-family: var(--kb-face-data);
-  font-size: 0.56rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
-
 /* ── Mobile ──────────────────────────────────────────────────── */
-/* A phone-width plate cannot hold a centre hub and four labelled stars
-   without the labels colliding, so mobile is not a shrunken desktop map:
-   the hub and its spokes drop out and the four regions read as a plain
-   zigzag constellation. */
 @media (max-width: 44rem) {
-  .kb-galaxy-node {
-    top: var(--node-mobile-y);
-    left: var(--node-mobile-x);
-    width: 7.5rem;
+  .kb-galaxy-node__caption { max-width: 10rem; }
+  /* Articles run down one arm on a phone; captions sit beside the star. */
+  .kb-galaxy[data-level="L2"] .kb-galaxy-node__caption {
+    top: 50%;
+    left: calc(100% + 0.2rem);
+    align-items: flex-start;
+    max-width: calc(100vw - var(--node-x) - var(--hit) - 1rem);
+    text-align: left;
+    transform: translateY(-50%);
   }
-
-  .kb-galaxy-node__label {
-    max-width: 7.5rem;
-    font-size: 0.6rem;
-  }
-
-  .kb-galaxy[data-level="L1"] .kb-galaxy-node,
-  .kb-galaxy[data-level="L2"] .kb-galaxy-node,
-  .kb-galaxy[data-level="L1"] .kb-galaxy-node__label,
-  .kb-galaxy[data-level="L2"] .kb-galaxy-node__label {
-    width: 8rem;
-    max-width: 8rem;
-  }
-
-  .kb-galaxy[data-level="L1"] .kb-galaxy-node__note,
   .kb-galaxy[data-level="L2"] .kb-galaxy-node__note {
-    max-width: 8rem;
+    left: 0;
+    max-width: 100%;
+    text-align: left;
+    transform: none;
   }
-
-  .kb-galaxy-center,
-  .kb-galaxy-camera > svg.kb-galaxy-links { display: none; }
-
-  .kb-galaxy__title { top: 0.8rem; left: 0.85rem; }
+  .kb-galaxy-node__label { font-size: 0.76rem; }
+  .kb-galaxy[data-level="L0"] .kb-galaxy-node__label { font-size: 0.9rem; }
+  .kb-galaxy[data-level="L0"] .kb-galaxy-node__note { display: none; }
+  .kb-galaxy__title { top: 0.85rem; left: 0.9rem; }
   .kb-galaxy[data-level="L1"] .kb-galaxy__title,
-  .kb-galaxy[data-level="L2"] .kb-galaxy__title { left: 6.5rem; }
-  .kb-galaxy__hint  { display: none; }
-}
-
-/* Labels must stay readable without a pointer to reveal them. */
-@media (hover: none), (pointer: coarse) {
-  .kb-galaxy-node__label { opacity: 1; }
+  .kb-galaxy[data-level="L2"] .kb-galaxy__title { left: 7.4rem; right: 0.9rem; }
+  .kb-galaxy__hint { display: none; }
 }
 
 /* ── Reduced motion ──────────────────────────────────────────────
@@ -633,23 +363,13 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
     transition: none;
   }
 
-  .kb-galaxy-center,
-  .kb-galaxy-links,
-  .kb-galaxy-camera,
+  .kb-galaxy-overlay,
   .kb-galaxy-node,
-  .kb-galaxy-node__halo,
   .kb-galaxy-node__ring,
-  .kb-galaxy-node__core,
-  .kb-galaxy-node__label,
   .kb-galaxy-node__note,
-  .kb-galaxy-link,
-  .kb-world::after,
+  .kb-galaxy-star,
   .kb-galaxy__back {
     transition: none !important;
-    animation: none !important;
-  }
-
-  .kb-galaxy-star {
     animation: none !important;
   }
 }
