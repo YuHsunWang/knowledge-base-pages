@@ -3755,7 +3755,7 @@
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        這個專案想證明的事
+        怎麼開發的
       
     </span>
   </a>
@@ -4062,7 +4062,7 @@
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        這個專案想證明的事
+        怎麼開發的
       
     </span>
   </a>
@@ -4241,7 +4241,7 @@
 <li><strong>彙整共識與時效</strong>——同一個人不會因為重複留言被放大；樣本不足就不給分。「近期推薦」兼顧評價與新鮮度，「討論熱度」回答現在大家在聊什麼。</li>
 <li><strong>回到證據查證</strong>——卡片先給結論，展開後仍能讀到作者評價、代表留言與原文連結。</li>
 </ol>
-<p>值得一提的是使用者瀏覽時，網站其實什麼都沒有在算。所有語意判讀與統計都在發佈前的批次管線跑完，瀏覽器只讀一份靜態 JSON；載入之後的搜尋、篩選與排序全在本地完成，沒有後端。</p>
+<p>使用者瀏覽時，網站其實什麼都沒有在算。所有語意判讀與統計都在發佈前的批次管線跑完，瀏覽器只讀一份靜態 JSON；載入之後的搜尋、篩選與排序全在本地完成，沒有後端。</p>
 <hr>
 <h2 id="_5">開發歷程<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <h3 id="_6">第一次改寫：詞典看得懂字，看不懂語氣<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
@@ -4305,13 +4305,7 @@
 <p><strong>請 AI 幫忙標註，要先確認它真的有在標註。</strong>
 有一批留言需要一則一則判斷情緒，我把這份工作交給 AI 代理去跑。它交回來的檔案格式完全正確，但仔細看會發現它其實是寫了一套關鍵字規則去分類，並沒有真的逐則讀過——那批結果全部作廢。之後改成：要求它一邊判斷一邊寫檔，讓我看得到進度；另外產出一份「為什麼這樣判」的說明檔，我檢查這些理由有沒有整段重複套用，再挑出反諷、比較句這類容易判錯的句子抽驗，確認過才收進資料裡。</p>
 <hr>
-<h2 id="_11">這個專案想證明的事<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>讓 LLM 參與，但不讓結果變成不可重現。</strong> 四個語意層都由 LLM 判讀，結果全部以內容指紋快取進版控。</li>
-<li><strong>統計上不逞強。</strong> 貝氏收斂、單人設限、時間衰減，加上樣本不足就不給分。</li>
-<li><strong>端到端自己蓋完，而且真的在跑。</strong> 從爬蟲、標記管線、評分到靜態前端，資料由每日排程重算後發佈，不是一次性的 demo。</li>
-<li><strong>驗收方式要對得上想驗的東西。</strong> 管線對相同輸入是確定性的，所以改動的驗證方式是前後各跑一次完整管線、比對結果集。</li>
-</ul>
+<h2 id="_11">怎麼開發的<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
 <p>專案採 <strong>PRD 先行</strong>：先定義產品情境、資料契約、評分決策、隱私界線與驗收方式，再分模組實作。開發過程使用 Claude Code 與 Codex 輔助，但需求定義、架構、演算法取捨、程式審查與最終驗證由我負責。</p>
 <hr>
 <h2 id="_12">技術棧<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
@@ -4397,7 +4391,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月11日 11:07:01 UTC">2026年8月11日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月8日 07:16:11 UTC">2026年9月8日</span>
   </span>
 
     

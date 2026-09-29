@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="React + Vite + IndexedDB + PWA 打造的離線多益單字 App，用 Gemini API 產生單字並支援真人發音、進度追蹤與手機安裝。">
+        <meta name="description" content="一個沒有後端、沒有帳號的離線多益單字 PWA——把單字、發音檔與測驗全部放在使用者裝置裡，以及這個決定後來逼出的四次資料庫改版。">
       
       
       
@@ -67,7 +67,7 @@
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="TOEIC Master：多益單字學習 App - Shane's Knowledge Base">
-<meta property="og:description" content="React + Vite + IndexedDB + PWA 打造的離線多益單字 App，用 Gemini API 產生單字並支援真人發音、進度追蹤與手機安裝。">
+<meta property="og:description" content="一個沒有後端、沒有帳號的離線多益單字 PWA——把單字、發音檔與測驗全部放在使用者裝置裡，以及這個決定後來逼出的四次資料庫改版。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/projects/toeic-master.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -75,7 +75,7 @@
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/projects/toeic-master/">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="TOEIC Master：多益單字學習 App - Shane's Knowledge Base">
-<meta property="twitter:description" content="React + Vite + IndexedDB + PWA 打造的離線多益單字 App，用 Gemini API 產生單字並支援真人發音、進度追蹤與手機安裝。">
+<meta property="twitter:description" content="一個沒有後端、沒有帳號的離線多益單字 PWA——把單字、發音檔與測驗全部放在使用者裝置裡，以及這個決定後來逼出的四次資料庫改版。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/projects/toeic-master.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -3689,7 +3689,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可以做什麼
+        為什麼不做後端
       
     </span>
   </a>
@@ -3700,49 +3700,54 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        開始使用
+        資料庫改了四版，每一版都在擋同一件事
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="開始使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini 的發音，瀏覽器不能直接播
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方法一：不需要 API Key（馬上試）
+        免 API Key 也要能用
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ai" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        方法二：用 AI 產生單字
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        本機執行（開發者）
+        測驗
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#api-key_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一個還沒解決的問題：API Key 是公開的
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3750,87 +3755,16 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        操作說明
+        怎麼跑
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="操作說明">
+    <nav class="md-nav" aria-label="怎麼跑">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        首頁一覽
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        單字卡
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜尋與篩選
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        標記已掌握
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        發音功能
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        離線使用
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         安裝到手機主畫面
@@ -3839,12 +3773,17 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自己部署
+        技術棧
       
     </span>
   </a>
@@ -3852,7 +3791,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        還沒做完的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -3863,7 +3813,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         來源
@@ -3996,7 +3946,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可以做什麼
+        為什麼不做後端
       
     </span>
   </a>
@@ -4007,49 +3957,54 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        開始使用
+        資料庫改了四版，每一版都在擋同一件事
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="開始使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini 的發音，瀏覽器不能直接播
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方法一：不需要 API Key（馬上試）
+        免 API Key 也要能用
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ai" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        方法二：用 AI 產生單字
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        本機執行（開發者）
+        測驗
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#api-key_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一個還沒解決的問題：API Key 是公開的
+      
+    </span>
+  </a>
   
 </li>
       
@@ -4057,87 +4012,16 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        操作說明
+        怎麼跑
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="操作說明">
+    <nav class="md-nav" aria-label="怎麼跑">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        首頁一覽
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        單字卡
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        搜尋與篩選
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        標記已掌握
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        發音功能
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        離線使用
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         安裝到手機主畫面
@@ -4146,12 +4030,17 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自己部署
+        技術棧
       
     </span>
   </a>
@@ -4159,7 +4048,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        還沒做完的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4170,7 +4070,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         來源
@@ -4258,199 +4158,155 @@
 
 <h1 id="toeic-master-app">TOEIC Master：多益單字學習 App<a class="headerlink" href="#toeic-master-app" title="Permanent link">¶</a></h1>
 <h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>TOEIC Master 是可安裝到手機主畫面的多益單字 App：用 AI 產生單字、播放真人發音，並將學過的單字與發音檔儲存在裝置中，離線時仍可複習；不需要帳號或後端。</p>
-<p>TOEIC Master 是一個可以<strong>安裝到手機主畫面</strong>的多益單字 App，用 AI 幫你產生單字、用喇叭播放真人發音，學過的單字和發音檔都存在你的裝置裡，不需要網路也能繼續複習。</p>
-<p>不需要帳號，不需要後端，開啟瀏覽器就能用。</p>
+<p>背多益單字的 App 很多，但幾乎都要先註冊，而且捷運進隧道就用不了。TOEIC Master 走另一條路：<strong>整個 App 沒有後端、沒有帳號</strong>，單字、發音檔和測驗紀錄全部存在你自己的裝置裡，飛航模式照樣複習。</p>
+<p>代價是所有「後端該做的事」都得在瀏覽器裡重做一遍。這篇主要記錄那部分——包括資料庫為什麼改了四版、以及 Gemini 的發音為什麼不能直接播。</p>
 <p><strong>原始碼：</strong> <a href="https://github.com/YuHsunWang/toeic-master">https://github.com/YuHsunWang/toeic-master</a></p>
+<p>〔缺：公開網址。目前文件裡只有 repo，沒有可以直接打開的線上版；若有部署請補上，若沒有就把「開啟 App 網址」的說法改掉。〕</p>
 <hr>
 <h2 id="_2">主要畫面<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/toeic-master/02-desktop.png" data-desc-position="bottom"><img alt="TOEIC Master 桌面版" src="../../assets/screenshots/toeic-master/02-desktop.png"></a></p>
+<p>〔缺：這批截圖拍於 2026-06-07，已經和現在的 App 對不上——圖上寫「匯入 8 個範例單字」，
+但目前內建的是 252 個；測驗模式與五種主題也還沒加進去。需要重拍後再補其餘畫面。〕</p>
 <hr>
-<h2 id="_3">可以做什麼<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>AI 產生 TOEIC 單字</strong>：輸入 Gemini API Key 後一鍵取得多益核心單字，含中文意思、英文解釋、例句、音標與詞性。</li>
-<li><strong>免費試用</strong>：沒有 API Key？點一下即可匯入 8 個內建範例單字，馬上體驗所有功能。</li>
-<li><strong>發音播放</strong>：每個單字和例句旁邊都有喇叭按鈕，點一下就能聽發音。</li>
-<li><strong>離線發音</strong>：可以預先下載發音檔，之後關掉網路也能播放高音質發音。</li>
-<li><strong>搜尋單字</strong>：支援英文單字或中文翻譯搜尋，快速找到想複習的字。</li>
-<li><strong>類型篩選</strong>：按 Reading、Listening、Both 篩選，針對弱項集中練習。</li>
-<li><strong>學習進度追蹤</strong>：把學熟的字標記為「已掌握」，首頁顯示掌握率讓你看見進步。</li>
-<li><strong>安裝成手機 App</strong>：支援 PWA，可以加到手機主畫面，跟一般 App 一樣開啟。</li>
-</ul>
+<h2 id="_3">為什麼不做後端<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>最早的版本是接 Firestore 的——<code>src/db.js</code> 裡那行 <code>vocab: 單字資料（取代 Firestore）</code> 的註解還留著。後來整個換成瀏覽器內建的 IndexedDB（透過 Dexie.js 操作）。</p>
+<p>換掉之後拿到三件事：不用登入、離線可用、不用付主機費。失去的是跨裝置同步——你在手機上背的字，電腦上看不到。</p>
+<p>我認為對「背單字」這個用途划算：這是一個人、一支手機、零碎時間的活動，很少有人會在兩台裝置之間交替背。<strong>但如果你要做的是有社群、有排行榜、或需要老師端看得到學生進度的產品，這個取捨完全不成立，請直接做後端。</strong></p>
 <hr>
-<h2 id="_4">開始使用<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<h3 id="api-key">方法一：不需要 API Key（馬上試）<a class="headerlink" href="#api-key" title="Permanent link">¶</a></h3>
-<ol>
-<li>開啟 App 網址（或 clone 後本機執行）。</li>
-<li>點「<strong>匯入 8 個範例單字（免 API Key）</strong>」。</li>
-<li>單字立刻出現，可以開始瀏覽、播放發音、標記已掌握。</li>
-</ol>
-<h3 id="ai">方法二：用 AI 產生單字<a class="headerlink" href="#ai" title="Permanent link">¶</a></h3>
-<ol>
-<li>到 <a href="https://aistudio.google.com/app/apikey">Google AI Studio</a> 取得免費 Gemini API Key。</li>
-<li>開啟 App，在頁面上方輸入 API Key。</li>
-<li>點「<strong>獲取 AI 新單字</strong>」，等幾秒鐘，新單字就會出現。</li>
-<li>重複點擊可以持續累積單字庫，App 會自動避免重複。</li>
-</ol>
-<h3 id="_5">本機執行（開發者）<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YuHsunWang/toeic-master.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>toeic-master
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>npm<span class="w"> </span>install
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env.local<span class="w">   </span><span class="c1"># 填入你的 Gemini API Key</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
-</span></code></pre></div>
-<hr>
-<h2 id="_6">操作說明<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<h3 id="_7">首頁一覽<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<div class="grid">
-<div>
-<p>首頁分成三個區域：</p>
-<p><strong>上方工具列</strong></p>
-<ul>
-<li>「獲取 AI 新單字」：呼叫 AI 新增單字</li>
-<li>「匯入範例單字」：不需要 API Key 也能試用</li>
-<li>「預載發音」：先下載發音檔，之後離線也能聽</li>
-</ul>
-<p><strong>學習統計</strong></p>
-<p>顯示「已掌握」和「學習中」的數量，以及整體掌握率。</p>
-<p><strong>篩選列</strong></p>
-<ul>
-<li>類型篩選：全部 / Reading / Listening / Both</li>
-<li>狀態篩選：全部 / 學習中 / 已掌握</li>
-</ul>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/toeic-master/01-home.png" data-desc-position="bottom"><img align="right" alt="App 首頁" src="../../assets/screenshots/toeic-master/01-home.png" width="260"></a></p>
-</div>
-<hr>
-<h3 id="_8">單字卡<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<div class="grid">
-<div>
-<p>每張單字卡包含：</p>
+<h2 id="_4">資料庫改了四版，每一版都在擋同一件事<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>Dexie 的 migration 程式碼會留在 repo 裡，所以這段不用回想，直接讀 <code>src/db.js</code> 就看得出當初撞到什麼：</p>
 <table>
 <thead>
 <tr>
-<th>欄位</th>
-<th>內容</th>
+<th>版本</th>
+<th>改了什麼</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>單字</td>
-<td>英文粗體</td>
+<td>v1</td>
+<td><code>vocab</code> 和 <code>ttsCache</code> 兩張表，<code>vocab</code> 用自動遞增的 <code>id</code> 當主鍵</td>
 </tr>
 <tr>
-<td>發音</td>
-<td>點 🔊 播放</td>
+<td>v2</td>
+<td>加 <code>normalizedWord</code> 欄位，升級時掃全表、把重複的資料刪掉</td>
 </tr>
 <tr>
-<td>音標</td>
-<td>/IPA 標記/</td>
+<td>v3</td>
+<td><code>normalizedWord</code> 改成<strong>唯一索引</strong>（<code>&amp;normalizedWord</code>）</td>
 </tr>
 <tr>
-<td>詞性 + 類型</td>
-<td>N. / ADJ. … + 閱讀/聽力</td>
-</tr>
-<tr>
-<td>中文意思</td>
-<td>簡潔翻譯</td>
-</tr>
-<tr>
-<td>英文解釋</td>
-<td>英英釋義</td>
-</tr>
-<tr>
-<td>例句</td>
-<td>附 TTS 發音</td>
+<td>v4</td>
+<td>把平面的 <code>en</code> / <code>zh</code> / <code>sent</code> 三個欄位搬進 <code>senses</code> 陣列</td>
 </tr>
 </tbody>
 </table>
-<p>右上角綠色「LEARNING」標籤代表還在學習中；點右側圓形按鈕即可標記為已掌握。</p>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/toeic-master/06-word-card.png" data-desc-position="bottom"><img align="right" alt="單字卡詳細內容" src="../../assets/screenshots/toeic-master/06-word-card.png" width="260"></a></p>
-</div>
+<p>前三版其實是同一個問題被修了三次。單字是 AI 生的，同一個字很容易被生成兩次，只是大小寫或前後空白不同——對資料庫來說那就是兩筆不同的資料。</p>
+<p>v2 的做法是在應用層比對，寫入前先正規化再查有沒有重複。這在單筆寫入時沒問題，但一次匯入十個字的時候還是會漏。所以 v3 直接把它變成資料庫層的唯一索引，重複的寫入會被 IndexedDB 自己擋下來，丟出 <code>ConstraintError</code>。</p>
+<p>現在 <code>addMany()</code> 的寫法是刻意接住那個錯誤的：同一批裡先用 <code>Set</code> 去重，然後<strong>逐筆</strong>寫入，撞到 <code>ConstraintError</code> 就把那個字記進 <code>skippedWords</code> 繼續跑，最後回報「加了幾個、跳過幾個、跳過哪些」。逐筆寫比整批寫慢，但整批寫只要有一個字重複就會整批失敗，這對使用者體驗是更糟的結果。</p>
+<p>v4 是另一件事：一個英文單字常常有好幾個意思，原本一個欄位塞一個解釋的結構撐不住，改成 <code>senses</code> 陣列，上限三個語意。</p>
 <hr>
-<h3 id="_9">搜尋與篩選<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
-<div class="grid">
-<div>
-<p><strong>搜尋框</strong>支援：</p>
-<ul>
-<li>英文單字（如 <code>invoice</code>）</li>
-<li>中文翻譯（如 <code>發票</code>）</li>
-</ul>
-<p>輸入後即時篩選，不需按 Enter。</p>
-<p><strong>類型篩選</strong>讓你只顯示特定類型的單字，專攻弱項：</p>
-<ul>
-<li><strong>Reading</strong>：閱讀測驗常考字</li>
-<li><strong>Listening</strong>：聽力測驗常考字</li>
-<li><strong>Both</strong>：閱讀和聽力都會出現</li>
-</ul>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/toeic-master/03-search.png" data-desc-position="bottom"><img align="right" alt="搜尋 invoice" src="../../assets/screenshots/toeic-master/03-search.png" width="260"></a></p>
-</div>
-<hr>
-<h3 id="_10">標記已掌握<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
-<p>學熟一個字之後，點單字卡右側的 <strong>✓ 圓形按鈕</strong>，卡片會變暗並切換到「已掌握」狀態，首頁的掌握率也會同步更新。</p>
-<p>想重新練習時，切換狀態篩選到「已掌握」找到它，再點一次按鈕即可恢復「學習中」。</p>
-<hr>
-<h3 id="_11">發音功能<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
-<p>App 有三層發音：</p>
+<h2 id="gemini">Gemini 的發音，瀏覽器不能直接播<a class="headerlink" href="#gemini" title="Permanent link">¶</a></h2>
+<p>高音質發音是呼叫 Gemini TTS 拿的，但它回傳的是<strong>裸 PCM</strong>（24kHz、16-bit、單聲道），瀏覽器的 <code>&lt;audio&gt;</code> 不認這種東西。</p>
+<p>解法是在前端手動補上 44 bytes 的 WAV 檔頭，把 PCM 包成瀏覽器認得的 WAV Blob（<code>src/speechService.js</code> 的 <code>pcmToWav</code>）。程式碼不長，但如果不知道問題出在哪，會一直以為是 API 呼叫失敗。</p>
+<p>包好的音檔會存進 IndexedDB 的 <code>ttsCache</code> 表，key 是 <code>文字__語音名稱</code>。所以整個發音是三層：</p>
 <ol>
-<li><strong>已預載的高音質發音</strong>（Gemini TTS）：點喇叭立刻播放，完全不需要網路。</li>
-<li><strong>即時 Gemini TTS</strong>：有網路、有 API Key 時自動使用，發音後自動存到裝置備用。</li>
-<li><strong>瀏覽器內建語音</strong>：沒有網路或 API Key 失效時的備用方案。</li>
+<li><strong>IndexedDB 快取</strong> — 最快，完全不需要網路。</li>
+<li><strong>Gemini TTS</strong> — 有網路、有 API Key 時用，播完順手寫回快取。</li>
+<li><strong>瀏覽器內建 <code>speechSynthesis</code></strong> — 前兩層都不行時的保底，音質普通但一定有聲音。</li>
 </ol>
+<p>第三層是關鍵。少了它，一個沒有 API Key 的使用者按下喇叭會什麼都沒發生，而「沒反應」比「音質普通」糟得多。</p>
 <div class="admonition tip">
-<p class="admonition-title">建議</p>
-<p>連上網路後點「<strong>預載發音供離線使用</strong>」，把現有單字的發音一次下載好，之後就可以完全離線複習。</p>
+<p class="admonition-title">離線前先做這件事</p>
+<p>連著網路時點「<strong>預載發音供離線使用</strong>」，把現有單字的發音一次抓完。之後完全離線也聽得到高音質版本。</p>
 </div>
 <hr>
-<h3 id="_12">離線使用<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
-<p>安裝成 PWA（或只要開過一次 App），即使手機切到飛航模式也能：</p>
-<ul>
-<li>開啟 App</li>
-<li>瀏覽所有已儲存的單字</li>
-<li>搜尋與篩選</li>
-<li>播放已預載的發音</li>
-<li>標記已掌握 / 學習中</li>
-</ul>
+<h2 id="api-key">免 API Key 也要能用<a class="headerlink" href="#api-key" title="Permanent link">¶</a></h2>
+<p>沒有 API Key 的人打開 App 如果看到空白畫面，就不會有第二次了。</p>
+<p>所以 <code>src/data/vocab-book.json</code> 裡放了 <strong>252 個內建單字</strong>，每個都含音標、詞性、多個語意、例句，以及聽力／閱讀的出現頻率。第一次開啟時 <code>seedIfEmpty()</code> 會自動匯入，並在 <code>localStorage</code> 記一個旗標——<strong>只做這一次</strong>，之後就算使用者把單字全刪光也不會自己長回來。想重新匯入要自己按按鈕。</p>
+<p>要自己擴充單字庫的話，<code>scripts/collect-vocab.mjs</code> 是離線批次生成用的：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>node<span class="w"> </span>scripts/collect-vocab.mjs<span class="w"> </span>--rounds<span class="w"> </span><span class="m">5</span><span class="w"> </span>--per-round<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>node<span class="w"> </span>scripts/collect-vocab.mjs<span class="w"> </span>--rounds<span class="w"> </span><span class="m">3</span><span class="w"> </span>--category<span class="w"> </span>Finance
+</span></code></pre></div>
+<p>它每一回合存一次檔，中斷了可以接著跑，也會對既有單字庫和同批結果去重。</p>
 <hr>
-<h2 id="_13">安裝到手機主畫面<a class="headerlink" href="#_13" title="Permanent link">¶</a></h2>
+<h2 id="_5">測驗<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p><code>src/quiz.js</code> 出五種題型：中翻英、英翻中、句子填空、看英文解釋選字、聽發音選字。可以指定題數、類型（Reading／Listening／Both）和主題分類。</p>
+<p>比對答案時容忍字尾變化——<code>s</code>、<code>es</code>、<code>ed</code>、<code>ing</code>、<code>d</code> 都算對。這是刻意放寬的：測驗要考的是記不記得這個字，不是拼寫時態。</p>
+<hr>
+<h2 id="api-key_1">一個還沒解決的問題：API Key 是公開的<a class="headerlink" href="#api-key_1" title="Permanent link">¶</a></h2>
+<p>這是純前端的 Vite app，所有 <code>VITE_</code> 開頭的環境變數<strong>都會被打包進前端 bundle</strong>。也就是說 <code>VITE_GEMINI_API_KEY</code> 在瀏覽器裡是看得到的，任何人打開開發者工具都能拿走。</p>
+<p>以個人專案來說可以接受，因為使用者是自己填自己的 key。但只要這個 App 要用你的 key 對外服務，這條路就走不通了，必須改成後端 proxy，或至少在 Google Cloud 端鎖配額和來源網域。</p>
+<p>我沒有做後端 proxy，因為那會直接推翻上面「不做後端」的整個前提。這是這個專案結構上的天花板，不是一個待辦事項。</p>
+<hr>
+<h2 id="_6">怎麼跑<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YuHsunWang/toeic-master.git
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>toeic-master
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>npm<span class="w"> </span>install
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env.local<span class="w">   </span><span class="c1"># 填入 VITE_GEMINI_API_KEY</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
+</span></code></pre></div>
+<p>要測 PWA 離線功能不能用 <code>npm run dev</code>，要 <code>npm run build</code> 之後 <code>npm run preview</code>——Service Worker 只在 production build 註冊。</p>
+<p>部署就是靜態網站，<code>npm run build</code> 後把 <code>dist/</code> 丟上 Vercel、Netlify、Cloudflare Pages 或 GitHub Pages 都行。</p>
+<div class="admonition note">
+<p class="admonition-title">PWA 需要 HTTPS</p>
+<p>Service Worker 只在 HTTPS 或 <code>localhost</code> 註冊，HTTP 網址裝不了。</p>
+</div>
+<h3 id="_7">安裝到手機主畫面<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">iOS Safari</label><label for="__tabbed_1_2">Android Chrome</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<ol>
-<li>用 Safari 開啟 App 網址。</li>
-<li>點下方工具列的「分享」圖示（方框加箭頭）。</li>
-<li>選「加入主畫面」。</li>
-<li>App 圖示出現在主畫面，點開就像一般 App。</li>
-</ol>
+<p>分享圖示 → 加入主畫面。</p>
 </div>
 <div class="tabbed-block">
-<ol>
-<li>用 Chrome 開啟 App 網址。</li>
-<li>點右上角三點選單。</li>
-<li>選「新增至主畫面」或「安裝應用程式」。</li>
-<li>確認後圖示出現在主畫面。</li>
-</ol>
+<p>右上角三點 → 安裝應用程式。</p>
 </div>
 </div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">PWA 需要 HTTPS</p>
-<p>安裝 PWA 需要 HTTPS 連線，本機 <code>localhost</code> 開發環境也支援。HTTP 網址無法安裝。</p>
 </div>
 <hr>
-<h2 id="_14">自己部署<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
-<p>這是純前端靜態網站，build 完直接上傳 <code>dist/</code> 目錄即可：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>run<span class="w"> </span>build
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># 發布 dist/ 目錄到任何靜態主機</span>
-</span></code></pre></div>
-<p>支援的平台：Vercel、Netlify、Cloudflare Pages、GitHub Pages，或任何可以放靜態檔案的地方。</p>
-<h2 id="_15">延伸閱讀（本站）<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
+<h2 id="_8">技術棧<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>技術</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前端</td>
+<td>React 18、Vite 5、Tailwind CSS 3、lucide-react</td>
+</tr>
+<tr>
+<td>本地資料庫</td>
+<td>IndexedDB（Dexie 4）：<code>vocab</code> 單字表、<code>ttsCache</code> 發音快取表</td>
+</tr>
+<tr>
+<td>離線</td>
+<td>vite-plugin-pwa（Workbox），app shell 全部快取</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>Gemini：生成單字、高音質 TTS</td>
+</tr>
+<tr>
+<td>發音保底</td>
+<td>瀏覽器內建 <code>SpeechSynthesis</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_9">還沒做完的<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>PWA 圖示沒有補。</strong> <code>vite.config.js</code> 的 manifest 指向 <code>pwa-192x192.png</code> 和 <code>pwa-512x512.png</code>，但 <code>public/</code> 底下只有 <code>favicon.svg</code>。App 裝得起來，主畫面上會是預設圖示。</li>
+<li><strong>沒有跨裝置同步</strong>，這是「不做後端」的直接後果，短期不打算改。</li>
+<li>五種介面主題（預設 Warm Sand）存在 <code>localStorage</code>，換裝置就沒了，同上。</li>
+</ul>
+<h2 id="_10">延伸閱讀（本站）<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../cvs-radar/">CVS-Radar：超商食物評價雷達</a> — 另一個從 PRD 做到上線的 0→1 個人專案</li>
 </ul>
-<h2 id="_16">來源<a class="headerlink" href="#_16" title="Permanent link">¶</a></h2>
+<h2 id="_11">來源<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://github.com/YuHsunWang/toeic-master">toeic-master repository</a></li>
 <li><a href="https://aistudio.google.com/app/apikey">Google AI Studio（Gemini API Key）</a></li>
@@ -4477,7 +4333,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年9月8日 07:16:11 UTC">2026年9月8日</span>
   </span>
 
     
