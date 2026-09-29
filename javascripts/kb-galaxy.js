@@ -13,6 +13,29 @@
   var activeCleanup = null;
   var activeHost = null;
   var pendingFocus = null;
+  /* The last layer shown, kept across Material's instant-navigation swaps.
+     Going back (Esc, the back control, the browser, or leaving an article)
+     makes Material replace the whole galaxy, so the fresh one starts where
+     this says the viewer was and flies out from there. Mirrored into
+     sessionStorage because a full page load (a new tab, a link Material
+     does not intercept) would otherwise forget it. */
+  var VIEW_KEY = 'kbGalaxyView';
+
+  function rememberView(view) {
+    try {
+      if (view) window.sessionStorage.setItem(VIEW_KEY, JSON.stringify(view));
+      else window.sessionStorage.removeItem(VIEW_KEY);
+    } catch (error) { /* storage blocked: going back just skips the flight */ }
+  }
+
+  function recallView() {
+    try {
+      var view = JSON.parse(window.sessionStorage.getItem(VIEW_KEY));
+      return view && view.state && typeof view.state.level === 'number' ? view : null;
+    } catch (error) {
+      return null;
+    }
+  }
   var failureLogged = false;
 
   function siteBase() {
@@ -729,6 +752,7 @@
     }
 
     function fly(target) {
+      if (!galaxy.isConnected) host.replaceChildren(galaxy, live);
       if (reducedMotion.matches || !camera) {
         camera = target;
         requestDraw();
@@ -935,6 +959,7 @@
               event.shiftKey || event.altKey) return;
           host.classList.add('is-selecting');
           anchor.classList.add('kb-galaxy-node--diving');
+          if (current) rememberView({ state: current, article: node.id });
         });
         /* Space activates the anchor itself. Assigning location.href here
            forced a full document load and dropped out of navigation.instant,
@@ -968,6 +993,7 @@
       host.dataset.nodeCount = String(entries.length);
       document.documentElement.classList.add('kb-galaxy-ready');
       current = state;
+      rememberView({ state: state, article: null });
       currentEntries = entries;
       currentTags = tags;
       transitioning = false;
@@ -1006,11 +1032,37 @@
       });
     }
 
+    /* Where to start the camera: the layer last shown, if it sits inside the
+       one being opened, or the article just read inside this region. */
+    function entryOrigin(state) {
+      var last = recallView();
+      rememberView(null);
+      if (!last) return null;
+      var from = last.state;
+      if (seedDomain && from.domain !== seedDomain) return null;
+      if (from.level === 2 && last.article && state.level === 2 &&
+          from.domain === state.domain && from.region === state.region) {
+        return { state: from, article: last.article };
+      }
+      var inside = from.level > state.level &&
+        (state.level === 0 || from.domain === state.domain);
+      return inside ? { state: from, article: null } : null;
+    }
+
     function zoomOut() {
       if (!current || transitioning) return;
       var seedLevel = seedDomain ? 1 : 0;
       if (current.level <= seedLevel) {
-        if (seedDomain) window.location.href = siteBase();
+        /* A clicked anchor stays inside navigation.instant, so the home
+           galaxy is built in this same document and can fly out. */
+        if (seedDomain) {
+          var home = document.createElement('a');
+          home.href = siteBase();
+          home.hidden = true;
+          document.body.appendChild(home);
+          home.click();
+          home.remove();
+        }
         return;
       }
       pendingFocus = {
@@ -1070,7 +1122,27 @@
     document.addEventListener('keydown', onKeyDown);
     resizeObserver.observe(host);
     measure();
-    changeLevel(initial, null, false, false);
+    var origin = entryOrigin(initial);
+    if (origin) {
+      transitioning = true;
+      resolveView(origin.state).then(function () {
+        if (disposed) return;
+        camera = cameraFor(world, origin.state);
+        if (origin.article) {
+          var star = findRegion(world, origin.state.domain, origin.state.region).stars.find(function (entry) {
+            return entry.item.id === origin.article;
+          });
+          if (star) camera = { x: star.x, y: star.y, s: camera.s * 6 };
+        }
+        transitioning = false;
+        changeLevel(initial, null, false, true);
+      }).catch(function () {
+        transitioning = false;
+        changeLevel(initial, null, false, false);
+      });
+    } else {
+      changeLevel(initial, null, false, false);
+    }
     /* Fill the other galaxies in the background so the home sky shows real
        clusters. A failed prefetch only leaves that galaxy as dust; the click
        that needs it retries and reports through fail(). */

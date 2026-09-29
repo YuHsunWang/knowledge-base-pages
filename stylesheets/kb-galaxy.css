@@ -192,8 +192,9 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
    An anchor is a hit disc centred on its star or cluster; the caption
    hangs below it. --hit comes from the camera, so the disc always
    matches what the canvas draws underneath. */
-/* (0,2,0) outranks Material's `.md-typeset a` link colour. */
-.kb-galaxy .kb-galaxy-node {
+/* (0,3,1) outranks Material's `.md-typeset a:focus` / `:hover` accent. */
+.kb-world .kb-galaxy a.kb-galaxy-node,
+.kb-world .kb-galaxy a.kb-galaxy-node:focus {
   color: var(--kb-space-fg);
 }
 
@@ -315,7 +316,7 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
 @media (hover: hover) and (pointer: fine) {
   .kb-galaxy-node:hover .kb-galaxy-node__ring { opacity: 1; transform: scale(1); }
   .kb-galaxy-node:hover .kb-galaxy-node__note { opacity: 1; }
-  .kb-galaxy .kb-galaxy-node:hover { color: var(--kb-space-blue); }
+  .kb-world .kb-galaxy a.kb-galaxy-node:hover { color: var(--kb-space-blue); }
 }
 
 /* Leaving for an article: everything but the picked star dims. */
