@@ -301,8 +301,24 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   opacity: 1;
 }
 
+/* Deeper down the note is a hover preview laid over other captions, so it
+   gets an opaque card of its own. */
+.kb-galaxy:not([data-level="L0"]) .kb-galaxy-node__note {
+  padding: 0.35rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--kb-space-blue) 22%, transparent);
+  border-radius: 0.4rem;
+  background: var(--kb-space);
+}
+
 .kb-galaxy-node:focus-visible {
   outline: none;
+}
+
+/* The engaged node rises above its neighbours, so its preview note is
+   never painted under another star's caption. */
+.kb-galaxy-node:hover,
+.kb-galaxy-node:focus-visible {
+  z-index: 5;
 }
 
 .kb-galaxy-node:focus-visible .kb-galaxy-node__ring,

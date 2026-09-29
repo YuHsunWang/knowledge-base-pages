@@ -610,49 +610,30 @@
     }
   }
 
+  /* The site header stays out of the sky entirely: the galaxy is the
+     navigation there. It returns once the page scrolls past the plate to
+     the article list (search and tabs are useful again), or when keyboard
+     focus enters it. */
   function createHeaderController(host) {
     var header = document.querySelector('.md-header');
     if (!header) return function () {};
     var frame = 0;
-    var pointerY = null;
     var passive = { passive: true };
-
-    /* Hysteresis, and the reason for it: the revealed header is as tall as the
-       whole plate chrome, so a single threshold at headerHeight swallowed
-       .kb-galaxy__back at y 15-59. Aiming for that button crossed the
-       threshold first, the header dropped over it, and the pointer could
-       never reach it — the button was dead to the mouse while still working
-       for Tab and Esc. Arming only at the very top edge keeps the button
-       clear; the wider release threshold then keeps the header in place while
-       the pointer travels down into it. */
-    var ARM_BAND = 10;
 
     function update() {
       frame = 0;
       var headerHeight = header.getBoundingClientRect().height;
-      var revealed = header.classList.contains('kb-galaxy-header--revealed');
       var pastCanvas = host.getBoundingClientRect().bottom <= headerHeight;
       var focusWithin = header.contains(document.activeElement);
-      var band = revealed ? headerHeight : ARM_BAND;
-      var pointerNearTop = pointerY !== null && pointerY <= band;
-      header.classList.toggle(
-        'kb-galaxy-header--revealed',
-        pastCanvas || focusWithin || pointerNearTop
-      );
+      header.classList.toggle('kb-galaxy-header--revealed', pastCanvas || focusWithin);
     }
 
     function schedule() {
       if (!frame) frame = window.requestAnimationFrame(update);
     }
 
-    function onPointerMove(event) {
-      pointerY = event.clientY;
-      schedule();
-    }
-
     window.addEventListener('scroll', schedule, passive);
     window.addEventListener('resize', schedule, passive);
-    window.addEventListener('pointermove', onPointerMove, passive);
     header.addEventListener('focusin', schedule, passive);
     header.addEventListener('focusout', schedule, passive);
     schedule();
@@ -661,7 +642,6 @@
       if (frame) window.cancelAnimationFrame(frame);
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', schedule);
-      window.removeEventListener('pointermove', onPointerMove);
       header.removeEventListener('focusin', schedule);
       header.removeEventListener('focusout', schedule);
       header.classList.remove('kb-galaxy-header--revealed');
