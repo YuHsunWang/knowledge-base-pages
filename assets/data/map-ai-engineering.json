@@ -103,7 +103,8 @@
     "claude-code-discipline-frameworks",
     "anthropic-document-skills",
     "mcp-ecosystem-guide",
-    "mcp-builder-skill"
+    "mcp-builder-skill",
+    "sepia-de-ai-writing-skill"
    ]
   },
   {
@@ -1458,6 +1459,26 @@
    ]
   },
   {
+   "id": "sepia-de-ai-writing-skill",
+   "label": "Sepia 去 AI 味 Skill",
+   "href": "sepia-de-ai-writing-skill/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-03"
+    ]
+   ],
+   "note": "分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-03 更新｜92 天內有效"
+   },
+   "backlinks": []
+  },
+  {
    "id": "structured-output-and-tool-use",
    "label": "Structured Output 與 Tool Use",
    "href": "structured-output-and-tool-use/",
@@ -1680,14 +1701,15 @@
     "label": "Claude Code / Skills / MCP",
     "href": "#claude-code-mcp",
     "description": "實際落地的工具鏈",
-    "count": 6,
+    "count": 7,
     "members": [
      "claude-code-coding-guidelines",
      "superpowers-claude-code-skills",
      "claude-code-discipline-frameworks",
      "anthropic-document-skills",
      "mcp-ecosystem-guide",
-     "mcp-builder-skill"
+     "mcp-builder-skill",
+     "sepia-de-ai-writing-skill"
     ],
     "x": 0.84,
     "y": 0.51,

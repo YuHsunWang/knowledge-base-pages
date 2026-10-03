@@ -3,35 +3,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AI Engineering 分區索引，涵蓋 Prompt/Context Engineering、RAG、Agent 架構、Evaluation 與 Claude Code 生態系文章導覽。">
+        <meta name="description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/sepia-de-ai-writing-skill/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../mcp-builder-skill/">
       
       
-        <link rel="next" href="prompt-engineering-core-techniques/">
+        <link rel="next" href="../prompt-caching-cost-latency/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>AI Engineering - Shane's Knowledge Base</title>
+        <title>Sepia：從敘事結構下手的去 AI 味 Skill - Shane's Knowledge Base</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,15 +50,15 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../stylesheets/kb-map.css">
+      <link rel="stylesheet" href="../../stylesheets/kb-map.css">
     
-      <link rel="stylesheet" href="../stylesheets/kb-galaxy.css">
+      <link rel="stylesheet" href="../../stylesheets/kb-galaxy.css">
     
-      <link rel="stylesheet" href="../stylesheets/kb-transition.css">
+      <link rel="stylesheet" href="../../stylesheets/kb-transition.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,18 +66,18 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI Engineering - Shane's Knowledge Base">
-<meta property="og:description" content="AI Engineering 分區索引，涵蓋 Prompt/Context Engineering、RAG、Agent 架構、Evaluation 與 Claude Code 生態系文章導覽。">
-<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/index.png">
+<meta property="og:title" content="Sepia：從敘事結構下手的去 AI 味 Skill - Shane's Knowledge Base">
+<meta property="og:description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/sepia-de-ai-writing-skill.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/sepia-de-ai-writing-skill/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="AI Engineering - Shane's Knowledge Base">
-<meta property="twitter:description" content="AI Engineering 分區索引，涵蓋 Prompt/Context Engineering、RAG、Agent 架構、Evaluation 與 Claude Code 生態系文章導覽。">
-<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/index.png">
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<meta property="twitter:title" content="Sepia：從敘事結構下手的去 AI 味 Skill - Shane's Knowledge Base">
+<meta property="twitter:description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/sepia-de-ai-writing-skill.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ai-engineering" class="md-skip">
+        <a href="#sepia-ai-skill" class="md-skip">
           跳轉到
         </a>
       
@@ -122,7 +122,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href=".." title="Shane's Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane's Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AI Engineering
+              Sepia：從敘事結構下手的去 AI 味 Skill
             
           </span>
         </div>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -272,7 +272,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -294,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../machine-learning/" class="md-tabs__link">
+        <a href="../../machine-learning/" class="md-tabs__link">
           
   
   
@@ -316,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../trading/" class="md-tabs__link">
+        <a href="../../trading/" class="md-tabs__link">
           
   
   
@@ -338,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -358,7 +358,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tags/" class="md-tabs__link">
+      <a href="../../tags/" class="md-tabs__link">
         
   
   
@@ -388,9 +388,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -401,7 +399,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Shane's Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+    <a href="../.." title="Shane's Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
@@ -431,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -500,7 +498,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -518,7 +516,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -609,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="prompt-engineering-core-techniques/" class="md-nav__link">
+      <a href="../prompt-engineering-core-techniques/" class="md-nav__link">
         
   
   
@@ -637,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="context-engineering/" class="md-nav__link">
+      <a href="../context-engineering/" class="md-nav__link">
         
   
   
@@ -665,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="context-engineering-in-practice/" class="md-nav__link">
+      <a href="../context-engineering-in-practice/" class="md-nav__link">
         
   
   
@@ -693,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reasoning-models-test-time-compute/" class="md-nav__link">
+      <a href="../reasoning-models-test-time-compute/" class="md-nav__link">
         
   
   
@@ -798,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+      <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
         
   
   
@@ -826,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag-retrieval-augmented-generation/" class="md-nav__link">
+      <a href="../rag-retrieval-augmented-generation/" class="md-nav__link">
         
   
   
@@ -854,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="embeddings-and-vector-databases/" class="md-nav__link">
+      <a href="../embeddings-and-vector-databases/" class="md-nav__link">
         
   
   
@@ -882,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag-advanced-techniques/" class="md-nav__link">
+      <a href="../rag-advanced-techniques/" class="md-nav__link">
         
   
   
@@ -910,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+      <a href="../graphrag-knowledge-graph-retrieval/" class="md-nav__link">
         
   
   
@@ -938,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-rag-2026/" class="md-nav__link">
+      <a href="../agentic-rag-2026/" class="md-nav__link">
         
   
   
@@ -1043,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="structured-output-and-tool-use/" class="md-nav__link">
+      <a href="../structured-output-and-tool-use/" class="md-nav__link">
         
   
   
@@ -1071,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-agent-security-and-permissions/" class="md-nav__link">
+      <a href="../ai-agent-security-and-permissions/" class="md-nav__link">
         
   
   
@@ -1099,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="coding-agent-workflow-sop/" class="md-nav__link">
+      <a href="../coding-agent-workflow-sop/" class="md-nav__link">
         
   
   
@@ -1127,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-agent-harness-engineering/" class="md-nav__link">
+      <a href="../ai-agent-harness-engineering/" class="md-nav__link">
         
   
   
@@ -1155,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="multi-agent-orchestration/" class="md-nav__link">
+      <a href="../multi-agent-orchestration/" class="md-nav__link">
         
   
   
@@ -1251,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-remote-coding-agent-guide/" class="md-nav__link">
+      <a href="../omp-remote-coding-agent-guide/" class="md-nav__link">
         
   
   
@@ -1279,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-models-and-daily-coding/" class="md-nav__link">
+      <a href="../omp-models-and-daily-coding/" class="md-nav__link">
         
   
   
@@ -1307,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-collab-remote-control/" class="md-nav__link">
+      <a href="../omp-collab-remote-control/" class="md-nav__link">
         
   
   
@@ -1335,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-config-permissions-security/" class="md-nav__link">
+      <a href="../omp-config-permissions-security/" class="md-nav__link">
         
   
   
@@ -1363,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-mobile-notifications-workflow/" class="md-nav__link">
+      <a href="../omp-mobile-notifications-workflow/" class="md-nav__link">
         
   
   
@@ -1391,7 +1389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-cheat-sheet/" class="md-nav__link">
+      <a href="../omp-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -1419,7 +1417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="omp-cheat-sheet-web/" class="md-nav__link">
+      <a href="../omp-cheat-sheet-web/" class="md-nav__link">
         
   
   
@@ -1528,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory-systems/" class="md-nav__link">
+      <a href="../agent-memory-systems/" class="md-nav__link">
         
   
   
@@ -1556,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-observability/" class="md-nav__link">
+      <a href="../agent-observability/" class="md-nav__link">
         
   
   
@@ -1584,7 +1582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="llm-evaluation-in-practice/" class="md-nav__link">
+      <a href="../llm-evaluation-in-practice/" class="md-nav__link">
         
   
   
@@ -1612,7 +1610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="llm-evaluation-advanced/" class="md-nav__link">
+      <a href="../llm-evaluation-advanced/" class="md-nav__link">
         
   
   
@@ -1645,6 +1643,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1676,11 +1676,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked="">
         
           
           <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
@@ -1701,7 +1701,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1719,7 +1719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="claude-code-coding-guidelines/" class="md-nav__link">
+      <a href="../claude-code-coding-guidelines/" class="md-nav__link">
         
   
   
@@ -1747,7 +1747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="superpowers-claude-code-skills/" class="md-nav__link">
+      <a href="../superpowers-claude-code-skills/" class="md-nav__link">
         
   
   
@@ -1775,7 +1775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="claude-code-discipline-frameworks/" class="md-nav__link">
+      <a href="../claude-code-discipline-frameworks/" class="md-nav__link">
         
   
   
@@ -1803,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="anthropic-document-skills/" class="md-nav__link">
+      <a href="../anthropic-document-skills/" class="md-nav__link">
         
   
   
@@ -1831,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mcp-ecosystem-guide/" class="md-nav__link">
+      <a href="../mcp-ecosystem-guide/" class="md-nav__link">
         
   
   
@@ -1859,7 +1859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mcp-builder-skill/" class="md-nav__link">
+      <a href="../mcp-builder-skill/" class="md-nav__link">
         
   
   
@@ -1884,10 +1884,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="sepia-de-ai-writing-skill/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sepia 去 AI 味 Skill
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1903,6 +1930,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句話
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        換字為什麼不夠
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        怎麼運作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="怎麼運作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先分路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四種操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        校準：別矯枉過正
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中文有專門的校準檔
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我用過一次
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-ai-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跟 anti-ai-writing 怎麼分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        參考來源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1986,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="prompt-caching-cost-latency/" class="md-nav__link">
+      <a href="../prompt-caching-cost-latency/" class="md-nav__link">
         
   
   
@@ -2014,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="9router-ai-router-token-saver/" class="md-nav__link">
+      <a href="../9router-ai-router-token-saver/" class="md-nav__link">
         
   
   
@@ -2042,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="caveman-token-compression-skill/" class="md-nav__link">
+      <a href="../caveman-token-compression-skill/" class="md-nav__link">
         
   
   
@@ -2139,7 +2313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+      <a href="../claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
         
   
   
@@ -2167,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="my-obsidian-vault-claude-md/" class="md-nav__link">
+      <a href="../my-obsidian-vault-claude-md/" class="md-nav__link">
         
   
   
@@ -2241,7 +2415,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../machine-learning/" class="md-nav__link ">
+            <a href="../../machine-learning/" class="md-nav__link ">
               
   
   
@@ -2345,7 +2519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/ml-interview-core-concepts/" class="md-nav__link">
+      <a href="../../machine-learning/ml-interview-core-concepts/" class="md-nav__link">
         
   
   
@@ -2373,7 +2547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/geron-hands-on-ml-notes/" class="md-nav__link">
+      <a href="../../machine-learning/geron-hands-on-ml-notes/" class="md-nav__link">
         
   
   
@@ -2401,7 +2575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/deep-learning-training-fundamentals/" class="md-nav__link">
+      <a href="../../machine-learning/deep-learning-training-fundamentals/" class="md-nav__link">
         
   
   
@@ -2497,7 +2671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/feature-engineering/" class="md-nav__link">
+      <a href="../../machine-learning/feature-engineering/" class="md-nav__link">
         
   
   
@@ -2525,7 +2699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/sklearn-pipeline-templates/" class="md-nav__link">
+      <a href="../../machine-learning/sklearn-pipeline-templates/" class="md-nav__link">
         
   
   
@@ -2553,7 +2727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/model-evaluation-cross-validation/" class="md-nav__link">
+      <a href="../../machine-learning/model-evaluation-cross-validation/" class="md-nav__link">
         
   
   
@@ -2645,7 +2819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/ml-case-studies/" class="md-nav__link">
+      <a href="../../machine-learning/ml-case-studies/" class="md-nav__link">
         
   
   
@@ -2737,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../machine-learning/statistics-ab-testing/" class="md-nav__link">
+      <a href="../../machine-learning/statistics-ab-testing/" class="md-nav__link">
         
   
   
@@ -2809,7 +2983,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../trading/" class="md-nav__link ">
+            <a href="../../trading/" class="md-nav__link ">
               
   
   
@@ -2919,7 +3093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/wave-backtest-usage/" class="md-nav__link">
+      <a href="../../trading/wave-backtest-usage/" class="md-nav__link">
         
   
   
@@ -2947,7 +3121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
+      <a href="../../trading/taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
         
   
   
@@ -2975,7 +3149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/wave-theory-probabilistic-counter-plan/" class="md-nav__link">
+      <a href="../../trading/wave-theory-probabilistic-counter-plan/" class="md-nav__link">
         
   
   
@@ -3003,7 +3177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/threads-txf-sentiment-following-research/" class="md-nav__link">
+      <a href="../../trading/threads-txf-sentiment-following-research/" class="md-nav__link">
         
   
   
@@ -3031,7 +3205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/net-delta-options-strategy/" class="md-nav__link">
+      <a href="../../trading/net-delta-options-strategy/" class="md-nav__link">
         
   
   
@@ -3059,7 +3233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
+      <a href="../../trading/taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
         
   
   
@@ -3155,7 +3329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/basic-industry-analysis-sop/" class="md-nav__link">
+      <a href="../../trading/basic-industry-analysis-sop/" class="md-nav__link">
         
   
   
@@ -3183,7 +3357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/serenity-style-industry-research-process/" class="md-nav__link">
+      <a href="../../trading/serenity-style-industry-research-process/" class="md-nav__link">
         
   
   
@@ -3211,7 +3385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/leo-satellite-supply-chain-exposure/" class="md-nav__link">
+      <a href="../../trading/leo-satellite-supply-chain-exposure/" class="md-nav__link">
         
   
   
@@ -3317,7 +3491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-research-diagrams-decision-map/" class="md-nav__link">
+      <a href="../../trading/passive-components-research-diagrams-decision-map/" class="md-nav__link">
         
   
   
@@ -3345,7 +3519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-industry-overview/" class="md-nav__link">
+      <a href="../../trading/passive-components-industry-overview/" class="md-nav__link">
         
   
   
@@ -3373,7 +3547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-market-sizing/" class="md-nav__link">
+      <a href="../../trading/passive-components-market-sizing/" class="md-nav__link">
         
   
   
@@ -3401,7 +3575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-company-universe/" class="md-nav__link">
+      <a href="../../trading/passive-components-company-universe/" class="md-nav__link">
         
   
   
@@ -3429,7 +3603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-stock-tracker/" class="md-nav__link">
+      <a href="../../trading/passive-components-stock-tracker/" class="md-nav__link">
         
   
   
@@ -3457,7 +3631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-monthly-tracker/" class="md-nav__link">
+      <a href="../../trading/passive-components-monthly-tracker/" class="md-nav__link">
         
   
   
@@ -3485,7 +3659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-valuation-framework/" class="md-nav__link">
+      <a href="../../trading/passive-components-valuation-framework/" class="md-nav__link">
         
   
   
@@ -3513,7 +3687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trading/passive-components-target-price/" class="md-nav__link">
+      <a href="../../trading/passive-components-target-price/" class="md-nav__link">
         
   
   
@@ -3587,7 +3761,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../projects/" class="md-nav__link ">
+            <a href="../../projects/" class="md-nav__link ">
               
   
   
@@ -3631,7 +3805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/cvs-radar/" class="md-nav__link">
+      <a href="../../projects/cvs-radar/" class="md-nav__link">
         
   
   
@@ -3659,7 +3833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/toeic-master/" class="md-nav__link">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
         
   
   
@@ -3687,7 +3861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/mcmc-portfolio/" class="md-nav__link">
+      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
         
   
   
@@ -3715,7 +3889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projects/project-inventory/" class="md-nav__link">
+      <a href="../../projects/project-inventory/" class="md-nav__link">
         
   
   
@@ -3750,7 +3924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+      <a href="../../tags/" class="md-nav__link">
         
   
   
@@ -3778,9 +3952,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden="">
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -3802,7 +3974,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        主題地圖
+        一句話
       
     </span>
   </a>
@@ -3810,10 +3982,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-here" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Start Here
+        換字為什麼不夠
       
     </span>
   </a>
@@ -3821,22 +3993,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learning-paths" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Learning Paths
+        怎麼運作
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Learning Paths">
+    <nav class="md-nav" aria-label="怎麼運作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prompt-context" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prompt 與 Context 工程
+        先分路
       
     </span>
   </a>
@@ -3844,10 +4016,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rag-systems" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RAG 與檢索系統
+        四種操作
       
     </span>
   </a>
@@ -3855,54 +4027,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#agent-engineering" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent 工程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluation-memory-observability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        評估、記憶與觀測
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-code-mcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Code / Skills / MCP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cost-tokens" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        成本與 Token 優化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#knowledge-base-ops" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        用 AI 維護知識庫
+        校準：別矯枉過正
       
     </span>
   </a>
@@ -3911,6 +4039,61 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中文有專門的校準檔
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        我用過一次
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-ai-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跟 anti-ai-writing 怎麼分
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        參考來源
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3927,8 +4110,6 @@
               
                 
 
-  
-
 
 
   
@@ -3941,7 +4122,7 @@
   
   
     <li class="md-path__item">
-      <a href=".." class="md-path__link">
+      <a href="../.." class="md-path__link">
         
   <span class="md-ellipsis">
     首頁
@@ -3959,10 +4140,28 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
     AI Engineering
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../claude-code-coding-guidelines/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Claude Code / Skills / MCP
   </span>
 
         </a>
@@ -3978,126 +4177,187 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
+
+  <nav class="md-tags">
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:claude-code" class="md-tag">Claude Code</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:writing" class="md-tag">Writing</a>
+      
+    
+  </nav>
 
 
 
-
-<div class="kb-world" data-kbgalaxy="assets/data/map-ai-engineering.json" aria-label="AI Engineering Knowledge Galaxy"></div>
-
-<h1 id="ai-engineering">AI Engineering<a class="headerlink" href="#ai-engineering" title="Permanent link">¶</a></h1>
-<p>本區整理 AI、AI Agent、RAG、Context Engineering、Claude Code 與工具化工作流的公開筆記。內容偏向工程實作、系統設計與個人知識管理，而不是泛用名詞介紹。</p>
-<h2 id="_1">主題地圖<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>30 篇分成七個主題，依「<strong>輸入 → 系統 → 營運</strong>」排列：先決定餵給模型什麼，再讓它讀得到、做得到，最後才是評估與維運。每個主題節點列出該分組的文章。</p>
-<h2 id="start-here">Start Here<a class="headerlink" href="#start-here" title="Permanent link">¶</a></h2>
-<ol>
-<li><a href="prompt-engineering-core-techniques/">Prompt Engineering 核心技術：Chaining、CoT 與 Loop</a></li>
-<li><a href="context-engineering/">Context Engineering：超越 Prompt Engineering 的下一個前線</a></li>
-<li><a href="rag-retrieval-augmented-generation/">RAG 完整指南：檢索增強生成的原理、架構與實作</a></li>
-<li><a href="claude-code-coding-guidelines/">Claude Code 寫程式準則：Andrej Karpathy 版本整理</a></li>
-</ol>
-<h2 id="learning-paths">Learning Paths<a class="headerlink" href="#learning-paths" title="Permanent link">¶</a></h2>
-<p>上面的地圖可以直接點選前往。這份清單保留完整內容——它同時是站內搜尋的索引來源，也是 JavaScript 未載入時的備援，因此不隨地圖移除。</p>
-<details class="kb-list">
-<summary>展開完整清單（含一句話導讀）</summary>
-<h3 id="prompt-context">Prompt 與 Context 工程<a class="headerlink" href="#prompt-context" title="Permanent link">¶</a></h3>
-<ul>
-<li><a href="prompt-engineering-core-techniques/">Prompt Engineering 核心技術：Chaining、CoT 與 Loop</a><br>
-  整理 Prompt Chaining、CoT 與 Loop 等核心技術與使用時機。</li>
-<li><a href="context-engineering/">Context Engineering：超越 Prompt Engineering 的下一個前線</a><br>
-  把注意力從單次 prompt 擴大到上下文配置、記憶、工具結果與資訊流設計。</li>
-<li><a href="context-engineering-in-practice/">Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合</a><br>
-  Context Engineering 實作篇：四個槓桿怎麼組合。</li>
-<li><a href="reasoning-models-test-time-compute/">Reasoning Models 與 Test-time Compute：把算力花在推論，以及過猶不及</a><br>
-  講 Test-time Compute 推理模型原理與想太多的反效果。</li>
-</ul>
-<h3 id="rag-systems">RAG 與檢索系統<a class="headerlink" href="#rag-systems" title="Permanent link">¶</a></h3>
-<p>這六篇是一個<strong>有順序的系列</strong>，依下列站點閱讀；每篇開頭都會標明自己在第幾站。</p>
-<ul>
-<li><strong>第 0 站</strong>｜<a href="fine-tuning-vs-rag-vs-prompting/">Fine-tuning vs RAG vs Prompting：何時用哪個（決策框架）</a><br>
-  進門前先問該不該進門：prompting 改指令、RAG 改知識、fine-tuning 改行為。</li>
-<li><strong>第 1 站</strong>｜<a href="rag-retrieval-augmented-generation/">RAG 完整指南：檢索增強生成的原理、架構與實作</a><br>
-  走完索引／檢索／生成三階段管線，建立骨架與詞彙；含生成端 Prompt 設計與最小可行實作。</li>
-<li><strong>第 2 站</strong>｜<a href="embeddings-and-vector-databases/">Embeddings 與向量資料庫實務：模型選型、ANN 索引與生產考量</a><br>
-  檢索底層：embedding 模型選型、向量庫比較、HNSW/IVF 取捨與生產維運。</li>
-<li><strong>第 3 站</strong>｜<a href="rag-advanced-techniques/">RAG 進階系列：Chunking、Hybrid Search、Reranking、Query Rewriting、Citation 與 Freshness</a><br>
-  把 naive RAG 推向生產級的六個槓桿，附落地優先序。</li>
-<li><strong>第 4 站</strong>｜<a href="graphrag-knowledge-graph-retrieval/">GraphRAG：用知識圖譜做檢索——適合什麼、代價是什麼</a><br>
-  換架構之一：換「索引什麼」。擅長跨文件連點與全局摘要，代價是前處理與延遲。</li>
-<li><strong>第 4 站</strong>｜<a href="agentic-rag-2026/">Agentic RAG（2026）：從固定檢索到自我修正的檢索迴圈</a><br>
-  換架構之二：換「誰決定何時檢索」。內含全系列共用的 RAG 架構光譜比較表。</li>
-</ul>
+<h1 id="sepia-ai-skill">Sepia：從敘事結構下手的去 AI 味 Skill<a class="headerlink" href="#sepia-ai-skill" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>第 4 站的兩篇是<strong>平行分岔，不分先後</strong>；先確認第 3 站的槓桿都加過，再考慮換架構。</p>
+<p>整理自 <a href="https://github.com/Nanako0129/sepia">Nanako0129/sepia</a> 0.8.0 的 README 與 skill 原檔，2026-10-03。</p>
+<p>⚠️ 文中的研究數字都引自 repo 的 <code>research/</code> 與 <code>references/</code>，本庫沒有獨立重跑過。</p>
 </blockquote>
-<h3 id="agent-engineering">Agent 工程<a class="headerlink" href="#agent-engineering" title="Permanent link">¶</a></h3>
+<h2 id="_1">一句話<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>Sepia 是一個去 AI 味的 Agent Skill。它不只換字。小說先查敘事架構，專業文件先看是哪一種文件，再決定套哪套規則。</p>
+<h2 id="_2">換字為什麼不夠<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>多數 humanizer 只改用詞和句法：刪掉「此外」、拆掉排比、換掉陳腔濫調。</p>
+<p>Sepia 引用的 StoryScope（arXiv:2604.03136，61,608 篇故事）量到一件事：只看<strong>敘事結構特徵</strong>的分類器，就能用 93.2% macro-F1 認出 AI 寫的小說。人類編輯把字句改過一輪之後，偵測率也只從 95.5% 掉到 93.9%。</p>
+<p>也就是說，破綻大多不在字句。常見的幾種：</p>
 <ul>
-<li><a href="ai-agent-harness-engineering/">AI Agent Harness Engineering 實作指南</a><br>
-  建立 Agent 測試、評測、觀測與上線 gate 的工程框架。</li>
-<li><a href="coding-agent-workflow-sop/">Coding Agent 工作流：從 Issue 到 PR 的實際 SOP</a><br>
-  整理 Coding Agent 從 Issue 到 PR 的六階段 SOP。</li>
-<li><a href="structured-output-and-tool-use/">Structured Output 與 Tool Use 機制：JSON Schema、Constrained Decoding 與可靠性</a><br>
-  拆解 Structured Output 與 Tool Use 的可靠性機制。</li>
-<li><a href="multi-agent-orchestration/">Multi-Agent 協作：Orchestration 模式、通訊協定與失敗隔離</a><br>
-  整理 Multi-Agent 編排模式、通訊協定與失敗隔離設計。</li>
-<li><a href="ai-agent-security-and-permissions/">AI Agent 安全與權限：Browser、File、Shell、GitHub、Gmail 的工具權限怎麼控管</a><br>
-  拆解 Agent 工具權限風險，逐工具給出控管建議。</li>
-<li>OMP 遠端 Coding Agent 系列：私人筆電跑 Agent，其他電腦與手機用瀏覽器控制。<ol>
-<li><a href="omp-remote-coding-agent-guide/">概念、架構與安裝</a></li>
-<li><a href="omp-models-and-daily-coding/">模型角色與日常 Coding</a></li>
-<li><a href="omp-collab-remote-control/">Collab 遠端控制</a></li>
-<li><a href="omp-config-permissions-security/">設定、權限與安全</a></li>
-<li><a href="omp-mobile-notifications-workflow/">手機通知與日常流程</a></li>
-<li><a href="omp-cheat-sheet/">速查表（本機）</a>：筆電終端機的指令。</li>
-<li><a href="omp-cheat-sheet-web/">速查表（網頁）</a>：從其他電腦或手機瀏覽器操作。</li>
-</ol>
-</li>
+<li>敘事者把主題直接講出來</li>
+<li>情節單線，因果收得太整齊</li>
+<li>情緒只靠身體感受呈現</li>
+<li>沒有真實世界的人名、地名、作品</li>
+<li>結局一定是主角成長、學會接納</li>
 </ul>
-<h3 id="evaluation-memory-observability">評估、記憶與觀測<a class="headerlink" href="#evaluation-memory-observability" title="Permanent link">¶</a></h3>
+<p>字句換得再乾淨，架構沒動，一樣看得出來。</p>
+<h2 id="_3">怎麼運作<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="_4">先分路<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>文字類型</th>
+<th>走哪條路</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小說、故事、敘事散文</td>
+<td>敘事架構 → 篇章推進 → 字句風格，三個 pass 由深到淺</td>
+</tr>
+<tr>
+<td>發版說明、公告</td>
+<td>使用者影響擺前面、每項宣稱附佐證</td>
+</tr>
+<tr>
+<td>PR / issue 回覆</td>
+<td>先給答案、引用 <code>file:line</code>、不反射性稱讚</td>
+</tr>
+<tr>
+<td>事故檢討</td>
+<td>對人不究責，對機制追到底；行動項目要有負責人</td>
+</tr>
+<tr>
+<td>工單</td>
+<td>標題寫結果，驗收條件要能測</td>
+</tr>
+<tr>
+<td>技術文章</td>
+<td>從問題切入、留一條真的走過的死路、給一個明確判斷</td>
+</tr>
+</tbody>
+</table>
+<p>專業文件不走敘事那套，但最後都要過一次字句掃描和句長節奏檢查。</p>
+<h3 id="_5">四種操作<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>Claude Code 指令</th>
+<th>做什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>write</td>
+<td><code>/sepia-write</code></td>
+<td>寫新的。先讀規則再動筆</td>
+</tr>
+<tr>
+<td>review</td>
+<td><code>/sepia-review</code></td>
+<td>只列問題，不改</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td><code>/sepia-refactor</code></td>
+<td>原文上小改</td>
+</tr>
+<tr>
+<td>recreate</td>
+<td><code>/sepia-recreate</code></td>
+<td>抽出事實清單，整篇重寫</td>
+</tr>
+</tbody>
+</table>
+<p>另外有 <code>/sepia-hemingway</code>，用內建的海明威聲音寫或改小說。總入口是 <code>/sepia</code>。</p>
+<p>refactor 一定分兩段：先列完整問題清單，再一條一條修。理由寫在 SKILL.md 裡：沒有清單就直接改寫，專家偵測器反而更容易看出 AI 指紋。</p>
+<p>修的時候偏向刪和換，少加字。它引的人類編輯比例是 74% 替換、18% 刪除、8% 新增。</p>
+<h3 id="_6">校準：別矯枉過正<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>這條我覺得最有價值。把每個 AI 特徵都反過來做，會變成另一種指紋。</p>
+<p>人類的數值多落在中間。所以 Sepia 每篇只挑 3–5 個手法，其餘留白。專業文件也一樣，正式場合維持正式語氣，硬裝口語騙不了懂行的讀者。</p>
+<h2 id="_7">中文有專門的校準檔<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>中文文本會多載入 <code>references/languages/zh.md</code>。數字來自 HC3-Chinese 語料（2023，GPT-3.5 時代的 ChatGPT，簡體中文問答，人類與 AI 各 6,586 篇）：</p>
+<table>
+<thead>
+<tr>
+<th>特徵</th>
+<th>人類</th>
+<th>ChatGPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>句長標準差（詞）</td>
+<td>9.248</td>
+<td>6.729</td>
+</tr>
+<tr>
+<td>語氣詞密度</td>
+<td>0.016</td>
+<td>0.003</td>
+</tr>
+<tr>
+<td>連詞密度</td>
+<td>0.013</td>
+<td>0.036</td>
+</tr>
+<tr>
+<td>單音節詞比例</td>
+<td>0.483</td>
+<td>0.379</td>
+</tr>
+</tbody>
+</table>
+<p>翻成白話：AI 的句子長度太平均，連詞用太多，語氣詞太少，愛用「進行討論」「加以說明」這種雙音節墊字。</p>
+<p>它也列了<strong>不算訊號</strong>的東西：標點密度、段落數、句子長短本身。很多人以為 AI 愛寫一大坨，這份語料裡 ChatGPT 反而分了比較多段。</p>
+<p>「不是…而是…」、到處三段排比、段首「其實」這幾條，檔案標成台灣編輯的經驗談，沒有語料數字。</p>
+<p>限制它自己寫得很清楚：一份語料、一個模型世代、簡體問答。2024 年以後的模型在中文上沒有量測，台灣繁中也沒有學術研究。數字只能當方向看。</p>
+<h2 id="_8">我用過一次<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<p>2026-09-06 改求職履歷。104 自傳之前已經跑過我自己的 anti-ai-writing skill，PDF 版的個人簡介漏掉了沒檢查。</p>
+<p>補跑 Sepia refactor（專業路線＋中文校準），它抓出兩個問題：</p>
 <ul>
-<li><a href="llm-evaluation-in-practice/">LLM Evaluation 實務：RAG 評估、Agent Trajectory 與 LLM-as-Judge 偏誤</a><br>
-  建立評估 LLM 系統的基礎地圖：什麼層次用什麼指標，LLM-as-judge 的限制。</li>
-<li><a href="llm-evaluation-advanced/">LLM Evaluation 進階：Cost-Aware 評估、線上 A/B 與離線指標的對齊</a><br>
-  把成本納入評估決策，以及離線評估怎麼和線上 A/B 結果不失真地對齊。</li>
-<li><a href="agent-observability/">Agent Observability：用 Trace 看清 Agent 在做什麼</a><br>
-  線上觀測 agent 的 trace、cost、latency 與 failure mode，和離線評估互補。</li>
-<li><a href="agent-memory-systems/">Agent Memory 系統：短期/長期記憶、向量記憶與記憶腐化更新策略</a><br>
-  Agent 記憶的四種類型、向量記憶架構，以及記憶腐化的三種壞法和對應更新策略。</li>
+<li>簡介裡一組三段排比</li>
+<li>經歷每條句尾都是「讓…」，連續四次</li>
 </ul>
-<h3 id="claude-code-mcp">Claude Code / Skills / MCP<a class="headerlink" href="#claude-code-mcp" title="Permanent link">¶</a></h3>
+<p>都是 anti-ai-writing 理論上也該抓到的東西。差別在這次是 Sepia 有被叫到，而且它把句尾模具當成一種重複結構，一次列出來。</p>
+<p>只有一次使用，談不上評測。</p>
+<h2 id="anti-ai-writing">跟 anti-ai-writing 怎麼分<a class="headerlink" href="#anti-ai-writing" title="Permanent link">¶</a></h2>
+<p>兩者在字句層重疊。Sepia 多出來的是：</p>
 <ul>
-<li><a href="claude-code-coding-guidelines/">Claude Code 寫程式準則：Andrej Karpathy 版本整理</a><br>
-  整理 Claude Code 在程式開發任務上的使用準則與互動心法。</li>
-<li><a href="superpowers-claude-code-skills/">Superpowers：把資深工程師紀律編碼成 Markdown 的 Skill 框架</a><br>
-  介紹如何用 Skills 把 TDD、debugging、planning 等工程紀律外顯化。</li>
-<li><a href="claude-code-discipline-frameworks/">Claude Code 紀律框架對比：Superpowers / GSD / gstack</a><br>
-  比較不同 Claude Code 工作流框架的定位、優缺點與適用情境。</li>
-<li><a href="anthropic-document-skills/">Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX）</a><br>
-  介紹 Agent Skills 架構與官方文件處理 skills 用法。</li>
-<li><a href="mcp-ecosystem-guide/">MCP 生態系指南：Server 類型、Local vs Remote、Auth 與 Security Boundary</a><br>
-  MCP 概念地圖：Server 類型、遠端 vs 本地與信任邊界。</li>
-<li><a href="mcp-builder-skill/">MCP Builder：用 Skill 引導蓋出生產級 MCP Server</a><br>
-  介紹如何用 Skill 流程引導 MCP Server 的規劃、實作與驗證。</li>
-<li><a href="sepia-de-ai-writing-skill/">Sepia：從敘事結構下手的去 AI 味 Skill</a><br>
-  小說先修敘事架構、專業文件按類型配規則，附中文校準數字與一次使用紀錄。</li>
+<li>按文件類型分規則（PR 回覆跟事故檢討不同套）</li>
+<li>小說的敘事架構檢查</li>
+<li>有研究出處的中文校準</li>
 </ul>
-<h3 id="cost-tokens">成本與 Token 優化<a class="headerlink" href="#cost-tokens" title="Permanent link">¶</a></h3>
+<p>我的寫作 pipeline 第 4 步目前還是 anti-ai-writing。要不要換成 Sepia，還沒決定。</p>
+<h2 id="_9">安裝<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>claude<span class="w"> </span>plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>Nanako0129/sepia
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>claude<span class="w"> </span>plugin<span class="w"> </span>install<span class="w"> </span>sepia@sepia<span class="w"> </span>--scope<span class="w"> </span>user
+</span></code></pre></div>
+<p>其他 agent 可以用 Skills CLI：<code>npx skills add Nanako0129/sepia -g</code>（<code>-g</code> 才是裝到使用者層級）。Codex、Grok Build、Antigravity 也有原生 plugin，指令見 repo README。</p>
+<p>授權 MIT，免費。</p>
+<h2 id="_10">參考來源<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="9router-ai-router-token-saver/">9Router：把 Claude Code、Cursor、Codex 接上 40+ AI Provider 的本機路由器</a><br>
-  本機路由器接 40+ AI Provider，格式轉譯並砍 Token。</li>
-<li><a href="caveman-token-compression-skill/">Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill</a><br>
-  介紹用穴居人語氣把 Agent 輸出壓縮約 65% Token 的 skill。</li>
-<li><a href="prompt-caching-cost-latency/">Prompt Caching：用前綴快取砍掉成本與延遲</a><br>
-  講 Prompt Caching 原理、怎麼擺，與悄悄破壞快取的坑。</li>
+<li><a href="https://github.com/Nanako0129/sepia">Nanako0129/sepia — GitHub</a>（README.zh-TW.md、<code>skills/sepia/SKILL.md</code>、<code>references/languages/zh.md</code>）</li>
+<li>StoryScope：<a href="https://arxiv.org/abs/2604.03136">arXiv:2604.03136</a></li>
+<li>LAMP：<a href="https://arxiv.org/abs/2409.14509">CHI 2025</a></li>
 </ul>
-<h3 id="knowledge-base-ops">用 AI 維護知識庫<a class="headerlink" href="#knowledge-base-ops" title="Permanent link">¶</a></h3>
-<ul>
-<li><a href="claude-md-obsidian-llm-wiki-maintainer/">用 CLAUDE.md 把 AI 變成你的 Obsidian 知識庫維護者</a><br>
-  說明如何用 CLAUDE.md 定義知識庫維護規則，讓 AI 協助整理與發布筆記。</li>
-<li><a href="my-obsidian-vault-claude-md/">我的 Obsidian Vault CLAUDE.md 原文</a><br>
-  公開我實際使用的 Obsidian Vault CLAUDE.md，作為前一篇的範本附件。</li>
-</ul>
-</details>
 
 
 
@@ -4120,7 +4380,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 15:49:51 UTC">2026年10月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 15:48:14 UTC">2026年10月3日</span>
   </span>
 
     
@@ -4130,7 +4390,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月26日 02:15:25 UTC">2026年5月26日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 15:48:14 UTC">2026年10月3日</span>
   </span>
 
     
@@ -4139,8 +4399,6 @@
   </aside>
 
 
-
-  
 
 
 
@@ -4164,12 +4422,10 @@
   
     
       
-        
-      
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="上一頁: 首頁">
+          <a href="../mcp-builder-skill/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: MCP Builder Skill">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4179,20 +4435,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                首頁
+                MCP Builder Skill
               </div>
             </div>
           </a>
         
         
           
-          <a href="prompt-engineering-core-techniques/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Prompt Engineering 核心技術">
+          <a href="../prompt-caching-cost-latency/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 1 · Prompt Caching">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                Prompt Engineering 核心技術
+                1 · Prompt Caching
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4247,20 +4503,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../javascripts/glightbox-close.js"></script>
+        <script src="../../javascripts/glightbox-close.js"></script>
       
-        <script src="../javascripts/kb-apparatus.js"></script>
+        <script src="../../javascripts/kb-apparatus.js"></script>
       
-        <script src="../javascripts/kb-map.js"></script>
+        <script src="../../javascripts/kb-map.js"></script>
       
-        <script src="../javascripts/kb-galaxy.js"></script>
+        <script src="../../javascripts/kb-galaxy.js"></script>
       
-        <script src="../javascripts/kb-transition.js"></script>
+        <script src="../../javascripts/kb-transition.js"></script>
       
     
   
