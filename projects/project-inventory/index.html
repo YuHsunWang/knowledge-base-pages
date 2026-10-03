@@ -3,17 +3,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="整理 Anthropic 官方文件：Agent Skills 漸進揭露架構（L1-L3）、官方 Document Skills（PPTX/XLSX/DOCX/PDF）用法與跨平台差異、第三方 skill 安全提醒。">
+        <meta name="description" content="叫一次 Claude 就盤點所有專案：待辦、PR、git 狀態、資料新不新鮮、每週進度，做成一頁網頁。記錄哪些事交給腳本、哪些才交給 Claude。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/anthropic-document-skills/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/projects/project-inventory/">
       
       
-        <link rel="prev" href="../claude-code-discipline-frameworks/">
+        <link rel="prev" href="../mcmc-portfolio/">
       
       
-        <link rel="next" href="../mcp-ecosystem-guide/">
+        <link rel="next" href="../../tags/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX） - Shane's Knowledge Base</title>
+        <title>project-inventory：一頁看完所有專案的 Claude Code skill - Shane's Knowledge Base</title>
       
     
     
@@ -66,17 +66,17 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX） - Shane's Knowledge Base">
-<meta property="og:description" content="整理 Anthropic 官方文件：Agent Skills 漸進揭露架構（L1-L3）、官方 Document Skills（PPTX/XLSX/DOCX/PDF）用法與跨平台差異、第三方 skill 安全提醒。">
-<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/anthropic-document-skills.png">
+<meta property="og:title" content="project-inventory：一頁看完所有專案的 Claude Code skill - Shane's Knowledge Base">
+<meta property="og:description" content="叫一次 Claude 就盤點所有專案：待辦、PR、git 狀態、資料新不新鮮、每週進度，做成一頁網頁。記錄哪些事交給腳本、哪些才交給 Claude。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/projects/project-inventory.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/anthropic-document-skills/">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/projects/project-inventory/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX） - Shane's Knowledge Base">
-<meta property="twitter:description" content="整理 Anthropic 官方文件：Agent Skills 漸進揭露架構（L1-L3）、官方 Document Skills（PPTX/XLSX/DOCX/PDF）用法與跨平台差異、第三方 skill 安全提醒。">
-<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/anthropic-document-skills.png">
+<meta property="twitter:title" content="project-inventory：一頁看完所有專案的 Claude Code skill - Shane's Knowledge Base">
+<meta property="twitter:description" content="叫一次 Claude 就盤點所有專案：待辦、PR、git 狀態、資料新不新鮮、每週進度，做成一頁網頁。記錄哪些事交給腳本、哪些才交給 Claude。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/projects/project-inventory.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#anthropic-agent-skills-document-skillspdf-docx-pptx-xlsx" class="md-skip">
+        <a href="#project-inventory-claude-code-skill" class="md-skip">
           跳轉到
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX）
+              project-inventory：一頁看完所有專案的 Claude Code skill
             
           </span>
         </div>
@@ -266,13 +266,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../ai/" class="md-tabs__link">
           
   
   
@@ -334,11 +332,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../projects/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -453,8 +453,6 @@
       
   
   
-    
-  
   
   
     
@@ -482,23 +480,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../ai/" class="md-nav__link ">
               
   
   
@@ -516,13 +511,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -558,20 +553,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
@@ -607,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prompt-engineering-core-techniques/" class="md-nav__link">
+      <a href="../../ai/prompt-engineering-core-techniques/" class="md-nav__link">
         
   
   
@@ -635,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-engineering/" class="md-nav__link">
+      <a href="../../ai/context-engineering/" class="md-nav__link">
         
   
   
@@ -663,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-engineering-in-practice/" class="md-nav__link">
+      <a href="../../ai/context-engineering-in-practice/" class="md-nav__link">
         
   
   
@@ -691,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reasoning-models-test-time-compute/" class="md-nav__link">
+      <a href="../../ai/reasoning-models-test-time-compute/" class="md-nav__link">
         
   
   
@@ -747,20 +739,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
   
   
@@ -796,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+      <a href="../../ai/fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
         
   
   
@@ -824,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rag-retrieval-augmented-generation/" class="md-nav__link">
+      <a href="../../ai/rag-retrieval-augmented-generation/" class="md-nav__link">
         
   
   
@@ -852,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../embeddings-and-vector-databases/" class="md-nav__link">
+      <a href="../../ai/embeddings-and-vector-databases/" class="md-nav__link">
         
   
   
@@ -880,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rag-advanced-techniques/" class="md-nav__link">
+      <a href="../../ai/rag-advanced-techniques/" class="md-nav__link">
         
   
   
@@ -908,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+      <a href="../../ai/graphrag-knowledge-graph-retrieval/" class="md-nav__link">
         
   
   
@@ -936,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agentic-rag-2026/" class="md-nav__link">
+      <a href="../../ai/agentic-rag-2026/" class="md-nav__link">
         
   
   
@@ -992,20 +981,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
         
           
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
             
   
   
@@ -1041,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structured-output-and-tool-use/" class="md-nav__link">
+      <a href="../../ai/structured-output-and-tool-use/" class="md-nav__link">
         
   
   
@@ -1069,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-agent-security-and-permissions/" class="md-nav__link">
+      <a href="../../ai/ai-agent-security-and-permissions/" class="md-nav__link">
         
   
   
@@ -1097,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-agent-workflow-sop/" class="md-nav__link">
+      <a href="../../ai/coding-agent-workflow-sop/" class="md-nav__link">
         
   
   
@@ -1125,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-agent-harness-engineering/" class="md-nav__link">
+      <a href="../../ai/ai-agent-harness-engineering/" class="md-nav__link">
         
   
   
@@ -1153,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../multi-agent-orchestration/" class="md-nav__link">
+      <a href="../../ai/multi-agent-orchestration/" class="md-nav__link">
         
   
   
@@ -1249,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-remote-coding-agent-guide/" class="md-nav__link">
+      <a href="../../ai/omp-remote-coding-agent-guide/" class="md-nav__link">
         
   
   
@@ -1277,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-models-and-daily-coding/" class="md-nav__link">
+      <a href="../../ai/omp-models-and-daily-coding/" class="md-nav__link">
         
   
   
@@ -1305,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-collab-remote-control/" class="md-nav__link">
+      <a href="../../ai/omp-collab-remote-control/" class="md-nav__link">
         
   
   
@@ -1333,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-config-permissions-security/" class="md-nav__link">
+      <a href="../../ai/omp-config-permissions-security/" class="md-nav__link">
         
   
   
@@ -1361,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-mobile-notifications-workflow/" class="md-nav__link">
+      <a href="../../ai/omp-mobile-notifications-workflow/" class="md-nav__link">
         
   
   
@@ -1389,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-cheat-sheet/" class="md-nav__link">
+      <a href="../../ai/omp-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -1417,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-cheat-sheet-web/" class="md-nav__link">
+      <a href="../../ai/omp-cheat-sheet-web/" class="md-nav__link">
         
   
   
@@ -1477,20 +1463,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
         
           
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
             
   
   
@@ -1526,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent-memory-systems/" class="md-nav__link">
+      <a href="../../ai/agent-memory-systems/" class="md-nav__link">
         
   
   
@@ -1554,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent-observability/" class="md-nav__link">
+      <a href="../../ai/agent-observability/" class="md-nav__link">
         
   
   
@@ -1582,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm-evaluation-in-practice/" class="md-nav__link">
+      <a href="../../ai/llm-evaluation-in-practice/" class="md-nav__link">
         
   
   
@@ -1610,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm-evaluation-advanced/" class="md-nav__link">
+      <a href="../../ai/llm-evaluation-advanced/" class="md-nav__link">
         
   
   
@@ -1643,10 +1626,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1667,21 +1648,18 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked="">
-        
-          
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
             
   
   
@@ -1699,7 +1677,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1717,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude-code-coding-guidelines/" class="md-nav__link">
+      <a href="../../ai/claude-code-coding-guidelines/" class="md-nav__link">
         
   
   
@@ -1745,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../superpowers-claude-code-skills/" class="md-nav__link">
+      <a href="../../ai/superpowers-claude-code-skills/" class="md-nav__link">
         
   
   
@@ -1773,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude-code-discipline-frameworks/" class="md-nav__link">
+      <a href="../../ai/claude-code-discipline-frameworks/" class="md-nav__link">
         
   
   
@@ -1798,37 +1776,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Anthropic Agent Skills
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ai/anthropic-document-skills/" class="md-nav__link">
         
   
   
@@ -1844,103 +1795,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#agent-skill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        什麼是 Agent Skill
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#progressive-disclosure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構:漸進揭露（Progressive Disclosure）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#document-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        官方 Document Skills
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        各平台怎麼用（有差異,別搞混）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全提醒
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        為什麼對你有用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        參考來源
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1953,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcp-ecosystem-guide/" class="md-nav__link">
+      <a href="../../ai/mcp-ecosystem-guide/" class="md-nav__link">
         
   
   
@@ -1981,7 +1835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcp-builder-skill/" class="md-nav__link">
+      <a href="../../ai/mcp-builder-skill/" class="md-nav__link">
         
   
   
@@ -2031,20 +1885,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
             
   
   
@@ -2080,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prompt-caching-cost-latency/" class="md-nav__link">
+      <a href="../../ai/prompt-caching-cost-latency/" class="md-nav__link">
         
   
   
@@ -2108,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../9router-ai-router-token-saver/" class="md-nav__link">
+      <a href="../../ai/9router-ai-router-token-saver/" class="md-nav__link">
         
   
   
@@ -2136,7 +1987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../caveman-token-compression-skill/" class="md-nav__link">
+      <a href="../../ai/caveman-token-compression-skill/" class="md-nav__link">
         
   
   
@@ -2184,20 +2035,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
         
           
-          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
             
   
   
@@ -2233,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+      <a href="../../ai/claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
         
   
   
@@ -2261,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../my-obsidian-vault-claude-md/" class="md-nav__link">
+      <a href="../../ai/my-obsidian-vault-claude-md/" class="md-nav__link">
         
   
   
@@ -3647,6 +3495,8 @@
       
   
   
+    
+  
   
   
     
@@ -3668,20 +3518,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../projects/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -3699,13 +3552,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3725,7 +3578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/cvs-radar/" class="md-nav__link">
+      <a href="../cvs-radar/" class="md-nav__link">
         
   
   
@@ -3753,7 +3606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/toeic-master/" class="md-nav__link">
+      <a href="../toeic-master/" class="md-nav__link">
         
   
   
@@ -3781,7 +3634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
+      <a href="../mcmc-portfolio/" class="md-nav__link">
         
   
   
@@ -3806,10 +3659,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../projects/project-inventory/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    project-inventory 專案盤點 skill
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3825,6 +3705,158 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要畫面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        誰做什麼：腳本 vs Claude
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料新不新鮮：讀資料裡的日期，不看檔案時間
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        每週說明怎麼知道要不要重寫
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        待辦趨勢第一次就畫得出來
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        網頁放哪裡
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        怎麼裝
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術棧
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        還沒做完的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        來源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3891,43 +3923,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#agent-skill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        什麼是 Agent Skill
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#progressive-disclosure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構:漸進揭露（Progressive Disclosure）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#document-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        官方 Document Skills
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        各平台怎麼用（有差異,別搞混）
+        摘要
       
     </span>
   </a>
@@ -3938,7 +3937,18 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        安全提醒
+        主要畫面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        誰做什麼：腳本 vs Claude
       
     </span>
   </a>
@@ -3949,7 +3959,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        為什麼對你有用
+        資料新不新鮮：讀資料裡的日期，不看檔案時間
       
     </span>
   </a>
@@ -3960,7 +3970,84 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        參考來源
+        每週說明怎麼知道要不要重寫
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        待辦趨勢第一次就畫得出來
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        網頁放哪裡
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        怎麼裝
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術棧
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        還沒做完的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        來源
       
     </span>
   </a>
@@ -4013,25 +4100,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    AI Engineering
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../claude-code-coding-guidelines/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Claude Code / Skills / MCP
+    Projects
   </span>
 
         </a>
@@ -4054,115 +4123,203 @@
       
       
       
-        <a href="../../tags/#tag:claude-code" class="md-tag">Claude Code</a>
+        <a href="../../tags/#tag:projects" class="md-tag">Projects</a>
       
     
   </nav>
 
 
 
-<h1 id="anthropic-agent-skills-document-skillspdf-docx-pptx-xlsx">Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX）<a class="headerlink" href="#anthropic-agent-skills-document-skillspdf-docx-pptx-xlsx" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>整理自 Claude 官方文件與 <code>anthropics/skills</code> repo（見文末），2026-06-19。介紹 Agent Skills 的運作原理（漸進揭露架構）與最實用的官方 Document Skills。</p>
-</blockquote>
-<h2 id="agent-skill">什麼是 Agent Skill<a class="headerlink" href="#agent-skill" title="Permanent link">¶</a></h2>
-<p><strong>Skill = 一個資料夾</strong>,內含指令、腳本、資源,Claude 在相關時<strong>按需載入</strong>,把通用 agent 變成特定領域的專家。標準見 <a href="https://agentskills.io">agentskills.io</a>。</p>
-<p>每個 skill 必有一個 <code>SKILL.md</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nn">---</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pdf-processing</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extract text and tables from PDFs, fill forms, merge documents. Use when working with PDF files.</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nn">---</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># PDF Processing</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">## Instructions</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p p-Indicator">[</span><span class="nv">Claude 要遵循的步驟</span><span class="p p-Indicator">]</span>
-</span></code></pre></div>
-<p><code>name</code>：≤64 字、僅小寫+數字+連字號、不可含 <code>claude</code>/<code>anthropic</code>。<code>description</code>：≤1024 字,要寫清楚「做什麼 + 何時用」。</p>
-<h2 id="progressive-disclosure">核心架構:漸進揭露（Progressive Disclosure）<a class="headerlink" href="#progressive-disclosure" title="Permanent link">¶</a></h2>
-<p>這是 Skills 省 token 的關鍵——分三層載入:</p>
+<h1 id="project-inventory-claude-code-skill">project-inventory：一頁看完所有專案的 Claude Code skill<a class="headerlink" href="#project-inventory-claude-code-skill" title="Permanent link">¶</a></h1>
+<h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>同時跑七八個專案時，最常問自己的是：哪個 PR 還沒合併？哪份資料停了沒人發現？上個月那個專案到底做到哪？答案散在 Linear、Notion、GitHub、本機資料夾和資料檔裡，每次都要一個一個打開看。</p>
+<p>project-inventory 是一個 Claude Code skill。跟 Claude 說「幫我盤點專案」，它會把這些地方全部讀一遍，做成<strong>一個 HTML 檔</strong>：首頁列出所有在等你處理的事，每個專案有運作流程圖、待辦、每週進度和基本資料。</p>
+<p>它從我自己用的專案拆機台抽出來，改成別人也能裝的通用版（2026-10-02 起）。本文記錄它怎麼分工：能用腳本算出來的都交給腳本，Claude 只做需要判斷的部分。</p>
+<div class="admonition note">
+<p class="admonition-title">示範畫面</p>
+<p>下面的截圖是用兩個公開 repo（本專案和 <a href="../cvs-radar/">CVS Radar</a>）做的示範頁，資料基準 2026-10-03。</p>
+</div>
+<hr>
+<h2 id="_2">主要畫面<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p><strong>首頁：要處理的事。</strong> 最上面是分類加總，下面是一列一件事：哪個專案有 PR 等你合併、哪個資料夾有改到一半沒存的檔、哪份資料過期了。點一列會跳到那個專案對應的分頁。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/project-inventory/home.png" data-desc-position="bottom"><img alt="首頁：要處理的事和專案卡片" src="../../assets/screenshots/project-inventory/home.png"></a></p>
+<p><strong>運作流程。</strong> 中間由上往下是主要步驟，兩邊是支線。方塊點開可以看說明、截圖、公式，或「進去什麼、出來什麼」的示意。下圖是這個 skill 自己的流程：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/project-inventory/road.png" data-desc-position="bottom"><img alt="運作流程：collect.py 方塊點開後的說明和真實輸出" src="../../assets/screenshots/project-inventory/road.png"></a></p>
+<p>流程圖是 Claude 讀程式碼和 README 後畫的草稿，使用者確認過才存。說明裡的事實要對得上程式碼，對不上就改。</p>
+<p><strong>每週進度。</strong> 從第一筆紀錄到現在，一週一組。每週有 2–3 句白話說明，點開才是那週每一筆 commit、做完的待辦和新開的 PR。先列 4 週，按鈕每次多 4 週。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/project-inventory/weeks.png" data-desc-position="bottom"><img alt="每週進度：每週一段說明，點開看每一筆" src="../../assets/screenshots/project-inventory/weeks.png"></a></p>
+<p><strong>基本資料。</strong> 分成本機和雲端兩張表。本機是資料夾、分支、改到一半的檔、資料日期；雲端是 GitHub 網址、還沒推的改動、開著的 PR、Linear 專案、Notion 頁面。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/project-inventory/facts.png" data-desc-position="bottom"><img alt="基本資料：本機和雲端分開" src="../../assets/screenshots/project-inventory/facts.png"></a></p>
+<hr>
+<h2 id="vs-claude">誰做什麼：腳本 vs Claude<a class="headerlink" href="#vs-claude" title="Permanent link">¶</a></h2>
+<p>這個 skill 最主要的設計是分工。原則只有一條：<strong>答案是確定的，就寫腳本；要判斷的，才交給 Claude。</strong></p>
 <table>
 <thead>
 <tr>
-<th>層級</th>
-<th>何時載入</th>
-<th>Token 成本</th>
-<th>內容</th>
+<th>工作</th>
+<th>誰做</th>
+<th>為什麼</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>L1 Metadata</strong></td>
-<td>啟動就載（一直在）</td>
-<td>每 skill 約 100 tok</td>
-<td><code>name</code> + <code>description</code></td>
+<td>git 分支、改到一半的檔、還沒推的改動、全部歷史</td>
+<td><code>collect.py</code></td>
+<td><code>git</code> 指令的輸出就是答案</td>
 </tr>
 <tr>
-<td><strong>L2 Instructions</strong></td>
-<td>skill 被觸發時</td>
-<td>&lt; 5k tok</td>
-<td><code>SKILL.md</code> 內文</td>
+<td>開著的 PR</td>
+<td><code>collect.py</code>（<code>gh</code>）</td>
+<td>同上</td>
 </tr>
 <tr>
-<td><strong>L3 Resources / Code</strong></td>
-<td>用到才載</td>
-<td>實質無上限</td>
-<td>額外 md、腳本、資料;<strong>腳本經 bash 執行,程式碼本身不進 context,只回傳輸出</strong></td>
+<td>Linear 待辦</td>
+<td>有 <code>LINEAR_API_KEY</code> 時 <code>collect.py</code> 直接打 API；沒有才由 Claude 透過 MCP 抓</td>
+<td>腳本比較快，數字也一定一樣</td>
+</tr>
+<tr>
+<td>Notion 待辦</td>
+<td>Claude（MCP）</td>
+<td>沒有穩定的腳本接法</td>
+</tr>
+<tr>
+<td>資料新不新鮮</td>
+<td><code>collect.py</code></td>
+<td>讀資料裡最大的日期，跟今天比</td>
+</tr>
+<tr>
+<td>做網頁</td>
+<td><code>build.py</code></td>
+<td>純粹的資料轉換</td>
+</tr>
+<tr>
+<td>檢查網頁</td>
+<td><code>check_page.py</code>（無頭瀏覽器）</td>
+<td>每個分頁 × 手機 390 px、桌機 1280 px，點開每個方塊</td>
+</tr>
+<tr>
+<td>流程圖、每週說明、待辦的「做完有什麼用」</td>
+<td>Claude</td>
+<td>要讀懂程式碼和 commit 才寫得出來</td>
 </tr>
 </tbody>
 </table>
-<p>所以你可以裝<strong>很多</strong> skill 而幾乎不吃 context(平時只有 L1 的描述在),用到哪個才把它的內文與資源拉進來。腳本走 bash 執行、只回結果,比讓模型即時生成等效程式碼更省也更可靠。</p>
-<h2 id="document-skills">官方 Document Skills<a class="headerlink" href="#document-skills" title="Permanent link">¶</a></h2>
-<p>直接從 agent 生成/編修 Office 檔,生產級:</p>
+<p>這樣分有兩個好處。第一，腳本不靠 Claude 也能跑：用 cron 每天跑 <code>collect.py</code> 和 <code>build.py</code>，網頁照樣更新，只是 Notion 和新的週說明要等下次叫 Claude。第二，Claude 寫的東西範圍很小，容易檢查。</p>
+<p>一個實際踩到的坑：<code>collect.py</code> 只要有來源沒讀到（例如 cron 跑時沒人去抓 Notion）就回傳 1。如果排程寫 <code>collect.py &amp;&amp; build.py</code>，網頁就永遠不會更新。要用 <code>;</code> 接。</p>
+<hr>
+<h2 id="_3">資料新不新鮮：讀資料裡的日期，不看檔案時間<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>判斷「資料是不是停了」最直覺的做法是看檔案修改時間，但這不準：複製、重建、<code>git checkout</code> 都會把修改時間改成現在，停了三天的資料看起來還是今天的。</p>
+<p>所以設定時，Claude 會在每份資料裡找<strong>日期欄位</strong>，<code>collect.py</code> 每次讀那一欄的最大值。支援 csv、jsonl、json（指定欄位路徑）、sqlite、parquet（可以是整個資料夾）、duckdb。每份資料各自設幾天算過期。</p>
+<div class="admonition tip">
+<p class="admonition-title">常見誤解／釐清</p>
+<p><strong>誤解：</strong> 檔案今天有被寫過，資料就是新的。</p>
+<p><strong>更正：</strong> 排程可能每天都跑、每天都重寫檔案，但抓回來的內容是舊的（來源掛了、只抓到快取）。只有資料本身的日期能說明它新不新鮮。</p>
+<p><strong>後果：</strong> 看修改時間的檢查，在最需要它的時候（來源默默壞掉）剛好不會報警。</p>
+</div>
+<hr>
+<h2 id="_4">每週說明怎麼知道要不要重寫<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>每週說明是 Claude 寫的，寫一次要讀完那週所有 commit，不便宜。所以寫過的週不重寫，只有兩種情況要寫：</p>
+<ul>
+<li>這週還沒有說明（第一次跑時就是以前的每一週）。</li>
+<li>這週在寫完說明之後又多了新的改動。</li>
+</ul>
+<p>第二種用一個數字判斷：存說明時一起記下「寫的時候這週有幾筆」（<code>n</code>）。<code>build.py</code> 每次重算筆數，跟 <code>n</code> 不一樣就把這週列進 <code>summaries-needed.json</code>，Claude 照清單補寫。平常只有「這週」會一直變，過完的週筆數不會再動，自然不會被重寫。</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="nt">"cvs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"2026-09-28"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"n"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"商品卡大改簡單：只留通路、品名和分數……"</span><span class="p">}}}</span>
+</span></code></pre></div>
+<p>說明只能根據那週列出來的 commit、待辦和 PR 寫，不能自己補沒寫在上面的事。</p>
+<hr>
+<h2 id="_5">待辦趨勢第一次就畫得出來<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>「待辦數量變化」常見的做法是每天存一次快照，然後畫快照。缺點是第一次跑時只有一個點，要等好幾週才看得出趨勢。</p>
+<p>這裡改成用每張待辦自己的三個日期倒推：建立日、完成日、取消日。任何一天「還沒做完的」= 那天以前建立、而且那天還沒完成也沒取消的。這樣第一次跑就有近 90 天的完整曲線。</p>
+<hr>
+<h2 id="_6">網頁放哪裡<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<p>網頁上有專案名稱、待辦、分支、檔案路徑，所以預設只存成本機檔案。另外三種要使用者自己選：</p>
 <table>
 <thead>
 <tr>
-<th>Skill</th>
-<th>用途</th>
+<th>選項</th>
+<th>誰看得到</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>PPTX</strong></td>
-<td>建簡報、編輯投影片、分析簡報內容</td>
+<td>本機檔案（預設）</td>
+<td>只有這台電腦</td>
 </tr>
 <tr>
-<td><strong>XLSX</strong></td>
-<td>建試算表、分析資料、產生含圖表的報告</td>
+<td>claude.ai Artifact</td>
+<td>只有自己</td>
 </tr>
 <tr>
-<td><strong>DOCX</strong></td>
-<td>建/編輯 Word 文件、排版</td>
+<td>Vercel</td>
+<td>只有登入自己 Vercel 帳號的人</td>
 </tr>
 <tr>
-<td><strong>PDF</strong></td>
-<td>抽取/填表/合併、產生格式化 PDF 報告</td>
+<td>GitHub Pages</td>
+<td><strong>所有人</strong>（免費方案就算 repo 是私人的也一樣），第一次發布前會先問</td>
 </tr>
 </tbody>
 </table>
-<p>授權:<strong>Document skills 為 source-available（非開源)</strong>,作為複雜生產級 skill 的參考;repo 內多數其他 skill 為 Apache 2.0。</p>
-<h2 id="_1">各平台怎麼用（有差異,別搞混）<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>Claude API</strong>：用 pre-built（<code>skill_id</code> 如 <code>pptx</code>/<code>xlsx</code>)需三個 beta header,跑在 code execution container,<strong>無網路、不能裝套件</strong>。</li>
-<li><strong>claude.ai</strong>：建立文件時 pre-built skills 已在背景運作;自訂 skill 以 zip 上傳（Pro/Max/Team/Enterprise）。</li>
-<li><strong>Claude Code</strong>：<strong>只吃 Custom Skills</strong>（檔案系統式,放 <code>~/.claude/skills/</code> 或專案 <code>.claude/skills/</code>,有完整網路權限)。官方 document skills 可經 plugin 安裝:
-  <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/plugin marketplace add anthropics/skills
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/plugin install document-skills@anthropic-agent-skills
+<p>Vercel 的發布腳本做三件事：<strong>先</strong>開啟保護再部署（反過來的話，部署完到開保護之間會有一段時間是公開的）；不會覆蓋不是它建的 Vercel 專案，避免名字打錯蓋掉別的網站；部署完用沒登入的身分打開每個網址，必須被擋下（401、403 或轉去登入頁）才算成功。</p>
+<p>GitHub 的網址存進資料前，會先拿掉 <code>https://帳號:token@</code> 這種寫在網址裡的帳密，免得 token 跟著網頁被發布出去。</p>
+<hr>
+<h2 id="_7">怎麼裝<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>在 Claude Code 裡：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/plugin marketplace add YuHsunWang/project-inventory
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/plugin install project-inventory@project-inventory
 </span></code></pre></div>
-  之後直接喊:「用 PPTX skill 把這份大綱做成簡報」。</li>
-</ul>
-<p>⚠️ Custom skill <strong>不跨平台同步</strong>:claude.ai、API、Claude Code 各自管理上傳。</p>
-<h2 id="_2">安全提醒<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>只用<strong>可信來源</strong>的 skill（自製或 Anthropic 官方)。惡意 skill 能指使 Claude 執行與宣稱用途不符的工具/程式碼,造成資料外洩或未授權存取。用第三方 skill 前<strong>逐檔審查</strong>(SKILL.md、腳本、會不會對外連網)。把裝 skill 當成「裝軟體」看待。</p>
-<h2 id="_3">為什麼對你有用<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>然後說「幫我盤點專案」。第一次會一題一題問：要放哪些專案、各自連到哪、要盯哪些資料、流程圖對不對。設定存在 <code>~/.project-inventory/inventory.json</code>。</p>
+<p>不需要 MCP server。skill 就是一個資料夾（<code>SKILL.md</code> 寫步驟，<code>scripts/</code> 是只用 Python 標準庫的腳本），所以 Codex 這類讀同樣格式的工具，把資料夾複製進去也能用。</p>
+<hr>
+<h2 id="_8">技術棧<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>用什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>收資料</td>
+<td>Python 標準庫、<code>git</code>、<code>gh</code>；Linear GraphQL API</td>
+</tr>
+<tr>
+<td>parquet／duckdb 資料檢查</td>
+<td>duckdb（只有用到才要裝）</td>
+</tr>
+<tr>
+<td>網頁</td>
+<td>單一 HTML 檔，資料和截圖都內嵌（截圖轉 data URI）；有公式的頁面才載 MathJax</td>
+</tr>
+<tr>
+<td>圖表</td>
+<td>手寫 SVG，沒有圖表套件</td>
+</tr>
+<tr>
+<td>網頁檢查</td>
+<td>Playwright（Chromium 無頭模式）</td>
+</tr>
+<tr>
+<td>測試</td>
+<td>一支 <code>tests/test_scripts.py</code>，只用標準庫，不連網</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="_9">還沒做完的<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <ul>
-<li>做研究報告 / KB / 簡報時,<strong>PPTX、XLSX、PDF skill</strong> 可直接從資料或大綱產出檔案。</li>
-<li>「漸進揭露」這個架構觀念,和 <a href="../context-engineering/">Context Engineering</a> 的「只放當下需要的 context」是同一套思路——值得套進自己的 agent 設計。</li>
+<li><strong>GitHub Pages 發布、Notion 待辦還沒實際跑過。</strong> 步驟寫在 <code>SKILL.md</code> 裡，但到 2026-10-03 為止沒有在真的帳號上驗證。</li>
+<li><strong>Hermes 沒試過。</strong> Codex 試過：它自己找到 skill 資料夾，跑完整個盤點。</li>
+<li>第一次跑要補完以前每一週的說明，專案歷史長的話會很久。</li>
 </ul>
-<h2 id="_4">參考來源<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h2 id="_10">延伸閱讀（本站）<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Agent Skills — Claude 官方文件</a>（架構與平台差異主要依據）</li>
-<li><a href="https://github.com/anthropics/skills">anthropics/skills — GitHub</a>（官方 skill repo、Document skills、授權)</li>
-<li><a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Equipping agents for the real world with Agent Skills — Anthropic Engineering</a>（延伸）</li>
+<li><a href="../cvs-radar/">CVS Radar：超商商品評價雷達</a> — 示範畫面裡的另一個專案</li>
+</ul>
+<h2 id="_11">來源<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://github.com/YuHsunWang/project-inventory">project-inventory repository</a>（README、<code>說明書.md</code>、<code>skills/project-inventory/reference/schema.md</code>）</li>
 </ul>
 
 
@@ -4186,7 +4343,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 13:05:43 UTC">2026年10月3日</span>
   </span>
 
     
@@ -4196,7 +4353,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月19日 08:54:41 UTC">2026年6月19日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 13:05:43 UTC">2026年10月3日</span>
   </span>
 
     
@@ -4231,7 +4388,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../claude-code-discipline-frameworks/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Claude Code 紀律框架對比">
+          <a href="../mcmc-portfolio/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Bayesian MCMC 瀏覽偏好模型">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4241,20 +4398,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                Claude Code 紀律框架對比
+                Bayesian MCMC 瀏覽偏好模型
               </div>
             </div>
           </a>
         
         
           
-          <a href="../mcp-ecosystem-guide/" class="md-footer__link md-footer__link--next" aria-label="下一頁: MCP 生態系指南">
+          <a href="../../tags/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 標籤">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                MCP 生態系指南
+                標籤
               </div>
             </div>
             <div class="md-footer__button md-icon">
