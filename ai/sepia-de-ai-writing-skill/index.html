@@ -13,7 +13,7 @@
         <link rel="prev" href="../mcp-builder-skill/">
       
       
-        <link rel="next" href="../prompt-caching-cost-latency/">
+        <link rel="next" href="../ponytail-lazy-senior-dev-skill/">
       
       
         
@@ -1664,6 +1664,8 @@
       
         
       
+        
+      
     
     
     
@@ -2082,6 +2084,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponytail-lazy-senior-dev-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ponytail 少寫程式碼 Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2098,6 +2128,8 @@
   
     
     
+      
+        
       
         
       
@@ -2224,6 +2256,34 @@
     
   
     3 · Caveman Token 壓縮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rtk-tokscale-token-tooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · RTK＋tokscale 省量與看量
   
 
     
@@ -4203,8 +4263,9 @@
 <p>整理自 <a href="https://github.com/Nanako0129/sepia">Nanako0129/sepia</a> 0.8.0 的 README 與 skill 原檔，2026-10-03。</p>
 <p>⚠️ 文中的研究數字都引自 repo 的 <code>research/</code> 與 <code>references/</code>，本庫沒有獨立重跑過。</p>
 </blockquote>
+<p>2026-09-06 改求職履歷。104 自傳已經跑過我自己的 anti-ai-writing，PDF 版的個人簡介卻漏掉沒檢查。補跑 Sepia 之後，它抓出一組三段排比，還有經歷句尾連續四次的「讓…」。</p>
 <h2 id="_1">一句話<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>Sepia 是一個去 AI 味的 Agent Skill。它不只換字。小說先查敘事架構，專業文件先看是哪一種文件，再決定套哪套規則。</p>
+<p>Sepia 是一個去 AI 味的 Agent Skill。它不只換字：小說先查敘事架構，專業文件先看是哪一種文件，再決定套哪套規則。</p>
 <h2 id="_2">換字為什麼不夠<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>多數 humanizer 只改用詞和句法：刪掉「此外」、拆掉排比、換掉陳腔濫調。</p>
 <p>Sepia 引用的 StoryScope（arXiv:2604.03136，61,608 篇故事）量到一件事：只看<strong>敘事結構特徵</strong>的分類器，就能用 93.2% macro-F1 認出 AI 寫的小說。人類編輯把字句改過一輪之後，偵測率也只從 95.5% 掉到 93.9%。</p>
@@ -4330,14 +4391,7 @@
 <p>「不是…而是…」、到處三段排比、段首「其實」這幾條，檔案標成台灣編輯的經驗談，沒有語料數字。</p>
 <p>限制它自己寫得很清楚：一份語料、一個模型世代、簡體問答。2024 年以後的模型在中文上沒有量測，台灣繁中也沒有學術研究。數字只能當方向看。</p>
 <h2 id="_8">我用過一次<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<p>2026-09-06 改求職履歷。104 自傳之前已經跑過我自己的 anti-ai-writing skill，PDF 版的個人簡介漏掉了沒檢查。</p>
-<p>補跑 Sepia refactor（專業路線＋中文校準），它抓出兩個問題：</p>
-<ul>
-<li>簡介裡一組三段排比</li>
-<li>經歷每條句尾都是「讓…」，連續四次</li>
-</ul>
-<p>都是 anti-ai-writing 理論上也該抓到的東西。差別在這次是 Sepia 有被叫到，而且它把句尾模具當成一種重複結構，一次列出來。</p>
-<p>只有一次使用，談不上評測。</p>
+<p>開頭那次履歷，跑的是 refactor（專業路線＋中文校準）。抓到的兩個問題，anti-ai-writing 理論上也抓得到，那次漏掉是因為根本沒對 PDF 跑。只有一次使用，談不上評測。</p>
 <h2 id="anti-ai-writing">跟 anti-ai-writing 怎麼分<a class="headerlink" href="#anti-ai-writing" title="Permanent link">¶</a></h2>
 <p>兩者在字句層重疊。Sepia 多出來的是：</p>
 <ul>
@@ -4380,7 +4434,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 15:48:14 UTC">2026年10月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 16:35:19 UTC">2026年10月3日</span>
   </span>
 
     
@@ -4442,13 +4496,13 @@
         
         
           
-          <a href="../prompt-caching-cost-latency/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 1 · Prompt Caching">
+          <a href="../ponytail-lazy-senior-dev-skill/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Ponytail 少寫程式碼 Plugin">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                1 · Prompt Caching
+                Ponytail 少寫程式碼 Plugin
               </div>
             </div>
             <div class="md-footer__button md-icon">

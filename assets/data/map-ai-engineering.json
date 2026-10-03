@@ -43,7 +43,8 @@
    "items": [
     "prompt-caching-cost-latency",
     "9router-ai-router-token-saver",
-    "caveman-token-compression-skill"
+    "caveman-token-compression-skill",
+    "rtk-tokscale-token-tooling"
    ]
   },
   {
@@ -104,7 +105,8 @@
     "anthropic-document-skills",
     "mcp-ecosystem-guide",
     "mcp-builder-skill",
-    "sepia-de-ai-writing-skill"
+    "sepia-de-ai-writing-skill",
+    "ponytail-lazy-senior-dev-skill"
    ]
   },
   {
@@ -141,6 +143,11 @@
     {
      "label": "Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill",
      "href": "caveman-token-compression-skill/",
+     "section": "ai"
+    },
+    {
+     "label": "RTK＋tokscale：一個省 Token、一個看用量",
+     "href": "rtk-tokscale-token-tooling/",
      "section": "ai"
     }
    ]
@@ -409,6 +416,11 @@
     {
      "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
      "href": "context-engineering-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "Ponytail：讓 Coding Agent 少寫一點的 Claude Code Plugin",
+     "href": "ponytail-lazy-senior-dev-skill/",
      "section": "ai"
     },
     {
@@ -1258,6 +1270,26 @@
    ]
   },
   {
+   "id": "ponytail-lazy-senior-dev-skill",
+   "label": "Ponytail 少寫程式碼 Plugin",
+   "href": "ponytail-lazy-senior-dev-skill/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-03"
+    ]
+   ],
+   "note": "分享 Claude Code plugin Ponytail 4.10.0：七層階梯決定寫多少程式碼、always-on hook 機制、作者 benchmark 與限制，以及跟 Caveman 的差別。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每季複查｜2026-10-04 更新｜93 天內有效"
+   },
+   "backlinks": []
+  },
+  {
    "id": "prompt-caching-cost-latency",
    "label": "Prompt Caching",
    "href": "prompt-caching-cost-latency/",
@@ -1459,6 +1491,26 @@
    ]
   },
   {
+   "id": "rtk-tokscale-token-tooling",
+   "label": "RTK＋tokscale 省量與看量",
+   "href": "rtk-tokscale-token-tooling/",
+   "step": "4",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-04"
+    ]
+   ],
+   "note": "分享兩個常駐工具：RTK 在指令輸出進 context 前先壓縮，tokscale 讀本機 log 統計各 agent 用量；附一個月的實際數字與怎麼解讀。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每季複查｜2026-10-04 更新｜93 天內有效"
+   },
+   "backlinks": []
+  },
+  {
    "id": "sepia-de-ai-writing-skill",
    "label": "Sepia 去 AI 味 Skill",
    "href": "sepia-de-ai-writing-skill/",
@@ -1473,8 +1525,8 @@
    "note": "分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。",
    "fresh": {
     "state": "fresh",
-    "days": 0,
-    "label": "每季複查｜2026-10-03 更新｜92 天內有效"
+    "days": -1,
+    "label": "每季複查｜2026-10-04 更新｜93 天內有效"
    },
    "backlinks": []
   },
@@ -1604,11 +1656,12 @@
     "label": "成本與 Token 優化",
     "href": "#cost-tokens",
     "description": "餵得省一點",
-    "count": 3,
+    "count": 4,
     "members": [
      "prompt-caching-cost-latency",
      "9router-ai-router-token-saver",
-     "caveman-token-compression-skill"
+     "caveman-token-compression-skill",
+     "rtk-tokscale-token-tooling"
     ],
     "x": 0.29,
     "y": 0.79,
@@ -1701,7 +1754,7 @@
     "label": "Claude Code / Skills / MCP",
     "href": "#claude-code-mcp",
     "description": "實際落地的工具鏈",
-    "count": 7,
+    "count": 8,
     "members": [
      "claude-code-coding-guidelines",
      "superpowers-claude-code-skills",
@@ -1709,7 +1762,8 @@
      "anthropic-document-skills",
      "mcp-ecosystem-guide",
      "mcp-builder-skill",
-     "sepia-de-ai-writing-skill"
+     "sepia-de-ai-writing-skill",
+     "ponytail-lazy-senior-dev-skill"
     ],
     "x": 0.84,
     "y": 0.51,
