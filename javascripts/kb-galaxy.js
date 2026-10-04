@@ -115,6 +115,40 @@
     return bundle;
   }
 
+  /* The prose of a section's index page, everything after its plate, with
+     links made absolute so they still work when shown on the home page. */
+  var textCache = new Map();
+  function loadSectionText(domain) {
+    var url = new URL(domain + '/', siteBase()).href;
+    if (!textCache.has(url)) {
+      textCache.set(url, fetch(url).then(function (response) {
+        if (!response.ok) throw new Error('Section page request failed: ' + response.status);
+        return response.text();
+      }).then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var article = doc.querySelector('.md-content__inner');
+        if (!article) throw new Error('Section page has no article: ' + url);
+        var plate = article.querySelector(':scope > [data-kbgalaxy]');
+        var nodes = Array.prototype.slice.call(article.childNodes);
+        if (plate) nodes = nodes.slice(nodes.indexOf(plate) + 1);
+        nodes.forEach(function (node) {
+          if (!node.querySelectorAll) return;
+          [node].concat(Array.prototype.slice.call(node.querySelectorAll('[href],[src]'))).forEach(function (el) {
+            ['href', 'src'].forEach(function (attr) {
+              var value = el.getAttribute && el.getAttribute(attr);
+              if (value && value.charAt(0) !== '#') el.setAttribute(attr, new URL(value, url).href);
+            });
+          });
+        });
+        return nodes.map(function (node) { return document.importNode(node, true); });
+      }).catch(function (error) {
+        textCache.delete(url);
+        throw error;
+      }));
+    }
+    return textCache.get(url);
+  }
+
   function loadMap(source) {
     var url = new URL(source, siteBase()).href;
     if (!mapCache.has(url)) {
@@ -623,18 +657,24 @@
     var passive = { passive: true };
 
     /* No resting half-sky / half-text. When scrolling stops between the
-       plate and the text, finish the move: past a third of the way from
+       plate and the text, finish the move: past half of the way from
        where it last rested goes to the other side, less goes back.
+       The text side is the hero card (the link list above it duplicates
+       the galaxy) or else the page's h1, or the plate's end without either.
        CSS scroll-snap can't do this: mandatory snapping traps the page at
        the top of the text, proximity leaves the half state. */
     function settle() {
       settleTimer = 0;
       var y = window.scrollY;
-      var textY = y + host.getBoundingClientRect().bottom - header.getBoundingClientRect().height;
+      var hero = document.querySelector('.hero-banner') || host.parentNode.querySelector(':scope > h1');
+      var headerHeight = header.getBoundingClientRect().height;
+      var textY = Math.round(hero
+        ? y + hero.getBoundingClientRect().top - headerHeight - 16
+        : y + host.getBoundingClientRect().bottom - headerHeight);
       if (y <= 1 || y >= textY - 1) { settledY = y; return; }
       var fromText = settledY >= textY - 1;
       var moved = Math.abs(y - settledY);
-      var target = (moved > textY / 3) !== fromText ? textY : 0;
+      var target = (moved > textY / 2) !== fromText ? textY : 0;
       settledY = target;
       window.scrollTo({ top: target, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
     }
@@ -687,6 +727,8 @@
     var camera = null;
     var frame = 0;
     var flight = null;
+    var homeText = null;
+    var textDomain = null;
     var live = span('kb-galaxy-live');
     live.setAttribute('aria-live', 'polite');
     live.setAttribute('aria-atomic', 'true');
@@ -979,6 +1021,31 @@
       return entry;
     }
 
+    /* On the home sky, the text under the plate follows the chosen
+       section: zoom into a domain and its index page's prose replaces the
+       home prose; back out to the full sky and the home prose returns. */
+    function syncText(state) {
+      if (seedDomain) return;
+      var domain = state.level ? state.domain : null;
+      if (domain === textDomain) return;
+      textDomain = domain;
+      function after() {
+        var nodes = [];
+        for (var node = host.nextSibling; node; node = node.nextSibling) nodes.push(node);
+        return nodes;
+      }
+      if (!homeText) homeText = after();
+      var load = domain ? loadSectionText(domain) : Promise.resolve(homeText);
+      load.then(function (nodes) {
+        if (disposed || textDomain !== domain) return;
+        after().forEach(function (node) { node.remove(); });
+        host.parentNode.append.apply(host.parentNode, nodes);
+      }, function (error) {
+        if (textDomain === domain) textDomain = null;
+        if (window.console) console.warn('[kb-galaxy] Section text unavailable.', error);
+      });
+    }
+
     function renderLayer(state, view, previous, shouldFocus) {
       if (disposed) return;
       var entries = layerNodes(state).map(function (item, index) { return buildNode(item, state, index); });
@@ -999,6 +1066,7 @@
       host.dataset.nodeCount = String(entries.length);
       document.documentElement.classList.add('kb-galaxy-ready');
       current = state;
+      syncText(state);
       rememberView({ state: state, article: null });
       currentEntries = entries;
       currentTags = tags;
