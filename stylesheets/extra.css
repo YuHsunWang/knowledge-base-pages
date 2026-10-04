@@ -134,33 +134,33 @@
 :root {
   --kb-face-display: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
   --kb-face-data: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
-  /* 內文行寬 = 38 個漢字（漢字為全形，1 字剛好 1em）。
+  /* 內文行寬 = 40 個漢字（漢字為全形，1 字剛好 1em）。
      刻意用 rem 而非 em：em 是相對「元素自己」的字級，同一個 38em 套在
      大字級的標題上會算出更寬的值，等於沒有限制。Material 的
-     .md-typeset 字級固定是 0.85rem，所以 38em(內文) = 38 × 0.85 = 32.3rem，
+     .md-typeset 字級固定是 0.95rem，所以 40em(內文) = 40 × 0.95 = 38rem，
      換成 rem 後不論套在哪個字級的元素上都是同一條右緣。 */
-  --kb-measure: 32.3rem;
+  --kb-measure: 38rem;
 }
 
 /* ── Shell / layout ─────────────────────────────────────────── */
-/* 88rem 的版面比內容需要的寬得多：文字欄固定 --kb-measure，剩下的空間
-   全變成文字欄與右側 TOC 之間的死空白（1600px 螢幕上實測 261px），
-   看起來像沒排好而不是留白。收到 64rem 後死空白降到 84px（正常的欄間距），
-   文字欄寬度完全不變。表格會自動重排，實測各寬度都不需要橫向捲動。
-   注意這只在視窗比 64rem 寬時生效，筆電與手機的版面完全不受影響。 */
-.md-grid { max-width: 64rem; }
+/* 版面寬度與內文置中（2026-10-04 改）
+   原本 grid 收到 64rem、字 0.85rem，1920px 螢幕左右各空 260px，字也偏小。
+   現在字放大到 0.95rem、行寬 40 字（38rem），grid 放寬到 76rem。
+   文字欄在左導覽與右 TOC 之間置中：padding-left 取「內容框 − 行寬 −
+   左右 margin(2.4rem)」的一半；百分比算的是 .md-content 寬度。推的是整個
+   內容框，表格與程式碼（刻意不限寬）左緣仍與正文對齊。
+   星圖首頁保留舊的固定 1.9rem：kb-galaxy.css 的滿版 margin 依賴這個值。 */
+.md-grid { max-width: 76rem; }
 .md-content__inner { padding-top: 0; }
 
-/* 收窄 grid 解決了死空白，但留下左右不對稱：文字欄靠左貼齊內容框，餘裕
-   全堆在右邊。1600px 實測——左側導覽到正文只有 26px，正文到右側 TOC 卻有
-   110px，讀的時候會被左邊那欄壓住。
-   餘裕就是「內容框 794 − 文字欄 711 = 83px」，往左推一半（1.9rem＝42px）
-   後左右各 68px。文字欄寬度完全不變；而且推的是整個內容框，所以表格與
-   程式碼區塊（刻意 opt-out 限寬的）左緣仍與正文對齊——這是不改用
-   margin-inline: auto 置中文字欄的原因，那會讓寬內容比正文更靠左。
-   只在 grid 觸頂（≥ 90em ≈ 1440px）時才有餘裕可分；以下維持原樣。 */
+@media screen and (min-width: 76.25em) {
+  html:not(:has([data-kbgalaxy])) .md-content__inner,
+  html:not(:has([data-kbgalaxy])) .md-path {
+    padding-left: max(0px, calc((100% - 2.4rem - var(--kb-measure)) / 2));
+  }
+}
 @media screen and (min-width: 90em) {
-  .md-content__inner { padding-left: 1.9rem; }
+  html:has([data-kbgalaxy]) .md-content__inner { padding-left: 1.9rem; }
 }
 
 .md-header {
@@ -351,7 +351,7 @@
 
 /* ── Typography: the reading contract ───────────────────────── */
 .md-typeset {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.8;
 }
 /* prose holds the measure; wide content opts out below */
