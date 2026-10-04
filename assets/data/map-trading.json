@@ -33,6 +33,7 @@
     "taiwan-large-retail-sector-flow-strategy",
     "wave-theory-probabilistic-counter-plan",
     "taiwan-uncle-wave-research-closeout",
+    "tradingview-classic-strategies-txf",
     "threads-txf-sentiment-following-research",
     "net-delta-options-strategy",
     "taiwan-chip-counter-signal-backtest-system"
@@ -672,6 +673,22 @@
    ]
   },
   {
+   "id": "tradingview-classic-strategies-txf",
+   "label": "TradingView 五支經典策略拆解",
+   "href": "tradingview-classic-strategies-txf/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-04"
+    ]
+   ],
+   "note": "從 TradingView 社群挑五支熱門策略（EMA 交叉、Supertrend、MACD+RSI、Squeeze Momentum、UT Bot），拆解指標怎麼算、為什麼這樣設計，放到台指期 60 分 K 上實測，並整理之後怎麼修改與搭配。",
+   "fresh": null,
+   "backlinks": []
+  },
+  {
    "id": "wave-backtest-usage",
    "label": "波浪回測系統使用說明",
    "href": "wave-backtest-usage/",
@@ -764,12 +781,13 @@
     "label": "策略研究與回測",
     "href": "#strategy-backtesting",
     "description": "研究訊號、回測方法與否證",
-    "count": 7,
+    "count": 8,
     "members": [
      "wave-backtest-usage",
      "taiwan-large-retail-sector-flow-strategy",
      "wave-theory-probabilistic-counter-plan",
      "taiwan-uncle-wave-research-closeout",
+     "tradingview-classic-strategies-txf",
      "threads-txf-sentiment-following-research",
      "net-delta-options-strategy",
      "taiwan-chip-counter-signal-backtest-system"

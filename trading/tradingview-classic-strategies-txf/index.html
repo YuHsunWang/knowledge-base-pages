@@ -3,17 +3,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="對比 Claude Code 三個紀律框架 Superpowers、GSD、gstack 各自約束的軸線（流程/環境/角色）與疊用方式。">
+        <meta name="description" content="從 TradingView 社群挑五支熱門策略（EMA 交叉、Supertrend、MACD+RSI、Squeeze Momentum、UT Bot），拆解指標怎麼算、為什麼這樣設計，放到台指期 60 分 K 上實測，並整理之後怎麼修改與搭配。">
       
       
       
-        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/claude-code-discipline-frameworks/">
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/trading/tradingview-classic-strategies-txf/">
       
       
-        <link rel="prev" href="../superpowers-claude-code-skills/">
+        <link rel="prev" href="../taiwan-uncle-wave-research-closeout/">
       
       
-        <link rel="next" href="../anthropic-document-skills/">
+        <link rel="next" href="../threads-txf-sentiment-following-research/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>Claude Code 紀律框架對比：Superpowers / GSD / gstack - Shane's Knowledge Base</title>
+        <title>TradingView 五支經典策略拆解：指標原理與台指期實測 - Shane's Knowledge Base</title>
       
     
     
@@ -66,17 +66,17 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Claude Code 紀律框架對比：Superpowers / GSD / gstack - Shane's Knowledge Base">
-<meta property="og:description" content="對比 Claude Code 三個紀律框架 Superpowers、GSD、gstack 各自約束的軸線（流程/環境/角色）與疊用方式。">
-<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/claude-code-discipline-frameworks.png">
+<meta property="og:title" content="TradingView 五支經典策略拆解：指標原理與台指期實測 - Shane's Knowledge Base">
+<meta property="og:description" content="從 TradingView 社群挑五支熱門策略（EMA 交叉、Supertrend、MACD+RSI、Squeeze Momentum、UT Bot），拆解指標怎麼算、為什麼這樣設計，放到台指期 60 分 K 上實測，並整理之後怎麼修改與搭配。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/trading/tradingview-classic-strategies-txf.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/claude-code-discipline-frameworks/">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/trading/tradingview-classic-strategies-txf/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Claude Code 紀律框架對比：Superpowers / GSD / gstack - Shane's Knowledge Base">
-<meta property="twitter:description" content="對比 Claude Code 三個紀律框架 Superpowers、GSD、gstack 各自約束的軸線（流程/環境/角色）與疊用方式。">
-<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/claude-code-discipline-frameworks.png">
+<meta property="twitter:title" content="TradingView 五支經典策略拆解：指標原理與台指期實測 - Shane's Knowledge Base">
+<meta property="twitter:description" content="從 TradingView 社群挑五支熱門策略（EMA 交叉、Supertrend、MACD+RSI、Squeeze Momentum、UT Bot），拆解指標怎麼算、為什麼這樣設計，放到台指期 60 分 K 上實測，並整理之後怎麼修改與搭配。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/trading/tradingview-classic-strategies-txf.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#claude-code-superpowers-gsd-gstack" class="md-skip">
+        <a href="#tradingview" class="md-skip">
           跳轉到
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Claude Code 紀律框架對比：Superpowers / GSD / gstack
+              TradingView 五支經典策略拆解：指標原理與台指期實測
             
           </span>
         </div>
@@ -266,13 +266,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../ai/" class="md-tabs__link">
           
   
   
@@ -312,11 +310,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../trading/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -453,8 +453,6 @@
       
   
   
-    
-  
   
   
     
@@ -482,23 +480,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../ai/" class="md-nav__link ">
               
   
   
@@ -516,13 +511,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -558,20 +553,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
@@ -607,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prompt-engineering-core-techniques/" class="md-nav__link">
+      <a href="../../ai/prompt-engineering-core-techniques/" class="md-nav__link">
         
   
   
@@ -635,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-engineering/" class="md-nav__link">
+      <a href="../../ai/context-engineering/" class="md-nav__link">
         
   
   
@@ -663,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-engineering-in-practice/" class="md-nav__link">
+      <a href="../../ai/context-engineering-in-practice/" class="md-nav__link">
         
   
   
@@ -691,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reasoning-models-test-time-compute/" class="md-nav__link">
+      <a href="../../ai/reasoning-models-test-time-compute/" class="md-nav__link">
         
   
   
@@ -747,20 +739,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
   
   
@@ -796,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+      <a href="../../ai/fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
         
   
   
@@ -824,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rag-retrieval-augmented-generation/" class="md-nav__link">
+      <a href="../../ai/rag-retrieval-augmented-generation/" class="md-nav__link">
         
   
   
@@ -852,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../embeddings-and-vector-databases/" class="md-nav__link">
+      <a href="../../ai/embeddings-and-vector-databases/" class="md-nav__link">
         
   
   
@@ -880,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rag-advanced-techniques/" class="md-nav__link">
+      <a href="../../ai/rag-advanced-techniques/" class="md-nav__link">
         
   
   
@@ -908,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+      <a href="../../ai/graphrag-knowledge-graph-retrieval/" class="md-nav__link">
         
   
   
@@ -936,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agentic-rag-2026/" class="md-nav__link">
+      <a href="../../ai/agentic-rag-2026/" class="md-nav__link">
         
   
   
@@ -992,20 +981,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
         
           
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
             
   
   
@@ -1041,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structured-output-and-tool-use/" class="md-nav__link">
+      <a href="../../ai/structured-output-and-tool-use/" class="md-nav__link">
         
   
   
@@ -1069,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-agent-security-and-permissions/" class="md-nav__link">
+      <a href="../../ai/ai-agent-security-and-permissions/" class="md-nav__link">
         
   
   
@@ -1097,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../coding-agent-workflow-sop/" class="md-nav__link">
+      <a href="../../ai/coding-agent-workflow-sop/" class="md-nav__link">
         
   
   
@@ -1125,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-agent-harness-engineering/" class="md-nav__link">
+      <a href="../../ai/ai-agent-harness-engineering/" class="md-nav__link">
         
   
   
@@ -1153,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../multi-agent-orchestration/" class="md-nav__link">
+      <a href="../../ai/multi-agent-orchestration/" class="md-nav__link">
         
   
   
@@ -1249,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-remote-coding-agent-guide/" class="md-nav__link">
+      <a href="../../ai/omp-remote-coding-agent-guide/" class="md-nav__link">
         
   
   
@@ -1277,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-models-and-daily-coding/" class="md-nav__link">
+      <a href="../../ai/omp-models-and-daily-coding/" class="md-nav__link">
         
   
   
@@ -1305,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-collab-remote-control/" class="md-nav__link">
+      <a href="../../ai/omp-collab-remote-control/" class="md-nav__link">
         
   
   
@@ -1333,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-config-permissions-security/" class="md-nav__link">
+      <a href="../../ai/omp-config-permissions-security/" class="md-nav__link">
         
   
   
@@ -1361,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-mobile-notifications-workflow/" class="md-nav__link">
+      <a href="../../ai/omp-mobile-notifications-workflow/" class="md-nav__link">
         
   
   
@@ -1389,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-cheat-sheet/" class="md-nav__link">
+      <a href="../../ai/omp-cheat-sheet/" class="md-nav__link">
         
   
   
@@ -1417,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../omp-cheat-sheet-web/" class="md-nav__link">
+      <a href="../../ai/omp-cheat-sheet-web/" class="md-nav__link">
         
   
   
@@ -1477,20 +1463,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
         
           
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
             
   
   
@@ -1526,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent-memory-systems/" class="md-nav__link">
+      <a href="../../ai/agent-memory-systems/" class="md-nav__link">
         
   
   
@@ -1554,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent-observability/" class="md-nav__link">
+      <a href="../../ai/agent-observability/" class="md-nav__link">
         
   
   
@@ -1582,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm-evaluation-in-practice/" class="md-nav__link">
+      <a href="../../ai/llm-evaluation-in-practice/" class="md-nav__link">
         
   
   
@@ -1610,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm-evaluation-advanced/" class="md-nav__link">
+      <a href="../../ai/llm-evaluation-advanced/" class="md-nav__link">
         
   
   
@@ -1643,10 +1626,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1671,21 +1652,18 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked="">
-        
-          
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
             
   
   
@@ -1703,7 +1681,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1721,7 +1699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude-code-coding-guidelines/" class="md-nav__link">
+      <a href="../../ai/claude-code-coding-guidelines/" class="md-nav__link">
         
   
   
@@ -1749,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../superpowers-claude-code-skills/" class="md-nav__link">
+      <a href="../../ai/superpowers-claude-code-skills/" class="md-nav__link">
         
   
   
@@ -1774,37 +1752,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Code 紀律框架對比
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-discipline-frameworks/" class="md-nav__link">
         
   
   
@@ -1820,92 +1771,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目錄">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目錄
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        一句話分工
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gsdget-stuff-done-context-rot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GSD（Get Stuff Done）：用「分段隔離」對抗 context rot
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gstack-claude-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        gstack：把 Claude Code 變成一支虛擬工程團隊
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        怎麼疊（stack）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        對你工作流的對應
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        參考來源
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1918,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../anthropic-document-skills/" class="md-nav__link">
+      <a href="../../ai/anthropic-document-skills/" class="md-nav__link">
         
   
   
@@ -1946,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcp-ecosystem-guide/" class="md-nav__link">
+      <a href="../../ai/mcp-ecosystem-guide/" class="md-nav__link">
         
   
   
@@ -1974,7 +1839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcp-builder-skill/" class="md-nav__link">
+      <a href="../../ai/mcp-builder-skill/" class="md-nav__link">
         
   
   
@@ -2002,7 +1867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sepia-de-ai-writing-skill/" class="md-nav__link">
+      <a href="../../ai/sepia-de-ai-writing-skill/" class="md-nav__link">
         
   
   
@@ -2030,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ponytail-lazy-senior-dev-skill/" class="md-nav__link">
+      <a href="../../ai/ponytail-lazy-senior-dev-skill/" class="md-nav__link">
         
   
   
@@ -2082,20 +1947,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
             
   
   
@@ -2131,7 +1993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prompt-caching-cost-latency/" class="md-nav__link">
+      <a href="../../ai/prompt-caching-cost-latency/" class="md-nav__link">
         
   
   
@@ -2159,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../9router-ai-router-token-saver/" class="md-nav__link">
+      <a href="../../ai/9router-ai-router-token-saver/" class="md-nav__link">
         
   
   
@@ -2187,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../caveman-token-compression-skill/" class="md-nav__link">
+      <a href="../../ai/caveman-token-compression-skill/" class="md-nav__link">
         
   
   
@@ -2215,7 +2077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rtk-tokscale-token-tooling/" class="md-nav__link">
+      <a href="../../ai/rtk-tokscale-token-tooling/" class="md-nav__link">
         
   
   
@@ -2263,20 +2125,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
         
           
-          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
             
   
   
@@ -2312,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+      <a href="../../ai/claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
         
   
   
@@ -2340,7 +2199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../my-obsidian-vault-claude-md/" class="md-nav__link">
+      <a href="../../ai/my-obsidian-vault-claude-md/" class="md-nav__link">
         
   
   
@@ -3070,6 +2929,8 @@
       
   
   
+    
+  
   
   
     
@@ -3089,20 +2950,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../trading/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -3120,13 +2984,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3143,8 +3007,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -3169,18 +3035,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
             
   
   
@@ -3198,7 +3067,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3216,7 +3085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/wave-backtest-usage/" class="md-nav__link">
+      <a href="../wave-backtest-usage/" class="md-nav__link">
         
   
   
@@ -3244,7 +3113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
+      <a href="../taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
         
   
   
@@ -3272,7 +3141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/wave-theory-probabilistic-counter-plan/" class="md-nav__link">
+      <a href="../wave-theory-probabilistic-counter-plan/" class="md-nav__link">
         
   
   
@@ -3300,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/taiwan-uncle-wave-research-closeout/" class="md-nav__link">
+      <a href="../taiwan-uncle-wave-research-closeout/" class="md-nav__link">
         
   
   
@@ -3325,10 +3194,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../trading/tradingview-classic-strategies-txf/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TradingView 五支經典策略拆解
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3344,6 +3240,397 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 共同的地基：四種平滑工具
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 共同的地基：四種平滑工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-sma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 SMA：簡單平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 EMA：指數平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-rmawilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 RMA：Wilder 平滑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-atr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 ATR：平均真實波幅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 五支策略逐一拆解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 五支策略逐一拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ema-921" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 EMA 9/21 交叉
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-supertrend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Supertrend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-macd-rsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MACD + RSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-squeeze-momentum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Squeeze Momentum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-ut-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 UT Bot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 台指期實測
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 台指期實測">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 成績總表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 超額報酬檢定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 從結果看懂指標
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 從結果看懂指標">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 空單全賠：方向比指標重要
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 快與穩的取捨，數字看得到
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 賺錢靠少數大單
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 為什麼「只做多」版看起來比較好
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 學術研究怎麼看技術分析
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 之後可以怎麼改、怎麼搭配
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 之後可以怎麼改、怎麼搭配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 先處理方向：加一個大週期的趨勢濾網
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-ema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 給 EMA 交叉加門檻
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ut-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 UT Bot 放寬倍數或拉長週期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-squeeze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Squeeze 當濾網，不當訊號
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 用波動度決定部位大小
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 換更長的資料測
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 這次研究的限制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        參考資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3356,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/threads-txf-sentiment-following-research/" class="md-nav__link">
+      <a href="../threads-txf-sentiment-following-research/" class="md-nav__link">
         
   
   
@@ -3384,7 +3671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/net-delta-options-strategy/" class="md-nav__link">
+      <a href="../net-delta-options-strategy/" class="md-nav__link">
         
   
   
@@ -3412,7 +3699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
+      <a href="../taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
         
   
   
@@ -3462,17 +3749,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
             
   
   
@@ -3508,7 +3798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/basic-industry-analysis-sop/" class="md-nav__link">
+      <a href="../basic-industry-analysis-sop/" class="md-nav__link">
         
   
   
@@ -3536,7 +3826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/serenity-style-industry-research-process/" class="md-nav__link">
+      <a href="../serenity-style-industry-research-process/" class="md-nav__link">
         
   
   
@@ -3564,7 +3854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/leo-satellite-supply-chain-exposure/" class="md-nav__link">
+      <a href="../leo-satellite-supply-chain-exposure/" class="md-nav__link">
         
   
   
@@ -3624,17 +3914,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4">
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
             
   
   
@@ -3670,7 +3963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-research-diagrams-decision-map/" class="md-nav__link">
+      <a href="../passive-components-research-diagrams-decision-map/" class="md-nav__link">
         
   
   
@@ -3698,7 +3991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-industry-overview/" class="md-nav__link">
+      <a href="../passive-components-industry-overview/" class="md-nav__link">
         
   
   
@@ -3726,7 +4019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-market-sizing/" class="md-nav__link">
+      <a href="../passive-components-market-sizing/" class="md-nav__link">
         
   
   
@@ -3754,7 +4047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-company-universe/" class="md-nav__link">
+      <a href="../passive-components-company-universe/" class="md-nav__link">
         
   
   
@@ -3782,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-stock-tracker/" class="md-nav__link">
+      <a href="../passive-components-stock-tracker/" class="md-nav__link">
         
   
   
@@ -3810,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-monthly-tracker/" class="md-nav__link">
+      <a href="../passive-components-monthly-tracker/" class="md-nav__link">
         
   
   
@@ -3838,7 +4131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-valuation-framework/" class="md-nav__link">
+      <a href="../passive-components-valuation-framework/" class="md-nav__link">
         
   
   
@@ -3866,7 +4159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trading/passive-components-target-price/" class="md-nav__link">
+      <a href="../passive-components-target-price/" class="md-nav__link">
         
   
   
@@ -4153,7 +4446,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一句話分工
+        摘要
       
     </span>
   </a>
@@ -4161,10 +4454,254 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gsdget-stuff-done-context-rot" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GSD（Get Stuff Done）：用「分段隔離」對抗 context rot
+        1. 共同的地基：四種平滑工具
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 共同的地基：四種平滑工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-sma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 SMA：簡單平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 EMA：指數平均
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-rmawilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 RMA：Wilder 平滑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-atr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 ATR：平均真實波幅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 五支策略逐一拆解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 五支策略逐一拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ema-921" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 EMA 9/21 交叉
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-supertrend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Supertrend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-macd-rsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MACD + RSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-squeeze-momentum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Squeeze Momentum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-ut-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 UT Bot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 台指期實測
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 台指期實測">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 成績總表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 超額報酬檢定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 從結果看懂指標
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 從結果看懂指標">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 空單全賠：方向比指標重要
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 快與穩的取捨，數字看得到
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 賺錢靠少數大單
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 為什麼「只做多」版看起來比較好
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 學術研究怎麼看技術分析
       
     </span>
   </a>
@@ -4172,21 +4709,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gstack-claude-code" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gstack：把 Claude Code 變成一支虛擬工程團隊
+        6. 之後可以怎麼改、怎麼搭配
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 之後可以怎麼改、怎麼搭配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 先處理方向：加一個大週期的趨勢濾網
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#stack" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#62-ema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        怎麼疊（stack）
+        6.2 給 EMA 交叉加門檻
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ut-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 UT Bot 放寬倍數或拉長週期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-squeeze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Squeeze 當濾網，不當訊號
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 用波動度決定部位大小
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 換更長的資料測
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 這次研究的限制
       
     </span>
   </a>
@@ -4197,18 +4806,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        對你工作流的對應
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        參考來源
+        參考資料
       
     </span>
   </a>
@@ -4261,7 +4859,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    AI Engineering
+    Trading Research
   </span>
 
         </a>
@@ -4276,10 +4874,10 @@
     
     
       <li class="md-path__item">
-        <a href="../claude-code-coding-guidelines/" class="md-path__link">
+        <a href="../wave-backtest-usage/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Claude Code / Skills / MCP
+    策略研究與回測
   </span>
 
         </a>
@@ -4302,78 +4900,641 @@
       
       
       
-        <a href="../../tags/#tag:claude-code" class="md-tag">Claude Code</a>
+        <a href="../../tags/#tag:backtest" class="md-tag">Backtest</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:technical-analysis" class="md-tag">Technical Analysis</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:trading-strategy" class="md-tag">Trading Strategy</a>
       
     
   </nav>
 
 
 
-<h1 id="claude-code-superpowers-gsd-gstack">Claude Code 紀律框架對比：Superpowers / GSD / gstack<a class="headerlink" href="#claude-code-superpowers-gsd-gstack" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>整理自官方 repo 與多篇解析（見文末），2026-06-19。2026 出現「紀律轉向」——三個開源框架用<strong>不同的軸</strong>約束 coding agent。本篇深入 GSD 與 gstack,Superpowers 另見 <a href="../superpowers-claude-code-skills/">專篇</a>。</p>
-<p>⚠️ 星數為對應來源於 2026-06 的數字,會變動,當量級看。</p>
-</blockquote>
-<h2 id="_1">一句話分工<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h1 id="tradingview">TradingView 五支經典策略拆解：指標原理與台指期實測<a class="headerlink" href="#tradingview" title="Permanent link">¶</a></h1>
+<h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>TradingView 上最常被收藏的策略，多半是幾種指標的不同組合。這篇挑了五支，各代表一類指標：</p>
 <table>
 <thead>
 <tr>
-<th>框架</th>
-<th>約束的軸</th>
-<th>一句話</th>
+<th>策略</th>
+<th>指標類別</th>
+<th>核心問題</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong><a href="../superpowers-claude-code-skills/">Superpowers</a></strong></td>
-<td>開發<strong>流程</strong></td>
-<td>強制七階段 TDD,做事的紀律</td>
+<td>EMA 9/21 交叉</td>
+<td>均線</td>
+<td>短期平均價有沒有站上長期平均價？</td>
 </tr>
 <tr>
-<td><strong>GSD</strong></td>
-<td>執行<strong>環境</strong></td>
-<td>隔離 context,跨長任務維持品質</td>
+<td>Supertrend</td>
+<td>波動度通道</td>
+<td>價格有沒有突破「正常波動」的範圍？</td>
 </tr>
 <tr>
-<td><strong>gstack</strong></td>
-<td>決策<strong>視角</strong></td>
-<td>角色治理,先想清楚再做</td>
+<td>MACD + RSI</td>
+<td>動能＋震盪</td>
+<td>漲勢是在加速，還是在減速？</td>
+</tr>
+<tr>
+<td>Squeeze Momentum</td>
+<td>波動壓縮</td>
+<td>市場安靜太久了，要爆發了嗎？</td>
+</tr>
+<tr>
+<td>UT Bot</td>
+<td>ATR 移動停損</td>
+<td>價格回頭超過一個 ATR 了嗎？</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>三者「幾乎不重疊、不是搶同一群用戶」:流程紀律（Superpowers）＋ 環境穩定（GSD）＋ 角色清晰（gstack）。</p>
-</blockquote>
-<h2 id="gsdget-stuff-done-context-rot">GSD（Get Stuff Done）：用「分段隔離」對抗 context rot<a class="headerlink" href="#gsdget-stuff-done-context-rot" title="Permanent link">¶</a></h2>
-<p>把建大型應用拆成<strong>三個獨立、各開全新 session</strong> 的階段,讓計畫文件「跨 session 存活」當唯一真相:</p>
+<p>五支都用 TradingView 的預設參數，不調參，放在台指期 60 分 K（2025-06 至 2026-10，日盤＋夜盤）上回測，含手續費、期交稅與滑價。</p>
+<p>結論先講：</p>
+<ul>
+<li><strong>五支都贏不過單純買進持有一口台指期。</strong> 同期間買進持有淨賺 27,087 點，表現最好的「EMA 交叉、只做多」淨賺 18,090 點。</li>
+<li><strong>所有空單都在賠錢。</strong> 這段期間台指從 21,500 漲到 48,700 點，做空等於逆勢。</li>
+<li><strong>扣掉「只是跟著大盤漲」的部分，沒有一支的超額報酬在統計上能和零區分。</strong> 十組設定全部判定淘汰。</li>
+<li>但回測很清楚地顯示了每種指標的<strong>性格</strong>：誰快、誰慢、誰常被洗、誰靠少數大單賺錢。這篇的重點是這些性格，以及之後怎麼利用它們。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">研究定位</p>
+<p>這是一條教學型研究線（<code>txf-tv-classics</code>），目的是複製公開策略、理解原理，不是尋找可上線的策略。所有數字都是樣本內結果，屬於「探索中候選（樣本內，未驗證）」。成本依 cost-models v1.2。</p>
+</div>
+<hr>
+<h2 id="1">1. 共同的地基：四種平滑工具<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<p>五支策略的指標，底層只用了四種東西。先把它們搞懂，後面就好讀了。</p>
+<h3 id="11-sma">1.1 SMA：簡單平均<a class="headerlink" href="#11-sma" title="Permanent link">¶</a></h3>
+<p>把最近 N 根 K 的收盤價加起來除以 N。每根 K 權重一樣。</p>
+<p>缺點是<strong>延遲</strong>。一個 N 期 SMA，平均而言落後價格 (N−1)/2 根 K。20 期 SMA 大約慢 9.5 根。</p>
+<h3 id="12-ema">1.2 EMA：指數平均<a class="headerlink" href="#12-ema" title="Permanent link">¶</a></h3>
+<p>EMA 每次只做一件事：拿「新價格」和「舊的 EMA」做加權平均。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>EMA_t = α × 價格_t + (1 − α) × EMA_{t-1}
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>α = 2 / (N + 1)
+</span></code></pre></div>
+<p>以 EMA(9) 為例，α = 0.2，代表最新一根 K 佔 20% 權重，剩下 80% 是過去所有 K 的累積。越舊的 K 權重越小，但永遠不會變成零。</p>
+<p><strong>EMA 的三個特性</strong>：</p>
 <ol>
-<li><strong>Plan</strong>：先寫規格文件（專案概觀、功能清單、資料模型、API 介面、auth、邊界案例、實作順序),不碰 code。</li>
-<li><strong>Execute</strong>：<strong>開全新 session</strong> 照計畫逐功能實作——刻意不延續規劃 session,避免把探索期累積的雜訊帶進來。</li>
-<li><strong>Verify</strong>：<strong>再開一個全新 session</strong>,把實作對照原計畫,抓漏的功能、矛盾、未處理邊界、資料模型落差。</li>
+<li><strong>比 SMA 快</strong>。因為最新價格權重比較大，轉折時 EMA 先轉彎。</li>
+<li><strong>對跳空和單根大 K 比較敏感</strong>。一根大紅 K 會立刻把 EMA 拉高 α 倍的幅度。</li>
+<li><strong>快和穩不能兼得</strong>。α 大（N 小）反應快，但雜訊多；α 小（N 大）平滑，但慢。這是所有均線指標的根本取捨，後面每支策略都在處理這件事。</li>
 </ol>
-<p>核心招式:用分段隔離 + 持久計畫文件,防止對話史變長後的「<strong>context rot</strong>」(累積歷史拖垮輸出)。有解析指出它讓主對話維持在 30–40% context 容量。GSD 偏向<strong>方法論</strong>(非單一可安裝套件)。</p>
-<h2 id="gstack-claude-code">gstack：把 Claude Code 變成一支虛擬工程團隊<a class="headerlink" href="#gstack-claude-code" title="Permanent link">¶</a></h2>
-<p>YC 總裁 <strong>Garry Tan</strong> 開源的個人 Claude Code 設定。MIT,官方 repo 顯示約 <strong>111k★</strong>(2026-06)。前提:「單人配對工具,能比傳統團隊更快——但前提是 agent 被<strong>強制切換角色</strong>,而不是把產品/工程/品質混在一起做。」</p>
+<h3 id="13-rmawilder">1.3 RMA：Wilder 平滑<a class="headerlink" href="#13-rmawilder" title="Permanent link">¶</a></h3>
+<p>J. Welles Wilder 在 1978 年的書裡發明 RSI 和 ATR 時，用了另一種平滑法：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>RMA_t = (1/N) × 價格_t + (1 − 1/N) × RMA_{t-1}
+</span></code></pre></div>
+<p>它其實就是 α = 1/N 的 EMA。差別在 α 比較小，所以<strong>更慢</strong>。14 期 RMA 的反應速度，大約等於 27 期 EMA。</p>
+<p>Wilder 選這個公式，是因為 1978 年要用手算，這個遞迴最好更新。TradingView 的 RSI 和 ATR 預設都用 RMA。所以「RSI 14」實際上比字面看起來慢很多。</p>
+<h3 id="14-atr">1.4 ATR：平均真實波幅<a class="headerlink" href="#14-atr" title="Permanent link">¶</a></h3>
+<p>先算每根 K 的「真實波幅」（True Range），取三者最大值：</p>
 <ul>
-<li><strong>角色 personas</strong>:CEO/創辦人、Designer、Engineering Manager、Staff Engineer、QA Lead、Release Engineer、Chief Security Officer、Technical Writer。</li>
-<li><strong>指令</strong>:約 23 個角色 skill（slash command,如 <code>/office-hours</code>、<code>/review</code>、<code>/qa</code>）+ 8 個 power tool（<code>/careful</code>、<code>/freeze</code>、<code>/guard</code>、<code>/codex</code>、<code>/pair-agent</code>…）。</li>
-<li><strong>七階段 sprint</strong>:Think → Plan → Build → Review → Test → Ship → Reflect,每個 skill 的輸出餵給下一階段。</li>
-<li>相容 Claude Code、Codex、Cursor、Factory Droid、Kiro、Hermes 等;30 秒 git clone + setup 裝好。</li>
+<li>本根最高 − 本根最低</li>
+<li>|本根最高 − 前一根收盤|</li>
+<li>|本根最低 − 前一根收盤|</li>
 </ul>
-<h2 id="stack">怎麼疊（stack）<a class="headerlink" href="#stack" title="Permanent link">¶</a></h2>
-<p>理論上可分層:<strong>gstack 負責想/審 → Superpowers 在 build 時上 TDD → GSD 防長 session 的 context 衰退。</strong></p>
-<p>但有實務摩擦:Superpowers 的互動式提問會在 build 中卡住 Claude Code 的輸入。作者建議:<strong>先挑你「最痛的點」對應的那一個用兩週,再考慮疊第二個</strong>,別一次全上。</p>
-<h2 id="_2">對你工作流的對應<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>後兩項是為了把跳空算進去。台指期有夜盤和日盤之間的跳空，這兩項很重要。</p>
+<p>ATR = 真實波幅的 RMA。它回答的問題是：<strong>「這個市場最近一根 K 正常會晃多大？」</strong></p>
+<p>ATR 的用處是把「價格動了多少點」換算成「動了幾個正常波動」。台指從 2 萬點漲到 4.8 萬點，100 點的意義完全不同。用 ATR 當尺，策略才不會因為指數變大而失效。Supertrend、UT Bot、Squeeze 都用它。</p>
+<hr>
+<h2 id="2">2. 五支策略逐一拆解<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
+<h3 id="21-ema-921">2.1 EMA 9/21 交叉<a class="headerlink" href="#21-ema-921" title="Permanent link">¶</a></h3>
+<p><strong>規則</strong>：EMA(9) 由下往上穿過 EMA(21) 就做多；由上往下穿過就做空。多空互換，永遠有部位。</p>
+<p><strong>為什麼這樣設計</strong>：兩條均線相減，等於一個簡化的「趨勢濾波器」。短均線代表最近的平均成本，長均線代表比較久的平均成本。短的高於長的，表示最近進場的人買得比較貴，市場願意付更高的價格，也就是趨勢向上。</p>
+<p><strong>9 和 21 從哪來</strong>：沒有理論依據，是社群慣用值。9 約等於兩週交易日，21 約等於一個月。換到 60 分 K 上，這個意義就沒了，只剩「一快一慢」。</p>
+<p><strong>指標性格</strong>：</p>
 <ul>
-<li>你的 Hermes「規劃 → 寫 code → 驗證」其實就接近 <strong>GSD 的三段隔離 + Superpowers 的執行紀律</strong>。</li>
-<li>最低成本可先借 GSD 的觀念:<strong>規劃、實作、驗收各開乾淨 session</strong>,避免 context rot——這和你這邊「Claude 規劃、Codex 實作、Claude 獨立驗收」天然契合。</li>
+<li>交叉一定發生在轉折<strong>之後</strong>。實測從 60 根 K 內的低點到第一次做多，中位數慢 21.5 根 60 分 K（大約 1.5 個交易日，含夜盤）。</li>
+<li>盤整時兩條線會糾纏，反覆交叉。這叫<strong>雙巴</strong>（whipsaw，被來回洗出場）。實測 21% 的交易在 3 根 K 內就出場。</li>
+<li>勝率低（多空版 34.5%），但平均獲利是平均虧損的 2.3 倍。這是所有趨勢策略的典型形狀：<strong>常小賠，偶爾大賺</strong>。</li>
 </ul>
-<h2 id="_3">參考來源<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="22-supertrend">2.2 Supertrend<a class="headerlink" href="#22-supertrend" title="Permanent link">¶</a></h3>
+<p><strong>發明者</strong>：法國交易者 Olivier Seban。TradingView 內建，預設 ATR 10、倍數 3。</p>
+<p><strong>規則</strong>：</p>
+<ol>
+<li>中線 = (最高 + 最低) / 2</li>
+<li>上軌 = 中線 + 3 × ATR，下軌 = 中線 − 3 × ATR</li>
+<li>上升趨勢時，只看下軌，而且下軌<strong>只能往上移、不能往下</strong>；收盤跌破下軌就翻空。</li>
+<li>下降趨勢時反過來。</li>
+</ol>
+<p><strong>為什麼這樣設計</strong>：這是一個「波動度門檻」。價格在 3 個 ATR 以內晃，視為正常雜訊，不理它。跌破 3 個 ATR，才承認趨勢變了。那條「只能往一個方向移」的線，本質上就是一個移動停損。</p>
+<p><strong>倍數 3 的意義</strong>：倍數越大，越不容易翻轉，雜訊越少，但轉折時越慢。倍數 3 在 60 分 K 上算寬。</p>
+<p><strong>指標性格</strong>：</p>
 <ul>
-<li><a href="https://github.com/garrytan/gstack">garrytan/gstack — GitHub</a>（gstack 官方,角色/指令/星數依據）</li>
-<li><a href="https://www.mindstudio.ai/blog/gsd-framework-claude-code-plan-build-applications">GSD Framework for Claude Code — MindStudio</a>（GSD 三階段依據）</li>
-<li><a href="https://medium.com/@tentenco/superpowers-gsd-and-gstack-what-each-claude-code-framework-actually-constrains-12a1560960ad">Superpowers, GSD, and gstack: What Each Framework Constrains — Ewan Mak</a>（對比與疊用依據）</li>
-<li><a href="https://www.pulumi.com/blog/claude-code-orchestration-frameworks/">Picking the Right Framework for Your Coding Agent — Pulumi</a>（延伸）</li>
+<li>雙巴最少。實測只有 1.2% 的交易在 3 根 K 內出場，五支裡最低。</li>
+<li>但一旦盤整，可能整段來回被打。2026Q3 台指高檔震盪，多空版這一季賠了 2,572 點。</li>
+<li>延遲和 EMA 交叉差不多（中位數 21 根），但更乾淨。</li>
+</ul>
+<h3 id="23-macd-rsi">2.3 MACD + RSI<a class="headerlink" href="#23-macd-rsi" title="Permanent link">¶</a></h3>
+<p><strong>MACD</strong>：Gerald Appel 在 1970 年代末發明。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>MACD 線 = EMA(12) − EMA(26)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>訊號線 = MACD 線的 EMA(9)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>柱狀體 = MACD 線 − 訊號線
+</span></code></pre></div>
+<p>MACD 線是「兩條均線的距離」。距離變大表示趨勢在加速，變小表示減速。訊號線再把這個距離平滑一次。所以 <strong>MACD 線穿過訊號線，代表「趨勢的速度」轉向了</strong>，這比價格本身轉向還早一點。</p>
+<p>12 和 26 當年的意義是兩週和一個月的交易日。</p>
+<p><strong>RSI</strong>：Wilder 1978 年發明。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>RSI = 100 − 100 / (1 + 平均漲幅 / 平均跌幅)
+</span></code></pre></div>
+<p>平均漲跌幅用 14 期 RMA。RSI &gt; 50 代表最近漲的力道大於跌的力道。</p>
+<p><strong>組合規則</strong>：MACD 金叉而且 RSI &gt; 50 才做多；MACD 死叉而且 RSI &lt; 50 才做空。出場看 MACD 反向交叉。</p>
+<p><strong>為什麼要組合</strong>：MACD 交叉很頻繁。加上 RSI 當「方向確認」，是希望只在大方向一致時才進場，濾掉一部分雜訊。</p>
+<p><strong>指標性格</strong>：</p>
+<ul>
+<li>這是五支裡<strong>最慢</strong>的。從轉折低點到進場，中位數 39 根 60 分 K。原因是雙重平滑（EMA 再 EMA）加上 RSI 的 RMA。</li>
+<li>RSI 濾網讓空單大幅減少：多空版 255 筆交易裡，空單只有 97 筆。在上漲市場裡，這個濾網自動擋掉了大部分逆勢空單，所以空單只虧 1,006 點，是五支裡空單虧最少的。</li>
+<li>在市場裡的時間只有 46%，風險較低，最大回撤 3,954 點。</li>
+</ul>
+<h3 id="24-squeeze-momentum">2.4 Squeeze Momentum<a class="headerlink" href="#24-squeeze-momentum" title="Permanent link">¶</a></h3>
+<p><strong>來源</strong>：John Carter 的 TTM Squeeze，TradingView 上最流行的是 LazyBear 改寫的版本。</p>
+<p><strong>規則</strong>：</p>
+<ol>
+<li>布林通道（BB）：20 期 SMA ± 2 個標準差。</li>
+<li>肯特納通道（KC）：20 期 SMA ± 1.5 × 平均真實波幅。</li>
+<li><strong>BB 縮進 KC 裡面 = 擠壓中（squeeze on）</strong>。</li>
+<li>擠壓結束的第一根 K（BB 撐出 KC），看動能方向進場：動能 &gt; 0 做多，&lt; 0 做空。</li>
+<li>動能跨過零軸反向時出場。</li>
+</ol>
+<p>動能的算法是：收盤價減掉「20 期高低點中線和 20 期均線的平均」，再對這個差做 20 期線性回歸，取最新一點。</p>
+<p><strong>為什麼這樣設計</strong>：標準差和 ATR 都在量波動，但敏感度不同。標準差對「最近一段的價格分散」很敏感，ATR 對「每根 K 的振幅」比較穩。當標準差縮到比 ATR 還小，表示價格擠在很窄的區間裡，但每根 K 仍在晃。這是<strong>波動收斂</strong>的訊號。</p>
+<p>背後的經驗法則是「波動會叢聚，也會均值回歸」：安靜太久之後，通常會有一段大波動。Squeeze 不預測方向，方向交給動能決定。</p>
+<p><strong>指標性格</strong>：</p>
+<ul>
+<li>交易最少（只做多版 69 筆，在市場裡 28% 的時間），但最大回撤最小（2,080 點）。</li>
+<li>只做多版的報酬幾乎都來自<strong>夜盤進場</strong>的單：夜盤 11,467 點、日盤 2,215 點。可能和台指期夜盤承接美股走勢有關，這一點沒有另外驗證。</li>
+<li>只做多版是十組裡超額報酬點估計最高的（每個交易時段 +22 點），但信賴區間仍包含零。</li>
+</ul>
+<h3 id="25-ut-bot">2.5 UT Bot<a class="headerlink" href="#25-ut-bot" title="Permanent link">¶</a></h3>
+<p><strong>來源</strong>：TradingView 社群腳本，HPotter 的想法，Yo_adriiiiaan 寫成指標，QuantNomad 改成策略版。原版倍數 3.5，QuantNomad 版預設改成 1。</p>
+<p><strong>規則</strong>：一條 ATR 移動停損線。</p>
+<ul>
+<li>價格在線上方：停損線 = max(前一根停損線, 收盤 − 1 × ATR)，只能往上。</li>
+<li>價格在線下方：反過來。</li>
+<li>收盤穿過停損線就翻向。</li>
+</ul>
+<p><strong>為什麼這樣設計</strong>：概念和 Supertrend 很像，都是「波動度停損＋翻向」。差別有兩個：UT Bot 用收盤價當基準（Supertrend 用高低中點），而且預設倍數只有 1。</p>
+<p><strong>倍數 1 的問題</strong>：一個 ATR 就是「一根正常 K 的振幅」。在 60 分 K 上，價格回頭一根 K 就會碰到停損。實測結果：</p>
+<ul>
+<li><strong>最快</strong>：從轉折到進場，中位數只要 5 根 K，遠快於其他四支。</li>
+<li><strong>最吵</strong>：多空版 704 筆交易，是 EMA 交叉的近 3 倍。</li>
+<li><strong>最貴</strong>：成本加倍時多空版從 −13,750 點掉到 −16,971 點，成本吃掉最多。</li>
+<li>多空版是十組裡唯一淨虧損的，最大回撤 20,749 點。</li>
+</ul>
+<p>UT Bot 是「快」這一端的極端例子：轉折幾乎馬上反應，但雜訊和成本把好處全吃掉了。</p>
+<hr>
+<h2 id="3">3. 台指期實測<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<h3 id="31">3.1 設定<a class="headerlink" href="#31" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>設定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商品</td>
+<td>台指期近月連續（TX），1 口，每點 NT$200</td>
+</tr>
+<tr>
+<td>K 線</td>
+<td>60 分 K，日盤＋夜盤</td>
+</tr>
+<tr>
+<td>期間</td>
+<td>2025-06-06 至 2026-10-02（約 1.32 年）</td>
+</tr>
+<tr>
+<td>進場</td>
+<td>訊號 K 收盤確認，<strong>下一根 K 開盤</strong>成交</td>
+</tr>
+<tr>
+<td>持倉</td>
+<td>跨日、跨夜盤，不強制收盤平倉</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>手續費、期交稅、日盤 1 tick／夜盤 2 tick 滑價、急市滑價加倍（cost-models v1.2）</td>
+</tr>
+<tr>
+<td>參數</td>
+<td>全部用 TradingView 預設值，不調參</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>每支分「多空都做」與「只做多」兩組，共 10 組</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32">3.2 成績總表<a class="headerlink" href="#32" title="Permanent link">¶</a></h3>
+<p>點數為淨點數（已扣成本）。「同曝險持有」是把買進持有的報酬乘上策略在市場裡的時間比例，用來公平比較。</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>版本</th>
+<th style="text-align: right;">交易數</th>
+<th style="text-align: right;">勝率</th>
+<th style="text-align: right;">淨點數</th>
+<th style="text-align: right;">同曝險持有</th>
+<th style="text-align: right;">最大回撤</th>
+<th style="text-align: right;">成本加倍後</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMA 交叉</td>
+<td>多空</td>
+<td style="text-align: right;">252</td>
+<td style="text-align: right;">34.5%</td>
+<td style="text-align: right;">9,074</td>
+<td style="text-align: right;">27,078</td>
+<td style="text-align: right;">5,013</td>
+<td style="text-align: right;">7,914</td>
+</tr>
+<tr>
+<td>EMA 交叉</td>
+<td>只做多</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">41.3%</td>
+<td style="text-align: right;"><strong>18,090</strong></td>
+<td style="text-align: right;">16,903</td>
+<td style="text-align: right;">3,700</td>
+<td style="text-align: right;">17,510</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td>多空</td>
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">41.6%</td>
+<td style="text-align: right;">2,927</td>
+<td style="text-align: right;">26,966</td>
+<td style="text-align: right;">10,748</td>
+<td style="text-align: right;">2,077</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td>只做多</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">50.6%</td>
+<td style="text-align: right;">14,881</td>
+<td style="text-align: right;">15,639</td>
+<td style="text-align: right;">5,037</td>
+<td style="text-align: right;">14,454</td>
+</tr>
+<tr>
+<td>MACD+RSI</td>
+<td>多空</td>
+<td style="text-align: right;">255</td>
+<td style="text-align: right;">40.4%</td>
+<td style="text-align: right;">7,372</td>
+<td style="text-align: right;">12,416</td>
+<td style="text-align: right;">3,954</td>
+<td style="text-align: right;">6,194</td>
+</tr>
+<tr>
+<td>MACD+RSI</td>
+<td>只做多</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">46.8%</td>
+<td style="text-align: right;">8,377</td>
+<td style="text-align: right;">7,849</td>
+<td style="text-align: right;">2,828</td>
+<td style="text-align: right;">7,654</td>
+</tr>
+<tr>
+<td>Squeeze</td>
+<td>多空</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">44.4%</td>
+<td style="text-align: right;">5,107</td>
+<td style="text-align: right;">10,673</td>
+<td style="text-align: right;">6,026</td>
+<td style="text-align: right;">4,573</td>
+</tr>
+<tr>
+<td>Squeeze</td>
+<td>只做多</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">50.7%</td>
+<td style="text-align: right;">13,682</td>
+<td style="text-align: right;">7,616</td>
+<td style="text-align: right;"><strong>2,080</strong></td>
+<td style="text-align: right;">13,371</td>
+</tr>
+<tr>
+<td>UT Bot</td>
+<td>多空</td>
+<td style="text-align: right;">704</td>
+<td style="text-align: right;">35.1%</td>
+<td style="text-align: right;"><strong>−13,750</strong></td>
+<td style="text-align: right;">26,970</td>
+<td style="text-align: right;">20,749</td>
+<td style="text-align: right;">−16,971</td>
+</tr>
+<tr>
+<td>UT Bot</td>
+<td>只做多</td>
+<td style="text-align: right;">352</td>
+<td style="text-align: right;">42.6%</td>
+<td style="text-align: right;">6,590</td>
+<td style="text-align: right;">15,442</td>
+<td style="text-align: right;">8,848</td>
+<td style="text-align: right;">4,980</td>
+</tr>
+<tr>
+<td><strong>買進持有</strong></td>
+<td>—</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><strong>27,087</strong></td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">9,238</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33">3.3 超額報酬檢定<a class="headerlink" href="#33" title="Permanent link">¶</a></h3>
+<p>光看淨點數會被大盤上漲騙。正式的判斷方法是把策略每個交易時段的損益，對買進持有的損益做回歸：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>策略損益 = α + β × 大盤損益 + 誤差
+</span></code></pre></div>
+<p>β 是「跟著大盤動的部分」，α 才是策略自己的本事。α 的信賴區間用區塊自助法（block bootstrap）算，保留時間上的相關性。</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>版本</th>
+<th style="text-align: right;">α（點／時段）</th>
+<th>α 95% 信賴區間</th>
+<th style="text-align: right;">β</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMA 交叉</td>
+<td>多空</td>
+<td style="text-align: right;">26.1</td>
+<td>[−32.2, 75.9]</td>
+<td style="text-align: right;">0.03</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>EMA 交叉</td>
+<td>只做多</td>
+<td style="text-align: right;">13.1</td>
+<td>[−16.1, 38.0]</td>
+<td style="text-align: right;">0.51</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td>多空</td>
+<td style="text-align: right;">14.7</td>
+<td>[−45.0, 68.4]</td>
+<td style="text-align: right;">−0.07</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td>只做多</td>
+<td style="text-align: right;">7.0</td>
+<td>[−22.9, 33.9]</td>
+<td style="text-align: right;">0.47</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>MACD+RSI</td>
+<td>多空</td>
+<td style="text-align: right;">26.0</td>
+<td>[−17.6, 64.3]</td>
+<td style="text-align: right;">−0.04</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>MACD+RSI</td>
+<td>只做多</td>
+<td style="text-align: right;">5.1</td>
+<td>[−22.8, 32.9]</td>
+<td style="text-align: right;">0.25</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>Squeeze</td>
+<td>多空</td>
+<td style="text-align: right;">6.6</td>
+<td>[−26.3, 38.5]</td>
+<td style="text-align: right;">0.11</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>Squeeze</td>
+<td>只做多</td>
+<td style="text-align: right;">22.2</td>
+<td>[−7.9, 53.5]</td>
+<td style="text-align: right;">0.24</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>UT Bot</td>
+<td>多空</td>
+<td style="text-align: right;">−44.7</td>
+<td>[−115.4, 18.2]</td>
+<td style="text-align: right;">0.02</td>
+<td>淘汰</td>
+</tr>
+<tr>
+<td>UT Bot</td>
+<td>只做多</td>
+<td style="text-align: right;">−22.6</td>
+<td>[−58.1, 9.0]</td>
+<td style="text-align: right;">0.51</td>
+<td>淘汰</td>
+</tr>
+</tbody>
+</table>
+<p>事先寫好的過關條件是：α &gt; 0 且信賴區間不含零，<strong>而且</strong>成本加倍後仍淨賺。十組的信賴區間全部包含零，所以全部淘汰。</p>
+<hr>
+<h2 id="4">4. 從結果看懂指標<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
+<h3 id="41">4.1 空單全賠：方向比指標重要<a class="headerlink" href="#41" title="Permanent link">¶</a></h3>
+<p>五支策略的多空版，空單部分全部虧損：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th style="text-align: right;">多單損益</th>
+<th style="text-align: right;">空單損益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMA 交叉</td>
+<td style="text-align: right;">+18,090</td>
+<td style="text-align: right;">−9,016</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td style="text-align: right;">+14,881</td>
+<td style="text-align: right;">−11,955</td>
+</tr>
+<tr>
+<td>MACD+RSI</td>
+<td style="text-align: right;">+8,377</td>
+<td style="text-align: right;">−1,006</td>
+</tr>
+<tr>
+<td>Squeeze</td>
+<td style="text-align: right;">+13,247</td>
+<td style="text-align: right;">−8,140</td>
+</tr>
+<tr>
+<td>UT Bot</td>
+<td style="text-align: right;">+6,590</td>
+<td style="text-align: right;">−20,340</td>
+</tr>
+</tbody>
+</table>
+<p>這段期間台指漲了 125%。任何對稱的多空策略，在單邊多頭裡都會在空單上繳學費。</p>
+<p>看到別人的回測很漂亮時，第一個問題應該是：<strong>那段期間大盤自己漲了多少？</strong></p>
+<h3 id="42">4.2 快與穩的取捨，數字看得到<a class="headerlink" href="#42" title="Permanent link">¶</a></h3>
+<p>把「從轉折到進場要多久」和「多常被洗出場」放在一起：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th style="text-align: right;">轉折後進場延遲（中位數，根）</th>
+<th style="text-align: right;">3 根內出場比例</th>
+<th style="text-align: right;">交易數（多空版）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UT Bot</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">27.8%</td>
+<td style="text-align: right;">704</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1.2%</td>
+<td style="text-align: right;">173</td>
+</tr>
+<tr>
+<td>EMA 交叉</td>
+<td style="text-align: right;">21.5</td>
+<td style="text-align: right;">21.0%</td>
+<td style="text-align: right;">252</td>
+</tr>
+<tr>
+<td>Squeeze</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">11.1%</td>
+<td style="text-align: right;">117</td>
+</tr>
+<tr>
+<td>MACD+RSI</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">23.5%</td>
+<td style="text-align: right;">255</td>
+</tr>
+</tbody>
+</table>
+<p>UT Bot 最快，但被洗最多。Supertrend 和 EMA 交叉一樣慢，但 Supertrend 被洗的比例只有 EMA 的 1/18。差別在於 Supertrend 用 ATR 當門檻，EMA 交叉沒有門檻，兩條線差一點點也算交叉。</p>
+<p>速度一樣的時候，<strong>有沒有門檻決定了雜訊多寡</strong>。</p>
+<p>MACD+RSI 最慢，被洗比例卻不低，因為雙重平滑讓它慢，但 MACD 線和訊號線在盤整時一樣會糾纏。</p>
+<h3 id="43">4.3 賺錢靠少數大單<a class="headerlink" href="#43" title="Permanent link">¶</a></h3>
+<p>把每組最賺的 5 筆交易拿掉，剩下的會怎樣？</p>
+<ul>
+<li>EMA 交叉多空版：前 5 筆佔淨利的 161%，拿掉之後是虧損。</li>
+<li>Supertrend 多空版：前 5 筆佔淨利的 519%。</li>
+<li>Squeeze 多空版：前 5 筆佔淨利的 201%。</li>
+</ul>
+<p>趨勢策略的獲利模式就是這樣：大部分時間小賠，等一兩段大行情。這代表：</p>
+<ol>
+<li><strong>不能隨便手動跳過訊號</strong>。跳過的那一筆可能剛好是整年的獲利來源。</li>
+<li><strong>樣本很短時，結果非常不穩</strong>。少了一段大行情，整個結論就翻過來。1.3 年的資料只夠看出性格，不夠下結論。</li>
+</ol>
+<h3 id="44">4.4 為什麼「只做多」版看起來比較好<a class="headerlink" href="#44" title="Permanent link">¶</a></h3>
+<p>只做多版的 β 都在 0.24 到 0.51 之間，代表它們有一部分報酬就是「跟著大盤漲」。它們淨點數比較高，主要是因為少了虧錢的空單，不代表指標本身變準了。</p>
+<p>跟「同曝險持有」比較才公平：</p>
+<ul>
+<li>EMA 交叉只做多：18,090 vs 16,903，略好。</li>
+<li>Squeeze 只做多：13,682 vs 7,616，好不少。</li>
+<li>UT Bot 只做多：6,590 vs 15,442，差很多。</li>
+</ul>
+<p>Squeeze 只做多版用 28% 的時間在市場裡，賺到持有報酬的一半，最大回撤只有持有的 1/4。這是十組裡最值得後續研究的方向，但目前證據不夠，信賴區間仍包含零。</p>
+<hr>
+<h2 id="5">5. 學術研究怎麼看技術分析<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
+<p>這次的結果和過去幾十年的研究大致一致。</p>
+<ul>
+<li><strong>Brock、Lakonishok、LeBaron（1992）</strong>：用道瓊 1897–1986 年的資料測了 26 種均線和區間突破規則，發現有預測力。這篇是技術分析最常被引用的正面證據。</li>
+<li><strong>Sullivan、Timmermann、White（1999）</strong>：把上面的規則擴大到近 8,000 種，用「現實檢驗」（Reality Check）修正資料探勘偏誤。1986 年以前的結果仍成立，但<strong>1987 年之後的樣本外資料，同樣的規則不再顯著</strong>。</li>
+<li><strong>Park &amp; Irwin（2007）</strong>：回顧 95 篇現代研究，56 篇有正面結果，但很多研究有資料探勘、成本低估、風險沒調整等問題。正面結果在期貨和外匯市場比在股票市場一致。</li>
+<li><strong>Hurst、Ooi、Pedersen（2017）</strong>：用 1880 年起、跨 67 個市場的資料，發現<strong>跨市場分散的趨勢跟隨</strong>（時間序列動能）每個十年都有正報酬，而且在大型危機中表現好。</li>
+</ul>
+<p>把這些放在一起看：</p>
+<ol>
+<li>趨勢跟隨的證據，主要來自<strong>很多市場一起做、長週期（月）、長期間</strong>，而不是單一市場的短週期。</li>
+<li>單一指標在單一市場的短期回測，最容易被資料探勘和行情偏差誤導。</li>
+<li>越多人用的規則，越可能被提前交易而失效。</li>
+</ol>
+<hr>
+<h2 id="6">6. 之後可以怎麼改、怎麼搭配<a class="headerlink" href="#6" title="Permanent link">¶</a></h2>
+<p>以下方向都還沒測，要測必須先寫新的研究假設（S0）。如果只能挑一個，我會先做 6.6：資料裡沒有空頭，其他改法在這份資料上測了也分不出好壞。</p>
+<h3 id="61">6.1 先處理方向：加一個大週期的趨勢濾網<a class="headerlink" href="#61" title="Permanent link">¶</a></h3>
+<p>空單在多頭裡全虧。改法是只在大週期趨勢向下時才允許做空，例如日線收盤在 EMA(60) 之下才開空單，否則空單訊號只平倉。</p>
+<p>短週期指標負責「進出場時機」，大週期負責「方向」。這是多時間框架（multi-timeframe）最常見的分工。注意大週期的值要用<strong>已完成的那根日 K</strong>，不能用盤中還在變的值，否則會偷看未來。</p>
+<h3 id="62-ema">6.2 給 EMA 交叉加門檻<a class="headerlink" href="#62-ema" title="Permanent link">¶</a></h3>
+<p>EMA 交叉被洗的比例是 Supertrend 的 18 倍。可以規定兩條 EMA 的差距超過 0.5 個 ATR 才算交叉，等於把 Supertrend 的門檻搬到 EMA 上。0.5 是舉例，不是測出來的值。</p>
+<h3 id="63-ut-bot">6.3 UT Bot 放寬倍數或拉長週期<a class="headerlink" href="#63-ut-bot" title="Permanent link">¶</a></h3>
+<p><strong>問題</strong>：倍數 1 在 60 分 K 上太緊，成本吃掉一切。</p>
+<p><strong>做法</strong>：倍數改回原版 3.5，或維持倍數 1 但改用 4 小時、日 K。</p>
+<p><strong>為什麼</strong>：ATR 停損的寬度要大於「正常的一根 K」，價格才有喘息空間。這一項要小心：調倍數就是調參數，必須先決定好要測哪幾個值，不能一個一個試到賺錢為止。</p>
+<h3 id="64-squeeze">6.4 Squeeze 當濾網，不當訊號<a class="headerlink" href="#64-squeeze" title="Permanent link">¶</a></h3>
+<p>Squeeze 回答「什麼時候會動」，趨勢指標回答「往哪裡動」。用 Supertrend 或 EMA 決定方向，Squeeze 釋放時才允許進場，兩個問題分給兩個指標。</p>
+<h3 id="65">6.5 用波動度決定部位大小<a class="headerlink" href="#65" title="Permanent link">¶</a></h3>
+<p><strong>問題</strong>：台指從 2 萬漲到 4.8 萬點，同樣一口單的風險變成兩倍以上。</p>
+<p><strong>做法</strong>：每筆交易的口數 = 固定風險金額 ÷（停損距離 × 每點價值）。停損距離用 ATR 的倍數。可以改用小台或微台來做細的口數調整。</p>
+<p><strong>為什麼</strong>：Hurst 等人的研究裡，趨勢跟隨的部位都是按波動度調整的。不調整的話，高波動時期的損益會主導整個結果。</p>
+<h3 id="66">6.6 換更長的資料測<a class="headerlink" href="#66" title="Permanent link">¶</a></h3>
+<p><strong>問題</strong>：1.3 年、單一多頭，看不出策略在空頭裡會怎樣。</p>
+<p><strong>做法</strong>：用台指期日 K（2016 年起有資料，包含 2020 年崩盤和 2022 年空頭）重跑一次日線版本。</p>
+<p><strong>為什麼</strong>：趨勢策略最大的價值，往往是在空頭時少賠或賺錢。這次的資料剛好沒有空頭，等於沒測到它最重要的功能。</p>
+<hr>
+<h2 id="7">7. 這次研究的限制<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>資料太短、只有多頭</strong>。1.32 年，台指漲 125%。</li>
+<li><strong>連續月拼接</strong>。用的是近月連續合約，換月時的價差沒有逐筆驗證。</li>
+<li><strong>Pine Script 還沒在 TradingView 上編譯和對帳</strong>。研究線附了五個 Pine v6 檔，但 TradingView 回測結果只能當參考，正式數字以 Python 引擎為準。</li>
+<li><strong>沒有調參</strong>。這是刻意的。預設參數是社群實際在用的版本；調參會增加資料探勘的風險。</li>
+<li><strong>研究線已結案</strong>。10 次測試額度全部用完，全數淘汰。之後要繼續，得寫新的研究假設，不能拿這次的線直接調參數重跑。</li>
+</ul>
+<hr>
+<h2 id="_2">參考資料<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<ul>
+<li>Brock, W., Lakonishok, J., &amp; LeBaron, B. (1992). <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.1992.tb04681.x">Simple Technical Trading Rules and the Stochastic Properties of Stock Returns</a>. <em>Journal of Finance</em>.</li>
+<li>Sullivan, R., Timmermann, A., &amp; White, H. (1999). <a href="https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.00163">Data-Snooping, Technical Trading Rule Performance, and the Bootstrap</a>. <em>Journal of Finance</em>.</li>
+<li>Park, C.-H., &amp; Irwin, S. H. (2007). <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-6419.2007.00519.x">What Do We Know About the Profitability of Technical Analysis?</a> <em>Journal of Economic Surveys</em>.</li>
+<li>Hurst, B., Ooi, Y. H., &amp; Pedersen, L. H. (2017). <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2993026">A Century of Evidence on Trend-Following Investing</a>. <em>Journal of Portfolio Management</em>.</li>
+<li>Ehlers, J., &amp; Way, R. <a href="https://www.mesasoftware.com/papers/ZeroLag.pdf">Zero Lag (well, almost)</a>：EMA 延遲與平滑的取捨。</li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_smoothing">Exponential smoothing</a>：EMA 的數學定義。</li>
+<li><a href="https://ta-lib.org/functions/rma.html">Wilder's Smoothed Moving Average (RMA)</a>：RMA 與 EMA 的關係。</li>
+<li><a href="https://en.wikipedia.org/wiki/MACD">MACD</a>：Gerald Appel 與 12/26/9 的由來。</li>
+<li><a href="https://www.tradingview.com/script/nqQ1DT5a-Squeeze-Momentum-Indicator-LazyBear/">Squeeze Momentum Indicator [LazyBear]</a>：TradingView 原始腳本。</li>
+<li><a href="https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ttm-squeeze">TTM Squeeze（StockCharts ChartSchool）</a>：BB 與 KC 的擠壓原理。</li>
+<li><a href="https://www.tradingview.com/script/mb01mqxH/">UT Bot Alerts</a>：TradingView 原始腳本。</li>
+<li><a href="https://phemex.com/academy/how-to-calculate-supertrend">Supertrend Indicator（Phemex Academy）</a>：計算方式與預設參數。</li>
 </ul>
 
 
@@ -4397,7 +5558,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 03:24:14 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4407,7 +5568,7 @@
     <span class="md-icon" title="建立日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年6月19日 08:54:41 UTC">2026年6月19日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 03:24:14 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4442,7 +5603,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../superpowers-claude-code-skills/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Superpowers Skill 框架">
+          <a href="../taiwan-uncle-wave-research-closeout/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 台指期波浪理論策略研究結案">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4452,20 +5613,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                Superpowers Skill 框架
+                台指期波浪理論策略研究結案
               </div>
             </div>
           </a>
         
         
           
-          <a href="../anthropic-document-skills/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Anthropic Agent Skills">
+          <a href="../threads-txf-sentiment-following-research/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Threads 台指期情緒與跟單策略研究規劃">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                Anthropic Agent Skills
+                Threads 台指期情緒與跟單策略研究規劃
               </div>
             </div>
             <div class="md-footer__button md-icon">
