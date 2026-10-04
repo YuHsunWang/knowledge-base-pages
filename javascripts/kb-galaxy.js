@@ -190,7 +190,7 @@
       star.style.setProperty('--star-y', (random() * 100).toFixed(2) + '%');
       star.style.setProperty('--star-size', (0.9 + weight * 1.7).toFixed(2) + 'px');
       star.style.setProperty('--star-opacity', (0.16 + weight * 0.44).toFixed(2));
-      star.style.setProperty('--star-period', (5.5 + random() * 7).toFixed(2) + 's');
+      star.style.setProperty('--star-period', (2.5 + random() * 3.5).toFixed(2) + 's');
       star.style.setProperty('--star-delay', (random() * -9).toFixed(2) + 's');
       star.setAttribute('aria-hidden', 'true');
       fragment.appendChild(star);
@@ -530,7 +530,7 @@
           var x = cx + mote.x * halfW;
           var y = cy + mote.y * halfH;
           if (!onScreen(x, y, 4)) return;
-          context.globalAlpha = mote.alpha * shimmer(mote.x * 97, mote.y * 89, 900, 0.6);
+          context.globalAlpha = mote.alpha * shimmer(mote.x * 97, mote.y * 89, 450, 0.9);
           context.fillStyle = mote.blue ? tokens.blue : tokens.star;
           context.beginPath();
           context.arc(x, y, mote.size, 0, Math.PI * 2);
@@ -557,11 +557,11 @@
             var x = sx(star.x);
             var y = sy(star.y);
             if (!onScreen(x, y, 24)) return;
-            var pulse = shimmer(star.x, star.y, 700, 0.35);
-            var glow = starRadius * (4 + pulse);
+            var pulse = shimmer(star.x, star.y, 400, 0.75);
+            var glow = starRadius * (3 + 3 * pulse);
             context.globalAlpha = 0.55 * arrival * pulse;
             context.drawImage(blueGlow, x - glow, y - glow, glow * 2, glow * 2);
-            context.globalAlpha = arrival * (0.3 + 0.7 * pulse);
+            context.globalAlpha = arrival * (0.15 + 0.85 * pulse);
             context.fillStyle = tokens.star;
             context.beginPath();
             context.arc(x, y, starRadius, 0, Math.PI * 2);

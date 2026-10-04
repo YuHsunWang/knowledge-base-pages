@@ -132,7 +132,7 @@ body[data-md-color-scheme="slate"]::after {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  animation: kb-sky-twinkle 6s ease-in-out infinite alternate;
+  animation: kb-sky-twinkle 3s ease-in-out infinite alternate;
 }
 body[data-md-color-scheme="slate"]::before {
   background-image:
@@ -150,12 +150,12 @@ body[data-md-color-scheme="slate"]::after {
     radial-gradient(1px 1px at 43px 331px, var(--kb-space-star), transparent),
     radial-gradient(1px 1px at 233px 197px, var(--kb-space-star), transparent);
   background-size: 337px 337px;
-  animation-duration: 9s;
-  animation-delay: -4s;
+  animation-duration: 4.5s;
+  animation-delay: -2s;
 }
 @keyframes kb-sky-twinkle {
-  from { opacity: 0.15; }
-  to   { opacity: 0.55; }
+  from { opacity: 0.05; }
+  to   { opacity: 0.9; }
 }
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-tabs {

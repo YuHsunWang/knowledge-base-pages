@@ -188,7 +188,7 @@ html.kb-galaxy-ready .kb-world-fallback { display: none; }
 
 @keyframes kb-galaxy-twinkle {
   0%, 100% { opacity: var(--star-opacity); }
-  50%      { opacity: calc(var(--star-opacity) * 0.3); }
+  50%      { opacity: calc(var(--star-opacity) * 0.05); }
 }
 
 /* ── Nodes ───────────────────────────────────────────────────────
