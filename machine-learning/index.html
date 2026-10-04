@@ -2332,6 +2332,8 @@
       
         
       
+        
+      
     
     
     
@@ -2464,6 +2466,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transformer-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9 · Transformer 與注意力機制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2480,6 +2510,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -2619,6 +2653,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 · 模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2635,6 +2725,8 @@
   
     
     
+      
+        
       
         
       
@@ -2701,6 +2793,34 @@
     
   
     7 · 常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 · 金融時間序列 ML
   
 
     
@@ -4052,7 +4172,7 @@
 
 <h1 id="machine-learning">Machine Learning<a class="headerlink" href="#machine-learning" title="Permanent link">¶</a></h1>
 <p>本區整理機器學習、深度學習、特徵工程、模型評估與實驗設計。內容偏向觀念釐清、可重複的作法，以及容易被誤用的地方。</p>
-<p>共 8 篇，分成四軌：<strong>觀念地基</strong>（懂原理）、<strong>動手實作</strong>（做得出來）、<strong>綜合應用</strong>（把兩者接起來）、<strong>統計與實驗</strong>（判斷差異是不是真的）。ML 不像產業研究是單一流程，強行排成一條線反而失真，因此依「你現在想做什麼」分軌。</p>
+<p>共 12 篇，分成四軌：<strong>觀念地基</strong>（懂原理）、<strong>動手實作</strong>（做得出來）、<strong>綜合應用</strong>（把兩者接起來）、<strong>統計與實驗</strong>（判斷差異是不是真的）。ML 不像產業研究是單一流程，強行排成一條線反而失真，因此依「你現在想做什麼」分軌。</p>
 <h2 id="_1">閱讀地圖<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -4112,12 +4232,37 @@
 <td>這個差異是真的嗎？該不該上線？</td>
 <td>方法＋實驗設計</td>
 </tr>
+<tr>
+<td>9</td>
+<td><a href="transformer-attention/">Transformer 與注意力機制</a></td>
+<td>Attention 在算什麼？為什麼要除以 √d？</td>
+<td>機制＋numpy 實驗</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="gradient-boosting-in-practice/">Gradient Boosting 實戰</a></td>
+<td>三套 GBDT 差多少？什麼時候會輸？</td>
+<td>實測＋調參順序</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="model-interpretability-shap/">模型可解釋性</a></td>
+<td>哪個特徵最重要？這個答案可信嗎？</td>
+<td>實測＋修法</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="financial-ml-time-series/">金融時間序列 ML</a></td>
+<td>回測分數為什麼會騙人？</td>
+<td>模擬實驗＋驗證流程</td>
+</tr>
 </tbody>
 </table>
 <h3 id="_2">依目標分流<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>想快速建立觀念全貌</strong> → 1 → 3，需要更完整的推導與脈絡再進 2。</li>
-<li><strong>要做完一個專案</strong> → 4 → 5 → 6 → 7，遇到觀念卡住再回 1。</li>
+<li><strong>想快速建立觀念全貌</strong> → 1 → 3，需要更完整的推導與脈絡再進 2；接著想懂大型語言模型的底層，讀 9。</li>
+<li><strong>要做完一個專案</strong> → 4 → 5 → 6 → 7，遇到觀念卡住再回 1。模型選定 GBDT 後讀 10，要向別人解釋模型時讀 11。</li>
+<li><strong>要用 ML 做交易研究</strong> → 6 → 12，12 的洩漏問題在一般時序任務（7 的 Case 3）也成立。</li>
 <li><strong>要驗證一個產品改動有沒有效</strong> → 8 單獨成立，不需要先讀 1–7。</li>
 <li><strong>要把書讀完</strong> → 2 走章節，各章的主題深入處會指向 1、6 的對應小節。</li>
 </ul>
@@ -4157,6 +4302,16 @@
 <td>8 · 統計推論與 A/B 測試</td>
 <td>6 談的是模型評估的推論，不涉隨機分派</td>
 </tr>
+<tr>
+<td>GBDT 的實作、調參與限制</td>
+<td>10 · Gradient Boosting 實戰</td>
+<td>1 保留 Bagging vs Boosting 的觀念比較</td>
+</tr>
+<tr>
+<td>時序資料的 CV 洩漏與 purge</td>
+<td>12 · 金融時間序列 ML</td>
+<td>6 保留 TimeSeriesSplit 的一般用法</td>
+</tr>
 </tbody>
 </table>
 <h2 id="learning-paths">Learning Paths<a class="headerlink" href="#learning-paths" title="Permanent link">¶</a></h2>
@@ -4171,6 +4326,8 @@
   照書走章節：ML 全景、端到端專案、分類與 threshold、訓練原理、SVM、決策樹、集成、降維、分群。書中獨有的推導與細節在這裡。</li>
 <li><strong>3 ·</strong> <a href="deep-learning-training-fundamentals/">深度學習訓練基礎</a><br>
   神經網路的訓練迴路：激活函數、損失、優化器、反向傳播、Dropout/BatchNorm、CNN 入門。</li>
+<li><strong>9 ·</strong> <a href="transformer-attention/">Transformer 與注意力機制</a><br>
+  用 numpy 從零實作 attention，實測不除以 √d 時 softmax 怎麼飽和、attention 為什麼不知道詞序，以及 O(n²) 的記憶體代價。</li>
 </ul>
 <h3 id="ml-practice">動手實作<a class="headerlink" href="#ml-practice" title="Permanent link">¶</a></h3>
 <ul>
@@ -4180,11 +4337,17 @@
   ColumnTransformer、自訂 Transformer、GridSearchCV 整合到儲存部署的完整可複製模板。</li>
 <li><strong>6 ·</strong> <a href="model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a><br>
   指標選擇、CV 策略（Stratified / Group / TimeSeriesSplit）、Nested CV，以及不漏水的評估流程與常見陷阱。</li>
+<li><strong>10 ·</strong> <a href="gradient-boosting-in-practice/">Gradient Boosting 實戰</a><br>
+  同一份資料實測 XGBoost / LightGBM / CatBoost / HistGB，拆解 learning rate 與 early stopping，以及樹模型不會外插的失敗情境。</li>
+<li><strong>11 ·</strong> <a href="model-interpretability-shap/">模型可解釋性：Feature Importance 與 SHAP</a><br>
+  三種重要度方法為什麼給出不同排名，以及高度相關的特徵如何讓它們一起失準、怎麼分組修正。</li>
 </ul>
 <h3 id="ml-applications">綜合應用<a class="headerlink" href="#ml-applications" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>7 ·</strong> <a href="ml-case-studies/">常見 ML Case Study：分類、回歸、時間序列與推薦</a><br>
   四種任務類型的端到端解題思路、典型陷阱與程式碼骨架，以及跨任務的通用決策框架。</li>
+<li><strong>12 ·</strong> <a href="financial-ml-time-series/">金融時間序列 ML：回測分數從哪裡來</a><br>
+  用隨機漫步實測亂洗 K-Fold 的洩漏、purge/embargo 的實際效果、三重障礙標籤與有效樣本數。</li>
 </ul>
 <h3 id="statistics-experiments">統計與實驗<a class="headerlink" href="#statistics-experiments" title="Permanent link">¶</a></h3>
 <ul>
@@ -4214,7 +4377,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月27日 23:35:31 UTC">2026年8月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:39:08 UTC">2026年10月4日</span>
   </span>
 
     

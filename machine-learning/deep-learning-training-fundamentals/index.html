@@ -13,7 +13,7 @@
         <link rel="prev" href="../geron-hands-on-ml-notes/">
       
       
-        <link rel="next" href="../feature-engineering/">
+        <link rel="next" href="../transformer-attention/">
       
       
         
@@ -2332,6 +2332,8 @@
       
         
       
+        
+      
     
     
     
@@ -2583,17 +2585,6 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一頁總複習
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         延伸閱讀（本站）
       
     </span>
@@ -2602,7 +2593,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -2616,6 +2607,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9 · Transformer 與注意力機制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2637,6 +2656,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -2776,6 +2799,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 · 模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2792,6 +2871,8 @@
   
     
     
+      
+        
       
         
       
@@ -2858,6 +2939,34 @@
     
   
     7 · 常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 · 金融時間序列 ML
   
 
     
@@ -4115,17 +4224,6 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一頁總複習
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         延伸閱讀（本站）
       
     </span>
@@ -4134,7 +4232,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -4360,7 +4458,7 @@
 <ul>
 <li><strong>Adagrad 為何後期學不動</strong>：分母是歷史梯度平方的<strong>累加</strong>，只增不減，lr 被越除越小。RMSprop 改成指數移動平均（會遺忘久遠梯度）就解決了。</li>
 <li><strong>Adam 由什麼組成</strong>：Momentum（一階動量 m）＋ RMSprop（二階動量 v）＋ 對早期迭代的 bias correction；預設參數就很好用。</li>
-<li><strong>Adam vs SGD</strong>：Adam 收斂快、好調；但 SGD+Momentum＋好的 lr schedule 有時最終泛化更好——Adam 偶爾收斂到泛化較差的平坦解。</li>
+<li><strong>Adam vs SGD</strong>：Adam 收斂快、好調；但 SGD+Momentum＋好的 lr schedule 有時最終泛化更好——Adam 有時停在泛化較差的解。</li>
 </ul>
 </div>
 <h2 id="4-backpropagation">4. 反向傳播（Backpropagation）<a class="headerlink" href="#4-backpropagation" title="Permanent link">¶</a></h2>
@@ -4381,7 +4479,7 @@
 <p>L1/L2 的本體見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 · 正則化</a>〉（NN 裡 L2 即 <strong>weight decay</strong>）。NN 特有的兩招：</p>
 <ul>
 <li><strong>Dropout</strong>：訓練時隨機「關掉」一部分神經元（常 <code>p=0.2~0.5</code>），強迫網路不依賴特定神經元（防 co-adaptation）。<strong>推論時不關、並做縮放</strong>以維持期望值一致。直覺上等於在訓練無數個共享權重的子網路再集成（2ⁿ 種組合）。</li>
-<li><strong>Batch Normalization</strong>：對每個特徵在 <strong>batch 內</strong>標準化（減均值除標準差再縮放平移）。<strong>訓練用當前 batch 統計、推論用訓練期累積的 moving average</strong>。好處：緩解梯度消失/內部協變偏移、可用更大 learning rate、帶輕微正則化效果。</li>
+<li><strong>Batch Normalization</strong>：對每個特徵在 <strong>batch 內</strong>標準化（減均值除標準差再縮放平移）。<strong>訓練用當前 batch 統計、推論用訓練期累積的 moving average</strong>。好處：可用更大 learning rate、訓練更穩、帶輕微正則化效果。原論文把功勞歸給減少「內部協變偏移」，後來的研究（Santurkar et al., 2018）認為主因是 loss 曲面變平滑。</li>
 <li><strong>Early Stopping</strong>：監看 validation loss，回升（不再進步）就停。它不是讓模型更強，而是<strong>阻止它變更差</strong>。</li>
 <li><strong>Data Augmentation</strong>：擴增資料多樣性（影像旋轉/翻轉/調色；文字同義替換/回譯）。</li>
 </ul>
@@ -4408,7 +4506,7 @@
 <h2 id="7-cnn">7. CNN 入門（卷積神經網路）<a class="headerlink" href="#7-cnn" title="Permanent link">¶</a></h2>
 <p>影像任務的主力。核心：
 - <strong>Filter / Kernel</strong>：一組小的可學權重，在影像上滑動做卷積、偵測 pattern（邊、角、紋理）。<strong>filter 的值是訓練學出來的，不是人工設計</strong>。
-- <strong>參數共享 + 局部連接</strong>：同一個 filter 掃全圖 → 參數遠少於全連接、且具<strong>平移不變性</strong>。
+- <strong>參數共享 + 局部連接</strong>：同一個 filter 掃全圖 → 參數遠少於全連接；物件移位，特徵圖也跟著移（平移等變）。
 - <strong>特徵階層</strong>：低層學線條/顏色 → 中層學形狀/輪廓 → 高層組成複雜物件（輪子、窗戶）。
 - <strong>Pooling</strong>（如 Max Pooling）：降採樣、縮小尺寸、增強平移不變、降計算。</p>
 <div class="admonition note">
@@ -4416,27 +4514,18 @@
 <p><strong>CNN 為何比全連接適合影像</strong>：① 局部連接＋參數共享 → 參數量大減、不易過擬合；② 平移不變（同一物件出現在不同位置都認得）；③ 階層式自動學特徵，不用手工設計。</p>
 </div>
 <hr>
-<h2 id="_2">一頁總複習<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>激活</strong>：隱藏層 ReLU（dead ReLU 用 Leaky/ELU）；輸出層 二元 Sigmoid／多元 Softmax／回歸線性。</li>
-<li><strong>損失</strong>：回歸 MSE/MAE；分類 Cross-Entropy（整數 label 用 sparse）；SVM 用 Hinge。</li>
-<li><strong>優化器</strong>：Adagrad 後期學不動 → RMSprop（移動平均）→ <strong>Adam（業界預設）</strong>。</li>
-<li><strong>反向傳播</strong>：鏈式法則把誤差分配回權重；當心梯度消失/爆炸。</li>
-<li><strong>正則化</strong>：Dropout（訓練關、推論縮放）、BatchNorm（訓練用 batch、推論用 moving avg）、Early stopping、weight decay(=L2)。</li>
-<li><strong>CNN</strong>：filter 學出來的、參數共享、平移不變、特徵階層。</li>
-</ul>
-<hr>
-<h2 id="_3">延伸閱讀（本站）<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h2 id="_2">延伸閱讀（本站）<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../ml-interview-core-concepts/">ML 面試核心觀念</a> — 梯度下降與正則化的古典 ML 版本，本頁是它的深度學習延伸</li>
 <li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — 進入神經網路之前的古典 ML 地基</li>
 <li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — 訓練完之後怎麼公正評估</li>
 </ul>
-<h2 id="_4">參考資料<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h2 id="_3">參考資料<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>本頁為訓練零件的個人整理。各主題的標準出處：</p>
 <ul>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed.，Ch10–11（神經網路與深度網路訓練）、Ch14（CNN）</li>
 <li>Goodfellow, I., Bengio, Y., Courville, A.《Deep Learning》（MIT Press, 2016），Ch6–9</li>
+<li>Santurkar, S. et al. (2018). <a href="https://arxiv.org/abs/1805.11604">How Does Batch Normalization Help Optimization?</a> NeurIPS 2018</li>
 <li><a href="https://pytorch.org/docs/stable/optim.html">PyTorch 官方文件：torch.optim</a></li>
 <li><a href="https://keras.io/api/optimizers/">Keras 官方文件：Optimizers</a></li>
 </ul>
@@ -4462,7 +4551,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4524,13 +4613,13 @@
         
         
           
-          <a href="../feature-engineering/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 4 · 特徵工程心法">
+          <a href="../transformer-attention/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 9 · Transformer 與注意力機制">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                4 · 特徵工程心法
+                9 · Transformer 與注意力機制
               </div>
             </div>
             <div class="md-footer__button md-icon">

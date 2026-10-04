@@ -2332,6 +2332,8 @@
       
         
       
+        
+      
     
     
     
@@ -2483,7 +2485,7 @@
   <a href="#3-gradient-descent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Gradient Descent（訓練之魂）
+        3. Gradient Descent（怎麼學）
       
     </span>
   </a>
@@ -2660,6 +2662,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transformer-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9 · Transformer 與注意力機制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2676,6 +2706,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -2815,6 +2849,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 · 模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2831,6 +2921,8 @@
   
     
     
+      
+        
       
         
       
@@ -2897,6 +2989,34 @@
     
   
     7 · 常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 · 金融時間序列 ML
   
 
     
@@ -4110,7 +4230,7 @@
   <a href="#3-gradient-descent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Gradient Descent（訓練之魂）
+        3. Gradient Descent（怎麼學）
       
     </span>
   </a>
@@ -4342,7 +4462,7 @@
 <div class="admonition note">
 <p class="admonition-title">🎤 面試口答</p>
 <ul>
-<li><strong>監督 vs 非監督</strong>：差在有沒有 label。實務 ~80% 是監督；非監督多用於 label 很貴前的探索或異常檢測。</li>
+<li><strong>監督 vs 非監督</strong>：差在有沒有 label。實務上多數任務是監督；非監督多用於 label 很貴前的探索或異常檢測。</li>
 <li><strong>K-Means vs PCA</strong>：一個是分群（輸出「屬於哪群」）、一個是降維（輸出低維表示）；常先 PCA 再 K-Means。</li>
 <li><strong>應用場景</strong>：監督→金融違約預測；非監督→電商客戶分群。</li>
 </ul>
@@ -4392,14 +4512,14 @@
 <p>先看 train/val error 組合判斷：兩者都高=underfitting（加複雜度）；train 低 val 高=overfitting（先試正則化，再考慮蒐集更多資料）。</p>
 </div>
 <hr>
-<h2 id="3-gradient-descent">3. Gradient Descent（訓練之魂）<a class="headerlink" href="#3-gradient-descent" title="Permanent link">¶</a></h2>
+<h2 id="3-gradient-descent">3. Gradient Descent（怎麼學）<a class="headerlink" href="#3-gradient-descent" title="Permanent link">¶</a></h2>
 <p>一句話：站在哪、看哪個方向最陡下坡、踏一步、重複。更新公式 <code>θ ← θ − α·∇L(θ)</code>（α＝learning rate，負號＝往下坡）。</p>
 <p><strong>三種變形</strong>：
 - <strong>Batch</strong>：用全部資料算一次梯度，穩但慢。
 - <strong>SGD</strong>：一筆就更新，快但震盪大。
 - <strong>Mini-Batch（業界標準）</strong>：一小批（32/64/128/256），能吃 GPU 平行、小震盪還能幫忙逃離 local minima。</p>
 <p><strong>Learning rate</strong>：太小→收斂超慢；太大→震盪甚至發散。常用起點 0.001/0.01，搭配 scheduler（先大後小）。</p>
-<p><strong>進階優化器</strong>：Momentum（慣性）、RMSProp（每參數自適應 lr）、<strong>Adam（=兩者結合，業界預設，99% NN 用它）</strong>。高維空間真正常見的不是 local minima 而是 <strong>saddle point</strong>。各優化器（Adagrad／RMSprop／Adam β₁β₂、SGD+Nesterov）深入見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
+<p><strong>進階優化器</strong>：Momentum（慣性）、RMSProp（每參數自適應 lr）、<strong>Adam（=兩者結合，多數 NN 的預設）</strong>。高維空間真正常見的不是 local minima 而是 <strong>saddle point</strong>。各優化器（Adagrad／RMSprop／Adam β₁β₂、SGD+Nesterov）深入見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
@@ -4491,9 +4611,9 @@
 <ul>
 <li><strong>Bagging（並行）→ Random Forest</strong>：許多樹各吃 bootstrap 子集 + 每節點隨機選特徵子集 → 投票/平均，<strong>降 Variance</strong>。不易過擬合、可平行、有 feature importance、預設就好用。關鍵參數 <code>n_estimators</code>、<code>max_features</code>（分類預設 √n、回歸 n/3）、<code>max_depth</code>。</li>
 <li><strong>Boosting（串行）→ XGBoost / LightGBM / CatBoost</strong>：每棵新樹專修前面的錯誤，<strong>降 Bias</strong>。</li>
-<li><strong>XGBoost</strong>：level-wise 生長、Kaggle 經典、需手動 encode 類別。</li>
-<li><strong>LightGBM（業界主力）</strong>：leaf-wise 生長、比 XGBoost 快約 10×、原生支援類別變數；小資料（&lt;10k）易過擬合。</li>
-<li><strong>CatBoost</strong>：類別變數處理最佳、預設就強。</li>
+<li><strong>XGBoost</strong>：預設 level-wise 生長、Kaggle 經典；類別變數要開 <code>enable_categorical</code> 才原生處理，舊版只能自己 encode。</li>
+<li><strong>LightGBM（業界主力）</strong>：leaf-wise 生長、大資料上通常比 XGBoost 快、原生支援類別變數；小資料（&lt;10k）易過擬合。</li>
+<li><strong>CatBoost</strong>：類別變數是強項（ordered target statistics 防 leak），預設參數就不差。</li>
 <li>關鍵參數：<code>max_depth</code>/<code>num_leaves</code>、<code>learning_rate</code>（小→需更多樹）、<code>n_estimators</code>、<strong><code>early_stopping_rounds</code>（必加）</strong>、<code>subsample</code>/<code>colsample_bytree</code>（隨機性防過擬合）。</li>
 </ul>
 <div class="admonition note">
@@ -4502,7 +4622,7 @@
 <li><strong>Bagging vs Boosting</strong>：Bagging 並行降 Variance（RF）；Boosting 串行修錯降 Bias（XGB/LGBM）。</li>
 <li><strong>RF 為何不易過擬合</strong>：兩層隨機（bootstrap 樣本 + 隨機特徵子集）→ 樹間相關性低，集成後 Variance 下降。</li>
 <li><strong>XGB vs LGBM</strong>：level-wise vs <strong>leaf-wise</strong>（每次分裂減損最多的葉）；leaf-wise 通常更準更快，小資料易過擬合。實務先 LGBM 再 Optuna 調參。</li>
-<li><strong>類別變數處理</strong>：One-hot / Label / Target Encoding；CatBoost 原生最佳。</li>
+<li><strong>類別變數處理</strong>：One-hot / Label / Target Encoding；CatBoost 原生處理最省事。</li>
 </ul>
 </div>
 <hr>
@@ -4632,7 +4752,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
   </span>
 
     

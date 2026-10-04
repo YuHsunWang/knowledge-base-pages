@@ -31,7 +31,8 @@
    "items": [
     "ml-interview-core-concepts",
     "geron-hands-on-ml-notes",
-    "deep-learning-training-fundamentals"
+    "deep-learning-training-fundamentals",
+    "transformer-attention"
    ]
   },
   {
@@ -42,7 +43,9 @@
    "items": [
     "feature-engineering",
     "sklearn-pipeline-templates",
-    "model-evaluation-cross-validation"
+    "model-evaluation-cross-validation",
+    "gradient-boosting-in-practice",
+    "model-interpretability-shap"
    ]
   },
   {
@@ -51,7 +54,8 @@
    "name": "綜合應用",
    "desc": "把前兩軌接起來",
    "items": [
-    "ml-case-studies"
+    "ml-case-studies",
+    "financial-ml-time-series"
    ]
   },
   {
@@ -91,6 +95,11 @@
     {
      "label": "ML 面試核心觀念",
      "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Transformer 與注意力機制：Attention 在算什麼？為什麼要除以 √d？",
+     "href": "transformer-attention/",
      "section": "machine-learning"
     }
    ]
@@ -134,6 +143,11 @@
      "section": "machine-learning"
     },
     {
+     "label": "模型可解釋性：Feature Importance 在量什麼？SHAP 什麼時候會分錯功勞？",
+     "href": "model-interpretability-shap/",
+     "section": "machine-learning"
+    },
+    {
      "label": "sklearn Pipeline 與資料前處理模板",
      "href": "sklearn-pipeline-templates/",
      "section": "machine-learning"
@@ -141,6 +155,31 @@
     {
      "label": "統計推論與 A/B 測試",
      "href": "statistics-ab-testing/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "financial-ml-time-series",
+   "label": "金融時間序列 ML",
+   "href": "financial-ml-time-series/",
+   "step": "12",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-04"
+    ]
+   ],
+   "note": "用隨機漫步實測亂洗 K-Fold 的洩漏、purge/embargo 的實際效果、三重障礙標籤，以及重疊標籤讓有效樣本數縮水的問題。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
+     "href": "gradient-boosting-in-practice/",
      "section": "machine-learning"
     }
    ]
@@ -174,6 +213,11 @@
      "section": "machine-learning"
     },
     {
+     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
+     "href": "gradient-boosting-in-practice/",
+     "section": "machine-learning"
+    },
+    {
      "label": "ML 面試核心觀念",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
@@ -186,6 +230,36 @@
     {
      "label": "sklearn Pipeline 與資料前處理模板",
      "href": "sklearn-pipeline-templates/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "gradient-boosting-in-practice",
+   "label": "Gradient Boosting 實戰",
+   "href": "gradient-boosting-in-practice/",
+   "step": "10",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-04"
+    ]
+   ],
+   "note": "同一份資料實測 XGBoost、LightGBM、CatBoost 與 sklearn HistGB，拆解 learning rate 與 early stopping，並示範樹模型不會外插的失敗情境與修法。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "金融時間序列 ML：回測分數從哪裡來？Purge 到底補了多少？",
+     "href": "financial-ml-time-series/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型可解釋性：Feature Importance 在量什麼？SHAP 什麼時候會分錯功勞？",
+     "href": "model-interpretability-shap/",
      "section": "machine-learning"
     }
    ]
@@ -211,6 +285,16 @@
     {
      "label": "特徵工程心法",
      "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "金融時間序列 ML：回測分數從哪裡來？Purge 到底補了多少？",
+     "href": "financial-ml-time-series/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
+     "href": "gradient-boosting-in-practice/",
      "section": "machine-learning"
     },
     {
@@ -274,6 +358,11 @@
      "section": "machine-learning"
     },
     {
+     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
+     "href": "gradient-boosting-in-practice/",
+     "section": "machine-learning"
+    },
+    {
      "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
      "href": "ml-case-studies/",
      "section": "machine-learning"
@@ -284,8 +373,18 @@
      "section": "machine-learning"
     },
     {
+     "label": "模型可解釋性：Feature Importance 在量什麼？SHAP 什麼時候會分錯功勞？",
+     "href": "model-interpretability-shap/",
+     "section": "machine-learning"
+    },
+    {
      "label": "統計推論與 A/B 測試",
      "href": "statistics-ab-testing/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Transformer 與注意力機制：Attention 在算什麼？為什麼要除以 √d？",
+     "href": "transformer-attention/",
      "section": "machine-learning"
     }
    ]
@@ -319,6 +418,11 @@
      "section": "machine-learning"
     },
     {
+     "label": "金融時間序列 ML：回測分數從哪裡來？Purge 到底補了多少？",
+     "href": "financial-ml-time-series/",
+     "section": "machine-learning"
+    },
+    {
      "label": "Géron《Hands-On ML》Ch1–9 重點整理",
      "href": "geron-hands-on-ml-notes/",
      "section": "machine-learning"
@@ -347,6 +451,36 @@
      "label": "Bayesian MCMC 瀏覽偏好模型",
      "href": "../projects/mcmc-portfolio/",
      "section": "projects"
+    }
+   ]
+  },
+  {
+   "id": "model-interpretability-shap",
+   "label": "模型可解釋性",
+   "href": "model-interpretability-shap/",
+   "step": "11",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-04"
+    ]
+   ],
+   "note": "在加州房價上比較不純度 importance、permutation importance 與 SHAP，實測三者排名為何不同，以及高度相關特徵如何讓它們一起失準。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
+     "href": "gradient-boosting-in-practice/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Transformer 與注意力機制：Attention 在算什麼？為什麼要除以 √d？",
+     "href": "transformer-attention/",
+     "section": "machine-learning"
     }
    ]
   },
@@ -409,6 +543,11 @@
    },
    "backlinks": [
     {
+     "label": "金融時間序列 ML：回測分數從哪裡來？Purge 到底補了多少？",
+     "href": "financial-ml-time-series/",
+     "section": "machine-learning"
+    },
+    {
      "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
      "href": "ml-case-studies/",
      "section": "machine-learning"
@@ -422,8 +561,32 @@
      "label": "模型評估與 Cross-Validation 實務",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
+    },
+    {
+     "label": "模型可解釋性：Feature Importance 在量什麼？SHAP 什麼時候會分錯功勞？",
+     "href": "model-interpretability-shap/",
+     "section": "machine-learning"
     }
    ]
+  },
+  {
+   "id": "transformer-attention",
+   "label": "Transformer 與注意力機制",
+   "href": "transformer-attention/",
+   "step": "9",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-04"
+    ]
+   ],
+   "note": "用 numpy 從零實作 scaled dot-product attention，實測不除以 √d 時 softmax 如何飽和、attention 為何不知道詞序，以及 O(n²) 的記憶體代價。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": []
   }
  ],
  "edges": [
@@ -456,11 +619,12 @@
     "label": "觀念地基",
     "href": "#ml-foundations",
     "description": "先看懂在做什麼",
-    "count": 3,
+    "count": 4,
     "members": [
      "ml-interview-core-concepts",
      "geron-hands-on-ml-notes",
-     "deep-learning-training-fundamentals"
+     "deep-learning-training-fundamentals",
+     "transformer-attention"
     ],
     "x": 0.22,
     "y": 0.27,
@@ -477,11 +641,13 @@
     "label": "動手實作",
     "href": "#ml-practice",
     "description": "做得出一個能交付的模型",
-    "count": 3,
+    "count": 5,
     "members": [
      "feature-engineering",
      "sklearn-pipeline-templates",
-     "model-evaluation-cross-validation"
+     "model-evaluation-cross-validation",
+     "gradient-boosting-in-practice",
+     "model-interpretability-shap"
     ],
     "x": 0.76,
     "y": 0.29,
@@ -498,9 +664,10 @@
     "label": "綜合應用",
     "href": "#ml-applications",
     "description": "把前兩軌接起來",
-    "count": 1,
+    "count": 2,
     "members": [
-     "ml-case-studies"
+     "ml-case-studies",
+     "financial-ml-time-series"
     ],
     "x": 0.72,
     "y": 0.73,
