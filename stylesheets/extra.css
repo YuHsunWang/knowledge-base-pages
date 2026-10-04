@@ -114,12 +114,48 @@
 }
 
 /* Article pages share the galaxy plate's faint glow (dark scheme only). */
-[data-md-color-scheme="slate"] body {
+body[data-md-color-scheme="slate"] {
   background:
     radial-gradient(ellipse 80% 50% at 50% 0%,
       color-mix(in srgb, var(--kb-space-2) 60%, transparent) 0%,
       transparent 70%) fixed,
     var(--kb-ground);
+  isolation: isolate; /* lets the star layers below sit over this background */
+}
+/* Faint twinkling stars behind article pages: two tiles of different
+   sizes so the repeat never lines up, each breathing on its own beat.
+   Kept dim so they never compete with body text. */
+body[data-md-color-scheme="slate"]::before,
+body[data-md-color-scheme="slate"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: kb-sky-twinkle 6s ease-in-out infinite alternate;
+}
+body[data-md-color-scheme="slate"]::before {
+  background-image:
+    radial-gradient(1px 1px at 23px 41px, var(--kb-space-star), transparent),
+    radial-gradient(1px 1px at 157px 13px, var(--kb-space-blue), transparent),
+    radial-gradient(1.5px 1.5px at 211px 167px, var(--kb-space-star), transparent),
+    radial-gradient(1px 1px at 89px 199px, var(--kb-space-star), transparent),
+    radial-gradient(1px 1px at 61px 113px, var(--kb-space-blue), transparent);
+  background-size: 241px 241px;
+}
+body[data-md-color-scheme="slate"]::after {
+  background-image:
+    radial-gradient(1px 1px at 311px 47px, var(--kb-space-star), transparent),
+    radial-gradient(1.5px 1.5px at 127px 269px, var(--kb-space-blue), transparent),
+    radial-gradient(1px 1px at 43px 331px, var(--kb-space-star), transparent),
+    radial-gradient(1px 1px at 233px 197px, var(--kb-space-star), transparent);
+  background-size: 337px 337px;
+  animation-duration: 9s;
+  animation-delay: -4s;
+}
+@keyframes kb-sky-twinkle {
+  from { opacity: 0.15; }
+  to   { opacity: 0.55; }
 }
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-tabs {
@@ -676,6 +712,8 @@
 @media (prefers-reduced-motion: reduce) {
   .md-header__button.md-logo::before,
   .md-header__button.md-logo::after,
+  body::before,
+  body::after,
   .md-nav--primary .md-nav__item {
     animation: none !important;
   }

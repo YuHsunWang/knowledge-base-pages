@@ -492,7 +492,15 @@
       context.globalCompositeOperation = 'lighter';
       var s = camera.s;
       var starRadius = Math.max(1.3, Math.min(4.2, 1.3 * Math.pow(s, 0.3)));
-      var fading = false;
+      /* Twinkle: each star breathes on its own phase, taken from its
+         world position so it stays put across redraws. */
+      var twinkling = !reducedMotion.matches;
+      var fading = twinkling; // ponytail: redraws every frame even when scrolled past the plate; gate on an IntersectionObserver if CPU shows up
+      function shimmer(x, y, period, depth) {
+        if (!twinkling) return 1;
+        var phase = (x * 12.9898 + y * 78.233) % (Math.PI * 2);
+        return 1 - depth * (0.5 + 0.5 * Math.sin(now / period + phase));
+      }
 
       function sx(x) { return (x - camera.x) * s + vw / 2; }
       function sy(y) { return (y - camera.y) * s + vh / 2; }
@@ -522,7 +530,7 @@
           var x = cx + mote.x * halfW;
           var y = cy + mote.y * halfH;
           if (!onScreen(x, y, 4)) return;
-          context.globalAlpha = mote.alpha;
+          context.globalAlpha = mote.alpha * shimmer(mote.x * 97, mote.y * 89, 900, 0.6);
           context.fillStyle = mote.blue ? tokens.blue : tokens.star;
           context.beginPath();
           context.arc(x, y, mote.size, 0, Math.PI * 2);
@@ -549,10 +557,11 @@
             var x = sx(star.x);
             var y = sy(star.y);
             if (!onScreen(x, y, 24)) return;
-            var glow = starRadius * 5;
-            context.globalAlpha = 0.55 * arrival;
+            var pulse = shimmer(star.x, star.y, 700, 0.35);
+            var glow = starRadius * (4 + pulse);
+            context.globalAlpha = 0.55 * arrival * pulse;
             context.drawImage(blueGlow, x - glow, y - glow, glow * 2, glow * 2);
-            context.globalAlpha = arrival;
+            context.globalAlpha = arrival * (0.3 + 0.7 * pulse);
             context.fillStyle = tokens.star;
             context.beginPath();
             context.arc(x, y, starRadius, 0, Math.PI * 2);
