@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Hands-On Machine Learning（Aurélien Géron）第 1–9 章的學習筆記整併版——核心觀念、scikit-learn 程式碼、與面試口答重點。">
+        <meta name="description" content="Hands-On Machine Learning（Aurélien Géron）第 1–9 章的整理：ML 全景、端到端專案、分類與評估、訓練原理、SVM、決策樹、集成、降維與分群，每章附最常見的誤解。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>Géron《Hands-On ML》Ch1–9 重點整理 - Shane's Knowledge Base</title>
+        <title>Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Géron《Hands-On ML》Ch1–9 重點整理 - Shane's Knowledge Base">
-<meta property="og:description" content="Hands-On Machine Learning（Aurélien Géron）第 1–9 章的學習筆記整併版——核心觀念、scikit-learn 程式碼、與面試口答重點。">
+<meta property="og:title" content="Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？ - Shane's Knowledge Base">
+<meta property="og:description" content="Hands-On Machine Learning（Aurélien Géron）第 1–9 章的整理：ML 全景、端到端專案、分類與評估、訓練原理、SVM、決策樹、集成、降維與分群，每章附最常見的誤解。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/geron-hands-on-ml-notes.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/geron-hands-on-ml-notes/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Géron《Hands-On ML》Ch1–9 重點整理 - Shane's Knowledge Base">
-<meta property="twitter:description" content="Hands-On Machine Learning（Aurélien Géron）第 1–9 章的學習筆記整併版——核心觀念、scikit-learn 程式碼、與面試口答重點。">
+<meta property="twitter:title" content="Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="Hands-On Machine Learning（Aurélien Géron）第 1–9 章的整理：ML 全景、端到端專案、分類與評估、訓練原理、SVM、決策樹、集成、降維與分群，每章附最常見的誤解。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/geron-hands-on-ml-notes.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Géron《Hands-On ML》Ch1–9 重點整理
+              Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？
             
           </span>
         </div>
@@ -2258,6 +2258,8 @@
       
         
       
+        
+      
     
     
     
@@ -2330,10 +2332,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2360,7 +2358,7 @@
   <span class="md-ellipsis">
     
   
-    觀念地基
+    基礎觀念
   
 
     
@@ -2376,7 +2374,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    觀念地基
+    基礎觀念
   
 
           </label>
@@ -2396,7 +2394,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2433,7 +2431,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2451,7 +2449,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2480,6 +2478,17 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         全書心智圖
       
     </span>
@@ -2500,7 +2509,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心定義
@@ -2544,7 +2553,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         常見陷阱
@@ -2738,7 +2747,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         線性回歸的兩種解法
@@ -2771,7 +2780,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         正則化線性模型
@@ -2810,7 +2819,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心直覺
@@ -2843,7 +2852,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         兩大缺點
@@ -2893,7 +2902,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         優缺點
@@ -2921,7 +2930,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心思想
@@ -3004,7 +3013,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         為什麼降維
@@ -3092,7 +3101,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -3103,10 +3140,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        來源
+        參考資料
       
     </span>
   </a>
@@ -3117,62 +3154,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deep-learning-training-fundamentals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    3 · 深度學習訓練基礎
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../transformer-attention/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    9 · Transformer 與注意力機制
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -3194,12 +3175,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
       
         
       
@@ -3231,7 +3206,7 @@
   <span class="md-ellipsis">
     
   
-    動手實作
+    深度學習
   
 
     
@@ -3247,7 +3222,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    動手實作
+    深度學習
   
 
           </label>
@@ -3260,14 +3235,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../feature-engineering/" class="md-nav__link">
+      <a href="../deep-learning-training-fundamentals/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4 · 特徵工程心法
+    深度學習訓練基礎
   
 
     
@@ -3288,98 +3263,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
+      <a href="../transformer-attention/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5 · sklearn Pipeline 與前處理模板
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    6 · 模型評估與 Cross-Validation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    10 · Gradient Boosting 實戰
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../model-interpretability-shap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    11 · 模型可解釋性（SHAP）
+    Transformer 與注意力機制
   
 
     
@@ -3409,6 +3300,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -3440,7 +3337,7 @@
   <span class="md-ellipsis">
     
   
-    綜合應用
+    表格資料實作
   
 
     
@@ -3453,6 +3350,215 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    表格資料實作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特徵工程心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sklearn Pipeline 模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型評估與 Cross-Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    綜合應用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3476,7 +3582,7 @@
   <span class="md-ellipsis">
     
   
-    7 · 常見 ML Case Study
+    常見 ML Case Study
   
 
     
@@ -3504,7 +3610,7 @@
   <span class="md-ellipsis">
     
   
-    12 · 金融時間序列 ML
+    金融時間序列 ML
   
 
     
@@ -3553,10 +3659,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
             
   
   
@@ -3574,8 +3680,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3599,7 +3705,7 @@
   <span class="md-ellipsis">
     
   
-    8 · 統計推論與 A/B 測試
+    統計推論與 A/B 測試
   
 
     
@@ -4715,6 +4821,17 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         全書心智圖
       
     </span>
@@ -4735,7 +4852,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心定義
@@ -4779,7 +4896,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         常見陷阱
@@ -4973,7 +5090,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         線性回歸的兩種解法
@@ -5006,7 +5123,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         正則化線性模型
@@ -5045,7 +5162,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心直覺
@@ -5078,7 +5195,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         兩大缺點
@@ -5128,7 +5245,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         優缺點
@@ -5156,7 +5273,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心思想
@@ -5239,7 +5356,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         為什麼降維
@@ -5327,7 +5444,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -5338,10 +5483,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        來源
+        參考資料
       
     </span>
   </a>
@@ -5412,7 +5557,7 @@
         <a href="../ml-interview-core-concepts/" class="md-path__link">
           
   <span class="md-ellipsis">
-    觀念地基
+    基礎觀念
   </span>
 
         </a>
@@ -5442,12 +5587,21 @@
 
 
 
-<h1 id="geronhands-on-mlch19">Géron《Hands-On ML》Ch1–9 重點整理<a class="headerlink" href="#geronhands-on-mlch19" title="Permanent link">¶</a></h1>
+<h1 id="geronhands-on-mlch19">Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？<a class="headerlink" href="#geronhands-on-mlch19" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>本文整併自《Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow》（Aurélien Géron）第 1–9 章的學習筆記，聚焦<strong>核心觀念 + 最小可跑的 scikit-learn 範例 + DS 面試常考點</strong>。每章末附「面試口答範本」，用來練習把觀念講清楚，不必背。
-<strong>本頁定位</strong>：照書走章節，收<strong>書中獨有</strong>的推導與細節——Normal Equation、threshold 調整、PR vs ROC、SVM kernel、CART 原理、OOB、Stacking、PCA、K-Means/DBSCAN/GMM。跨章共通的主題式整理（bias-variance、正則化、樹模型家族比較）以〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念</a>〉為完整版，本頁對應處指過去，不重寫一遍。</p>
+<p><strong>難度：入門。適合正在讀這本書、或想照教科書順序複習的人。</strong>
+整理自《Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow》3rd ed.（Aurélien Géron, O'Reilly 2022）第 1–9 章。
+<strong>本頁定位</strong>：照書走章節，收<strong>書中獨有</strong>的推導與細節。跨章共通的主題（bias-variance、正則化、樹模型家族比較）以〈<a href="../ml-interview-core-concepts/">ML 核心觀念</a>〉為完整版，本頁對應處指過去，不重寫一遍。</p>
 </blockquote>
-<h2 id="_1">全書心智圖<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>這本書前九章常被當成「scikit-learn 使用手冊」讀，一章一個模型。這樣讀容易記住 API，卻看不出章節之間的關係。</p>
+<p>本頁回答三個問題：</p>
+<ul>
+<li><strong>前九章怎麼串成一條線？</strong>（先講結論：Ch1 建立世界觀，Ch2 走一遍完整專案，Ch3–4 講評估和訓練原理，Ch5–7 是三大經典模型家族，Ch8–9 進入非監督。Ch2 是全書的骨架，後面每一章都是在把 Ch2 的某一步做深。）</li>
+<li><strong>哪些內容是這本書獨有、本區其他頁沒寫的？</strong>（Normal Equation、threshold 調整、OvR/OvO、SVM 的 C 與 γ、CART、OOB、Stacking、PCA、K-Means／DBSCAN／GMM。）</li>
+<li><strong>每一章最容易誤用的地方在哪？</strong>（每章最後一個「常見誤解」框。九個裡有五個和資料洩漏或評估方式有關。）</li>
+</ul>
+<h2 id="_2">全書心智圖<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>第 1–9 章是一條路：先建立 ML 的世界觀（Ch1），走一遍端到端專案（Ch2），再逐一深入分類與評估（Ch3）、線性模型與訓練原理（Ch4）、三大經典模型家族（Ch5 SVM、Ch6 樹、Ch7 集成），最後進入非監督的兩支主力——降維（Ch8）與分群（Ch9）。</p>
 <table>
 <thead>
@@ -5507,7 +5661,7 @@
 </table>
 <hr>
 <h2 id="ch1the-machine-learning-landscapeml">Ch1｜The Machine Learning Landscape（ML 全景）<a class="headerlink" href="#ch1the-machine-learning-landscapeml" title="Permanent link">¶</a></h2>
-<h3 id="_2">核心定義<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<h3 id="_3">核心定義<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>Arthur Samuel (1959)</strong>：讓電腦不需明確程式設計就能學習的研究領域。</li>
 <li><strong>Tom Mitchell (1997)</strong>：程式在任務 T 上、用評估指標 P 衡量的表現，隨經驗 E 提升，就稱為「學習」。</li>
@@ -5531,7 +5685,7 @@
 </ol>
 <h3 id="ml_2">完整 ML 專案流程（全書主軸）<a class="headerlink" href="#ml_2" title="Permanent link">¶</a></h3>
 <p>定義問題（商業目標）→ 收集資料 → EDA → 資料準備（特徵工程）→ 選模型訓練 → 調超參數 → 部署監控。</p>
-<h3 id="_3">常見陷阱<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="_4">常見陷阱<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>資料面</strong>：資料不足、不具代表性（Sampling Bias）、品質差（異常/缺失）、無關特徵（garbage in, garbage out）。</li>
 <li><strong>模型面</strong>：Overfitting（記住雜訊）、Underfitting（太簡單抓不到結構）。</li>
@@ -5539,13 +5693,9 @@
 <h3 id="no-free-lunch">No Free Lunch 定理<a class="headerlink" href="#no-free-lunch" title="Permanent link">¶</a></h3>
 <p>沒有任何模型在所有問題上都最好。必須依資料與問題選模型，並用交叉驗證比較。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>ML vs 傳統程式</strong>：傳統是人把規則寫死（資料＋規則→答案）；ML 是給資料＋答案，讓機器自己找規則。規則太複雜或會變就用 ML。</li>
-<li><strong>Batch vs Online</strong>：資料可控、變化慢用 Batch（如月底重訓）；資料流不斷、環境變化快用 Online（如詐欺偵測），但要小心 learning_rate。</li>
-<li><strong>Sampling Bias</strong>：訓練資料分佈與真實世界不一致。經典案例是 1936 年 Literary Digest 的美國大選民調——名單取自電話簿、雜誌訂戶這類偏富裕的族群，回覆率又低，預測 Landon 勝選，結果 Roosevelt 大勝。</li>
-<li><strong>No Free Lunch</strong>：沒有萬用模型，所以要試多種、用 CV 比較，讓資料說話。</li>
-</ul>
+<p class="admonition-title">常見誤解：資料越多越好，怎麼來的不重要</p>
+<p>1936 年 Literary Digest 寄出約一千萬份美國大選民調，名單取自電話簿、雜誌訂戶這類偏富裕的族群，回覆率又低。結果預測 Landon 勝選，實際是 Roosevelt 大勝。
+樣本量再大，只要和真實母體不一致（sampling bias），模型學到的就是另一個世界。先問資料是怎麼來的，再問有多少。</p>
 </div>
 <hr>
 <h2 id="ch2end-to-end-ml-project">Ch2｜End-to-End ML Project（端到端專案）<a class="headerlink" href="#ch2end-to-end-ml-project" title="Permanent link">¶</a></h2>
@@ -5588,15 +5738,11 @@
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">housing_prepared</span> <span class="o">=</span> <span class="n">full_pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">strat_train</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="step-67">Step 6–7：多模型比較 → 調參<a class="headerlink" href="#step-67" title="Permanent link">¶</a></h3>
-<p>先用 <code>cross_val_score</code> 比較 LinearRegression／DecisionTree／RandomForest，再對最佳者用 <code>GridSearchCV</code>／<code>RandomizedSearchCV</code> 調參。<strong>CV 分數比 training score 可信。</strong></p>
+<p>先用 <code>cross_val_score</code> 比較 LinearRegression／DecisionTree／RandomForest，再對最佳者用 <code>GridSearchCV</code>／<code>RandomizedSearchCV</code> 調參。<strong>CV 分數比 training score 可信。</strong> 參數少、範圍明確用 Grid；參數多或第一次探索用 Randomized，常見做法是先 Randomized 縮小範圍，再 Grid 精調。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>為何 EDA 前先切測試集</strong>：先看過測試集分佈，會在特徵選擇/填補/設計上不自覺針對它做決策，測試分數過度樂觀，部署後變差。</li>
-<li><strong>Pipeline 好處</strong>：① 防 leakage（fit 只看訓練集，transform 用同參數套用驗證/測試）；② 方便部署（前處理＋模型包成一個物件）。</li>
-<li><strong>Grid vs Randomized</strong>：超參數少、範圍明確用 Grid；多/廣/首次探索用 Randomized。實務先 Randomized 縮範圍，再 Grid 精調。</li>
-<li><strong>Stratified vs 一般切分</strong>：一般隨機切可能讓類別分佈不一致；imbalanced 一定要分層，否則測試集可能完全沒有少數類別。</li>
-</ul>
+<p class="admonition-title">常見誤解：EDA 時看一下測試集沒關係</p>
+<p>看過測試集的分布，之後在特徵選擇、缺失值填補、甚至分箱邊界上，都會不自覺地針對它做決定。
+後果是測試分數偏樂觀，上線後變差，而且你說不出是哪一步造成的。所以 Géron 把「先切測試集」放在 EDA 之前。</p>
 </div>
 <hr>
 <h2 id="ch3classification">Ch3｜Classification（分類與評估指標）<a class="headerlink" href="#ch3classification" title="Permanent link">¶</a></h2>
@@ -5629,17 +5775,13 @@
 <li><strong>OvO</strong>：訓 N×(N−1)/2 個，每對一個，投票。SVM 因訓練時間對資料量敏感而偏好 OvO。</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>imbalanced 不能只看 accuracy</strong>：全猜多數類就能騙高分（99% 正常／1% 詐騙 → 全猜正常也 99%），詐騙全漏。要看 P/R/F1 或 PR curve。</li>
-<li><strong>Precision vs Recall 怎麼選</strong>：看哪種錯誤代價大。癌症漏診嚴重 → 最大化 Recall；誤判重要信嚴重 → 最大化 Precision；都重要看 F1。</li>
-<li><strong>PR vs ROC</strong>：Positive 很少時用 PR curve（ROC 會被 Negative 稀釋而虛高）。</li>
-<li><strong>OvR vs OvO</strong>：OvR N 個分類器、快；OvO N×(N−1)/2 個、每個訓練資料少，SVM 偏好。</li>
-</ul>
+<p class="admonition-title">常見誤解：Accuracy 99% 就是好模型</p>
+<p>99% 正常、1% 詐騙的資料，全部猜「正常」就有 99%，但詐騙一個都沒抓到。書中的 <code>DummyClassifier</code>（永遠猜「不是 5」）在 MNIST 上也有約 90%。
+不平衡資料要看 Precision、Recall、F1 或 PR 曲線；正例很少時 ROC 會被大量負例稀釋而顯得漂亮（實測見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉§2）。</p>
 </div>
 <hr>
 <h2 id="ch4training-models">Ch4｜Training Models（訓練模型：梯度下降與正則化）<a class="headerlink" href="#ch4training-models" title="Permanent link">¶</a></h2>
-<h3 id="_4">線性回歸的兩種解法<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="_5">線性回歸的兩種解法<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>解析解 Normal Equation</strong>：<code>θ = (XᵀX)⁻¹Xᵀy</code>。要求逆矩陣，複雜度 O(n³)，<strong>特徵數大就很慢</strong>（~10 萬就不可行）。</li>
 <li><strong>梯度下降</strong>：對特徵數是線性複雜度，高維時改用它。
@@ -5653,28 +5795,24 @@
 <h3 id="polynomial-regression">Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permanent link">¶</a></h3>
 <p>線性模型也能學非線性——加入次方項即可（<code>PolynomialFeatures(degree=2)</code> 把 <code>[x]</code> 變 <code>[x, x²]</code>）。degree 太高會 overfit。</p>
 <h3 id="learning-curve-biasvariance">Learning Curve（診斷 bias/variance 的工具）<a class="headerlink" href="#learning-curve-biasvariance" title="Permanent link">¶</a></h3>
-<p>用 <code>learning_curve</code> 畫訓練/驗證誤差<strong>對資料量</strong>的曲線——這是本章提供的診斷工具；曲線形狀怎麼判讀、判讀完各自該怎麼救，見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 §2 Bias-Variance</a>〉的診斷表與解法清單。</p>
-<h3 id="_5">正則化線性模型<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>Ridge / Lasso / Elastic Net 的懲罰項、效果與選用時機，完整比較表見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 §5 正則化</a>〉。</p>
+<p>用 <code>learning_curve</code> 畫訓練/驗證誤差<strong>對資料量</strong>的曲線——這是本章提供的診斷工具；曲線形狀怎麼判讀、判讀完各自該怎麼救，見〈<a href="../ml-interview-core-concepts/">ML 核心觀念 §2 Bias-Variance</a>〉的診斷表與解法清單。</p>
+<h3 id="_6">正則化線性模型<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>Ridge / Lasso / Elastic Net 的懲罰項、效果與選用時機，完整比較表見〈<a href="../ml-interview-core-concepts/">ML 核心觀念 §5 正則化</a>〉。</p>
 <p>本章要補的是書中特別強調、比較表放不下的兩個實作陷阱：</p>
 <ul>
 <li><strong>參數方向不一致</strong>：<code>Ridge/Lasso</code> 的 <code>alpha</code> <strong>越大</strong>正則化越強；<code>LogisticRegression</code> 的 <code>C = 1/λ</code>，<strong>越小</strong>才越強。兩者方向相反，調參時最容易調反。</li>
 <li><strong>必須先標準化</strong>：正則化懲罰的是係數大小，特徵尺度不一時，大尺度特徵的係數天然較小、被罰得少，懲罰就變成跟尺度相關而非重要性相關。</li>
 </ul>
 <h3 id="early-stopping">Early Stopping<a class="headerlink" href="#early-stopping" title="Permanent link">¶</a></h3>
-<p>驗證誤差開始回升就停止訓練——本質上是一種正則化（防止模型把訓練越久越記住雜訊）。</p>
+<p>驗證誤差開始回升就停止訓練。本質上是一種正則化：訓練越久，模型越會記住雜訊；提早停，效果和 L2 類似。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>Normal Equation 何時不適用</strong>：O(n³) 要求逆矩陣，特徵數大就很慢，改用梯度下降（對特徵數線性）。</li>
-<li><strong>Learning curve 怎麼讀</strong>：兩線都高=underfitting（加特徵/換模型）；兩線分很開=overfitting（加正則化/加資料/刪特徵）。</li>
-<li><strong>Ridge/Lasso/Elastic Net</strong>：不確定用 Ridge；特徵多疑多數無用用 Lasso（自動特徵選擇）；特徵數&gt;樣本數用 Elastic Net。</li>
-<li><strong>Early stopping 是正則化嗎</strong>：是。在驗證誤差回升時停，防死記訓練集，效果類似 L2。</li>
-</ul>
+<p class="admonition-title">常見誤解：有解析解，就比梯度下降好</p>
+<p>Normal Equation 一步算出答案，但要對 <code>XᵀX</code> 求逆，複雜度大約是特徵數的三次方。特徵到十萬等級就算不動，資料大到放不進記憶體也不行。
+梯度下降對特徵數是線性的，還能分批吃資料。所以實務上大型線性模型反而多用梯度下降（例如 <code>SGDRegressor</code>）。</p>
 </div>
 <hr>
 <h2 id="ch5support-vector-machinessvm-kernel-trick">Ch5｜Support Vector Machines（SVM 與 Kernel Trick）<a class="headerlink" href="#ch5support-vector-machinessvm-kernel-trick" title="Permanent link">¶</a></h2>
-<h3 id="_6">核心直覺<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h3 id="_7">核心直覺<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <p>目標是找<strong>最大化 margin</strong>的決策邊界；落在邊界上的點叫 <strong>Support Vectors</strong>（移掉其他點不影響邊界）。</p>
 <h3 id="hard-vs-soft-margin">Hard vs Soft Margin<a class="headerlink" href="#hard-vs-soft-margin" title="Permanent link">¶</a></h3>
 <ul>
@@ -5688,19 +5826,16 @@
 <h3 id="kernel-trick">Kernel Trick<a class="headerlink" href="#kernel-trick" title="Permanent link">¶</a></h3>
 <p>線性不可分時，映射到高維變線性可分；kernel 的妙處是<strong>不真的算高維座標，直接算高維內積</strong>。常用核：Linear、Polynomial、<strong>RBF（預設最常用，參數 γ）</strong>、Sigmoid。
 - <strong>γ 大</strong> → 單點影響範圍小 → 易 overfit；<strong>γ 小</strong> → 範圍大 → 較平滑。</p>
-<h3 id="_7">兩大缺點<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<h3 id="_8">兩大缺點<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <ol>
 <li>樣本數大時很慢（O(m²)~O(m³)）。</li>
-<li>對特徵尺度<strong>非常敏感</strong>——新手最常忘記標準化。</li>
+<li>對特徵尺度<strong>非常敏感</strong>，一定要先標準化。</li>
 </ol>
+<p>資料少、特徵維度高（例如文字的 TF-IDF）時，SVM 常常很好用；資料大、特徵雜、需要解釋時，隨機森林通常更省事（快、免標準化）。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>C 與 γ</strong>：C 控制容許違規程度（大→margin 小易 overfit）；γ（RBF 專屬）控制單點影響範圍（大→範圍小易 overfit）。</li>
-<li><strong>Kernel Trick</strong>：低維線性不可分 → 高維可分；不需真的映射，直接算高維內積，省計算。</li>
-<li><strong>為何必須標準化</strong>：margin 用歐氏距離，若一特徵 10000、另一 0.1，距離被大數值主導，margin 偏斜。</li>
-<li><strong>SVM vs Random Forest</strong>：資料少且高維（文字 TF-IDF）用 SVM；資料大、要可解釋、特徵多雜用 RF（快、免標準化、有 importance）。</li>
-</ul>
+<p class="admonition-title">常見誤解：SVM 可以直接吃原始特徵</p>
+<p>Margin 是用歐氏距離量的。一個特徵範圍 0–10,000、另一個 0–0.1，距離幾乎完全由前者決定，margin 會偏向那個方向。
+後果是 SVM 的表現看起來很差，被誤以為「這份資料不適合 SVM」。先 <code>StandardScaler</code>，再下結論。</p>
 </div>
 <hr>
 <h2 id="ch6decision-trees">Ch6｜Decision Trees（決策樹）<a class="headerlink" href="#ch6decision-trees" title="Permanent link">¶</a></h2>
@@ -5711,23 +5846,20 @@
 <h3 id="overfitting">抗 overfitting 的超參數<a class="headerlink" href="#overfitting" title="Permanent link">¶</a></h3>
 <p><code>max_depth</code>、<code>min_samples_split</code>、<code>min_samples_leaf</code>、<code>max_features</code>、<code>max_leaf_nodes</code>——決策樹<strong>極易 overfit，一定要限制</strong>。</p>
 <p>回歸樹：對新點預測其所屬葉節點內訓練樣本的平均值。</p>
-<h3 id="_8">優缺點<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<p>CART 是貪心演算法：每一層只找當下最好的切法。找全域最佳的樹是 NP-hard，所以只能這樣做，代價是結果不保證最佳、而且不穩定。Gini 和 Entropy 結果通常很接近，sklearn 預設 Gini，算得比較快。</p>
+<h3 id="_9">優缺點<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>優</strong>：可解釋（可視覺化）、不需標準化、數值/類別皆可、訓練快。</li>
 <li><strong>缺</strong>：極易 overfit、<strong>不穩定</strong>（資料小變動 → 樹差很多）→ 這正是要用 Random Forest 的原因。</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>Gini vs Entropy</strong>：都是不純度指標，Gini 較快、結果相近，實務用預設 Gini。</li>
-<li><strong>為何不需標準化</strong>：CART 分裂只看大小順序（閾值切兩邊），與絕對數值無關，縮放不改變分裂——樹模型全家都免標準化。</li>
-<li><strong>CART 為何 greedy</strong>：全局最佳分裂是 NP-hard，只能每層貪心；代價是不保證全樹最佳、結果不穩 → 用 RF 從外部建立穩定性。</li>
-<li><strong>feature importance</strong>：看每個特徵在所有分裂節點降低多少不純度的加權平均；樹模型家族共通（RF 同法）。</li>
-</ul>
+<p class="admonition-title">常見誤解：feature importance 高，就代表這個特徵重要</p>
+<p>樹模型內建的 importance 是「訓練時這個特徵讓不純度降了多少」。它看的是訓練集，會把背下來的雜訊也算進去，也偏愛可切點多的連續特徵。
+在加州房價上加一欄純亂數，隨機森林的內建 importance 給它 0.018，不是 0（實測見〈<a href="../model-interpretability-shap/">模型可解釋性</a>〉）。要判斷重要性，改用測試集上的 permutation importance。</p>
 </div>
 <hr>
 <h2 id="ch7ensemble-learning-random-forests">Ch7｜Ensemble Learning &amp; Random Forests（集成學習）<a class="headerlink" href="#ch7ensemble-learning-random-forests" title="Permanent link">¶</a></h2>
-<h3 id="_9">核心思想<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<h3 id="_10">核心思想<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
 <p>多個較弱的學習器組合可能勝過單一強模型——<strong>前提是各模型彼此獨立、具多樣性</strong>。</p>
 <h3 id="voting">Voting<a class="headerlink" href="#voting" title="Permanent link">¶</a></h3>
 <ul>
@@ -5743,7 +5875,7 @@
 <p>比「Bagging + 決策樹」更好的關鍵：<strong>每次分裂只看隨機子集特徵</strong>，降低樹間相關性、增加多樣性。<strong>Extra-Trees</strong> 連分裂閾值也隨機選，更快但 bias 略高。</p>
 <h3 id="boosting">Boosting<a class="headerlink" href="#boosting" title="Permanent link">¶</a></h3>
 <blockquote>
-<p>本節講書中的 AdaBoost / Gradient Boosting 原理。現代實作（XGBoost / LightGBM / CatBoost）的差異與選型、關鍵超參數，見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 §6 樹模型家族</a>〉。</p>
+<p>本節講書中的 AdaBoost / Gradient Boosting 原理。現代實作（XGBoost / LightGBM / CatBoost）的差異與選型、關鍵超參數，見〈<a href="../ml-interview-core-concepts/">ML 核心觀念 §6 樹模型家族</a>〉。</p>
 </blockquote>
 <ul>
 <li><strong>AdaBoost</strong>：每輪提高上一輪被分錯樣本的權重，最後加權投票。</li>
@@ -5752,17 +5884,13 @@
 <h3 id="stacking">Stacking<a class="headerlink" href="#stacking" title="Permanent link">¶</a></h3>
 <p>對各基模型的預測再訓練一個 <strong>blender</strong>；blender <strong>必須用 hold-out（模型沒見過的資料）訓練</strong>，否則學到過度樂觀的權重。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>Bagging vs Boosting</strong>：Bagging 並行、各自從子集訓練後投票/平均，<strong>降 variance</strong>；Boosting 序列、後者專攻前者的錯誤，<strong>降 bias</strong>。</li>
-<li><strong>RF 為何優於 Bagging+樹</strong>：多了「分裂只看隨機特徵子集」，否則各樹都先選同一最強特徵 → 高度相關，投票失去意義。</li>
-<li><strong>OOB 為何約 37%</strong>：有放回抽樣下每樣本被選中機率約 63%，剩 ~37% 形成天然驗證集。</li>
-<li><strong>Stacking blender 為何用沒見過的資料</strong>：用訓練集預測來訓 blender 會過度樂觀；hold-out 才能學到「新資料上各層怎麼整合最好」。</li>
-</ul>
+<p class="admonition-title">常見誤解：Stacking 的 blender 直接用訓練集的預測來訓練</p>
+<p>基模型在訓練集上的預測都很準（它們看過答案），blender 會學到「全部相信最會背的那個模型」。
+後果是 stacking 在測試集上比單一最好的基模型還差。blender 一定要用 hold-out 或 out-of-fold 的預測訓練，sklearn 的 <code>StackingClassifier</code> 預設就是用 CV 產生這些預測。</p>
 </div>
 <hr>
 <h2 id="ch8dimensionality-reduction">Ch8｜Dimensionality Reduction（降維）<a class="headerlink" href="#ch8dimensionality-reduction" title="Permanent link">¶</a></h2>
-<h3 id="_10">為什麼降維<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<h3 id="_11">為什麼降維<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
 <p>對抗維度詛咒（高維下資料稀疏、距離失義）、加速訓練、去雜訊，以及最重要的<strong>視覺化</strong>（壓到 2D/3D）。</p>
 <h3 id="pca">PCA<a class="headerlink" href="#pca" title="Permanent link">¶</a></h3>
 <p>找資料<strong>變異最大的方向</strong>（對共變異矩陣做 SVD，特徵向量＝主成分，彼此正交、變異依次遞減）投影。
@@ -5771,17 +5899,13 @@
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">X_reduced</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>         <span class="c1"># 每個主成分解釋的變異比</span>
 </span></code></pre></div>
-資料大到記憶體裝不下用 <code>IncrementalPCA</code>；極高維 sparse（文字）可用 Random Projection。<p></p>
+資料大到記憶體裝不下用 <code>IncrementalPCA</code>；極高維 sparse（文字）可用 Random Projection。新資料要用<strong>訓練集 fit 出來的同一個</strong> PCA 物件 transform，包進 Pipeline 就不會忘。<p></p>
 <h3 id="t-sne-umap">視覺化專用：t-SNE / UMAP<a class="headerlink" href="#t-sne-umap" title="Permanent link">¶</a></h3>
 <p>擅長呈現集群結構（UMAP 比 t-SNE 快、更保留全局結構）。<strong>拿來看就好，別當特徵前處理</strong>——t-SNE 是 transductive，新資料沒有固定函數可 transform；UMAP 雖然有 <code>transform()</code>，嵌入會隨參數與隨機種子變動。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>主成分是什麼/怎麼找</strong>：資料變異最大的方向，對共變異矩陣 SVD 求特徵向量；兩兩正交、變異遞減。</li>
-<li><strong>降維後新資料怎麼預測</strong>：用訓練集 fit 的同一 PCA 物件 transform 再進模型；包進 Pipeline 就不會忘。</li>
-<li><strong>t-SNE/UMAP 為何不適合做特徵工程</strong>：t-SNE 新點無固定 transform；UMAP 能 transform 但嵌入不穩；兩者都計算貴。PCA 有明確 fit/transform 分離才適合前處理。</li>
-<li><strong>變異解釋比</strong>：各主成分佔總變異的百分比；累積到門檻（如 0.95）即可決定取幾個。</li>
-</ul>
+<p class="admonition-title">常見誤解：t-SNE 圖上分得很開，就拿它當特徵</p>
+<p>t-SNE 沒有固定的轉換函數，新資料進來無法投影到同一個空間；UMAP 雖然有 <code>transform()</code>，嵌入也會隨參數和隨機種子變。圖上的群與群之間的距離，也不一定有意義。
+要降維當前處理，用 PCA 這類有明確 <code>fit</code> / <code>transform</code> 的方法，並包進 Pipeline，確保新資料用的是訓練集 fit 出來的那一組主成分。</p>
 </div>
 <hr>
 <h2 id="ch9unsupervised-learningk-means-dbscan-gmm">Ch9｜Unsupervised Learning（K-Means / DBSCAN / GMM）<a class="headerlink" href="#ch9unsupervised-learningk-means-dbscan-gmm" title="Permanent link">¶</a></h2>
@@ -5829,24 +5953,28 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答重點</p>
-<ul>
-<li><strong>K-Means 是全局最佳嗎</strong>：否，greedy 只收斂到局部最佳；故 <code>n_init</code> 多次取 inertia 最小。</li>
-<li><strong>為何對狹長群組差</strong>：用歐氏距離、假設球形；狹長群邊緣點離自群質心反而更遠 → 分錯。改用 DBSCAN/GMM。</li>
-<li><strong>DBSCAN 為何免指定 K</strong>：用密度定群，群數自然浮現；不屬任何群的標 −1 即 outlier。</li>
-<li><strong>GMM vs K-Means</strong>：GMM 軟分配輸出機率、橢圓形假設更靈活、可做異常檢測；K-Means 是硬分配、球形。</li>
-</ul>
+<p class="admonition-title">常見誤解：K-Means 跑一次的結果就是答案</p>
+<p>K-Means 只保證收斂到局部最佳，起點不同，結果就不同。sklearn 用 <code>n_init</code> 跑好幾次、取 inertia 最小的那次。
+就算跑很多次，它仍然假設群是球形、大小相近。狹長或彎曲的群，邊緣的點離自己群的中心反而比較遠，會被分錯；這時要換 DBSCAN 或 GMM，不是加大 <code>n_init</code>。</p>
 </div>
+<h2 id="_12">結論<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<p>回到前言的三個問題。</p>
+<p><strong>前九章怎麼串？</strong> Ch2 的端到端專案是骨架：切測試集 → EDA → Pipeline → 比較模型 → 調參 → 最終評估。Ch3–4 把「評估」和「訓練」做深，Ch5–7 擴充「模型」這一格，Ch8–9 補上沒有 label 的情況。</p>
+<p><strong>書中獨有的內容？</strong> 本頁開頭「本頁定位」列的那些推導與細節：Normal Equation、threshold、OvR/OvO、kernel、CART、OOB、Stacking、PCA、三種分群。</p>
+<p><strong>最容易誤用的地方？</strong> 九個常見誤解裡，EDA 偷看測試集、accuracy 騙人、importance 偏誤、stacking 用訓練集預測、t-SNE 當特徵，五個都是「評估時用了不該用的資訊」。</p>
+<h3 id="_13">延伸：這篇真正想留下的問題<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
+<p>這本書的程式碼大多能直接跑，也大多能拿到不錯的分數。但書中反覆出現的提醒，其實是同一句話：<strong>分數好看，不代表在新資料上也好看。</strong></p>
+<p>每讀完一章、跑完一段範例，我會回頭確認一件事：<strong>這個分數，是在模型沒看過的資料上算的嗎？</strong></p>
 <hr>
-<h2 id="_11">延伸閱讀（本站）<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
+<h2 id="_14">延伸閱讀（本站）<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../ml-interview-core-concepts/">ML 面試核心觀念</a> — bias-variance、正則化、樹模型家族的完整版；跨章主題式整理</li>
+<li><a href="../ml-interview-core-concepts/">ML 核心觀念</a> — bias-variance、正則化、樹模型家族的完整版；跨章主題式整理</li>
 <li><a href="../feature-engineering/">特徵工程心法</a> — Ch2 資料準備那一步的實務展開</li>
 <li><a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a> — Ch2 Pipeline 的可複製完整模板</li>
 <li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — Ch2–3 評估流程的深入版，含 Nested CV</li>
 <li><a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a> — 接續 Ch10 之後的神經網路訓練</li>
 </ul>
-<h2 id="_12">來源<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<h2 id="_15">參考資料<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
 <ul>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed.（O'Reilly, 2022），Ch1–9</li>
 <li><a href="https://github.com/ageron/handson-ml3">書籍官方程式碼 repo（ageron/handson-ml3）</a></li>
@@ -5874,7 +6002,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
   </span>
 
     
@@ -5919,7 +6047,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../ml-interview-core-concepts/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 1 · ML 面試核心觀念（主題式速查）">
+          <a href="../ml-interview-core-concepts/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: ML 核心觀念">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -5929,20 +6057,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                1 · ML 面試核心觀念（主題式速查）
+                ML 核心觀念
               </div>
             </div>
           </a>
         
         
           
-          <a href="../deep-learning-training-fundamentals/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 3 · 深度學習訓練基礎">
+          <a href="../deep-learning-training-fundamentals/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 深度學習訓練基礎">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                3 · 深度學習訓練基礎
+                深度學習訓練基礎
               </div>
             </div>
             <div class="md-footer__button md-icon">

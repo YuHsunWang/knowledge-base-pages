@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合，再到儲存部署——可直接複製使用的實務模板。">
+        <meta name="description" content="從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合與儲存部署的可複製模板，附先選特徵再做 CV 的洩漏實測。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>sklearn Pipeline 與資料前處理模板 - Shane's Knowledge Base</title>
+        <title>sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="sklearn Pipeline 與資料前處理模板 - Shane's Knowledge Base">
-<meta property="og:description" content="從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合，再到儲存部署——可直接複製使用的實務模板。">
+<meta property="og:title" content="sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？ - Shane's Knowledge Base">
+<meta property="og:description" content="從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合與儲存部署的可複製模板，附先選特徵再做 CV 的洩漏實測。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/sklearn-pipeline-templates.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/sklearn-pipeline-templates/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="sklearn Pipeline 與資料前處理模板 - Shane's Knowledge Base">
-<meta property="twitter:description" content="從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合，再到儲存部署——可直接複製使用的實務模板。">
+<meta property="twitter:title" content="sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合與儲存部署的可複製模板，附先選特徵再做 CV 的洩漏實測。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/sklearn-pipeline-templates.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              sklearn Pipeline 與資料前處理模板
+              sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？
             
           </span>
         </div>
@@ -2258,6 +2258,8 @@
       
         
       
+        
+      
     
     
     
@@ -2328,10 +2330,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2358,7 +2356,7 @@
   <span class="md-ellipsis">
     
   
-    觀念地基
+    基礎觀念
   
 
     
@@ -2374,7 +2372,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    觀念地基
+    基礎觀念
   
 
           </label>
@@ -2394,7 +2392,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2422,7 +2420,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2435,6 +2433,75 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度學習
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    深度學習
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2450,7 +2517,7 @@
   <span class="md-ellipsis">
     
   
-    3 · 深度學習訓練基礎
+    深度學習訓練基礎
   
 
     
@@ -2478,7 +2545,7 @@
   <span class="md-ellipsis">
     
   
-    9 · Transformer 與注意力機制
+    Transformer 與注意力機制
   
 
     
@@ -2537,17 +2604,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked="">
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    動手實作
+    表格資料實作
   
 
     
@@ -2558,12 +2625,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    動手實作
+    表格資料實作
   
 
           </label>
@@ -2583,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    4 · 特徵工程心法
+    特徵工程心法
   
 
     
@@ -2620,7 +2687,7 @@
   <span class="md-ellipsis">
     
   
-    5 · sklearn Pipeline 與前處理模板
+    sklearn Pipeline 模板
   
 
     
@@ -2638,7 +2705,7 @@
   <span class="md-ellipsis">
     
   
-    5 · sklearn Pipeline 與前處理模板
+    sklearn Pipeline 模板
   
 
     
@@ -2664,10 +2731,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#pipeline" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        為什麼要用 Pipeline
+        前言
       
     </span>
   </a>
@@ -2675,10 +2742,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline_1" class="md-nav__link">
+  <a href="#1-cv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        基礎 Pipeline
+        1. 實驗：先選特徵，再做 CV
       
     </span>
   </a>
@@ -2686,15 +2753,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#columntransformer" class="md-nav__link">
+  <a href="#2-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ColumnTransformer：處理混合型態資料
+        2. 基礎 Pipeline
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ColumnTransformer：處理混合型態資料">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-columntransformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ColumnTransformer：處理混合型態資料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. ColumnTransformer：處理混合型態資料">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2714,15 +2792,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transformer_1" class="md-nav__link">
+  <a href="#4-transformer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自訂 Transformer
+        4. 自訂 Transformer
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="自訂 Transformer">
+    <nav class="md-nav" aria-label="4. 自訂 Transformer">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2742,15 +2820,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline-gridsearchcv" class="md-nav__link">
+  <a href="#5-pipeline-gridsearchcv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pipeline + GridSearchCV
+        5. Pipeline + GridSearchCV
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Pipeline + GridSearchCV">
+    <nav class="md-nav" aria-label="5. Pipeline + GridSearchCV">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2770,10 +2848,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline_2" class="md-nav__link">
+  <a href="#6-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        查看 Pipeline 結構與特徵名稱
+        6. 查看 Pipeline 結構與特徵名稱
       
     </span>
   </a>
@@ -2781,10 +2859,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        儲存與載入
+        7. 儲存與載入
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 完整可複製模板
       
     </span>
   </a>
@@ -2795,15 +2884,32 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        完整可複製模板
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -2814,10 +2920,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        來源
+        參考資料
       
     </span>
   </a>
@@ -2847,7 +2953,7 @@
   <span class="md-ellipsis">
     
   
-    6 · 模型評估與 Cross-Validation
+    模型評估與 Cross-Validation
   
 
     
@@ -2875,7 +2981,7 @@
   <span class="md-ellipsis">
     
   
-    10 · Gradient Boosting 實戰
+    Gradient Boosting 實戰
   
 
     
@@ -2903,7 +3009,7 @@
   <span class="md-ellipsis">
     
   
-    11 · 模型可解釋性（SHAP）
+    模型可解釋性（SHAP）
   
 
     
@@ -2935,129 +3041,6 @@
     
       
         
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
-        
-          
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    綜合應用
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    綜合應用
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ml-case-studies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7 · 常見 ML Case Study
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../financial-ml-time-series/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    12 · 金融時間序列 ML
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
       
         
       
@@ -3087,7 +3070,7 @@
   <span class="md-ellipsis">
     
   
-    統計與實驗
+    綜合應用
   
 
     
@@ -3100,6 +3083,129 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    綜合應用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml-case-studies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    金融時間序列 ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計與實驗
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3123,7 +3229,7 @@
   <span class="md-ellipsis">
     
   
-    8 · 統計推論與 A/B 測試
+    統計推論與 A/B 測試
   
 
     
@@ -4236,10 +4342,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#pipeline" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        為什麼要用 Pipeline
+        前言
       
     </span>
   </a>
@@ -4247,10 +4353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline_1" class="md-nav__link">
+  <a href="#1-cv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        基礎 Pipeline
+        1. 實驗：先選特徵，再做 CV
       
     </span>
   </a>
@@ -4258,15 +4364,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#columntransformer" class="md-nav__link">
+  <a href="#2-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ColumnTransformer：處理混合型態資料
+        2. 基礎 Pipeline
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ColumnTransformer：處理混合型態資料">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-columntransformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ColumnTransformer：處理混合型態資料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. ColumnTransformer：處理混合型態資料">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4286,15 +4403,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transformer_1" class="md-nav__link">
+  <a href="#4-transformer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自訂 Transformer
+        4. 自訂 Transformer
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="自訂 Transformer">
+    <nav class="md-nav" aria-label="4. 自訂 Transformer">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4314,15 +4431,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline-gridsearchcv" class="md-nav__link">
+  <a href="#5-pipeline-gridsearchcv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pipeline + GridSearchCV
+        5. Pipeline + GridSearchCV
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Pipeline + GridSearchCV">
+    <nav class="md-nav" aria-label="5. Pipeline + GridSearchCV">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4342,10 +4459,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline_2" class="md-nav__link">
+  <a href="#6-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        查看 Pipeline 結構與特徵名稱
+        6. 查看 Pipeline 結構與特徵名稱
       
     </span>
   </a>
@@ -4353,10 +4470,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        儲存與載入
+        7. 儲存與載入
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 完整可複製模板
       
     </span>
   </a>
@@ -4367,15 +4495,32 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        完整可複製模板
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4386,10 +4531,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        來源
+        參考資料
       
     </span>
   </a>
@@ -4460,7 +4605,7 @@
         <a href="../feature-engineering/" class="md-path__link">
           
   <span class="md-ellipsis">
-    動手實作
+    表格資料實作
   </span>
 
         </a>
@@ -4490,84 +4635,136 @@
 
 
 
-<h1 id="sklearn-pipeline">sklearn Pipeline 與資料前處理模板<a class="headerlink" href="#sklearn-pipeline" title="Permanent link">¶</a></h1>
+<h1 id="sklearn-pipeline">sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？<a class="headerlink" href="#sklearn-pipeline" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>Pipeline 是 sklearn 最值得養成習慣的工具。本頁是可直接複製的模板，從混合型態資料前處理到 GridSearch 整合再到儲存載入。
-<strong>本頁定位</strong>：本區的<strong>程式碼骨架頁</strong>，回答「怎麼寫」。該做哪些前處理（決策層）見〈<a href="../feature-engineering/">特徵工程心法</a>〉；評估與 CV 的策略見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉。</p>
+<p><strong>難度：入門到中。會用 sklearn 的 <code>fit</code> / <code>predict</code>。</strong>
+本頁的實驗數字來自 Python 3.12、scikit-learn 1.9.1，2026-10-04 執行。
+<strong>本頁定位</strong>：本區的<strong>程式碼骨架頁</strong>，回答「怎麼寫」。該做哪些前處理見〈<a href="../feature-engineering/">特徵工程心法</a>〉；評估與 CV 的策略見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉。</p>
 </blockquote>
-<hr>
-<h2 id="pipeline">為什麼要用 Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">¶</a></h2>
-<ol>
-<li><strong>防 leakage</strong>：Pipeline 確保 <code>fit</code> 只看訓練集，<code>transform</code> 再套用到驗證/測試集，不會因為「順序搞錯」讓測試資訊污染訓練。</li>
-<li><strong>部署一致性</strong>：訓練好的 Pipeline 是一個物件——deploy 時只需要 <code>pipeline.predict(X_new)</code>，不需要手動重現前處理步驟。</li>
-<li><strong>調參乾淨</strong>：<code>GridSearchCV(pipeline, ...)</code> 可以同時調前處理參數和模型超參數，每次 CV 折都完整執行前處理，指標可信。</li>
-</ol>
-<hr>
-<h2 id="pipeline_1">基礎 Pipeline<a class="headerlink" href="#pipeline_1" title="Permanent link">¶</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>Pipeline 常被介紹成「讓程式碼比較整齊」的工具。整齊是真的，但不是最重要的理由。最重要的理由是：<strong>不用 Pipeline，CV 分數很容易是假的</strong>，而且你不會發現。</p>
+<p>本頁回答三個問題，後半是可以直接複製的模板：</p>
+<ul>
+<li><strong>為什麼前處理一定要包進 Pipeline？</strong>（先講結論：前處理只要在 CV 外面做，就會看到驗證折的資料。在 100 筆、5,000 個純雜訊特徵的資料上，先選特徵再做 CV，準確率 0.870；包進 Pipeline，回到 0.500。）</li>
+<li><strong>數值和類別混在一起的資料怎麼寫？</strong>（用 <code>ColumnTransformer</code> 讓不同欄位走不同的前處理，再整個包進一個 Pipeline。）</li>
+<li><strong>存下來部署要注意什麼？</strong>（存整個 Pipeline 而不是只存模型；載入時 sklearn 版本要對得上；別載入來路不明的 joblib／pickle 檔。）</li>
+</ul>
+<h2 id="1-cv">1. 實驗：先選特徵，再做 CV<a class="headerlink" href="#1-cv" title="Permanent link">¶</a></h2>
+<p>我們造一份<strong>完全沒有訊號</strong>的資料：100 筆、5,000 個特徵，全是標準常態亂數；標籤是隨機的 0 和 1。任何方法的準確率都應該在 0.5 左右。</p>
+<p><strong>錯誤寫法</strong>：先在全部資料上選出和 y 最相關的 20 個特徵，再拿這 20 個特徵做 5 折 CV。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectKBest</span><span class="p">,</span> <span class="n">f_classif</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">])</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>         <span class="c1"># accuracy</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>               <span class="c1"># 預測類別</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>   <span class="c1"># 預測機率</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5000</span><span class="p">));</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">X_sel</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>     <span class="c1"># 錯：用全部資料選</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">cross_val_score</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span> <span class="n">X_sel</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>正確寫法</strong>：把特徵選擇和模型包進同一個 Pipeline，讓每一折只用訓練折去選。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>寫法</th>
+<th>5 折 CV 準確率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先選特徵再 CV</td>
+<td><strong>0.870</strong></td>
+</tr>
+<tr>
+<td>包進 Pipeline</td>
+<td>0.500</td>
+</tr>
+</tbody>
+</table>
+<p>5,000 個雜訊特徵裡，總會有幾十個<strong>剛好</strong>和這 100 個隨機標籤相關。在全部資料上挑，等於挑出「在驗證折上也剛好相關」的那 20 個。CV 再怎麼切，驗證折的答案早在選特徵時就被看過了。</p>
+<p>這個例子是《The Elements of Statistical Learning》7.10.2 節的經典示範，特徵越多、樣本越少，錯得越嚴重。現實中的基因資料、文字資料，常常就是這種「特徵比樣本多很多」的形狀。</p>
+<p>標準化也是同一類錯誤，只是影響通常小得多：平均和標準差只是兩個數字，能帶過去的資訊有限。特徵選擇、target encoding、重採樣（SMOTE）會帶過去的資訊就多了。<strong>規則一律相同：所有用到資料的前處理，都包進 Pipeline。</strong></p>
+<p>Pipeline 的另外兩個好處：</p>
+<ul>
+<li><strong>部署一致</strong>：訓練好的 Pipeline 是一個物件，上線只要 <code>pipeline.predict(X_new)</code>，不需要手動重現前處理。</li>
+<li><strong>調參乾淨</strong>：<code>GridSearchCV(pipeline, ...)</code> 可以同時調前處理和模型的參數，每一折都完整重跑前處理。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">常見誤解：我有切測試集，所以沒有洩漏</p>
+<p>測試集切出來，確實沒被看到。但如果特徵選擇是在「訓練＋驗證」上先做完，再拿去做 CV 調參，CV 分數一樣是假的，你會依據假分數選出錯的超參數和特徵數量。
+後果是測試分數比 CV 低很多，然後開始懷疑是不是測試集「運氣不好」。</p>
+</div>
+<h2 id="2-pipeline">2. 基礎 Pipeline<a class="headerlink" href="#2-pipeline" title="Permanent link">¶</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">])</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>         <span class="c1"># accuracy</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>               <span class="c1"># 預測類別</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>   <span class="c1"># 預測機率</span>
 </span></code></pre></div>
 <p><code>Pipeline</code> 的步驟除最後一步以外必須實作 <code>transform</code>；最後一步通常是模型。</p>
 <hr>
-<h2 id="columntransformer">ColumnTransformer：處理混合型態資料<a class="headerlink" href="#columntransformer" title="Permanent link">¶</a></h2>
+<h2 id="3-columntransformer">3. ColumnTransformer：處理混合型態資料<a class="headerlink" href="#3-columntransformer" title="Permanent link">¶</a></h2>
 <p>實務資料幾乎都是混合型態（數值 + 類別），<code>ColumnTransformer</code> 讓不同欄位走不同前處理管道。</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">OrdinalEncoder</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleImputer</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># --- 定義欄位類型 ---</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'age'</span><span class="p">,</span> <span class="s1">'income'</span><span class="p">,</span> <span class="s1">'tenure'</span><span class="p">]</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">cat_onehot_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'city'</span><span class="p">,</span> <span class="s1">'product_type'</span><span class="p">]</span>          <span class="c1"># 低基數類別 → OneHot</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">cat_ordinal_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'education'</span><span class="p">]</span>                    <span class="c1"># 有序類別 → Ordinal</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># --- 各管道 ---</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">num_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'median'</span><span class="p">)),</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span>  <span class="n">StandardScaler</span><span class="p">()),</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">])</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">cat_onehot_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)),</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="p">(</span><span class="s1">'encoder'</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">])</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="n">cat_ordinal_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)),</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="p">(</span><span class="s1">'encoder'</span><span class="p">,</span> <span class="n">OrdinalEncoder</span><span class="p">(</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s1">'High School'</span><span class="p">,</span> <span class="s1">'Bachelor'</span><span class="p">,</span> <span class="s1">'Master'</span><span class="p">,</span> <span class="s1">'PhD'</span><span class="p">]],</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'use_encoded_value'</span><span class="p">,</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>        <span class="n">unknown_value</span><span class="o">=-</span><span class="mi">1</span>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="p">)),</span>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">])</span>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># --- 組合 ---</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="p">(</span><span class="s1">'num'</span><span class="p">,</span>         <span class="n">num_pipe</span><span class="p">,</span>          <span class="n">num_cols</span><span class="p">),</span>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    <span class="p">(</span><span class="s1">'cat_onehot'</span><span class="p">,</span>  <span class="n">cat_onehot_pipe</span><span class="p">,</span>   <span class="n">cat_onehot_cols</span><span class="p">),</span>
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    <span class="p">(</span><span class="s1">'cat_ordinal'</span><span class="p">,</span> <span class="n">cat_ordinal_pipe</span><span class="p">,</span>  <span class="n">cat_ordinal_cols</span><span class="p">),</span>
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="p">],</span> <span class="n">remainder</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">)</span>  <span class="c1"># 其餘欄位丟掉；用 'passthrough' 原樣保留</span>
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="c1"># --- 完整 Pipeline ---</span>
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="n">full_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="p">(</span><span class="s1">'preprocessor'</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
-</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
-</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="p">])</span>
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>
-</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="n">full_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">OrdinalEncoder</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleImputer</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># --- 定義欄位類型 ---</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'age'</span><span class="p">,</span> <span class="s1">'income'</span><span class="p">,</span> <span class="s1">'tenure'</span><span class="p">]</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">cat_onehot_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'city'</span><span class="p">,</span> <span class="s1">'product_type'</span><span class="p">]</span>          <span class="c1"># 低基數類別 → OneHot</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">cat_ordinal_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'education'</span><span class="p">]</span>                    <span class="c1"># 有序類別 → Ordinal</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># --- 各管道 ---</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">num_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'median'</span><span class="p">)),</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span>  <span class="n">StandardScaler</span><span class="p">()),</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">])</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">cat_onehot_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)),</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="p">(</span><span class="s1">'encoder'</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">])</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">cat_ordinal_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)),</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="p">(</span><span class="s1">'encoder'</span><span class="p">,</span> <span class="n">OrdinalEncoder</span><span class="p">(</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s1">'High School'</span><span class="p">,</span> <span class="s1">'Bachelor'</span><span class="p">,</span> <span class="s1">'Master'</span><span class="p">,</span> <span class="s1">'PhD'</span><span class="p">]],</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'use_encoded_value'</span><span class="p">,</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="n">unknown_value</span><span class="o">=-</span><span class="mi">1</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="p">)),</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">])</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="c1"># --- 組合 ---</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="p">(</span><span class="s1">'num'</span><span class="p">,</span>         <span class="n">num_pipe</span><span class="p">,</span>          <span class="n">num_cols</span><span class="p">),</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="p">(</span><span class="s1">'cat_onehot'</span><span class="p">,</span>  <span class="n">cat_onehot_pipe</span><span class="p">,</span>   <span class="n">cat_onehot_cols</span><span class="p">),</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    <span class="p">(</span><span class="s1">'cat_ordinal'</span><span class="p">,</span> <span class="n">cat_ordinal_pipe</span><span class="p">,</span>  <span class="n">cat_ordinal_cols</span><span class="p">),</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="p">],</span> <span class="n">remainder</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">)</span>  <span class="c1"># 其餘欄位丟掉；用 'passthrough' 原樣保留</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="c1"># --- 完整 Pipeline ---</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="n">full_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="p">(</span><span class="s1">'preprocessor'</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="p">])</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="n">full_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="transformer">常用 Transformer 速查<a class="headerlink" href="#transformer" title="Permanent link">¶</a></h3>
 <table>
@@ -4632,207 +4829,217 @@
 </tbody>
 </table>
 <hr>
-<h2 id="transformer_1">自訂 Transformer<a class="headerlink" href="#transformer_1" title="Permanent link">¶</a></h2>
+<h2 id="4-transformer">4. 自訂 Transformer<a class="headerlink" href="#4-transformer" title="Permanent link">¶</a></h2>
 <p>當內建 transformer 不夠用時，繼承 <code>BaseEstimator</code> + <code>TransformerMixin</code>：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">LogTransformer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="sd">"""對指定欄位做 log1p 轉換（支援 Pipeline fit/transform 介面）。"""</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">=</span> <span class="n">cols</span>  <span class="c1"># None = 全部欄位</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># 無需 fit，直接回傳 self</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="k">else</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="n">X</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="k">return</span> <span class="n">X</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">LogTransformer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="sd">"""對指定欄位做 log1p 轉換（支援 Pipeline fit/transform 介面）。"""</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">=</span> <span class="n">cols</span>  <span class="c1"># None = 全部欄位</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># 無需 fit，直接回傳 self</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="k">else</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="n">X</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="k">return</span> <span class="n">X</span>
 </span></code></pre></div>
 <p>放進 Pipeline：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="p">(</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">LogTransformer</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'income'</span><span class="p">,</span> <span class="s1">'tenure'</span><span class="p">])),</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">()),</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">])</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="p">(</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">LogTransformer</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">'income'</span><span class="p">,</span> <span class="s1">'tenure'</span><span class="p">])),</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">()),</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">])</span>
 </span></code></pre></div>
 <h3 id="functiontransformer">FunctionTransformer：輕量的一次性轉換<a class="headerlink" href="#functiontransformer" title="Permanent link">¶</a></h3>
 <p>不需要新 class 時，用 <code>FunctionTransformer</code> 包一個函式：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionTransformer</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">log_transformer</span> <span class="o">=</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionTransformer</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">log_transformer</span> <span class="o">=</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div>
 <hr>
-<h2 id="pipeline-gridsearchcv">Pipeline + GridSearchCV<a class="headerlink" href="#pipeline-gridsearchcv" title="Permanent link">¶</a></h2>
+<h2 id="5-pipeline-gridsearchcv">5. Pipeline + GridSearchCV<a class="headerlink" href="#5-pipeline-gridsearchcv" title="Permanent link">¶</a></h2>
 <p>超參數名稱用 <code>步驟名__參數名</code>（雙底線）：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="s1">'preprocessor__num__imputer__strategy'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'median'</span><span class="p">],</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="s1">'clf__learning_rate'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">full_pipe</span><span class="p">,</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">param_grid</span><span class="p">,</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">)</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Best params:"</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Best CV AUC:"</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Test AUC:"</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]))</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="s1">'preprocessor__num__imputer__strategy'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'mean'</span><span class="p">,</span> <span class="s1">'median'</span><span class="p">],</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="s1">'clf__learning_rate'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">full_pipe</span><span class="p">,</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">param_grid</span><span class="p">,</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">)</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Best params:"</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Best CV AUC:"</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Test AUC:"</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]))</span>
 </span></code></pre></div>
 <blockquote>
 <p><code>n_jobs=-1</code> 使用所有 CPU 核心並行；<code>verbose=1</code> 顯示進度。</p>
 </blockquote>
 <h3 id="randomizedsearchcv">RandomizedSearchCV：超參數空間大時的替代<a class="headerlink" href="#randomizedsearchcv" title="Permanent link">¶</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">uniform</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="s1">'clf__learning_rate'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="s1">'clf__subsample'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">rand_search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">full_pipe</span><span class="p">,</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">param_dist</span><span class="p">,</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">)</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">rand_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">uniform</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="s1">'clf__learning_rate'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="s1">'clf__subsample'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">rand_search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="n">full_pipe</span><span class="p">,</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="n">param_dist</span><span class="p">,</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="p">)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="n">rand_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span></code></pre></div>
 <hr>
-<h2 id="pipeline_2">查看 Pipeline 結構與特徵名稱<a class="headerlink" href="#pipeline_2" title="Permanent link">¶</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 顯示 Pipeline 架構（Jupyter 中有視覺化）</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_config</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s1">'diagram'</span><span class="p">)</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">full_pipe</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># 取得 OneHotEncoder 後的欄位名稱</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">feature_names</span> <span class="o">=</span> <span class="n">full_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'preprocessor'</span><span class="p">]</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># 取得各步驟</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">full_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'preprocessor'</span><span class="p">]</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">full_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'clf'</span><span class="p">]</span>
+<h2 id="6-pipeline">6. 查看 Pipeline 結構與特徵名稱<a class="headerlink" href="#6-pipeline" title="Permanent link">¶</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 顯示 Pipeline 架構（Jupyter 中有視覺化）</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_config</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s1">'diagram'</span><span class="p">)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">full_pipe</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># 取得 OneHotEncoder 後的欄位名稱</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">feature_names</span> <span class="o">=</span> <span class="n">full_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'preprocessor'</span><span class="p">]</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># 取得各步驟</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">full_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'preprocessor'</span><span class="p">]</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">full_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">'clf'</span><span class="p">]</span>
 </span></code></pre></div>
 <hr>
-<h2 id="_1">儲存與載入<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># 儲存（包含前處理的所有 fit 狀態 + 模型權重）</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">full_pipe</span><span class="p">,</span> <span class="s1">'model_pipeline.joblib'</span><span class="p">)</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 載入並預測（只需要一行）</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">loaded_pipe</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'model_pipeline.joblib'</span><span class="p">)</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">predictions</span> <span class="o">=</span> <span class="n">loaded_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<h2 id="7">7. 儲存與載入<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># 儲存（包含前處理的所有 fit 狀態 + 模型權重）</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">full_pipe</span><span class="p">,</span> <span class="s1">'model_pipeline.joblib'</span><span class="p">)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># 載入並預測（只需要一行）</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">loaded_pipe</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'model_pipeline.joblib'</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">predictions</span> <span class="o">=</span> <span class="n">loaded_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
 </span></code></pre></div>
 <blockquote>
 <p>⚠️ 用 <code>joblib</code> 而非 <code>pickle</code>——joblib 存大型 numpy array 比較有效率。兩者載入時都可能執行任意程式碼，來路不明的檔案別載。版本要對齊：載入時的 sklearn 版本應和儲存時相同或相容，否則可能拋 warning 甚至錯誤。</p>
 </blockquote>
 <hr>
-<h2 id="_2">完整可複製模板<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleImputer</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">train_test_split</span><span class="p">,</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">RandomizedSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">)</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">average_precision_score</span><span class="p">,</span> <span class="n">classification_report</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">uniform</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="c1"># ── 1. 切分資料 ────────────────────────────────────────────</span>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="n">X_temp</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="p">)</span>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>    <span class="n">X_temp</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.18</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_temp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">)</span>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="c1"># ── 2. 定義欄位 ────────────────────────────────────────────</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'int64'</span><span class="p">,</span> <span class="s1">'float64'</span><span class="p">]]</span>
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="n">cat_cols</span>  <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">]</span>
-</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>
-</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="c1"># ── 3. 建 Preprocessor ────────────────────────────────────</span>
-</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="n">num_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'median'</span><span class="p">)),</span>
-</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span>  <span class="n">StandardScaler</span><span class="p">()),</span>
-</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="p">])</span>
-</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="n">cat_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)),</span>
-</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>    <span class="p">(</span><span class="s1">'encoder'</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
-</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="p">])</span>
-</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
-</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>    <span class="p">(</span><span class="s1">'num'</span><span class="p">,</span> <span class="n">num_pipe</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">),</span>
-</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>    <span class="p">(</span><span class="s1">'cat'</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="n">cat_cols</span><span class="p">),</span>
-</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="p">])</span>
-</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>
-</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="c1"># ── 4. 完整 Pipeline ──────────────────────────────────────</span>
-</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a>    <span class="p">(</span><span class="s1">'preprocessor'</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
-</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
-</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a><span class="p">])</span>
-</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a>
-</span><span id="__span-9-47"><a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a><span class="c1"># ── 5. 超參數搜索 ─────────────────────────────────────────</span>
-</span><span id="__span-9-48"><a id="__codelineno-9-48" name="__codelineno-9-48" href="#__codelineno-9-48"></a><span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-9-49"><a id="__codelineno-9-49" name="__codelineno-9-49" href="#__codelineno-9-49"></a>    <span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span>
-</span><span id="__span-9-50"><a id="__codelineno-9-50" name="__codelineno-9-50" href="#__codelineno-9-50"></a>    <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-</span><span id="__span-9-51"><a id="__codelineno-9-51" name="__codelineno-9-51" href="#__codelineno-9-51"></a>    <span class="s1">'clf__learning_rate'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">),</span>
-</span><span id="__span-9-52"><a id="__codelineno-9-52" name="__codelineno-9-52" href="#__codelineno-9-52"></a>    <span class="s1">'clf__subsample'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
-</span><span id="__span-9-53"><a id="__codelineno-9-53" name="__codelineno-9-53" href="#__codelineno-9-53"></a><span class="p">}</span>
-</span><span id="__span-9-54"><a id="__codelineno-9-54" name="__codelineno-9-54" href="#__codelineno-9-54"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-9-55"><a id="__codelineno-9-55" name="__codelineno-9-55" href="#__codelineno-9-55"></a><span class="n">search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_dist</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
-</span><span id="__span-9-56"><a id="__codelineno-9-56" name="__codelineno-9-56" href="#__codelineno-9-56"></a>                             <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-9-57"><a id="__codelineno-9-57" name="__codelineno-9-57" href="#__codelineno-9-57"></a><span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</span><span id="__span-9-58"><a id="__codelineno-9-58" name="__codelineno-9-58" href="#__codelineno-9-58"></a><span class="n">best_pipe</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
-</span><span id="__span-9-59"><a id="__codelineno-9-59" name="__codelineno-9-59" href="#__codelineno-9-59"></a>
-</span><span id="__span-9-60"><a id="__codelineno-9-60" name="__codelineno-9-60" href="#__codelineno-9-60"></a><span class="c1"># ── 6. 驗證集評估 ─────────────────────────────────────────</span>
-</span><span id="__span-9-61"><a id="__codelineno-9-61" name="__codelineno-9-61" href="#__codelineno-9-61"></a><span class="n">val_prob</span> <span class="o">=</span> <span class="n">best_pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_val</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-9-62"><a id="__codelineno-9-62" name="__codelineno-9-62" href="#__codelineno-9-62"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Val AUC-ROC : </span><span class="si">{</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="w"> </span><span class="n">val_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-9-63"><a id="__codelineno-9-63" name="__codelineno-9-63" href="#__codelineno-9-63"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Val PR-AUC  : </span><span class="si">{</span><span class="n">average_precision_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="w"> </span><span class="n">val_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-9-64"><a id="__codelineno-9-64" name="__codelineno-9-64" href="#__codelineno-9-64"></a>
-</span><span id="__span-9-65"><a id="__codelineno-9-65" name="__codelineno-9-65" href="#__codelineno-9-65"></a><span class="c1"># ── 7. 最終測試集評估（只碰一次）─────────────────────────</span>
-</span><span id="__span-9-66"><a id="__codelineno-9-66" name="__codelineno-9-66" href="#__codelineno-9-66"></a><span class="n">test_prob</span> <span class="o">=</span> <span class="n">best_pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-9-67"><a id="__codelineno-9-67" name="__codelineno-9-67" href="#__codelineno-9-67"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test AUC-ROC: </span><span class="si">{</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">test_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-9-68"><a id="__codelineno-9-68" name="__codelineno-9-68" href="#__codelineno-9-68"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">best_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
-</span><span id="__span-9-69"><a id="__codelineno-9-69" name="__codelineno-9-69" href="#__codelineno-9-69"></a>
-</span><span id="__span-9-70"><a id="__codelineno-9-70" name="__codelineno-9-70" href="#__codelineno-9-70"></a><span class="c1"># ── 8. 儲存 ──────────────────────────────────────────────</span>
-</span><span id="__span-9-71"><a id="__codelineno-9-71" name="__codelineno-9-71" href="#__codelineno-9-71"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">best_pipe</span><span class="p">,</span> <span class="s1">'model_pipeline.joblib'</span><span class="p">)</span>
+<h2 id="8">8. 完整可複製模板<a class="headerlink" href="#8" title="Permanent link">¶</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleImputer</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">train_test_split</span><span class="p">,</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">RandomizedSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">average_precision_score</span><span class="p">,</span> <span class="n">classification_report</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">uniform</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1"># ── 1. 切分資料 ────────────────────────────────────────────</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">X_temp</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="p">)</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    <span class="n">X_temp</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.18</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_temp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="p">)</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c1"># ── 2. 定義欄位 ────────────────────────────────────────────</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'int64'</span><span class="p">,</span> <span class="s1">'float64'</span><span class="p">]]</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="n">cat_cols</span>  <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">]</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="c1"># ── 3. 建 Preprocessor ────────────────────────────────────</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="n">num_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'median'</span><span class="p">)),</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span>  <span class="n">StandardScaler</span><span class="p">()),</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="p">])</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="n">cat_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>    <span class="p">(</span><span class="s1">'imputer'</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)),</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>    <span class="p">(</span><span class="s1">'encoder'</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="p">])</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>    <span class="p">(</span><span class="s1">'num'</span><span class="p">,</span> <span class="n">num_pipe</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">),</span>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>    <span class="p">(</span><span class="s1">'cat'</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="n">cat_cols</span><span class="p">),</span>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="p">])</span>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="c1"># ── 4. 完整 Pipeline ──────────────────────────────────────</span>
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>    <span class="p">(</span><span class="s1">'preprocessor'</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
+</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="p">])</span>
+</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>
+</span><span id="__span-11-47"><a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="c1"># ── 5. 超參數搜索 ─────────────────────────────────────────</span>
+</span><span id="__span-11-48"><a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-11-49"><a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>    <span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span>
+</span><span id="__span-11-50"><a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>    <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+</span><span id="__span-11-51"><a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>    <span class="s1">'clf__learning_rate'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">),</span>
+</span><span id="__span-11-52"><a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>    <span class="s1">'clf__subsample'</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
+</span><span id="__span-11-53"><a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="p">}</span>
+</span><span id="__span-11-54"><a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-11-55"><a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="n">search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_dist</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+</span><span id="__span-11-56"><a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>                             <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-11-57"><a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span><span id="__span-11-58"><a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="n">best_pipe</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
+</span><span id="__span-11-59"><a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a>
+</span><span id="__span-11-60"><a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="c1"># ── 6. 驗證集評估 ─────────────────────────────────────────</span>
+</span><span id="__span-11-61"><a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a><span class="n">val_prob</span> <span class="o">=</span> <span class="n">best_pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_val</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-11-62"><a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Val AUC-ROC : </span><span class="si">{</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="w"> </span><span class="n">val_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-11-63"><a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Val PR-AUC  : </span><span class="si">{</span><span class="n">average_precision_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span><span class="w"> </span><span class="n">val_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-11-64"><a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a>
+</span><span id="__span-11-65"><a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="c1"># ── 7. 最終測試集評估（只碰一次）─────────────────────────</span>
+</span><span id="__span-11-66"><a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="n">test_prob</span> <span class="o">=</span> <span class="n">best_pipe</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-11-67"><a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test AUC-ROC: </span><span class="si">{</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">test_prob</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-11-68"><a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">best_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</span><span id="__span-11-69"><a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a>
+</span><span id="__span-11-70"><a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="c1"># ── 8. 儲存 ──────────────────────────────────────────────</span>
+</span><span id="__span-11-71"><a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">best_pipe</span><span class="p">,</span> <span class="s1">'model_pipeline.joblib'</span><span class="p">)</span>
 </span></code></pre></div>
+<h2 id="_2">結論<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>回到前言的三個問題。</p>
+<p><strong>為什麼前處理一定要包進 Pipeline？</strong> 在 CV 外面做的前處理會看到驗證折。純雜訊資料上，先選特徵再 CV 拿到 0.870，包進 Pipeline 是 0.500。特徵越多、樣本越少，錯得越多。</p>
+<p><strong>混合型態資料怎麼寫？</strong> <code>ColumnTransformer</code> 分欄位處理，再和模型包成一個 Pipeline（§3、§8）。</p>
+<p><strong>部署要注意什麼？</strong> 存整個 Pipeline；sklearn 版本要對齊；不要載入來路不明的檔案（§7）。</p>
+<h3 id="_3">延伸：這篇真正想留下的問題<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>Pipeline 解決的不是程式風格，而是一個時間順序的問題：<strong>在真實上線時，模型拿到一筆新資料，它手上有什麼？</strong> 它只有訓練時存下來的平均、選好的特徵、算好的編碼，沒有新資料的答案。</p>
+<p>CV 的每一折都應該重現這個情境。寫前處理時的檢查只有一條：<strong>上線那一刻，這個數字算得出來嗎？</strong></p>
 <hr>
-<h2 id="_3">延伸閱讀（本站）<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h2 id="_4">延伸閱讀（本站）<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — CV 策略與 Nested CV 的完整說明</li>
 <li><a href="../feature-engineering/">特徵工程心法</a> — 哪些前處理步驟要放進 Pipeline</li>
 <li><a href="../ml-case-studies/">常見 ML Case Study</a> — 完整端到端範例，含 Pipeline 的實際應用</li>
 <li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — Ch2 端到端專案裡 Pipeline 的定位</li>
 </ul>
-<h2 id="_4">來源<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h2 id="_5">參考資料<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://scikit-learn.org/stable/modules/compose.html">sklearn Pipeline 官方文件</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html">sklearn ColumnTransformer 官方文件</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/preprocessing.html">sklearn User Guide: Preprocessing data</a></li>
+<li>Hastie, T., Tibshirani, R. &amp; Friedman, J.《The Elements of Statistical Learning》, 2nd ed., §7.10.2 "The Wrong and Right Way to Do Cross-validation"</li>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed. Ch2</li>
+<li>本頁實驗為自行執行：100 筆、5,000 個雜訊特徵、選 20 個、5 折 CV，種子 0，2026-10-04</li>
 </ul>
 
 
@@ -4856,7 +5063,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4901,7 +5108,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../feature-engineering/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 4 · 特徵工程心法">
+          <a href="../feature-engineering/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 特徵工程心法">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4911,20 +5118,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                4 · 特徵工程心法
+                特徵工程心法
               </div>
             </div>
           </a>
         
         
           
-          <a href="../model-evaluation-cross-validation/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 6 · 模型評估與 Cross-Validation">
+          <a href="../model-evaluation-cross-validation/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 模型評估與 Cross-Validation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                6 · 模型評估與 Cross-Validation
+                模型評估與 Cross-Validation
               </div>
             </div>
             <div class="md-footer__button md-icon">

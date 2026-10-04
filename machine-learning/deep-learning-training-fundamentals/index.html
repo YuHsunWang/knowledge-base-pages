@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="神經網路訓練的核心零件——激活函數、損失函數、優化器、反向傳播、正則化技巧（Dropout/BatchNorm）、訓練實務與 CNN 入門，含面試口答。">
+        <meta name="description" content="神經網路的訓練零件：激活函數、損失函數、優化器、反向傳播、Dropout/BatchNorm 與 CNN 入門，附 20 層網路梯度消失的 numpy 實測。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>深度學習訓練基礎 - Shane's Knowledge Base</title>
+        <title>深度學習訓練基礎：為什麼深的網路以前訓練不起來？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="深度學習訓練基礎 - Shane's Knowledge Base">
-<meta property="og:description" content="神經網路訓練的核心零件——激活函數、損失函數、優化器、反向傳播、正則化技巧（Dropout/BatchNorm）、訓練實務與 CNN 入門，含面試口答。">
+<meta property="og:title" content="深度學習訓練基礎：為什麼深的網路以前訓練不起來？ - Shane's Knowledge Base">
+<meta property="og:description" content="神經網路的訓練零件：激活函數、損失函數、優化器、反向傳播、Dropout/BatchNorm 與 CNN 入門，附 20 層網路梯度消失的 numpy 實測。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/deep-learning-training-fundamentals.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/deep-learning-training-fundamentals/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="深度學習訓練基礎 - Shane's Knowledge Base">
-<meta property="twitter:description" content="神經網路訓練的核心零件——激活函數、損失函數、優化器、反向傳播、正則化技巧（Dropout/BatchNorm）、訓練實務與 CNN 入門，含面試口答。">
+<meta property="twitter:title" content="深度學習訓練基礎：為什麼深的網路以前訓練不起來？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="神經網路的訓練零件：激活函數、損失函數、優化器、反向傳播、Dropout/BatchNorm 與 CNN 入門，附 20 層網路梯度消失的 numpy 實測。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/deep-learning-training-fundamentals.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              深度學習訓練基礎
+              深度學習訓練基礎：為什麼深的網路以前訓練不起來？
             
           </span>
         </div>
@@ -2258,6 +2258,8 @@
       
         
       
+        
+      
     
     
     
@@ -2319,16 +2321,10 @@
                 
   
   
-    
-  
   
   
     
     
-      
-        
-      
-        
       
         
       
@@ -2346,11 +2342,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
@@ -2360,7 +2356,7 @@
   <span class="md-ellipsis">
     
   
-    觀念地基
+    基礎觀念
   
 
     
@@ -2371,12 +2367,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    觀念地基
+    基礎觀念
   
 
           </label>
@@ -2396,7 +2392,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2424,7 +2420,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2437,6 +2433,77 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度學習
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    深度學習
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2461,7 +2528,7 @@
   <span class="md-ellipsis">
     
   
-    3 · 深度學習訓練基礎
+    深度學習訓練基礎
   
 
     
@@ -2479,7 +2546,7 @@
   <span class="md-ellipsis">
     
   
-    3 · 深度學習訓練基礎
+    深度學習訓練基礎
   
 
     
@@ -2503,6 +2570,17 @@
       目錄
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前言
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1-activation" class="md-nav__link">
@@ -2538,13 +2616,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-backpropagation" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 反向傳播（Backpropagation）
+        4. 反向傳播與梯度消失
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. 反向傳播與梯度消失">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：20 層網路，梯度傳回去還剩多少
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2582,7 +2677,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -2593,7 +2716,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -2626,7 +2749,7 @@
   <span class="md-ellipsis">
     
   
-    9 · Transformer 與注意力機制
+    Transformer 與注意力機制
   
 
     
@@ -2662,215 +2785,6 @@
         
       
         
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    動手實作
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    動手實作
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../feature-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    4 · 特徵工程心法
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5 · sklearn Pipeline 與前處理模板
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    6 · 模型評估與 Cross-Validation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    10 · Gradient Boosting 實戰
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../model-interpretability-shap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    11 · 模型可解釋性（SHAP）
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
       
         
       
@@ -2902,7 +2816,7 @@
   <span class="md-ellipsis">
     
   
-    綜合應用
+    表格資料實作
   
 
     
@@ -2915,6 +2829,215 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    表格資料實作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特徵工程心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sklearn Pipeline 模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型評估與 Cross-Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    綜合應用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2938,7 +3061,7 @@
   <span class="md-ellipsis">
     
   
-    7 · 常見 ML Case Study
+    常見 ML Case Study
   
 
     
@@ -2966,7 +3089,7 @@
   <span class="md-ellipsis">
     
   
-    12 · 金融時間序列 ML
+    金融時間序列 ML
   
 
     
@@ -3015,10 +3138,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
             
   
   
@@ -3036,8 +3159,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3061,7 +3184,7 @@
   <span class="md-ellipsis">
     
   
-    8 · 統計推論與 A/B 測試
+    統計推論與 A/B 測試
   
 
     
@@ -4174,6 +4297,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-activation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4207,13 +4341,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-backpropagation" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 反向傳播（Backpropagation）
+        4. 反向傳播與梯度消失
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. 反向傳播與梯度消失">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：20 層網路，梯度傳回去還剩多少
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4251,7 +4402,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4262,7 +4441,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -4333,10 +4512,10 @@
     
     
       <li class="md-path__item">
-        <a href="../ml-interview-core-concepts/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    觀念地基
+    深度學習
   </span>
 
         </a>
@@ -4366,12 +4545,23 @@
 
 
 
-<h1 id="_1">深度學習訓練基礎<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<h1 id="_1">深度學習訓練基礎：為什麼深的網路以前訓練不起來？<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>古典 ML（見〈<a href="../geron-hands-on-ml-notes/">Géron Ch1–9</a>〉、〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念</a>〉）之後，進到神經網路就會反覆碰到同一組「訓練零件」。本文把它們整理成一條訓練迴路：<strong>前向傳播算輸出 → 損失函數量誤差 → 反向傳播算梯度 → 優化器更新權重</strong>，再加上防過擬合與 CNN 入門。</p>
+<p><strong>難度：中。需要知道梯度下降（見〈<a href="../ml-interview-core-concepts/">ML 核心觀念</a>〉§3）和一點微積分的連鎖律。</strong>
+本頁的實驗只用 numpy，數字來自 Python 3.12、亂數種子 0，2026-10-04 執行。</p>
 </blockquote>
+<h2 id="_2">前言<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>神經網路的教材通常一個零件一個零件介紹：激活函數有哪些、損失函數有哪些、優化器有哪些。每個零件都有一張比較表，但很少有人說清楚<strong>為什麼需要這麼多零件</strong>。</p>
+<p>答案其實集中在一件事上：網路一變深，梯度就傳不回去。ReLU、好的初始化、BatchNorm、殘差連接，大半都是為了這件事發明的。</p>
+<p>本頁把零件串成一條訓練迴路：<strong>前向傳播算輸出 → 損失函數量誤差 → 反向傳播算梯度 → 優化器更新權重</strong>，並回答三個問題：</p>
+<ul>
+<li><strong>為什麼深的網路以前訓練不起來？</strong>（先講結論：反向傳播時梯度一層一層連乘。用 sigmoid 疊 20 層，梯度傳回第 1 層時只剩最後一層的 10⁻¹²，前面的層等於完全沒在學。換成 ReLU 加 He 初始化，第 1 層和最後一層的梯度維持在同一個量級。）</li>
+<li><strong>初始化為什麼這麼重要？</strong>（同樣是 ReLU，權重初始化太小，第 1 層的梯度掉到 10⁻²²。He 初始化讓每一層輸出的變異數保持不變，梯度才傳得回去。）</li>
+<li><strong>Dropout 和 BatchNorm 為什麼訓練和推論時做的事不一樣？</strong>（兩者在訓練時都依賴「這一批」的隨機性或統計量，推論時沒有批次也不該有隨機性，所以要換一套固定的算法，讓輸出的期望值一致。）</li>
+</ul>
+<p>本頁只談全連接網路和 CNN 入門；Transformer 見〈<a href="../transformer-attention/">Transformer 與注意力機制</a>〉。</p>
 <h2 id="1-activation">1. 激活函數（Activation）<a class="headerlink" href="#1-activation" title="Permanent link">¶</a></h2>
-<p>非線性的來源——沒有它，疊再多層線性層仍等於一層線性。</p>
+<p>激活函數是非線性的來源。沒有它，疊再多層線性層，乘起來還是一層線性。</p>
 <table>
 <thead>
 <tr>
@@ -4389,61 +4579,54 @@
 <tr>
 <td><strong>Tanh</strong></td>
 <td>(−1,1)</td>
-<td>零中心、收斂較 sigmoid 好；仍會飽和</td>
+<td>零中心、收斂比 sigmoid 好；仍會飽和</td>
 </tr>
 <tr>
 <td><strong>ReLU</strong></td>
 <td>[0,∞)</td>
-<td>計算快、緩解梯度消失（正區梯度恆 1）；<strong>Dead ReLU</strong>（負區恆 0 → 神經元死掉）</td>
+<td>計算快、正區梯度恆為 1；<strong>Dead ReLU</strong>（負區恆為 0 → 神經元可能永遠不再更新）</td>
 </tr>
 <tr>
 <td><strong>Leaky ReLU</strong></td>
 <td>ℝ</td>
-<td>負區給小斜率 <code>max(ax,x)</code>，緩解 dead ReLU</td>
+<td>負區給一個小斜率 <code>max(ax,x)</code>，緩解 dead ReLU</td>
 </tr>
 <tr>
 <td><strong>ELU</strong></td>
 <td>ℝ</td>
-<td>負區平滑、輸出近零中心；計算較貴</td>
+<td>負區平滑、輸出接近零中心；計算較貴</td>
 </tr>
 <tr>
 <td><strong>PReLU</strong></td>
 <td>ℝ</td>
-<td>Leaky 的可學版本（斜率 α 由訓練學出）</td>
+<td>Leaky 的可學版本（斜率 α 由訓練決定）</td>
 </tr>
 <tr>
 <td><strong>Softmax</strong></td>
-<td>(0,1) 且總和=1</td>
+<td>(0,1) 且總和為 1</td>
 <td>多分類<strong>輸出層</strong>用，輸出各類機率</td>
 </tr>
 </tbody>
 </table>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/activation_functions.png" data-desc-position="bottom"><img alt="五種激活函數座標圖" class="wide" src="../assets/activation_functions.png"></a>
-<em>圖：五種常見激活函數。Sigmoid／Tanh 兩端飽和（梯度消失）；ReLU 系在正區梯度恆 1、計算快。</em></p>
-<p><strong>選用原則</strong>：隱藏層預設 <strong>ReLU</strong>（不行再試 Leaky/ELU）；輸出層——二元分類 Sigmoid、多元分類 Softmax、回歸用線性（不加激活）。</p>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>為何 ReLU 取代 Sigmoid 當隱藏層</strong>：Sigmoid 兩端飽和、梯度趨近 0，深層會梯度消失；ReLU 正區梯度恆為 1、計算又快。</li>
-<li><strong>Dead ReLU 是什麼、怎麼解</strong>：負區梯度為 0，某些神經元一旦落到負區就永遠不更新（死掉）；用 Leaky ReLU / ELU / PReLU 給負區一點斜率。</li>
-<li><strong>為何 Tanh 比 Sigmoid 好一點</strong>：零中心，梯度更新方向較不偏，收斂通常較快（但仍會飽和）。</li>
-</ul>
-</div>
+<em>圖：五種常見激活函數。Sigmoid／Tanh 兩端飽和（梯度消失）；ReLU 系在正區梯度恆為 1、計算快。</em></p>
+<p><strong>選用原則</strong>：隱藏層預設 <strong>ReLU</strong>（有問題再試 Leaky/ELU）；輸出層看任務：二元分類 Sigmoid、多元分類 Softmax、回歸不加激活。</p>
+<p>Sigmoid 的導數最大只有 0.25（在 0 的位置），兩端趨近 0。每經過一層就至少乘上 0.25，這是第 4 節實驗裡梯度消失的直接原因。</p>
 <h2 id="2-loss">2. 損失函數（Loss）<a class="headerlink" href="#2-loss" title="Permanent link">¶</a></h2>
-<p>量化「預測 vs 真實」的差距，訓練就是最小化它。
-- <strong>回歸</strong>：MSE（重罰大誤差、常用）、MAE（對 outlier 穩健）。詳見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 · 評估指標</a>〉。
-- <strong>分類</strong>：<strong>Cross-Entropy</strong>——<code>binary_crossentropy</code>（二元）、<code>categorical_crossentropy</code>（多元，label 為 one-hot）、<code>sparse_categorical_crossentropy</code>（多元，label 為整數）。
-- <strong>Hinge Loss</strong>：<code>max(0, 1 − y·ŷ)</code>，SVM 的損失，只懲罰落在 margin 內/錯邊的點。
-- <strong>自訂 Loss</strong>：依商業成本設計，例如備貨問題「賣不掉的成本 ≠ 缺貨的損失」時用非對稱損失。</p>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
+<p>損失函數量化「預測和真值差多遠」，訓練就是把它變小。</p>
 <ul>
-<li><strong>分類為何用 Cross-Entropy 不用 MSE</strong>：配 sigmoid/softmax 時 CE 的梯度形式乾淨、不會因飽和而梯度消失，且來自最大似然；MSE 在此非凸、收斂慢（延伸見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 · 線性 vs 邏輯回歸</a>〉）。</li>
-<li><strong>categorical vs sparse categorical</strong>：差在 label 格式——one-hot 用 categorical、整數索引用 sparse，數學等價。</li>
+<li><strong>回歸</strong>：MSE（重罰大誤差、最常用）、MAE（對離群值穩健）。</li>
+<li><strong>分類</strong>：<strong>Cross-Entropy</strong>。Keras 裡分成 <code>binary_crossentropy</code>（二元）、<code>categorical_crossentropy</code>（多元，label 是 one-hot）、<code>sparse_categorical_crossentropy</code>（多元，label 是整數）。後兩者數學上一樣，只差 label 的格式。</li>
+<li><strong>Hinge Loss</strong>：<code>max(0, 1 − y·ŷ)</code>，SVM 用的損失，只懲罰落在 margin 內或錯邊的點。</li>
+<li><strong>自訂 Loss</strong>：依商業成本設計。例如備貨問題「賣不掉的成本 ≠ 缺貨的損失」，就用不對稱的損失。</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">常見誤解：分類問題用 MSE 也能訓練</p>
+<p>能跑，但配 sigmoid 或 softmax 時，MSE 的梯度會乘上 sigmoid 的導數；輸出一飽和，梯度就接近 0，模型錯得很離譜時反而學最慢。
+Cross-Entropy 的梯度剛好把 sigmoid 的導數消掉，變成「預測 − 真值」。錯越多、梯度越大。這是收斂速度的差別，不是慣例。</p>
 </div>
 <h2 id="3-optimizer">3. 優化器（Optimizer）<a class="headerlink" href="#3-optimizer" title="Permanent link">¶</a></h2>
-<p>更新規則 <code>w ← w − η·∇L(w)</code>（η＝learning rate）。梯度下降本身<strong>不保證</strong>找到全局最小。三種基本梯度下降（Batch/SGD/Mini-batch）見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 · 梯度下降</a>〉，這裡看<strong>自適應優化器</strong>。</p>
+<p>更新規則 <code>w ← w − η·∇L(w)</code>（η 是 learning rate）。基本的 Batch／SGD／Mini-batch 見〈<a href="../ml-interview-core-concepts/">ML 核心觀念</a>〉§3，這裡看<strong>自適應優化器</strong>。</p>
 <table>
 <thead>
 <tr>
@@ -4455,109 +4638,164 @@
 <tbody>
 <tr>
 <td><strong>SGD + Momentum</strong></td>
-<td>累積過去梯度方向（慣性）</td>
-<td>加速一致方向、抑制震盪；<code>momentum=0.9</code> 常用</td>
+<td>累積過去的梯度方向（慣性）</td>
+<td>一致的方向加速、來回的震盪抵消；<code>momentum=0.9</code> 常用</td>
 </tr>
 <tr>
 <td><strong>Nesterov</strong></td>
-<td>在「往前一步後」的位置算梯度</td>
-<td>比一般 momentum 更前瞻、收斂更穩</td>
+<td>在「先往前走一步」的位置算梯度</td>
+<td>比一般 momentum 更早煞車，收斂更穩</td>
 </tr>
 <tr>
 <td><strong>Adagrad</strong></td>
-<td>每參數自適應 lr（除以歷史梯度平方和的根）</td>
-<td>稀疏特徵友善；<strong>缺點：lr 隨時間累積遞減 → 後期學不動</strong></td>
+<td>每個參數自己調 lr（除以歷史梯度平方和的根號）</td>
+<td>稀疏特徵友善；<strong>缺點：分母只增不減，後期 lr 太小學不動</strong></td>
 </tr>
 <tr>
 <td><strong>RMSprop</strong></td>
 <td>改用梯度平方的<strong>指數移動平均</strong></td>
-<td>解決 Adagrad 的 lr 消失；<strong>RNN 常用</strong></td>
+<td>會遺忘久遠的梯度，解決 Adagrad 後期學不動；RNN 常用</td>
 </tr>
 <tr>
 <td><strong>Adam</strong></td>
 <td>Momentum + RMSprop</td>
-<td><code>β₁=0.9</code>（一階動量）、<code>β₂=0.999</code>（二階）、含 bias correction；<strong>現代預設首選</strong></td>
+<td><code>β₁=0.9</code>（一階動量）、<code>β₂=0.999</code>（二階）、含 bias correction；<strong>現代預設</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Learning rate scheduling</strong>：常見 <code>lr = lr₀ / (1 + decay·step)</code>，或 plateau 時衰減——初期大步、後期小步收斂到谷底。</p>
+<p><strong>Learning rate scheduling</strong>：常見 <code>lr = lr₀ / (1 + decay·step)</code>，或驗證分數停住時衰減。初期大步走，後期小步收斂到谷底。</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/gradient_descent_lr.png" data-desc-position="bottom"><img alt="learning rate 太小／適中／太大" class="wide" src="../assets/gradient_descent_lr.png"></a>
 <em>圖：同一個 loss 曲面上，learning rate 太小（步伐太小、收斂慢）／適中（順利收斂）／太大（震盪甚至發散）。</em></p>
+<p>Adam 收斂快、預設參數就好用，所以是預設。但 SGD + Momentum 配上好的 learning rate schedule，有時最終泛化得更好；Adam 有時停在泛化較差的解。重要的模型兩種都值得試。</p>
+<h2 id="4">4. 反向傳播與梯度消失<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
+<p>反向傳播用<strong>連鎖律</strong>，把損失對每個權重的偏導數 <code>∂L/∂w</code> 從輸出層一層一層往回算：</p>
+<ol>
+<li><strong>前向</strong>：算出各層輸出與最終預測。</li>
+<li><strong>算損失</strong>。</li>
+<li><strong>反向</strong>：從輸出層往輸入層，逐層用連鎖律算梯度。</li>
+<li><strong>更新</strong>：優化器照梯度調整權重。</li>
+</ol>
+<p>前提是<strong>激活函數可微</strong>（ReLU 在 0 不可微，實作上直接取 0 或 1）。</p>
+<p>連鎖律的意思是：第 1 層的梯度 = 後面每一層的「局部導數」乘起來。乘的東西都小於 1，很深之後就趨近 0（<strong>梯度消失</strong>）；都大於 1，就爆掉（<strong>梯度爆炸</strong>）。</p>
+<h3 id="20">實驗：20 層網路，梯度傳回去還剩多少<a class="headerlink" href="#20" title="Permanent link">¶</a></h3>
+<p>我們建一個 20 層、每層 100 個神經元的全連接網路，餵 256 筆標準常態的輸入，從輸出端傳一個固定的梯度回去，量最後一層和第 1 層的梯度大小。比較三種組合：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">grad_norms</span><span class="p">(</span><span class="n">act</span><span class="p">,</span> <span class="n">dact</span><span class="p">,</span> <span class="n">init_std</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">256</span><span class="p">):</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">Ws</span> <span class="o">=</span> <span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">init_std</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">h</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">));</span> <span class="n">zs</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">for</span> <span class="n">W</span> <span class="ow">in</span> <span class="n">Ws</span><span class="p">:</span>                                   <span class="c1"># 前向</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="n">z</span> <span class="o">=</span> <span class="n">h</span> <span class="o">@</span> <span class="n">W</span><span class="p">;</span> <span class="n">zs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">);</span> <span class="n">h</span> <span class="o">=</span> <span class="n">act</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span> <span class="n">norms</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">for</span> <span class="n">W</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">Ws</span><span class="p">),</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">zs</span><span class="p">)):</span>   <span class="c1"># 反向：乘上局部導數，再乘回權重</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">*</span> <span class="n">dact</span><span class="p">(</span><span class="n">z</span><span class="p">);</span> <span class="n">norms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">));</span> <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">@</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">return</span> <span class="n">norms</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">norms</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                     <span class="c1"># 最後一層、第 1 層</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">sig</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">));</span> <span class="n">dsig</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">sig</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sig</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">relu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>     <span class="n">drelu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">grad_norms</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span>  <span class="n">dsig</span><span class="p">,</span>  <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">d</span><span class="p">))</span>   <span class="c1"># sigmoid + Xavier</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">grad_norms</span><span class="p">(</span><span class="n">relu</span><span class="p">,</span> <span class="n">drelu</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">d</span><span class="p">))</span>   <span class="c1"># ReLU + He</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">grad_norms</span><span class="p">(</span><span class="n">relu</span><span class="p">,</span> <span class="n">drelu</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">)</span>             <span class="c1"># ReLU + 太小的初始化</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>組合</th>
+<th>最後一層的梯度</th>
+<th>第 1 層的梯度</th>
+<th>第 1 層 ÷ 最後一層</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sigmoid + Xavier 初始化</td>
+<td>1.48 × 10⁻¹</td>
+<td><strong>1.85 × 10⁻¹³</strong></td>
+<td>10⁻¹²</td>
+</tr>
+<tr>
+<td>ReLU + He 初始化</td>
+<td>4.63 × 10⁻¹</td>
+<td>9.94 × 10⁻¹</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>ReLU + 標準差 0.01 的初始化</td>
+<td>4.11 × 10⁻¹</td>
+<td><strong>3.15 × 10⁻²²</strong></td>
+<td>10⁻²²</td>
+</tr>
+</tbody>
+</table>
+<p>第一列就是「深的網路以前訓練不起來」的原因。sigmoid 每層至少乘 0.25，20 層之後，第 1 層的梯度比最後一層小一兆倍。learning rate 不可能同時適合這兩層：調到讓第 1 層動得了，最後一層早就發散了。</p>
+<p>第二列，換成 ReLU 加 He 初始化，梯度一路維持在同一個量級。ReLU 在正區的導數是 1，不會縮；He 初始化把權重的標準差設成 <code>√(2/d)</code>，剛好補回 ReLU 砍掉一半輸入（負的變 0）造成的縮小。</p>
+<p>第三列最值得注意：<strong>激活函數一樣是 ReLU，只是初始化太小，梯度消失得比 sigmoid 還嚴重</strong>。每層權重都很小，前向時輸出越來越小，反向時梯度也一層一層乘上很小的權重。所以「用了 ReLU 就不會梯度消失」是錯的，初始化同樣重要。</p>
+<p>梯度消失與爆炸的完整對策：ReLU 系激活、合適的初始化（ReLU 用 He、tanh/sigmoid 用 Xavier）、BatchNorm、殘差連接、梯度裁剪（防爆炸）。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>Adagrad 為何後期學不動</strong>：分母是歷史梯度平方的<strong>累加</strong>，只增不減，lr 被越除越小。RMSprop 改成指數移動平均（會遺忘久遠梯度）就解決了。</li>
-<li><strong>Adam 由什麼組成</strong>：Momentum（一階動量 m）＋ RMSprop（二階動量 v）＋ 對早期迭代的 bias correction；預設參數就很好用。</li>
-<li><strong>Adam vs SGD</strong>：Adam 收斂快、好調；但 SGD+Momentum＋好的 lr schedule 有時最終泛化更好——Adam 有時停在泛化較差的解。</li>
-</ul>
-</div>
-<h2 id="4-backpropagation">4. 反向傳播（Backpropagation）<a class="headerlink" href="#4-backpropagation" title="Permanent link">¶</a></h2>
-<p>把「誤差」用<strong>鏈式法則</strong>逐層往回分配到每個權重，算出 <code>∂L/∂w</code>，再交給優化器更新。
-1. <strong>前向</strong>：算出各層輸出與最終預測。
-2. <strong>算損失</strong>。
-3. <strong>反向</strong>：從輸出層往輸入層，逐層用鏈式法則算梯度。
-4. <strong>更新</strong>：優化器依梯度調整權重。</p>
-<p>前提：<strong>監督式</strong>（要有 label 算誤差）＋<strong>激活函數可微</strong>。梯度在很深的網路連乘，太小會<strong>梯度消失</strong>、太大會<strong>梯度爆炸</strong>——這正是 ReLU、BatchNorm、殘差連接等技巧要對付的問題。</p>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>Backprop 在做什麼</strong>：用鏈式法則把總損失對每個權重的偏導數算出來，本質是「把預測誤差的責任分配回每個參數」。</li>
-<li><strong>梯度消失/爆炸怎麼來、怎麼解</strong>：深層梯度連乘，&lt;1 連乘趨 0（消失）、&gt;1 連乘爆炸；解法：ReLU 系激活、BatchNorm、殘差連接、梯度裁剪、合適初始化。</li>
-</ul>
+<p class="admonition-title">小節</p>
+<p><strong>梯度是連乘出來的</strong>：每層的局部導數和權重一起乘。小於 1 就消失、大於 1 就爆炸。
+<strong>sigmoid 每層至少縮 4 倍</strong>：20 層後第 1 層只剩 10⁻¹²。
+<strong>初始化決定每一層的乘數</strong>：He 初始化讓 ReLU 網路的梯度在 20 層內幾乎不變；初始化太小，ReLU 也救不了。</p>
 </div>
 <h2 id="5">5. 正則化技巧（防過擬合）<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
-<p>L1/L2 的本體見〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念 · 正則化</a>〉（NN 裡 L2 即 <strong>weight decay</strong>）。NN 特有的兩招：</p>
+<p>L1/L2 的本體見〈<a href="../ml-interview-core-concepts/">ML 核心觀念</a>〉§5（神經網路裡的 L2 就是 <strong>weight decay</strong>）。神經網路特有的做法：</p>
 <ul>
-<li><strong>Dropout</strong>：訓練時隨機「關掉」一部分神經元（常 <code>p=0.2~0.5</code>），強迫網路不依賴特定神經元（防 co-adaptation）。<strong>推論時不關、並做縮放</strong>以維持期望值一致。直覺上等於在訓練無數個共享權重的子網路再集成（2ⁿ 種組合）。</li>
-<li><strong>Batch Normalization</strong>：對每個特徵在 <strong>batch 內</strong>標準化（減均值除標準差再縮放平移）。<strong>訓練用當前 batch 統計、推論用訓練期累積的 moving average</strong>。好處：可用更大 learning rate、訓練更穩、帶輕微正則化效果。原論文把功勞歸給減少「內部協變偏移」，後來的研究（Santurkar et al., 2018）認為主因是 loss 曲面變平滑。</li>
-<li><strong>Early Stopping</strong>：監看 validation loss，回升（不再進步）就停。它不是讓模型更強，而是<strong>阻止它變更差</strong>。</li>
-<li><strong>Data Augmentation</strong>：擴增資料多樣性（影像旋轉/翻轉/調色；文字同義替換/回譯）。</li>
+<li><strong>Dropout</strong>：訓練時隨機「關掉」一部分神經元（常用 <code>p=0.2~0.5</code>），逼網路不要依賴特定幾個神經元。<strong>推論時全部打開，並把輸出縮放</strong>，讓期望值和訓練時一致（現在的框架多半改在訓練時就放大保留下來的輸出，推論時就不用再縮放，效果相同）。直覺上，它等於在訓練大量共享權重的子網路，再把它們平均起來。</li>
+<li><strong>Batch Normalization</strong>：對每個特徵在<strong>這一批資料內</strong>做標準化（減平均、除標準差，再用可學的參數縮放平移）。<strong>訓練時用這一批的統計量，推論時用訓練期間累積的移動平均</strong>。好處是可以用更大的 learning rate、訓練更穩、還帶一點正則化效果。原論文把功勞歸給減少「內部協變偏移」，後來的研究（Santurkar et al., 2018）認為主因是 loss 曲面變得比較平滑。</li>
+<li><strong>Early Stopping</strong>：盯著驗證集的 loss，不再進步就停。它不會讓模型變強，而是<strong>阻止它繼續變差</strong>。</li>
+<li><strong>Data Augmentation</strong>：增加資料的多樣性（影像旋轉、翻轉、調色；文字同義詞替換、回譯）。</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>Dropout 訓練與推論差別</strong>：訓練隨機關神經元；推論全開但對輸出做縮放，讓期望值與訓練時一致。</li>
-<li><strong>為何 Dropout 像 ensemble</strong>：每個 batch 等於訓練一個隨機子網路，最後共享權重相當於多個子網路平均。</li>
-<li><strong>BatchNorm 訓練與推論為何不同</strong>：訓練用該 batch 的均值/變異；推論沒有 batch，改用訓練期累積的 moving average，才能對單一樣本穩定輸出。</li>
-</ul>
+<p class="admonition-title">常見誤解：推論時忘了切換模式</p>
+<p>Dropout 和 BatchNorm 在訓練和推論時行為不同。PyTorch 要呼叫 <code>model.eval()</code>，Keras 要確認 <code>training=False</code>。
+忘了切換的後果：推論時 Dropout 還在隨機關神經元，同一筆資料每次預測都不一樣；BatchNorm 用當前這一批的統計量，單筆預測時根本算不出合理的平均和標準差。線下分數正常，上線結果亂跳，這是很常見的 bug。</p>
 </div>
 <h2 id="6">6. 訓練實務<a class="headerlink" href="#6" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Epoch</strong>：完整跑過一次全部訓練資料；<strong>Iteration</strong>：一個 batch 的一次更新；<strong>Batch size</strong>：每次 iteration 的樣本數（預設 32，常取 2 的次方）。大 batch 較穩、吃 GPU 但泛化可能略差、耗記憶體。</li>
+<li><strong>Epoch</strong>：完整跑過一次全部訓練資料。<strong>Iteration</strong>：用一個 batch 更新一次。<strong>Batch size</strong>：一個 batch 有幾筆。例如 10,000 筆、batch size 100，一個 epoch 就是 100 個 iteration。</li>
+<li>Batch size 常用 32（Keras 預設），常取 2 的次方。大 batch 比較穩、比較能吃滿 GPU，但比較耗記憶體，泛化有時略差。</li>
 <li><strong>常用 Keras callbacks</strong>：</li>
-<li><code>EarlyStopping</code>：val 指標不再進步就停（配 <code>patience</code>、<code>restore_best_weights</code>）。</li>
+<li><code>EarlyStopping</code>：驗證指標不再進步就停（搭配 <code>patience</code>、<code>restore_best_weights</code>）。</li>
 <li><code>ModelCheckpoint</code>：自動存下表現最好的權重。</li>
-<li><code>ReduceLROnPlateau</code>：val 卡住時自動降 learning rate。</li>
+<li><code>ReduceLROnPlateau</code>：驗證指標卡住時自動降 learning rate。</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<p><strong>Epoch vs Iteration</strong>：1 epoch = 跑完全部資料；若 10000 筆、batch=100，則 1 epoch = 100 iterations。</p>
-</div>
 <h2 id="7-cnn">7. CNN 入門（卷積神經網路）<a class="headerlink" href="#7-cnn" title="Permanent link">¶</a></h2>
-<p>影像任務的主力。核心：
-- <strong>Filter / Kernel</strong>：一組小的可學權重，在影像上滑動做卷積、偵測 pattern（邊、角、紋理）。<strong>filter 的值是訓練學出來的，不是人工設計</strong>。
-- <strong>參數共享 + 局部連接</strong>：同一個 filter 掃全圖 → 參數遠少於全連接；物件移位，特徵圖也跟著移（平移等變）。
-- <strong>特徵階層</strong>：低層學線條/顏色 → 中層學形狀/輪廓 → 高層組成複雜物件（輪子、窗戶）。
-- <strong>Pooling</strong>（如 Max Pooling）：降採樣、縮小尺寸、增強平移不變、降計算。</p>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<p><strong>CNN 為何比全連接適合影像</strong>：① 局部連接＋參數共享 → 參數量大減、不易過擬合；② 平移不變（同一物件出現在不同位置都認得）；③ 階層式自動學特徵，不用手工設計。</p>
-</div>
-<hr>
-<h2 id="_2">延伸閱讀（本站）<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>影像任務的主力。核心：</p>
 <ul>
-<li><a href="../ml-interview-core-concepts/">ML 面試核心觀念</a> — 梯度下降與正則化的古典 ML 版本，本頁是它的深度學習延伸</li>
+<li><strong>Filter / Kernel</strong>：一組小的可學權重，在影像上滑動做卷積，偵測邊、角、紋理這類圖樣。<strong>filter 的值是訓練學出來的，不是人工設計的</strong>。</li>
+<li><strong>參數共享 + 局部連接</strong>：同一個 filter 掃過整張圖，參數比全連接少非常多；物件移位，特徵圖也跟著移（平移等變）。</li>
+<li><strong>特徵階層</strong>：低層學線條和顏色，中層學形狀和輪廓，高層組成複雜物件（輪子、窗戶）。</li>
+<li><strong>Pooling</strong>（例如 Max Pooling）：降採樣、縮小尺寸、讓小幅移位不影響結果、減少計算。</li>
+</ul>
+<p>CNN 比全連接適合影像，原因是它把「影像的鄰近像素彼此相關、同一個圖樣可能出現在任何位置」這兩個事實寫進了架構。全連接網路得從資料裡自己學到這兩件事，需要的參數和資料都多很多。</p>
+<h2 id="_3">結論<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>回到前言的三個問題。</p>
+<p><strong>為什麼深的網路以前訓練不起來？</strong> 梯度是一層一層連乘出來的。20 層 sigmoid 網路，第 1 層的梯度只有最後一層的 10⁻¹²。ReLU 的導數在正區是 1，不會這樣縮。</p>
+<p><strong>初始化為什麼重要？</strong> 它決定每一層的乘數。同樣是 ReLU，He 初始化讓梯度維持同一量級；標準差 0.01 的初始化讓第 1 層的梯度掉到 10⁻²²，比 sigmoid 還糟。</p>
+<p><strong>Dropout 和 BatchNorm 為什麼訓練推論不同？</strong> 兩者在訓練時依賴「這一批」：Dropout 靠隨機關掉神經元，BatchNorm 靠這一批的平均和標準差。推論時要的是穩定、可重現的輸出，所以換成固定的算法，並讓期望值和訓練時一致。</p>
+<h3 id="_4">延伸：這篇真正想留下的問題<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>殘差連接（ResNet）、LayerNorm、Transformer 裡的各種設計，回頭看都在處理同一件事：<strong>讓訊號和梯度在很多層之間，既不消失也不爆炸</strong>。</p>
+<p>所以下次看到一個新的網路架構，值得先問一句：<strong>它的梯度從輸出傳回第一層時，一路上乘了什麼？</strong></p>
+<hr>
+<h2 id="_5">延伸閱讀（本站）<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../ml-interview-core-concepts/">ML 核心觀念</a> — 梯度下降與正則化的古典 ML 版本，本頁是它的深度學習延伸</li>
+<li><a href="../transformer-attention/">Transformer 與注意力機制</a> — 殘差連接與 LayerNorm 在 Transformer 裡的位置</li>
 <li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — 進入神經網路之前的古典 ML 地基</li>
 <li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — 訓練完之後怎麼公正評估</li>
 </ul>
-<h2 id="_3">參考資料<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>本頁為訓練零件的個人整理。各主題的標準出處：</p>
+<h2 id="_6">參考資料<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <ul>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed.，Ch10–11（神經網路與深度網路訓練）、Ch14（CNN）</li>
 <li>Goodfellow, I., Bengio, Y., Courville, A.《Deep Learning》（MIT Press, 2016），Ch6–9</li>
+<li>Glorot, X. &amp; Bengio, Y. (2010). <a href="https://proceedings.mlr.press/v9/glorot10a.html">Understanding the difficulty of training deep feedforward neural networks</a>. AISTATS 2010</li>
+<li>He, K. et al. (2015). <a href="https://arxiv.org/abs/1502.01852">Delving Deep into Rectifiers</a>. ICCV 2015</li>
 <li>Santurkar, S. et al. (2018). <a href="https://arxiv.org/abs/1805.11604">How Does Batch Normalization Help Optimization?</a> NeurIPS 2018</li>
 <li><a href="https://pytorch.org/docs/stable/optim.html">PyTorch 官方文件：torch.optim</a></li>
 <li><a href="https://keras.io/api/optimizers/">Keras 官方文件：Optimizers</a></li>
+<li>本頁實驗為自行執行：20 層、每層 100 個神經元、256 筆輸入，numpy 亂數種子 0，2026-10-04</li>
 </ul>
 
 
@@ -4581,7 +4819,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4626,7 +4864,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../geron-hands-on-ml-notes/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）">
+          <a href="../geron-hands-on-ml-notes/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Géron《Hands-On ML》Ch1–9">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4636,20 +4874,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+                Géron《Hands-On ML》Ch1–9
               </div>
             </div>
           </a>
         
         
           
-          <a href="../transformer-attention/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 9 · Transformer 與注意力機制">
+          <a href="../transformer-attention/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Transformer 與注意力機制">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                9 · Transformer 與注意力機制
+                Transformer 與注意力機制
               </div>
             </div>
             <div class="md-footer__button md-icon">

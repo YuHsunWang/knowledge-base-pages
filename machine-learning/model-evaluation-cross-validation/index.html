@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="從指標選擇、CV 策略到 Nested CV——建立不漏水的模型評估流程，含分類/回歸指標速查、常見陷阱與程式碼範本。">
+        <meta name="description" content="指標選擇、CV 策略（Stratified／Group／TimeSeriesSplit）、Nested CV 與不漏水的評估流程，附不平衡資料上 ROC-AUC 與 PR-AUC 落差的實測。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>模型評估與 Cross-Validation 實務 - Shane's Knowledge Base</title>
+        <title>模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="模型評估與 Cross-Validation 實務 - Shane's Knowledge Base">
-<meta property="og:description" content="從指標選擇、CV 策略到 Nested CV——建立不漏水的模型評估流程，含分類/回歸指標速查、常見陷阱與程式碼範本。">
+<meta property="og:title" content="模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？ - Shane's Knowledge Base">
+<meta property="og:description" content="指標選擇、CV 策略（Stratified／Group／TimeSeriesSplit）、Nested CV 與不漏水的評估流程，附不平衡資料上 ROC-AUC 與 PR-AUC 落差的實測。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/model-evaluation-cross-validation.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/model-evaluation-cross-validation/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="模型評估與 Cross-Validation 實務 - Shane's Knowledge Base">
-<meta property="twitter:description" content="從指標選擇、CV 策略到 Nested CV——建立不漏水的模型評估流程，含分類/回歸指標速查、常見陷阱與程式碼範本。">
+<meta property="twitter:title" content="模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="指標選擇、CV 策略（Stratified／Group／TimeSeriesSplit）、Nested CV 與不漏水的評估流程，附不平衡資料上 ROC-AUC 與 PR-AUC 落差的實測。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/model-evaluation-cross-validation.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              模型評估與 Cross-Validation 實務
+              模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？
             
           </span>
         </div>
@@ -2258,6 +2258,8 @@
       
         
       
+        
+      
     
     
     
@@ -2328,10 +2330,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2358,7 +2356,7 @@
   <span class="md-ellipsis">
     
   
-    觀念地基
+    基礎觀念
   
 
     
@@ -2374,7 +2372,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    觀念地基
+    基礎觀念
   
 
           </label>
@@ -2394,7 +2392,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2422,7 +2420,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2435,6 +2433,75 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度學習
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    深度學習
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2450,7 +2517,7 @@
   <span class="md-ellipsis">
     
   
-    3 · 深度學習訓練基礎
+    深度學習訓練基礎
   
 
     
@@ -2478,7 +2545,7 @@
   <span class="md-ellipsis">
     
   
-    9 · Transformer 與注意力機制
+    Transformer 與注意力機制
   
 
     
@@ -2537,17 +2604,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked="">
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    動手實作
+    表格資料實作
   
 
     
@@ -2558,12 +2625,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    動手實作
+    表格資料實作
   
 
           </label>
@@ -2583,7 +2650,7 @@
   <span class="md-ellipsis">
     
   
-    4 · 特徵工程心法
+    特徵工程心法
   
 
     
@@ -2611,7 +2678,7 @@
   <span class="md-ellipsis">
     
   
-    5 · sklearn Pipeline 與前處理模板
+    sklearn Pipeline 模板
   
 
     
@@ -2648,7 +2715,7 @@
   <span class="md-ellipsis">
     
   
-    6 · 模型評估與 Cross-Validation
+    模型評估與 Cross-Validation
   
 
     
@@ -2666,7 +2733,7 @@
   <span class="md-ellipsis">
     
   
-    6 · 模型評估與 Cross-Validation
+    模型評估與 Cross-Validation
   
 
     
@@ -2695,7 +2762,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        先想清楚：你在量什麼
+        前言
       
     </span>
   </a>
@@ -2703,22 +2770,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分類指標速查
+        1. 先想清楚：你在量什麼
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="分類指標速查">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 分類指標速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 分類指標速查">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不平衡資料的評估建議
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        不平衡資料的評估建議
+        實驗：同一個模型，正例比例不同
       
     </span>
   </a>
@@ -2731,10 +2820,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        回歸指標速查
+        3. 回歸指標速查
       
     </span>
   </a>
@@ -2742,19 +2831,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cross-validation_1" class="md-nav__link">
+  <a href="#4-cross-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cross-Validation 策略一覽
+        4. Cross-Validation 策略一覽
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cross-Validation 策略一覽">
+    <nav class="md-nav" aria-label="4. Cross-Validation 策略一覽">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心原則：測試折不能「看到」訓練資訊
@@ -2792,10 +2881,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-cv" class="md-nav__link">
+  <a href="#5-nested-cv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nested CV：超參數選擇 ≠ 模型性能估計
+        5. Nested CV：超參數選擇 ≠ 模型性能估計
       
     </span>
   </a>
@@ -2803,29 +2892,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        選最終模型並估真實性能
+        6. 選最終模型並估真實性能
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 常見陷阱整理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常見陷阱整理
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -2836,10 +2953,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        來源
+        參考資料
       
     </span>
   </a>
@@ -2869,7 +2986,7 @@
   <span class="md-ellipsis">
     
   
-    10 · Gradient Boosting 實戰
+    Gradient Boosting 實戰
   
 
     
@@ -2897,7 +3014,7 @@
   <span class="md-ellipsis">
     
   
-    11 · 模型可解釋性（SHAP）
+    模型可解釋性（SHAP）
   
 
     
@@ -2929,129 +3046,6 @@
     
       
         
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
-        
-          
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    綜合應用
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    綜合應用
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ml-case-studies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7 · 常見 ML Case Study
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../financial-ml-time-series/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    12 · 金融時間序列 ML
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
       
         
       
@@ -3081,7 +3075,7 @@
   <span class="md-ellipsis">
     
   
-    統計與實驗
+    綜合應用
   
 
     
@@ -3094,6 +3088,129 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    綜合應用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml-case-studies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    金融時間序列 ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計與實驗
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3117,7 +3234,7 @@
   <span class="md-ellipsis">
     
   
-    8 · 統計推論與 A/B 測試
+    統計推論與 A/B 測試
   
 
     
@@ -4233,7 +4350,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        先想清楚：你在量什麼
+        前言
       
     </span>
   </a>
@@ -4241,22 +4358,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分類指標速查
+        1. 先想清楚：你在量什麼
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="分類指標速查">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 分類指標速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 分類指標速查">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不平衡資料的評估建議
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        不平衡資料的評估建議
+        實驗：同一個模型，正例比例不同
       
     </span>
   </a>
@@ -4269,10 +4408,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        回歸指標速查
+        3. 回歸指標速查
       
     </span>
   </a>
@@ -4280,19 +4419,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cross-validation_1" class="md-nav__link">
+  <a href="#4-cross-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cross-Validation 策略一覽
+        4. Cross-Validation 策略一覽
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cross-Validation 策略一覽">
+    <nav class="md-nav" aria-label="4. Cross-Validation 策略一覽">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         核心原則：測試折不能「看到」訓練資訊
@@ -4330,10 +4469,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nested-cv" class="md-nav__link">
+  <a href="#5-nested-cv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nested CV：超參數選擇 ≠ 模型性能估計
+        5. Nested CV：超參數選擇 ≠ 模型性能估計
       
     </span>
   </a>
@@ -4341,29 +4480,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        選最終模型並估真實性能
+        6. 選最終模型並估真實性能
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 常見陷阱整理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常見陷阱整理
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4374,10 +4541,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        來源
+        參考資料
       
     </span>
   </a>
@@ -4448,7 +4615,7 @@
         <a href="../feature-engineering/" class="md-path__link">
           
   <span class="md-ellipsis">
-    動手實作
+    表格資料實作
   </span>
 
         </a>
@@ -4478,13 +4645,21 @@
 
 
 
-<h1 id="cross-validation">模型評估與 Cross-Validation 實務<a class="headerlink" href="#cross-validation" title="Permanent link">¶</a></h1>
+<h1 id="cross-validation">模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？<a class="headerlink" href="#cross-validation" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>評估做錯，選出的模型就錯——即使訓練做得再好也白費。本頁整理三件事：<strong>該用哪個指標衡量</strong>、<strong>該用哪種 CV 策略</strong>，以及<strong>超參數選擇和模型性能估計為什麼要分開做</strong>。
-<strong>本頁定位</strong>：本區<strong>評估指標與 CV 策略</strong>的完整版。〈<a href="../ml-interview-core-concepts/">ML 面試核心觀念</a>〉§7、§8 是同主題較簡略的速查版，深入實作以本頁為準。</p>
+<p><strong>難度：中。會用 sklearn 訓練模型，知道混淆矩陣。</strong>
+本頁的實驗數字來自 Python 3.12、scikit-learn 1.9.1，2026-10-04 執行。
+<strong>本頁定位</strong>：本區<strong>評估指標與 CV 策略</strong>的完整版。〈<a href="../ml-interview-core-concepts/">ML 核心觀念</a>〉§7、§8 是同主題的速查版。</p>
 </blockquote>
-<hr>
-<h2 id="_1">先想清楚：你在量什麼<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>模型訓練得再好，評估做錯了，選出來的模型就是錯的。而評估出錯時通常不會報錯，只會給你一個<strong>比實際好看的數字</strong>。</p>
+<p>本頁回答三個問題：</p>
+<ul>
+<li><strong>不平衡資料上，為什麼 ROC-AUC 會讓人太樂觀？</strong>（先講結論：ROC-AUC 看的是「正例排在負例前面的機率」，負例很多時，它幾乎不受誤報數量影響。同一個模型，正例佔 1.5% 時 ROC-AUC 0.741 看起來還行，PR-AUC 只有 0.081。）</li>
+<li><strong>該用哪一種 CV？</strong>（看資料的結構：分類用 Stratified、同一個人有多筆資料用 Group、有時間順序用 TimeSeriesSplit。切法錯了，分數會系統性地偏高。）</li>
+<li><strong>為什麼調參和估分數要分開？</strong>（用同一份驗證資料挑最好的參數，再拿它的分數當成績，等於挑了「最幸運的那一次」。要用 Nested CV，或嚴格的訓練／驗證／測試三切。）</li>
+</ul>
+<h2 id="1">1. 先想清楚：你在量什麼<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
 <p>先定義什麼叫成功，再去查指標公式。三個問題：</p>
 <ol>
 <li><strong>任務類型</strong>：分類？回歸？排序？</li>
@@ -4492,7 +4667,7 @@
 <li><strong>資料特性</strong>：類別不平衡？樣本有群組結構？時序？</li>
 </ol>
 <hr>
-<h2 id="_2">分類指標速查<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h2 id="2">2. 分類指標速查<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>TP = 預測為正、實際為正
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>FP = 預測為正、實際為負（誤報）
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>FN = 預測為負、實際為正（漏報）
@@ -4546,7 +4721,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_3">不平衡資料的評估建議<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="_2">不平衡資料的評估建議<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <p>類別比例 &gt; 1:10 時：
 - 不用 Accuracy，改用 <strong>PR-AUC</strong> 或 <strong>F1</strong>
 - Confusion matrix 必看，別只看彙總指標
@@ -4557,8 +4732,62 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"AUC-ROC:"</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">))</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"PR-AUC:"</span><span class="p">,</span> <span class="n">average_precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">))</span>  <span class="c1"># 不平衡時更重要</span>
 </span></code></pre></div>
+<h3 id="_3">實驗：同一個模型，正例比例不同<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>我們用 <code>make_classification</code> 造 50,000 筆、20 個特徵的資料，只改正例的比例，每次都訓練一個邏輯回歸，在 30% 的測試集上算兩種 AUC：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">average_precision_score</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">50000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                               <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="o">-</span> <span class="n">w</span><span class="p">],</span> <span class="n">flip_y</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">class_sep</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">Xtr</span><span class="p">,</span> <span class="n">Xte</span><span class="p">,</span> <span class="n">ytr</span><span class="p">,</span> <span class="n">yte</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtr</span><span class="p">,</span> <span class="n">ytr</span><span class="p">)</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">Xte</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">yte</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">yte</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">average_precision_score</span><span class="p">(</span><span class="n">yte</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>測試集正例比例</th>
+<th>ROC-AUC</th>
+<th>PR-AUC</th>
+<th>PR-AUC 的隨機基線</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>49.9%</td>
+<td>0.832</td>
+<td>0.837</td>
+<td>0.499</td>
+</tr>
+<tr>
+<td>10.4%</td>
+<td>0.822</td>
+<td><strong>0.471</strong></td>
+<td>0.104</td>
+</tr>
+<tr>
+<td>1.5%</td>
+<td>0.741</td>
+<td><strong>0.081</strong></td>
+<td>0.015</td>
+</tr>
+</tbody>
+</table>
+<p>（<code>flip_y=0.01</code> 會隨機翻轉 1% 的標籤，所以設定 1% 的那組實際正例是 1.5%。）</p>
+<p>正例從一半降到 10%，ROC-AUC 幾乎沒動（0.832 → 0.822），PR-AUC 從 0.837 掉到 0.471。</p>
+<p>原因在分母。ROC 曲線的 x 軸是誤報率 <code>FP / 全部負例</code>。負例有幾萬筆時，多誤報幾百筆，誤報率也只動一點點，曲線依然漂亮。PR 曲線的 precision 是 <code>TP / (TP + FP)</code>，直接拿誤報和抓到的正例比，誤報一多就掉下來。</p>
+<p>PR-AUC（sklearn 算的是 average precision）粗略地說，是「把各種閾值下的 precision 平均起來」。1.5% 那組的 0.081 意思是：模型說「這是正例」的時候，平均大約只有 8% 是對的。ROC-AUC 0.741 不會讓你知道這件事。</p>
+<p>PR-AUC 要和它的<strong>隨機基線</strong>比，而基線就是正例比例。0.081 對上 0.015 是 5 倍多，模型有學到東西；但正例比例不同的兩份資料，PR-AUC 的數字不能直接比。</p>
+<div class="admonition note">
+<p class="admonition-title">常見誤解：ROC-AUC 和閾值無關，所以最客觀</p>
+<p>和閾值無關是真的，但它把「抓到正例」和「誤報」用兩個不同的分母去算。負例很多時，誤報的代價被稀釋了。
+後果是：一個說「正例」時大約只有 8% 對的模型，ROC-AUC 看起來仍然中上。正例很少時，一定要同時報 PR-AUC 和它的基線。</p>
+</div>
 <hr>
-<h2 id="_4">回歸指標速查<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h2 id="3">3. 回歸指標速查<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -4598,19 +4827,19 @@
 <blockquote>
 <p>⚠️ 回歸模型如果目標做了 log 轉換，記得把預測值反轉回原始尺度再算 MAE/RMSE——否則指標是 log 尺度的，和業務定義的「誤差」不一致。</p>
 </blockquote>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 如果 y 做過 log1p 轉換</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">y_pred_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">y_pred_log</span><span class="p">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">y_test_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">)</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">mae</span>  <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test_original</span><span class="p">,</span> <span class="n">y_pred_original</span><span class="p">)</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_original</span><span class="p">,</span> <span class="n">y_pred_original</span><span class="p">))</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">r2</span>   <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_original</span><span class="p">,</span> <span class="n">y_pred_original</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 如果 y 做過 log1p 轉換</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">y_pred_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">y_pred_log</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">y_test_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">mae</span>  <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test_original</span><span class="p">,</span> <span class="n">y_pred_original</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_original</span><span class="p">,</span> <span class="n">y_pred_original</span><span class="p">))</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">r2</span>   <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_original</span><span class="p">,</span> <span class="n">y_pred_original</span><span class="p">)</span>
 </span></code></pre></div>
 <hr>
-<h2 id="cross-validation_1">Cross-Validation 策略一覽<a class="headerlink" href="#cross-validation_1" title="Permanent link">¶</a></h2>
+<h2 id="4-cross-validation">4. Cross-Validation 策略一覽<a class="headerlink" href="#4-cross-validation" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -4652,82 +4881,82 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_5">核心原則：測試折不能「看到」訓練資訊<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h3 id="_4">核心原則：測試折不能「看到」訓練資訊<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>最常見的 CV 錯誤是在 <code>cross_val_score</code> 外面先做了 StandardScaler、SMOTE 或特徵選擇——這讓 scaler 的 <code>mean_/scale_</code> 來自全部資料，測試折被「看見了」。（SMOTE 這類重採樣要放進 <code>imblearn.pipeline.Pipeline</code>，sklearn 的 Pipeline 不收 sampler。）</p>
 <p><strong>正解：把所有前處理包進 Pipeline，讓每折各自 fit</strong>：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">])</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">)</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"AUC: </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="p">(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">])</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"AUC: </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="cv-timeseriessplit">時序 CV：用 TimeSeriesSplit<a class="headerlink" href="#cv-timeseriessplit" title="Permanent link">¶</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSeriesSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">tscv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X_ts</span><span class="p">,</span> <span class="n">y_ts</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">tscv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'neg_mean_absolute_error'</span><span class="p">)</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MAE: </span><span class="si">{</span><span class="o">-</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSeriesSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">tscv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X_ts</span><span class="p">,</span> <span class="n">y_ts</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">tscv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'neg_mean_absolute_error'</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MAE: </span><span class="si">{</span><span class="o">-</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <blockquote>
 <p>⚠️ 時序資料也要注意 <strong>feature leakage</strong>：如果特徵裡有「未來才能知道的資訊」（如月底才有的月報數字用於預測月中），CV 分數會虛高，上線後一定掉。</p>
 </blockquote>
 <h3 id="groupkfold-entity">GroupKFold：防止 entity 跨折<a class="headerlink" href="#groupkfold-entity" title="Permanent link">¶</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GroupKFold</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">gkf</span> <span class="o">=</span> <span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># groups = 每筆資料屬於哪個 entity（如 user_id）</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">gkf</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'f1'</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GroupKFold</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">gkf</span> <span class="o">=</span> <span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># groups = 每筆資料屬於哪個 entity（如 user_id）</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">gkf</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'f1'</span><span class="p">)</span>
 </span></code></pre></div>
 <hr>
-<h2 id="nested-cv">Nested CV：超參數選擇 ≠ 模型性能估計<a class="headerlink" href="#nested-cv" title="Permanent link">¶</a></h2>
+<h2 id="5-nested-cv">5. Nested CV：超參數選擇 ≠ 模型性能估計<a class="headerlink" href="#5-nested-cv" title="Permanent link">¶</a></h2>
 <p><strong>最常見的評估錯誤之一</strong>：用同一份 validation set 既選超參數又估模型性能——這會讓性能估計樂觀偏誤（等於在同一份資料上挑了表現最好的一次）。</p>
 <p>正確做法是 <strong>Nested CV</strong>：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>外層 CV（評估性能）
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  └── 每折裡做內層 CV（選超參數）
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>外層 CV（評估性能）
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  └── 每折裡做內層 CV（選超參數）
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">inner_cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">outer_cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))])</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">)</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1"># 外層 CV 估計泛化性能（每折都跑一次完整的內層超參數搜索）</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">nested_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">grid_search</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">outer_cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">)</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Nested CV AUC: </span><span class="si">{</span><span class="n">nested_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">nested_scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">inner_cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">outer_cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'clf__n_estimators'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="s1">'clf__max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">'clf'</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))])</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c1"># 外層 CV 估計泛化性能（每折都跑一次完整的內層超參數搜索）</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">nested_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">grid_search</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">outer_cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">)</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Nested CV AUC: </span><span class="si">{</span><span class="n">nested_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">nested_scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <blockquote>
 <p>Nested CV 計算量是 outer_splits × inner_splits × 超參數組數，資料大時很貴。<strong>折中做法</strong>：用訓練集的一個固定 holdout 做內層調參，外層仍做 CV 估性能。不如 nested CV 嚴謹，但工程上常用。</p>
 </blockquote>
 <hr>
-<h2 id="_6">選最終模型並估真實性能<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h2 id="6">6. 選最終模型並估真實性能<a class="headerlink" href="#6" title="Permanent link">¶</a></h2>
 <p>標準三切法：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">X_temp</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_temp</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.18</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_temp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 結果約 70 / 15 / 15</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 用 train+val 做 CV 調參 → 用 test 最後報告性能</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># test 只碰一次。碰了就不能再調。</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">X_temp</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_temp</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.18</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_temp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># 結果約 70 / 15 / 15</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># 用 train+val 做 CV 調參 → 用 test 最後報告性能</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># test 只碰一次。碰了就不能再調。</span>
 </span></code></pre></div>
 <blockquote>
 <p>⚠️ <strong>Test set 只能碰一次</strong>。看了 test 分數再調超參數，test 就污染了，不再是真實估計。如果測試結果不如預期，要回頭改訓練/驗證策略，而不是反覆試到 test 分數變好看。</p>
 </blockquote>
 <hr>
-<h2 id="_7">常見陷阱整理<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<h2 id="7">7. 常見陷阱整理<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -4769,22 +4998,32 @@
 </tr>
 </tbody>
 </table>
+<h2 id="_5">結論<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>回到前言的三個問題。</p>
+<p><strong>ROC-AUC 為什麼會太樂觀？</strong> 它的誤報率除以全部負例，負例多時誤報被稀釋。正例 1.5% 時，ROC-AUC 0.741、PR-AUC 0.081。不平衡資料要報 PR-AUC，並和正例比例這個基線比。</p>
+<p><strong>該用哪一種 CV？</strong> 看資料結構。分類用 StratifiedKFold；同一個實體有多筆資料用 GroupKFold；有時間順序用 TimeSeriesSplit。金融這類標籤重疊的時序資料，還要注意 purge（見〈<a href="../financial-ml-time-series/">金融時間序列 ML</a>〉）。</p>
+<p><strong>為什麼調參和估分數要分開？</strong> 挑最好的那組參數時，你同時挑到了最幸運的雜訊。用 Nested CV，或三切後測試集只碰一次。</p>
+<h3 id="_6">延伸：這篇真正想留下的問題<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>每個評估方法都在模擬同一件事：<strong>模型上線後，遇到它從沒看過的資料，會表現得怎樣。</strong> 指標選錯，是模擬的「成績單」錯了；CV 切錯，是模擬的「考試情境」錯了。</p>
+<p>一個分數本身說明不了什麼。要看的是：<strong>它是在什麼樣的考試裡考出來的？那場考試像真實上線嗎？</strong></p>
 <hr>
-<h2 id="_8">延伸閱讀（本站）<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h2 id="_7">延伸閱讀（本站）<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../statistics-ab-testing/">統計推論與 A/B 測試</a> — 另一種推論：有隨機分派時怎麼判斷差異是真的</li>
-<li><a href="../ml-interview-core-concepts/">ML 面試核心觀念</a> — 同主題較簡略的速查版（§7 CV、§8 指標）</li>
+<li><a href="../ml-interview-core-concepts/">ML 核心觀念</a> — 同主題較簡略的速查版（§7 CV、§8 指標）</li>
 <li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — Ch3 的 threshold 調整、PR vs ROC 取捨、OvR/OvO</li>
 <li><a href="../feature-engineering/">特徵工程心法</a> — 前處理決策影響評估設計</li>
 <li><a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a> — Pipeline 的完整實作</li>
 <li><a href="../ml-case-studies/">常見 ML Case Study</a> — 四種任務各自該用哪個指標</li>
 </ul>
-<h2 id="_9">來源<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<h2 id="_8">參考資料<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://scikit-learn.org/stable/model_selection.html">sklearn model_selection 官方文件</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/cross_validation.html">Cross-validation: evaluating estimator performance（sklearn User Guide）</a></li>
 <li><a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html">Nested versus non-nested cross-validation（sklearn examples）</a></li>
+<li>Saito, T. &amp; Rehmsmeier, M. (2015). <a href="https://doi.org/10.1371/journal.pone.0118432">The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets</a>. <em>PLOS ONE</em>, 10(3)</li>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed. Ch2–3</li>
+<li>本頁實驗為自行執行：<code>make_classification</code> 50,000 筆、70/30 分層切分、邏輯回歸，2026-10-04</li>
 </ul>
 
 
@@ -4808,7 +5047,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4853,7 +5092,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../sklearn-pipeline-templates/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 5 · sklearn Pipeline 與前處理模板">
+          <a href="../sklearn-pipeline-templates/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: sklearn Pipeline 模板">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4863,20 +5102,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                5 · sklearn Pipeline 與前處理模板
+                sklearn Pipeline 模板
               </div>
             </div>
           </a>
         
         
           
-          <a href="../gradient-boosting-in-practice/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 10 · Gradient Boosting 實戰">
+          <a href="../gradient-boosting-in-practice/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Gradient Boosting 實戰">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                10 · Gradient Boosting 實戰
+                Gradient Boosting 實戰
               </div>
             </div>
             <div class="md-footer__button md-icon">

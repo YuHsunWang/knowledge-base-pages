@@ -26,19 +26,27 @@
   {
    "id": "n1",
    "column": "a",
-   "name": "觀念地基",
-   "desc": "先看懂在做什麼",
+   "name": "基礎觀念",
+   "desc": "先看懂模型在做什麼",
    "items": [
     "ml-interview-core-concepts",
-    "geron-hands-on-ml-notes",
+    "geron-hands-on-ml-notes"
+   ]
+  },
+  {
+   "id": "n2",
+   "column": "a",
+   "name": "深度學習",
+   "desc": "神經網路怎麼訓練、注意力怎麼運作",
+   "items": [
     "deep-learning-training-fundamentals",
     "transformer-attention"
    ]
   },
   {
-   "id": "n2",
+   "id": "n3",
    "column": "b",
-   "name": "動手實作",
+   "name": "表格資料實作",
    "desc": "做得出一個能交付的模型",
    "items": [
     "feature-engineering",
@@ -49,17 +57,17 @@
    ]
   },
   {
-   "id": "n3",
+   "id": "n4",
    "column": "c",
    "name": "綜合應用",
-   "desc": "把前兩軌接起來",
+   "desc": "把觀念和實作接到真實任務",
    "items": [
     "ml-case-studies",
     "financial-ml-time-series"
    ]
   },
   {
-   "id": "n4",
+   "id": "n5",
    "column": "c",
    "name": "統計與實驗",
    "desc": "判斷差異是不是真的",
@@ -73,7 +81,7 @@
    "id": "deep-learning-training-fundamentals",
    "label": "深度學習訓練基礎",
    "href": "deep-learning-training-fundamentals/",
-   "step": "3",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -81,19 +89,19 @@
      "2026-06-13"
     ]
    ],
-   "note": "神經網路訓練的核心零件——激活函數、損失函數、優化器、反向傳播、正則化技巧（Dropout/BatchNorm）、訓練實務與 CNN 入門，含面試口答。",
+   "note": "神經網路的訓練零件：激活函數、損失函數、優化器、反向傳播、Dropout/BatchNorm 與 CNN 入門，附 20 層網路梯度消失的 numpy 實測。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
    "backlinks": [
     {
-     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？",
      "href": "geron-hands-on-ml-notes/",
      "section": "machine-learning"
     },
     {
-     "label": "ML 面試核心觀念",
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -108,7 +116,7 @@
    "id": "feature-engineering",
    "label": "特徵工程心法",
    "href": "feature-engineering/",
-   "step": "4",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -116,29 +124,29 @@
      "2026-06-13"
     ]
    ],
-   "note": "數值/類別/缺失值/時間特徵的處理、特徵交互與特徵選擇的完整實務整理，含面試常考點。",
+   "note": "數值、類別、缺失值、時間特徵的處理，特徵交互與選擇，以及不平衡資料的手法；附 target encoding 在純雜訊上的洩漏實測與修法。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
    "backlinks": [
     {
-     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？",
      "href": "geron-hands-on-ml-notes/",
      "section": "machine-learning"
     },
     {
-     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
      "href": "ml-case-studies/",
      "section": "machine-learning"
     },
     {
-     "label": "ML 面試核心觀念",
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
     {
-     "label": "模型評估與 Cross-Validation 實務",
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
     },
@@ -148,12 +156,12 @@
      "section": "machine-learning"
     },
     {
-     "label": "sklearn Pipeline 與資料前處理模板",
+     "label": "sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？",
      "href": "sklearn-pipeline-templates/",
      "section": "machine-learning"
     },
     {
-     "label": "統計推論與 A/B 測試",
+     "label": "統計推論與 A/B 測試：這個差異是真的嗎？該不該上線？",
      "href": "statistics-ab-testing/",
      "section": "machine-learning"
     }
@@ -163,7 +171,7 @@
    "id": "financial-ml-time-series",
    "label": "金融時間序列 ML",
    "href": "financial-ml-time-series/",
-   "step": "12",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -178,37 +186,7 @@
    },
    "backlinks": [
     {
-     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
-     "href": "gradient-boosting-in-practice/",
-     "section": "machine-learning"
-    }
-   ]
-  },
-  {
-   "id": "geron-hands-on-ml-notes",
-   "label": "Géron《Hands-On ML》Ch1–9",
-   "href": "geron-hands-on-ml-notes/",
-   "step": "2",
-   "cluster": null,
-   "meta": [
-    [
-     "首次發布",
-     "2026-06-13"
-    ]
-   ],
-   "note": "Hands-On Machine Learning（Aurélien Géron）第 1–9 章的學習筆記整併版——核心觀念、scikit-learn 程式碼、與面試口答重點。",
-   "fresh": {
-    "state": "evergreen",
-    "label": "常青｜內容不隨時間失效"
-   },
-   "backlinks": [
-    {
-     "label": "深度學習訓練基礎",
-     "href": "deep-learning-training-fundamentals/",
-     "section": "machine-learning"
-    },
-    {
-     "label": "特徵工程心法",
+     "label": "特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？",
      "href": "feature-engineering/",
      "section": "machine-learning"
     },
@@ -218,17 +196,57 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 面試核心觀念",
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
+     "href": "model-evaluation-cross-validation/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "geron-hands-on-ml-notes",
+   "label": "Géron《Hands-On ML》Ch1–9",
+   "href": "geron-hands-on-ml-notes/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-13"
+    ]
+   ],
+   "note": "Hands-On Machine Learning（Aurélien Géron）第 1–9 章的整理：ML 全景、端到端專案、分類與評估、訓練原理、SVM、決策樹、集成、降維與分群，每章附最常見的誤解。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "深度學習訓練基礎：為什麼深的網路以前訓練不起來？",
+     "href": "deep-learning-training-fundamentals/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
+     "href": "gradient-boosting-in-practice/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
     {
-     "label": "模型評估與 Cross-Validation 實務",
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
     },
     {
-     "label": "sklearn Pipeline 與資料前處理模板",
+     "label": "sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？",
      "href": "sklearn-pipeline-templates/",
      "section": "machine-learning"
     }
@@ -238,7 +256,7 @@
    "id": "gradient-boosting-in-practice",
    "label": "Gradient Boosting 實戰",
    "href": "gradient-boosting-in-practice/",
-   "step": "10",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -258,6 +276,16 @@
      "section": "machine-learning"
     },
     {
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
+     "href": "ml-case-studies/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
      "label": "模型可解釋性：Feature Importance 在量什麼？SHAP 什麼時候會分錯功勞？",
      "href": "model-interpretability-shap/",
      "section": "machine-learning"
@@ -268,7 +296,7 @@
    "id": "ml-case-studies",
    "label": "常見 ML Case Study",
    "href": "ml-case-studies/",
-   "step": "7",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -276,14 +304,14 @@
      "2026-06-21"
     ]
    ],
-   "note": "四種任務類型的端到端解題思路——問題定義、資料陷阱、指標選擇、建模策略與常見失誤，附程式碼範本。",
+   "note": "分類、回歸、時間序列與推薦四種任務的端到端解題思路、典型陷阱與程式碼骨架，附不平衡分類上預設閾值 0.5 與調整後閾值的實測。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
    "backlinks": [
     {
-     "label": "特徵工程心法",
+     "label": "特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？",
      "href": "feature-engineering/",
      "section": "machine-learning"
     },
@@ -298,22 +326,22 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 面試核心觀念",
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
     {
-     "label": "模型評估與 Cross-Validation 實務",
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
     },
     {
-     "label": "sklearn Pipeline 與資料前處理模板",
+     "label": "sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？",
      "href": "sklearn-pipeline-templates/",
      "section": "machine-learning"
     },
     {
-     "label": "統計推論與 A/B 測試",
+     "label": "統計推論與 A/B 測試：這個差異是真的嗎？該不該上線？",
      "href": "statistics-ab-testing/",
      "section": "machine-learning"
     },
@@ -326,9 +354,9 @@
   },
   {
    "id": "ml-interview-core-concepts",
-   "label": "ML 面試核心觀念",
+   "label": "ML 核心觀念",
    "href": "ml-interview-core-concepts/",
-   "step": "1",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -336,24 +364,24 @@
      "2026-06-13"
     ]
    ],
-   "note": "Data Scientist / ML 面試最常考的核心觀念整理——ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證、評估指標，每節附面試口答。",
+   "note": "機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
    "backlinks": [
     {
-     "label": "深度學習訓練基礎",
+     "label": "深度學習訓練基礎：為什麼深的網路以前訓練不起來？",
      "href": "deep-learning-training-fundamentals/",
      "section": "machine-learning"
     },
     {
-     "label": "特徵工程心法",
+     "label": "特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？",
      "href": "feature-engineering/",
      "section": "machine-learning"
     },
     {
-     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？",
      "href": "geron-hands-on-ml-notes/",
      "section": "machine-learning"
     },
@@ -363,12 +391,12 @@
      "section": "machine-learning"
     },
     {
-     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
      "href": "ml-case-studies/",
      "section": "machine-learning"
     },
     {
-     "label": "模型評估與 Cross-Validation 實務",
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
     },
@@ -378,7 +406,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "統計推論與 A/B 測試",
+     "label": "統計推論與 A/B 測試：這個差異是真的嗎？該不該上線？",
      "href": "statistics-ab-testing/",
      "section": "machine-learning"
     },
@@ -393,7 +421,7 @@
    "id": "model-evaluation-cross-validation",
    "label": "模型評估與 Cross-Validation",
    "href": "model-evaluation-cross-validation/",
-   "step": "6",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -401,19 +429,19 @@
      "2026-06-21"
     ]
    ],
-   "note": "從指標選擇、CV 策略到 Nested CV——建立不漏水的模型評估流程，含分類/回歸指標速查、常見陷阱與程式碼範本。",
+   "note": "指標選擇、CV 策略（Stratified／Group／TimeSeriesSplit）、Nested CV 與不漏水的評估流程，附不平衡資料上 ROC-AUC 與 PR-AUC 落差的實測。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
    "backlinks": [
     {
-     "label": "深度學習訓練基礎",
+     "label": "深度學習訓練基礎：為什麼深的網路以前訓練不起來？",
      "href": "deep-learning-training-fundamentals/",
      "section": "machine-learning"
     },
     {
-     "label": "特徵工程心法",
+     "label": "特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？",
      "href": "feature-engineering/",
      "section": "machine-learning"
     },
@@ -423,27 +451,27 @@
      "section": "machine-learning"
     },
     {
-     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？",
      "href": "geron-hands-on-ml-notes/",
      "section": "machine-learning"
     },
     {
-     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
      "href": "ml-case-studies/",
      "section": "machine-learning"
     },
     {
-     "label": "ML 面試核心觀念",
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
     {
-     "label": "sklearn Pipeline 與資料前處理模板",
+     "label": "sklearn Pipeline 與資料前處理模板：為什麼前處理一定要包進去？",
      "href": "sklearn-pipeline-templates/",
      "section": "machine-learning"
     },
     {
-     "label": "統計推論與 A/B 測試",
+     "label": "統計推論與 A/B 測試：這個差異是真的嗎？該不該上線？",
      "href": "statistics-ab-testing/",
      "section": "machine-learning"
     },
@@ -458,7 +486,7 @@
    "id": "model-interpretability-shap",
    "label": "模型可解釋性",
    "href": "model-interpretability-shap/",
-   "step": "11",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -473,6 +501,16 @@
    },
    "backlinks": [
     {
+     "label": "特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？",
+     "href": "feature-engineering/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？",
+     "href": "geron-hands-on-ml-notes/",
+     "section": "machine-learning"
+    },
+    {
      "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
      "href": "gradient-boosting-in-practice/",
      "section": "machine-learning"
@@ -486,9 +524,9 @@
   },
   {
    "id": "sklearn-pipeline-templates",
-   "label": "sklearn Pipeline 與前處理模板",
+   "label": "sklearn Pipeline 模板",
    "href": "sklearn-pipeline-templates/",
-   "step": "5",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -496,29 +534,34 @@
      "2026-06-21"
     ]
    ],
-   "note": "從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合，再到儲存部署——可直接複製使用的實務模板。",
+   "note": "從基礎 Pipeline 到 ColumnTransformer、自訂 Transformer、GridSearchCV 整合與儲存部署的可複製模板，附先選特徵再做 CV 的洩漏實測。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
    "backlinks": [
     {
-     "label": "特徵工程心法",
+     "label": "特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？",
      "href": "feature-engineering/",
      "section": "machine-learning"
     },
     {
-     "label": "Géron《Hands-On ML》Ch1–9 重點整理",
+     "label": "Géron《Hands-On ML》Ch1–9 重點整理：前九章怎麼串成一條路？",
      "href": "geron-hands-on-ml-notes/",
      "section": "machine-learning"
     },
     {
-     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
      "href": "ml-case-studies/",
      "section": "machine-learning"
     },
     {
-     "label": "模型評估與 Cross-Validation 實務",
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "href": "ml-interview-core-concepts/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
     }
@@ -528,7 +571,7 @@
    "id": "statistics-ab-testing",
    "label": "統計推論與 A/B 測試",
    "href": "statistics-ab-testing/",
-   "step": "8",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -548,17 +591,17 @@
      "section": "machine-learning"
     },
     {
-     "label": "常見 ML Case Study：分類、回歸、時間序列與推薦",
+     "label": "常見 ML Case Study：拿到任務第一步做什麼？閾值要怎麼定？",
      "href": "ml-case-studies/",
      "section": "machine-learning"
     },
     {
-     "label": "ML 面試核心觀念",
+     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
     {
-     "label": "模型評估與 Cross-Validation 實務",
+     "label": "模型評估與 Cross-Validation 實務：分數高，模型就真的好嗎？",
      "href": "model-evaluation-cross-validation/",
      "section": "machine-learning"
     },
@@ -573,7 +616,7 @@
    "id": "transformer-attention",
    "label": "Transformer 與注意力機制",
    "href": "transformer-attention/",
-   "step": "9",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -586,7 +629,13 @@
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
    },
-   "backlinks": []
+   "backlinks": [
+    {
+     "label": "深度學習訓練基礎：為什麼深的網路以前訓練不起來？",
+     "href": "deep-learning-training-fundamentals/",
+     "section": "machine-learning"
+    }
+   ]
   }
  ],
  "edges": [
@@ -595,12 +644,21 @@
    "to": "n2"
   },
   {
-   "from": "n2",
+   "from": "n1",
    "to": "n3"
   },
   {
-   "from": "n1",
+   "from": "n3",
+   "to": "n4"
+  },
+  {
+   "from": "n2",
    "to": "n4",
+   "style": "dashed"
+  },
+  {
+   "from": "n1",
+   "to": "n5",
    "style": "dashed"
   }
  ],
@@ -616,30 +674,48 @@
    {
     "id": "ml-foundations",
     "anchorId": "ml-foundations",
-    "label": "觀念地基",
+    "label": "基礎觀念",
     "href": "#ml-foundations",
-    "description": "先看懂在做什麼",
-    "count": 4,
+    "description": "先看懂模型在做什麼",
+    "count": 2,
     "members": [
      "ml-interview-core-concepts",
-     "geron-hands-on-ml-notes",
-     "deep-learning-training-fundamentals",
-     "transformer-attention"
+     "geron-hands-on-ml-notes"
     ],
-    "x": 0.22,
-    "y": 0.27,
+    "x": 0.2,
+    "y": 0.26,
     "mobile": {
      "x": 0.3,
-     "y": 0.14
+     "y": 0.12
     },
     "size": "major",
     "kind": "domain"
    },
    {
-    "id": "ml-practice",
-    "anchorId": "ml-practice",
-    "label": "動手實作",
-    "href": "#ml-practice",
+    "id": "deep-learning",
+    "anchorId": "deep-learning",
+    "label": "深度學習",
+    "href": "#deep-learning",
+    "description": "神經網路怎麼訓練、注意力怎麼運作",
+    "count": 2,
+    "members": [
+     "deep-learning-training-fundamentals",
+     "transformer-attention"
+    ],
+    "x": 0.22,
+    "y": 0.72,
+    "mobile": {
+     "x": 0.7,
+     "y": 0.3
+    },
+    "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "tabular-practice",
+    "anchorId": "tabular-practice",
+    "label": "表格資料實作",
+    "href": "#tabular-practice",
     "description": "做得出一個能交付的模型",
     "count": 5,
     "members": [
@@ -649,11 +725,11 @@
      "gradient-boosting-in-practice",
      "model-interpretability-shap"
     ],
-    "x": 0.76,
-    "y": 0.29,
+    "x": 0.74,
+    "y": 0.27,
     "mobile": {
-     "x": 0.7,
-     "y": 0.38
+     "x": 0.3,
+     "y": 0.48
     },
     "size": "major",
     "kind": "domain"
@@ -663,17 +739,17 @@
     "anchorId": "ml-applications",
     "label": "綜合應用",
     "href": "#ml-applications",
-    "description": "把前兩軌接起來",
+    "description": "把觀念和實作接到真實任務",
     "count": 2,
     "members": [
      "ml-case-studies",
      "financial-ml-time-series"
     ],
-    "x": 0.72,
+    "x": 0.77,
     "y": 0.73,
     "mobile": {
-     "x": 0.3,
-     "y": 0.62
+     "x": 0.7,
+     "y": 0.66
     },
     "size": "medium",
     "kind": "satellite"
@@ -688,10 +764,10 @@
     "members": [
      "statistics-ab-testing"
     ],
-    "x": 0.24,
-    "y": 0.72,
+    "x": 0.49,
+    "y": 0.84,
     "mobile": {
-     "x": 0.7,
+     "x": 0.3,
      "y": 0.86
     },
     "size": "medium",
@@ -701,11 +777,20 @@
   "edges": [
    {
     "from": "ml-foundations",
-    "to": "ml-practice"
+    "to": "deep-learning"
    },
    {
-    "from": "ml-practice",
+    "from": "ml-foundations",
+    "to": "tabular-practice"
+   },
+   {
+    "from": "tabular-practice",
     "to": "ml-applications"
+   },
+   {
+    "from": "deep-learning",
+    "to": "ml-applications",
+    "style": "dashed"
    },
    {
     "from": "ml-foundations",

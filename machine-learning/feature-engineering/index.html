@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="數值/類別/缺失值/時間特徵的處理、特徵交互與特徵選擇的完整實務整理，含面試常考點。">
+        <meta name="description" content="數值、類別、缺失值、時間特徵的處理，特徵交互與選擇，以及不平衡資料的手法；附 target encoding 在純雜訊上的洩漏實測與修法。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>特徵工程心法 - Shane's Knowledge Base</title>
+        <title>特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="特徵工程心法 - Shane's Knowledge Base">
-<meta property="og:description" content="數值/類別/缺失值/時間特徵的處理、特徵交互與特徵選擇的完整實務整理，含面試常考點。">
+<meta property="og:title" content="特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？ - Shane's Knowledge Base">
+<meta property="og:description" content="數值、類別、缺失值、時間特徵的處理，特徵交互與選擇，以及不平衡資料的手法；附 target encoding 在純雜訊上的洩漏實測與修法。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/feature-engineering.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/feature-engineering/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="特徵工程心法 - Shane's Knowledge Base">
-<meta property="twitter:description" content="數值/類別/缺失值/時間特徵的處理、特徵交互與特徵選擇的完整實務整理，含面試常考點。">
+<meta property="twitter:title" content="特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="數值、類別、缺失值、時間特徵的處理，特徵交互與選擇，以及不平衡資料的手法；附 target encoding 在純雜訊上的洩漏實測與修法。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/feature-engineering.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#target-encoding" class="md-skip">
           跳轉到
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              特徵工程心法
+              特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？
             
           </span>
         </div>
@@ -2258,6 +2258,8 @@
       
         
       
+        
+      
     
     
     
@@ -2328,10 +2330,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2358,7 +2356,7 @@
   <span class="md-ellipsis">
     
   
-    觀念地基
+    基礎觀念
   
 
     
@@ -2374,7 +2372,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    觀念地基
+    基礎觀念
   
 
           </label>
@@ -2394,7 +2392,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2422,7 +2420,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2435,6 +2433,75 @@
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度學習
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    深度學習
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
             
               
                 
@@ -2450,7 +2517,7 @@
   <span class="md-ellipsis">
     
   
-    3 · 深度學習訓練基礎
+    深度學習訓練基礎
   
 
     
@@ -2478,7 +2545,7 @@
   <span class="md-ellipsis">
     
   
-    9 · Transformer 與注意力機制
+    Transformer 與注意力機制
   
 
     
@@ -2537,17 +2604,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked="">
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    動手實作
+    表格資料實作
   
 
     
@@ -2558,12 +2625,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    動手實作
+    表格資料實作
   
 
           </label>
@@ -2592,7 +2659,7 @@
   <span class="md-ellipsis">
     
   
-    4 · 特徵工程心法
+    特徵工程心法
   
 
     
@@ -2610,7 +2677,7 @@
   <span class="md-ellipsis">
     
   
-    4 · 特徵工程心法
+    特徵工程心法
   
 
     
@@ -2636,22 +2703,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        數值型特徵
+        前言
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="數值型特徵">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 數值型特徵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 數值型特徵">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#nnsvmknn" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        縮放（線性模型/NN/SVM/KNN 需要；樹模型不用）
+        縮放
       
     </span>
   </a>
@@ -2686,10 +2764,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        類別型特徵
+        2. 類別型特徵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 類別型特徵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：一個和 y 完全無關的類別
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 缺失值
       
     </span>
   </a>
@@ -2697,62 +2803,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        缺失值
+        4. 時間特徵
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 特徵交互
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 特徵選擇
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 不平衡資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        時間特徵
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        特徵交互
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        特徵選擇
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#imbalanced-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        imbalanced data 常用手法
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -2763,7 +2886,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -2796,7 +2919,7 @@
   <span class="md-ellipsis">
     
   
-    5 · sklearn Pipeline 與前處理模板
+    sklearn Pipeline 模板
   
 
     
@@ -2824,7 +2947,7 @@
   <span class="md-ellipsis">
     
   
-    6 · 模型評估與 Cross-Validation
+    模型評估與 Cross-Validation
   
 
     
@@ -2852,7 +2975,7 @@
   <span class="md-ellipsis">
     
   
-    10 · Gradient Boosting 實戰
+    Gradient Boosting 實戰
   
 
     
@@ -2880,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    11 · 模型可解釋性（SHAP）
+    模型可解釋性（SHAP）
   
 
     
@@ -2912,129 +3035,6 @@
     
       
         
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
-        
-          
-          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    綜合應用
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    綜合應用
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ml-case-studies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7 · 常見 ML Case Study
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../financial-ml-time-series/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    12 · 金融時間序列 ML
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
       
         
       
@@ -3064,7 +3064,7 @@
   <span class="md-ellipsis">
     
   
-    統計與實驗
+    綜合應用
   
 
     
@@ -3077,6 +3077,129 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    綜合應用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml-case-studies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    金融時間序列 ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計與實驗
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3100,7 +3223,7 @@
   <span class="md-ellipsis">
     
   
-    8 · 統計推論與 A/B 測試
+    統計推論與 A/B 測試
   
 
     
@@ -4213,22 +4336,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        數值型特徵
+        前言
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="數值型特徵">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 數值型特徵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 數值型特徵">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#nnsvmknn" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        縮放（線性模型/NN/SVM/KNN 需要；樹模型不用）
+        縮放
       
     </span>
   </a>
@@ -4263,10 +4397,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        類別型特徵
+        2. 類別型特徵
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 類別型特徵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：一個和 y 完全無關的類別
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 缺失值
       
     </span>
   </a>
@@ -4274,62 +4436,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        缺失值
+        4. 時間特徵
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 特徵交互
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 特徵選擇
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 不平衡資料
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        時間特徵
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        特徵交互
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        特徵選擇
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#imbalanced-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        imbalanced data 常用手法
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4340,7 +4519,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -4414,7 +4593,7 @@
         <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    動手實作
+    表格資料實作
   </span>
 
         </a>
@@ -4444,27 +4623,36 @@
 
 
 
-<h1 id="_1">特徵工程心法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<h1 id="target-encoding">特徵工程心法：資料進模型前要做什麼？Target Encoding 為什麼會騙人？<a class="headerlink" href="#target-encoding" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>「Garbage in, garbage out.」常聽到的說法是資料科學家八成時間花在這裡。Kaggle 賽到後段，大家都用 LightGBM，<strong>拉開差距的是特徵工程</strong>。
+<p><strong>難度：入門到中。會用 pandas，知道訓練集和測試集要分開。</strong>
+本頁的實驗數字來自 Python 3.12、scikit-learn 1.9.1，2026-10-04 執行。
 <strong>本頁定位</strong>：本區「資料進模型前該怎麼處理」的完整版，決定<strong>做什麼</strong>；對應的<strong>怎麼寫</strong>（Pipeline、ColumnTransformer、自訂 Transformer）見〈<a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a>〉。</p>
 </blockquote>
-<h2 id="_2">數值型特徵<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<h3 id="nnsvmknn">縮放（線性模型/NN/SVM/KNN 需要；樹模型不用）<a class="headerlink" href="#nnsvmknn" title="Permanent link">¶</a></h3>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>「Garbage in, garbage out.」常聽到的說法是資料科學家八成時間花在整理資料和做特徵。Kaggle 比賽到後段，大家用的模型都差不多（多半是 LightGBM），拉開差距的是特徵。</p>
+<p>特徵工程的清單很容易找：縮放、編碼、填缺失值、時間特徵、交互項。但清單不會告訴你<strong>哪一步會讓模型看起來很好、上線卻很差</strong>。</p>
+<p>本頁回答三個問題：</p>
+<ul>
+<li><strong>哪些特徵需要縮放？</strong>（先講結論：看模型怎麼用特徵。靠距離或 <code>w·x</code> 的模型（線性、SVM、KNN、神經網路）要縮放；樹模型只看大小順序，不用。）</li>
+<li><strong>類別太多時怎麼編碼？Target encoding 為什麼會騙人？</strong>（類別多時 one-hot 會爆，target encoding 把類別換成「這個類別的 y 平均」，最省維度。但直接用訓練集的 y 去算，等於把答案寫進特徵：在一個和 y 完全無關的類別上，訓練 AUC 0.889、測試 AUC 0.485。）</li>
+<li><strong>缺失值該填還是該留？</strong>（通常兩個都做：填一個值讓模型能跑，再加一欄 <code>is_missing</code> 記錄它原本缺。缺失本身常常就是訊號。）</li>
+</ul>
+<p>本頁只談表格資料。</p>
+<h2 id="1">1. 數值型特徵<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<h3 id="_2">縮放<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">RobustScaler</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># StandardScaler：均值0、標準差1 —— 通用首選</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># MinMaxScaler ：縮到 [0,1] —— 需固定範圍輸入（如 NN）</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># RobustScaler ：用中位數與 IQR —— 有異常值時</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># StandardScaler：平均 0、標準差 1 —— 通用首選</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># MinMaxScaler ：縮到 [0,1] —— 需要固定範圍輸入時（例如某些神經網路）</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># RobustScaler ：用中位數與 IQR —— 有離群值時</span>
 </span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">面試常考</p>
-<p><strong>樹模型不需要標準化</strong>——CART 分裂只看閾值（大小順序），與絕對數值無關。線性模型靠 <code>w·x</code>，尺度差太大會讓梯度偏向大數值特徵、收斂慢又跑歪。</p>
-</div>
+<p><strong>樹模型不需要縮放。</strong> 決策樹只問「比某個值大還是小」，把特徵乘以 100，切點也跟著乘以 100，結果一模一樣。</p>
+<p>線性模型就不同了。它算的是 <code>w·x</code>，一個特徵範圍 0–1、另一個 0–100,000，梯度會被大範圍的那個主導，收斂又慢又歪；加了正則化之後，懲罰也會跟單位有關，而不是跟特徵重要性有關。SVM 和 KNN 靠距離，範圍大的特徵會吃掉整個距離。</p>
 <h3 id="binning">分箱（Binning）<a class="headerlink" href="#binning" title="Permanent link">¶</a></h3>
-<p>連續變數切成類別（年齡→兒童/青年/中年/老年）：能吃下非線性、壓掉雜訊，代價是丟掉箱內的差異。</p>
+<p>把連續變數切成類別（年齡 → 兒童／青年／中年／老年）。能吃下非線性、壓掉雜訊，代價是丟掉箱子內部的差異。樹模型自己就會切，通常不需要手動分箱；線性模型想表達非線性時才比較有用。</p>
 <h3 id="transformation">變換（Transformation）<a class="headerlink" href="#transformation" title="Permanent link">¶</a></h3>
-<p>Log（處理右偏，如收入/人口）、Square root（較溫和）、Box-Cox（自動找最佳變換）。</p>
-<h2 id="_3">類別型特徵<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>Log（處理右偏分布，如收入、人口）、平方根（較溫和）、Box-Cox 或 Yeo-Johnson（自動找最佳變換，後者可處理負值）。目標變數 y 也可以做 log，但評估時記得轉回原始尺度（見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉）。</p>
+<h2 id="2">2. 類別型特徵<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -4476,73 +4664,141 @@
 <tbody>
 <tr>
 <td><strong>One-Hot</strong></td>
-<td>每類別一欄 0/1</td>
-<td>類別少（&lt;10）；多會維度爆炸</td>
+<td>每個類別一欄 0/1</td>
+<td>類別少（&lt; 10–20）；類別多會維度爆炸</td>
 </tr>
 <tr>
-<td><strong>Label</strong></td>
+<td><strong>Ordinal / Label</strong></td>
 <td>紅→0、黃→1…</td>
-<td>有序（學歷）OK；無序給線性模型會誤判大小，樹模型可處理</td>
+<td>有序類別（學歷）可以；無序類別給線性模型會被誤當成大小關係，樹模型可以接受</td>
 </tr>
 <tr>
 <td><strong>Target</strong></td>
-<td>類別→該類別 target 均值</td>
-<td>高基數（郵遞區號/商品 ID）最有用；<strong>易 leak，必須 CV-based</strong></td>
+<td>類別 → 該類別的 y 平均</td>
+<td>高基數類別（郵遞區號、商品 ID）最有用；<strong>很容易洩漏，必須 cross-fitting</strong></td>
 </tr>
 <tr>
 <td><strong>Frequency</strong></td>
-<td>類別→出現頻率</td>
-<td>高基數的輕量替代</td>
+<td>類別 → 出現頻率</td>
+<td>高基數時的輕量替代，不會洩漏</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">缺失值<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>策略：刪除（缺失 &gt;50% 考慮）、填均值/中位數（隨機缺失）、填眾數（類別）、填特殊值（−999/「未知」讓模型自學）、模型預測填補（MICE）、<strong>保留缺失當特徵</strong>。</p>
-<div class="admonition tip">
-<p class="admonition-title">業界領悟</p>
-<p>加一個 <strong><code>is_missing</code> 布林旗標</strong>常常有用——缺失本身可能就是訊號（沒填收入的人行為模式本就不同）。</p>
-</div>
-<h2 id="_5">時間特徵<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>從 datetime 抽：年/月/日/時/星期幾、是否週末/假日、距某重要日幾天。<strong>周期性用 sin/cos</strong>（讓 23 點與 0 點在數值上相近）：
-</p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">'hour_sin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">'hour'</span><span class="p">]</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df</span><span class="p">[</span><span class="s1">'hour_cos'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">'hour'</span><span class="p">]</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span>
-</span></code></pre></div><p></p>
-<h2 id="_6">特徵交互<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>兩特徵組出新特徵：BMI = 體重 / 身高²、座標×距離…—<strong>業務領悟常在這裡贏</strong>。</p>
-<h2 id="_7">特徵選擇<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>過濾式（Filter）</strong>：刪低變異、用相關係數/互信息選前 N；快但不看交互。</li>
-<li><strong>包裝式（Wrapper）</strong>：RFE 遞迴消除；慢但考慮與模型互動。</li>
-<li><strong>嵌入式（Embedded）</strong>：L1 正則化（不重要係數歸零）、樹模型 feature importance。</li>
-</ul>
-<h2 id="imbalanced-data">imbalanced data 常用手法<a class="headerlink" href="#imbalanced-data" title="Permanent link">¶</a></h2>
-<p>SMOTE（合成少數類）、上/下採樣、<code>class_weight</code>。</p>
+<h3 id="y">實驗：一個和 y 完全無關的類別<a class="headerlink" href="#y" title="Permanent link">¶</a></h3>
+<p>我們造 5,000 筆資料。類別欄 <code>zip</code> 有 2,000 種值（平均每種 2.5 筆），標籤 <code>y</code> 是隨機丟銅板，兩者完全無關。照理說，任何模型都只能拿到 AUC 0.5。</p>
+<p><strong>錯誤寫法</strong>：用整個訓練集的 y，算每個 <code>zip</code> 的平均，直接當特徵。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_auc_score</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TargetEncoder</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"zip"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">n</span><span class="p">)})</span>   <span class="c1"># 2000 個「郵遞區號」</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>                              <span class="c1"># 和 zip 完全無關</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">tr</span><span class="p">,</span> <span class="n">te</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">means</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">tr</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">zip</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">tr</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">X_tr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">zip</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">tr</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">X_te</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">zip</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">te</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">tr</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">m</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_tr</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">tr</span><span class="p">])</span>
+</span></code></pre></div>
+<p><strong>正確寫法</strong>：sklearn 1.3 起的 <code>TargetEncoder</code>，<code>fit_transform</code> 內建 cross-fitting，每一筆的編碼值都只用「其他折」的 y 算。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">enc</span> <span class="o">=</span> <span class="n">TargetEncoder</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">X_tr</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"zip"</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">tr</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">tr</span><span class="p">])</span>   <span class="c1"># 訓練集：cross-fitting</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">X_te</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"zip"</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">te</span><span class="p">])</span>               <span class="c1"># 測試集：用全部訓練資料的平均</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>寫法</th>
+<th>訓練 AUC</th>
+<th>測試 AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接用訓練集平均</td>
+<td><strong>0.889</strong></td>
+<td>0.485</td>
+</tr>
+<tr>
+<td><code>TargetEncoder</code>（cross-fitting）</td>
+<td>0.509</td>
+<td>0.516</td>
+</tr>
+</tbody>
+</table>
+<p>錯誤寫法的訓練 AUC 是 0.889。原因：一個 <code>zip</code> 平均只有 2.5 筆，這幾筆的 y 平均，很大一部分就是<strong>這筆自己的 y</strong>。如果某個 zip 只出現 1 次，它的編碼值就是它自己的答案。模型學到的是「編碼值高的就是 1」，這在訓練集上幾乎全對，在測試集上完全沒用。</p>
+<p>如果你只看訓練分數，或者在訓練集上做 CV（編碼已經在 CV 之前做完了），就會以為 <code>zip</code> 是一個超強的特徵。</p>
+<p>cross-fitting 之後，訓練和測試 AUC 都回到 0.5 附近，和真相一致。</p>
+<p><code>TargetEncoder</code> 另外還做了<strong>平滑</strong>（<code>smooth</code> 參數）：筆數少的類別，編碼值會往整體平均拉。這樣只出現 2 次的類別不會因為兩筆剛好都是 1，就被編成 1.0。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>樹模型為何不用標準化、線性要</strong>：樹只看大小順序、縮放不改分裂；線性靠 w·x，尺度差會讓梯度偏向大數值特徵。</li>
-<li><strong>One-Hot 維度爆炸怎麼辦</strong>：改 Target Encoding（配 CV 防 leak）/ Frequency Encoding / NN Embedding；樹模型可用 Label Encoding。</li>
-<li><strong>缺失為何有時保留不填</strong>：缺失本身是訊號，加 <code>is_missing</code> flag 比填均值更保留資訊。</li>
-<li><strong>Target Encoding 的 leakage 與防法</strong>：用整個訓練集均值 encode 等於看到自己的 label；用 <strong>CV-based</strong>（每折只用其他折的均值）來防。</li>
-</ul>
+<p class="admonition-title">常見誤解：只要在測試集上分開算，target encoding 就沒問題</p>
+<p>很多人知道「測試集要用訓練集的平均」，但忽略了<strong>訓練集本身</strong>的洩漏：每一筆訓練樣本的編碼值，都包含了它自己的 y。
+後果不是測試分數虛高，而是模型在訓練時過度依賴這個特徵，擠掉了真正有用的特徵。測試分數因此變差，而且你不會知道原因。訓練集內也要 cross-fitting。</p>
 </div>
-<hr>
-<h2 id="_8">延伸閱讀（本站）<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h2 id="3">3. 缺失值<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<p>策略：刪除（缺失超過一半時考慮）、填平均或中位數、填眾數（類別）、填特殊值（−999、「未知」，讓模型自己學）、用模型預測填補（MICE）、<strong>把缺失本身當成特徵</strong>。</p>
+<p>最實用的組合通常是：<strong>填一個值，再加一欄 <code>is_missing</code></strong>。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">df</span><span class="p">[</span><span class="s2">"income_missing"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"income"</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">df</span><span class="p">[</span><span class="s2">"income"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"income"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"income"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>   <span class="c1"># 中位數要用訓練集算</span>
+</span></code></pre></div>
+<p>缺失常常不是隨機的。沒填收入的人，行為模式可能本來就和有填的人不同。只填中位數，這個資訊就消失了；加上旗標，模型才看得到。LightGBM 和 XGBoost 能直接處理缺失值，會自己學缺失的樣本該往哪邊分，但線性模型和多數 sklearn 模型不行。</p>
+<h2 id="4">4. 時間特徵<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
+<p>從 datetime 抽出：年／月／日／時／星期幾、是不是週末或假日、距離某個重要日子幾天。<strong>週期性的特徵用 sin/cos 編碼</strong>，讓 23 點和 0 點在數值上靠近：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">'hour_sin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">'hour'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">df</span><span class="p">[</span><span class="s1">'hour_cos'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">'hour'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+</span></code></pre></div>
+<p>只用 <code>hour</code> 這一欄，23 和 0 差了 23；用 sin/cos 兩欄，它們在一個圓上是鄰居。</p>
+<p>時序資料要特別小心 lag 特徵和滾動統計：只能用「預測當下已經知道」的資料。見〈<a href="../ml-case-studies/">常見 ML Case Study</a>〉Case 3 與〈<a href="../financial-ml-time-series/">金融時間序列 ML</a>〉。</p>
+<h2 id="5">5. 特徵交互<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
+<p>兩個特徵組出新特徵：BMI = 體重 ÷ 身高²、每坪單價 = 總價 ÷ 坪數、距離 = 兩組座標算出來的距離。</p>
+<p>樹模型理論上能自己學到交互作用，但要切很多刀才能逼近一個除法。直接給它比值，一刀就夠。<strong>懂業務的人加的一個比值特徵，常常比調一整天參數有用。</strong></p>
+<h2 id="6">6. 特徵選擇<a class="headerlink" href="#6" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a> — 本頁每個處理步驟對應的可複製程式碼</li>
-<li><a href="../ml-interview-core-concepts/">ML 面試核心觀念</a> — 縮放為何影響線性模型、L1 為何能選特徵</li>
-<li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — Ch2 端到端專案裡的資料準備脈絡</li>
-<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — target encoding 等前處理如何在 CV 中不漏水</li>
+<li><strong>過濾式（Filter）</strong>：刪掉變異很低的特徵，或用相關係數、互資訊選前 N 個。快，但看不到特徵之間的交互。</li>
+<li><strong>包裝式（Wrapper）</strong>：RFE 遞迴消除。慢，但會考慮特徵和模型的互動。</li>
+<li><strong>嵌入式（Embedded）</strong>：L1 正則化（不重要的係數直接歸零）、樹模型的 feature importance。</li>
+</ul>
+<p>不管哪一種，<strong>特徵選擇都要放在 CV 裡面做</strong>。在全部資料上先選，再做 CV，選擇本身就偷看了驗證集的答案。在純雜訊資料上，這個錯誤可以讓準確率從 0.50 變成 0.87（實驗見〈<a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a>〉）。</p>
+<p>用 feature importance 選特徵前，也要知道它的偏差：見〈<a href="../model-interpretability-shap/">模型可解釋性</a>〉。</p>
+<h2 id="7">7. 不平衡資料<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
+<p>常用手法：</p>
+<ul>
+<li><code>class_weight='balanced'</code>（或 XGBoost 的 <code>scale_pos_weight</code>）：讓少數類的錯誤罰得比較重。最簡單，通常先試這個。</li>
+<li>上採樣／下採樣：複製少數類，或丟掉一部分多數類。</li>
+<li>SMOTE：在少數類樣本之間內插出合成樣本。</li>
+<li><strong>調整決策閾值</strong>：不改訓練，只改「機率多少以上算正例」。很多時候這一步就夠了。</li>
+</ul>
+<p>重採樣只能做在訓練折上，不能在切分之前做。要放進 <code>imblearn.pipeline.Pipeline</code>，sklearn 原生的 Pipeline 不收 sampler。</p>
+<h2 id="_3">結論<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>回到前言的三個問題。</p>
+<p><strong>哪些特徵要縮放？</strong> 看模型。線性模型、SVM、KNN、神經網路要縮放；樹模型不用。</p>
+<p><strong>類別太多怎麼編碼？</strong> Target encoding 最省維度，但直接用訓練集的 y 算會洩漏：在和 y 無關的類別上，訓練 AUC 0.889、測試 0.485。用 <code>TargetEncoder</code> 這類有 cross-fitting 的實作，訓練和測試都回到 0.5 附近。</p>
+<p><strong>缺失值填還是留？</strong> 都做。填一個值，加一欄 <code>is_missing</code>。</p>
+<h3 id="_4">延伸：這篇真正想留下的問題<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>Target encoding 的洩漏，和先選特徵再做 CV、在全部資料上做標準化，是同一類錯誤：<strong>某一步前處理在計算時看到了它不該看到的 y 或驗證資料</strong>。</p>
+<p>加任何一個前處理步驟之前，先想清楚：<strong>這一步在算的時候，用到了誰的資料？</strong></p>
+<hr>
+<h2 id="_5">延伸閱讀（本站）<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a> — 本頁每個處理步驟對應的程式碼，以及特徵選擇洩漏的實測</li>
+<li><a href="../ml-interview-core-concepts/">ML 核心觀念</a> — 縮放為何影響線性模型、L1 為何能選特徵</li>
+<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — 前處理如何在 CV 中不漏水</li>
+<li><a href="../model-interpretability-shap/">模型可解釋性</a> — 用 importance 選特徵前要知道的偏差</li>
 <li><a href="../ml-case-studies/">常見 ML Case Study</a> — 四種任務各自的特徵設計取捨</li>
 </ul>
-<h2 id="_9">參考資料<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
-<p>本頁為實務心法的個人整理。各手法的標準出處：</p>
+<h2 id="_6">參考資料<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://scikit-learn.org/stable/modules/preprocessing.html">scikit-learn User Guide: Preprocessing data</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.TargetEncoder.html">scikit-learn: TargetEncoder</a>（1.3 版起提供，內建 cross fitting）</li>
 <li><a href="https://scikit-learn.org/stable/modules/feature_selection.html">scikit-learn User Guide: Feature selection</a></li>
 <li><a href="https://imbalanced-learn.org/stable/">imbalanced-learn 官方文件（SMOTE 與重採樣）</a></li>
-<li><a href="https://contrib.scikit-learn.org/category_encoders/">category_encoders 官方文件（Target / Frequency Encoding）</a></li>
+<li>Micci-Barreca, D. (2001). A preprocessing scheme for high-cardinality categorical attributes in classification and prediction problems. <em>ACM SIGKDD Explorations</em>, 3(1)</li>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed. Ch2</li>
+<li>本頁實驗為自行執行：5,000 筆、2,000 個類別、標籤隨機，70/30 切分，種子 0，2026-10-04</li>
 </ul>
 
 
@@ -4566,7 +4822,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4611,7 +4867,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../transformer-attention/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 9 · Transformer 與注意力機制">
+          <a href="../transformer-attention/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Transformer 與注意力機制">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4621,20 +4877,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                9 · Transformer 與注意力機制
+                Transformer 與注意力機制
               </div>
             </div>
           </a>
         
         
           
-          <a href="../sklearn-pipeline-templates/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 5 · sklearn Pipeline 與前處理模板">
+          <a href="../sklearn-pipeline-templates/" class="md-footer__link md-footer__link--next" aria-label="下一頁: sklearn Pipeline 模板">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                5 · sklearn Pipeline 與前處理模板
+                sklearn Pipeline 模板
               </div>
             </div>
             <div class="md-footer__button md-icon">

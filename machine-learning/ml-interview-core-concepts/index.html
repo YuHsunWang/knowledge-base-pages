@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Data Scientist / ML 面試最常考的核心觀念整理——ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證、評估指標，每節附面試口答。">
+        <meta name="description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>ML 面試核心觀念 - Shane's Knowledge Base</title>
+        <title>ML 核心觀念：模型學壞了，是太簡單還是太複雜？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="ML 面試核心觀念 - Shane's Knowledge Base">
-<meta property="og:description" content="Data Scientist / ML 面試最常考的核心觀念整理——ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證、評估指標，每節附面試口答。">
+<meta property="og:title" content="ML 核心觀念：模型學壞了，是太簡單還是太複雜？ - Shane's Knowledge Base">
+<meta property="og:description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/ml-interview-core-concepts.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/ml-interview-core-concepts/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="ML 面試核心觀念 - Shane's Knowledge Base">
-<meta property="twitter:description" content="Data Scientist / ML 面試最常考的核心觀念整理——ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證、評估指標，每節附面試口答。">
+<meta property="twitter:title" content="ML 核心觀念：模型學壞了，是太簡單還是太複雜？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/ml-interview-core-concepts.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ML 面試核心觀念
+              ML 核心觀念：模型學壞了，是太簡單還是太複雜？
             
           </span>
         </div>
@@ -2258,6 +2258,8 @@
       
         
       
+        
+      
     
     
     
@@ -2330,10 +2332,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2360,7 +2358,7 @@
   <span class="md-ellipsis">
     
   
-    觀念地基
+    基礎觀念
   
 
     
@@ -2376,7 +2374,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    觀念地基
+    基礎觀念
   
 
           </label>
@@ -2405,7 +2403,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2423,7 +2421,7 @@
   <span class="md-ellipsis">
     
   
-    1 · ML 面試核心觀念（主題式速查）
+    ML 核心觀念
   
 
     
@@ -2449,10 +2447,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        0. 一眼地圖
+        前言
       
     </span>
   </a>
@@ -2474,10 +2472,27 @@
   <a href="#2-bias-variance-tradeoff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Bias-Variance Tradeoff（最核心的判斷框架）
+        2. Bias-Variance Tradeoff：判斷模型學壞在哪
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. Bias-Variance Tradeoff：判斷模型學壞在哪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1315" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：多項式次數 1、3、15
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2485,7 +2500,7 @@
   <a href="#3-gradient-descent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Gradient Descent（怎麼學）
+        3. Gradient Descent：模型怎麼學
       
     </span>
   </a>
@@ -2507,10 +2522,27 @@
   <a href="#5-l1-l2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. 正則化（L1 / L2 / 其他）
+        5. 正則化：L1 / L2 / 其他
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. 正則化：L1 / L2 / 其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#100-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：100 個特徵，只有 5 個有用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2529,7 +2561,7 @@
   <a href="#7-cross-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Cross-Validation（交叉驗證）
+        7. Cross-Validation：怎麼公正評估
       
     </span>
   </a>
@@ -2540,16 +2572,16 @@
   <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. 評估指標全整理
+        8. 評估指標速查
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="8. 評估指標全整理">
+    <nav class="md-nav" aria-label="8. 評估指標速查">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         分類：從混淆矩陣出發
@@ -2560,7 +2592,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         回歸
@@ -2576,7 +2608,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -2587,7 +2647,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -2620,63 +2680,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deep-learning-training-fundamentals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    3 · 深度學習訓練基礎
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../transformer-attention/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    9 · Transformer 與注意力機制
+    Géron《Hands-On ML》Ch1–9
   
 
     
@@ -2706,12 +2710,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
       
         
       
@@ -2743,7 +2741,7 @@
   <span class="md-ellipsis">
     
   
-    動手實作
+    深度學習
   
 
     
@@ -2759,7 +2757,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    動手實作
+    深度學習
   
 
           </label>
@@ -2772,14 +2770,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../feature-engineering/" class="md-nav__link">
+      <a href="../deep-learning-training-fundamentals/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4 · 特徵工程心法
+    深度學習訓練基礎
   
 
     
@@ -2800,98 +2798,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
+      <a href="../transformer-attention/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5 · sklearn Pipeline 與前處理模板
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    6 · 模型評估與 Cross-Validation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    10 · Gradient Boosting 實戰
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../model-interpretability-shap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    11 · 模型可解釋性（SHAP）
+    Transformer 與注意力機制
   
 
     
@@ -2921,6 +2835,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2952,7 +2872,7 @@
   <span class="md-ellipsis">
     
   
-    綜合應用
+    表格資料實作
   
 
     
@@ -2965,6 +2885,215 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    表格資料實作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特徵工程心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sklearn-pipeline-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sklearn Pipeline 模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-evaluation-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型評估與 Cross-Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    綜合應用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2988,7 +3117,7 @@
   <span class="md-ellipsis">
     
   
-    7 · 常見 ML Case Study
+    常見 ML Case Study
   
 
     
@@ -3016,7 +3145,7 @@
   <span class="md-ellipsis">
     
   
-    12 · 金融時間序列 ML
+    金融時間序列 ML
   
 
     
@@ -3065,10 +3194,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
             
   
   
@@ -3086,8 +3215,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3111,7 +3240,7 @@
   <span class="md-ellipsis">
     
   
-    8 · 統計推論與 A/B 測試
+    統計推論與 A/B 測試
   
 
     
@@ -4224,10 +4353,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        0. 一眼地圖
+        前言
       
     </span>
   </a>
@@ -4249,10 +4378,27 @@
   <a href="#2-bias-variance-tradeoff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Bias-Variance Tradeoff（最核心的判斷框架）
+        2. Bias-Variance Tradeoff：判斷模型學壞在哪
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. Bias-Variance Tradeoff：判斷模型學壞在哪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1315" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：多項式次數 1、3、15
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4260,7 +4406,7 @@
   <a href="#3-gradient-descent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Gradient Descent（怎麼學）
+        3. Gradient Descent：模型怎麼學
       
     </span>
   </a>
@@ -4282,10 +4428,27 @@
   <a href="#5-l1-l2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. 正則化（L1 / L2 / 其他）
+        5. 正則化：L1 / L2 / 其他
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. 正則化：L1 / L2 / 其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#100-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實驗：100 個特徵，只有 5 個有用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4304,7 +4467,7 @@
   <a href="#7-cross-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Cross-Validation（交叉驗證）
+        7. Cross-Validation：怎麼公正評估
       
     </span>
   </a>
@@ -4315,16 +4478,16 @@
   <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. 評估指標全整理
+        8. 評估指標速查
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="8. 評估指標全整理">
+    <nav class="md-nav" aria-label="8. 評估指標速查">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         分類：從混淆矩陣出發
@@ -4335,7 +4498,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         回歸
@@ -4351,7 +4514,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結論
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="結論">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸：這篇真正想留下的問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4362,7 +4553,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考資料
@@ -4436,7 +4627,7 @@
         <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    觀念地基
+    基礎觀念
   </span>
 
         </a>
@@ -4459,13 +4650,6 @@
       
       
       
-        <a href="../../tags/#tag:interview" class="md-tag">Interview</a>
-      
-    
-      
-      
-      
-      
         <a href="../../tags/#tag:machine-learning" class="md-tag">Machine Learning</a>
       
     
@@ -4473,99 +4657,154 @@
 
 
 
-<h1 id="ml">ML 面試核心觀念<a class="headerlink" href="#ml" title="Permanent link">¶</a></h1>
+<h1 id="ml">ML 核心觀念：模型學壞了，是太簡單還是太複雜？<a class="headerlink" href="#ml" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>這是一份面試導向的觀念速查——把 DS/ML 面試最高頻的八個主題整理成「核心觀念 + 程式碼 + 面試口答」。
-<strong>本頁定位</strong>：本區 <strong>bias-variance、正則化、樹模型家族</strong> 三個主題的完整版都在這裡，其他頁指回本頁。與〈<a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9</a>〉互補——那篇照書走章節、收書中獨有的推導；這篇照觀念打面試。評估指標與 CV 的深入實作版在〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉，本頁 §7、§8 只留面試用的速查密度。</p>
+<p><strong>難度：入門。會一點 Python 和高中代數就夠。</strong>
+本頁的實驗數字來自 Python 3.12、scikit-learn 1.9.1，2026-10-04 執行。
+<strong>本頁定位</strong>：本區 <strong>bias-variance、正則化、樹模型家族</strong> 三個主題的完整版在這裡，其他頁指回本頁。評估指標與 CV 的深入版在〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉，本頁 §7、§8 只留速查密度。照書走章節的版本見〈<a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9</a>〉。</p>
 </blockquote>
-<h2 id="0">0. 一眼地圖<a class="headerlink" href="#0" title="Permanent link">¶</a></h2>
-<p>ML 三大類型（在學什麼）→ Bias-Variance（怎麼判斷學壞了）→ 梯度下降（怎麼學）→ 線性/邏輯回歸（最基本的兩個模型）→ 正則化（怎麼不過擬合）→ 樹模型家族（業界 tabular 主力）→ 交叉驗證（怎麼公正評估）→ 評估指標（用什麼數字衡量）。</p>
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>機器學習的入門內容，常被整理成一長串名詞：bias、variance、L1、L2、bagging、boosting……每個都有定義，但讀完不一定知道<strong>它們在回答同一個問題</strong>：模型為什麼在新資料上表現不好，以及該往哪個方向修。</p>
+<p>本頁把八個核心觀念串成這條線，並回答三個問題：</p>
+<ul>
+<li><strong>模型學壞了，怎麼知道是太簡單還是太複雜？</strong>（先講結論：同時看訓練誤差和驗證誤差。兩個都高是太簡單；訓練很低、驗證高是太複雜。下面用多項式次數 1、3、15 實測。）</li>
+<li><strong>L1 和 L2 正則化差在哪？</strong>（L1 會讓不重要的係數<strong>剛好變成 0</strong>，等於自動選特徵；L2 只會把係數縮小，不會歸零。100 個特徵裡只有 5 個有用時，L1 把 74 個歸零，L2 一個都沒有。）</li>
+<li><strong>樹模型為什麼是表格資料的主力？</strong>（隨機森林靠平均很多棵不一樣的樹來降 variance，boosting 靠一棵接一棵修錯來降 bias；兩者都不需要特徵縮放，對混雜的表格資料很省事。）</li>
+</ul>
+<p>本頁只談監督式學習的觀念；神經網路的訓練細節在〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
+<p>一眼地圖：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ML 類型（在學什麼）→ Bias-Variance（怎麼判斷學壞了）→ 梯度下降（怎麼學）
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>→ 線性 / 邏輯回歸（最基本的兩個模型）→ 正則化（怎麼不過擬合）
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>→ 樹模型家族（表格資料主力）→ 交叉驗證（怎麼公正評估）→ 評估指標（用什麼數字衡量）
+</span></code></pre></div>
 <hr>
 <h2 id="1-ml">1. ML 三大類型<a class="headerlink" href="#1-ml" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>監督式</strong>：資料有 label，學「輸入→輸出」映射。</li>
-<li>回歸（連續值，指標 MAE/MSE/RMSE/R²）、分類（類別，指標 Accuracy/P/R/F1/AUC）。</li>
-<li><strong>非監督式</strong>：資料無 label，自己找模式。</li>
+<li><strong>監督式</strong>：資料有 label，學「輸入→輸出」的對應。</li>
+<li>回歸（預測連續值，指標 MAE/MSE/RMSE/R²）、分類（預測類別，指標 Accuracy/P/R/F1/AUC）。</li>
+<li><strong>非監督式</strong>：資料沒有 label，自己找結構。</li>
 <li>分群（K-Means/DBSCAN）、降維（PCA/t-SNE）、關聯規則（購物籃）。</li>
 <li><strong>其他</strong>：半監督、自監督（BERT 的 masked LM）、強化學習（AlphaGo）。</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>監督 vs 非監督</strong>：差在有沒有 label。實務上多數任務是監督；非監督多用於 label 很貴前的探索或異常檢測。</li>
-<li><strong>K-Means vs PCA</strong>：一個是分群（輸出「屬於哪群」）、一個是降維（輸出低維表示）；常先 PCA 再 K-Means。</li>
-<li><strong>應用場景</strong>：監督→金融違約預測；非監督→電商客戶分群。</li>
-</ul>
-</div>
+<p>實務上多數任務是監督式。非監督多用在「label 很貴、先探索」或異常偵測。兩者常搭配使用，例如先用 PCA 降維，再做 K-Means 分群。</p>
 <hr>
-<h2 id="2-bias-variance-tradeoff">2. Bias-Variance Tradeoff（最核心的判斷框架）<a class="headerlink" href="#2-bias-variance-tradeoff" title="Permanent link">¶</a></h2>
-<p>誤差分解：<code>Total Error = Bias² + Variance + Irreducible Error</code>
-- <strong>Bias 高 = 太簡單 = underfitting</strong>（如用線性回歸擬合非線性）。
-- <strong>Variance 高 = 太複雜 = overfitting</strong>（如深度 20 的決策樹背住訓練集）。
-- <strong>Irreducible</strong>：資料本身雜訊，換模型也減不掉。</p>
+<h2 id="2-bias-variance-tradeoff">2. Bias-Variance Tradeoff：判斷模型學壞在哪<a class="headerlink" href="#2-bias-variance-tradeoff" title="Permanent link">¶</a></h2>
+<p>誤差可以拆成三塊：<code>Total Error = Bias² + Variance + Irreducible Error</code></p>
+<ul>
+<li><strong>Bias 高 = 太簡單 = underfitting</strong>：模型本身就畫不出資料的形狀，例如用直線去擬合一條曲線。</li>
+<li><strong>Variance 高 = 太複雜 = overfitting</strong>：模型把訓練資料的雜訊也背下來，換一批資料答案就大變，例如深度 20 的決策樹。</li>
+<li><strong>Irreducible</strong>：資料本身的雜訊，換什麼模型都減不掉。</li>
+</ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/bias_variance.png" data-desc-position="bottom"><img alt="Bias-Variance Tradeoff 曲線" src="../assets/bias_variance.png"></a>
-<em>圖：模型複雜度上升 → Bias² 降、Variance 升，總誤差呈 U 型，最低點即 sweet spot。</em></p>
-<p><strong>用 train/validation error 診斷：</strong></p>
+<em>圖：模型複雜度上升 → Bias² 降、Variance 升，總誤差呈 U 型，最低點就是最佳複雜度。</em></p>
+<h3 id="1315">實驗：多項式次數 1、3、15<a class="headerlink" href="#1315" title="Permanent link">¶</a></h3>
+<p>我們從 <code>y = sin(x) + 雜訊</code>（雜訊標準差 0.3）抽 60 筆當訓練集、1,000 筆當驗證集，分別用 1 次、3 次、15 次多項式回歸去擬合：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span><span class="p">,</span> <span class="n">StandardScaler</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>   <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">xv</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xv</span><span class="p">)</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">for</span> <span class="n">deg</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">]:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">deg</span><span class="p">),</span> <span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">LinearRegression</span><span class="p">())</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="c1"># 分別算訓練集與驗證集的 RMSE</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Training</th>
-<th>Validation</th>
+<th>次數</th>
+<th>訓練 RMSE</th>
+<th>驗證 RMSE</th>
 <th>診斷</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>1</td>
+<td>0.533</td>
+<td>0.509</td>
+<td>兩個都高、而且很接近 → <strong>underfitting</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.298</td>
+<td>0.322</td>
+<td>兩個都接近雜訊的 0.3 → 剛好</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>0.239</strong></td>
+<td>0.369</td>
+<td>訓練比雜訊還低、驗證變差 → <strong>overfitting</strong></td>
+</tr>
+</tbody>
+</table>
+<p>15 次多項式的訓練 RMSE 是 0.239，<strong>比雜訊本身的 0.3 還低</strong>。這只有一種可能：它把雜訊背下來了。這個訊號比「驗證誤差比訓練高」更直接，因為驗證誤差本來就會比訓練高一點。</p>
+<p>診斷規則整理成表：</p>
+<table>
+<thead>
+<tr>
+<th>訓練誤差</th>
+<th>驗證誤差</th>
+<th>診斷</th>
+<th>往哪修</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>高</td>
-<td>高（接近 train）</td>
+<td>高（接近訓練）</td>
 <td>High Bias → Underfitting</td>
+<td>加複雜度、加特徵、降正則化、訓練更久</td>
 </tr>
 <tr>
 <td>低</td>
 <td>高（差距大）</td>
 <td>High Variance → Overfitting</td>
+<td>加資料（最有效也最貴）、加正則化、簡化模型、Ensemble、Dropout、Early stopping</td>
 </tr>
 <tr>
 <td>低</td>
 <td>低</td>
 <td>好模型</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/learning_curve.png" data-desc-position="bottom"><img alt="Learning curve：underfitting vs overfitting" class="wide" src="../assets/learning_curve.png"></a>
 <em>圖：左 underfitting（train/val 都高且收斂在一起）；右 overfitting（train 低、val 高、落差大）。</em></p>
-<p><strong>解法</strong>：
-- High Bias → 加複雜度、加特徵、降正則化、訓練更久。
-- High Variance → 加資料（最有效最貴）、加正則化、簡化模型、CV 調參、Ensemble、Dropout、Early stopping。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<p>先看 train/val error 組合判斷：兩者都高=underfitting（加複雜度）；train 低 val 高=overfitting（先試正則化，再考慮蒐集更多資料）。</p>
+<p class="admonition-title">常見誤解：overfitting 就該加資料</p>
+<p>加資料確實最有效，但它只對 variance 有用。如果是 underfitting（兩條線都高、而且已經收斂在一起），加再多資料，兩條線也只是停在同一個高度。
+實際後果：花了很多成本蒐集資料，分數不動。先看兩條線的位置，再決定修法。</p>
 </div>
 <hr>
-<h2 id="3-gradient-descent">3. Gradient Descent（怎麼學）<a class="headerlink" href="#3-gradient-descent" title="Permanent link">¶</a></h2>
-<p>一句話：站在哪、看哪個方向最陡下坡、踏一步、重複。更新公式 <code>θ ← θ − α·∇L(θ)</code>（α＝learning rate，負號＝往下坡）。</p>
-<p><strong>三種變形</strong>：
-- <strong>Batch</strong>：用全部資料算一次梯度，穩但慢。
-- <strong>SGD</strong>：一筆就更新，快但震盪大。
-- <strong>Mini-Batch（業界標準）</strong>：一小批（32/64/128/256），能吃 GPU 平行、小震盪還能幫忙逃離 local minima。</p>
-<p><strong>Learning rate</strong>：太小→收斂超慢；太大→震盪甚至發散。常用起點 0.001/0.01，搭配 scheduler（先大後小）。</p>
-<p><strong>進階優化器</strong>：Momentum（慣性）、RMSProp（每參數自適應 lr）、<strong>Adam（=兩者結合，多數 NN 的預設）</strong>。高維空間真正常見的不是 local minima 而是 <strong>saddle point</strong>。各優化器（Adagrad／RMSprop／Adam β₁β₂、SGD+Nesterov）深入見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">b</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">dw</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">w</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">dw</span><span class="p">;</span> <span class="n">b</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">db</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+<h2 id="3-gradient-descent">3. Gradient Descent：模型怎麼學<a class="headerlink" href="#3-gradient-descent" title="Permanent link">¶</a></h2>
+<p>一句話：站在目前的位置，看哪個方向下坡最陡，往那裡踏一步，重複。更新公式 <code>θ ← θ − α·∇L(θ)</code>（α 是 learning rate，負號代表往下坡走）。</p>
+<p><strong>三種變形</strong>：</p>
+<ul>
+<li><strong>Batch</strong>：用全部資料算一次梯度。穩，但慢。</li>
+<li><strong>SGD</strong>：一筆資料就更新一次。快，但震盪大。</li>
+<li><strong>Mini-Batch（最常用）</strong>：一小批（32/64/128/256）。能用 GPU 平行計算，小幅震盪還能幫忙跳出不好的局部低點。</li>
+</ul>
+<p><strong>Learning rate</strong>：太小，收斂很慢；太大，來回震盪甚至發散。常用起點 0.001 或 0.01，搭配 scheduler（先大後小）。</p>
+<p><strong>進階優化器</strong>：Momentum（加慣性）、RMSProp（每個參數自己調 learning rate）、<strong>Adam</strong>（兩者結合，多數神經網路的預設）。高維空間裡真正常見的障礙通常不是局部最小值，而是 <strong>saddle point</strong>（某些方向往上、某些方向往下的平台）。各優化器的細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="n">dw</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">w</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">dw</span><span class="p">;</span> <span class="n">b</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">db</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
 </span></code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>為何往梯度反方向</strong>：梯度指向上升最快方向，要最小化 loss 就往反方向走。</li>
-<li><strong>Batch/Mini/SGD</strong>：Batch 穩慢、SGD 快震盪、Mini-batch 折衷且能用 GPU，業界標準。</li>
-<li><strong>為何用 Adam</strong>：Momentum+RMSProp、自適應 lr、預設好用；但 SGD+Momentum+好 schedule 有時泛化更佳（進階）。</li>
-</ul>
+<p class="admonition-title">常見誤解：Adam 永遠比 SGD 好</p>
+<p>Adam 收斂快、好調，所以是預設。但有不少研究和實務經驗發現，SGD + Momentum 配上好的 learning rate schedule，最終在測試集上可能泛化得更好。
+實際後果：只看訓練曲線收斂速度選優化器，可能選到測試分數較差的那個。重要的模型兩種都值得試。</p>
 </div>
 <hr>
 <h2 id="4-vs">4. 線性回歸 vs 邏輯回歸<a class="headerlink" href="#4-vs" title="Permanent link">¶</a></h2>
@@ -4601,96 +4840,124 @@
 <tr>
 <td>解析解</td>
 <td>有</td>
-<td>無（須迭代）</td>
+<td>無（要迭代）</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li><strong>線性回歸三假設</strong>：線性關係、樣本獨立、殘差常態 N(0,σ²)。</li>
-<li><strong>邏輯回歸</strong>：先算線性組合 z，再用 <strong>Sigmoid</strong> <code>σ(z)=1/(1+e⁻ᶻ)</code> 壓到 [0,1]；多元分類用 <strong>Softmax</strong>。decision boundary 是線性的（P=0.5 ⟺ w·x=0）。</li>
+<li><strong>邏輯回歸</strong>：先算線性組合 z，再用 <strong>Sigmoid</strong> <code>σ(z)=1/(1+e⁻ᶻ)</code> 壓到 [0,1]；多元分類用 <strong>Softmax</strong>。決策邊界是線性的（P=0.5 ⟺ w·x=0）。</li>
 </ul>
+<p>名字裡有「回歸」，是因為核心還是線性回歸的 z = w·x，只是多過一層 Sigmoid 變成機率。它是線性模型：決策邊界是一條直線（或超平面）。非線性的問題要靠特徵轉換、kernel SVM 或樹模型。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>為何叫「回歸」</strong>：核心仍是線性回歸 z=w·x，只是再過 Sigmoid 變機率。</li>
-<li><strong>為何不能用 MSE</strong>：邏輯回歸配 MSE 損失非凸、易卡 local minima；Cross-Entropy 來自最大似然、曲面 convex、收斂有保證。</li>
-<li><strong>是線性模型嗎</strong>：是，decision boundary 線性；非線性問題要用 kernel SVM 或樹模型。</li>
-</ul>
+<p class="admonition-title">常見誤解：邏輯回歸也可以用 MSE 當損失</p>
+<p>技術上算得出來，但 Sigmoid 加 MSE 的損失曲面不是凸的，梯度下降容易卡住；Sigmoid 飽和時梯度也會變得很小。
+Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度形式也乾淨。這不是慣例問題，是收斂保證的問題。</p>
 </div>
 <hr>
-<h2 id="5-l1-l2">5. 正則化（L1 / L2 / 其他）<a class="headerlink" href="#5-l1-l2" title="Permanent link">¶</a></h2>
-<p>在 loss 加懲罰：<code>Loss = 原損失 + λ × 參數懲罰</code>。
-- <strong>L2 (Ridge)</strong> <code>Σwᵢ²</code>：參數均勻縮小、<strong>不歸零</strong>；預設首選、NN 的 weight decay。
-- <strong>L1 (Lasso)</strong> <code>Σ|wᵢ|</code>：不重要參數<strong>直接歸零</strong>（自動特徵選擇）；特徵多但少數重要時用。
-- <strong>Elastic Net</strong>：L1+L2 折衷（<code>l1_ratio</code>），特徵數&gt;樣本數時好用。</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/l1_l2_geometry.png" data-desc-position="bottom"><img alt="L1 與 L2 的幾何解釋" class="wide" src="../assets/l1_l2_geometry.png"></a>
-<em>圖：L1（菱形）的最低損失等高線容易交在「角」上 → 某些權重歸零（稀疏）；L2（圓）通常交在非軸點。</em>
-- <code>λ</code>（sklearn 的 <code>alpha</code>）用 CV 調：太小→過擬合、太大→欠擬合。注意 <code>LogisticRegression</code> 用 <code>C=1/λ</code>，方向相反。
-- <strong>其他正則化</strong>：Dropout（NN，隨機關神經元 0.2~0.5）、Early stopping、Data Augmentation。Dropout 訓練/推論差異與 BatchNorm 細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
+<h2 id="5-l1-l2">5. 正則化：L1 / L2 / 其他<a class="headerlink" href="#5-l1-l2" title="Permanent link">¶</a></h2>
+<p>在損失函數後面加一個懲罰：<code>Loss = 原損失 + λ × 參數懲罰</code>。</p>
 <ul>
-<li><strong>L1 vs L2 怎麼選</strong>：特徵多疑多數無用→L1（選特徵）；特徵都有貢獻→L2；不確定→L2 或 Elastic Net。</li>
-<li><strong>L1 為何稀疏</strong>：幾何上 L1 可行域是菱形（角在軸上），與損失等高線最可能交在軸上 → 部分參數精確歸零。</li>
-<li><strong>為何先標準化</strong>：否則 L2 對大尺度特徵懲罰更多，懲罰變成跟尺度相關而非重要性。</li>
+<li><strong>L2（Ridge）</strong> <code>Σwᵢ²</code>：所有參數一起縮小，<strong>不會歸零</strong>。預設首選，神經網路裡叫 weight decay。</li>
+<li><strong>L1（Lasso）</strong> <code>Σ|wᵢ|</code>：不重要的參數<strong>直接歸零</strong>，等於自動選特徵。適合「特徵很多、只有少數有用」。</li>
+<li><strong>Elastic Net</strong>：L1 + L2 折衷（<code>l1_ratio</code>），特徵數大於樣本數、或特徵彼此高度相關時好用。</li>
 </ul>
+<h3 id="100-5">實驗：100 個特徵，只有 5 個有用<a class="headerlink" href="#100-5" title="Permanent link">¶</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">Ridge</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="n">w</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>      <span class="c1"># 只有前 5 個有用</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">w</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>係數剛好為 0 的個數</th>
+<th>前 5 個係數（真值 3, −2, 1.5, 1, −1）</th>
+<th>其餘 95 個裡最大的 |w|</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lasso α=0.1</td>
+<td><strong>74</strong></td>
+<td>2.89, −1.73, 1.33, 0.81, −0.80</td>
+<td>0.150</td>
+</tr>
+<tr>
+<td>Ridge α=10</td>
+<td><strong>0</strong></td>
+<td>2.66, −1.68, 1.35, 0.88, −0.83</td>
+<td>0.219</td>
+</tr>
+</tbody>
+</table>
+<p>兩者都抓到了前 5 個有用的特徵，係數也都被往 0 拉了一點（這就是正則化的「偏誤」）。差別在剩下的 95 個雜訊特徵：Lasso 把 74 個<strong>精確地</strong>設成 0，Ridge 讓它們全部保留一個小小的值。</p>
+<p>為什麼？看幾何圖：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/l1_l2_geometry.png" data-desc-position="bottom"><img alt="L1 與 L2 的幾何解釋" class="wide" src="../assets/l1_l2_geometry.png"></a>
+<em>圖：L1 的限制區域是菱形，角落剛好在座標軸上，損失的等高線最容易碰到角落 → 某些權重剛好為 0；L2 是圓形，通常碰在不是軸上的點。</em></p>
+<ul>
+<li><code>λ</code>（sklearn 叫 <code>alpha</code>）用 CV 調：太小會過擬合，太大會欠擬合。注意 <code>LogisticRegression</code> 用的是 <code>C = 1/λ</code>，<strong>方向相反</strong>，C 越小正則化越強。</li>
+<li><strong>其他正則化</strong>：Dropout（神經網路，隨機關掉 20%–50% 的神經元）、Early stopping、Data Augmentation。細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">常見誤解：正則化前不用標準化</p>
+<p>懲罰的是係數大小。同一個特徵用「公尺」記和用「公分」記，係數差 100 倍，被罰的程度也差很多。
+實際後果：不標準化時，懲罰會跟單位有關，而不是跟特徵重不重要有關。用 Ridge、Lasso、邏輯回歸前，先 <code>StandardScaler</code>。</p>
 </div>
 <hr>
 <h2 id="6-rf-xgboost-lightgbm">6. 樹模型家族：RF / XGBoost / LightGBM<a class="headerlink" href="#6-rf-xgboost-lightgbm" title="Permanent link">¶</a></h2>
-<p>單棵決策樹幾乎必過擬合、不穩定，實務只當 Ensemble 的零件。兩條路線：</p>
+<p>單棵決策樹幾乎一定過擬合，而且很不穩定：資料小動一下，整棵樹就長得不一樣。實務上它只當 ensemble 的零件。兩條路線：</p>
 <ul>
-<li><strong>Bagging（並行）→ Random Forest</strong>：許多樹各吃 bootstrap 子集 + 每節點隨機選特徵子集 → 投票/平均，<strong>降 Variance</strong>。不易過擬合、可平行、有 feature importance、預設就好用。關鍵參數 <code>n_estimators</code>、<code>max_features</code>（分類預設 √n、回歸 n/3）、<code>max_depth</code>。</li>
-<li><strong>Boosting（串行）→ XGBoost / LightGBM / CatBoost</strong>：每棵新樹專修前面的錯誤，<strong>降 Bias</strong>。</li>
-<li><strong>XGBoost</strong>：預設 level-wise 生長、Kaggle 經典；類別變數要開 <code>enable_categorical</code> 才原生處理，舊版只能自己 encode。</li>
-<li><strong>LightGBM（業界主力）</strong>：leaf-wise 生長、大資料上通常比 XGBoost 快、原生支援類別變數；小資料（&lt;10k）易過擬合。</li>
-<li><strong>CatBoost</strong>：類別變數是強項（ordered target statistics 防 leak），預設參數就不差。</li>
-<li>關鍵參數：<code>max_depth</code>/<code>num_leaves</code>、<code>learning_rate</code>（小→需更多樹）、<code>n_estimators</code>、<strong><code>early_stopping_rounds</code>（必加）</strong>、<code>subsample</code>/<code>colsample_bytree</code>（隨機性防過擬合）。</li>
+<li><strong>Bagging（並行）→ Random Forest</strong>：很多棵樹，各自吃一份 bootstrap 抽樣的資料，每個節點又只看隨機一部分特徵，最後投票或平均。<strong>降的是 variance</strong>。不容易過擬合、可以平行、預設參數就好用。關鍵參數 <code>n_estimators</code>、<code>max_features</code>（分類預設 √n、回歸 n/3）、<code>max_depth</code>。</li>
+<li><strong>Boosting（串行）→ XGBoost / LightGBM / CatBoost</strong>：一棵接一棵，每棵新樹專門修前面的錯。<strong>降的是 bias</strong>。</li>
+<li><strong>XGBoost</strong>：預設一層一層長（level-wise）；類別變數要開 <code>enable_categorical</code> 才原生處理。</li>
+<li><strong>LightGBM</strong>：每次切損失降最多的那片葉子（leaf-wise）、大資料上通常比 XGBoost 快、原生支援類別變數；小資料（&lt; 10k 筆）容易過擬合。</li>
+<li><strong>CatBoost</strong>：類別變數是強項（ordered target statistics 防洩漏），預設參數就不差。</li>
+<li>關鍵參數：<code>max_depth</code>/<code>num_leaves</code>、<code>learning_rate</code>（越小需要越多樹）、<code>n_estimators</code>、<strong>early stopping（一定要加）</strong>、<code>subsample</code>/<code>colsample_bytree</code>（加隨機性防過擬合）。</li>
 </ul>
+<p>隨機森林為什麼不容易過擬合？兩層隨機（抽樣本、抽特徵）讓每棵樹長得不一樣，彼此的錯誤不太相關，平均之後就互相抵消。如果每棵樹都一樣，平均一百棵和一棵沒有差別。</p>
+<p>樹模型全家都不需要特徵縮放：它只看「比某個值大還是小」，把特徵乘以 100，切點也跟著乘以 100，結果完全一樣。</p>
+<p>三套 boosting 實際差多少、怎麼調參、什麼時候會輸，見〈<a href="../gradient-boosting-in-practice/">Gradient Boosting 實戰</a>〉。</p>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>Bagging vs Boosting</strong>：Bagging 並行降 Variance（RF）；Boosting 串行修錯降 Bias（XGB/LGBM）。</li>
-<li><strong>RF 為何不易過擬合</strong>：兩層隨機（bootstrap 樣本 + 隨機特徵子集）→ 樹間相關性低，集成後 Variance 下降。</li>
-<li><strong>XGB vs LGBM</strong>：level-wise vs <strong>leaf-wise</strong>（每次分裂減損最多的葉）；leaf-wise 通常更準更快，小資料易過擬合。實務先 LGBM 再 Optuna 調參。</li>
-<li><strong>類別變數處理</strong>：One-hot / Label / Target Encoding；CatBoost 原生處理最省事。</li>
-</ul>
+<p class="admonition-title">常見誤解：Boosting 一定比 Random Forest 好</p>
+<p>在調好參數的情況下，boosting 通常分數較高。但它有更多參數要調，對雜訊和過擬合也更敏感；隨機森林幾乎不用調就能有不錯的分數。
+實際後果：時間有限、資料雜訊多時，隨機森林是很好的基線。先有一個穩的基線，才知道 boosting 多拿的分數值不值得多花的調參時間。</p>
 </div>
 <hr>
-<h2 id="7-cross-validation">7. Cross-Validation（交叉驗證）<a class="headerlink" href="#7-cross-validation" title="Permanent link">¶</a></h2>
+<h2 id="7-cross-validation">7. Cross-Validation：怎麼公正評估<a class="headerlink" href="#7-cross-validation" title="Permanent link">¶</a></h2>
 <blockquote>
-<p>本節是面試速查密度。CV 策略的完整選擇邏輯、Nested CV、GroupKFold／TimeSeriesSplit 的程式碼與陷阱清單見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉。</p>
+<p>本節是速查密度。CV 策略的完整選擇邏輯、Nested CV、GroupKFold／TimeSeriesSplit 的程式碼與陷阱見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉。</p>
 </blockquote>
-<p>單次切 train/test 受切分運氣影響大、小資料尤甚。<strong>K-Fold</strong>：切 K 份（常 5/10），輪流 1 份驗證其餘訓練，取平均。</p>
-<p><strong>變形</strong>：
-- <strong>Stratified K-Fold</strong>：保持每折類別比例 → 分類/imbalanced 首選。
-- <strong>TimeSeriesSplit</strong>：時序不能用未來預測過去，只能過去→未來。
-- <strong>Group K-Fold</strong>：同組（如同一病人多筆）須在同一折。
-- <strong>LOO</strong>：K=N，成本高、少用。</p>
-<p>⚠️ <strong>最常見的 Data Leakage</strong>：在 CV 前就用全部資料做標準化/特徵選擇。正解是用 <code>Pipeline</code> 把前處理+模型包起來，讓每折各自 fit：
-</p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">'model'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())])</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">StratifiedKFold</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
-</span></code></pre></div><p></p>
-<div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
+<p>只切一次 train/test，分數會受切分運氣影響，小資料特別明顯。<strong>K-Fold</strong>：把資料切成 K 份（常用 5 或 10），輪流拿 1 份驗證、其餘訓練，取平均。</p>
+<p><strong>變形</strong>：</p>
 <ul>
-<li><strong>為何用 CV / 用哪種</strong>：避免單次切分的運氣；最常 5-Fold，分類用 Stratified，時序用 TimeSeriesSplit。</li>
-<li><strong>Data Leakage</strong>：訓練不當用到驗證/測試資訊（典型：CV 前全量標準化）；用 Pipeline 讓每折分開處理。</li>
-<li><strong>K 選多少</strong>：5 或 10；資料少 K 設大（如 1000 筆用 10-Fold）。</li>
-<li><strong>選超參數+評估別用同一份</strong>：用 train/val/test 三切或 nested CV。</li>
+<li><strong>Stratified K-Fold</strong>：每折的類別比例保持一致 → 分類、不平衡資料的首選。</li>
+<li><strong>TimeSeriesSplit</strong>：時序資料不能用未來預測過去，只能過去 → 未來。</li>
+<li><strong>Group K-Fold</strong>：同一組（例如同一個病人的多筆資料）要在同一折。</li>
+<li><strong>LOO</strong>：K = 樣本數，成本高，少用。</li>
 </ul>
-</div>
+<p>⚠️ <strong>最常見的資料洩漏</strong>：在 CV 之前就用全部資料做標準化或特徵選擇。正確做法是用 <code>Pipeline</code> 把前處理和模型包在一起，讓每一折各自 fit：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">'model'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())])</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">StratifiedKFold</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+</span></code></pre></div>
+<p>這個洩漏有多嚴重？在純雜訊資料上，先選特徵再做 CV，準確率可以到 0.87；包進 Pipeline 才回到 0.50。實驗見〈<a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a>〉。</p>
 <hr>
-<h2 id="8">8. 評估指標全整理<a class="headerlink" href="#8" title="Permanent link">¶</a></h2>
+<h2 id="8">8. 評估指標速查<a class="headerlink" href="#8" title="Permanent link">¶</a></h2>
 <blockquote>
-<p>本節是面試速查密度。指標的完整計算、閾值選擇、指標與業務目標怎麼對齊，見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉；PR vs ROC 的取捨與多元分類 OvR/OvO 見〈<a href="../geron-hands-on-ml-notes/">Géron Ch3</a>〉。</p>
+<p>本節是速查密度。指標的完整計算、閾值選擇、指標和業務目標怎麼對齊，見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉；PR vs ROC 的取捨與多元分類 OvR/OvO 見〈<a href="../geron-hands-on-ml-notes/">Géron Ch3</a>〉。</p>
 </blockquote>
-<h3 id="_1">分類：從混淆矩陣出發<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
-<p>TP/TN 對；FP＝誤報、FN＝漏報。
-- <strong>Accuracy</strong> <code>(TP+TN)/All</code>：imbalanced 有陷阱（全猜多數類也高分）。
-- <strong>Precision</strong> <code>TP/(TP+FP)</code>：「我說是正的有多少真的是」→ 誤報成本高用（垃圾郵件）。
-- <strong>Recall</strong> <code>TP/(TP+FN)</code>：「真正的正抓到多少」→ 漏報成本高用（癌症篩檢）。
-- <strong>F1</strong> ＝ P/R 調和平均（兩個都高才高）→ imbalanced 首選。
-- <strong>ROC-AUC</strong>：排序能力、與 threshold 無關（0.5 亂猜、1.0 完美）→ imbalanced 評估最常用。</p>
+<h3 id="_2">分類：從混淆矩陣出發<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<p>TP/TN 是答對；FP 是誤報、FN 是漏報。</p>
+<ul>
+<li><strong>Accuracy</strong> <code>(TP+TN)/All</code>：不平衡資料有陷阱，全猜多數類也能高分。</li>
+<li><strong>Precision</strong> <code>TP/(TP+FP)</code>：「我說是正的，有多少真的是」→ 誤報成本高時看（垃圾郵件）。</li>
+<li><strong>Recall</strong> <code>TP/(TP+FN)</code>：「真正的正例，抓到多少」→ 漏報成本高時看（癌症篩檢）。</li>
+<li><strong>F1</strong>：P 和 R 的調和平均，兩個都高才會高。</li>
+<li><strong>ROC-AUC</strong>：排序能力，和閾值無關（0.5 是亂猜、1.0 是完美）。正例很少時會偏樂觀，要搭配 PR-AUC 看。</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -4705,7 +4972,7 @@
 </tr>
 <tr>
 <td>不平衡</td>
-<td>F1、AUC</td>
+<td>PR-AUC、F1</td>
 </tr>
 <tr>
 <td>漏報成本高（診斷/詐騙）</td>
@@ -4717,48 +4984,55 @@
 </tr>
 <tr>
 <td>排名/機率</td>
-<td>AUC</td>
+<td>ROC-AUC</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_2">回歸<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<h3 id="_3">回歸<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>MAE</strong>：絕對誤差、對 outlier 不敏感。</li>
-<li><strong>MSE</strong>：平方誤差、重罰 outlier、常當訓練損失。</li>
-<li><strong>RMSE</strong>：MSE 開根號、單位同 y、報告最常用。</li>
-<li><strong>R²</strong>：解釋多少 % 變異（≤1，可負）。</li>
-<li><strong>MAPE</strong>：百分比誤差、業務友善，但 y 有 0 會爆。</li>
+<li><strong>MAE</strong>：絕對誤差，對離群值不敏感。</li>
+<li><strong>MSE</strong>：平方誤差，重罰離群值，常當訓練損失。</li>
+<li><strong>RMSE</strong>：MSE 開根號，單位和 y 一樣，報告最常用。</li>
+<li><strong>R²</strong>：解釋了多少比例的變異（≤ 1，可以是負的）。</li>
+<li><strong>MAPE</strong>：百分比誤差，業務好懂，但 y 有 0 就會爆。</li>
 </ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">roc_auc_score</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred_proba</span><span class="p">)</span>   <span class="c1"># 注意要用機率</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred_proba</span><span class="p">)</span>   <span class="c1"># 注意要用機率，不是 0/1 預測</span>
 </span></code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">🎤 面試口答</p>
-<ul>
-<li><strong>P vs R</strong>：誤報貴用 Precision、漏報貴用 Recall、都重要看 F1。</li>
-<li><strong>imbalanced 不能用 Accuracy</strong>：99% 健康全猜健康也 99%；看 F1/AUC 才露出沒學到少數類。</li>
-<li><strong>AUC vs Accuracy</strong>：AUC 是排序能力、與 threshold 無關；Accuracy 隨 threshold 變動。開發看 AUC，部署再依情境定 threshold。</li>
-<li>口訣：<strong>Accuracy 看全局、Precision 看抓得準、Recall 看抓得全、F1 調和、AUC 看排序。</strong></li>
-</ul>
+<p class="admonition-title">常見誤解：AUC 高就代表模型好用</p>
+<p>ROC-AUC 量的是排序能力，和閾值無關。但真正上線時一定要選一個閾值，而預設的 0.5 在不平衡資料上幾乎都不對。
+實際後果：在正例只佔 4.5% 的資料上，一個邏輯回歸用 0.5 當閾值，只抓到不到 1 成的正例。開發時看 AUC，部署前要依業務成本另外定閾值（〈<a href="../ml-case-studies/">常見 ML Case Study</a>〉Case 1 有實測）。</p>
 </div>
 <hr>
-<h2 id="_3">延伸閱讀（本站）<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h2 id="_4">結論<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>回到前言的三個問題。</p>
+<p><strong>模型學壞了，是太簡單還是太複雜？</strong> 同時看訓練和驗證誤差。1 次多項式兩個都在 0.5 左右，是太簡單；15 次多項式的訓練誤差 0.239 比雜訊 0.3 還低，代表它背下了雜訊，是太複雜。修法方向相反：前者加複雜度，後者加資料或正則化。</p>
+<p><strong>L1 和 L2 差在哪？</strong> L1 讓係數剛好變 0（100 個特徵裡歸零 74 個），等於自動選特徵；L2 只縮小，不歸零。不確定時用 L2 或 Elastic Net，想知道哪些特徵可以丟時用 L1。</p>
+<p><strong>樹模型為什麼是表格資料主力？</strong> 免縮放、能處理非線性和交互作用；隨機森林降 variance、boosting 降 bias，一個穩、一個準。</p>
+<h3 id="_5">延伸：這篇真正想留下的問題<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>本頁的八個觀念，其實都在處理同一個張力：<strong>模型要夠彈性，才學得到規律；但太彈性，就會連雜訊一起學。</strong> 正則化、ensemble、交叉驗證、early stopping，都是在這條線上找位置的工具。</p>
+<p>換模型、加特徵、調參數，都是在這條線上移動。差別只在往哪邊移：<strong>模型是更能看見規律，還是更能看見雜訊？</strong></p>
+<hr>
+<h2 id="_6">延伸閱讀（本站）<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — 同樣的觀念照書走章節，含 SVM、降維、分群等本頁未收的主題</li>
+<li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — 同樣的觀念照書走章節，含 SVM、降維、分群等本頁沒收的主題</li>
 <li><a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a> — 優化器、Dropout、BatchNorm 的深入版</li>
 <li><a href="../feature-engineering/">特徵工程心法</a> — 標準化、編碼、特徵選擇的實務細節</li>
-<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — §7、§8 的完整實作版</li>
+<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — §7、§8 的完整版</li>
+<li><a href="../gradient-boosting-in-practice/">Gradient Boosting 實戰</a> — §6 boosting 的實測與調參</li>
 <li><a href="../statistics-ab-testing/">統計推論與 A/B 測試</a> — 另一種推論：假設檢定與實驗設計</li>
 <li><a href="../ml-case-studies/">常見 ML Case Study</a> — 把這些觀念套到四種真實任務</li>
 </ul>
-<h2 id="_4">參考資料<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>本頁為面試導向的個人整理。各主題的標準出處：</p>
+<h2 id="_7">參考資料<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <ul>
 <li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed.（Ch3 分類與指標、Ch4 訓練與正則化、Ch6–7 樹與集成）</li>
+<li>Hastie, T., Tibshirani, R. &amp; Friedman, J.《The Elements of Statistical Learning》, 2nd ed.（Ch3.4 Ridge 與 Lasso、Ch7 模型評估）</li>
 <li><a href="https://scikit-learn.org/stable/model_selection.html">scikit-learn User Guide: Model selection and evaluation</a></li>
 <li><a href="https://lightgbm.readthedocs.io/en/stable/Parameters-Tuning.html">LightGBM 官方文件：Parameters Tuning</a></li>
 <li><a href="https://xgboost.readthedocs.io/en/stable/tutorials/param_tuning.html">XGBoost 官方文件：Notes on Parameter Tuning</a></li>
+<li>本頁實驗為自行執行：多項式實驗訓練 60 筆、驗證 1,000 筆；L1/L2 實驗 200 筆、100 個特徵，種子 0，2026-10-04</li>
 </ul>
 
 
@@ -4782,7 +5056,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 06:00:57 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
   </span>
 
     
@@ -4844,13 +5118,13 @@
         
         
           
-          <a href="../geron-hands-on-ml-notes/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）">
+          <a href="../geron-hands-on-ml-notes/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Géron《Hands-On ML》Ch1–9">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                2 · Géron《Hands-On ML》Ch1–9（教科書脈絡）
+                Géron《Hands-On ML》Ch1–9
               </div>
             </div>
             <div class="md-footer__button md-icon">
