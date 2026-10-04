@@ -75,6 +75,9 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   margin: 0.8rem 0 2rem;
 }
 
+/* Only a fallback: once the galaxy renders, it is the navigation. */
+html.kb-galaxy-ready .kb-world-fallback { display: none; }
+
 .kb-galaxy__fallback {
   position: absolute;
   z-index: 4;

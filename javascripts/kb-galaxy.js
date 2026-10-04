@@ -654,29 +654,54 @@
     var frame = 0;
     var settleTimer = 0;
     var settledY = window.scrollY;
+    var flyingUntil = 0;
     var passive = { passive: true };
 
-    /* No resting half-sky / half-text. When scrolling stops between the
-       plate and the text, finish the move: past half of the way from
-       where it last rested goes to the other side, less goes back.
-       The text side is the hero card (the link list above it duplicates
-       the galaxy) or else the page's h1, or the plate's end without either.
+    /* Plate and text behave as two pages. Any wheel turn on the plate goes
+       to the text, any upward turn at the top of the text goes back, each
+       with one smooth scroll. The text top is the hero card (the link list
+       above it duplicates the galaxy) or else the page's h1, or the plate's
+       end without either. Below the text top the page scrolls as usual.
        CSS scroll-snap can't do this: mandatory snapping traps the page at
-       the top of the text, proximity leaves the half state. */
+       the top of the text, proximity leaves a half-and-half state. */
+    function textTop() {
+      var y = window.scrollY;
+      var anchor = document.querySelector('.hero-banner') || host.parentNode.querySelector(':scope > h1');
+      var headerHeight = header.getBoundingClientRect().height;
+      return Math.round(anchor
+        ? y + anchor.getBoundingClientRect().top - headerHeight - 16
+        : y + host.getBoundingClientRect().bottom - headerHeight);
+    }
+
+    function flyTo(target) {
+      settledY = target;
+      flyingUntil = Date.now() + 700;
+      window.scrollTo({ top: target, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    }
+
+    function onWheel(event) {
+      if (event.ctrlKey || !event.deltaY) return;
+      var y = window.scrollY;
+      var top = textTop();
+      var onPlate = y < top - 1;
+      var leavingText = Math.abs(y - top) <= 1 && event.deltaY < 0;
+      if (!onPlate && !leavingText) return;
+      event.preventDefault();
+      if (Date.now() < flyingUntil) return;
+      flyTo(event.deltaY > 0 ? top : 0);
+    }
+
+    /* Touch, keys and the scrollbar don't send wheel events: when such a
+       scroll stops between plate and text, finish it in the direction it
+       went (a 40px nudge is enough). */
     function settle() {
       settleTimer = 0;
+      if (Date.now() < flyingUntil) return;
       var y = window.scrollY;
-      var hero = document.querySelector('.hero-banner') || host.parentNode.querySelector(':scope > h1');
-      var headerHeight = header.getBoundingClientRect().height;
-      var textY = Math.round(hero
-        ? y + hero.getBoundingClientRect().top - headerHeight - 16
-        : y + host.getBoundingClientRect().bottom - headerHeight);
-      if (y <= 1 || y >= textY - 1) { settledY = y; return; }
-      var fromText = settledY >= textY - 1;
-      var moved = Math.abs(y - settledY);
-      var target = (moved > textY / 2) !== fromText ? textY : 0;
-      settledY = target;
-      window.scrollTo({ top: target, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+      var top = textTop();
+      if (y <= 1 || y >= top - 1) { settledY = y; return; }
+      if (Math.abs(y - settledY) < 40) { flyTo(settledY >= top - 1 ? top : 0); return; }
+      flyTo(y > settledY ? top : 0);
     }
 
     function onScroll() {
@@ -698,6 +723,7 @@
     }
 
     window.addEventListener('scroll', onScroll, passive);
+    window.addEventListener('wheel', onWheel, { passive: false });
     window.addEventListener('resize', schedule, passive);
     header.addEventListener('focusin', schedule, passive);
     header.addEventListener('focusout', schedule, passive);
@@ -707,6 +733,7 @@
       if (frame) window.cancelAnimationFrame(frame);
       if (settleTimer) window.clearTimeout(settleTimer);
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('wheel', onWheel);
       window.removeEventListener('resize', schedule);
       header.removeEventListener('focusin', schedule);
       header.removeEventListener('focusout', schedule);
