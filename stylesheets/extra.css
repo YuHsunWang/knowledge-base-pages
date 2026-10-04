@@ -27,9 +27,9 @@
   --kb-rule:       #C3C8DA;
   --kb-rule-firm:  #9AA1BC;
 
-  --kb-accent:      var(--kb-vermilion);
-  --kb-accent-soft: rgba(198, 54, 44, 0.10);
-  --kb-accent-line: rgba(198, 54, 44, 0.28);
+  --kb-accent:      #1F5FBF;
+  --kb-accent-soft: rgba(31, 95, 191, 0.09);
+  --kb-accent-line: rgba(31, 95, 191, 0.26);
   --kb-signal:      var(--kb-celadon);
   --kb-mark:        rgba(92, 100, 136, 0.30);
   --kb-shadow:      0 1px 0 rgba(27, 32, 56, 0.05), 0 10px 28px -14px rgba(27, 32, 56, 0.24);
@@ -51,18 +51,20 @@
   --kb-vermilion:  #E4574B;
   --kb-celadon:    #7FB0A1;
 
-  --kb-ground:     #151A32;
-  --kb-ground-2:   #1C2240;
-  --kb-ground-3:   #252C4E;
-  --kb-fg:         #E7E9F3;
-  --kb-fg-muted:   #A8AFCB;
-  --kb-fg-faint:   #757D9F;
-  --kb-rule:       #2E3558;
-  --kb-rule-firm:  #454D75;
+  /* Same night sky as the Knowledge Galaxy (--kb-space*), lifted just
+     enough to read on for a long time: near-black navy, star-blue accent. */
+  --kb-ground:     #080D1C;
+  --kb-ground-2:   #0E1528;
+  --kb-ground-3:   #151E38;
+  --kb-fg:         #DCE4F5;
+  --kb-fg-muted:   #9DABCB;
+  --kb-fg-faint:   #6C7BA0;
+  --kb-rule:       #1D2845;
+  --kb-rule-firm:  #2E3D66;
 
-  --kb-accent:      var(--kb-vermilion);
-  --kb-accent-soft: rgba(228, 87, 75, 0.14);
-  --kb-accent-line: rgba(228, 87, 75, 0.34);
+  --kb-accent:      #7CC0FF;
+  --kb-accent-soft: rgba(124, 192, 255, 0.10);
+  --kb-accent-line: rgba(124, 192, 255, 0.30);
   --kb-signal:      var(--kb-celadon);
   --kb-mark:        rgba(168, 175, 203, 0.26);
   --kb-shadow:      0 1px 0 rgba(0, 0, 0, 0.30), 0 10px 30px -14px rgba(0, 0, 0, 0.60);
@@ -109,6 +111,20 @@
   --kb-space-glow:  #2F6BFF;
   --kb-space-fg:    #E8EEFB;
   --kb-space-faint: #8A9CC2;
+}
+
+/* Article pages share the galaxy plate's faint glow (dark scheme only). */
+[data-md-color-scheme="slate"] body {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,
+      color-mix(in srgb, var(--kb-space-2) 60%, transparent) 0%,
+      transparent 70%) fixed,
+    var(--kb-ground);
+}
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background: color-mix(in srgb, var(--kb-ground) 82%, transparent);
+  backdrop-filter: blur(8px);
 }
 
 /* ── Type roles ──────────────────────────────────────────────
@@ -228,7 +244,8 @@
   color: var(--kb-fg);
   font-weight: 600;
 }
-.md-nav__item--active { border-left-color: var(--kb-accent); background: var(--kb-accent-soft); }
+/* only the current page, not the whole open section (that tinted a tall block) */
+.md-nav__item--active:not(.md-nav__item--nested) { border-left-color: var(--kb-accent); background: var(--kb-accent-soft); }
 
 .md-nav--primary .md-nav__item--section > .md-nav__link {
   font-family: var(--kb-face-data);
@@ -269,7 +286,8 @@
   text-transform: uppercase;
   color: var(--kb-fg-faint);
   box-shadow: none;
-  background: none;
+  /* opaque: the title is sticky and TOC items scroll under it */
+  background: var(--kb-ground);
 }
 .md-nav--secondary .md-nav__link { font-size: 0.72rem; }
 .md-nav--secondary .md-nav__item { border-left: 1px solid var(--kb-rule); padding-left: 0.6rem; }
@@ -281,10 +299,16 @@
     display: flex;
     flex-direction: column;
     height: auto;
+    /* sticky top is ~6rem with header + tabs; keep the box inside the viewport */
+    box-sizing: border-box;
+    max-height: calc(100vh - 6rem);
   }
+  /* Shrinkable, so a long TOC scrolls inside the sticky sidebar.
+     max-content here made the sidebar taller than the viewport and the
+     end of the TOC unreachable. */
   .md-sidebar--secondary:not([hidden]) > .md-sidebar__scrollwrap {
-    flex: 0 0 max-content;
-    height: max-content;
+    flex: 0 1 auto;
+    height: auto;
     min-height: 0;
   }
   .md-sidebar--secondary:not([hidden]) > .kb-readout { flex: 0 0 auto; }

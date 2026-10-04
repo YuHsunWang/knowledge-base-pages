@@ -618,7 +618,32 @@
     var header = document.querySelector('.md-header');
     if (!header) return function () {};
     var frame = 0;
+    var settleTimer = 0;
+    var settledY = window.scrollY;
     var passive = { passive: true };
+
+    /* No resting half-sky / half-text. When scrolling stops between the
+       plate and the text, finish the move: past a third of the way from
+       where it last rested goes to the other side, less goes back.
+       CSS scroll-snap can't do this: mandatory snapping traps the page at
+       the top of the text, proximity leaves the half state. */
+    function settle() {
+      settleTimer = 0;
+      var y = window.scrollY;
+      var textY = y + host.getBoundingClientRect().bottom - header.getBoundingClientRect().height;
+      if (y <= 1 || y >= textY - 1) { settledY = y; return; }
+      var fromText = settledY >= textY - 1;
+      var moved = Math.abs(y - settledY);
+      var target = (moved > textY / 3) !== fromText ? textY : 0;
+      settledY = target;
+      window.scrollTo({ top: target, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    }
+
+    function onScroll() {
+      schedule();
+      if (settleTimer) window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(settle, 140);
+    }
 
     function update() {
       frame = 0;
@@ -632,7 +657,7 @@
       if (!frame) frame = window.requestAnimationFrame(update);
     }
 
-    window.addEventListener('scroll', schedule, passive);
+    window.addEventListener('scroll', onScroll, passive);
     window.addEventListener('resize', schedule, passive);
     header.addEventListener('focusin', schedule, passive);
     header.addEventListener('focusout', schedule, passive);
@@ -640,7 +665,8 @@
 
     return function () {
       if (frame) window.cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', schedule);
+      if (settleTimer) window.clearTimeout(settleTimer);
+      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', schedule);
       header.removeEventListener('focusin', schedule);
       header.removeEventListener('focusout', schedule);
