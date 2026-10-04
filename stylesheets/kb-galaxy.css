@@ -333,7 +333,6 @@ html.kb-galaxy-ready .kb-world-fallback { display: none; }
 .kb-galaxy-node:focus-visible .kb-galaxy-node__note { opacity: 1; }
 
 @media (hover: hover) and (pointer: fine) {
-  .kb-galaxy-node:hover .kb-galaxy-node__ring { opacity: 1; transform: scale(1); }
   .kb-galaxy-node:hover .kb-galaxy-node__note { opacity: 1; }
   .kb-world .kb-galaxy a.kb-galaxy-node:hover { color: var(--kb-space-blue); }
 }

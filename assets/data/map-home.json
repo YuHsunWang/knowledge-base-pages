@@ -19,7 +19,8 @@
     "x": 0.28,
     "y": 0.16
    },
-   "sectionMap": "assets/data/map-ai-engineering.json"
+   "sectionMap": "assets/data/map-ai-engineering.json",
+   "articles": 40
   },
   {
    "id": "ml",
@@ -34,7 +35,8 @@
     "x": 0.72,
     "y": 0.37
    },
-   "sectionMap": "assets/data/map-machine-learning.json"
+   "sectionMap": "assets/data/map-machine-learning.json",
+   "articles": 12
   },
   {
    "id": "trading",
@@ -49,7 +51,8 @@
     "x": 0.28,
     "y": 0.62
    },
-   "sectionMap": "assets/data/map-trading.json"
+   "sectionMap": "assets/data/map-trading.json",
+   "articles": 18
   },
   {
    "id": "projects",
@@ -63,7 +66,8 @@
    "mobile": {
     "x": 0.72,
     "y": 0.87
-   }
+   },
+   "articles": 4
   }
  ]
 }

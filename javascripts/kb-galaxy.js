@@ -205,8 +205,12 @@
      holds its regions at their authored layout positions, and a region
      box holds its articles, so the camera flies into the very stars
      that were already visible one layer up. */
-  var DOMAIN_SCALE = 0.3;
+  var DOMAIN_SCALE = 0.34;
   var REGION_SCALE = 0.14;
+  /* Regions sit this much closer to their galaxy's centre than authored,
+     so on the home sky they hug the spiral; the domain camera zooms in by
+     the same factor, which puts them back at their authored screen spots. */
+  var REGION_PULL = 0.78;
   var DUST_COUNT = 280;
 
   function fitBox(cx, cy, w, h) {
@@ -376,6 +380,8 @@
         blue: random() < 0.55
       });
     }
+    dust.turn = turn;
+    dust.tilt = tilt;
     return dust;
   }
 
@@ -387,7 +393,11 @@
       if (bundle) {
         domain.bornAt = bundle.bornAt;
         bundle.galaxy.regions.forEach(function (region) {
-          var regionBox = childBox(box, pointFor(region, layout), REGION_SCALE);
+          var authored = pointFor(region, layout);
+          var regionBox = childBox(box, {
+            x: 0.5 + (authored.x - 0.5) * REGION_PULL,
+            y: 0.5 + (authored.y - 0.5) * REGION_PULL
+          }, REGION_SCALE);
           var items = region.members.map(function (id) { return bundle.itemById[id]; });
           var sky = constellationLayout(items, vw, vh, mobile, hashString(key + '/' + region.id));
           function at(point) {
@@ -408,9 +418,14 @@
       domains.push(domain);
     }
     if (homeBundle) {
+      /* A galaxy's size follows how much it holds: area tracks the
+         article count, so the side is its square root. */
+      var most = Math.max.apply(null, homeBundle.galaxy.regions.map(function (node) { return node.articles || 0; }));
       homeBundle.galaxy.regions.forEach(function (node) {
         var point = pointFor(node, layout);
-        var scale = DOMAIN_SCALE * (node.size === 'major' ? 1 : 0.7);
+        var scale = (mobile ? 0.3 : DOMAIN_SCALE) * (most && node.articles
+          ? 0.45 + 0.55 * Math.sqrt(node.articles / most)
+          : (node.size === 'major' ? 1 : 0.7));
         var key = node.href.replace(/\/$/, '');
         addDomain(key, node, fitBox(point.x * vw, point.y * vh, vw * scale, vh * scale), sections[key]);
       });
@@ -432,6 +447,7 @@
   function cameraFor(world, state) {
     var box = fitBox(world.vw / 2, world.vh / 2, world.vw, world.vh);
     if (state.level >= 1) box = findDomain(world, state.domain).box;
+    if (state.level === 1) box = fitBox(box.x, box.y, box.w * REGION_PULL, box.h * REGION_PULL);
     if (state.level === 2) box = findRegion(world, state.domain, state.region).box;
     /* Authored phone layouts run to the plate edge; leave the bottom row
        room for its caption. */
@@ -479,7 +495,7 @@
     var coreGlow = glowSprite(tokens.star);
     var blueGlow = glowSprite(tokens.glow);
 
-    return function paint(world, camera, now) {
+    return function paint(world, camera, now, hot) {
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       var vw = world.vw;
       var vh = world.vh;
@@ -502,6 +518,19 @@
         return 1 - depth * (0.5 + 0.5 * Math.sin(now / period + phase));
       }
 
+      /* Hover warms whatever sits under the pointer: eased toward 1 while
+         hot, back to 0 after, so the sky brightens instead of drawing a
+         ring around it. */
+      function warm(thing, id) {
+        var target = id !== undefined && id === hot ? 1 : 0;
+        var heat = thing.heat || 0;
+        heat = twinkling ? heat + (target - heat) * 0.18 : target;
+        if (Math.abs(target - heat) < 0.01) heat = target;
+        else fading = true;
+        thing.heat = heat;
+        return heat;
+      }
+
       function sx(x) { return (x - camera.x) * s + vw / 2; }
       function sy(y) { return (y - camera.y) * s + vh / 2; }
       function onScreen(x, y, margin) {
@@ -515,22 +544,34 @@
         var radius = 0.5 * Math.min(box.w, box.h) * s;
         if (!onScreen(cx, cy, radius * 2.2)) return;
 
-        /* The glow grows with the galaxy only up to a point; past it the
-           core would wash out the clusters it sits among. */
-        context.globalAlpha = 0.4;
-        var haze = Math.min(radius * 1.9, 420);
-        context.drawImage(blueGlow, cx - haze, cy - haze, haze * 2, haze * 2);
-        context.globalAlpha = 0.8;
-        var core = Math.min(radius * 0.3, 48);
-        context.drawImage(coreGlow, cx - core, cy - core, core * 2, core * 2);
+        var heat = warm(domain, domain.node && domain.node.id);
+        /* The spiral reaches past its box so its arms meet the
+           constellations instead of leaving them floating outside. */
+        var halfW = 0.5 * box.w * 1.15 * s;
+        var halfH = 0.5 * box.h * 1.15 * s;
 
-        var halfW = 0.5 * box.w * 0.95 * s;
-        var halfH = 0.5 * box.h * 0.95 * s;
+        /* Haze and core are drawn in the spiral's own frame, so they are
+           the same tilted ellipse as the dust, not a round blob on top.
+           The glow grows with the galaxy only up to a point; past it the
+           core would wash out the clusters it sits among. */
+        context.save();
+        context.translate(cx, cy);
+        context.scale(halfW, halfH);
+        context.rotate(domain.dust.turn);
+        context.scale(1, domain.dust.tilt);
+        var haze = Math.min(1, 520 / halfW) * (1 + 0.15 * heat);
+        context.globalAlpha = 0.32 + 0.3 * heat;
+        context.drawImage(blueGlow, -haze, -haze, haze * 2, haze * 2);
+        var core = Math.min(0.16, 30 / halfW);
+        context.globalAlpha = 0.55 + 0.25 * heat;
+        context.drawImage(coreGlow, -core, -core, core * 2, core * 2);
+        context.restore();
+
         domain.dust.forEach(function (mote) {
           var x = cx + mote.x * halfW;
           var y = cy + mote.y * halfH;
           if (!onScreen(x, y, 4)) return;
-          context.globalAlpha = mote.alpha * shimmer(mote.x * 97, mote.y * 89, 450, 0.9);
+          context.globalAlpha = Math.min(1, mote.alpha * shimmer(mote.x * 97, mote.y * 89, 450, 0.9) * (1 + 0.5 * heat));
           context.fillStyle = mote.blue ? tokens.blue : tokens.star;
           context.beginPath();
           context.arc(x, y, mote.size, 0, Math.PI * 2);
@@ -540,8 +581,9 @@
         var arrival = domain.bornAt ? Math.min(1, (now - domain.bornAt) / 600) : 1;
         if (arrival < 1) fading = true;
         domain.regions.forEach(function (region) {
+          var regionHeat = warm(region, region.node.id);
           /* Constellation lines, in reading order within each group only. */
-          context.globalAlpha = 0.32 * arrival * Math.min(1, s / 3);
+          context.globalAlpha = Math.min(1, (0.32 + 0.4 * regionHeat) * arrival * Math.max(regionHeat, Math.min(1, s / 3)));
           context.strokeStyle = tokens.blue;
           context.lineWidth = 1;
           region.groups.forEach(function (group) {
@@ -557,8 +599,9 @@
             var x = sx(star.x);
             var y = sy(star.y);
             if (!onScreen(x, y, 24)) return;
-            var pulse = shimmer(star.x, star.y, 400, 0.75);
-            var glow = starRadius * (3 + 3 * pulse);
+            var starHeat = Math.max(regionHeat, warm(star, star.item.id));
+            var pulse = Math.max(starHeat, shimmer(star.x, star.y, 400, 0.75));
+            var glow = starRadius * (3 + 3 * pulse + 3 * starHeat);
             context.globalAlpha = 0.55 * arrival * pulse;
             context.drawImage(blueGlow, x - glow, y - glow, glow * 2, glow * 2);
             context.globalAlpha = arrival * (0.15 + 0.85 * pulse);
@@ -763,6 +806,7 @@
     var camera = null;
     var frame = 0;
     var flight = null;
+    var hot = null;
     var homeText = null;
     var textDomain = null;
     var live = span('kb-galaxy-live');
@@ -828,7 +872,7 @@
           done();
         }
       }
-      if (paint(world, camera, now) || flight) requestDraw();
+      if (paint(world, camera, now, hot) || flight) requestDraw();
     }
 
     function requestDraw() {
@@ -1020,6 +1064,11 @@
       if (node.description) caption.appendChild(span('kb-galaxy-node__note', node.description));
       anchor.appendChild(caption);
       var entry = { element: anchor, node: node, locate: item.locate };
+      anchor.addEventListener('pointerenter', function () { hot = node.id; requestDraw(); });
+      anchor.addEventListener('pointerleave', function () {
+        if (hot === node.id) hot = null;
+        requestDraw();
+      });
 
       if (zoomState) {
         anchor.addEventListener('click', function (event) {
@@ -1083,6 +1132,7 @@
     }
 
     function renderLayer(state, view, previous, shouldFocus) {
+      hot = null;
       if (disposed) return;
       var entries = layerNodes(state).map(function (item, index) { return buildNode(item, state, index); });
       var tags = state.level === 2 ? groupTags(state) : [];

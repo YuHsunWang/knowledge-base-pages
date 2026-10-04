@@ -464,6 +464,9 @@ def build_home_galaxy():
     data = json.loads(path.read_text(encoding="utf-8"))
     for region in data.get("regions", []):
         section = region.get("href", "").strip("/")
+        # Same rule as hooks/section_counts.py: every page but the section index.
+        folder = DOCS / section
+        region["articles"] = sum(1 for p in folder.rglob("*.md") if p != folder / "index.md") if folder.is_dir() else 0
         if section in SECTION_MAPS:
             region["sectionMap"] = f"assets/data/{SECTION_MAPS[section]}"
         else:
