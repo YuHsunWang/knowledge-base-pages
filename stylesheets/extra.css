@@ -12,6 +12,11 @@
    is what put the previous palette out of sync with its own docs.
    ═══════════════════════════════════════════════════════════════ */
 
+/* 標題的思源宋體以前從沒載入：theme.font 只會載 Noto Sans TC，
+   沒裝這套字的電腦（多數 Windows）標題會退回新細明體。
+   Google Fonts 的 CJK 字型按 unicode-range 切片，只下載頁面用到的字。 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&display=swap");
+
 /* ── Token layer: light ──────────────────────────────────────── */
 [data-md-color-scheme="default"] {
   --kb-ink:        #151A32;
@@ -284,9 +289,9 @@ body[data-md-color-scheme="slate"]::after {
 .md-nav__item--active:not(.md-nav__item--nested) { border-left-color: var(--kb-accent); background: var(--kb-accent-soft); }
 
 .md-nav--primary .md-nav__item--section > .md-nav__link {
-  font-family: var(--kb-face-data);
-  font-size: 0.63rem;
-  letter-spacing: 0.15em;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--kb-fg-faint);
 }
@@ -316,9 +321,9 @@ body[data-md-color-scheme="slate"]::after {
 /* ── Apparatus column (secondary TOC, re-composed) ──────────── */
 .md-sidebar--secondary { width: 13rem; }
 .md-nav--secondary .md-nav__title {
-  font-family: var(--kb-face-data);
-  font-size: 0.63rem;
-  letter-spacing: 0.16em;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--kb-fg-faint);
   box-shadow: none;
@@ -355,6 +360,7 @@ body[data-md-color-scheme="slate"]::after {
   margin-top: 1.6rem;
   padding-top: 1rem;
   border-top: 1px solid var(--kb-rule);
+  padding-inline: 0.6rem 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
@@ -388,8 +394,14 @@ body[data-md-color-scheme="slate"]::after {
 /* ── Typography: the reading contract ───────────────────────── */
 .md-typeset {
   font-size: 0.95rem;
-  line-height: 1.8;
+  line-height: 1.85;
+  text-autospace: normal;          /* 中英文之間自動留細空白（Chrome 140+，其他瀏覽器忽略） */
+  text-spacing-trim: normal;       /* 連續全形標點擠掉多餘空白 */
 }
+.md-typeset p { margin-block: 0 1.1em; }
+.md-typeset strong { color: var(--kb-fg); font-weight: 700; }
+.md-typeset ul li::marker,
+.md-typeset ol li::marker { color: var(--kb-fg-faint); }
 /* prose holds the measure; wide content opts out below */
 .md-typeset > p,
 .md-typeset > ul,
@@ -437,8 +449,8 @@ body[data-md-color-scheme="slate"]::after {
   margin-top: 2.4rem;
   font-weight: 700;
   letter-spacing: -0.005em;
-  border-bottom: 2px solid var(--kb-fg);
-  padding-bottom: 0.32rem;
+  border-bottom: 1px solid var(--kb-rule-firm);
+  padding-bottom: 0.4rem;
   text-wrap: balance;
 }
 .md-typeset h3 {
@@ -447,11 +459,10 @@ body[data-md-color-scheme="slate"]::after {
   margin-top: 1.8rem;
 }
 .md-typeset h4 {
-  font-family: var(--kb-face-data);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--kb-fg-faint);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--kb-fg-muted);
 }
 
 .md-typeset ul li,
@@ -603,7 +614,6 @@ body[data-md-color-scheme="slate"]::after {
   border-radius: 0;
   padding: 0.2rem 0 0.2rem 1.1rem;
   color: var(--kb-fg-muted);
-  font-family: var(--kb-face-display);
 }
 
 /* ── Tables: hairline grid, tabular numerals, own scroller ──── */
@@ -617,10 +627,8 @@ body[data-md-color-scheme="slate"]::after {
   background: var(--kb-ground-3);
   color: var(--kb-fg);
   font-weight: 600;
-  font-family: var(--kb-face-data);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
 .md-typeset table:not([class]) tr:hover td { background: var(--kb-accent-soft); }
 .md-typeset .md-typeset__table { max-width: none; overflow-x: auto; }
@@ -702,6 +710,7 @@ body[data-md-color-scheme="slate"]::after {
   .md-nav--primary .md-nav__item { animation: none; }
 }
 @media screen and (max-width: 44.9375em) {
+  .md-typeset h1 { font-size: 1.5rem; }
   .md-typeset .hero-banner { padding: 2rem 1.2rem 1.8rem; }
   .kb-gate { width: 100%; }
   .kb-gate > div { flex: 1 1 40%; }
