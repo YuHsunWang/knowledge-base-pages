@@ -69,34 +69,6 @@
     });
   }
 
-  /* ── readout in the secondary sidebar ──────────────────────── */
-  function buildReadout(doc, counts) {
-    var sidebar = doc.querySelector('.md-sidebar--secondary');
-    var scrollwrap = sidebar && sidebar.querySelector(':scope > .md-sidebar__scrollwrap');
-    if (!sidebar || !scrollwrap || sidebar.querySelector('.kb-readout') || !counts) return;
-
-    var block = doc.createElement('div');
-    block.className = 'kb-readout';
-
-    var head = doc.createElement('h4');
-    head.textContent = 'Readout';
-    block.appendChild(head);
-
-    [['文章', counts.articles],
-     ['分區', Object.keys(counts.sections || {}).length]].forEach(function (pair) {
-      var row = doc.createElement('div');
-      var label = doc.createElement('span');
-      label.textContent = pair[0];
-      var value = doc.createElement('b');
-      value.textContent = String(pair[1]);
-      row.appendChild(label);
-      row.appendChild(value);
-      block.appendChild(row);
-    });
-
-    sidebar.appendChild(block);
-  }
-
   /* ── home hero: eyebrow, gate strip, plotted field ─────────── */
   function decorateHero(doc, counts) {
     var hero = doc.querySelector('.md-typeset .hero-banner');
@@ -226,7 +198,6 @@
       loadCounts().then(function (counts) {
         try {
           decorateTabs(document, counts);
-          buildReadout(document, counts);
           decorateHero(document, counts);
         } catch (e) {
           if (window.console) console.warn('[kb-apparatus] counts', e);

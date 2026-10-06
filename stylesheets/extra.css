@@ -23,18 +23,20 @@
   --kb-vermilion:  #C6362C;
   --kb-celadon:    #4E7D6F;
 
-  --kb-ground:     #EEF0F6;
-  --kb-ground-2:   #E3E6EF;
-  --kb-ground-3:   #D7DBE8;
-  --kb-fg:         #1B2038;
-  --kb-fg-muted:   #4E5678;
-  --kb-fg-faint:   #7A82A3;
-  --kb-rule:       #C3C8DA;
-  --kb-rule-firm:  #9AA1BC;
+  /* Apple neutrals: near-white page, near-black ink (#1D1D1F), never pure
+     #000 on #FFF. Light mode is the better reading mode (see dark block). */
+  --kb-ground:     #FBFBFD;
+  --kb-ground-2:   #F5F5F7;
+  --kb-ground-3:   #E8E8ED;
+  --kb-fg:         #1D1D1F;
+  --kb-fg-muted:   #515154;
+  --kb-fg-faint:   #86868B;
+  --kb-rule:       #D2D2D7;
+  --kb-rule-firm:  #AEAEB2;
 
-  --kb-accent:      #1F5FBF;
-  --kb-accent-soft: rgba(31, 95, 191, 0.09);
-  --kb-accent-line: rgba(31, 95, 191, 0.26);
+  --kb-accent:      #0066CC;
+  --kb-accent-soft: rgba(0, 102, 204, 0.08);
+  --kb-accent-line: rgba(0, 102, 204, 0.26);
   --kb-signal:      var(--kb-celadon);
   --kb-mark:        rgba(92, 100, 136, 0.30);
   --kb-shadow:      0 1px 0 rgba(27, 32, 56, 0.05), 0 10px 28px -14px rgba(27, 32, 56, 0.24);
@@ -58,11 +60,15 @@
 
   /* Same night sky as the Knowledge Galaxy (--kb-space*), lifted just
      enough to read on for a long time: near-black navy, star-blue accent. */
-  --kb-ground:     #080D1C;
-  --kb-ground-2:   #0E1528;
-  --kb-ground-3:   #151E38;
-  --kb-fg:         #DCE4F5;
-  --kb-fg-muted:   #9DABCB;
+  /* 護眼調整（2026-10-06）：深底配亮字對比太高（約 15:1）時，散光的人
+     會看到字在發光暈開（halation）。底色從近黑提亮一階、字從近白降一階，
+     對比留在約 12:1，仍遠高於 WCAG AA 的 4.5:1。研究（Piepenbrock 2013,
+     Ergonomics）顯示淺底深字讀得較快、錯得較少，長文建議切淺色模式。 */
+  --kb-ground:     #10162A;
+  --kb-ground-2:   #161D33;
+  --kb-ground-3:   #1D2640;
+  --kb-fg:         #CFD7E6;
+  --kb-fg-muted:   #98A4BE;
   --kb-fg-faint:   #6C7BA0;
   --kb-rule:       #1D2845;
   --kb-rule-firm:  #2E3D66;
@@ -342,7 +348,7 @@ body[data-md-color-scheme="slate"]::after {
 .md-nav--secondary .md-nav__item { border-left: 1px solid var(--kb-rule); padding-left: 0.6rem; }
 .md-nav--secondary .md-nav__link--active { color: var(--kb-accent); }
 
-/* The TOC scrollwrap and readout are sidebar siblings. */
+/* Sticky TOC column. */
 @media screen and (min-width: 76.25em) {
   .md-sidebar--secondary:not([hidden]) {
     display: flex;
@@ -360,43 +366,6 @@ body[data-md-color-scheme="slate"]::after {
     height: auto;
     min-height: 0;
   }
-  .md-sidebar--secondary:not([hidden]) > .kb-readout { flex: 0 0 auto; }
-}
-
-/* readout block injected into the secondary sidebar */
-.kb-readout {
-  margin-top: 1.6rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--kb-rule);
-  padding-inline: 0.6rem 0.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-.kb-readout h4 {
-  margin: 0 0 0.3rem;
-  font-family: var(--kb-face-data);
-  font-size: 0.63rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--kb-fg-faint);
-  font-weight: 500;
-}
-.kb-readout div {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-size: 0.72rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px dotted var(--kb-rule);
-  color: var(--kb-fg-muted);
-}
-.kb-readout b {
-  font-family: var(--kb-face-data);
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  color: var(--kb-fg);
 }
 
 /* ── Typography: the reading contract ───────────────────────── */
