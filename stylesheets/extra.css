@@ -178,9 +178,9 @@ body[data-md-color-scheme="slate"]::after {
   /* 內文行寬 = 40 個漢字（漢字為全形，1 字剛好 1em）。
      刻意用 rem 而非 em：em 是相對「元素自己」的字級，同一個 38em 套在
      大字級的標題上會算出更寬的值，等於沒有限制。Material 的
-     .md-typeset 字級固定是 0.95rem，所以 40em(內文) = 40 × 0.95 = 38rem，
+     .md-typeset 字級固定是 0.9rem，所以 40em(內文) = 40 × 0.9 = 36rem，
      換成 rem 後不論套在哪個字級的元素上都是同一條右緣。 */
-  --kb-measure: 38rem;
+  --kb-measure: 36rem;
 }
 
 /* ── Shell / layout ─────────────────────────────────────────── */
@@ -190,11 +190,19 @@ body[data-md-color-scheme="slate"]::after {
    文字欄在左導覽與右 TOC 之間置中：padding-left 取「內容框 − 行寬 −
    左右 margin(2.4rem)」的一半；百分比算的是 .md-content 寬度。推的是整個
    內容框，表格與程式碼（刻意不限寬）左緣仍與正文對齊。
-   星圖首頁保留舊的固定 1.9rem：kb-galaxy.css 的滿版 margin 依賴這個值。 */
+   星圖首頁保留舊的固定 1.9rem：kb-galaxy.css 的滿版 margin 依賴這個值。
+
+   2026-10-06 改成部落格版面（參考少數派、Josh Comeau、Lil'Log）：
+   熱門網誌正文 16–18px、行寬 550–720px、旁邊最多一欄。桌機文章頁拿掉
+   左導覽，只留正文＋右側目錄；換篇靠上方分頁、麵包屑、文末上一篇/下一篇。
+   字從 0.95 降到 0.9rem（1440 寬約 18px），不回到 0.85：10/4 才嫌太小。
+   手機與平板的左導覽是抽屜，不受影響。 */
 .md-grid { max-width: 76rem; }
 .md-content__inner { padding-top: 0; }
 
 @media screen and (min-width: 76.25em) {
+  html:not(:has([data-kbgalaxy])) .md-grid { max-width: 68rem; }
+  html:not(:has([data-kbgalaxy])) .md-sidebar--primary { display: none; }
   html:not(:has([data-kbgalaxy])) .md-content__inner,
   html:not(:has([data-kbgalaxy])) .md-path {
     padding-left: max(0px, calc((100% - 2.4rem - var(--kb-measure)) / 2));
@@ -393,7 +401,7 @@ body[data-md-color-scheme="slate"]::after {
 
 /* ── Typography: the reading contract ───────────────────────── */
 .md-typeset {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.85;
   text-autospace: normal;          /* 中英文之間自動留細空白（Chrome 140+，其他瀏覽器忽略） */
   text-spacing-trim: normal;       /* 連續全形標點擠掉多餘空白 */
@@ -438,19 +446,17 @@ body[data-md-color-scheme="slate"]::after {
 .md-typeset h1 {
   font-family: var(--kb-face-display);
   font-weight: 700;
-  font-size: 1.85rem;
-  line-height: 1.22;
+  font-size: 1.75rem;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--kb-fg);
   text-wrap: balance;
 }
 .md-typeset h2 {
   font-family: var(--kb-face-display);
-  margin-top: 2.4rem;
+  margin-top: 2.8rem;
   font-weight: 700;
   letter-spacing: -0.005em;
-  border-bottom: 1px solid var(--kb-rule-firm);
-  padding-bottom: 0.4rem;
   text-wrap: balance;
 }
 .md-typeset h3 {
