@@ -46,8 +46,7 @@
    "desc": "建立可重複的產業研究流程",
    "items": [
     "basic-industry-analysis-sop",
-    "serenity-style-industry-research-process",
-    "leo-satellite-supply-chain-exposure"
+    "serenity-style-industry-research-process"
    ]
   },
   {
@@ -64,6 +63,19 @@
     "passive-components-monthly-tracker",
     "passive-components-valuation-framework",
     "passive-components-target-price"
+   ]
+  },
+  {
+   "id": "t4",
+   "column": "c",
+   "name": "低軌衛星專題",
+   "desc": "用投資級標準檢驗低軌衛星曝險",
+   "items": [
+    "leo-satellite-research-diagrams",
+    "leo-satellite-supply-chain-exposure",
+    "leo-satellite-company-universe",
+    "leo-satellite-stock-tracker",
+    "leo-satellite-valuation-falsification"
    ]
   }
  ],
@@ -87,7 +99,7 @@
    },
    "backlinks": [
     {
-     "label": "台灣上市櫃 LEO 衛星供應鏈：真實曝險可辨，耐久投資性仍待驗證",
+     "label": "低軌衛星產業研究總覽",
      "href": "leo-satellite-supply-chain-exposure/",
      "section": "trading"
     },
@@ -99,18 +111,18 @@
    ]
   },
   {
-   "id": "leo-satellite-supply-chain-exposure",
-   "label": "低軌衛星供應鏈曝險",
-   "href": "leo-satellite-supply-chain-exposure/",
-   "step": null,
+   "id": "leo-satellite-company-universe",
+   "label": "台股公司全圖",
+   "href": "leo-satellite-company-universe/",
+   "step": "2",
    "cluster": null,
    "meta": [
     [
      "首次發布",
-     "2026-07-11"
+     "2026-10-13"
     ]
    ],
-   "note": "以投資級標準拆解台股低軌衛星供應鏈——昇達科、華通等節點的真實經濟曝險、估值與可證偽判斷，附完整 R0–R5 研究方法與證據軌跡。資料截止 2026-10-13；歷史封存基準 2026-07-08。",
+   "note": "原研究包內每一家台股低軌衛星相關公司的分層：已受益、已受益但數字待驗、概念沾邊，以及判定依據。",
    "fresh": {
     "state": "fresh",
     "days": 0,
@@ -118,8 +130,182 @@
    },
    "backlinks": [
     {
+     "label": "低軌衛星研究結構圖與決策地圖",
+     "href": "leo-satellite-research-diagrams/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星個股追蹤：昇達科、華通",
+     "href": "leo-satellite-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星產業研究總覽",
+     "href": "leo-satellite-supply-chain-exposure/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "leo-satellite-research-diagrams",
+   "label": "研究結構圖與決策地圖",
+   "href": "leo-satellite-research-diagrams/",
+   "step": "0",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-13"
+    ]
+   ],
+   "note": "用三張圖看懂台股低軌衛星研究：供應鏈曝險分層、四環節傳導鏈、結論與檢查點。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-13 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "低軌衛星台股公司全圖",
+     "href": "leo-satellite-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星產業研究總覽",
+     "href": "leo-satellite-supply-chain-exposure/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星估值與推翻條件",
+     "href": "leo-satellite-valuation-falsification/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "leo-satellite-stock-tracker",
+   "label": "個股追蹤",
+   "href": "leo-satellite-stock-tracker/",
+   "step": "3",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-13"
+    ]
+   ],
+   "note": "昇達科與華通的四環節傳導鏈逐關檢驗、營收風險結構對照，以及華通「非中非台」候選護城河的拆解。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-13 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "低軌衛星台股公司全圖",
+     "href": "leo-satellite-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星研究結構圖與決策地圖",
+     "href": "leo-satellite-research-diagrams/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星產業研究總覽",
+     "href": "leo-satellite-supply-chain-exposure/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星估值與推翻條件",
+     "href": "leo-satellite-valuation-falsification/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "leo-satellite-supply-chain-exposure",
+   "label": "產業研究總覽",
+   "href": "leo-satellite-supply-chain-exposure/",
+   "step": "1",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-07-11"
+    ]
+   ],
+   "note": "台股低軌衛星專題首頁：結論、需求證據、最新數字刷新，以及 R0–R5 研究方法與證據軌跡。資料截止 2026-10-13；歷史封存基準 2026-07-08。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-13 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "低軌衛星台股公司全圖",
+     "href": "leo-satellite-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星研究結構圖與決策地圖",
+     "href": "leo-satellite-research-diagrams/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星個股追蹤：昇達科、華通",
+     "href": "leo-satellite-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星估值與推翻條件",
+     "href": "leo-satellite-valuation-falsification/",
+     "section": "trading"
+    },
+    {
      "label": "Serenity 式產業研究流程",
      "href": "serenity-style-industry-research-process/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "leo-satellite-valuation-falsification",
+   "label": "估值與推翻條件",
+   "href": "leo-satellite-valuation-falsification/",
+   "step": "4",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-13"
+    ]
+   ],
+   "note": "市場對昇達科、華通已經相信什麼，最強的反方論證，三種情境的敏感度，以及四條事先登記、到期對答案的可證偽判斷。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-13 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "低軌衛星台股公司全圖",
+     "href": "leo-satellite-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星研究結構圖與決策地圖",
+     "href": "leo-satellite-research-diagrams/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星個股追蹤：昇達科、華通",
+     "href": "leo-satellite-stock-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "低軌衛星產業研究總覽",
+     "href": "leo-satellite-supply-chain-exposure/",
      "section": "trading"
     }
    ]
@@ -169,6 +355,11 @@
    },
    "backlinks": [
     {
+     "label": "低軌衛星台股公司全圖",
+     "href": "leo-satellite-company-universe/",
+     "section": "trading"
+    },
+    {
      "label": "被動元件產業研究總覽",
      "href": "passive-components-industry-overview/",
      "section": "trading"
@@ -210,7 +401,7 @@
      "section": "trading"
     },
     {
-     "label": "台灣上市櫃 LEO 衛星供應鏈：真實曝險可辨，耐久投資性仍待驗證",
+     "label": "低軌衛星產業研究總覽",
      "href": "leo-satellite-supply-chain-exposure/",
      "section": "trading"
     },
@@ -363,6 +554,11 @@
    },
    "backlinks": [
     {
+     "label": "低軌衛星研究結構圖與決策地圖",
+     "href": "leo-satellite-research-diagrams/",
+     "section": "trading"
+    },
+    {
      "label": "被動元件產業研究總覽",
      "href": "passive-components-industry-overview/",
      "section": "trading"
@@ -496,6 +692,11 @@
    },
    "backlinks": [
     {
+     "label": "低軌衛星估值與推翻條件",
+     "href": "leo-satellite-valuation-falsification/",
+     "section": "trading"
+    },
+    {
      "label": "被動元件產業研究總覽",
      "href": "passive-components-industry-overview/",
      "section": "trading"
@@ -551,7 +752,7 @@
      "section": "trading"
     },
     {
-     "label": "台灣上市櫃 LEO 衛星供應鏈：真實曝險可辨，耐久投資性仍待驗證",
+     "label": "低軌衛星產業研究總覽",
      "href": "leo-satellite-supply-chain-exposure/",
      "section": "trading"
     },
@@ -764,6 +965,10 @@
   {
    "from": "t2",
    "to": "t3"
+  },
+  {
+   "from": "t2",
+   "to": "t4"
   }
  ],
  "galaxy": {
@@ -807,11 +1012,10 @@
     "label": "產業研究方法",
     "href": "#industry-research",
     "description": "建立可重複的產業研究流程",
-    "count": 3,
+    "count": 2,
     "members": [
      "basic-industry-analysis-sop",
-     "serenity-style-industry-research-process",
-     "leo-satellite-supply-chain-exposure"
+     "serenity-style-industry-research-process"
     ],
     "x": 0.77,
     "y": 0.3,
@@ -847,12 +1051,39 @@
     },
     "size": "major",
     "kind": "satellite"
+   },
+   {
+    "id": "leo-satellite-topic",
+    "anchorId": "leo-satellite-topic",
+    "label": "低軌衛星專題",
+    "href": "#leo-satellite-topic",
+    "description": "用投資級標準檢驗低軌衛星曝險",
+    "count": 5,
+    "members": [
+     "leo-satellite-research-diagrams",
+     "leo-satellite-supply-chain-exposure",
+     "leo-satellite-company-universe",
+     "leo-satellite-stock-tracker",
+     "leo-satellite-valuation-falsification"
+    ],
+    "x": 0.86,
+    "y": 0.74,
+    "mobile": {
+     "x": 0.72,
+     "y": 0.84
+    },
+    "size": "medium",
+    "kind": "satellite"
    }
   ],
   "edges": [
    {
     "from": "industry-research",
     "to": "passive-components-topic"
+   },
+   {
+    "from": "industry-research",
+    "to": "leo-satellite-topic"
    }
   ]
  },

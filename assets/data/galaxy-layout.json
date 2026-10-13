@@ -168,6 +168,17 @@
       },
       "size": "major",
       "kind": "satellite"
+    },
+    "t4": {
+      "anchorId": "leo-satellite-topic",
+      "x": 0.86,
+      "y": 0.74,
+      "mobile": {
+        "x": 0.72,
+        "y": 0.84
+      },
+      "size": "medium",
+      "kind": "satellite"
     }
   }
 }
