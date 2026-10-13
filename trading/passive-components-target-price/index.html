@@ -4025,7 +4025,7 @@
   <a href="#51" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 已知數字（站上既有）
+        5.1 已知數字
       
     </span>
   </a>
@@ -4080,7 +4080,7 @@
   <a href="#56" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.6 這個試算目前的缺陷（誠實揭露）
+        5.6 試算限制
       
     </span>
   </a>
@@ -4574,7 +4574,7 @@
   <a href="#51" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 已知數字（站上既有）
+        5.1 已知數字
       
     </span>
   </a>
@@ -4629,7 +4629,7 @@
   <a href="#56" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.6 這個試算目前的缺陷（誠實揭露）
+        5.6 試算限制
       
     </span>
   </a>
@@ -4795,15 +4795,15 @@
 <h1 id="_1">被動元件目標價評估<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <blockquote>
 <p>本專題的最後一步。<a href="../passive-components-valuation-framework/">估值框架</a>回答「現在貴不貴」，本頁回答「該給多少目標價、憑什麼給、什麼時候該推翻」。
-<strong>核心立場：週期股的目標價不是一個數字，是一組帶條件的情境。</strong> 只報單一目標價而不寫失效條件，等於沒有研究。
-資料基準：月營收 2026-07-10（11506）、獲利 115Q1、股價快照 2026-05。全文標記：▲法說/財報直接　△媒體/分析師估算　◇本頁示範假設。</p>
+<strong>核心立場：週期股的目標價應列為一組帶條件的情境。</strong> 失效條件決定何時需要重估。
+查核截止 2026-10-13：月營收至 2026/09、財報至 2026Q2、股價採 2026-10-12 收盤。▲財報／公司揭露　△媒體估計　◇本頁示範假設；每個情境都可重算，不是賣方共識。</p>
 </blockquote>
 <h2 id="_2">一、目標價的三段拆解<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>目標價永遠可以寫成同一個式子：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>目標價 = EPS 基礎 × 合理倍數
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>      （或 BVPS × 合理 P/B，或 EBITDA × EV/EBITDA 後扣淨負債）
 </span></code></pre></div>
-<p>週期股的麻煩在於，<strong>分子與分母會同時往同一個方向錯</strong>：景氣高點時 EPS 最高、市場也願意給最高倍數；景氣低點時 EPS 最低、倍數也被壓到最低。兩邊同時失真，就是週期股目標價最常見的破口。</p>
+<p>若把獲利與倍數都設在樂觀端，目標價會被放大兩次。景氣高點的 EPS 尤其需要正常化，不能再疊加未經驗證的倍數擴張。</p>
 <p>所以流程必須拆成三段，每段各自可被檢查：</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/passive-components/10-target-price-scenarios.png" data-desc-position="bottom"><img alt="目標價的三段拆解" src="../../assets/diagrams/passive-components/10-target-price-scenarios.png"></a></p>
 <table>
@@ -4841,11 +4841,11 @@
 <hr>
 <h2 id="step-1-eps">二、Step 1｜建立 EPS 基礎<a class="headerlink" href="#step-1-eps" title="Permanent link">¶</a></h2>
 <h3 id="21">2.1 量價拆解<a class="headerlink" href="#21" title="Permanent link">¶</a></h3>
-<p>被動元件的營收永遠可以拆成兩個獨立變數：</p>
+<p>同一品項的營收可拆成出貨量與 ASP；合併營收還要考慮產品組合：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>營收 = 出貨量 × ASP
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>獲利 = 營收 × 營益率（營益率同時受 ASP、稼動率、產品 mix 三者影響）
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>營業利益 = 營收 × 營益率（另需扣稅、利息並處理業外與非控制權益）
 </span></code></pre></div>
-<p>分開看的理由：<strong>AI／車用是量增故事，ASP 回升才是毛利彈性的來源。</strong> 量增而 ASP 不動，毛利率只靠稼動率的營運槓桿改善，幅度有限；ASP 一旦轉正，毛利率的斜率會陡得多。詳見<a href="../passive-components-market-sizing/">市場量化</a>的量價拆解原則。</p>
+<p>量、價、成本與產品組合都會改變毛利率；營收成長只能確認總額，不能據此推定 ASP 或本業 EPS。詳見<a href="../passive-components-market-sizing/">市場量化</a>。</p>
 <h3 id="22-eps">2.2 三種 EPS 基礎，用途完全不同<a class="headerlink" href="#22-eps" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -4904,7 +4904,7 @@
 <td><strong>國巨 2327</strong></td>
 <td>EV/EBITDA ＋ 事業部 SOTP</td>
 <td>正常化 EPS</td>
-<td>併購背負淨負債使 PE 失真；六大產品線（磁性 25.2%／鉭容 24.3%／MLCC 19.0%／電阻 13.5%／感測器 13.0%）毛利差異大 ▲</td>
+<td>併購背負淨負債使 PE 失真；各產品線毛利需拆分；Q2 磁性／鉭容／MLCC／電阻／感測占比 23.5%／23.8%／19.1%／14.3%／10.9%，其餘 8.4%；<a href="https://yageogroup.com/content/Resource%20Library/Financial/YAGEO%202Q26_Earnings%20Conference%20Presentation_CH.pdf">公司法說第 6 頁</a>，2026Q2；截止 2026-10-13。原 Q1 組合留作歷史比較，見個股頁</td>
 <td>用合併 EPS × 單一倍數，會把高毛利 Specialty 與標準品混為一談，也忽略槓桿</td>
 </tr>
 <tr>
@@ -4916,7 +4916,7 @@
 </tr>
 <tr>
 <td><strong>禾伸堂 3026</strong></td>
-<td>分部估值（自製 42%／代理 23%／模組 14% ▲）</td>
+<td>分部估值（Q2 被動 45%／主動代理 22%／模組 15% ▲（<a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=02454b01-6a57-4c80-9772-9be203000857">公司公告</a>，2026Q2；截止 2026-10-13））</td>
 <td>帳面 PE 僅作交叉檢查</td>
 <td>製造與代理是兩種生意，代理的合理倍數本來就低</td>
 <td>用單一 PE 會系統性高估代理部分</td>
@@ -4925,7 +4925,7 @@
 <td><strong>大毅 2478</strong></td>
 <td>轉型後正常化 EPS</td>
 <td>P/B</td>
-<td>產品 mix 正從厚膜電阻轉向保護感測元件（2026 目標各 50% ▲），歷史 EPS 不具代表性</td>
+<td>產品 mix 正從厚膜電阻轉向保護感測元件（2025 各 50%，2026H1 電阻類 46%／薄膜、保護與感測 54%；<a href="https://www.tai.com.tw/files/uploads/Download/Investors/Financial%20Release/Conference/%E6%9C%80%E6%96%B0%E6%B3%95%E8%AA%AA-CH_2026.pdf">法說第 12 頁</a>，2026-08-12；截止 2026-10-13。原 2026 各 50% 是舊目標），歷史 EPS 不具代表性</td>
 <td>用轉型前歷史區間會低估；用 2025Q3 單季暴增年化會高估</td>
 </tr>
 <tr>
@@ -4996,241 +4996,240 @@
 <hr>
 <h2 id="2492">五、完整試算：華新科 2492<a class="headerlink" href="#2492" title="Permanent link">¶</a></h2>
 <blockquote>
-<p><strong>示範用途，不構成投資建議。</strong> 選華新科的理由：景氣純度最高、estimation 過程最能看清每一步；且它同時具備「業外占比高」這個最典型的 EPS 品質問題。
-資料基準：月營收至 2026 年 6 月（2026-07-10 公告）、損益至 115Q1、股價採站上 2026-05 快照 220 元 △。<strong>實際使用前請以最新股價與財報重算。</strong></p>
+<p>示範用途。資料期：財報 2026H1／Q2、月報 2026Q3、價格 2026-10-12；查核截止 2026-10-13。財報與月報口徑分列，稅率、母公司歸屬比例的外推與倍數帶仍是 ◇ 假設。</p>
 </blockquote>
-<h3 id="51">5.1 已知數字（站上既有）<a class="headerlink" href="#51" title="Permanent link">¶</a></h3>
+<h3 id="51">5.1 已知數字<a class="headerlink" href="#51" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
 <th>項目</th>
-<th>數字</th>
-<th>標記</th>
+<th style="text-align: right;">數字</th>
+<th>來源／資料期</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>2026 Q1 營收</td>
-<td>9,538.4 百萬</td>
-<td>▲</td>
+<td>Q2 營收</td>
+<td style="text-align: right;">11,310.273 百萬元</td>
+<td>▲ <a href="https://m.esunsec.com.tw/news/instant-detail.aspx?id=%7B2489A7CE-092A-47B9-BD44-993B4C9B6F81%7D">Q2 損益表</a>，2026Q2</td>
 </tr>
 <tr>
-<td>2026 Q1 營業利益 / 營益率</td>
-<td>718.9 百萬 / 7.54%</td>
-<td>▲</td>
+<td>Q2 營業利益／營益率</td>
+<td style="text-align: right;">1,161.717 百萬元／10.27%</td>
+<td>▲ 同表，2026Q2</td>
 </tr>
 <tr>
-<td>2026 Q1 稅後淨利 / EPS</td>
-<td>987.4 百萬 / 1.69 元</td>
-<td>▲</td>
+<td>Q2 合併淨利／母公司淨利</td>
+<td style="text-align: right;">1,798.320／1,571.745 百萬元</td>
+<td>▲ 同表，2026Q2</td>
 </tr>
 <tr>
-<td>2026 Q1 毛利率</td>
-<td>18.3%</td>
-<td>▲</td>
+<td>Q2 EPS／毛利率</td>
+<td style="text-align: right;">3.24 元／20.29%</td>
+<td>▲ 同表，2026Q2</td>
 </tr>
 <tr>
-<td>4／5／6 月營收</td>
-<td>3,705／3,700／3,961 百萬</td>
-<td>▲</td>
+<td>H1 財報營收／EPS</td>
+<td style="text-align: right;">20,848.667 百萬元／4.93 元</td>
+<td>▲ 同表，2026H1</td>
 </tr>
 <tr>
-<td>已發行普通股</td>
-<td>485,204,774 股</td>
-<td>▲</td>
+<td>7／8／9 月月報營收</td>
+<td style="text-align: right;">4,443.982／4,568.665／4,889.022 百萬元</td>
+<td>▲ <a href="https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_7_0.html">MOPS 七月</a>、<a href="https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_8_0.html">八月</a>、<a href="https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html">九月</a>，2026Q3</td>
 </tr>
 <tr>
-<td>股價快照（2026-05）</td>
-<td>220+ 元</td>
-<td>△</td>
+<td>Q3 月報合計</td>
+<td style="text-align: right;">13,901.669 百萬元</td>
+<td>上列加總，非 Q3 財報</td>
 </tr>
 <tr>
-<td>市場全年 EPS 估</td>
-<td>~7.5 元</td>
-<td>△</td>
+<td>Q2 基本 EPS 加權股數</td>
+<td style="text-align: right;">484.954 百萬股</td>
+<td>▲ <a href="https://www.passivecomponent.com/download/%E8%8F%AF%E6%96%B0%E7%A7%91115%E5%B9%B4%E5%BA%A6%E7%AC%AC%E4%BA%8C%E5%AD%A3%E5%90%88%E4%BD%B5%E5%A0%B1%E5%91%8A%E8%8B%B1%E6%96%87/?wpdmdl=86094">公司 Q2 財報附註 23，第 44 頁</a>，2026Q2；H1 加權股數另為 484.880 百萬股。全年模型假設沿用 Q2 分母，非全年已實現股數；截止 2026-10-13</td>
+</tr>
+<tr>
+<td>收盤價</td>
+<td style="text-align: right;">418.00 元</td>
+<td>▲ <a href="https://www.twse.com.tw/exchangeReport/BWIBBU_d?response=json&amp;date=20261012&amp;selectType=ALL">TWSE</a>，2026-10-12</td>
+</tr>
+<tr>
+<td>舊市場全年 EPS 估計</td>
+<td style="text-align: right;">~7.5 元</td>
+<td>△ 2026-05 舊紀錄：未更新：缺具名券商與原預估發布日，不能當作最新共識，不再用來驗證情境</td>
 </tr>
 </tbody>
 </table>
+<p>原 Q1 營收 9,538.4 百萬元、營業利益 718.9 百萬元、合併淨利 987.4 百萬元、EPS 1.69 元與毛利率 18.3% 保留為歷史比較；原 4–6 月月報加總約 11,366 百萬元不能代替 Q2 財報 11,310.273 百萬元。差額原因未更新：公告未提供月報與季報收入差額的逐項調節。〔同一損益表以 H1 減 Q2 及<a href="../passive-components-monthly-tracker/">月度追蹤表</a>，截止 2026-10-13〕</p>
 <h3 id="52-eps">5.2 EPS 品質調整<a class="headerlink" href="#52-eps" title="Permanent link">¶</a></h3>
-<p>帳面 Q1 EPS 1.69 元，但：</p>
+<p>以下由 Q2 損益表重算，查核截止 2026-10-13：</p>
 <ul>
-<li>稅後淨利 987.4 ÷ 4.852 億股 = 2.03 元，與 EPS 1.69 元有落差 → <strong>歸屬母公司比例約 83%</strong>，其餘為非控制權益。</li>
-<li>本業稅後 EPS ≈ 營業利益 718.9 × (1 − 20% 稅率 ◇) × 83% ÷ 4.852 億股 ≈ <strong>0.98 元</strong>。</li>
-<li><strong>業外＋其他貢獻 ≈ 1.69 − 0.98 = 0.71 元，約占帳面 EPS 四成。</strong></li>
+<li>母公司歸屬比例 = 1,571.745 ÷ 1,798.320 = <strong>87.40%</strong>；這是該季損益比例，不是對子公司的固定持股比例。</li>
+<li>本業稅後 EPS 近似值 = 1,161.717 ×（1 − 20% 稅率 ◇）× 87.40% ÷ 484.954 ≈ <strong>1.67 元</strong>。</li>
+<li>帳面 EPS 與上述近似值的差額 ≈ 3.24 − 1.67 = <strong>1.57 元</strong>，約占 <strong>48.3%</strong>。這包含業外、稅率及分攤差異，不能稱為可精確剝離的業外 EPS。</li>
 </ul>
-<p>→ 這正是<a href="../passive-components-monthly-tracker/">月度追蹤表</a>列為 P0 的「華新科淨利率高於營益率」疑點。<strong>在 Q2 完整損益表釐清業外來源之前，帳面 EPS 的四成不應該拿去乘成長倍數。</strong></p>
+<p>Q2 業外淨收益 1,113.639 百萬元已揭露，評價與利息收益的持續性仍須檢查。原 Q1 本業近似 0.98 元、差額 0.71 元的試算保留為歷史，不再外推為全年品質。〔<a href="https://m.esunsec.com.tw/news/instant-detail.aspx?id=%7B2489A7CE-092A-47B9-BD44-993B4C9B6F81%7D">Q2 損益表</a>；資料期 2026Q2，截止 2026-10-13〕</p>
 <h3 id="53">5.3 營收情境<a class="headerlink" href="#53" title="Permanent link">¶</a></h3>
-<p>Q2 營收 = 3,705 + 3,700 + 3,961 = <strong>11,366 百萬，QoQ +19.2%</strong>；H1 合計 20,904 百萬。以 H2 相對 H1 的三種假設展開：</p>
+<p>H1 財報營收 20,848.667＋Q3 月報合計 13,901.669 = <strong>34,750.336 百萬元</strong>。這是兩種口徑拼接的模型基礎，並非財報已公布的前三季營收。Q4 依 Q3 月報的 −10%／持平／+10% 展開，稅率 20%、母公司比例 87.40% 與股數不變均為 ◇；以下於 2026-10-13 重算，來源為上述季報與月報。</p>
 <table>
 <thead>
 <tr>
 <th>情境</th>
-<th>H2 vs H1 ◇</th>
-<th>全年營收</th>
-<th>全年營益率 ◇</th>
-<th>本業 EPS</th>
-<th>業外 EPS ◇</th>
-<th>帳面 EPS</th>
+<th style="text-align: right;">Q4 vs Q3 ◇</th>
+<th style="text-align: right;">全年營收（百萬元）</th>
+<th style="text-align: right;">全年營益率 ◇</th>
+<th style="text-align: right;">本業 EPS（元）</th>
+<th style="text-align: right;">差額 EPS ◇</th>
+<th style="text-align: right;">帳面 EPS（元）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>空方（去庫再起）</td>
-<td>持平</td>
-<td>41,800</td>
-<td>7.5%</td>
-<td>4.3</td>
-<td>2.0</td>
-<td><strong>6.3</strong></td>
+<td>空方</td>
+<td style="text-align: right;">-10%</td>
+<td style="text-align: right;">47,261.8</td>
+<td style="text-align: right;">8.0%</td>
+<td style="text-align: right;">5.5</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;"><strong>7.5</strong></td>
 </tr>
 <tr>
-<td>基準（復甦延續）</td>
-<td>+10%</td>
-<td>43,900</td>
-<td>9.0%</td>
-<td>5.4</td>
-<td>2.5</td>
-<td><strong>7.9</strong></td>
+<td>基準</td>
+<td style="text-align: right;">+0%</td>
+<td style="text-align: right;">48,652.0</td>
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;"><strong>9.5</strong></td>
 </tr>
 <tr>
-<td>多方（ASP 上行＋mix 改善）</td>
-<td>+20%</td>
-<td>46,000</td>
-<td>11.0%</td>
-<td>6.9</td>
-<td>3.0</td>
-<td><strong>9.9</strong></td>
+<td>多方</td>
+<td style="text-align: right;">+10%</td>
+<td style="text-align: right;">50,042.2</td>
+<td style="text-align: right;">12.0%</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;"><strong>11.7</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>交叉檢查：基準情境帳面 EPS 7.9 元 vs 市場估 ~7.5 元 △，差距約 5%，方向一致 → 情境假設沒有明顯脫離現實。差額主要來自 Q2 實際營收優於年初預估。</p>
-</blockquote>
+<p>差額 EPS 包含對業外與稅務的假設，不是已公告全年獲利。Q3 財報公布後，先替換拼接基礎，再重估 Q4 與正常化 EPS；不要用市場舊估計為模型背書。</p>
 <h3 id="54">5.4 目標價矩陣<a class="headerlink" href="#54" title="Permanent link">¶</a></h3>
-<p><strong>用帳面 EPS（含業外）</strong>：</p>
+<p>以下為 2026-10-13 模型重算：採上表四捨五入至一位小數的 EPS × 示範倍數，價格取整數、0.5 向上。倍數是 ◇，不是歷史實證區間。</p>
+<p><strong>帳面 EPS（含差額）</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>帳面 EPS ＼ 倍數</th>
-<th>12×</th>
-<th>16×</th>
-<th>20×</th>
-<th>25×</th>
-<th>30×</th>
+<th>EPS ＼ 倍數</th>
+<th style="text-align: right;">12×</th>
+<th style="text-align: right;">16×</th>
+<th style="text-align: right;">20×</th>
+<th style="text-align: right;">25×</th>
+<th style="text-align: right;">30×</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>空方 6.3</td>
-<td>76</td>
-<td>101</td>
-<td>126</td>
-<td>158</td>
-<td>189</td>
+<td>空方 7.5</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">225</td>
 </tr>
 <tr>
-<td>基準 7.9</td>
-<td>95</td>
-<td>126</td>
-<td>158</td>
-<td>198</td>
-<td><strong>237</strong></td>
+<td>基準 9.5</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">152</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">238</td>
+<td style="text-align: right;">285</td>
 </tr>
 <tr>
-<td>多方 9.9</td>
-<td>119</td>
-<td>158</td>
-<td>198</td>
-<td><strong>248</strong></td>
-<td>297</td>
+<td>多方 11.7</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">234</td>
+<td style="text-align: right;">293</td>
+<td style="text-align: right;">351</td>
 </tr>
 </tbody>
 </table>
-<p><strong>用本業 EPS（剔除業外，週期股較保守的作法）</strong>：</p>
+<p><strong>本業 EPS（模型近似）</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>本業 EPS ＼ 倍數</th>
-<th>12×</th>
-<th>16×</th>
-<th>20×</th>
-<th>25×</th>
-<th>30×</th>
+<th>EPS ＼ 倍數</th>
+<th style="text-align: right;">12×</th>
+<th style="text-align: right;">16×</th>
+<th style="text-align: right;">20×</th>
+<th style="text-align: right;">25×</th>
+<th style="text-align: right;">30×</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>空方 4.3</td>
-<td>52</td>
-<td>69</td>
-<td>86</td>
-<td>108</td>
-<td>129</td>
+<td>空方 5.5</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">165</td>
 </tr>
 <tr>
-<td>基準 5.4</td>
-<td>65</td>
-<td>86</td>
-<td>108</td>
-<td>135</td>
-<td>162</td>
+<td>基準 7.0</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">210</td>
 </tr>
 <tr>
-<td>多方 6.9</td>
-<td>83</td>
-<td>110</td>
-<td>138</td>
-<td>172</td>
-<td><strong>207</strong></td>
+<td>多方 8.7</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">174</td>
+<td style="text-align: right;">218</td>
+<td style="text-align: right;">261</td>
 </tr>
 </tbody>
 </table>
 <h3 id="55">5.5 用股價反推隱含假設<a class="headerlink" href="#55" title="Permanent link">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">以下用的是 2026-05 的股價快照 220 元 △，不是當前市價</p>
-<p>這一節示範的是<strong>反推的作法</strong>，不是對今天股價的判斷。股價每天都在動，隱含倍數會跟著整組改變。
-要實際使用，請把 220 換成當下股價重算一次——三張表的相對關係不變，但結論可能完全不同。</p>
-</div>
-<p>以 220 元計：</p>
+<p>採 <a href="https://www.twse.com.tw/exchangeReport/BWIBBU_d?response=json&amp;date=20261012&amp;selectType=ALL">TWSE 2026-10-12 收盤 418 元</a>，與本頁 2026-10-13 示範 EPS 相除；兩者期間不同，所得不是交易所落後 PE。</p>
 <table>
 <thead>
 <tr>
-<th>用哪個 EPS</th>
-<th>隱含倍數</th>
-<th>解讀</th>
+<th>EPS 基礎</th>
+<th style="text-align: right;">隱含倍數（本頁重算）</th>
+<th>驗證項目</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>基準帳面 7.9</td>
-<td><strong>27.8×</strong></td>
-<td>接近站上記錄的「PE 逼近 30×」△</td>
+<td>基準帳面 9.5</td>
+<td style="text-align: right;"><strong>44.0×</strong></td>
+<td>基準營益率與差額收益能否維持</td>
 </tr>
 <tr>
-<td>多方帳面 9.9</td>
-<td>22.2×</td>
-<td>需要 H2 營收再 +20% 且營益率上看 11%</td>
+<td>多方帳面 11.7</td>
+<td style="text-align: right;">35.7×</td>
+<td>Q4 出貨與全年營益率能否達到多方假設</td>
 </tr>
 <tr>
-<td>多方本業 6.9</td>
-<td><strong>31.9×</strong></td>
-<td>即使最樂觀的本業情境，倍數仍在 30× 之上</td>
+<td>多方本業 8.7</td>
+<td style="text-align: right;"><strong>48.0×</strong></td>
+<td>剔除差額後的製造本業能否支撐倍數</td>
 </tr>
 </tbody>
 </table>
-<p>反向問：若給復甦中段較合理的 16×（◇假設），要撐住 220 元需要帳面 EPS <strong>13.8 元</strong>——相對基準情境 7.9 元要再成長 <strong>+75%</strong>。</p>
-<p><strong>結論不是「該賣」，而是三個必須被驗證的命題：</strong></p>
-<ol>
-<li><strong>業外的可持續性</strong>——四成 EPS 來自業外，若為一次性，本業支撐的價位遠低於現價。驗證點：2026Q2 完整損益表（8 月中旬）。</li>
-<li><strong>倍數擴張的正當性</strong>——要撐 25× 以上，需要毛利率結構性上移（高階 mix 提升），而非單純景氣回升。驗證點：車用／AI 占比與其毛利率是否高於公司平均。</li>
-<li><strong>H2 營收動能</strong>——多方情境要求 H2 較 H1 再 +20%。驗證點：7、8 月月營收是否延續 6 月 +25.8% YoY 的幅度。</li>
-</ol>
-<h3 id="56">5.6 這個試算目前的缺陷（誠實揭露）<a class="headerlink" href="#56" title="Permanent link">¶</a></h3>
+<p>若給 16×（◇），418 元隱含 EPS = 418 ÷ 16 = <strong>26.1 元</strong>，相對基準 9.5 元約需多 <strong>175.0%</strong>。原 2026-05 220 元、27.8×／22.2×／31.9× 與 +75% 的反推保留為歷史例子；該價格原來源未更新：未找到該交易日及其還原價格的原紀錄，不能驗證歷史反推，不用於當前判斷。</p>
+<p>優先驗證本業利潤率、業外收益的可持續性，以及 Q3 月報和財報差異。目標價是否可辯護，取決於這些條件；試算本身不是買賣結論。</p>
+<h3 id="56">5.6 試算限制<a class="headerlink" href="#56" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>缺 P/B band 歷史數列</strong>：華新科的主錨應該是 P/B，但站上尚未建立歷史區間，本試算只能退而使用 EPS × 倍數。這是<a href="../passive-components-industry-overview/#research-gaps">研究缺口總表</a>的優先項。</li>
-<li><strong>倍數帶（12–30×）是示範刻度 ◇</strong>，不是華新科的實證歷史區間。</li>
-<li><strong>業外 EPS 2.0／2.5／3.0 元是外推 Q1 單季的假設 ◇</strong>，Q2 財報公布後必須重算。</li>
-<li><strong>股價為 2026-05 快照</strong>，與當前市價存在落差。</li>
+<li>華新科主錨仍應用 P/B 與跨循環正常化獲利；本站缺完整歷史區間，未更新：未建立同股本口徑的跨循環 P/B 連續數列與正常化獲利調整表。</li>
+<li>12–30× 倍數、Q4 營收比例、20% 稅率、差額 EPS 與固定股數都是 ◇ 假設，未宣稱為市場共識。</li>
+<li>用全公司損益的母公司歸屬比例分攤本業只是近似；精確調整需子公司與分部資料。</li>
+<li>月報／季報有差異，Q3 財報未取得；更新後必須整組重算。</li>
 </ul>
 <hr>
 <h2 id="_5">六、目標價的維護紀律<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
@@ -5326,7 +5325,7 @@
 <li><a href="../passive-components-industry-overview/">被動元件產業研究總覽</a> — 景氣階段判讀與研究缺口總表</li>
 <li><a href="../passive-components-research-diagrams-decision-map/">被動元件研究結構圖與決策地圖</a> — AI／車規的驗證流程圖</li>
 </ul>
-<p><strong>來源</strong>：本頁的公司數字全部取自本站既有頁面，原始來源為 MOPS t21sc03（11506 月營收，2026-07-10 公告）、TWSE t187ap14（115Q1 損益）、TWSE OpenAPI（股本）、華新科法說整理與財經媒體估算（股價與市場 EPS 估 △）。倍數帶、稅率、業外外推與 H2 營收假設為本頁示範假設 ◇，非市場共識。</p>
+<p><strong>來源</strong>：<a href="https://m.esunsec.com.tw/news/instant-detail.aspx?id=%7B2489A7CE-092A-47B9-BD44-993B4C9B6F81%7D">華新科 Q2 損益表</a>、<a href="https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_0.html">MOPS 九月月報</a>（七、八月連結見 5.1）、<a href="https://www.twse.com.tw/exchangeReport/BWIBBU_d?response=json&amp;date=20261012&amp;selectType=ALL">TWSE 2026-10-12 收盤估值</a>。查核截止 2026-10-13。計算與情境假設逐項標示於第五節；舊估計不作最新市場共識。</p>
 <p><em>本頁為研究方法紀錄與示範試算，不構成任何投資建議或買賣依據。</em></p>
 
 
@@ -5350,7 +5349,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 11:43:20 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月13日 03:47:28 UTC">2026年10月13日</span>
   </span>
 
     
