@@ -1,0 +1,5631 @@
+<!DOCTYPE html><html lang="zh-TW" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="資料分析師轉資料工程師的學習路線：五階段技能與過關標準、資料管線專案、工具選擇、實務故障與台灣求職方向。">
+      
+      
+      
+        <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/career/da-to-de-roadmap/">
+      
+      
+        <link rel="prev" href="../da-to-ds-roadmap/">
+      
+      
+        <link rel="next" href="../../trading/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>從分析師走到資料工程師的水管地圖 - Shane's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Noto Sans TC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=c794be9cf3">
+    
+      <link rel="stylesheet" href="../../stylesheets/kb-map.css?v=16c835e6a7">
+    
+      <link rel="stylesheet" href="../../stylesheets/kb-galaxy.css?v=7acfb61763">
+    
+      <link rel="stylesheet" href="../../stylesheets/kb-transition.css?v=a515445ca5">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website">
+<meta property="og:title" content="從分析師走到資料工程師的水管地圖 - Shane's Knowledge Base">
+<meta property="og:description" content="資料分析師轉資料工程師的學習路線：五階段技能與過關標準、資料管線專案、工具選擇、實務故障與台灣求職方向。">
+<meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/career/da-to-de-roadmap.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/career/da-to-de-roadmap/">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="從分析師走到資料工程師的水管地圖 - Shane's Knowledge Base">
+<meta property="twitter:description" content="資料分析師轉資料工程師的學習路線：五階段技能與過關標準、資料管線專案、工具選擇、實務故障與台灣求職方向。">
+<meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/career/da-to-de-roadmap.png">
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../.." title="Shane's Knowledge Base" class="md-header__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Shane's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              從分析師走到資料工程師的水管地圖
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber" aria-label="切換淺色模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切換淺色模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber" aria-label="切換深色模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="標籤" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首頁
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../machine-learning/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Career
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../trading/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Trading Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  標籤
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Shane's Knowledge Base" class="md-nav__button md-logo" aria-label="Shane's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
+
+    </a>
+    Shane's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YuHsunWang/knowledge-base-pages" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    YuHsunWang/knowledge-base-pages
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首頁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Engineering
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt 與 Context 工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt 與 Context 工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/prompt-engineering-core-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering 核心技術
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/context-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/context-engineering-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Engineering 實作篇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/reasoning-models-test-time-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reasoning Models 與 Test-time Compute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG 與檢索系統
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG 與檢索系統
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 該不該用 RAG：vs Fine-tuning / Prompting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rag-retrieval-augmented-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · RAG 完整指南（入門與總覽）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/embeddings-and-vector-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · Embeddings 與向量資料庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rag-advanced-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · RAG 進階技術：六個槓桿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/graphrag-knowledge-graph-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · GraphRAG：換索引標的
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agentic-rag-2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · Agentic RAG：換控制流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent 工程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent 工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/structured-output-and-tool-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · Structured Output 與 Tool Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ai-agent-security-and-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · AI Agent 安全與權限
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/coding-agent-workflow-sop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · Coding Agent 工作流 SOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ai-agent-harness-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · AI Agent Harness Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/multi-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · Multi-Agent 協作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · OMP 遠端 Coding Agent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6 · OMP 遠端 Coding Agent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-remote-coding-agent-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · 概念、架構與安裝
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-models-and-daily-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 模型角色與日常 Coding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-collab-remote-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · Collab 遠端控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-config-permissions-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 設定、權限與安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-mobile-notifications-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · 手機通知與日常流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    速查表（本機）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/omp-cheat-sheet-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    速查表（網頁）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    評估、記憶與觀測
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    評估、記憶與觀測
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agent-memory-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · Agent Memory 系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/agent-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · Agent Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/llm-evaluation-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · LLM Evaluation 實務
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/llm-evaluation-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · LLM Evaluation 進階
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code / Skills / MCP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Claude Code / Skills / MCP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-coding-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code 寫程式準則
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/superpowers-claude-code-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Superpowers Skill 框架
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-discipline-frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code 紀律框架對比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/anthropic-document-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anthropic Agent Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/mcp-ecosystem-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 生態系指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/mcp-builder-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Builder Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/sepia-de-ai-writing-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sepia 去 AI 味 Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ponytail-lazy-senior-dev-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ponytail 少寫程式碼 Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    成本與 Token 優化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    成本與 Token 優化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/prompt-caching-cost-latency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · Prompt Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/9router-ai-router-token-saver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 9Router 本機路由器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/caveman-token-compression-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · Caveman Token 壓縮
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/rtk-tokscale-token-tooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · RTK＋tokscale 省量與看量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 AI 維護知識庫
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    用 AI 維護知識庫
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-md-obsidian-llm-wiki-maintainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 CLAUDE.md 維護 Obsidian 知識庫
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/my-obsidian-vault-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    我的 Obsidian Vault CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../machine-learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基礎觀念
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    基礎觀念
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/ml-interview-core-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML 核心觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/geron-hands-on-ml-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Géron《Hands-On ML》Ch1–9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度學習
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    深度學習
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/deep-learning-training-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度學習訓練基礎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/transformer-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer 與注意力機制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    表格資料實作
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    表格資料實作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特徵工程心法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/sklearn-pipeline-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sklearn Pipeline 模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/model-evaluation-cross-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型評估與 Cross-Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/gradient-boosting-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gradient Boosting 實戰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/model-interpretability-shap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型可解釋性（SHAP）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    綜合應用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    綜合應用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/ml-case-studies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常見 ML Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/financial-ml-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    金融時間序列 ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計與實驗
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    統計與實驗
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/statistics-ab-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計推論與 A/B 測試
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Career
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料科學路線
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    資料科學路線
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../da-to-ds-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DA 轉 DS 學習地圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料工程路線
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    資料工程路線
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DA 轉 DE 水管地圖
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DA 轉 DE 水管地圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        學習地圖總覽：五個階段，一條水管
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        學習手冊：每一關學什麼、怎樣算過關
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="學習手冊：每一關學什麼、怎樣算過關">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-12-34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 0：基礎工具箱，分析師可以壓到 1–2 週加 3–4 週
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 1：建模，Power BI 使用者的主場
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 2：第一條 pipeline，做完這關才算入門
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 3：雲端與工程化，把水管搬上雲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 4：進階，碰到限制再打開
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你手上已經有的資產
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026 工具選擇：先學概念，再挑一個代表工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實務上會遇到的問題：多半不會報錯，只是數字不對
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="實務上會遇到的問題：多半不會報錯，只是數字不對">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料品質類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可靠性類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        效能與成本類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        組織與治理類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出事之後：沿著 lineage 往回找，再補一個測試
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        台灣求職：先走 analytics engineer 這一步最順
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結語
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料來源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../trading/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trading Research
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trading Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2">
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    策略研究與回測
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    策略研究與回測
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/wave-backtest-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    波浪回測系統使用說明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/taiwan-large-retail-sector-flow-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台股大戶散戶產業資金流策略研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/wave-theory-probabilistic-counter-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    波浪理論機率式波數判斷系統規劃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/taiwan-uncle-wave-research-closeout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台指期波浪理論策略研究結案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/tradingview-classic-strategies-txf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TradingView 五支經典策略拆解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/threads-txf-sentiment-following-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threads 台指期情緒與跟單策略研究規劃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/net-delta-options-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net_delta 選擇權部位策略
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/taiwan-chip-counter-signal-backtest-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    台股籌碼反向訊號回測系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    產業研究方法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    產業研究方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/basic-industry-analysis-sop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基礎產業分析 SOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/serenity-style-industry-research-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serenity 式產業研究流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    低軌衛星專題
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    低軌衛星專題
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/leo-satellite-research-diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 研究結構圖與決策地圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/leo-satellite-supply-chain-exposure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · 產業研究總覽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/leo-satellite-company-universe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 台股公司全圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/leo-satellite-stock-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · 個股追蹤（昇達科、華通）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/leo-satellite-valuation-falsification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 估值與推翻條件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    被動元件專題
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    被動元件專題
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-research-diagrams-decision-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0 · 研究結構圖與決策地圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-industry-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · 產業研究總覽（框架＋閱讀地圖）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-market-sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 市場量化（數字骨架）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-company-universe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 · 台股公司全圖
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-stock-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 · 台灣個股追蹤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-monthly-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 · 月度追蹤表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-valuation-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 · 估值框架（貴不貴）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trading/passive-components-target-price/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 · 目標價評估（該給多少）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/cvs-radar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CVS-Radar 超商選品雷達
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/toeic-master/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TOEIC Master
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcmc-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bayesian MCMC 瀏覽偏好模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    project-inventory 專案盤點 skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    標籤
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        學習地圖總覽：五個階段，一條水管
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        學習手冊：每一關學什麼、怎樣算過關
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="學習手冊：每一關學什麼、怎樣算過關">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-12-34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 0：基礎工具箱，分析師可以壓到 1–2 週加 3–4 週
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 1：建模，Power BI 使用者的主場
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 2：第一條 pipeline，做完這關才算入門
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 3：雲端與工程化，把水管搬上雲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        階段 4：進階，碰到限制再打開
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你手上已經有的資產
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026 工具選擇：先學概念，再挑一個代表工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實務上會遇到的問題：多半不會報錯，只是數字不對
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="實務上會遇到的問題：多半不會報錯，只是數字不對">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料品質類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可靠性類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        效能與成本類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        組織與治理類
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出事之後：沿著 lineage 往回找，再補一個測試
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        台灣求職：先走 analytics engineer 這一步最順
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        結語
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料來源
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="導覽列">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首頁
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Career
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    資料工程路線
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags">
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:career" class="md-tag">Career</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:machine-learning" class="md-tag">Machine Learning</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="_1">從分析師走到資料工程師的水管地圖<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<div class="admonition info">
+<p class="admonition-title">資料基準與作者</p>
+<p>Oct 11, 2026 · @Shane</p>
+</div>
+<h2 id="_2">摘要<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>2025–2026 年各大學習路線的順序大致相同：先把 SQL 和 Python 練到工程等級，接著學資料建模（Kimball 的 fact／dimension 與 grain），然後自己做一條完整的 batch pipeline（ingest → raw → staging → mart，加上排程和資料品質檢查），再進到 Docker、雲端和 CI/CD。Spark、Kafka 串流和 Iceberg 這類 Lakehouse 技術放在最後，等真的碰到需要時再學 (<a href="https://datatalks.club/podwiki/roadmaps/data-engineer-roadmap/">DataTalks.Club podwiki</a>)。</p>
+<p>已經會寫程式的人，專心投入大約 3–6 個月可以走完主線；從零開始、利用下班時間學，則要 12–18 個月 (<a href="https://www.analyticsvidhya.com/blog/2026/01/data-engineer-roadmap/">Analytics Vidhya</a>; <a href="https://datawithbaraa.substack.com/p/the-ultimate-data-engineering-roadmap">Data with Baraa</a>)。對已經熟悉 Python、SQL 和 Power BI 的零售資料分析師來說，SQL 入門、star schema 概念和商業領域知識都可以直接跳過。真正要補的是工程習慣：Git、CLI、Docker、可上線的 Python、測試，以及 idempotent（可重跑）的寫入方式。</p>
+<p>2026 年工具版圖洗牌得很厲害：Fivetran 和 dbt Labs 在 6 月完成合併，IBM 在 3 月買下 Confluent，Iceberg 也成了四大平台都支援的開放表格格式 (<a href="https://www.fivetran.com/press/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents">Fivetran</a>; <a href="https://www.stocktitan.net/news/IBM/ibm-completes-acquisition-of-confluent-making-real-time-data-the-lbuwdbharsqe.html">StockTitan / IBM</a>; <a href="https://datalakehousehub.com/blog/iceberg-market-2026">Data Lakehouse Hub</a>)。所以學概念比背工具重要。上線之後最常讓人頭痛的也不是技術難題，而是靜悄悄的資料錯誤、重跑導致的重複資料、指標定義吵不完，還有沒人負責的告警。</p>
+<p>延伸閱讀：<a href="../da-to-ds-roadmap/">DA 轉 DS 學習地圖：要補的是機器學習和工程</a>。</p>
+<h2 id="_3">學習地圖總覽：五個階段，一條水管<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>用五歲小孩聽得懂的話說：<strong>資料工程師就是蓋水管的人。</strong> 每家店、每台收銀機、每個 App 都是一口井，水（資料）從這裡冒出來，有的乾淨，有的混了泥沙，有時候還會晚到。資料工程師負責把水管接到每口井，把水引進水庫存好，用濾網過濾乾淨，再按時把水送到每個需要的人家裡：老闆的報表、分析師的 Power BI、AI 模型。水管破了要有警報，水髒了要在進門前攔下來，水費（雲端費用）也不能失控。</p>
+<p>Reis 和 Housley 把這條流程整理成 Generate、Store、Ingest、Transform、Serve 五步，再加上安全、資料管理、DataOps、架構、排程和軟體工程六條「暗流」。Reis 在 2026 年回顧時說，這個框架四年後依然成立，因為它講的是抽象概念而不是工具清單；他也認為成本（FinOps）可能該列為第七條暗流 (<a href="https://joereis.substack.com/p/the-data-engineering-lifecycle-and">Joe Reis 2026</a>)。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/da-to-de-roadmap/roadmap.png" data-desc-position="bottom"><img alt="DA 到 DE 學習流程圖" src="../../assets/diagrams/da-to-de-roadmap/roadmap.png"></a></p>
+<p>這張圖的順序和 DataTalks.Club、Analytics Vidhya 與 DataExpert.io 的課綱一致。最後一關畫成岔路，因為 podwiki 明白寫著 Spark、Kafka、Kubernetes、Iceberg 這類進階工具要「等限制出現才學」(<a href="https://datatalks.club/podwiki/roadmaps/data-engineer-roadmap/">podwiki</a>)。</p>
+<p>有個常見的過時建議是先學 Hadoop。現在主流課綱（Zoomcamp、DataExpert、podwiki）都已經沒有 Hadoop 或 MapReduce 單元，Analytics Vidhya 也只建議知道 HDFS、YARN、MapReduce 當初是為了解決什麼問題就好 (<a href="https://www.analyticsvidhya.com/blog/2026/01/data-engineer-roadmap/">Analytics Vidhya</a>; <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp">Zoomcamp</a>)。</p>
+<h2 id="_4">學習手冊：每一關學什麼、怎樣算過關<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>以下時間以<strong>每週約 10 小時</strong>估算，參考 podwiki 的 12 週節奏和 Analytics Vidhya 的 6 個月計畫，再依讀者背景調整。這些是推估值；podwiki 也提醒自己的 12 週「不是保證」，會 SQL 和 Python 的人可以走得更快 (<a href="https://datatalks.club/podwiki/roadmaps/data-engineer-roadmap/">podwiki</a>)。</p>
+<h3 id="0-12-34">階段 0：基礎工具箱，分析師可以壓到 1–2 週加 3–4 週<a class="headerlink" href="#0-12-34" title="Permanent link">¶</a></h3>
+<p><strong>要學什麼。</strong> 進階 SQL：CTE、window function、recursive CTE、讀 EXPLAIN 和 query plan、partition pruning、nested/struct 型別。Python 當膠帶用：呼叫 API 時處理 pagination、retry 和壞資料，檔案 I/O，標準函式庫，Polars 或 pandas，pytest。另外還有 Linux/bash、Git 的分支與 PR 流程，以及最基本的網路觀念 (<a href="https://www.startdataengineering.com/">Start Data Engineering</a>; <a href="https://www.analyticsvidhya.com/blog/2026/01/data-engineer-roadmap/">Analytics Vidhya</a>)。</p>
+<p><strong>為什麼。</strong> Machado 認為，所謂進階 SQL 指的是「知道怎麼建模資料、怎麼有效率地做到」，不是背冷門語法 (<a href="https://www.startdataengineering.com/post/how-to-get-better-at-advanced-sql/">Start Data Engineering</a>)。他在 2026 年整理 AI 時代資料工程師的六項技能，第一項是「用 SQL 定義轉換，用 Python 黏合系統」，最後一項是「看懂 LLM 生成的程式碼」(<a href="https://www.startdataengineering.com/post/data-engineering-skills-in-age-of-ai/">Start Data Engineering 2026</a>)。AI 會幫你寫，但你得判斷它寫得對不對。</p>
+<p><strong>過關標準。</strong> 看到一段 SQL，能說出它的 grain 和掃了多少資料。寫得出一支能分頁抓 API、失敗自動重試、有 logging、型別提示和 pytest 的 Python 腳本。在終端機完成 clone、開 branch、commit 和發 PR。網路方面合理的底線是懂 port、localhost 和容器網路的差別、SSH、環境變數與 secrets，以及 VPC 和防火牆的概念（推論）。</p>
+<p><strong>快速通道。</strong> 你的 SQL 和 Python 大概已接近入門 DE 的水準。SQL 用 1–2 週補 query plan 和 partition pruning 就好；比較多時間留給工程習慣：把 notebook 改寫成 package，加上 logging、retry 和 pytest，再加上 CLI 和 Git，大約 3–4 週。</p>
+<p><strong>推薦資源。</strong> Start Data Engineering 的<a href="https://www.startdataengineering.com/post/advanced-sql/">進階 SQL 系列</a>，以及 <a href="https://www.dataexpert.io/program/free-community-boot-camp">DataExpert.io 免費 Community Boot Camp</a> 的 analytical patterns 模組。</p>
+<p><strong>階段專案。</strong> 挑一份工作上每週都要手動重跑的報表 SQL，改寫成可以參數化日期、從 CLI 執行的腳本，並放進 Git 版控。</p>
+<h3 id="1power-bi">階段 1：建模，Power BI 使用者的主場<a class="headerlink" href="#1power-bi" title="Permanent link">¶</a></h3>
+<p><strong>要學什麼。</strong> 依序學正規化與 OLTP、Kimball 維度建模（fact、dimension、grain、conformed dimension、Bus Matrix）、SCD Type 0/1/2 以及「每天存一份完整快照」的替代做法，然後是給下游用的 OBT（One Big Table）。Data Vault 只需要知道有這種東西。</p>
+<p><strong>為什麼。</strong> Reis 說，以為有了欄式儲存和便宜的算力就可以不管 Kimball，是「危險的無知」(<a href="https://joereis.substack.com/p/is-kimball-still-relevant">Joe Reis</a>)。他 2026 年 2 月的調查（n=1,101）顯示，<strong>89% 的人說建模讓他們很痛苦，但只有 5% 在用 semantic model</strong> (<a href="https://joereis.substack.com/p/where-data-engineering-is-heading">Joe Reis</a>)。這是目前最明顯、也最少人補的技能缺口。</p>
+<p><strong>SCD2 的另一派做法。</strong> Beauchemin 主張與其用 upsert 維護 SCD2，不如每次執行都把整張 dimension 存成新的 partition 快照：簡單、可重現，而且儲存比工程師的時間便宜 (<a href="https://maximebeauchemin.medium.com/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a">Maxime Beauchemin</a>)。兩種都該會，面試時講得出取捨會加分。</p>
+<p><strong>過關標準。</strong> 拿到一個業務問題，畫得出 Bus Matrix，說得出每張 fact table 的 grain，用 SQL 或 dbt 建出 fact 和 dim，對商品價格或門市屬性做 SCD2，並會用 surrogate key。</p>
+<p><strong>快速通道。</strong> Power BI 的關聯、fact/dim 和 grain 你每天都在用，概念可以快速帶過。要補的是把這些搬到上游：在倉儲裡用 SQL 建出來，而不是在 Power BI 模型裡拉關聯。便利商店的 POS 資料剛好就是 Kimball 零售銷售案例的翻版。</p>
+<p><strong>推薦資源。</strong> Kimball 與 Ross 的 <em>The Data Warehouse Toolkit</em>、Start Data Engineering 的 fact/dim 與 SCD2 系列、DataExpert 的維度建模模組。</p>
+<p><strong>階段專案。</strong> 設計一套零售 star schema：<code>fact_sales</code>、<code>dim_store</code>、<code>dim_product</code>、<code>dim_date</code>，商品價格做 SCD2，並寫一份 grain 說明文件 (<a href="https://datadriven.io/data-engineer-portfolio">DataDriven</a>)。</p>
+<p><strong>預估時間。</strong> 從零開始 3–4 週，分析師 1–2 週。</p>
+<h3 id="2-pipeline">階段 2：第一條 pipeline，做完這關才算入門<a class="headerlink" href="#2-pipeline" title="Permanent link">¶</a></h3>
+<p><strong>要學什麼。</strong> 用 dlt 做 ingestion（incremental load、schema 推斷、state）；用 dbt 建 staging 和 mart，寫 test、snapshot、incremental model；選一個排程工具（Airflow 3 優先）；資料品質做 freshness、volume、schema、uniqueness、null 和 referential 檢查，以及 write-audit-publish；還有最關鍵的 <strong>idempotent 寫入與 backfill</strong>。</p>
+<p><strong>為什麼。</strong> Idempotency 是整條水管的安全閥。Beauchemin 的原則是 task 要純粹、結果要確定，用整個覆寫 partition 取代 UPDATE 或 APPEND，重試和回補才安全。驗證方法很簡單：同一份輸入跑兩次，列數和內容都要一模一樣 (<a href="https://datalakehousehub.com/blog/2026-02-de-best-practices-04-idempotent-pipelines">DataLakehouseHub</a>)。</p>
+<p><strong>過關標準。</strong> Pipeline 每天自動執行，故意弄壞某一天後可以安全回補；上游多了欄位或改了型別時會大聲失敗，不會默默寫進 NULL；README 寫了架構圖、grain、怎麼跑，以及一則失敗處理的故事。</p>
+<p><strong>推薦資源。</strong> <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp">DataTalksClub Data Engineering Zoomcamp</a> 模組 2–4（排程、dlt、BigQuery、dbt）。課程免費、約 9 週；只有參加 live cohort 完成期末專案並通過互評才拿得到證書。另可參考 Start Data Engineering 的<a href="https://www.startdataengineering.com/post/data-engineering-project-for-beginners-batch-edition/">新手 batch 專案</a>。</p>
+<p><strong>階段專案。</strong> 對分析師最務實的切入點是 Machado 的建議：拿一個反覆出現的 ad hoc 查詢，定義清楚使用者、要解決什麼、多久更新，做成排程化的 SQL pipeline，套上 fact/dim 和 SCD2，demo 給使用者看，再請資深 DE 給意見 (<a href="https://www.startdataengineering.com/post/data-analyst-to-data-engineer/">Start Data Engineering</a>)。工作以外，再做一條本機版本：公開 API → dlt → DuckDB/Postgres → dbt → Airflow → Power BI，全部放進 Docker Compose。</p>
+<p><strong>預估時間。</strong> 6–8 週，分析師在這關省不了多少時間。</p>
+<h3 id="3">階段 3：雲端與工程化，把水管搬上雲<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
+<p><strong>要學什麼。</strong> Docker/Compose；選一個雲（台灣建議 GCP BigQuery 或 AWS）；IAM、PII 與治理的基本觀念；BigQuery 的 partitioning 與 clustering；Parquet；GitHub Actions 在每個 PR 跑 <code>dbt build</code>；Terraform 入門。</p>
+<p><strong>為什麼。</strong> Stack Overflow 2026 年調查中，Docker/Compose 使用率 <strong>59.1%</strong>，Kubernetes 26%，Terraform 18.3% (<a href="https://virtualizationreview.com/articles/2026/10/06/stack-overflow-survey-aws-leads-cloud-usage-azure-and-google-nearly-tied.aspx">Virtualization Review</a>)。Docker 是必修，Terraform 和 K8s 是加分項。雲端費用跟處理的資料量成正比，所以儲存要為讀取最佳化。</p>
+<p><strong>過關標準。</strong> 別人 <code>git clone</code> 你的專案後，一行指令就能在本機跑起來。雲端資源用 Terraform 建，刪掉可以重建。PR 沒通過測試不能 merge。你說得出某支查詢掃了多少 bytes、花了多少錢。</p>
+<p><strong>推薦資源。</strong> Zoomcamp 模組 1（Docker、Postgres、Terraform、GCP）。證照可考慮 GCP Professional Data Engineer（US$200）或 AWS Data Engineer Associate（US$150，65 題、130 分鐘）(<a href="https://www.datacamp.com/blog/best-data-engineer-certifications">DataCamp</a>; <a href="https://careery.pro/blog/data-engineer-careers/aws-data-engineer-certification-guide">Careery</a>)。</p>
+<p><strong>階段專案。</strong> 把階段 2 的 pipeline 搬上 BigQuery，用公開的零售類資料，包含 star schema、SCD2 商品維度、一次 backfill 示範、一次 schema 變更示範，並用 Terraform 和 GitHub Actions 管理。</p>
+<p><strong>預估時間。</strong> 階段 2 加階段 3 合計約 8–12 週。</p>
+<h3 id="4">階段 4：進階，碰到限制再打開<a class="headerlink" href="#4" title="Permanent link">¶</a></h3>
+<p><strong>要學什麼。</strong> Spark 內部機制（shuffle、broadcast join、AQE、skew）；Lakehouse 與 Iceberg 概念（snapshot、catalog、time travel）；Kafka 基本觀念（topic、partition、consumer group、exactly-once）與 schema registry，需要時再學 Flink；cost/FinOps；governance、lineage 和 catalog；semantic layer；RAG 與 embedding pipeline。</p>
+<p><strong>為什麼。</strong> 平台正在收斂：Snowflake 與 Databricks 都已 GA 支援 Iceberg v3，Apache Polaris 在 2026 年 2 月 18 日成為 Apache 頂級專案 (<a href="https://datalakehousehub.com/blog/iceberg-market-2026">Data Lakehouse Hub</a>，作者任職 Dremio，觀點可能偏向廠商)。Reis 的調查顯示 <strong>44% 的團隊用 warehouse、27% 用 lakehouse、12% 混合</strong> (<a href="https://joereis.substack.com/p/where-data-engineering-is-heading">Joe Reis</a>)。</p>
+<p><strong>過關標準。</strong> 在 Spark UI 看得出哪個 task 因為 skew 拖慢整個 stage 並修好它；說得出 Iceberg 刪資料後舊檔案為什麼還在；用 Kafka 搭一條模擬 POS 事件的串流，並解釋 at-least-once 為什麼會造成重複、怎麼去重。</p>
+<p><strong>階段專案。</strong> 模擬 POS 事件 → Kafka/Redpanda → Flink 或 Spark → Iceberg；或用 Spark 處理比記憶體還大的資料集，加上成本監控。</p>
+<p><strong>預估時間。</strong> 3–6 個月，視目標職缺而定。</p>
+<h3 id="_5">你手上已經有的資產<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>經濟與因果推論的訓練派得上用場：DataExpert 把 KPI 與實驗設計列為獨立模組，semantic layer 和指標治理正是 2026 年缺人的地方。一個抓評論、做情緒分析的 side project，只要補上排程化的 incremental 爬取、idempotent 載入、dbt test、CI 和品質儀表板，就能從「分析作品」變成「工程作品」(<a href="https://datadriven.io/data-engineer-portfolio">DataDriven</a>)。</p>
+<h2 id="2026">2026 工具選擇：先學概念，再挑一個代表工具<a class="headerlink" href="#2026" title="Permanent link">¶</a></h2>
+<p>2026 年的併購潮說明了為什麼不要把學習押在單一品牌上。Fivetran 和 dbt Labs 於 2026 年 6 月 1 日完成合併，Fusion 引擎以 dbt Core v2.0（alpha，Apache 2.0）開源 (<a href="https://www.fivetran.com/press/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents">Fivetran</a>)；Fivetran 在 2025 年 9 月已買下 SQLMesh 的母公司 Tobiko Data (<a href="https://www.businesswire.com/news/home/20250903275106/en/Fivetran-Acquires-Tobiko-Data-to-Power-the-Next-Generation-of-Advanced-AI-Ready-Data-Transformation">BusinessWire</a>)。IBM 以 110 億美元買下 Confluent，3 月 17 日完成 (<a href="https://www.stocktitan.net/news/IBM/ibm-completes-acquisition-of-confluent-making-real-time-data-the-lbuwdbharsqe.html">StockTitan / IBM</a>)。</p>
+<table>
+<thead>
+<tr>
+<th>類別</th>
+<th>先學</th>
+<th>之後再學</th>
+<th>為什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>雲端倉儲</td>
+<td>BigQuery（台灣）或 Snowflake</td>
+<td>Databricks</td>
+<td>BigQuery 有免費 sandbox，台灣行銷與廣告類職缺常見 (<a href="https://www.cake.me/jobs/BigQuery/in-Taipei%20City-Taiwan?locale=en">Cake</a>)</td>
+</tr>
+<tr>
+<td>表格格式</td>
+<td>Iceberg 概念</td>
+<td>Delta（Databricks 環境）</td>
+<td>四大平台都支援 Iceberg (<a href="https://datalakehousehub.com/blog/iceberg-market-2026">Data Lakehouse Hub</a>)</td>
+</tr>
+<tr>
+<td>本機引擎</td>
+<td>DuckDB</td>
+<td>Polars</td>
+<td>dbt v2 的 DuckDB adapter 已 Generally available（僅 CLI）(<a href="https://docs.getdbt.com/docs/supported-data-platforms">dbt adapter 支援表</a>)</td>
+</tr>
+<tr>
+<td>轉換</td>
+<td>dbt（Core v1 或 Fusion VS Code 擴充）</td>
+<td>SQLMesh 概念</td>
+<td>截至 2026-10-14，dbt v2 的 Snowflake、BigQuery、Databricks、Redshift、DuckDB（僅 CLI）adapter 已 Generally available；Spark 為 beta，ClickHouse 為 private beta (<a href="https://docs.getdbt.com/docs/supported-data-platforms">dbt adapter 支援表</a>)</td>
+</tr>
+<tr>
+<td>排程</td>
+<td>Airflow 3</td>
+<td>Dagster</td>
+<td>Dagster 在小公司使用率 12%，大企業只有 2.6% (<a href="https://joereis.substack.com/p/where-data-engineering-is-heading">Joe Reis</a>)</td>
+</tr>
+<tr>
+<td>Ingestion</td>
+<td>dlt（Python）</td>
+<td>Fivetran/Airbyte 概念、Debezium CDC</td>
+<td>Fivetran 按 MAR 計價，費用可能急遽攀升 (<a href="https://getbruin.com/blog/best-data-ingestion-tools-2026/">Bruin</a>，廠商文章)</td>
+</tr>
+<tr>
+<td>處理</td>
+<td>SQL + PySpark</td>
+<td>Flink（串流職缺才需要）</td>
+<td>Spark 仍是大數據職缺的基本要求</td>
+</tr>
+<tr>
+<td>串流</td>
+<td>Kafka 觀念</td>
+<td>MSK / Confluent / Pub/Sub</td>
+<td>台灣有職缺用 Amazon MSK 搭配 managed Airflow (<a href="https://www.cake.me/jobs/Airflow/in-Taipei%20City-Taiwan">Cake</a>)</td>
+</tr>
+<tr>
+<td>資料品質</td>
+<td>dbt tests + data contracts</td>
+<td>Soda/GX、OpenLineage</td>
+<td>門檻最低，品質工具市場還在洗牌</td>
+</tr>
+<tr>
+<td>基礎設施</td>
+<td>Git、Docker、GitHub Actions</td>
+<td>Terraform、K8s 基礎</td>
+<td>Docker 使用率 59.1% (<a href="https://virtualizationreview.com/articles/2026/10/06/stack-overflow-survey-aws-leads-cloud-usage-azure-and-google-nearly-tied.aspx">Virtualization Review</a>)</td>
+</tr>
+<tr>
+<td>AI 時代</td>
+<td>建模 + semantic layer</td>
+<td>RAG/embedding pipeline、pgvector</td>
+<td>82% 每天用 AI，但只有 10% 真正嵌進工作流程 (<a href="https://joereis.substack.com/p/where-data-engineering-is-heading">Joe Reis</a>)</td>
+</tr>
+<tr>
+<td>雲端平台</td>
+<td>依目標雇主選 GCP 或 AWS</td>
+<td>另一個</td>
+<td>全球 AWS 41.8%、Azure 25.1%、GCP 24.5% (<a href="https://virtualizationreview.com/articles/2026/10/06/stack-overflow-survey-aws-leads-cloud-usage-azure-and-google-nearly-tied.aspx">Virtualization Review</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>排程工具的概念（DAG、retry、backfill、資料感知相依）學好，工具挑一個就夠。想進台灣市場，Airflow 3 最穩：Cake 上「Airflow」台北的搜尋結果第一頁 10 筆職缺全都提到它，但這只是快照，不是市占率。Power BI 使用者也可以留意 Microsoft Fabric 的 DP-700 證照（約 US$165），它是新考試，對求職的效果還沒經過驗證 (<a href="https://www.datacamp.com/blog/best-data-engineer-certifications">DataCamp</a>)。</p>
+<h2 id="_6">實務上會遇到的問題：多半不會報錯，只是數字不對<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<p>Monte Carlo 2023 年調查 200 位資料從業人員：團隊平均<strong>每月 67 起資料事故</strong>，68% 要 4 小時以上才發現，平均修復約 15 小時，<strong>74% 說多半是業務端先發現問題</strong> (<a href="https://www.businesswire.com/news/home/20230502005377/en/5435996/Data-Downtime-Nearly-Doubled-Year-Over-Year-Monte-Carlo-Survey-Says">BusinessWire / Monte Carlo</a>)。job 大聲失敗的成本，遠低於 job 成功卻寫進錯誤資料。標「（示意）」的便利商店例子是為了說明機制設計的情境，不是真實事件。</p>
+<h3 id="_7">資料品質類<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p><strong>1. 資料晚到（late-arriving data）</strong></p>
+<ul>
+<li><strong>症狀：</strong> 昨天的營業額接下來幾天還在慢慢往上加，同一天的報表數字隨查詢時間不同。</li>
+<li><strong>原因：</strong> pipeline 只處理一次「昨天的 partition」，但離線門市補傳或付款延遲確認的資料會晚到。</li>
+<li><strong>怎麼處理：</strong> 每次重跑最近幾天的 lookback 視窗，用 partition overwrite 或 MERGE 寫入；dbt microbatch 的 <code>lookback</code> 設定就是為此設計 (<a href="https://docs.getdbt.com/reference/resource-configs/lookback">dbt docs</a>)。串流系統用 watermark 決定最多等多久 (<a href="https://risingwave.com/blog/watermarks-stream-processing-late-data/">RisingWave</a>)。另外發布「資料完整至何時」的標記。</li>
+<li><strong>例子（示意）：</strong> 某門市 POS 半夜斷網，02:00–06:00 的交易到 10:00 才補傳，08:00 的日結 job 已關帳，報表上那間店業績突然下滑。</li>
+</ul>
+<p><strong>2. 重複資料</strong></p>
+<ul>
+<li><strong>症狀：</strong> 出過事故或重跑之後，營業額和訂單數膨脹。</li>
+<li><strong>原因：</strong> job 載入 10 萬筆後下一步失敗，排程器整批重跑又盲目 APPEND 一次，變成 20 萬筆 (<a href="https://datalakehousehub.com/blog/2026-02-de-best-practices-04-idempotent-pipelines">DataLakehouseHub</a>)。</li>
+<li><strong>怎麼處理：</strong> 用業務鍵 MERGE（例如 <code>order_id + line_no</code>），主鍵加 uniqueness test。Uber 把重複主鍵比例列為標準檢查 (<a href="https://www.uber.com/en-TW/blog/operational-excellence-data-quality/">Uber Engineering</a>)。</li>
+<li><strong>例子（示意）：</strong> 支付 webhook 重送，同一個 <code>order_id</code> 進來兩次，促銷 ROI 被高估。</li>
+</ul>
+<p><strong>3. Schema drift（上游悄悄改了結構）</strong></p>
+<ul>
+<li><strong>症狀：</strong> job 失敗；更糟的是 job 成功，但寫進一堆 NULL。</li>
+<li><strong>原因：</strong> 上游沒通知就改欄位名稱或型別；更難發現的是語意漂移，例如三張表裡有三種沒寫下來的「活躍會員」定義 (<a href="https://hackernoon.com/why-data-pipelines-keep-breakingand-how-data-contracts-fix-them">HackerNoon</a>)。</li>
+<li><strong>怎麼處理：</strong> 在 ingestion 端檢查 schema contract，不符合就大聲失敗並通知生產者；用 YAML 寫 data contract、在 CI 驗證，先從最痛的 3–5 張表做起。</li>
+<li><strong>例子（示意）：</strong> 會員 App 改版，把 <code>store_code</code> 改名成 <code>store_id</code>，新會員的點數儀表板全部顯示為 0。</li>
+</ul>
+<p><strong>4. 時區</strong></p>
+<ul>
+<li><strong>症狀：</strong> 日營業額跟財務或 POS 日結對不起來，差額集中在午夜前後。</li>
+<li><strong>原因：</strong> 事件以 UTC 儲存也用 UTC 切日，台灣 UTC+8，00:00–08:00 的交易會被算到前一天。</li>
+<li><strong>怎麼處理：</strong> 以 UTC 加明確 offset 儲存，在一個共用 model 裡依門市當地時區產生 <code>business_date</code>，並把營業日切點寫成文件（這張卡是從原理推導，沒有公開事故報告）。</li>
+<li><strong>例子（示意）：</strong> 跨夜時段的業績全部算到前一天，週一業績看起來特別好。</li>
+</ul>
+<p><strong>5. NULL 與靜默資料損壞</strong></p>
+<ul>
+<li><strong>症狀：</strong> 列數下滑、null 比例上升，好幾天後才有人覺得儀表板怪怪的。</li>
+<li><strong>原因：</strong> 只監控 task 有沒有成功，沒監控資料本身。</li>
+<li><strong>怎麼處理：</strong> staging 層做衛生測試（主鍵 unique + not null、必要欄位有值、格式檢查），再從最常用的 1–3 個儀表板倒推業務異常測試 (<a href="https://docs.getdbt.com/blog/test-smarter-not-harder">dbt blog</a>)。Uber 的標準維度是 Freshness、Completeness、Duplicates。</li>
+<li><strong>例子（示意）：</strong> 商品分類對照表少了一批新品，join 後這些銷售全被丟掉，總營收少了 2%，沒有人發現。</li>
+</ul>
+<h3 id="_8">可靠性類<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<p><strong>6. Backfill 回補</strong></p>
+<ul>
+<li><strong>症狀：</strong> 修好 bug 後要重算上一季，直接回補卻讓資料加倍，或撞到倉儲配額。</li>
+<li><strong>原因：</strong> 寫入不是 idempotent，回補和日常 job 擠在同一份算力上。</li>
+<li><strong>怎麼處理：</strong> partition overwrite、業務鍵 MERGE、串流端去重；回補分批、用獨立算力，事先通知下游，事後核對前後總數。</li>
+<li><strong>例子（示意）：</strong> 修正稅額與折扣邏輯後，重算 90 天的門市日銷售。</li>
+</ul>
+<p><strong>7. 上游晚了，下游照跑</strong></p>
+<ul>
+<li><strong>症狀：</strong> 下游 job 顯示成功，用的卻是舊資料。</li>
+<li><strong>原因：</strong> 用 cron 時間差排相依，例如固定比上游晚 1 小時。</li>
+<li><strong>怎麼處理：</strong> 改成資料感知的相依（sensor 或 freshness 檢查）。Uber 把 Freshness 設為父檢查，失敗時壓下子告警，一個根因只響一次 (<a href="https://www.uber.com/en-TW/blog/operational-excellence-data-quality/">Uber Engineering</a>)。</li>
+<li><strong>例子（示意）：</strong> 會員資料晚到，日報照樣用前一天的會員數算客單價。</li>
+</ul>
+<p><strong>8. 告警疲勞</strong></p>
+<ul>
+<li><strong>症狀：</strong> 每天幾十個測試失敗，大家乾脆不看。</li>
+<li><strong>原因：</strong> 所有告警丟進同一個頻道、門檻沒跟著業務調整。Dengsøe 用「破窗」比喻：被忽略的失敗會讓人學會忽略所有失敗 (<a href="https://mikkeldengsoe.substack.com/p/broken-windows">Mikkel Dengsøe</a>)。</li>
+<li><strong>怎麼處理：</strong> 每個 model 定 owner 和重要程度，告警直送 owner；每月清理，沒有測試連續失敗超過 5 天；只有影響客戶、財務或主管報表的測試設成 error，說不出怎麼除錯的測試就刪掉 (<a href="https://docs.getdbt.com/blog/test-smarter-not-harder">dbt blog</a>)。</li>
+<li><strong>例子（示意）：</strong> 新品上市季，「日銷售變動不得超過 20%」一週響五次，得重新校準門檻。</li>
+</ul>
+<h3 id="_9">效能與成本類<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<p><strong>9. 雲端帳單爆炸</strong></p>
+<ul>
+<li><strong>症狀：</strong> 月底收到帳單才發現暴增。</li>
+<li><strong>原因：</strong> BigQuery on-demand 每 TB US$6.25，<strong><code>LIMIT</code> 不會減少掃描量</strong>；把 partition 欄位包在 BigQuery 不支援 pruning 的運算式裡（如轉成 <code>STRING</code> 或 <code>FORMAT_TIMESTAMP(...)</code>），或拿它和非常數運算式比較，都可能讓 pruning 失效；on-demand 預設沒有支出上限 (<a href="https://www.cloudkeeper.com/insights/blog/10-costly-bigquery-mistakes-engineers-make-and-how-avoid-them">CloudKeeper</a>)。</li>
+<li><strong>怎麼處理：</strong> 設 maximum bytes billed、使用者配額、預算告警，code review 先 dry run；舊版 streaming inserts API（<code>insertAll</code>）每 200 MB 收 US$0.01，約 US$50/TB；建議使用的 Storage Write API 為 US$0.025/GiB，每月前 2 TiB 免費，批次載入仍免費 (<a href="https://cloud.google.com/bigquery/pricing">BigQuery pricing</a>)。若仍用 <code>insertAll</code> 且不需要秒級延遲，可改成每 5–10 分鐘批次載入，省下舊版串流費用。</li>
+<li><strong>例子（示意）：</strong> 分析師用 Power BI DirectQuery 接上整張交易明細表，每次開報表都全表掃描。</li>
+</ul>
+<p><strong>10. Partition 設計錯誤與 small files</strong></p>
+<ul>
+<li><strong>症狀：</strong> 查詢很慢，檔案數量爆多。</li>
+<li><strong>原因：</strong> 用 <code>store_id</code> 切 partition，幾千間門市切出一堆小 partition，最常見的「所有門市最近 7 天」反而用不到。</li>
+<li><strong>怎麼處理：</strong> 依 <code>business_date</code> 切 partition，再依 <code>store_id</code>/<code>sku</code> clustering；Delta 可開 <code>optimizeWrite</code>，對高基數篩選欄位做 OPTIMIZE/Z-ORDER (<a href="https://dev.to/jubinsoni/spark-performance-deep-dive-on-databricks-shuffle-tuning-skew-handling-and-z-ordering-with-delta-29ko">dev.to</a>)。</li>
+</ul>
+<p><strong>11. 資料傾斜（skew）</strong></p>
+<ul>
+<li><strong>症狀：</strong> 一個 task 跑好幾分鐘，同 stage 其他 task 幾秒就完成。</li>
+<li><strong>原因：</strong> hot key。</li>
+<li><strong>怎麼處理：</strong> salting 或開啟 AQE skew join；注意 broadcast 門檻預設 10MB，dimension 表悄悄長大後會退化成 shuffle join。</li>
+<li><strong>例子（示意）：</strong> 非會員交易的 <code>member_id</code> 都是 <code>'0000'</code>，形成超大 hot key，先濾掉或加 salt。</li>
+</ul>
+<h3 id="_10">組織與治理類<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<p><strong>12. 指標定義之爭</strong></p>
+<ul>
+<li><strong>症狀：</strong> 商品部說既存店成長 3%，財務說 1%。</li>
+<li><strong>原因：</strong> 既存店是開幕滿 12 還是 13 個月、含稅或未稅、退貨有沒有扣、營業日切點在哪。</li>
+<li><strong>怎麼處理：</strong> 在 semantic layer 維護一份受治理的定義，指定業務 owner。Airbnb 的 Minerva 走「define once, use everywhere」，從 2017 年做到 2020 年成為全公司指標的單一真相來源，管理超過 12,000 個指標 (<a href="https://roundup.getdbt.com/p/ep-1-robert-chang-on-scaling-metrics">dbt Roundup</a>)。DE 的工作是把分歧攤開，不是自己選邊。</li>
+</ul>
+<p><strong>13. ad hoc 需求淹沒 roadmap</strong></p>
+<ul>
+<li><strong>症狀：</strong> 同一個問題在三個私訊裡各回答一次，排定的工作做不完。</li>
+<li><strong>原因：</strong> 需求從私訊進來，沒有追蹤。</li>
+<li><strong>怎麼處理：</strong> 導到共用頻道或工單，分成 backlog、排程、立即處理三類，問清楚數字要做什麼決策 (<a href="https://dataproducts.substack.com/p/the-data-quality-resolution-process">Data Products</a>)。重複出現的問題做成自助資料集。每個上線的 model 都是維護承諾，可能占掉一個人 2–20% 的時間。</li>
+</ul>
+<p><strong>14. PII 散落與個資法</strong></p>
+<ul>
+<li><strong>症狀：</strong> 會員手機號碼出現在幾十個 sandbox 和 CSV 匯出檔裡。</li>
+<li><strong>原因：</strong> 為了方便，原始會員表到處被 join。</li>
+<li><strong>怎麼處理：</strong> ingestion 端就 tokenize，對照表放在權限受限的 vault；倉儲用欄位遮罩和 row-level policy。注意 Iceberg 的刪除不會真的毀掉資料，硬刪除需要整套 runbook 或 crypto-shredding (<a href="https://datalakehousehub.com/blog/gdpr-hard-deletes-on-iceberg">DataLakehouseHub</a>)。</li>
+<li><strong>台灣個資法：</strong> 2025 年 11 月 11 日公布的修正案設立個人資料保護委員會（PDPC），外洩時要通知當事人並依條件通報，違反安全維護義務屆期未改正可按次處 15 萬至 1,500 萬元 (<a href="https://www.klgates.com/New-Developments-in-the-Taiwan-Personal-Data-Protection-Act-1-13-2026">K&amp;L Gates</a>)。施行日期未確認，請以 PDPC 公告為準。</li>
+</ul>
+<p><strong>15. 系統遷移對不起來</strong></p>
+<ul>
+<li><strong>症狀：</strong> 搬到雲端後總數一樣，明細不一樣。</li>
+<li><strong>原因：</strong> 對帳靠人工比列數；常見差異來源是時間戳語意、金額小數精度、NULL 與空字串、排序規則、整數除法。</li>
+<li><strong>怎麼處理：</strong> 依序做列數 → 欄位加總 → schema → 雙向 EXCEPT → 每列 hash 比對，從第一天就排程驗證。<strong>列數和加總都對，不代表每一列都對</strong> (<a href="https://community.databricks.com/t5/technical-blog/speed-up-data-warehouse-migration-validation/ba-p/157067">Databricks Community</a>)。</li>
+</ul>
+<h3 id="lineage">出事之後：沿著 lineage 往回找，再補一個測試<a class="headerlink" href="#lineage" title="Permanent link">¶</a></h3>
+<p>除錯順序：重現問題 → profiling → 沿 lineage 往上下游追 → 找上游工程師 → PR review 修正 → 告訴使用者影響範圍與現在該怎麼用 (<a href="https://dataproducts.substack.com/p/the-data-quality-resolution-process">Data Products</a>)。規則只有一條：<strong>使用者發現了測試沒抓到的問題，就補一個測試</strong>。值得長期追蹤的指標是「使用者比資料團隊先發現問題的比例」。</p>
+<h2 id="analytics-engineer">台灣求職：先走 analytics engineer 這一步最順<a class="headerlink" href="#analytics-engineer" title="Permanent link">¶</a></h2>
+<p>台灣 DE 職缺的共同要求是 Python、進階 SQL、ETL 與 pipeline 經驗、一個雲端平台、Git 和 Linux；Airflow、Docker/K8s、Spark/Hadoop 常列為加分項 (<a href="https://blog.104.com.tw/data-engineer-career/">104職場力</a>; <a href="https://www.michaelpage.com.tw/zh/job-detail/sr-data-engineer-%E5%85%A8%E7%90%83%E9%A0%98%E5%85%88%E8%A3%BD%E9%80%A0%E6%A5%AD/ref/jn-092025-6842730?lang=en">Michael Page TW</a>)。市場大致可分成幾類（推論分類）：</p>
+<ul>
+<li><strong>金融與傳產：</strong> 地端 Hadoop/Hive 加 MSSQL/Oracle，正在上雲。</li>
+<li><strong>網路、電商、遊戲、廣告科技：</strong> GCP/BigQuery 或 AWS，加上 Airflow、dbt、Kafka。iThome 鐵人賽有團隊分享從 Airflow 觸發 <code>dbt build --select +tag:daily</code> 的做法 (<a href="https://ithelp.ithome.com.tw/articles/10361417">iT邦幫忙</a>)。</li>
+<li><strong>半導體與製造：</strong> Python + SQL + Airflow + K8s，重點放在 AI。</li>
+<li><strong>外商或區域型科技公司：</strong> 薪資明顯較高。</li>
+</ul>
+<p><strong>薪資資料很分散，參考價值有限。</strong> 104 薪資情報的月薪平均：3 年以下約 <strong>5.9 萬</strong>，3–5 年約 6.4 萬，5–10 年約 6.6 萬，但沒寫年份與計算方法 (<a href="https://blog.104.com.tw/data-engineer-career/">104職場力</a>)。CakeResume 上金融科技的 Senior DE（4 年經驗）年薪 120–160 萬，Sr. BigData Engineer/TL（5 年經驗）180–250 萬，其中一份 JD 已明確寫到「AI coding tools」(<a href="https://www.cake.me/jobs/Kafka/in-Taiwan">CakeResume</a>)。把 104 的平均當下限而不是目標比較合理。</p>
+<p><strong>轉職路徑。</strong> 分析師帶得走的是 SQL、對資料品質的直覺、領域知識和溝通能力；缺的是 pandas 以外的 Python、ETL 設計、Spark/Kafka、雲端，以及 Docker、Terraform、Git (<a href="https://www.interviewquery.com/p/data-analyst-to-data-engineer">Interview Query</a>)。Analytics engineer 通常比較容易進入，在成熟團隊裡薪資常常接近 DE (<a href="https://dataengineeracademy.com/blog/analytics-engineer-vs-data-engineer/">Data Engineer Academy</a>)。比較穩的順序是：</p>
+<ol>
+<li>分析師 → AE：dbt、倉儲建模、Git/CI。</li>
+<li>AE → DE：排程、ingestion、IaC、Spark/串流。</li>
+</ol>
+<p>風險最低的做法是在公司內部轉：接下一條既有的報表 pipeline（例如 POS 或會員資料 → DW → BI），重構成有測試、有版控的 dbt model 交給排程器跑，換 title 之前就先有 production pipeline 的實績。台灣的職稱很亂，「資料工程師」、「大數據工程師」、「Backend (Data)」都可能是 DE 的工作，要看 JD 內容判斷。</p>
+<p><strong>作品集與面試。</strong> 兩三個做完整、用真實且持續更新資料的 end-to-end 專案，勝過一堆照教學做的複製品。扣分：沒有 README、照抄教學、secrets 寫死。加分：架構圖、測試加 CI、技術棧對得上目標 JD。資料品質監控系統很少人做，容易讓人記住 (<a href="https://datadriven.io/data-engineer-portfolio">DataDriven</a>)。面試常見題型有去重、sessionization、每組取 top-N、SCD 和 partition 技巧，SQL 和 Python 都要限時練習。本地作品集題材可考慮政府資料開放平台或 TWSE 每日行情的 incremental ingestion、YouBike 即時資料串流。</p>
+<p><strong>證照與書。</strong> 先上免費的 Zoomcamp，再依目標雇主考一張雲端證照：BigQuery 環境選 GCP PDE，企業、金融科技和 AWS 環境選 AWS DEA。dbt 認證（官方 US$200）可以當 AE 的訊號 (<a href="https://pages.talview.com/dbtlabs/certifications">dbt Labs/Talview</a>)。讀書順序：</p>
+<ol>
+<li><a href="https://oreilly.com/library/view/fundamentals-of-data/9781098108298"><em>Fundamentals of Data Engineering</em></a>：建立全局地圖。</li>
+<li>Kimball <em>The Data Warehouse Toolkit</em>：學建模。</li>
+<li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/"><em>Designing Data-Intensive Applications</em> 第二版</a>（2026 年 2 月出版，新增 vector embeddings、durable execution）：補系統設計。</li>
+</ol>
+<h2 id="_11">結語<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
+<p>2026 年 AI 和工具併購越熱鬧，越該把時間花在不會過時的東西上：grain、idempotency、data contract、指標定義。Reis 預測「AI-assisted」到 2026 年底會從 JD 上消失，因為大家都會預設你會用 (<a href="https://joereis.substack.com/p/where-data-engineering-is-heading">Joe Reis</a>)。到那時候，能拉開差距的是判斷 AI 寫出來的 pipeline 對不對，以及出事時能沿著 lineage 找到根因。</p>
+<p>在零售業做分析的人，最大的優勢是已經知道「既存店」有幾種算法、POS 半夜斷網會發生什麼事。先把公司裡一條真實的報表 pipeline 做成有測試、可重跑、有 owner 的版本，用 AE 當跳板，再往 Spark、串流和 Lakehouse 延伸。這條路拿到 DE 的 title 較慢，但每一步都有成果拿得出來。</p>
+<h2 id="_12">資料來源<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://joereis.substack.com/p/the-data-engineering-lifecycle-and">Joe Reis, The Data Engineering Lifecycle and Undercurrents, 4 Years Later</a></li>
+<li><a href="https://joereis.substack.com/p/where-data-engineering-is-heading">Joe Reis, Where Data Engineering Is Heading</a></li>
+<li><a href="https://joereis.substack.com/p/is-kimball-still-relevant">Joe Reis, Is Kimball Still Relevant?</a></li>
+<li><a href="https://github.com/DataTalksClub/data-engineering-zoomcamp">DataTalksClub Data Engineering Zoomcamp</a></li>
+<li><a href="https://datatalks.club/podwiki/roadmaps/data-engineer-roadmap/">DataTalks.Club podwiki, Data Engineer Roadmap</a></li>
+<li><a href="https://www.dataexpert.io/program/free-community-boot-camp">DataExpert.io Free Community Boot Camp</a></li>
+<li><a href="https://www.startdataengineering.com/">Start Data Engineering</a>、<a href="https://www.startdataengineering.com/post/data-engineering-skills-in-age-of-ai/">6 skills in the age of AI</a>、<a href="https://www.startdataengineering.com/post/data-analyst-to-data-engineer/">Analyst to DE</a>、<a href="https://www.startdataengineering.com/post/data-engineering-project-for-beginners-batch-edition/">Beginner batch project</a>、<a href="https://www.startdataengineering.com/post/advanced-sql/">Advanced SQL</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/01/data-engineer-roadmap/">Analytics Vidhya, Data Engineer Roadmap 2026</a></li>
+<li><a href="https://datawithbaraa.substack.com/p/the-ultimate-data-engineering-roadmap">Data with Baraa, The Ultimate Data Engineering Roadmap</a></li>
+<li><a href="https://maximebeauchemin.medium.com/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a">Maxime Beauchemin, Functional Data Engineering</a></li>
+<li><a href="https://datalakehousehub.com/blog/iceberg-market-2026">Data Lakehouse Hub, Iceberg market 2026</a></li>
+<li><a href="https://www.fivetran.com/press/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents">Fivetran + dbt Labs merger</a></li>
+<li><a href="https://docs.getdbt.com/docs/fusion/fusion-availability">dbt docs, Fusion availability</a>、<a href="https://docs.getdbt.com/reference/resource-configs/lookback">lookback</a>、<a href="https://docs.getdbt.com/blog/test-smarter-not-harder">Test smarter not harder</a></li>
+<li><a href="https://www.businesswire.com/news/home/20250903275106/en/Fivetran-Acquires-Tobiko-Data-to-Power-the-Next-Generation-of-Advanced-AI-Ready-Data-Transformation">BusinessWire, Fivetran acquires Tobiko Data</a></li>
+<li><a href="https://getbruin.com/blog/best-data-ingestion-tools-2026/">Bruin, Best data ingestion tools 2026</a></li>
+<li><a href="https://www.stocktitan.net/news/IBM/ibm-completes-acquisition-of-confluent-making-real-time-data-the-lbuwdbharsqe.html">StockTitan / IBM, Confluent acquisition</a></li>
+<li><a href="https://virtualizationreview.com/articles/2026/10/06/stack-overflow-survey-aws-leads-cloud-usage-azure-and-google-nearly-tied.aspx">Virtualization Review, Stack Overflow Survey 2026</a></li>
+<li><a href="https://www.cake.me/jobs/Airflow/in-Taipei%20City-Taiwan">Cake: Airflow Taipei</a>、<a href="https://www.cake.me/jobs/BigQuery/in-Taipei%20City-Taiwan?locale=en">BigQuery Taipei</a>、<a href="https://www.cake.me/jobs/Kafka/in-Taiwan">Kafka Taiwan</a></li>
+<li><a href="https://www.businesswire.com/news/home/20230502005377/en/5435996/Data-Downtime-Nearly-Doubled-Year-Over-Year-Monte-Carlo-Survey-Says">Monte Carlo 2023 survey via BusinessWire</a></li>
+<li><a href="https://risingwave.com/blog/watermarks-stream-processing-late-data/">RisingWave, watermarks and late data</a></li>
+<li><a href="https://datalakehousehub.com/blog/2026-02-de-best-practices-04-idempotent-pipelines">DataLakehouseHub, Idempotent pipelines</a>、<a href="https://datalakehousehub.com/blog/gdpr-hard-deletes-on-iceberg">GDPR hard deletes on Iceberg</a></li>
+<li><a href="https://www.uber.com/en-TW/blog/operational-excellence-data-quality/">Uber Engineering, Operational excellence in data quality</a></li>
+<li><a href="https://hackernoon.com/why-data-pipelines-keep-breakingand-how-data-contracts-fix-them">HackerNoon, Data contracts</a></li>
+<li><a href="https://mikkeldengsoe.substack.com/p/broken-windows">Mikkel Dengsøe, Broken windows</a></li>
+<li><a href="https://dev.to/jubinsoni/spark-performance-deep-dive-on-databricks-shuffle-tuning-skew-handling-and-z-ordering-with-delta-29ko">dev.to, Spark performance on Databricks</a></li>
+<li><a href="https://www.cloudkeeper.com/insights/blog/10-costly-bigquery-mistakes-engineers-make-and-how-avoid-them">CloudKeeper, 10 costly BigQuery mistakes</a></li>
+<li><a href="https://roundup.getdbt.com/p/ep-1-robert-chang-on-scaling-metrics">dbt Roundup, Robert Chang on Minerva</a></li>
+<li><a href="https://dataproducts.substack.com/p/the-data-quality-resolution-process">Data Products, The data quality resolution process</a></li>
+<li><a href="https://www.klgates.com/New-Developments-in-the-Taiwan-Personal-Data-Protection-Act-1-13-2026">K&amp;L Gates, Taiwan PDPA amendments</a></li>
+<li><a href="https://community.databricks.com/t5/technical-blog/speed-up-data-warehouse-migration-validation/ba-p/157067">Databricks Community, Migration validation</a></li>
+<li><a href="https://blog.104.com.tw/data-engineer-career/">104職場力, 資料工程師職涯</a></li>
+<li><a href="https://www.michaelpage.com.tw/zh/job-detail/sr-data-engineer-%E5%85%A8%E7%90%83%E9%A0%98%E5%85%88%E8%A3%BD%E9%80%A0%E6%A5%AD/ref/jn-092025-6842730?lang=en">Michael Page Taiwan, Sr. Data Engineer</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10361417">iT邦幫忙, 解耦 Airflow 與 dbt</a></li>
+<li><a href="https://www.interviewquery.com/p/data-analyst-to-data-engineer">Interview Query, Data analyst to data engineer</a></li>
+<li><a href="https://dataengineeracademy.com/blog/analytics-engineer-vs-data-engineer/">Data Engineer Academy, Analytics engineer vs data engineer</a></li>
+<li><a href="https://datadriven.io/data-engineer-portfolio">DataDriven, Data engineer portfolio</a></li>
+<li><a href="https://www.datacamp.com/blog/best-data-engineer-certifications">DataCamp, Best data engineer certifications</a></li>
+<li><a href="https://careery.pro/blog/data-engineer-careers/aws-data-engineer-certification-guide">Careery, AWS Data Engineer certification guide</a></li>
+<li><a href="https://pages.talview.com/dbtlabs/certifications">dbt Labs / Talview certifications</a></li>
+<li><a href="https://oreilly.com/library/view/fundamentals-of-data/9781098108298">O'Reilly, Fundamentals of Data Engineering</a></li>
+<li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/">O'Reilly, Designing Data-Intensive Applications 2e</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最後更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月14日 07:34:26 UTC">2026年10月14日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="建立日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月14日 06:43:52 UTC">2026年10月14日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到頂端
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="頁腳">
+        
+          
+          <a href="../da-to-ds-roadmap/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: DA 轉 DS 學習地圖">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一頁
+              </span>
+              <div class="md-ellipsis">
+                DA 轉 DS 學習地圖
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../trading/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Trading Research">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一頁
+              </span>
+              <div class="md-ellipsis">
+                Trading Research
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/YuHsunWang" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tooltips", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/glightbox-close.js?v=cb15c7c177"></script>
+      
+        <script src="../../javascripts/kb-apparatus.js?v=2832ac7f45"></script>
+      
+        <script src="../../javascripts/kb-map.js?v=51d74a971e"></script>
+      
+        <script src="../../javascripts/kb-galaxy.js?v=12bc0659a8"></script>
+      
+        <script src="../../javascripts/kb-transition.js?v=e153ac67e0"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": false, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

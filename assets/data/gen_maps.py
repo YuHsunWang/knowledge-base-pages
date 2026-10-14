@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""產生四張互動地圖的資料檔與三區 Knowledge Galaxy payload。
+"""產生互動地圖的資料檔與各區 Knowledge Galaxy payload。
 
 每張地圖的「內容」來自站上既有來源，本檔只額外定義**結構**（欄位、節點、連線）
 ——那是來源檔案沒有的資訊：
@@ -31,6 +31,7 @@ FAILURES = []
 SECTION_MAPS = {
     "ai": "map-ai-engineering.json",
     "machine-learning": "map-machine-learning.json",
+    "career": "map-career.json",
     "trading": "map-trading.json",
 }
 
@@ -347,12 +348,18 @@ TRADING_EDGES = [
 ]
 
 
+CAREER_NODES = [
+    ("c1", "a", "資料科學路線", "補齊模型、實驗與 Python 工程能力", None),
+    ("c2", "b", "資料工程路線", "從資料建模走到可重跑的管線", None),
+]
+
+
 GRAPH = {}
 
 
 def build_section(section, nodes, edges, columns, out_name, hint, group_map, layout,
                   galaxy_id, galaxy_title):
-    """AI / ML / Trading 共用：文章與 Galaxy 顯示資料由站台來源合成。"""
+    """AI / ML / Career / Trading 共用：文章與 Galaxy 顯示資料由站台來源合成。"""
     entries = nav_entries(section)
     check(bool(entries), f"[{section}] 從 mkdocs.yml 讀不到任何 nav 條目")
     if not entries:
@@ -484,7 +491,7 @@ def main():
     global GRAPH
     FAILURES.clear()
     layout = json.loads(LAYOUT_PATH.read_text(encoding="utf-8"))
-    section_names = {"ai", "machine-learning", "trading"}
+    section_names = {"ai", "machine-learning", "career", "trading"}
     check(not (section_names - set(layout)),
           f"[galaxy layout] 缺少 section：{sorted(section_names - set(layout))}")
     check(not (set(layout) - section_names),
@@ -525,6 +532,16 @@ def main():
         nav_groups("trading", "Trading Research"),
         layout["trading"],
         "trading-research-galaxy", "Trading Research",
+    )
+    build_section(
+        "career", CAREER_NODES, [],
+        [{"key": "a", "title": "資料科學", "sub": "模型、實驗與工程"},
+         {"key": "b", "title": "資料工程", "sub": "建模、管線與品質"}],
+        "map-career.json",
+        "依目標角色選擇路線，點文章看技能缺口、專案與過關標準。",
+        nav_groups("career", "Career"),
+        layout["career"],
+        "career-galaxy", "Career",
     )
     build_home_galaxy()
     if FAILURES:

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1440" viewBox="0 0 1400 1440" role="img" aria-labelledby="roadmap-title roadmap-desc" font-family="Geist, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" id="roadmap-root">
+<title id="roadmap-title">DA 到 DE 學習地圖</title>
+<desc id="roadmap-desc">從基礎工具箱、建模、第一條 pipeline 與雲端工程化，依資料量或即時需求選擇 Spark、Kafka，再走向 Lakehouse 與作品集；還不用時先深化現有水管，直接準備作品集。</desc>
+<defs>
+      <style>#roadmap-root .diagram-container { width:100%;overflow-x:auto }</style><marker id="roadmap-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#8a93a6"/></marker></defs>
+<rect width="1400" height="1440" fill="#fbfcfe"/>
+<text x="56" y="64" font-size="32" font-weight="600" fill="#1f2430" text-anchor="start">DA → DE：五個階段，一條水管</text>
+<rect x="48" y="184" width="1304" height="136" rx="8" fill="#f3f5f9" stroke="#e6e8ef"/>
+<text x="72" y="236" font-size="24" font-weight="600" fill="#1f2430" text-anchor="start" aria-label="階段 0：基礎工具箱">階段 0：</text>
+<text x="72" y="268" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">基礎工具箱</text>
+<rect x="48" y="336" width="1304" height="136" rx="8" fill="#f3f5f9" stroke="#e6e8ef"/>
+<text x="72" y="388" font-size="24" font-weight="600" fill="#1f2430" text-anchor="start" aria-label="階段 1：建模">階段 1：</text>
+<text x="72" y="420" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">建模</text>
+<rect x="48" y="488" width="1304" height="136" rx="8" fill="#f3f5f9" stroke="#e6e8ef"/>
+<text x="72" y="540" font-size="24" font-weight="600" fill="#1f2430" text-anchor="start" aria-label="階段 2：第一條 pipeline">階段 2：</text>
+<text x="72" y="572" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">第一條 pipeline</text>
+<rect x="48" y="640" width="1304" height="136" rx="8" fill="#f3f5f9" stroke="#e6e8ef"/>
+<text x="72" y="692" font-size="24" font-weight="600" fill="#1f2430" text-anchor="start" aria-label="階段 3：雲端與工程化">階段 3：</text>
+<text x="72" y="724" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">雲端與工程化</text>
+<path d="M 448 136 H 236 Q 228 136 228 144 V 244 Q 228 252 236 252 H 246" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 504 252 H 518" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 776 252 H 790" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1048 252 H 1062" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1320 252 H 1364 Q 1372 252 1372 260 V 328 Q 1372 336 1364 336 H 236 Q 228 336 228 344 V 396 Q 228 404 236 404 H 246" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 504 404 H 518" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 776 404 H 790" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1048 404 H 1062" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1320 404 H 1364 Q 1372 404 1372 412 V 480 Q 1372 488 1364 488 H 236 Q 228 488 228 496 V 548 Q 228 556 236 556 H 246" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 456 556 H 470" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 680 556 H 694" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 904 556 H 918" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1128 556 H 1142" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1352 556 H 1364 Q 1372 556 1372 564 V 632 Q 1372 640 1364 640 H 236 Q 228 640 228 648 V 700 Q 228 708 236 708 H 246" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 504 708 H 518" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 776 708 H 790" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1048 708 H 1062" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1320 708 H 1364 Q 1372 708 1372 716 V 788 Q 1372 796 1364 796 H 708 Q 700 796 700 804 V 838" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 480 896 H 272 Q 264 896 264 904 V 1030" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 700 952 V 1030" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 920 896 H 1128 Q 1136 896 1136 904 V 1030" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<rect x="288" y="956" width="144" height="36" fill="#fbfcfe"/>
+<text x="296" y="980" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">對，水太多</text>
+<rect x="724" y="976" width="144" height="36" fill="#fbfcfe"/>
+<text x="732" y="1000" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">對，要即時</text>
+<rect x="1160" y="956" width="144" height="36" fill="#fbfcfe"/>
+<text x="1168" y="980" font-size="20" font-weight="500" fill="#5b6472" text-anchor="start">還不用</text>
+<path d="M 264 1120 V 1156 Q 264 1164 272 1164 H 692" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 1136 1120 V 1360 Q 1136 1368 1128 1368 H 1070" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 700 1120 V 1156" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<circle cx="700" cy="1164" r="4" fill="#8a93a6"/>
+<path d="M 700 1168 V 1198" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<path d="M 700 1272 V 1334" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#roadmap-arrow)"/>
+<g data-node="B" data-label="學會跟資料庫講話 (SQL)"><rect x="248" y="208" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="376.0" y="246.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">學會跟資料庫講話</text><text x="376.0" y="270.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (SQL)</text></g>
+<g data-node="C" data-label="用 Python 當膠帶，把東西黏起來"><rect x="520" y="208" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="648.0" y="246.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">用 Python 當膠帶，把東西</text><text x="648.0" y="270.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">黏起來</text></g>
+<g data-node="D" data-label="學會用黑色視窗下指令 (Linux / CLI)"><rect x="792" y="208" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="920.0" y="246.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">學會用黑色視窗下指令</text><text x="920.0" y="270.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Linux / CLI)</text></g>
+<g data-node="E" data-label="用 Git 存檔，寫壞了可以回到上一關"><rect x="1064" y="208" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="1192.0" y="246.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">用 Git 存檔，寫壞了可以回</text><text x="1192.0" y="270.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">到上一關</text></g>
+<g data-node="F" data-label="把玩具分類收納 (正規化 / OLTP)"><rect x="248" y="360" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="376.0" y="398.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">把玩具分類收納</text><text x="376.0" y="422.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (正規化 / OLTP)</text></g>
+<g data-node="G" data-label="蓋一間好找東西的倉庫 (Star Schema)"><rect x="520" y="360" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="648.0" y="398.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">蓋一間好找東西的倉庫</text><text x="648.0" y="422.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Star Schema)</text></g>
+<g data-node="H" data-label="記住每件事的大小單位 (Grain)"><rect x="792" y="360" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="920.0" y="398.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">記住每件事的大小單位</text><text x="920.0" y="422.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Grain)</text></g>
+<g data-node="I" data-label="東西變了也記得以前長怎樣 (SCD2)"><rect x="1064" y="360" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="1192.0" y="398.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">東西變了也記得以前長怎樣</text><text x="1192.0" y="422.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (SCD2)</text></g>
+<g data-node="J" data-label="從水井打水 (Ingestion / dlt)"><rect x="248" y="512" width="208" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="352.0" y="550.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">從水井打水</text><text x="352.0" y="574.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Ingestion / dlt)</text></g>
+<g data-node="K" data-label="先倒進原水桶 (Raw 層)"><rect x="472" y="512" width="208" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="576.0" y="550.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">先倒進原水桶</text><text x="576.0" y="574.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Raw 層)</text></g>
+<g data-node="L" data-label="過濾、整理成乾淨的水 (dbt)"><rect x="696" y="512" width="208" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="800.0" y="538.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">過濾、整理成乾淨的</text><text x="800.0" y="562.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">水</text><text x="800.0" y="586.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (dbt)</text></g>
+<g data-node="M" data-label="請鬧鐘每天自動開水龍頭 (Airflow)"><rect x="920" y="512" width="208" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="1024.0" y="538.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">請鬧鐘每天自動開水</text><text x="1024.0" y="562.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">龍頭</text><text x="1024.0" y="586.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Airflow)</text></g>
+<g data-node="N" data-label="喝之前先驗水 (資料品質測試)"><rect x="1144" y="512" width="208" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="1248.0" y="550.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">喝之前先驗水</text><text x="1248.0" y="574.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (資料品質測試)</text></g>
+<g data-node="O" data-label="把整套工具裝進便當盒 (Docker)"><rect x="248" y="664" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="376.0" y="702.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">把整套工具裝進便當盒</text><text x="376.0" y="726.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Docker)</text></g>
+<g data-node="P" data-label="搬到雲端大水庫 (BigQuery / Snowflake)"><rect x="520" y="664" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="648.0" y="702.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">搬到雲端大水庫</text><text x="648.0" y="726.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (BigQuery / Snowflake)</text></g>
+<g data-node="Q" data-label="每次改水管都自動檢查 (CI/CD)"><rect x="792" y="664" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="920.0" y="702.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">每次改水管都自動檢查</text><text x="920.0" y="726.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (CI/CD)</text></g>
+<g data-node="R" data-label="用圖紙蓋水庫，壞了照圖重蓋 (Terraform)"><rect x="1064" y="664" width="256" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+
+<text x="1192.0" y="690.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">用圖紙蓋水庫，壞了照圖重</text><text x="1192.0" y="714.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">蓋</text><text x="1192.0" y="738.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Terraform)</text></g>
+<g data-node="A" data-label="起點：我想學會蓋資料水管"><rect x="448" y="108" width="560" height="56" rx="20" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="728.0" y="142.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">起點：我想學會蓋資料水管</text></g>
+<polygon points="700,840 920,896 700,952 480,896" fill="#fff4ed" stroke="#b45309" stroke-width="2"/>
+<text x="700" y="904" font-size="24" font-weight="600" fill="#1f2430" text-anchor="middle">水太多或要即時送水嗎？</text>
+<g data-node="U" data-label="找一群工人一起搬水 (Spark)"><rect x="64" y="1032" width="400" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="264.0" y="1070.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">找一群工人一起搬水</text><text x="264.0" y="1094.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Spark)</text></g>
+<g data-node="V" data-label="改成一直流的水管 (Kafka / 串流)"><rect x="500" y="1032" width="400" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="700.0" y="1070.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">改成一直流的水管</text><text x="700.0" y="1094.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Kafka / 串流)</text></g>
+<g data-node="W" data-label="先把現有水管顧好，深化建模與品質"><rect x="936" y="1032" width="400" height="88" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="1136.0" y="1082.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">先把現有水管顧好，深化建模與品質</text></g>
+<g data-node="X" data-label="打造公用大水庫 (Lakehouse / Iceberg)"><rect x="424" y="1200" width="552" height="72" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="700.0" y="1230.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">打造公用大水庫</text><text x="700.0" y="1254.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle"> (Lakehouse / Iceberg)</text></g>
+<g data-node="Y" data-label="可以當水管工程師了：做作品集、去面試"><rect x="332" y="1336" width="736" height="64" rx="20" fill="#ffffff" stroke="#bfc0c0"/>
+
+<text x="700.0" y="1374.0" font-size="18" font-weight="500" fill="#1f2430" text-anchor="middle">可以當水管工程師了：做作品集、去面試</text></g>
+</svg>

@@ -36,7 +36,23 @@
     "y": 0.37
    },
    "sectionMap": "assets/data/map-machine-learning.json",
-   "articles": 13
+   "articles": 12
+  },
+  {
+   "id": "career",
+   "label": "Career",
+   "href": "career/",
+   "x": 0.49,
+   "y": 0.16,
+   "size": "medium",
+   "kind": "domain",
+   "description": "資料分析師轉 DS 與 DE 的技能與專案路線",
+   "mobile": {
+    "x": 0.28,
+    "y": 0.39
+   },
+   "articles": 2,
+   "sectionMap": "assets/data/map-career.json"
   },
   {
    "id": "trading",

@@ -180,5 +180,29 @@
       "size": "medium",
       "kind": "satellite"
     }
+  },
+  "career": {
+    "c1": {
+      "anchorId": "data-science-path",
+      "x": 0.25,
+      "y": 0.35,
+      "mobile": {
+        "x": 0.3,
+        "y": 0.28
+      },
+      "size": "medium",
+      "kind": "domain"
+    },
+    "c2": {
+      "anchorId": "data-engineering-path",
+      "x": 0.75,
+      "y": 0.65,
+      "mobile": {
+        "x": 0.7,
+        "y": 0.72
+      },
+      "size": "medium",
+      "kind": "domain"
+    }
   }
 }

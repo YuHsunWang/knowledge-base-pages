@@ -1,0 +1,156 @@
+{
+ "meta": {
+  "source": "mkdocs.yml nav + docs/career/*.md frontmatter"
+ },
+ "unit": "篇",
+ "goLabel": "閱讀這篇",
+ "hint": "依目標角色選擇路線，點文章看技能缺口、專案與過關標準。",
+ "columns": [
+  {
+   "key": "a",
+   "title": "資料科學",
+   "sub": "模型、實驗與工程"
+  },
+  {
+   "key": "b",
+   "title": "資料工程",
+   "sub": "建模、管線與品質"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "c1",
+   "column": "a",
+   "name": "資料科學路線",
+   "desc": "補齊模型、實驗與 Python 工程能力",
+   "items": [
+    "da-to-ds-roadmap"
+   ]
+  },
+  {
+   "id": "c2",
+   "column": "b",
+   "name": "資料工程路線",
+   "desc": "從資料建模走到可重跑的管線",
+   "items": [
+    "da-to-de-roadmap"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "da-to-de-roadmap",
+   "label": "DA 轉 DE 水管地圖",
+   "href": "da-to-de-roadmap/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-14"
+    ]
+   ],
+   "note": "資料分析師轉資料工程師的學習路線：五階段技能與過關標準、資料管線專案、工具選擇、實務故障與台灣求職方向。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-14 更新｜92 天內有效"
+   },
+   "backlinks": []
+  },
+  {
+   "id": "da-to-ds-roadmap",
+   "label": "DA 轉 DS 學習地圖",
+   "href": "da-to-ds-roadmap/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-13"
+    ]
+   ],
+   "note": "給有經濟或計量背景的資料分析師的轉職路線：哪些不用重學、ML 與 Python 工程要補到什麼程度、七章學習手冊、零售題目地圖、實務踩雷清單與台灣市場現況。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-14 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "從分析師走到資料工程師的水管地圖",
+     "href": "da-to-de-roadmap/",
+     "section": "career"
+    }
+   ]
+  }
+ ],
+ "edges": [],
+ "galaxy": {
+  "id": "career-galaxy",
+  "title": "Career",
+  "mode": "region-index",
+  "host": "career/index.md",
+  "center": {
+   "label": "Career"
+  },
+  "regions": [
+   {
+    "id": "data-science-path",
+    "anchorId": "data-science-path",
+    "label": "資料科學路線",
+    "href": "#data-science-path",
+    "description": "補齊模型、實驗與 Python 工程能力",
+    "count": 1,
+    "members": [
+     "da-to-ds-roadmap"
+    ],
+    "x": 0.25,
+    "y": 0.35,
+    "mobile": {
+     "x": 0.3,
+     "y": 0.28
+    },
+    "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "data-engineering-path",
+    "anchorId": "data-engineering-path",
+    "label": "資料工程路線",
+    "href": "#data-engineering-path",
+    "description": "從資料建模走到可重跑的管線",
+    "count": 1,
+    "members": [
+     "da-to-de-roadmap"
+    ],
+    "x": 0.75,
+    "y": 0.65,
+    "mobile": {
+     "x": 0.7,
+     "y": 0.72
+    },
+    "size": "medium",
+    "kind": "domain"
+   }
+  ],
+  "edges": []
+ },
+ "legend": [
+  {
+   "swatch": "var(--kb-signal)",
+   "text": "青框＝同一篇出現在多個節點"
+  },
+  {
+   "swatch": "#C89A2E",
+   "text": "琥珀點＝接近複查期限"
+  },
+  {
+   "swatch": "var(--kb-accent)",
+   "text": "朱點＝已逾期未複查"
+  },
+  {
+   "text": "實線＝建議的閱讀順序｜虛線＝可獨立閱讀"
+  }
+ ]
+}

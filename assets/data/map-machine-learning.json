@@ -63,8 +63,7 @@
    "desc": "把觀念和實作接到真實任務",
    "items": [
     "ml-case-studies",
-    "financial-ml-time-series",
-    "da-to-ds-roadmap"
+    "financial-ml-time-series"
    ]
   },
   {
@@ -78,26 +77,6 @@
   }
  ],
  "items": [
-  {
-   "id": "da-to-ds-roadmap",
-   "label": "DA 轉 DS 學習地圖",
-   "href": "da-to-ds-roadmap/",
-   "step": null,
-   "cluster": null,
-   "meta": [
-    [
-     "首次發布",
-     "2026-10-13"
-    ]
-   ],
-   "note": "給有經濟或計量背景的資料分析師的轉職路線：哪些不用重學、ML 與 Python 工程要補到什麼程度、七章學習手冊、零售題目地圖、實務踩雷清單與台灣市場現況。",
-   "fresh": {
-    "state": "fresh",
-    "days": 0,
-    "label": "每季複查｜2026-10-13 更新｜92 天內有效"
-   },
-   "backlinks": []
-  },
   {
    "id": "deep-learning-training-fundamentals",
    "label": "深度學習訓練基礎",
@@ -761,11 +740,10 @@
     "label": "綜合應用",
     "href": "#ml-applications",
     "description": "把觀念和實作接到真實任務",
-    "count": 3,
+    "count": 2,
     "members": [
      "ml-case-studies",
-     "financial-ml-time-series",
-     "da-to-ds-roadmap"
+     "financial-ml-time-series"
     ],
     "x": 0.77,
     "y": 0.73,
