@@ -16,6 +16,8 @@
    沒裝這套字的電腦（多數 Windows）標題會退回新細明體。
    Google Fonts 的 CJK 字型按 unicode-range 切片，只下載頁面用到的字。 */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&display=swap");
+/* 旁註的手寫字：英文 Caveat、中文霞鶩文楷 TC（同樣按 unicode-range 切片）。 */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=LXGW+WenKai+TC&display=swap");
 
 /* ── Token layer: light ──────────────────────────────────────── */
 [data-md-color-scheme="default"] {
@@ -39,6 +41,8 @@
   --kb-accent-line: rgba(0, 102, 204, 0.26);
   --kb-signal:      var(--kb-celadon);
   --kb-mark:        rgba(92, 100, 136, 0.30);
+  --kb-code-fg:     #B4541A;
+  --kb-anno:        var(--kb-celadon);
   --kb-shadow:      0 1px 0 rgba(27, 32, 56, 0.05), 0 10px 28px -14px rgba(27, 32, 56, 0.24);
   --kb-shadow-lift: 0 14px 34px -14px rgba(27, 32, 56, 0.30);
 
@@ -64,13 +68,16 @@
      會看到字在發光暈開（halation）。底色從近黑提亮一階、字從近白降一階，
      對比留在約 12:1，仍遠高於 WCAG AA 的 4.5:1。研究（Piepenbrock 2013,
      Ergonomics）顯示淺底深字讀得較快、錯得較少，長文建議切淺色模式。 */
-  --kb-ground:     #10162A;
-  --kb-ground-2:   #161D33;
-  --kb-ground-3:   #1D2640;
-  --kb-fg:         #CFD7E6;
-  --kb-fg-muted:   #98A4BE;
+  /* 2026-10-19：底色再壓深一階，貼近星圖的夜空；字改成中性灰白
+     （原本偏藍，跟藍底黏在一起），對比仍守在約 12:1（#C9CDD6 on
+     #0A0E1C = 12.07）。 */
+  --kb-ground:     #0A0E1C;
+  --kb-ground-2:   #111729;
+  --kb-ground-3:   #182038;
+  --kb-fg:         #C9CDD6;
+  --kb-fg-muted:   #9AA0AD;
   --kb-fg-faint:   #6C7BA0;
-  --kb-rule:       #1D2845;
+  --kb-rule:       #182240;
   --kb-rule-firm:  #2E3D66;
 
   --kb-accent:      #7CC0FF;
@@ -78,6 +85,8 @@
   --kb-accent-line: rgba(124, 192, 255, 0.30);
   --kb-signal:      var(--kb-celadon);
   --kb-mark:        rgba(168, 175, 203, 0.26);
+  --kb-code-fg:     #F0A868;
+  --kb-anno:        var(--kb-celadon);
   --kb-shadow:      0 1px 0 rgba(0, 0, 0, 0.30), 0 10px 30px -14px rgba(0, 0, 0, 0.60);
   --kb-shadow-lift: 0 16px 38px -14px rgba(0, 0, 0, 0.70);
 
@@ -181,6 +190,10 @@ body[data-md-color-scheme="slate"]::after {
 :root {
   --kb-face-display: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
   --kb-face-data: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+  /* 內文：英文數字走等寬 JetBrains Mono（theme.font.code 已載入），
+     中文退到 Noto Sans TC。等寬字只有拉丁字元，CJK 會自動 fallback。 */
+  --kb-face-body: "JetBrains Mono", "Noto Sans TC", sans-serif;
+  --kb-face-anno: "Caveat", "LXGW WenKai TC", cursive;
   /* 內文行寬 = 40 個漢字（漢字為全形，1 字剛好 1em）。
      刻意用 rem 而非 em：em 是相對「元素自己」的字級，同一個 38em 套在
      大字級的標題上會算出更寬的值，等於沒有限制。Material 的
@@ -370,6 +383,8 @@ body[data-md-color-scheme="slate"]::after {
 
 /* ── Typography: the reading contract ───────────────────────── */
 .md-typeset {
+  font-family: var(--kb-face-body);
+  letter-spacing: 0.02em;
   font-size: 0.9rem;
   line-height: 1.85;
   text-autospace: normal;          /* 中英文之間自動留細空白（Chrome 140+，其他瀏覽器忽略） */
@@ -576,6 +591,8 @@ body[data-md-color-scheme="slate"]::after {
   padding: 0.05em 0.35em;
   font-size: 0.83em;
 }
+/* 行內程式碼用暖色字，跟內文的等寬字分得開；區塊程式碼保留語法上色。 */
+.md-typeset :not(pre) > code { color: var(--kb-code-fg); }
 /* keep Material's line highlight readable on the new grounds */
 .md-typeset .highlight .hll {
   background: var(--kb-accent-soft);
@@ -636,16 +653,49 @@ body[data-md-color-scheme="slate"]::after {
   max-width: none;
   text-align: center;
 }
+/* 圖片放進圓角卡片：留白當畫框，圖本身不再加框。 */
 .md-typeset p > img {
   display: inline-block;
   width: min(100%, 680px);
   height: auto;
-  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 1.1rem;
+  border-radius: 18px;
   border: 1px solid var(--kb-rule);
   background: var(--kb-ground-2);
   box-shadow: var(--kb-shadow);
 }
 .md-typeset p > img.wide { width: min(100%, 1040px); }
+
+/* ── Highlight & margin annotations ─────────────────────────── */
+/* ==螢光標記==（pymdownx.mark）：淡色底，不用 Material 預設的黃。 */
+.md-typeset mark {
+  background: var(--kb-mark);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+/* 手寫旁註：<span class="kb-anno" data-note="世界空間">world space</span>
+   被註的字加淡底，註解用手寫字接在後面，前面一條虛線箭頭。 */
+.md-typeset .kb-anno {
+  background: var(--kb-accent-soft);
+  border-radius: 3px;
+  padding: 0 0.2em;
+}
+.md-typeset .kb-anno::after {
+  content: "\2190\2009- - -\2009" attr(data-note);
+  display: inline-block;
+  margin-left: 0.35em;
+  font-family: var(--kb-face-anno);
+  font-size: 1.12em;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--kb-anno);
+  transform: rotate(-2deg);
+  white-space: nowrap;
+}
 
 /* ── Tag chips ──────────────────────────────────────────────── */
 .md-typeset .md-tag {
