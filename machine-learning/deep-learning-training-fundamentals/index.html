@@ -5076,7 +5076,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/activation_functions.png" data-desc-position="bottom"><img alt="五種激活函數座標圖" class="wide" src="../assets/activation_functions.png"></a>
+<p>
 <em>圖：五種常見激活函數。Sigmoid／Tanh 兩端飽和（梯度消失）；ReLU 系在正區梯度恆為 1、計算快。</em></p>
 <p><strong>選用原則</strong>：隱藏層預設 <strong>ReLU</strong>（有問題再試 Leaky/ELU）；輸出層看任務：二元分類 Sigmoid、多元分類 Softmax、回歸不加激活。</p>
 <p>Sigmoid 的導數最大只有 0.25（在 0 的位置），兩端趨近 0。每經過一層就至少乘上 0.25，這是第 4 節實驗裡梯度消失的直接原因。</p>
@@ -5132,7 +5132,7 @@ Cross-Entropy 的梯度剛好把 sigmoid 的導數消掉，變成「預測 − �
 </tbody>
 </table>
 <p><strong>Learning rate scheduling</strong>：常見 <code>lr = lr₀ / (1 + decay·step)</code>，或驗證分數停住時衰減。初期大步走，後期小步收斂到谷底。</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/gradient_descent_lr.png" data-desc-position="bottom"><img alt="learning rate 太小／適中／太大" class="wide" src="../assets/gradient_descent_lr.png"></a>
+<p>
 <em>圖：同一個 loss 曲面上，learning rate 太小（步伐太小、收斂慢）／適中（順利收斂）／太大（震盪甚至發散）。</em></p>
 <p>Adam 收斂快、預設參數就好用，所以是預設。但 SGD + Momentum 配上好的 learning rate schedule，有時最終泛化得更好；Adam 有時停在泛化較差的解。重要的模型兩種都值得試。</p>
 <h2 id="4">4. 反向傳播與梯度消失<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>

@@ -6227,7 +6227,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">recall_score</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="c1"># 所有真正的正，抓到多少</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">f1_score</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>         <span class="c1"># 兩者調和平均</span>
 </span></code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/confusion_matrix.png" data-desc-position="bottom"><img alt="混淆矩陣示意" src="../assets/confusion_matrix.png"></a>
+<p>
 <em>圖：混淆矩陣。對角（TP/TN）為答對；FN＝漏報、FP＝誤報。Precision=TP/(TP+FP)、Recall=TP/(TP+FN)。</em></p>
 <h3 id="threshold">Threshold 調整與業務情境<a class="headerlink" href="#threshold" title="Permanent link">¶</a></h3>
 <p>用 <code>decision_function</code> 取分數，畫 precision-recall 曲線後依情境定 threshold：
@@ -6235,7 +6235,7 @@
 - 垃圾郵件 → 調高 threshold → 拉高 <strong>Precision</strong>（不誤判重要信）</p>
 <h3 id="roc-auc">ROC / AUC 與曲線選擇<a class="headerlink" href="#roc-auc" title="Permanent link">¶</a></h3>
 <p><code>roc_curve</code> + <code>roc_auc_score</code>。<strong>Positive 樣本很少（imbalanced）用 PR curve</strong>，因為 ROC 的 FPR 會被大量 Negative 稀釋，看起來漂亮卻不真。</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/roc_curve.png" data-desc-position="bottom"><img alt="ROC 曲線與 AUC" src="../assets/roc_curve.png"></a>
+<p>
 <em>圖：ROC 曲線越往左上、AUC（曲線下面積）越大；對角虛線＝隨機猜測（AUC=0.5）。</em></p>
 <h3 id="ovr-vs-ovo">多元分類：OvR vs OvO<a class="headerlink" href="#ovr-vs-ovo" title="Permanent link">¶</a></h3>
 <ul>

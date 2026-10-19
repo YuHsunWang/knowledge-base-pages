@@ -4969,11 +4969,11 @@
 <li><strong>GPU-ready 向量化版本</strong>（<code>mcmc_gpu_parallel.py</code>）：用 CuPy 加速，沒有 CUDA 時自動 fallback 到 NumPy。</li>
 </ul>
 <h3 id="_4">迭代流程圖<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/mcmc-portfolio/mcmc-iteration-flow.png" data-desc-position="bottom"><img alt="貝氏 MCMC 迭代流程" src="../../assets/diagrams/mcmc-portfolio/mcmc-iteration-flow.png"></a></p>
+<p></p>
 <hr>
 <h2 id="_5">參數收斂過程<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>下圖是 realistic 稀疏興趣情境（100 位使用者、10,000 次迭代）的收斂診斷：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/figures/mcmc-portfolio/convergence.png" data-desc-position="bottom"><img alt="MCMC 收斂診斷" src="../../assets/figures/mcmc-portfolio/convergence.png"></a></p>
+<p></p>
 <p>四個面板的解讀：</p>
 <ul>
 <li><strong>(a) 接受率</strong>：三組參數的 Metropolis-Hastings 接受率很快進入穩定區間（偏好 <code>a_u</code> 約 0.05、多樣性 <code>s_u</code> 約 0.89、轉換成本 <code>C_switch</code> 約 0.79）。<code>a_u</code> 接受率較低是因為它是 10 維向量、提案一次要全部接受，屬正常現象。</li>
@@ -5017,7 +5017,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/figures/mcmc-portfolio/benchmark.png" data-desc-position="bottom"><img alt="Held-out benchmark 比較" src="../../assets/figures/mcmc-portfolio/benchmark.png"></a></p>
+<p></p>
 <p>重點：</p>
 <ul>
 <li>MCMC 偏好模型在兩種情境下都<strong>穩定勝過</strong>熱門度與使用者頻率 baseline。</li>

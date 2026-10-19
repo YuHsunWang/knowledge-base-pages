@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="介紹 Prompt Caching 原理：前綴比對規則、Anthropic 與 OpenAI 做法比較、精確定價數字，及會悄悄破壞快取的常見坑。">
+        <meta name="description" content="用影印店、便當、背課文這些日常例子，講懂 Prompt Caching：前綴比對規則、Anthropic 與 OpenAI 做法、精確定價，以及會悄悄讓快取失效的坑。">
       
       
       
@@ -67,7 +67,7 @@
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="Prompt Caching：用前綴快取砍掉成本與延遲 - Shane's Knowledge Base">
-<meta property="og:description" content="介紹 Prompt Caching 原理：前綴比對規則、Anthropic 與 OpenAI 做法比較、精確定價數字，及會悄悄破壞快取的常見坑。">
+<meta property="og:description" content="用影印店、便當、背課文這些日常例子，講懂 Prompt Caching：前綴比對規則、Anthropic 與 OpenAI 做法、精確定價，以及會悄悄讓快取失效的坑。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/prompt-caching-cost-latency.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -75,7 +75,7 @@
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/prompt-caching-cost-latency/">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="Prompt Caching：用前綴快取砍掉成本與延遲 - Shane's Knowledge Base">
-<meta property="twitter:description" content="介紹 Prompt Caching 原理：前綴比對規則、Anthropic 與 OpenAI 做法比較、精確定價數字，及會悄悄破壞快取的常見坑。">
+<meta property="twitter:description" content="用影印店、便當、背課文這些日常例子，講懂 Prompt Caching：前綴比對規則、Anthropic 與 OpenAI 做法、精確定價，以及會悄悄讓快取失效的坑。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/prompt-caching-cost-latency.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -2100,21 +2100,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#kv" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        原理：重用前綴的 KV，跳過重算
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        唯一鐵律：這是「前綴比對」
+        先講結論：三件事
       
     </span>
   </a>
@@ -2125,32 +2114,105 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        原理：模型讀過的東西，可以不用再讀一次
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="原理：模型讀過的東西，可以不用再讀一次">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：每天背同一篇課文
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        對回模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        唯一鐵律：只認「從頭開始一模一樣」
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="唯一鐵律：只認「從頭開始一模一樣」">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：影印店的接龍
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推出唯一的擺放原則：便當怎麼裝
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         兩家供應商的做法
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#anthropic-anthropic" class="md-nav__link">
+    <nav class="md-nav" aria-label="兩家供應商的做法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Anthropic 的精確數字〔Anthropic〕
+        例子：手排車和自排車
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#usageanthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        驗證命中：看 usage，別猜〔Anthropic〕
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2158,10 +2220,105 @@
   <a href="#anthropic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        會悄悄破壞快取的坑〔Anthropic〕〔實務〕
+        Anthropic 的價格：像影印店的「製版費」
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Anthropic 的價格：像影印店的「製版費」">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：第一次製版貴，之後每張很便宜
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實際數字〔Anthropic〕
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        太短不給快取：像集點門檻
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anthropic_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有沒有命中：看發票，別猜〔Anthropic〕
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有沒有命中：看發票，別猜〔Anthropic〕">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：看發票才知道有沒有打折
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anthropic_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        會偷偷讓快取失效的坑〔Anthropic〕〔實務〕
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="會偷偷讓快取失效的坑〔Anthropic〕〔實務〕">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：作文第一行寫上現在幾點
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2169,7 +2326,7 @@
   <a href="#agent-anthropic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent 特有：別在中途打斷快取〔Anthropic〕
+        Agent 特別要注意：做到一半別打翻〔Anthropic〕
       
     </span>
   </a>
@@ -2177,7 +2334,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         落地檢查清單〔實務〕
@@ -2188,7 +2345,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -2199,7 +2356,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         來源
@@ -4726,21 +4883,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#kv" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        原理：重用前綴的 KV，跳過重算
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        唯一鐵律：這是「前綴比對」
+        先講結論：三件事
       
     </span>
   </a>
@@ -4751,32 +4897,105 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        原理：模型讀過的東西，可以不用再讀一次
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="原理：模型讀過的東西，可以不用再讀一次">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：每天背同一篇課文
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        對回模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        唯一鐵律：只認「從頭開始一模一樣」
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="唯一鐵律：只認「從頭開始一模一樣」">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：影印店的接龍
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推出唯一的擺放原則：便當怎麼裝
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         兩家供應商的做法
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#anthropic-anthropic" class="md-nav__link">
+    <nav class="md-nav" aria-label="兩家供應商的做法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Anthropic 的精確數字〔Anthropic〕
+        例子：手排車和自排車
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#usageanthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        驗證命中：看 usage，別猜〔Anthropic〕
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4784,10 +5003,105 @@
   <a href="#anthropic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        會悄悄破壞快取的坑〔Anthropic〕〔實務〕
+        Anthropic 的價格：像影印店的「製版費」
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Anthropic 的價格：像影印店的「製版費」">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：第一次製版貴，之後每張很便宜
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實際數字〔Anthropic〕
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        太短不給快取：像集點門檻
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anthropic_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有沒有命中：看發票，別猜〔Anthropic〕
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有沒有命中：看發票，別猜〔Anthropic〕">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：看發票才知道有沒有打折
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anthropic_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        會偷偷讓快取失效的坑〔Anthropic〕〔實務〕
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="會偷偷讓快取失效的坑〔Anthropic〕〔實務〕">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子：作文第一行寫上現在幾點
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4795,7 +5109,7 @@
   <a href="#agent-anthropic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent 特有：別在中途打斷快取〔Anthropic〕
+        Agent 特別要注意：做到一半別打翻〔Anthropic〕
       
     </span>
   </a>
@@ -4803,7 +5117,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
         落地檢查清單〔實務〕
@@ -4814,7 +5128,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         延伸閱讀（本站）
@@ -4825,7 +5139,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         來源
@@ -4938,16 +5252,55 @@
 
 <h1 id="prompt-caching">Prompt Caching：用前綴快取砍掉成本與延遲<a class="headerlink" href="#prompt-caching" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>整理自 Anthropic 官方文件與廠商文件（見文末），2026-06-20。重複送幾乎一樣的長 prompt（system、few-shot、檢索脈絡、工具定義）時，prompt caching 能把那段的成本砍到約 1/10、並降低首字延遲。本頁講<strong>原理、怎麼擺、與會悄悄失效的坑</strong>。</p>
-<p><strong>實證標記</strong>：〔Anthropic〕= 出自 Anthropic 官方文件；〔廠商〕= 出自模型供應商文件；〔實務〕= 業界慣例或本人整理。預設 under-claim。具體數字依供應商，且會變。</p>
+<p>整理自 Anthropic 官方文件與廠商文件（見文末），2026-06-20 初版，2026-10-06 改成白話版。</p>
+<p><strong>實證標記</strong>：〔Anthropic〕= Anthropic 官方文件；〔廠商〕= 模型供應商文件；〔實務〕= 業界慣例或本人整理。數字依供應商而異，也會變。</p>
 </blockquote>
-<h2 id="kv">原理：重用前綴的 KV，跳過重算<a class="headerlink" href="#kv" title="Permanent link">¶</a></h2>
-<p>LLM 處理 prompt 時，prefill 階段會把每個 token 算成 KV 張量。prompt caching 的作法是：<strong>當多次請求共用相同的開頭（前綴），就把那段 prefill 的 KV 快取起來重用</strong>，跳過重算 → 同時省<strong>成本</strong>與<strong>首字延遲（TTFT）</strong>。〔廠商〕</p>
-<h2 id="_1">唯一鐵律：這是「前綴比對」<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p><strong>快取是 exact prefix match——前綴裡任何一個 byte 改變，從那個位置之後全部失效。</strong>〔Anthropic〕</p>
-<p>由此推出唯一的擺放原則：<strong>靜態內容放前面、變動內容放後面。</strong>
-- Anthropic 的渲染順序是 <code>tools</code> → <code>system</code> → <code>messages</code>；把穩定的（凍結的 system prompt、固定順序的工具清單）放前段，把變動的（時間戳、每請求 ID、當次問題）放最後一個快取斷點之後。〔Anthropic〕</p>
-<h2 id="_2">兩家供應商的做法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h2 id="_1">先講結論：三件事<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<ol>
+<li><strong>快取只認「開頭一模一樣」</strong>。開頭改一個字，從那個字往後全部作廢。</li>
+<li><strong>不變的放前面，會變的放後面</strong>。整個技巧幾乎就這一條。</li>
+<li><strong>有沒有命中，看帳單欄位，不要憑感覺</strong>。</li>
+</ol>
+<p>做對的話，重複那段的費用約剩 1/10，回應也更快開始。</p>
+<h2 id="_2">原理：模型讀過的東西，可以不用再讀一次<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h3 id="_3">例子：每天背同一篇課文<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>想像你是補習班老師。每堂課開始前，你都要先把一篇 20 頁的講義從頭讀一遍，才能回答學生的問題。</p>
+<ul>
+<li>學生的問題每次都不一樣。</li>
+<li>但那 20 頁講義每次都一樣。</li>
+</ul>
+<p>每次重讀 20 頁，又慢又累。聰明的做法是：讀完一次，把重點筆記留著。下堂課直接翻筆記，馬上就能回答。</p>
+<h3 id="_4">對回模型<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>模型收到 prompt（你送給它的整段文字）時，第一步要先「讀懂」全部內容。這一步叫 <strong>prefill</strong>（預先處理）。讀懂的結果會變成一堆中間資料，叫 <strong>KV 快取</strong>（可以想成老師的筆記）。</p>
+<p>Prompt caching 就是：<strong>很多次請求的開頭都一樣時，把那段的筆記存起來重用</strong>。〔廠商〕</p>
+<p>省到的有兩樣：</p>
+<ul>
+<li><strong>錢</strong>：讀筆記比重讀便宜很多。</li>
+<li><strong>時間</strong>：第一個字更快出來。這段等待時間叫 <strong>TTFT</strong>（Time To First Token，首字延遲）。</li>
+</ul>
+<h2 id="_5">唯一鐵律：只認「從頭開始一模一樣」<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<h3 id="_6">例子：影印店的接龍<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>你拿一份 100 頁的文件去影印店。店員記得你上次印過的內容。</p>
+<ul>
+<li>你這次只改了<strong>第 100 頁</strong> → 前 99 頁直接拿上次的，只重做最後一頁。</li>
+<li>你這次改了<strong>第 1 頁</strong> → 店員從第 1 頁開始比，第一頁就不一樣，後面 99 頁就算完全沒改，也全部重做。</li>
+</ul>
+<p>店員只會「從第一頁往後比，比到第一個不一樣的地方就停」。這就是 <strong>前綴比對</strong>（prefix match，前綴 = 開頭那一段）。</p>
+<p><strong>快取是逐個 byte 比對開頭。開頭任何一個 byte 改了，從那裡往後全部失效。</strong>〔Anthropic〕</p>
+<h3 id="_7">推出唯一的擺放原則：便當怎麼裝<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>裝便當時，白飯每天都一樣，放最底層。每天換的菜放上面。</p>
+<p>Prompt 也一樣：<strong>不變的放前面，會變的放後面。</strong></p>
+<p>Anthropic 組 prompt 的順序固定是 <code>tools</code>（工具清單）→ <code>system</code>（系統指示）→ <code>messages</code>（對話內容）。〔Anthropic〕</p>
+<ul>
+<li><strong>放前面（白飯）</strong>：寫死的 system prompt、順序固定的工具清單。</li>
+<li><strong>放最後（每天換的菜）</strong>：時間、每次請求的 ID、這次的問題。這些要放在最後一個快取標記之後。</li>
+</ul>
+<h2 id="_8">兩家供應商的做法<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h3 id="_9">例子：手排車和自排車<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Anthropic 像手排車</strong>：你要自己告訴它「快取到這裡」。這個標記叫 <code>cache_control</code> 斷點。麻煩一點，但你能精準控制。</li>
+<li><strong>OpenAI 像自排車</strong>：開頭夠長，它就自動幫你快取。省事，但你能調的地方少。</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -4958,98 +5311,225 @@
 </thead>
 <tbody>
 <tr>
-<td>觸發</td>
-<td><strong>開發者明確標記</strong> <code>cache_control</code> 斷點</td>
-<td><strong>自動</strong>（超過最小 token 門檻即啟用）</td>
+<td>怎麼開始</td>
+<td>你<strong>自己標記</strong> <code>cache_control</code> 斷點</td>
+<td><strong>自動</strong>（超過最小長度就開）</td>
 </tr>
 <tr>
-<td>控制</td>
-<td>可指定快取哪段、可設 TTL</td>
-<td>自動、exact prefix match</td>
+<td>能控制什麼</td>
+<td>快取哪一段、存多久（TTL）</td>
+<td>幾乎不用管，一樣是開頭比對</td>
 </tr>
 <tr>
-<td>省幅（廠商自報）</td>
-<td>快取讀 ~0.1× 基礎輸入價（該段約省 90%）</td>
-<td>約 <strong>50%</strong> 成本下降</td>
+<td>省多少（廠商自己說的）</td>
+<td>讀快取約 0.1 倍原價（那段省約 90%）</td>
+<td>約省 <strong>50%</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>〔廠商〕兩家都靠「相同前綴」，所以<strong>靜態在前、變動在後</strong>這條原則對兩家都適用。</p>
-</blockquote>
-<h2 id="anthropic-anthropic">Anthropic 的精確數字〔Anthropic〕<a class="headerlink" href="#anthropic-anthropic" title="Permanent link">¶</a></h2>
+<p>〔廠商〕兩家都是比對開頭，所以「不變的放前面」對兩家都有用。</p>
+<h2 id="anthropic">Anthropic 的價格：像影印店的「製版費」<a class="headerlink" href="#anthropic" title="Permanent link">¶</a></h2>
+<h3 id="_10">例子：第一次製版貴，之後每張很便宜<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<p>傳統印刷要先做一張「版」。</p>
 <ul>
-<li><strong>快取讀</strong>：約 <strong>0.1×</strong> 基礎輸入價（命中時超便宜）。</li>
-<li><strong>快取寫</strong>：<strong>5 分鐘 TTL 為 1.25×、1 小時 TTL 為 2×</strong> 基礎輸入價。</li>
-<li><strong>損益平衡</strong>：5 分鐘 TTL 約 <strong>2 次</strong>請求就回本（1.25×+0.1× &lt; 2×）；1 小時 TTL 因寫入貴，約需 <strong>3 次</strong>。</li>
-<li><strong>TTL</strong>：預設 5 分鐘，可選 1 小時（適合有間隔的爆量流量，但寫入成本翻倍要更多次讀才划算）。</li>
-<li><strong>最小可快取前綴（依模型，資料基準 2026-08）</strong>：Opus 5、Fable 5 = <strong>512</strong> tokens；Opus 4.8、Sonnet 5/4.6/4.5 = <strong>1024</strong>；Opus 4.7 = <strong>2048</strong>；Opus 4.6/4.5、Haiku 4.5 = <strong>4096</strong>。門檻<strong>不隨世代單調下降</strong>（新世代降到 512，但 Opus 4.6 與 Haiku 4.5 仍是 4096），別用「越新越低」推估。<strong>前綴太短會「悄悄不快取」</strong>（無錯誤，<code>cache_creation_input_tokens</code> = 0）。</li>
-<li><strong>每請求最多 4 個</strong> <code>cache_control</code> 斷點。</li>
+<li><strong>做版那一次比較貴</strong>（寫入快取）。</li>
+<li><strong>之後每印一張都很便宜</strong>（讀取快取）。</li>
+<li><strong>版有保存期限</strong>。過期沒再印，版就丟掉，下次又要重做。</li>
 </ul>
-<h2 id="usageanthropic">驗證命中：看 usage，別猜〔Anthropic〕<a class="headerlink" href="#usageanthropic" title="Permanent link">¶</a></h2>
-<p>回應的 <code>usage</code> 是唯一真相：
-- <code>cache_read_input_tokens</code>：這次從快取讀的 token（付 ~0.1×）。
-- <code>cache_creation_input_tokens</code>：這次寫入快取的 token（付 ~1.25×）。
-- <code>input_tokens</code>：<strong>只是沒快取的剩餘</strong>——總前綴 = 三者相加，別只看這一個欄位就以為 prompt 很短。</p>
-<p><strong>若重複送相同前綴但 <code>cache_read_input_tokens</code> 一直是 0 → 有東西在悄悄破壞前綴。</strong></p>
-<h2 id="anthropic">會悄悄破壞快取的坑〔Anthropic〕〔實務〕<a class="headerlink" href="#anthropic" title="Permanent link">¶</a></h2>
-<p>掃 prompt 前綴裡有沒有這些：</p>
+<h3 id="anthropic_1">實際數字〔Anthropic〕<a class="headerlink" href="#anthropic_1" title="Permanent link">¶</a></h3>
+<p>以「沒快取的原價」當 1 倍來算：</p>
 <table>
 <thead>
 <tr>
-<th>樣態</th>
-<th>為何破壞</th>
+<th>動作</th>
+<th>價格</th>
+<th>白話</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>datetime.now()</code> / <code>Date.now()</code> 進 system prompt</td>
-<td>前綴每次都變</td>
+<td>讀快取</td>
+<td>約 <strong>0.1 倍</strong></td>
+<td>命中時超便宜</td>
 </tr>
 <tr>
-<td><code>uuid4()</code> / request ID 放前段</td>
-<td>同上，每請求唯一</td>
+<td>寫快取（存 5 分鐘）</td>
+<td><strong>1.25 倍</strong></td>
+<td>製版費，比原價貴一點</td>
 </tr>
 <tr>
-<td><code>json.dumps()</code> 沒 <code>sort_keys</code>、或迭代 <code>set</code></td>
-<td>序列化非決定性、前綴 bytes 不同</td>
-</tr>
-<tr>
-<td>把 session/user ID 插進 system prompt</td>
-<td>變成 per-user 前綴、跨使用者不共享</td>
-</tr>
-<tr>
-<td>條件式 system 段落（<code>if flag: system += ...</code>）</td>
-<td>每種 flag 組合都是不同前綴</td>
-</tr>
-<tr>
-<td>每使用者不同的工具集</td>
-<td>工具在位置 0，整段都無法跨使用者快取</td>
+<td>寫快取（存 1 小時）</td>
+<td><strong>2 倍</strong></td>
+<td>版保存比較久，製版費也比較貴</td>
 </tr>
 </tbody>
 </table>
-<p>修法：把動態片段移到最後一個斷點之後、讓序列化決定性化、或刪掉非必要的。</p>
-<h2 id="agent-anthropic">Agent 特有：別在中途打斷快取〔Anthropic〕<a class="headerlink" href="#agent-anthropic" title="Permanent link">¶</a></h2>
-<p>長流程 agent 要特別小心三件會讓整段前綴失效的事：
-1. <strong>中途改 system prompt</strong> → 改用「在 <code>messages</code> 末尾追加 system 訊息」的方式（支援的模型），保留已快取前綴。
-2. <strong>中途換模型</strong> → 快取是 per-model；子任務要換便宜模型，改用 subagent，別在主迴圈換。
-3. <strong>中途增刪工具</strong> → 工具在位置 0，一動全失效；用 tool search 之類「附加而非置換」的機制。</p>
-<p>這也呼應 <a href="../context-engineering-in-practice/">Context Engineering 實作篇</a>：caching 與 context budget 是同一枚硬幣。</p>
-<h2 id="_3">落地檢查清單〔實務〕<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<ol>
-<li><strong>靜態在前、變動在後</strong>——先把 prompt 組裝順序排對，再談斷點。</li>
-<li><strong>斷點放「共享前綴的結尾」</strong>，不是整段結尾（否則每請求各寫一份、永遠讀不到）。</li>
-<li><strong>凍結 system prompt</strong>——別把日期/模式/使用者名插進去。</li>
-<li><strong>確認過最小前綴門檻</strong>（Opus 4.8 要 ≥4096 tokens 才會快取）。</li>
-<li><strong>用 <code>usage.cache_read_input_tokens</code> 驗證</strong>，不要靠感覺。</li>
-</ol>
-<h2 id="_4">延伸閱讀（本站）<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p><strong>多久回本？</strong></p>
 <ul>
-<li><a href="../context-engineering-in-practice/">Context Engineering 實作篇</a> — caching 與 context budget 的關係</li>
-<li><a href="../caveman-token-compression-skill/">Caveman：壓縮 Agent 輸出 Token</a> — 從輸出端省 token</li>
-<li><a href="../agent-observability/">Agent Observability</a> — 用 cost 訊號驗證快取效益</li>
+<li><strong>存 5 分鐘</strong>：用 <strong>2 次</strong>就回本。不快取：2 次 × 1 倍 = 2 倍。有快取：寫一次 1.25 倍 + 讀一次 0.1 倍 = 1.35 倍。</li>
+<li><strong>存 1 小時</strong>：寫入比較貴，要用 <strong>3 次</strong>才回本。</li>
 </ul>
-<h2 id="_5">來源<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p><strong>TTL 怎麼選？</strong>（TTL = Time To Live，快取能活多久）</p>
+<p>這就像停車：</p>
+<ul>
+<li><strong>預設 5 分鐘</strong>：像臨停。請求一直連續進來就很划算。</li>
+<li><strong>選 1 小時</strong>：像月租。適合「隔一陣子才爆一波」的流量。但租金（寫入費）翻倍，要用比較多次才划算。</li>
+</ul>
+<blockquote>
+<p>2026-10 補充：新模型讀快取更便宜。Claude Fable 5.1 讀快取約 0.025 倍，Claude Opus 5.5 約 0.05 倍，回本也更快。</p>
+</blockquote>
+<h3 id="_11">太短不給快取：像集點門檻<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
+<p>便利商店消費太少不給點數，<strong>而且不會告訴你</strong>。</p>
+<p>快取也有最小長度。開頭太短就不快取，<strong>也不會報錯</strong>。唯一線索是回應裡 <code>cache_creation_input_tokens</code> 等於 0。</p>
+<p>最小可快取長度（依模型，資料基準 2026-08）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>最少要幾個 token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opus 5、Fable 5、Fable 5.1</td>
+<td><strong>512</strong></td>
+</tr>
+<tr>
+<td>Opus 4.8、Sonnet 5 / 4.6 / 4.5</td>
+<td><strong>1024</strong></td>
+</tr>
+<tr>
+<td>Opus 4.7</td>
+<td><strong>2048</strong></td>
+</tr>
+<tr>
+<td>Opus 4.6 / 4.5、Haiku 4.5</td>
+<td><strong>4096</strong></td>
+</tr>
+</tbody>
+</table>
+<p>注意：門檻<strong>不是越新越低</strong>。新一代降到 512，但 Opus 4.6 和 Haiku 4.5 還是 4096。別用「新模型應該比較低」去猜。</p>
+<p>另外，<strong>每次請求最多放 4 個</strong> <code>cache_control</code> 斷點。</p>
+<h2 id="anthropic_2">有沒有命中：看發票，別猜〔Anthropic〕<a class="headerlink" href="#anthropic_2" title="Permanent link">¶</a></h2>
+<h3 id="_12">例子：看發票才知道有沒有打折<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
+<p>結帳時你覺得「應該有打折吧」，不準。看發票上的折扣欄才準。</p>
+<p>回應裡的 <code>usage</code> 欄位就是發票：</p>
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>意思</th>
+<th>價格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cache_read_input_tokens</code></td>
+<td>這次從快取讀的量</td>
+<td>約 0.1 倍</td>
+</tr>
+<tr>
+<td><code>cache_creation_input_tokens</code></td>
+<td>這次寫進快取的量</td>
+<td>約 1.25 倍</td>
+</tr>
+<tr>
+<td><code>input_tokens</code></td>
+<td><strong>只有沒快取的剩下那段</strong></td>
+<td>原價</td>
+</tr>
+</tbody>
+</table>
+<p><strong>陷阱</strong>：<code>input_tokens</code> 不是全部。總長度 = 三個欄位加起來。只看 <code>input_tokens</code>，會誤以為 prompt 很短。</p>
+<p><strong>一直送一樣的開頭，<code>cache_read_input_tokens</code> 卻一直是 0？那就是有東西偷偷改了開頭。</strong></p>
+<h2 id="anthropic_3">會偷偷讓快取失效的坑〔Anthropic〕〔實務〕<a class="headerlink" href="#anthropic_3" title="Permanent link">¶</a></h2>
+<h3 id="_13">例子：作文第一行寫上現在幾點<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
+<p>你每次交作文，第一行都寫「現在是 10 點 03 分」。老師的規則是「從頭比對，有改就從改的地方重批」。結果第一行每次都不一樣，老師每次都從頭批到尾。</p>
+<p>下面這些寫法，都是「在第一行寫現在幾點」：</p>
+<table>
+<thead>
+<tr>
+<th>寫法</th>
+<th>為什麼會壞</th>
+<th>日常比喻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datetime.now()</code> / <code>Date.now()</code> 放進 system prompt</td>
+<td>開頭每次都不同</td>
+<td>作文第一行寫現在幾點</td>
+</tr>
+<tr>
+<td><code>uuid4()</code> / request ID 放前面</td>
+<td>每次請求都是新號碼</td>
+<td>每次都換一個新的號碼牌</td>
+</tr>
+<tr>
+<td><code>json.dumps()</code> 沒加 <code>sort_keys</code>，或直接跑 <code>set</code></td>
+<td>內容一樣，但順序每次可能不同</td>
+<td>購物清單一樣，但每次項目順序亂排</td>
+</tr>
+<tr>
+<td>把使用者 ID 塞進 system prompt</td>
+<td>每個人的開頭都不同，大家無法共用</td>
+<td>每份講義封面都印上學生名字，就不能一起影印</td>
+</tr>
+<tr>
+<td>依條件加段落（<code>if flag: system += ...</code>）</td>
+<td>每種條件組合都是不同開頭</td>
+<td>便當底層的飯，有時白飯有時炒飯</td>
+</tr>
+<tr>
+<td>每個使用者的工具清單不同</td>
+<td>工具排在最前面，一不同整段都不能共用</td>
+<td>講義第一頁就不一樣，整本都要重印</td>
+</tr>
+</tbody>
+</table>
+<p><strong>修法</strong>：</p>
+<ul>
+<li>會變的東西，搬到最後一個斷點之後。</li>
+<li>讓輸出順序固定（例如 <code>json.dumps(..., sort_keys=True)</code>）。</li>
+<li>不必要的動態內容，直接刪掉。</li>
+</ul>
+<h2 id="agent-anthropic">Agent 特別要注意：做到一半別打翻〔Anthropic〕<a class="headerlink" href="#agent-anthropic" title="Permanent link">¶</a></h2>
+<p>Agent（會自己連續做很多步的 AI 流程）一次對話很長，快取一壞損失特別大。有三件事最常把整段快取打翻：</p>
+<ol>
+<li><strong>中途改 system prompt</strong></li>
+<li>比喻：考試寫到一半，回去改考卷第一題的題目，後面全部要重算。</li>
+<li>
+<p>修法：不要改開頭。改成在 <code>messages</code> 最後<strong>追加</strong>一則 system 訊息（有支援的模型才行），已存的快取就保得住。</p>
+</li>
+<li>
+<p><strong>中途換模型</strong></p>
+</li>
+<li>比喻：換了一個老師，前一個老師的筆記他看不懂。快取是每個模型各自一份。</li>
+<li>
+<p>修法：想讓便宜模型做子任務，就開一個 subagent（子代理，另一個獨立小幫手）去做。不要在主流程裡換模型。</p>
+</li>
+<li>
+<p><strong>中途增刪工具</strong></p>
+</li>
+<li>比喻：工具清單排在最前面，就像書的第一頁。改了第一頁，整本書都要重印。</li>
+<li>修法：用 tool search 這種「往後追加、不換掉前面」的方式。</li>
+</ol>
+<p>快取和 context 預算要一起想，見 <a href="../context-engineering-in-practice/">Context Engineering 實作篇</a>。</p>
+<h2 id="_14">落地檢查清單〔實務〕<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
+<ol>
+<li><strong>不變的放前面，會變的放後面。</strong> 先把順序排對，再談斷點。</li>
+<li><strong>斷點放在「大家共用那段」的結尾</strong>，不是整段 prompt 的最後。放在最後，每個請求都會各存一份，永遠讀不到別人的。</li>
+<li><strong>system prompt 寫死。</strong> 不要塞日期、模式、使用者名字。</li>
+<li><strong>確認開頭夠長。</strong> 例如 Opus 4.8 至少要 1024 tokens 才會快取。</li>
+<li><strong>看 <code>usage.cache_read_input_tokens</code> 確認。</strong> 不要靠感覺。</li>
+</ol>
+<h2 id="_15">延伸閱讀（本站）<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../context-engineering-in-practice/">Context Engineering 實作篇</a>：快取和 context 預算的關係</li>
+<li><a href="../caveman-token-compression-skill/">Caveman：壓縮 Agent 輸出 Token</a>：從輸出端省 token</li>
+<li><a href="../agent-observability/">Agent Observability</a>：用成本數字驗證快取有沒有效</li>
+</ul>
+<h2 id="_16">來源<a class="headerlink" href="#_16" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">Prompt caching — Anthropic（cache_control、TTL、pricing）</a></li>
 <li><a href="https://developers.openai.com/api/docs/guides/prompt-caching">Prompt caching — OpenAI API</a></li>
@@ -5079,7 +5559,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月6日 05:45:20 UTC">2026年10月6日</span>
   </span>
 
     
