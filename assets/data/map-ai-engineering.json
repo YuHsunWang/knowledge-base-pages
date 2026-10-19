@@ -106,7 +106,8 @@
     "mcp-ecosystem-guide",
     "mcp-builder-skill",
     "sepia-de-ai-writing-skill",
-    "ponytail-lazy-senior-dev-skill"
+    "ponytail-lazy-senior-dev-skill",
+    "claude-code-team-code-review"
    ]
   },
   {
@@ -486,6 +487,26 @@
      "section": "ai"
     }
    ]
+  },
+  {
+   "id": "claude-code-team-code-review",
+   "label": "Claude Code 團隊的 Code Review",
+   "href": "claude-code-team-code-review/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-19"
+    ]
+   ],
+   "note": "整理 Anthropic Claude Code 團隊的 code review 流程：AI 寫九成程式碼時，用七層檢查、風險分級核准、事故轉 eval 與審查輪數上限，讓人花更少時間卻不增加 revert。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-19 更新｜92 天內有效"
+   },
+   "backlinks": []
   },
   {
    "id": "claude-md-obsidian-llm-wiki-maintainer",
@@ -1754,7 +1775,7 @@
     "label": "Claude Code / Skills / MCP",
     "href": "#claude-code-mcp",
     "description": "實際落地的工具鏈",
-    "count": 8,
+    "count": 9,
     "members": [
      "claude-code-coding-guidelines",
      "superpowers-claude-code-skills",
@@ -1763,7 +1784,8 @@
      "mcp-ecosystem-guide",
      "mcp-builder-skill",
      "sepia-de-ai-writing-skill",
-     "ponytail-lazy-senior-dev-skill"
+     "ponytail-lazy-senior-dev-skill",
+     "claude-code-team-code-review"
     ],
     "x": 0.84,
     "y": 0.51,
