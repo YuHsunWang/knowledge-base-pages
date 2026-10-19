@@ -5193,7 +5193,7 @@
 <li><strong>Variance 高 = 太複雜 = overfitting</strong>：模型把訓練資料的雜訊也背下來，換一批資料答案就大變，例如深度 20 的決策樹。</li>
 <li><strong>Irreducible</strong>：資料本身的雜訊，換什麼模型都減不掉。</li>
 </ul>
-<p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/bias_variance.png" data-desc-position="bottom"><img alt="Bias-Variance Tradeoff 曲線" src="../assets/bias_variance.png"></a>
 <em>圖：模型複雜度上升 → Bias² 降、Variance 升，總誤差呈 U 型，最低點就是最佳複雜度。</em></p>
 <h3 id="1315">實驗：多項式次數 1、3、15<a class="headerlink" href="#1315" title="Permanent link">¶</a></h3>
 <p>我們從 <code>y = sin(x) + 雜訊</code>（雜訊標準差 0.3）抽 60 筆當訓練集、1,000 筆當驗證集，分別用 1 次、3 次、15 次多項式回歸去擬合：</p>
@@ -5272,7 +5272,7 @@
 </tr>
 </tbody>
 </table>
-<p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/learning_curve.png" data-desc-position="bottom"><img alt="Learning curve：underfitting vs overfitting" class="wide" src="../assets/learning_curve.png"></a>
 <em>圖：左 underfitting（train/val 都高且收斂在一起）；右 overfitting（train 低、val 高、落差大）。</em></p>
 <div class="admonition note">
 <p class="admonition-title">常見誤解：overfitting 就該加資料</p>
@@ -5394,7 +5394,7 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
 </table>
 <p>兩者都抓到了前 5 個有用的特徵，係數也都被往 0 拉了一點（這就是正則化的「偏誤」）。差別在剩下的 95 個雜訊特徵：Lasso 把 74 個<strong>精確地</strong>設成 0，Ridge 讓它們全部保留一個小小的值。</p>
 <p>為什麼？看幾何圖：</p>
-<p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/l1_l2_geometry.png" data-desc-position="bottom"><img alt="L1 與 L2 的幾何解釋" class="wide" src="../assets/l1_l2_geometry.png"></a>
 <em>圖：L1 的限制區域是菱形，角落剛好在座標軸上，損失的等高線最容易碰到角落 → 某些權重剛好為 0；L2 是圓形，通常碰在不是軸上的點。</em></p>
 <ul>
 <li><code>λ</code>（sklearn 叫 <code>alpha</code>）用 CV 調：太小會過擬合，太大會欠擬合。注意 <code>LogisticRegression</code> 用的是 <code>C = 1/λ</code>，<strong>方向相反</strong>，C 越小正則化越強。</li>

@@ -5572,7 +5572,7 @@
 </tbody>
 </table>
 <p>這四格用圖看更直觀。關鍵在於：<strong>同一條判定門檻，會在「其實沒差異」和「其實有差異」這兩個世界裡，各自造成一種錯誤</strong>：</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/01-type-i-ii-error.png" data-desc-position="bottom"><img alt="型一/型二錯誤與檢定力" src="../../assets/diagrams/statistics-ab-testing/01-type-i-ii-error.png"></a></p>
 <ul>
 <li>左邊那條曲線是「沒有差異」的世界。它右尾超過門檻的那一塊，就是 <strong>α</strong>——明明沒效果，卻剛好抽到夠極端的樣本而被判定有效。</li>
 <li>右邊那條是「真的有差異」的世界。它落在門檻左邊的那一塊，就是 <strong>β</strong>——明明有效果，卻沒被偵測到。</li>
@@ -5682,7 +5682,7 @@
 </tbody>
 </table>
 <p>把整條曲線畫出來：</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/02-sample-size-vs-mde.png" data-desc-position="bottom"><img alt="樣本數與 MDE 的平方反比" src="../../assets/diagrams/statistics-ab-testing/02-sample-size-vs-mde.png"></a></p>
 <blockquote>
 <p><strong>關鍵直覺：樣本數與效果大小的平方成反比。</strong> MDE 砍半 → 樣本數變四倍。這是為什麼「想偵測很小的提升」在實務上幾乎不可行——圖左邊那段陡到幾乎垂直，就是很多實驗跑不完的原因。</p>
 </blockquote>
@@ -5727,7 +5727,7 @@
 <hr>
 <h2 id="ab_1">三、A/B 測試完整流程<a class="headerlink" href="#ab_1" title="Permanent link">¶</a></h2>
 <p>整個流程與兩個把關點，先用一張圖建立全貌，再逐步看每一步在做什麼：</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/04-ab-test-workflow.png" data-desc-position="bottom"><img alt="A/B 測試流程與把關點" src="../../assets/diagrams/statistics-ab-testing/04-ab-test-workflow.png"></a></p>
 <h3 id="step-1">Step 1：定義假設與指標<a class="headerlink" href="#step-1" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -5820,7 +5820,7 @@
 </tr>
 </tbody>
 </table>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/statistics-ab-testing/03-peeking-false-positive.png" data-desc-position="bottom"><img alt="偷看導致假陽性膨脹" src="../../assets/diagrams/statistics-ab-testing/03-peeking-false-positive.png"></a></p>
 <blockquote>
 <p>每天看一次、跑兩週，假陽性率約是宣稱值的<strong>四倍</strong>。意思是：明明沒效果的實驗，有五分之一會被你判定成功。</p>
 </blockquote>

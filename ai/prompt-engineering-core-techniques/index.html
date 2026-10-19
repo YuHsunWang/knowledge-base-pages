@@ -5183,7 +5183,7 @@
 <h2 id="prompt-chaining">Prompt Chaining：拆解複雜任務<a class="headerlink" href="#prompt-chaining" title="Permanent link">¶</a></h2>
 <h3 id="_2">原理<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <p>把一個複雜任務切分為多個有序的 Prompt，前一步的輸出作為下一步的輸入。每個 Prompt 只做一件事，角色與職責明確。</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/prompt-engineering/01-prompt-chaining.png" data-desc-position="bottom"><img alt="Prompt Chaining 流程圖" src="../../assets/diagrams/prompt-engineering/01-prompt-chaining.png"></a></p>
 <h3 id="_3">適用時機<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <ul>
 <li>任務太複雜，一次 Prompt 容易失焦或超出 context 限制</li>
@@ -5203,7 +5203,7 @@
 <h2 id="chain-of-thought">Chain of Thought：讓模型推理出來<a class="headerlink" href="#chain-of-thought" title="Permanent link">¶</a></h2>
 <h3 id="_5">原理<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>要求模型在給出最終答案前，先「顯示思考過程」。這個簡單的改變對推理類問題的準確率提升顯著。</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/prompt-engineering/02-chain-of-thought.png" data-desc-position="bottom"><img alt="Chain of Thought 推理模式對比" src="../../assets/diagrams/prompt-engineering/02-chain-of-thought.png"></a></p>
 <h3 id="_6">兩種使用方式<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p><strong>Zero-shot CoT</strong>：只需在 Prompt 末尾加上一句話。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>請解決以下問題，並逐步說明你的推理過程。
@@ -5235,7 +5235,7 @@
 <h2 id="loop-engineering">Loop Engineering：循環執行到收斂<a class="headerlink" href="#loop-engineering" title="Permanent link">¶</a></h2>
 <h3 id="_9">原理<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
 <p>模型不只生成一次回應——它執行動作、觀察結果、評估是否達成目標，再決定繼續或停止。這是現代 AI Agent 的基本控制結構。</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/prompt-engineering/03-agentic-loop.png" data-desc-position="bottom"><img alt="Agentic Loop 執行週期" src="../../assets/diagrams/prompt-engineering/03-agentic-loop.png"></a></p>
 <h3 id="_10">四個核心步驟<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
 <table>
 <thead>

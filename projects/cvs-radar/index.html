@@ -5076,11 +5076,11 @@
 </div>
 <hr>
 <h2 id="_2">產品長什麼樣<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/cvs-radar/app-overview.png?v=2" data-desc-position="bottom"><img alt="CVS Radar 首頁：搜尋、分類與品牌篩選、四種排序與商品排行卡片" src="../../assets/screenshots/cvs-radar/app-overview.png?v=2"></a></p>
 <p>預設以「近期推薦」呈現最近值得買的商品，也能切換「討論熱度」看現在大家在聊什麼。收合的卡片就給齊判斷需要的東西：綜合評分、共識標籤、聲量、上架日期、價格，以及一句代表性的留言。</p>
 <div class="grid">
-<p></p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/cvs-radar/app-mobile.png?v=2" data-desc-position="bottom"><img alt="手機版首頁：貨架標題列、搜尋、排行卡片與浮動篩選鈕" src="../../assets/screenshots/cvs-radar/app-mobile.png?v=2"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/cvs-radar/product-detail.png?v=2" data-desc-position="bottom"><img alt="展開後的商品卡：作者評價、留言整理出的優缺點與原文連結" src="../../assets/screenshots/cvs-radar/product-detail.png?v=2"></a></p>
 </div>
 <p>介面是為了「人在超商、單手操作、十秒內決定」設計的。展開任一張卡，才會出現比較完整的判斷材料：作者的完整心得、留言整理出的「大家喜歡的點」與「需要留意的點」，最後是原文連結——分數說服不了你的時候，可以自己去看。</p>
 <hr>
@@ -5095,7 +5095,7 @@
 <p>所以問題被拆成兩層：後端先把雜訊整理成商品層級的公平分數、信心度與證據；前端再把這些輸出轉成能快速比較的購買介面。</p>
 <hr>
 <h2 id="_4">一篇心得，怎麼變成購買參考<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/cvs-radar/01-architecture.png?v=4" data-desc-position="bottom"><img alt="CVS Radar 系統架構：爬取、LLM 標記、評分、資料建置、靜態網站" src="../../assets/diagrams/cvs-radar/01-architecture.png?v=4"></a></p>
 <ol>
 <li><strong>收集公開心得</strong>——讀取 PTT CVS 板的商品文與留言。</li>
 <li><strong>整理成同一商品</strong>——辨識通路、品名與價格，把名稱寫法不同、實際是同一項的商品合併起來。</li>
@@ -5124,7 +5124,7 @@
 <strong>實際後果：</strong> 驗證方式因此可以是「改動前後各跑一次完整管線、比對整份結果集」，而不是只看單元測試綠燈。</p>
 </div>
 <h3 id="_7">第二次改寫：三個人的意見，不該長得像大家的共識<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/cvs-radar/02-scoring.png?v=3" data-desc-position="bottom"><img alt="CVS Radar 綜合評分的計算流程" src="../../assets/diagrams/cvs-radar/02-scoring.png?v=3"></a></p>
 <p>情緒判準了之後，下一個問題是怎麼把一堆「正／中／負」變成一個分數。單純平均會出事：只有三個人講過的商品，平均下來可能是 95 分，看起來比一百個人討論、平均 82 分的商品還好。</p>
 <p>這裡用的是<strong>貝氏收斂</strong>。講白話一點：</p>
 <blockquote>
@@ -5142,7 +5142,7 @@
 <p>最後的版本是：樣本太少的商品，<strong>不顯示</strong>綜合評分，也不顯示正／中／負百分比，只明確標示「資料不足」。目前有 194 項商品（24.3%）因此留白。</p>
 <p>在產品上留白比湊出一個好看的排行難——留白會被質疑「你的資料是不是不夠」，而一個看起來很精確、其實只有三個人講過的數字不會。但那個數字會讓人買錯東西。</p>
 <h3 id="_8">第三個取捨：降權，還是點名？<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/cvs-radar/03-trust.png?v=2" data-desc-position="bottom"><img alt="CVS Radar 的可信度處理：弱訊號累積可疑分，只做內部降權" src="../../assets/diagrams/cvs-radar/03-trust.png?v=2"></a></p>
 <p>管線裡有一層帳號可信度分析：品牌偏好是不是異常集中、貼文是不是樣板化、評價是不是極端、有沒有短時間爆量。這些訊號合起來是一個「可疑分」。</p>
 <p>這個分數有兩種用法。一種是做成公開標籤——「CVS Radar 標出 N 個疑似業配帳號」，示範性最強。另一種是只讓它在計分時降低權重，對外什麼都不說。</p>
 <p>我選了後者，因為公開標籤要求的證據強度，是內部降權的好幾倍。降權判斷錯了，是某個商品的分數偏了一兩分；點名判斷錯了，是一個真實帳號被掛上洗評價的標籤，而代價完全由他承擔。同樣的弱訊號，撐得起降權，撐不起點名。</p>
