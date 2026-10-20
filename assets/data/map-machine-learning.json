@@ -30,6 +30,7 @@
    "desc": "先看懂模型在做什麼",
    "items": [
     "ml-interview-core-concepts",
+    "math-foundations",
     "geron-hands-on-ml-notes"
    ]
   },
@@ -101,7 +102,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -141,7 +142,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -236,7 +237,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -281,13 +282,38 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
     {
      "label": "模型可解釋性：Feature Importance 在量什麼？SHAP 什麼時候會分錯功勞？",
      "href": "model-interpretability-shap/",
+     "section": "machine-learning"
+    }
+   ]
+  },
+  {
+   "id": "math-foundations",
+   "label": "ML 數學觀念",
+   "href": "math-foundations/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-20"
+    ]
+   ],
+   "note": "讀機器學習文章時常卡住的數學觀念速查，例如凸函數（Convex）。一個觀念一小節，用白話和圖說明，從其他文章連過來查。",
+   "fresh": {
+    "state": "evergreen",
+    "label": "常青｜內容不隨時間失效"
+   },
+   "backlinks": [
+    {
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
+     "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     }
    ]
@@ -326,7 +352,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -364,7 +390,7 @@
      "2026-06-13"
     ]
    ],
-   "note": "機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。",
+   "note": "機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯迴歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。",
    "fresh": {
     "state": "evergreen",
     "label": "常青｜內容不隨時間失效"
@@ -388,6 +414,11 @@
     {
      "label": "Gradient Boosting 實戰：三套 GBDT 差多少？什麼時候會輸給線性回歸？",
      "href": "gradient-boosting-in-practice/",
+     "section": "machine-learning"
+    },
+    {
+     "label": "ML 數學觀念：讀 ML 文章時卡住的數學名詞",
+     "href": "math-foundations/",
      "section": "machine-learning"
     },
     {
@@ -461,7 +492,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -556,7 +587,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -596,7 +627,7 @@
      "section": "machine-learning"
     },
     {
-     "label": "ML 核心觀念：模型學壞了，是太簡單還是太複雜？",
+     "label": "ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？",
      "href": "ml-interview-core-concepts/",
      "section": "machine-learning"
     },
@@ -677,9 +708,10 @@
     "label": "基礎觀念",
     "href": "#ml-foundations",
     "description": "先看懂模型在做什麼",
-    "count": 2,
+    "count": 3,
     "members": [
      "ml-interview-core-concepts",
+     "math-foundations",
      "geron-hands-on-ml-notes"
     ],
     "x": 0.2,

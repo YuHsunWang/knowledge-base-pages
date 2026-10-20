@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
+        <meta name="description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯迴歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
       
       
       
@@ -13,7 +13,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../geron-hands-on-ml-notes/">
+        <link rel="next" href="../math-foundations/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>ML 核心觀念：模型學壞了，是太簡單還是太複雜？ - Shane's Knowledge Base</title>
+        <title>ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？ - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="ML 核心觀念：模型學壞了，是太簡單還是太複雜？ - Shane's Knowledge Base">
-<meta property="og:description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
+<meta property="og:title" content="ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？ - Shane's Knowledge Base">
+<meta property="og:description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯迴歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/ml-interview-core-concepts.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/machine-learning/ml-interview-core-concepts/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="ML 核心觀念：模型學壞了，是太簡單還是太複雜？ - Shane's Knowledge Base">
-<meta property="twitter:description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯回歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
+<meta property="twitter:title" content="ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？ - Shane's Knowledge Base">
+<meta property="twitter:description" content="機器學習的八個核心觀念：ML 類型、Bias-Variance、梯度下降、線性/邏輯迴歸、正則化、樹模型家族、交叉驗證與評估指標，附多項式次數與 L1/L2 的實測。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/machine-learning/ml-interview-core-concepts.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ML 核心觀念：模型學壞了，是太簡單還是太複雜？
+              ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？
             
           </span>
         </div>
@@ -2384,6 +2384,8 @@
       
         
       
+        
+      
     
     
     
@@ -2524,19 +2526,19 @@
   <a href="#2-bias-variance-tradeoff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Bias-Variance Tradeoff：判斷模型學壞在哪
+        2. Bias-Variance Tradeoff：判斷模型是什麼原因不準
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Bias-Variance Tradeoff：判斷模型學壞在哪">
+    <nav class="md-nav" aria-label="2. Bias-Variance Tradeoff：判斷模型是什麼原因不準">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1315" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        實驗：多項式次數 1、3、15
+        範例
       
     </span>
   </a>
@@ -2563,7 +2565,7 @@
   <a href="#4-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 線性回歸 vs 邏輯回歸
+        4. 線性迴歸 vs 邏輯迴歸
       
     </span>
   </a>
@@ -2633,7 +2635,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         分類：從混淆矩陣出發
@@ -2644,10 +2646,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        回歸
+        迴歸
       
     </span>
   </a>
@@ -2660,30 +2662,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         結論
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="結論">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        延伸：這篇真正想留下的問題
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2713,6 +2698,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML 數學觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4876,19 +4889,19 @@
   <a href="#2-bias-variance-tradeoff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Bias-Variance Tradeoff：判斷模型學壞在哪
+        2. Bias-Variance Tradeoff：判斷模型是什麼原因不準
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Bias-Variance Tradeoff：判斷模型學壞在哪">
+    <nav class="md-nav" aria-label="2. Bias-Variance Tradeoff：判斷模型是什麼原因不準">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1315" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        實驗：多項式次數 1、3、15
+        範例
       
     </span>
   </a>
@@ -4915,7 +4928,7 @@
   <a href="#4-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 線性回歸 vs 邏輯回歸
+        4. 線性迴歸 vs 邏輯迴歸
       
     </span>
   </a>
@@ -4985,7 +4998,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         分類：從混淆矩陣出發
@@ -4996,10 +5009,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        回歸
+        迴歸
       
     </span>
   </a>
@@ -5012,30 +5025,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         結論
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="結論">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        延伸：這篇真正想留下的問題
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5155,48 +5151,58 @@
 
 
 
-<h1 id="ml">ML 核心觀念：模型學壞了，是太簡單還是太複雜？<a class="headerlink" href="#ml" title="Permanent link">¶</a></h1>
+<h1 id="ml">ML 核心觀念：當模型預測不準時，是太簡單還是太複雜？<a class="headerlink" href="#ml" title="Permanent link">¶</a></h1>
 <blockquote>
-<p><strong>難度：入門。會一點 Python 和高中代數就夠。</strong>
-本頁的實驗數字來自 Python 3.12、scikit-learn 1.9.1，2026-10-04 執行。
-<strong>本頁定位</strong>：本區 <strong>bias-variance、正則化、樹模型家族</strong> 三個主題的完整版在這裡，其他頁指回本頁。評估指標與 CV 的深入版在〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉，本頁 §7、§8 只留速查密度。照書走章節的版本見〈<a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9</a>〉。</p>
+<p><strong>難度：入門。</strong>
+<strong>知識需求：Python、高中代數。</strong>
+<strong>本頁定位</strong>：本區 <strong>bias-variance、正則化、樹模型家族</strong>的完整說明在這頁。評估指標與 CV 的深入版在〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉，本頁 §7、§8 只留簡易評估。
+內容參考〈<a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9</a>〉。</p>
 </blockquote>
 <h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>機器學習的入門內容，常被整理成一長串名詞：bias、variance、L1、L2、bagging、boosting……每個都有定義，但讀完不一定知道<strong>它們在回答同一個問題</strong>：模型為什麼在新資料上表現不好，以及該往哪個方向修。</p>
-<p>本頁把八個核心觀念串成這條線，並回答三個問題：</p>
+<p>本頁主要回答三個問題：</p>
 <ul>
-<li><strong>模型學壞了，怎麼知道是太簡單還是太複雜？</strong>（先講結論：同時看訓練誤差和驗證誤差。兩個都高是太簡單；訓練很低、驗證高是太複雜。下面用多項式次數 1、3、15 實測。）</li>
-<li><strong>L1 和 L2 正則化差在哪？</strong>（L1 會讓不重要的係數<strong>剛好變成 0</strong>，等於自動選特徵；L2 只會把係數縮小，不會歸零。100 個特徵裡只有 5 個有用時，L1 把 74 個歸零，L2 一個都沒有。）</li>
-<li><strong>樹模型為什麼是表格資料的主力？</strong>（隨機森林靠平均很多棵不一樣的樹來降 variance，boosting 靠一棵接一棵修錯來降 bias；兩者都不需要特徵縮放，對混雜的表格資料很省事。）</li>
+<li><strong>模型預測不準時，怎麼判斷是太簡單還是太複雜？</strong><ul>
+<li>同時看訓練誤差和驗證誤差。兩個都高：太簡單（Underfitting）；訓練誤差很低、驗證誤差高：太複雜（Overfitting）。</li>
 </ul>
-<p>本頁只談監督式學習的觀念；神經網路的訓練細節在〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
+</li>
+<li><strong>L1 和 L2 正則化差在哪？</strong><ul>
+<li>L1 會讓不重要的係數<strong>剛好變成 0</strong>，等於自動選特徵；L2 只會把係數縮小，不會歸零。</li>
+</ul>
+</li>
+<li><strong>樹模型為什麼是表格資料的主力？</strong><ul>
+<li>隨機森林靠平均很多棵不一樣的樹來降低變異（Variance），boosting 靠一棵接一棵修錯來降偏誤（Bias）。</li>
+<li>兩者都不需要特徵縮放，對混雜的表格資料很省事。</li>
+</ul>
+</li>
+</ul>
 <p>一眼地圖：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ML 類型（在學什麼）→ Bias-Variance（怎麼判斷學壞了）→ 梯度下降（怎麼學）
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>→ 線性 / 邏輯回歸（最基本的兩個模型）→ 正則化（怎麼不過擬合）
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>→ 樹模型家族（表格資料主力）→ 交叉驗證（怎麼公正評估）→ 評估指標（用什麼數字衡量）
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ML 類型（在學什麼）→ Bias-Variance（判斷是什麼原因不準）→ 梯度下降（模型的學習邏輯）
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>→ 線性 / 邏輯迴歸 → 正則化（怎麼不過擬合）
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>→ 樹模型家族 → 交叉驗證（怎麼公正評估）→ 評估指標（用什麼數字衡量）
 </span></code></pre></div>
 <hr>
 <h2 id="1-ml">1. ML 三大類型<a class="headerlink" href="#1-ml" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>監督式</strong>：資料有 label，學「輸入→輸出」的對應。</li>
-<li>回歸（預測連續值，指標 MAE/MSE/RMSE/R²）、分類（預測類別，指標 Accuracy/P/R/F1/AUC）。</li>
+<li>迴歸（預測連續值，指標 MAE/MSE/RMSE/R²）。</li>
+<li>分類（預測類別，指標 Accuracy/P/R/F1/AUC）。</li>
 <li><strong>非監督式</strong>：資料沒有 label，自己找結構。</li>
 <li>分群（K-Means/DBSCAN）、降維（PCA/t-SNE）、關聯規則（購物籃）。</li>
 <li><strong>其他</strong>：半監督、自監督（BERT 的 masked LM）、強化學習（AlphaGo）。</li>
 </ul>
 <p>實務上多數任務是監督式。非監督多用在「label 很貴、先探索」或異常偵測。兩者常搭配使用，例如先用 PCA 降維，再做 K-Means 分群。</p>
 <hr>
-<h2 id="2-bias-variance-tradeoff">2. Bias-Variance Tradeoff：判斷模型學壞在哪<a class="headerlink" href="#2-bias-variance-tradeoff" title="Permanent link">¶</a></h2>
+<h2 id="2-bias-variance-tradeoff">2. Bias-Variance Tradeoff：判斷模型是什麼原因不準<a class="headerlink" href="#2-bias-variance-tradeoff" title="Permanent link">¶</a></h2>
 <p>誤差可以拆成三塊：<code>Total Error = Bias² + Variance + Irreducible Error</code></p>
 <ul>
-<li><strong>Bias 高 = 太簡單 = underfitting</strong>：模型本身就畫不出資料的形狀，例如用直線去擬合一條曲線。</li>
-<li><strong>Variance 高 = 太複雜 = overfitting</strong>：模型把訓練資料的雜訊也背下來，換一批資料答案就大變，例如深度 20 的決策樹。</li>
+<li><strong>偏誤（Bias）高 = 太簡單（Underfitting）</strong>：模型本身就畫不出資料的形狀，例如用直線去擬合一條曲線。</li>
+<li><strong>變異（Variance）高 = 太複雜（Overfitting）</strong>：模型把訓練資料的雜訊也背下來，換一批資料答案就大變，例如深度 20 的決策樹。</li>
 <li><strong>Irreducible</strong>：資料本身的雜訊，換什麼模型都減不掉。</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/bias_variance.png" data-desc-position="bottom"><img alt="Bias-Variance Tradeoff 曲線" src="../assets/bias_variance.png"></a>
 <em>圖：模型複雜度上升 → Bias² 降、Variance 升，總誤差呈 U 型，最低點就是最佳複雜度。</em></p>
-<h3 id="1315">實驗：多項式次數 1、3、15<a class="headerlink" href="#1315" title="Permanent link">¶</a></h3>
-<p>我們從 <code>y = sin(x) + 雜訊</code>（雜訊標準差 0.3）抽 60 筆當訓練集、1,000 筆當驗證集，分別用 1 次、3 次、15 次多項式回歸去擬合：</p>
+<h3 id="_2">範例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<p>我們從 <code>y = sin(x) + 雜訊</code>（雜訊標準差 0.3）抽 60 筆當訓練集、1,000 筆當驗證集，分別用 1 次、3 次、15 次多項式迴歸去擬合：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span><span class="p">,</span> <span class="n">StandardScaler</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
@@ -5224,7 +5230,7 @@
 <td>1</td>
 <td>0.533</td>
 <td>0.509</td>
-<td>兩個都高、而且很接近 → <strong>underfitting</strong></td>
+<td>兩個都高、而且很接近 → 沒學到 → <strong>太簡單（Underfitting）</strong></td>
 </tr>
 <tr>
 <td>3</td>
@@ -5236,7 +5242,7 @@
 <td>15</td>
 <td><strong>0.239</strong></td>
 <td>0.369</td>
-<td>訓練比雜訊還低、驗證變差 → <strong>overfitting</strong></td>
+<td>訓練比雜訊還低、驗證變差 → 學過頭了 → <strong>太複雜（Overfitting）</strong></td>
 </tr>
 </tbody>
 </table>
@@ -5275,13 +5281,14 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/learning_curve.png" data-desc-position="bottom"><img alt="Learning curve：underfitting vs overfitting" class="wide" src="../assets/learning_curve.png"></a>
 <em>圖：左 underfitting（train/val 都高且收斂在一起）；右 overfitting（train 低、val 高、落差大）。</em></p>
 <div class="admonition note">
-<p class="admonition-title">常見誤解：overfitting 就該加資料</p>
+<p class="admonition-title">常見誤解：預測不準時該加資料</p>
 <p>加資料確實最有效，但它只對 variance 有用。如果是 underfitting（兩條線都高、而且已經收斂在一起），加再多資料，兩條線也只是停在同一個高度。
-實際後果：花了很多成本蒐集資料，分數不動。先看兩條線的位置，再決定修法。</p>
+實際後果：花了很多成本蒐集資料，分數卻沒有改善。調參時先看兩條線的位置，再決定修法。</p>
 </div>
 <hr>
 <h2 id="3-gradient-descent">3. Gradient Descent：模型怎麼學<a class="headerlink" href="#3-gradient-descent" title="Permanent link">¶</a></h2>
-<p>一句話：站在目前的位置，看哪個方向下坡最陡，往那裡踏一步，重複。更新公式 <code>θ ← θ − α·∇L(θ)</code>（α 是 learning rate，負號代表往下坡走）。</p>
+<p>站在目前的位置，看哪個方向能讓 Loss 下降最多，就往那個方向更新參數。重複迭代，直到跑完設定的回合數，或 Loss 不再下降。（可以想像成一顆球在滾，球會一直往低的地方滾，直到滾不動，而學習率就是每一步跨多遠。）
+更新公式 <code>θ ← θ − α·∇L(θ)</code>（α 是 learning rate，負號代表往下坡走）。</p>
 <p><strong>三種變形</strong>：</p>
 <ul>
 <li><strong>Batch</strong>：用全部資料算一次梯度。穩，但慢。</li>
@@ -5289,7 +5296,7 @@
 <li><strong>Mini-Batch（最常用）</strong>：一小批（32/64/128/256）。能用 GPU 平行計算，小幅震盪還能幫忙跳出不好的局部低點。</li>
 </ul>
 <p><strong>Learning rate</strong>：太小，收斂很慢；太大，來回震盪甚至發散。常用起點 0.001 或 0.01，搭配 scheduler（先大後小）。</p>
-<p><strong>進階優化器</strong>：Momentum（加慣性）、RMSProp（每個參數自己調 learning rate）、<strong>Adam</strong>（兩者結合，多數神經網路的預設）。高維空間裡真正常見的障礙通常不是局部最小值，而是 <strong>saddle point</strong>（某些方向往上、某些方向往下的平台）。各優化器的細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
+<p><strong>進階優化器（Optimizer）</strong>：Momentum（加慣性）、RMSProp（每個參數自己調 learning rate）、<strong>Adam</strong>（兩者結合，多數神經網路的預設）。高維空間裡真正常見的障礙通常不是局部最小值，而是 <strong>saddle point</strong>（某些方向往上、某些方向往下的平台）。各優化器的細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
@@ -5305,19 +5312,19 @@
 實際後果：只看訓練曲線收斂速度選優化器，可能選到測試分數較差的那個。重要的模型兩種都值得試。</p>
 </div>
 <hr>
-<h2 id="4-vs">4. 線性回歸 vs 邏輯回歸<a class="headerlink" href="#4-vs" title="Permanent link">¶</a></h2>
+<h2 id="4-vs">4. 線性迴歸 vs 邏輯迴歸<a class="headerlink" href="#4-vs" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
 <th>項目</th>
-<th>線性回歸</th>
-<th>邏輯回歸</th>
+<th>線性迴歸</th>
+<th>邏輯迴歸</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>任務</td>
-<td>回歸</td>
+<td>迴歸</td>
 <td>分類</td>
 </tr>
 <tr>
@@ -5342,22 +5349,41 @@
 </tr>
 </tbody>
 </table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/linear_vs_logistic.png" data-desc-position="bottom"><img alt="線性迴歸與邏輯迴歸對照" class="wide" src="../assets/linear_vs_logistic.png"></a>
+<em>圖：左邊線性迴歸畫一條直線，預測連續的數字；右邊邏輯迴歸把 z 壓進 S 形的 Sigmoid，變成 0 到 1 的機率，機率 0.5（z = 0）就是決策邊界。</em></p>
 <ul>
-<li><strong>線性回歸三假設</strong>：線性關係、樣本獨立、殘差常態 N(0,σ²)。</li>
-<li><strong>邏輯回歸</strong>：先算線性組合 z，再用 <strong>Sigmoid</strong> <code>σ(z)=1/(1+e⁻ᶻ)</code> 壓到 [0,1]；多元分類用 <strong>Softmax</strong>。決策邊界是線性的（P=0.5 ⟺ w·x=0）。</li>
+<li><strong>線性迴歸三假設</strong>：<ol>
+<li>線性關係</li>
+<li>樣本獨立</li>
+<li>殘差常態 N(0,σ²)</li>
+</ol>
+</li>
+<li><strong>邏輯迴歸（Logistic Regression）</strong>：用來回答「是或不是」的問題，例如這封信是不是垃圾郵件。<ol>
+<li>先跟線性迴歸一樣，把特徵乘上權重再加起來，得到一個分數 z。z 可以是任何數字，例如 -3 或 5。</li>
+<li>把 z 丟進 <strong>Sigmoid</strong> 函數 <code>σ(z)=1/(1+e⁻ᶻ)</code>，壓成 0 到 1 之間的機率。z 越大，機率越接近 1；z 越小，越接近 0。</li>
+<li>機率大於 0.5 就判成「是」，否則判成「不是」。機率剛好是 0.5 的地方就是 z = 0，這條分界線是直線，所以叫「線性決策邊界」。</li>
+<li>超過兩類時（例如分貓、狗、鳥），把 Sigmoid 換成 <strong>Softmax</strong>。它會一次給出每一類的機率，全部加起來等於 1。</li>
+</ol>
+</li>
 </ul>
-<p>名字裡有「回歸」，是因為核心還是線性回歸的 z = w·x，只是多過一層 Sigmoid 變成機率。它是線性模型：決策邊界是一條直線（或超平面）。非線性的問題要靠特徵轉換、kernel SVM 或樹模型。</p>
+<p>名字裡有「迴歸」，是因為核心還是線性迴歸的 z = w·x，只是多過一層 Sigmoid 變成機率。它是線性模型：決策邊界是一條直線（或超平面）。非線性的問題要靠特徵轉換、kernel SVM 或樹模型。</p>
 <div class="admonition note">
-<p class="admonition-title">常見誤解：邏輯回歸也可以用 MSE 當損失</p>
-<p>技術上算得出來，但 Sigmoid 加 MSE 的損失曲面不是凸的，梯度下降容易卡住；Sigmoid 飽和時梯度也會變得很小。
-Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度形式也乾淨。這不是慣例問題，是收斂保證的問題。</p>
+<p class="admonition-title">常見誤解：邏輯迴歸也可以用 MSE 當損失</p>
+<p>技術上算得出來，但效果不好，原因有兩個：</p>
+<ul>
+<li>Sigmoid 配 MSE，損失的形狀不是碗（不是<a href="../math-foundations/#convex">凸的</a>）：兩邊有很平的地方，梯度下降走到那裡就幾乎不動。</li>
+<li>模型錯得很離譜時（答案是 1，模型卻說 0.01），Sigmoid 已經被壓平，梯度幾乎是 0，模型學不動。</li>
+</ul>
+<p>Cross-Entropy 配 Sigmoid 時，損失的形狀像一個碗（凸的），沒有會騙人的小坑，梯度下降一路往下走就對了。而且錯得越離譜，梯度越大，修正得越快。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/logistic_mse_vs_ce.png" data-desc-position="bottom"><img alt="Sigmoid 配 MSE 與 Cross-Entropy 的比較" class="wide" src="../assets/logistic_mse_vs_ce.png"></a>
+<em>圖：左邊是損失的形狀，MSE 兩側是平的、不是碗，從紅底區域出發會卡住，Cross-Entropy 是一個碗；右邊是答案為 1 時的梯度大小，模型錯得很離譜（左側紅底）時，MSE 的梯度幾乎是 0，Cross-Entropy 還是用力修正。</em></p>
 </div>
 <hr>
 <h2 id="5-l1-l2">5. 正則化：L1 / L2 / 其他<a class="headerlink" href="#5-l1-l2" title="Permanent link">¶</a></h2>
 <p>在損失函數後面加一個懲罰：<code>Loss = 原損失 + λ × 參數懲罰</code>。</p>
 <ul>
-<li><strong>L2（Ridge）</strong> <code>Σwᵢ²</code>：所有參數一起縮小，<strong>不會歸零</strong>。預設首選，神經網路裡叫 weight decay。</li>
-<li><strong>L1（Lasso）</strong> <code>Σ|wᵢ|</code>：不重要的參數<strong>直接歸零</strong>，等於自動選特徵。適合「特徵很多、只有少數有用」。</li>
+<li><strong>L1（Lasso）</strong> <code>Σ|wᵢ|</code>：不重要的參數<strong>直接歸零</strong>，等於自動選特徵。適合「特徵很多、只有少數有用」。（L1 是絕對值：係數從 3 降到 2，懲罰少 1；從 1 降到 0，懲罰也少 1。小係數往 0 推的力氣跟大係數一樣，所以小的會被一路推到 0。）</li>
+<li><strong>L2（Ridge）</strong> <code>Σwᵢ²</code>：所有參數一起縮小，<strong>不會歸零</strong>。預設首選，神經網路裡叫 weight decay。（L2 是平方：係數從 3 降到 2，懲罰少 5（9 − 4）；從 2 降到 1，懲罰只少 3（4 − 1）。大係數往下降省得比較多，所以會優先壓大的參數。）</li>
 <li><strong>Elastic Net</strong>：L1 + L2 折衷（<code>l1_ratio</code>），特徵數大於樣本數、或特徵彼此高度相關時好用。</li>
 </ul>
 <h3 id="100-5">實驗：100 個特徵，只有 5 個有用<a class="headerlink" href="#100-5" title="Permanent link">¶</a></h3>
@@ -5397,28 +5423,33 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/l1_l2_geometry.png" data-desc-position="bottom"><img alt="L1 與 L2 的幾何解釋" class="wide" src="../assets/l1_l2_geometry.png"></a>
 <em>圖：L1 的限制區域是菱形，角落剛好在座標軸上，損失的等高線最容易碰到角落 → 某些權重剛好為 0；L2 是圓形，通常碰在不是軸上的點。</em></p>
 <ul>
-<li><code>λ</code>（sklearn 叫 <code>alpha</code>）用 CV 調：太小會過擬合，太大會欠擬合。注意 <code>LogisticRegression</code> 用的是 <code>C = 1/λ</code>，<strong>方向相反</strong>，C 越小正則化越強。</li>
-<li><strong>其他正則化</strong>：Dropout（神經網路，隨機關掉 20%–50% 的神經元）、Early stopping、Data Augmentation。細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</li>
+<li><code>λ</code>（sklearn 叫 <code>alpha</code>）用 CV 調：太小會太複雜（Overfitting），太大會太簡單（Underfitting）。注意 <code>LogisticRegression</code> 用的是 <code>C = 1/λ</code>，<strong>方向相反</strong>，C 越小正則化越強。</li>
+<li><strong>其他正則化</strong>：Dropout（神經網路，隨機丟掉 20%–50% 的神經元）、Early stopping、Data Augmentation。細節見〈<a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a>〉。</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">常見誤解：正則化前不用標準化</p>
 <p>懲罰的是係數大小。同一個特徵用「公尺」記和用「公分」記，係數差 100 倍，被罰的程度也差很多。
-實際後果：不標準化時，懲罰會跟單位有關，而不是跟特徵重不重要有關。用 Ridge、Lasso、邏輯回歸前，先 <code>StandardScaler</code>。</p>
+實際後果：不標準化時，懲罰會跟<strong>單位</strong>有關，而不是跟特徵重不重要有關。用 Ridge、Lasso、邏輯迴歸前，先 <code>StandardScaler</code>。</p>
 </div>
 <hr>
 <h2 id="6-rf-xgboost-lightgbm">6. 樹模型家族：RF / XGBoost / LightGBM<a class="headerlink" href="#6-rf-xgboost-lightgbm" title="Permanent link">¶</a></h2>
-<p>單棵決策樹幾乎一定過擬合，而且很不穩定：資料小動一下，整棵樹就長得不一樣。實務上它只當 ensemble 的零件。兩條路線：</p>
+<p>單棵決策樹幾乎一定太複雜（Overfitting），而且很不穩定：資料小動一下，整棵樹就長得不一樣。實務上不會直接拿來預測，只當 ensemble 的零件。而組成有以下兩條路線：</p>
 <ul>
-<li><strong>Bagging（並行）→ Random Forest</strong>：很多棵樹，各自吃一份 bootstrap 抽樣的資料，每個節點又只看隨機一部分特徵，最後投票或平均。<strong>降的是 variance</strong>。不容易過擬合、可以平行、預設參數就好用。關鍵參數 <code>n_estimators</code>、<code>max_features</code>（分類預設 √n、回歸 n/3）、<code>max_depth</code>。</li>
-<li><strong>Boosting（串行）→ XGBoost / LightGBM / CatBoost</strong>：一棵接一棵，每棵新樹專門修前面的錯。<strong>降的是 bias</strong>。</li>
+<li><strong>Bagging（並行）→ Random Forest</strong>：很多棵樹，各自吃一份 bootstrap 抽樣的資料，每個節點又只看隨機一部分特徵，最後<strong>投票</strong>或<strong>平均</strong>。<strong>降的是變異（Variance）</strong>。不容易過擬合、可以平行、預設參數通常就可以得到不錯的效果。關鍵參數：<ol>
+<li><code>n_estimators</code>：森林中樹的數量</li>
+<li><code>max_features</code>：每次切分時，隨機挑幾個特徵來比（sklearn 預設：分類 √n、迴歸用全部特徵）</li>
+<li><code>max_depth</code>：每棵樹要長多深</li>
+</ol>
+</li>
+<li><strong>Boosting（串行）→ XGBoost / LightGBM / CatBoost</strong>：一棵接一棵，每棵新樹專門修前面的錯。<strong>降的是偏誤（Bias）</strong>。</li>
 <li><strong>XGBoost</strong>：預設一層一層長（level-wise）；類別變數要開 <code>enable_categorical</code> 才原生處理。</li>
 <li><strong>LightGBM</strong>：每次切損失降最多的那片葉子（leaf-wise）、大資料上通常比 XGBoost 快、原生支援類別變數；小資料（&lt; 10k 筆）容易過擬合。</li>
 <li><strong>CatBoost</strong>：類別變數是強項（ordered target statistics 防洩漏），預設參數就不差。</li>
 <li>關鍵參數：<code>max_depth</code>/<code>num_leaves</code>、<code>learning_rate</code>（越小需要越多樹）、<code>n_estimators</code>、<strong>early stopping（一定要加）</strong>、<code>subsample</code>/<code>colsample_bytree</code>（加隨機性防過擬合）。</li>
 </ul>
 <p>隨機森林為什麼不容易過擬合？兩層隨機（抽樣本、抽特徵）讓每棵樹長得不一樣，彼此的錯誤不太相關，平均之後就互相抵消。如果每棵樹都一樣，平均一百棵和一棵沒有差別。</p>
-<p>樹模型全家都不需要特徵縮放：它只看「比某個值大還是小」，把特徵乘以 100，切點也跟著乘以 100，結果完全一樣。</p>
-<p>三套 boosting 實際差多少、怎麼調參、什麼時候會輸，見〈<a href="../gradient-boosting-in-practice/">Gradient Boosting 實戰</a>〉。</p>
+<p>樹模型都不需要特徵縮放：它只看「比某個值大還是小」，把特徵乘以 100，切點也跟著乘以 100，結果完全一樣。</p>
+<p>三套 boosting 實際差多少、怎麼調參、什麼時候該用哪個，見〈<a href="../gradient-boosting-in-practice/">Gradient Boosting 實戰</a>〉。</p>
 <div class="admonition note">
 <p class="admonition-title">常見誤解：Boosting 一定比 Random Forest 好</p>
 <p>在調好參數的情況下，boosting 通常分數較高。但它有更多參數要調，對雜訊和過擬合也更敏感；隨機森林幾乎不用調就能有不錯的分數。
@@ -5427,40 +5458,57 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
 <hr>
 <h2 id="7-cross-validation">7. Cross-Validation：怎麼公正評估<a class="headerlink" href="#7-cross-validation" title="Permanent link">¶</a></h2>
 <blockquote>
-<p>本節是速查密度。CV 策略的完整選擇邏輯、Nested CV、GroupKFold／TimeSeriesSplit 的程式碼與陷阱見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉。</p>
+<p>本節為簡單介紹。CV 的完整選擇邏輯、Nested CV、GroupKFold／TimeSeriesSplit 的程式碼與陷阱見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉。</p>
 </blockquote>
-<p>只切一次 train/test，分數會受切分運氣影響，小資料特別明顯。<strong>K-Fold</strong>：把資料切成 K 份（常用 5 或 10），輪流拿 1 份驗證、其餘訓練，取平均。</p>
+<p>訓練前會把資料切成訓練集和測試集。只切一次的話，分數會受切資料的運氣影響，樣本小時特別明顯。所以我們常切很多次，再把分數平均，減少單次切分的偶然性。常見的交叉驗證方式如下。</p>
+<p><strong>K-Fold：最常見的交叉驗證方法</strong></p>
+<p>K-Fold 的做法不複雜。假設設定 K = 5：</p>
+<ol>
+<li>把資料分成 5 份。</li>
+<li>第一次拿其中 1 份當驗證集，另外 4 份訓練模型。</li>
+<li>接著換另一份當驗證集，重複到每份資料都被驗證過。</li>
+<li>最後把 5 次的驗證分數取平均。</li>
+</ol>
+<p>比起只切一次資料，這樣通常能更穩定地估計模型表現。</p>
 <p><strong>變形</strong>：</p>
+<p>為了因應不同的資料情況，衍生出了不同的 CV 方法。</p>
 <ul>
-<li><strong>Stratified K-Fold</strong>：每折的類別比例保持一致 → 分類、不平衡資料的首選。</li>
-<li><strong>TimeSeriesSplit</strong>：時序資料不能用未來預測過去，只能過去 → 未來。</li>
-<li><strong>Group K-Fold</strong>：同一組（例如同一個病人的多筆資料）要在同一折。</li>
-<li><strong>LOO</strong>：K = 樣本數，成本高，少用。</li>
+<li><strong>Stratified K-Fold</strong>：讓每一折的類別比例盡量接近原始資料。適合分類問題，尤其是類別不平衡時。</li>
+<li><strong>TimeSeriesSplit</strong>：適合時間序列資料。訓練時只能使用較早的資料，避免拿未來的資訊預測過去。</li>
+<li><strong>GroupKFold</strong>：適合同一個對象有多筆資料的情況，例如同一位病人的多次檢查紀錄。確保同一組不會同時出現在訓練集和驗證集。</li>
+<li><strong>Leave-One-Out（LOO）</strong>：每次只留一筆資料做驗證。雖然能充分利用資料，但需要訓練很多次，計算成本比較高。</li>
 </ul>
-<p>⚠️ <strong>最常見的資料洩漏</strong>：在 CV 之前就用全部資料做標準化或特徵選擇。正確做法是用 <code>Pipeline</code> 把前處理和模型包在一起，讓每一折各自 fit：</p>
+<p>⚠️ <strong>最常見的資料洩漏</strong>：在 CV 之前就用全部資料做標準化或特徵選擇。正確做法是用 <code>Pipeline</code> 把前處理和模型包在一起，讓每一折各自 fit（要先切資料，再做資料清理）：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">'model'</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())])</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">StratifiedKFold</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
 </span></code></pre></div>
-<p>這個洩漏有多嚴重？在純雜訊資料上，先選特徵再做 CV，準確率可以到 0.87；包進 Pipeline 才回到 0.50。實驗見〈<a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a>〉。</p>
+<p>資料洩漏的影響有時比想像中大。例如在一個純雜訊資料的示範實驗中，先用全部資料選特徵再做 CV，準確率甚至可以達到 0.87；把特徵選擇放進 Pipeline 後，才回到接近隨機猜測的 0.50。實驗見〈<a href="../sklearn-pipeline-templates/">sklearn Pipeline 與資料前處理模板</a>〉。</p>
 <hr>
 <h2 id="8">8. 評估指標速查<a class="headerlink" href="#8" title="Permanent link">¶</a></h2>
 <blockquote>
-<p>本節是速查密度。指標的完整計算、閾值選擇、指標和業務目標怎麼對齊，見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉；PR vs ROC 的取捨與多元分類 OvR/OvO 見〈<a href="../geron-hands-on-ml-notes/">Géron Ch3</a>〉。</p>
+<p>本節為簡單介紹。指標的完整計算、閾值選擇、指標和業務目標怎麼對齊，見〈<a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a>〉；PR vs ROC 的取捨與多元分類 OvR/OvO 見〈<a href="../geron-hands-on-ml-notes/">Géron Ch3</a>〉。</p>
 </blockquote>
-<h3 id="_2">分類：從混淆矩陣出發<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>TP/TN 是答對；FP 是誤報、FN 是漏報。</p>
+<h3 id="_3">分類：從混淆矩陣出發<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>以法官辦案來說：</p>
 <ul>
-<li><strong>Accuracy</strong> <code>(TP+TN)/All</code>：不平衡資料有陷阱，全猜多數類也能高分。</li>
-<li><strong>Precision</strong> <code>TP/(TP+FP)</code>：「我說是正的，有多少真的是」→ 誤報成本高時看（垃圾郵件）。</li>
-<li><strong>Recall</strong> <code>TP/(TP+FN)</code>：「真正的正例，抓到多少」→ 漏報成本高時看（癌症篩檢）。</li>
-<li><strong>F1</strong>：P 和 R 的調和平均，兩個都高才會高。</li>
-<li><strong>ROC-AUC</strong>：排序能力，和閾值無關（0.5 是亂猜、1.0 是完美）。正例很少時會偏樂觀，要搭配 PR-AUC 看。</li>
+<li><strong>TP</strong>：判有罪，實際有罪 → 成功將犯人定罪</li>
+<li><strong>TN</strong>：判無罪，實際無罪 → 還好人清白</li>
+<li><strong>FP</strong>：判有罪，實際無罪 → 冤獄</li>
+<li><strong>FN</strong>：判無罪，實際有罪 → 錯放壞人</li>
+</ul>
+<p>從這四格算出常用的指標：</p>
+<ul>
+<li><strong>Accuracy</strong> <code>(TP+TN)/All</code>：判對的比率。（不平衡資料有陷阱，全猜多數類也能高分。例如一種罕見疾病只有 0.01% 的人會得，完全不用看病，直接宣告所有人健康，正確率也有 99.99%。）</li>
+<li><strong>Precision</strong> <code>TP/(TP+FP)</code>：判有罪的人裡，實際有罪的比例 → 誤報成本高時看（垃圾郵件）。</li>
+<li><strong>Recall</strong> <code>TP/(TP+FN)</code>：真正有罪的人裡，被繩之以法的比例 → 漏報成本高時看（癌症篩檢）。</li>
+<li><strong>F1</strong>：Precision 和 Recall 的調和平均，兩個都高才會高。</li>
+<li><strong>ROC-AUC</strong>：衡量模型能不能把正例排在負例前面。例如預測誰會違約，好的模型應該讓真正會違約的人得到比較高的風險分數。ROC-AUC 越接近 1，代表區分能力越好；0.5 則接近隨機猜測。它不需要先設定分類閾值，但如果正例很少，分數可能看起來不錯，實際卻抓不到多少正例，因此建議搭配 PR-AUC 一起看。</li>
 </ul>
 <table>
 <thead>
 <tr>
 <th>情境</th>
-<th>指標</th>
+<th>觀察指標</th>
 </tr>
 </thead>
 <tbody>
@@ -5486,13 +5534,14 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
 </tr>
 </tbody>
 </table>
-<h3 id="_3">回歸<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="_4">迴歸<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>符號：yᵢ 是實際值，ŷᵢ 是預測值，ȳ 是實際值的平均，n 是筆數。</p>
 <ul>
-<li><strong>MAE</strong>：絕對誤差，對離群值不敏感。</li>
-<li><strong>MSE</strong>：平方誤差，重罰離群值，常當訓練損失。</li>
-<li><strong>RMSE</strong>：MSE 開根號，單位和 y 一樣，報告最常用。</li>
-<li><strong>R²</strong>：解釋了多少比例的變異（≤ 1，可以是負的）。</li>
-<li><strong>MAPE</strong>：百分比誤差，業務好懂，但 y 有 0 就會爆。</li>
+<li><strong>MAE</strong> <code>(1/n) Σ |yᵢ − ŷᵢ|</code>：絕對誤差，對離群值不敏感。</li>
+<li><strong>MSE</strong> <code>(1/n) Σ (yᵢ − ŷᵢ)²</code>：平方誤差，重罰離群值，最常拿來當訓練損失。</li>
+<li><strong>RMSE</strong> <code>√MSE</code>：MSE 開根號，單位和 y 一樣，報告最常用。</li>
+<li><strong>R²</strong> <code>1 − Σ(yᵢ − ŷᵢ)² / Σ(yᵢ − ȳ)²</code>：衡量模型相較於直接預測平均值，減少了多少平方誤差。1 代表完美預測，0 代表和預測平均值一樣，負數則表示模型比預測平均值還差。（在含截距的簡單線性迴歸訓練集上，R² 才等於相關係數的平方。）</li>
+<li><strong>MAPE</strong>（平均絕對百分比誤差）<code>(100% / n) Σ |(yᵢ − ŷᵢ) / yᵢ|</code>：衡量預測值平均偏離實際值多少百分比。例如 MAPE = 10%，代表平均誤差約為實際值的 10%，容易理解。但當實際值為 0 或接近 0 時，MAPE 會無法計算或變得非常大。</li>
 </ul>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">roc_auc_score</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
@@ -5501,37 +5550,34 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
 <div class="admonition note">
 <p class="admonition-title">常見誤解：AUC 高就代表模型好用</p>
 <p>ROC-AUC 量的是排序能力，和閾值無關。但真正上線時一定要選一個閾值，而預設的 0.5 在不平衡資料上幾乎都不對。
-實際後果：在正例只佔 4.5% 的資料上，一個邏輯回歸用 0.5 當閾值，只抓到不到 1 成的正例。開發時看 AUC，部署前要依業務成本另外定閾值（〈<a href="../ml-case-studies/">常見 ML Case Study</a>〉Case 1 有實測）。</p>
+實際後果：在正例只佔 4.5% 的資料上，一個邏輯迴歸用 0.5 當閾值，只抓到不到 1 成的正例。開發時看 AUC，部署前要依業務成本另外定閾值（〈<a href="../ml-case-studies/">常見 ML Case Study</a>〉Case 1 有實測）。</p>
 </div>
 <hr>
-<h2 id="_4">結論<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>回到前言的三個問題。</p>
-<p><strong>模型學壞了，是太簡單還是太複雜？</strong> 同時看訓練和驗證誤差。1 次多項式兩個都在 0.5 左右，是太簡單；15 次多項式的訓練誤差 0.239 比雜訊 0.3 還低，代表它背下了雜訊，是太複雜。修法方向相反：前者加複雜度，後者加資料或正則化。</p>
-<p><strong>L1 和 L2 差在哪？</strong> L1 讓係數剛好變 0（100 個特徵裡歸零 74 個），等於自動選特徵；L2 只縮小，不歸零。不確定時用 L2 或 Elastic Net，想知道哪些特徵可以丟時用 L1。</p>
-<p><strong>樹模型為什麼是表格資料主力？</strong> 免縮放、能處理非線性和交互作用；隨機森林降 variance、boosting 降 bias，一個穩、一個準。</p>
-<h3 id="_5">延伸：這篇真正想留下的問題<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>本頁的八個觀念，其實都在處理同一個張力：<strong>模型要夠彈性，才學得到規律；但太彈性，就會連雜訊一起學。</strong> 正則化、ensemble、交叉驗證、early stopping，都是在這條線上找位置的工具。</p>
-<p>換模型、加特徵、調參數，都是在這條線上移動。差別只在往哪邊移：<strong>模型是更能看見規律，還是更能看見雜訊？</strong></p>
+<h2 id="_5">結論<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>機器學習要的，是模型遇到沒看過的資料時，依然能做出好的預測。</p>
+<p>模型太簡單，可能抓不到資料中的規律（Underfitting）；模型太複雜，又可能把雜訊當成規律記下來（Overfitting）。</p>
+<p>這也是為什麼我們需要正則化、Ensemble、Early Stopping 等方法來改善模型的泛化能力，再透過 Cross-Validation 和適合的評估指標，確認模型是不是真的有進步。</p>
+<p>實務上不管是換模型、加特徵還是調參數，最後都要回到同一個問題：模型學到的規律，能不能用在沒看過的資料上？</p>
 <hr>
 <h2 id="_6">延伸閱讀（本站）<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — 同樣的觀念照書走章節，含 SVM、降維、分群等本頁沒收的主題</li>
-<li><a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a> — 優化器、Dropout、BatchNorm 的深入版</li>
-<li><a href="../feature-engineering/">特徵工程心法</a> — 標準化、編碼、特徵選擇的實務細節</li>
-<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — §7、§8 的完整版</li>
-<li><a href="../gradient-boosting-in-practice/">Gradient Boosting 實戰</a> — §6 boosting 的實測與調參</li>
-<li><a href="../statistics-ab-testing/">統計推論與 A/B 測試</a> — 另一種推論：假設檢定與實驗設計</li>
-<li><a href="../ml-case-studies/">常見 ML Case Study</a> — 把這些觀念套到四種真實任務</li>
+<li><a href="../geron-hands-on-ml-notes/">Géron《Hands-On ML》Ch1–9 重點整理</a> — 按照書籍章節整理，包含 SVM、降維、分群等主題</li>
+<li><a href="../deep-learning-training-fundamentals/">深度學習訓練基礎</a> — 優化器、Dropout、BatchNorm 的原理與應用</li>
+<li><a href="../feature-engineering/">特徵工程心法</a> — 標準化、編碼與特徵選擇的實務細節</li>
+<li><a href="../model-evaluation-cross-validation/">模型評估與 Cross-Validation 實務</a> — 交叉驗證、評估指標與常見陷阱</li>
+<li><a href="../gradient-boosting-in-practice/">Gradient Boosting 實戰</a> — Boosting 模型的實驗與調參</li>
+<li><a href="../statistics-ab-testing/">統計推論與 A/B 測試</a> — 假設檢定與實驗設計</li>
+<li><a href="../ml-case-studies/">常見 ML Case Study</a> — 從實際案例理解模型的選擇與評估</li>
 </ul>
 <h2 id="_7">參考資料<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <ul>
-<li>Géron, A.《Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow》, 3rd ed.（Ch3 分類與指標、Ch4 訓練與正則化、Ch6–7 樹與集成）</li>
-<li>Hastie, T., Tibshirani, R. &amp; Friedman, J.《The Elements of Statistical Learning》, 2nd ed.（Ch3.4 Ridge 與 Lasso、Ch7 模型評估）</li>
+<li>Géron, A. Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 3rd ed.（Ch3 分類、Ch4 訓練與正則化、Ch6–7 決策樹與集成學習）</li>
+<li>Hastie, T., Tibshirani, R. &amp; Friedman, J. The Elements of Statistical Learning, 2nd ed.（Ch3.4 Ridge 與 Lasso、Ch7 模型評估）</li>
 <li><a href="https://scikit-learn.org/stable/model_selection.html">scikit-learn User Guide: Model selection and evaluation</a></li>
 <li><a href="https://lightgbm.readthedocs.io/en/stable/Parameters-Tuning.html">LightGBM 官方文件：Parameters Tuning</a></li>
 <li><a href="https://xgboost.readthedocs.io/en/stable/tutorials/param_tuning.html">XGBoost 官方文件：Notes on Parameter Tuning</a></li>
-<li>本頁實驗為自行執行：多項式實驗訓練 60 筆、驗證 1,000 筆；L1/L2 實驗 200 筆、100 個特徵，種子 0，2026-10-04</li>
 </ul>
+<p><span style="color: var(--md-default-fg-color--lighter)">本頁實驗：Python 3.12、scikit-learn 1.9.1，2026-10-04 執行。多項式實驗訓練 60 筆、驗證 1,000 筆；L1/L2 實驗 200 筆、100 個特徵，種子 0。</span></p>
 
 
 
@@ -5554,7 +5600,7 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月4日 11:05:59 UTC">2026年10月4日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月20日 08:14:12 UTC">2026年10月20日</span>
   </span>
 
     
@@ -5616,13 +5662,13 @@ Cross-Entropy 來自最大概似估計，配 Sigmoid 時曲面是凸的，梯度
         
         
           
-          <a href="../geron-hands-on-ml-notes/" class="md-footer__link md-footer__link--next" aria-label="下一頁: Géron《Hands-On ML》Ch1–9">
+          <a href="../math-foundations/" class="md-footer__link md-footer__link--next" aria-label="下一頁: ML 數學觀念">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                Géron《Hands-On ML》Ch1–9
+                ML 數學觀念
               </div>
             </div>
             <div class="md-footer__button md-icon">

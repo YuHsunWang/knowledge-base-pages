@@ -2640,6 +2640,8 @@
       
         
       
+        
+      
     
     
     
@@ -2700,6 +2702,34 @@
     
   
     ML 核心觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine-learning/math-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML 數學觀念
   
 
     
@@ -5235,7 +5265,7 @@
 <h3 id="2">2. 工具輸出 = 不可信輸入<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
 <p>工具/Resource 回傳的內容會進入模型 context，<strong>可被當成 prompt injection 載體</strong>。把模型看到的所有外部文字都當「使用者可能偽造的輸入」處理，不要讓工具輸出直接觸發特權動作。〔實務〕</p>
 <h3 id="3">3. 憑證不該進入執行沙箱<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
-<p>在受管代理（如 Anthropic Managed Agents / vault 模式）的設計裡，<strong>MCP 憑證不放進 sandbox</strong>：沙箱內的程式（含模型寫的程式）看到的是占位符，真正的 secret 由平台側 proxy 在請求**離開沙箱後（at egress）**才注入。這讓 prompt injection 也偷不到金鑰。〔Anthropic〕</p>
+<p>在受管代理（如 Anthropic Managed Agents / vault 模式）的設計裡，<strong>MCP 憑證不放進 sandbox</strong>：沙箱內的程式（含模型寫的程式）看到的是占位符，真正的 secret 由平台側 proxy 在請求<strong>離開沙箱後（at egress）</strong>才注入。這讓 prompt injection 也偷不到金鑰。〔Anthropic〕</p>
 <p>→ 自建時的對應原則：<strong>別把 API key 寫進 system prompt 或對話訊息</strong>——那會被永久存進 session 歷史、被 <code>events.list</code> 讀到、被 compaction 摘要帶走。〔Anthropic〕</p>
 <h3 id="4-server-mix-up">4. 跨 server mix-up<a class="headerlink" href="#4-server-mix-up" title="Permanent link">¶</a></h3>
 <p>MCP 是「單一 client、多 server」型態，比一般 OAuth 場景更易遭 mix-up 攻擊。規格因此要求 client 依 <strong>RFC 9207</strong> 驗證授權回應中的 <code>iss</code> 參數，作為低成本緩解。〔規格〕</p>

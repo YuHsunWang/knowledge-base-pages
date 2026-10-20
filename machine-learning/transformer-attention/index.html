@@ -2382,6 +2382,8 @@
       
         
       
+        
+      
     
     
     
@@ -2445,6 +2447,34 @@
     
   
     ML 核心觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML 數學觀念
   
 
     
@@ -5018,7 +5048,7 @@
 <p>介紹 Transformer 的文章，幾乎都會貼出這個公式：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Attention(Q, K, V) = softmax(Q Kᵀ / √d) V
 </span></code></pre></div>
-<p>接著說 Q 是 query、K 是 key、V 是 value，再放一張架構圖。公式沒錯，但讀完常常還是不知道：<strong>這一行到底在對每個詞做什麼？<strong>那個 √d 為什麼非除不可？而它又</strong>少了什麼</strong>，需要另外補？</p>
+<p>接著說 Q 是 query、K 是 key、V 是 value，再放一張架構圖。公式沒錯，但讀完常常還是不知道：<strong>這一行到底在對每個詞做什麼？</strong>那個 √d 為什麼非除不可？而它又<strong>少了什麼</strong>，需要另外補？</p>
 <p>本文想回答三個問題：</p>
 <ul>
 <li><strong>Attention 在算什麼？</strong>（先講結論：每個詞拿自己的 query，去跟所有詞的 key 算相似度，softmax 成權重，再把所有詞的 value 照權重平均。它是一個<strong>看內容決定權重的加權平均</strong>。）</li>
@@ -5066,7 +5096,7 @@
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">out</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">attention</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">Wq</span><span class="p">,</span> <span class="n">X</span> <span class="o">@</span> <span class="n">Wk</span><span class="p">,</span> <span class="n">X</span> <span class="o">@</span> <span class="n">Wv</span><span class="p">)</span>
 </span></code></pre></div>
 <p><code>W</code> 是一個 5×5 的矩陣。第 i 列是第 i 個詞「分給每個詞多少注意力」。<code>out</code> 的第 i 列，是照這一列權重混出來的新向量。</p>
-<p>和一般的加權平均差在哪？**權重不是固定的，是看內容算出來的。**同一個「它」字，前面是「貓追老鼠，它跑得很快」或「它餓了」，query 和各詞 key 的相似度就不同，混出來的意思也不同。</p>
+<p>和一般的加權平均差在哪？<strong>權重不是固定的，是看內容算出來的。</strong>同一個「它」字，前面是「貓追老鼠，它跑得很快」或「它餓了」，query 和各詞 key 的相似度就不同，混出來的意思也不同。</p>
 <p>實際的 Transformer 會同時跑好幾組 <code>Wq, Wk, Wv</code>，叫做 <strong>multi-head attention</strong>。每組維度比較小（例如 512 維拆成 8 組、每組 64 維），各自學不同的關係，最後接起來。原理和上面的單組一模一樣。</p>
 <h2 id="4-d">4. 實驗一：不除以 √d 會怎樣<a class="headerlink" href="#4-d" title="Permanent link">¶</a></h2>
 <p>我們讓 query 和 key 的每一維都是標準常態亂數，一個 query 對 16 個 key 算分數，重複 1,000 次。比較除和不除 √d：</p>
