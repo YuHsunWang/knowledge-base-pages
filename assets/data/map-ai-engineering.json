@@ -107,7 +107,8 @@
     "mcp-builder-skill",
     "sepia-de-ai-writing-skill",
     "ponytail-lazy-senior-dev-skill",
-    "claude-code-team-code-review"
+    "claude-code-team-code-review",
+    "fixing-pr-bottleneck-ai-review"
    ]
   },
   {
@@ -305,6 +306,11 @@
     {
      "label": "Context Engineering 實作篇：Context Budget、Memory、Retrieval 與 Tool Result 壓縮怎麼組合",
      "href": "context-engineering-in-practice/",
+     "section": "ai"
+    },
+    {
+     "label": "PR 審不完怎麼辦：自動檢查、AI 審查、人工審查三層煞車",
+     "href": "fixing-pr-bottleneck-ai-review/",
      "section": "ai"
     },
     {
@@ -561,6 +567,11 @@
      "label": "AI Agent Harness Engineering 實作指南",
      "href": "ai-agent-harness-engineering/",
      "section": "ai"
+    },
+    {
+     "label": "PR 審不完怎麼辦：自動檢查、AI 審查、人工審查三層煞車",
+     "href": "fixing-pr-bottleneck-ai-review/",
+     "section": "ai"
     }
    ]
   },
@@ -744,6 +755,26 @@
      "section": "ai"
     }
    ]
+  },
+  {
+   "id": "fixing-pr-bottleneck-ai-review",
+   "label": "PR 審不完：三層煞車",
+   "href": "fixing-pr-bottleneck-ai-review/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-08"
+    ]
+   ],
+   "note": "整理 Matt Pocock 在 AI Engineer 大會的演講：AI 讓 PR 暴增時，怎麼用自動檢查、AI 審查與人工審查三層把關，讓人審得更少、更快。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-20 更新｜92 天內有效"
+   },
+   "backlinks": []
   },
   {
    "id": "graphrag-knowledge-graph-retrieval",
@@ -1604,6 +1635,11 @@
      "label": "Coding Agent 工作流：從 Issue 到 PR 的實際 SOP",
      "href": "coding-agent-workflow-sop/",
      "section": "ai"
+    },
+    {
+     "label": "PR 審不完怎麼辦：自動檢查、AI 審查、人工審查三層煞車",
+     "href": "fixing-pr-bottleneck-ai-review/",
+     "section": "ai"
     }
    ]
   }
@@ -1775,7 +1811,7 @@
     "label": "Claude Code / Skills / MCP",
     "href": "#claude-code-mcp",
     "description": "實際落地的工具鏈",
-    "count": 9,
+    "count": 10,
     "members": [
      "claude-code-coding-guidelines",
      "superpowers-claude-code-skills",
@@ -1785,7 +1821,8 @@
      "mcp-builder-skill",
      "sepia-de-ai-writing-skill",
      "ponytail-lazy-senior-dev-skill",
-     "claude-code-team-code-review"
+     "claude-code-team-code-review",
+     "fixing-pr-bottleneck-ai-review"
     ],
     "x": 0.84,
     "y": 0.51,
