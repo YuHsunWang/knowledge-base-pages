@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><title>Render 部署流程</title><style>body{margin:0;background:#fbfcfe}.diagram-container{width:100%;overflow-x:auto}svg{display:block;width:100%;min-width:1280px}</style><div class="diagram-container"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="464" viewBox="0 0 1280 464" role="img" aria-labelledby="render-deploy-title render-deploy-desc" font-family="Geist, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" id="render-deploy-root">
+<title id="render-deploy-title">Render 部署流程</title>
+<desc id="render-deploy-desc">推上 GitHub 後，Render 依序建 Docker image、跑 pre-deploy migration、啟動新容器、檢查 /ready，全部通過才把流量切到新版；建置、migration 或 /ready 失敗時新版不上線，舊版繼續服務，而 migration 執行時舊版仍在服務，所以 schema 變更要和舊版相容。</desc>
+<defs><marker id="render-deploy-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#8a93a6"/></marker></defs>
+<rect width="1280" height="464" fill="#fbfcfe"/>
+<text x="40" y="56" font-size="32" font-weight="600" fill="#1f2430">新版要過三關，才接得到流量</text>
+<g transform="translate(0,-96)">
+<!-- connectors first: main path -->
+<path d="M 220 248 H 242" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#render-deploy-arrow)"/>
+<path d="M 424 248 H 446" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#render-deploy-arrow)"/>
+<path d="M 628 248 H 650" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#render-deploy-arrow)"/>
+<path d="M 832 248 H 854" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#render-deploy-arrow)"/>
+<path d="M 1036 248 H 1058" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#render-deploy-arrow)"/>
+<!-- failure paths -->
+<path d="M 332 296 V 390" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#render-deploy-arrow)"/>
+<path d="M 536 296 V 390" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#render-deploy-arrow)"/>
+<path d="M 944 296 V 390" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#render-deploy-arrow)"/>
+<rect x="340" y="332" width="40" height="20" rx="2" fill="#fbfcfe"/><text x="344" y="348" font-size="16" fill="#5b6472">失敗</text>
+<rect x="544" y="332" width="40" height="20" rx="2" fill="#fbfcfe"/><text x="548" y="348" font-size="16" fill="#5b6472">失敗</text>
+<rect x="952" y="332" width="40" height="20" rx="2" fill="#fbfcfe"/><text x="956" y="348" font-size="16" fill="#5b6472">失敗</text>
+
+<!-- main nodes -->
+<g data-node="push"><rect x="40" y="200" width="180" height="96" rx="6" fill="#f3f5f9" stroke="#bfc0c0"/>
+<text x="130" y="244" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">推上 GitHub</text>
+<text x="130" y="272" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">git push</text></g>
+
+<g data-node="build"><rect x="244" y="200" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="334" y="244" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">建 image</text>
+<text x="334" y="272" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">Dockerfile</text></g>
+
+<g data-node="migrate"><rect x="448" y="200" width="180" height="96" rx="6" fill="#fff4ed" stroke="#b45309"/>
+<text x="538" y="244" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">跑 migration</text>
+<text x="538" y="272" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">pre-deploy</text></g>
+
+<g data-node="start"><rect x="652" y="200" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="742" y="244" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">啟動新容器</text>
+<text x="742" y="272" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">讀 $PORT</text></g>
+
+<g data-node="ready"><rect x="856" y="200" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="946" y="244" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">健康檢查</text>
+<text x="946" y="272" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">GET /ready</text></g>
+
+<g data-node="switch"><rect x="1060" y="200" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="1150" y="244" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">切換流量</text>
+<text x="1150" y="272" font-size="16" fill="#5b6472" text-anchor="middle">新版上線</text></g>
+
+<!-- failure outcome -->
+<g data-node="keep-old"><rect x="244" y="392" width="792" height="64" rx="6" fill="#f3f5f9" stroke="#bfc0c0" stroke-dasharray="4,3"/>
+<text x="640" y="430" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">新版不上線，舊版繼續服務</text></g>
+
+<!-- legend -->
+<line x1="40" y1="492" x2="1240" y2="492" stroke="#e6e8ef" stroke-width="1"/>
+<text x="40" y="528" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.14em" fill="#5b6472">LEGEND</text>
+<path d="M 132 522 H 180" stroke="#8a93a6" stroke-width="2"/><text x="192" y="528" font-size="16" fill="#5b6472">通過</text>
+<path d="M 272 522 H 320" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4"/><text x="332" y="528" font-size="16" fill="#5b6472">失敗，停在這裡</text>
+<rect x="512" y="512" width="28" height="20" rx="4" fill="#fff4ed" stroke="#b45309"/><text x="552" y="528" font-size="16" fill="#5b6472">風險最高的一步</text>
+</g>
+</svg></div>
+</html>

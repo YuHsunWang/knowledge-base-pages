@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><title>Git 三個區域與 diff</title><style>body{margin:0;background:#fbfcfe}.diagram-container{width:100%;overflow-x:auto}svg{display:block;width:100%;min-width:1280px}</style><div class="diagram-container"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" role="img" aria-labelledby="git-areas-title git-areas-desc" font-family="Geist, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" id="git-areas-root">
+<title id="git-areas-title">Git 三個區域與 diff</title>
+<desc id="git-areas-desc">git add 把工作目錄的內容放進暫存區，git commit 把暫存區存成 HEAD；git diff 比工作目錄與暫存區，git diff --staged 比暫存區與 HEAD，git diff HEAD 比工作目錄與 HEAD。</desc>
+<defs><marker id="git-areas-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#8a93a6"/></marker></defs>
+<rect width="1280" height="480" fill="#fbfcfe"/>
+<text x="40" y="56" font-size="32" font-weight="600" fill="#1f2430">三個區域，三種 diff</text>
+
+<!-- move arrows -->
+<path d="M 360 160 H 498" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#git-areas-arrow)"/>
+<path d="M 780 160 H 918" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#git-areas-arrow)"/>
+<rect x="384" y="128" width="88" height="20" rx="2" fill="#fbfcfe"/>
+<text x="428" y="144" font-size="16" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">git add</text>
+<rect x="796" y="128" width="104" height="20" rx="2" fill="#fbfcfe"/>
+<text x="848" y="144" font-size="16" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">git commit</text>
+
+<!-- diff brackets -->
+<path d="M 208 216 V 288 H 628 V 216" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 652 216 V 288 H 1048 V 216" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 232 216 V 360 H 1072 V 216" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4"/>
+<rect x="364" y="296" width="112" height="24" rx="2" fill="#fbfcfe"/>
+<text x="420" y="314" font-size="16" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">git diff</text>
+<rect x="764" y="296" width="176" height="24" rx="2" fill="#fbfcfe"/>
+<text x="852" y="314" font-size="16" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">git diff --staged</text>
+<rect x="584" y="368" width="144" height="24" rx="2" fill="#fbfcfe"/>
+<text x="656" y="386" font-size="16" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">git diff HEAD</text>
+
+<!-- areas -->
+<g data-node="worktree"><rect x="80" y="104" width="280" height="112" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="220" y="156" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">工作目錄</text>
+<text x="220" y="184" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">working tree</text></g>
+
+<g data-node="index"><rect x="500" y="104" width="280" height="112" rx="6" fill="#fff4ed" stroke="#b45309"/>
+<text x="640" y="156" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">暫存區</text>
+<text x="640" y="184" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">index</text></g>
+
+<g data-node="head"><rect x="920" y="104" width="280" height="112" rx="6" fill="#f3f5f9" stroke="#8a93a6"/>
+<text x="1060" y="156" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">最新提交</text>
+<text x="1060" y="184" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">HEAD</text></g>
+
+<!-- legend -->
+<line x1="40" y1="424" x2="1240" y2="424" stroke="#e6e8ef" stroke-width="1"/>
+<text x="40" y="460" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.14em" fill="#5b6472">LEGEND</text>
+<path d="M 132 454 H 180" stroke="#8a93a6" stroke-width="2" marker-end="url(#git-areas-arrow)"/><text x="192" y="460" font-size="16" fill="#5b6472">搬動內容</text>
+<path d="M 312 446 V 456 H 360 V 446" fill="none" stroke="#8a93a6" stroke-width="2"/><text x="372" y="460" font-size="16" fill="#5b6472">比較兩邊</text>
+</svg></div>
+</html>

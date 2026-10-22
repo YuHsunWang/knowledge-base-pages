@@ -351,6 +351,7 @@ TRADING_EDGES = [
 CAREER_NODES = [
     ("c1", "a", "資料科學路線", "補齊模型、實驗與 Python 工程能力", None),
     ("c2", "b", "資料工程路線", "從資料建模走到可重跑的管線", None),
+    ("c3", "c", "後端工程路線", "以求職助理串起 Python、API、資料庫與部署", None),
 ]
 
 
@@ -536,7 +537,8 @@ def main():
     build_section(
         "career", CAREER_NODES, [],
         [{"key": "a", "title": "資料科學", "sub": "模型、實驗與工程"},
-         {"key": "b", "title": "資料工程", "sub": "建模、管線與品質"}],
+         {"key": "b", "title": "資料工程", "sub": "建模、管線與品質"},
+         {"key": "c", "title": "後端工程", "sub": "API、資料庫與部署"}],
         "map-career.json",
         "依目標角色選擇路線，點文章看技能缺口、專案與過關標準。",
         nav_groups("career", "Career"),

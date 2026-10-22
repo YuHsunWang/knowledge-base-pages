@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><title>FastAPI 請求流程</title><style>body{margin:0;background:#fbfcfe}.diagram-container{width:100%;overflow-x:auto}svg{display:block;width:100%;min-width:1280px}</style><div class="diagram-container"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="452" viewBox="0 0 1280 452" role="img" aria-labelledby="fastapi-flow-title fastapi-flow-desc" font-family="Geist, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" id="fastapi-flow-root">
+<title id="fastapi-flow-title">FastAPI 請求流程</title>
+<desc id="fastapi-flow-desc">一個請求依序經過找路由、檢查 API key、驗證輸入、服務層，最後回傳 JSON；前四步各自可能提早結束，分別回 404、401、422、404 或 409。</desc>
+<defs><marker id="fastapi-flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#8a93a6"/></marker></defs>
+<rect width="1280" height="452" fill="#fbfcfe"/>
+<text x="40" y="56" font-size="32" font-weight="600" fill="#1f2430">一個請求，五道關卡</text>
+<g transform="translate(0,-48)">
+<!-- connectors first: main path -->
+<path d="M 240 208 H 278" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#fastapi-flow-arrow)"/>
+<path d="M 480 208 H 518" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#fastapi-flow-arrow)"/>
+<path d="M 720 208 H 758" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#fastapi-flow-arrow)"/>
+<path d="M 960 208 H 998" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#fastapi-flow-arrow)"/>
+<!-- early exits -->
+<path d="M 140 256 V 334" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#fastapi-flow-arrow)"/>
+<path d="M 380 256 V 334" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#fastapi-flow-arrow)"/>
+<path d="M 620 256 V 334" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#fastapi-flow-arrow)"/>
+<path d="M 860 256 V 334" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#fastapi-flow-arrow)"/>
+
+<!-- main nodes -->
+<g data-node="route"><rect x="40" y="160" width="200" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="140" y="204" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">找路由</text>
+<text x="140" y="232" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">method + path</text></g>
+
+<g data-node="key"><rect x="280" y="160" width="200" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="380" y="204" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">檢查 API key</text>
+<text x="380" y="232" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">Depends(...)</text></g>
+
+<g data-node="validate"><rect x="520" y="160" width="200" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="620" y="204" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">驗證輸入</text>
+<text x="620" y="232" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">Pydantic model</text></g>
+
+<g data-node="service"><rect x="760" y="160" width="200" height="96" rx="6" fill="#fff4ed" stroke="#b45309"/>
+<text x="860" y="204" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">服務層</text>
+<text x="860" y="232" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">AssistantService</text></g>
+
+<g data-node="respond"><rect x="1000" y="160" width="200" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="1100" y="204" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">回傳 JSON</text>
+<text x="1100" y="232" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">200 / 201</text></g>
+
+<!-- exit chips -->
+<g data-node="e404"><rect x="40" y="336" width="200" height="64" rx="6" fill="#f3f5f9" stroke="#bfc0c0" stroke-dasharray="4,3"/>
+<text x="140" y="364" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">404</text>
+<text x="140" y="388" font-size="16" fill="#5b6472" text-anchor="middle">沒有這個路徑</text></g>
+
+<g data-node="e401"><rect x="280" y="336" width="200" height="64" rx="6" fill="#f3f5f9" stroke="#bfc0c0" stroke-dasharray="4,3"/>
+<text x="380" y="364" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">401</text>
+<text x="380" y="388" font-size="16" fill="#5b6472" text-anchor="middle">沒帶 key 或 key 錯</text></g>
+
+<g data-node="e422"><rect x="520" y="336" width="200" height="64" rx="6" fill="#f3f5f9" stroke="#bfc0c0" stroke-dasharray="4,3"/>
+<text x="620" y="364" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">422</text>
+<text x="620" y="388" font-size="16" fill="#5b6472" text-anchor="middle">型別或欄位不符</text></g>
+
+<g data-node="e409"><rect x="760" y="336" width="200" height="64" rx="6" fill="#f3f5f9" stroke="#bfc0c0" stroke-dasharray="4,3"/>
+<text x="860" y="364" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" fill="#1f2430" text-anchor="middle">404 / 409</text>
+<text x="860" y="388" font-size="16" fill="#5b6472" text-anchor="middle">資料不存在或重複</text></g>
+
+<!-- legend -->
+<line x1="40" y1="432" x2="1240" y2="432" stroke="#e6e8ef" stroke-width="1"/>
+<text x="40" y="468" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.14em" fill="#5b6472">LEGEND</text>
+<path d="M 132 462 H 180" stroke="#8a93a6" stroke-width="2"/><text x="192" y="468" font-size="16" fill="#5b6472">通過，往下一關</text>
+<path d="M 352 462 H 400" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4"/><text x="412" y="468" font-size="16" fill="#5b6472">不過，回錯誤碼結束</text>
+<rect x="592" y="452" width="28" height="20" rx="4" fill="#fff4ed" stroke="#b45309"/><text x="632" y="468" font-size="16" fill="#5b6472">業務規則在這裡</text>
+</g>
+</svg></div>
+</html>

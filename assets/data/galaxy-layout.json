@@ -203,6 +203,17 @@
       },
       "size": "medium",
       "kind": "domain"
+    },
+    "c3": {
+      "anchorId": "backend-engineering-path",
+      "x": 0.5,
+      "y": 0.82,
+      "mobile": {
+        "x": 0.5,
+        "y": 0.86
+      },
+      "size": "major",
+      "kind": "domain"
     }
   }
 }

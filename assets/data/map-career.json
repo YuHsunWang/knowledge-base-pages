@@ -15,6 +15,11 @@
    "key": "b",
    "title": "資料工程",
    "sub": "建模、管線與品質"
+  },
+  {
+   "key": "c",
+   "title": "後端工程",
+   "sub": "API、資料庫與部署"
   }
  ],
  "nodes": [
@@ -35,9 +40,271 @@
    "items": [
     "da-to-de-roadmap"
    ]
+  },
+  {
+   "id": "c3",
+   "column": "c",
+   "name": "後端工程路線",
+   "desc": "以求職助理串起 Python、API、資料庫與部署",
+   "items": [
+    "backend-learning-path",
+    "backend-python-engineering",
+    "backend-git-collaboration",
+    "backend-fastapi-api",
+    "backend-postgresql-design",
+    "backend-docker",
+    "backend-deployment"
+   ]
   }
  ],
  "items": [
+  {
+   "id": "backend-deployment",
+   "label": "部署 FastAPI 服務",
+   "href": "backend-deployment/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "使用 Render 部署 Docker FastAPI 與 managed PostgreSQL，完成秘密設定、PORT、migration、readiness、CI、更新與回復驗收。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Docker 化：把求職助理與 PostgreSQL 放進可重建的環境",
+     "href": "backend-docker/",
+     "section": "career"
+    },
+    {
+     "label": "後端工程學習路線：從 Python 到可部署的求職助理",
+     "href": "backend-learning-path/",
+     "section": "career"
+    },
+    {
+     "label": "PostgreSQL 設計與整合：讓資料庫保護求職助理的資料",
+     "href": "backend-postgresql-design/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "backend-docker",
+   "label": "Docker 化",
+   "href": "backend-docker/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "逐行理解 Dockerfile，使用 Compose 啟動 app 與 postgres，處理 port、volume、環境變數、健康檢查與容器除錯。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "部署 FastAPI 服務：讓求職助理透過 HTTPS 提供服務",
+     "href": "backend-deployment/",
+     "section": "career"
+    },
+    {
+     "label": "後端工程學習路線：從 Python 到可部署的求職助理",
+     "href": "backend-learning-path/",
+     "section": "career"
+    },
+    {
+     "label": "PostgreSQL 設計與整合：讓資料庫保護求職助理的資料",
+     "href": "backend-postgresql-design/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "backend-fastapi-api",
+   "label": "FastAPI API 實作",
+   "href": "backend-fastapi-api/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "建立使用者、履歷、職缺與申請 API，實作 Pydantic 驗證、service、記憶體 repository、API key、PATCH 與端到端測試。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Git 協作實戰：讓求職助理的每次變更可檢查、可回復",
+     "href": "backend-git-collaboration/",
+     "section": "career"
+    },
+    {
+     "label": "後端工程學習路線：從 Python 到可部署的求職助理",
+     "href": "backend-learning-path/",
+     "section": "career"
+    },
+    {
+     "label": "PostgreSQL 設計與整合：讓資料庫保護求職助理的資料",
+     "href": "backend-postgresql-design/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "backend-git-collaboration",
+   "label": "Git 協作實戰",
+   "href": "backend-git-collaboration/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "用同一個求職助理專案練習 staging、分支、衝突、PR 與回復，修正髒工作目錄不能建分支的誤解。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "FastAPI API 實作：從 HTTP 請求走到履歷分析結果",
+     "href": "backend-fastapi-api/",
+     "section": "career"
+    },
+    {
+     "label": "後端工程學習路線：從 Python 到可部署的求職助理",
+     "href": "backend-learning-path/",
+     "section": "career"
+    },
+    {
+     "label": "Python 工程化基礎：把履歷分析寫成可測試的套件",
+     "href": "backend-python-engineering/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "backend-learning-path",
+   "label": "後端工程學習路線",
+   "href": "backend-learning-path/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "用 AI Job Application Assistant 串起 Python 工程化、Git、FastAPI、PostgreSQL、Docker 與 Render 部署，逐章交付可驗證的成果。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "部署 FastAPI 服務：讓求職助理透過 HTTPS 提供服務",
+     "href": "backend-deployment/",
+     "section": "career"
+    },
+    {
+     "label": "Python 工程化基礎：把履歷分析寫成可測試的套件",
+     "href": "backend-python-engineering/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "backend-postgresql-design",
+   "label": "PostgreSQL 設計與整合",
+   "href": "backend-postgresql-design/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "完成五張表、主外鍵與跨使用者約束，透過 SQLAlchemy transaction、Alembic migration 與 repository 取代記憶體儲存。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "Docker 化：把求職助理與 PostgreSQL 放進可重建的環境",
+     "href": "backend-docker/",
+     "section": "career"
+    },
+    {
+     "label": "FastAPI API 實作：從 HTTP 請求走到履歷分析結果",
+     "href": "backend-fastapi-api/",
+     "section": "career"
+    },
+    {
+     "label": "後端工程學習路線：從 Python 到可部署的求職助理",
+     "href": "backend-learning-path/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "backend-python-engineering",
+   "label": "Python 工程化基礎",
+   "href": "backend-python-engineering/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-22"
+    ]
+   ],
+   "note": "從純函式、模組與 dataclass 建立求職助理核心，補齊型別、例外、logging、環境變數、依賴管理與測試。",
+   "fresh": {
+    "state": "fresh",
+    "days": 0,
+    "label": "每季複查｜2026-10-22 更新｜92 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "FastAPI API 實作：從 HTTP 請求走到履歷分析結果",
+     "href": "backend-fastapi-api/",
+     "section": "career"
+    },
+    {
+     "label": "Git 協作實戰：讓求職助理的每次變更可檢查、可回復",
+     "href": "backend-git-collaboration/",
+     "section": "career"
+    },
+    {
+     "label": "後端工程學習路線：從 Python 到可部署的求職助理",
+     "href": "backend-learning-path/",
+     "section": "career"
+    }
+   ]
+  },
   {
    "id": "da-to-de-roadmap",
    "label": "DA 轉 DE 水管地圖",
@@ -53,8 +320,8 @@
    "note": "資料分析師轉資料工程師的學習路線：五階段技能與過關標準、資料管線專案、工具選擇、實務故障與台灣求職方向。",
    "fresh": {
     "state": "fresh",
-    "days": 6,
-    "label": "每季複查｜2026-10-14 更新｜86 天內有效"
+    "days": 8,
+    "label": "每季複查｜2026-10-14 更新｜84 天內有效"
    },
    "backlinks": []
   },
@@ -73,8 +340,8 @@
    "note": "給有經濟或計量背景的資料分析師的轉職路線：哪些不用重學、ML 與 Python 工程要補到什麼程度、七章學習手冊、零售題目地圖、實務踩雷清單與台灣市場現況。",
    "fresh": {
     "state": "fresh",
-    "days": 6,
-    "label": "每季複查｜2026-10-14 更新｜86 天內有效"
+    "days": 8,
+    "label": "每季複查｜2026-10-14 更新｜84 天內有效"
    },
    "backlinks": [
     {
@@ -131,6 +398,31 @@
      "y": 0.72
     },
     "size": "medium",
+    "kind": "domain"
+   },
+   {
+    "id": "backend-engineering-path",
+    "anchorId": "backend-engineering-path",
+    "label": "後端工程路線",
+    "href": "#backend-engineering-path",
+    "description": "以求職助理串起 Python、API、資料庫與部署",
+    "count": 7,
+    "members": [
+     "backend-learning-path",
+     "backend-python-engineering",
+     "backend-git-collaboration",
+     "backend-fastapi-api",
+     "backend-postgresql-design",
+     "backend-docker",
+     "backend-deployment"
+    ],
+    "x": 0.5,
+    "y": 0.82,
+    "mobile": {
+     "x": 0.5,
+     "y": 0.86
+    },
+    "size": "major",
     "kind": "domain"
    }
   ],

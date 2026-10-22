@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><title>求職助理資料表關係</title><style>body{margin:0;background:#fbfcfe}.diagram-container{width:100%;overflow-x:auto}svg{display:block;width:100%;min-width:1280px}</style><div class="diagram-container"><svg xmlns="http://www.w3.org/2000/svg" width="1280" height="856" viewBox="0 0 1280 856" role="img" aria-labelledby="postgres-er-title postgres-er-desc" font-family="Geist, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" id="postgres-er-root">
+<title id="postgres-er-title">求職助理資料表關係</title>
+<desc id="postgres-er-desc">users 對 resumes、job_descriptions、applications 都是一對多；applications 連接一份履歷與一份職缺，表達履歷與職缺的多對多；resume_experiences 隨履歷一起刪除，其他關係在有子資料時禁止刪除。</desc>
+<rect width="1280" height="856" fill="#fbfcfe"/>
+<text x="40" y="56" font-size="32" font-weight="600" fill="#1f2430">五張表怎麼連</text>
+
+<!-- relationships first -->
+<path d="M 520 176 H 268 Q 260 176 260 184 V 304" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 760 176 H 1012 Q 1020 176 1020 184 V 304" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 640 240 V 304" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 400 380 H 520" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 880 380 H 760" fill="none" stroke="#8a93a6" stroke-width="2"/>
+<path d="M 260 456 V 560" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4"/>
+
+<!-- cardinality -->
+<g font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472">
+<text x="508" y="168" text-anchor="end">1</text><text x="272" y="296">N</text>
+<text x="772" y="168">1</text><text x="1032" y="296">N</text>
+<text x="652" y="264">1</text><text x="652" y="296">N</text>
+<text x="412" y="372">1</text><text x="508" y="372" text-anchor="end">N</text>
+<text x="868" y="372" text-anchor="end">1</text><text x="772" y="372">N</text>
+<text x="272" y="480">1</text><text x="272" y="552">N</text>
+</g>
+<rect x="268" y="500" width="72" height="20" rx="2" fill="#fbfcfe"/>
+<text x="272" y="516" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.06em" fill="#5b6472">CASCADE</text>
+
+<!-- users -->
+<g data-node="users"><rect x="520" y="112" width="240" height="128" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="536" y="140" font-size="20" font-weight="600" fill="#1f2430">users</text>
+<line x1="520" y1="152" x2="760" y2="152" stroke="#e6e8ef"/>
+<g font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472"><text x="536" y="176"># id</text><text x="536" y="200">email UNIQUE</text><text x="536" y="224">name</text></g></g>
+
+<!-- resumes -->
+<g data-node="resumes"><rect x="120" y="304" width="280" height="152" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="136" y="332" font-size="20" font-weight="600" fill="#1f2430">resumes</text>
+<line x1="120" y1="344" x2="400" y2="344" stroke="#e6e8ef"/>
+<g font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472"><text x="136" y="368"># id</text><text x="136" y="392">→ user_id</text><text x="136" y="416">title</text><text x="136" y="440">text</text></g></g>
+
+<!-- job_descriptions -->
+<g data-node="jobs"><rect x="880" y="304" width="280" height="176" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="896" y="332" font-size="20" font-weight="600" fill="#1f2430">job_descriptions</text>
+<line x1="880" y1="344" x2="1160" y2="344" stroke="#e6e8ef"/>
+<g font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472"><text x="896" y="368"># id</text><text x="896" y="392">→ user_id</text><text x="896" y="416">company_name</text><text x="896" y="440">job_title</text><text x="896" y="464">description</text></g></g>
+
+<!-- applications (focal) -->
+<g data-node="applications"><rect x="520" y="304" width="240" height="224" rx="6" fill="#fff4ed" stroke="#b45309"/>
+<text x="536" y="332" font-size="20" font-weight="600" fill="#1f2430">applications</text>
+<line x1="520" y1="344" x2="760" y2="344" stroke="#e8c9b0"/>
+<g font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472"><text x="536" y="368"># id</text><text x="536" y="392">→ user_id</text><text x="536" y="416">→ resume_id</text><text x="536" y="440">→ job_description_id</text><text x="536" y="464">status</text><text x="536" y="488">match_score</text><text x="536" y="512">analysis JSONB</text></g></g>
+
+<!-- resume_experiences -->
+<g data-node="experiences"><rect x="120" y="560" width="280" height="200" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="136" y="588" font-size="20" font-weight="600" fill="#1f2430">resume_experiences</text>
+<line x1="120" y1="600" x2="400" y2="600" stroke="#e6e8ef"/>
+<g font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472"><text x="136" y="624"># id</text><text x="136" y="648">→ resume_id</text><text x="136" y="672">company_name</text><text x="136" y="696">job_title</text><text x="136" y="720">start_date</text><text x="136" y="744">end_date</text></g></g>
+
+<!-- legend -->
+<line x1="40" y1="800" x2="1240" y2="800" stroke="#e6e8ef" stroke-width="1"/>
+<text x="40" y="836" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.14em" fill="#5b6472">LEGEND</text>
+<path d="M 132 830 H 180" stroke="#8a93a6" stroke-width="2"/><text x="192" y="836" font-size="16" fill="#5b6472">有子資料就不能刪（RESTRICT）</text>
+<path d="M 452 830 H 500" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4"/><text x="512" y="836" font-size="16" fill="#5b6472">跟著一起刪（CASCADE）</text>
+<text x="732" y="836" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472">#</text><text x="752" y="836" font-size="16" fill="#5b6472">主鍵</text>
+<text x="812" y="836" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472">→</text><text x="832" y="836" font-size="16" fill="#5b6472">外鍵</text>
+</svg></div>
+</html>

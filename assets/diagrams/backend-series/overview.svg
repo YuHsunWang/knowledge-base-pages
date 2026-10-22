@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="548" viewBox="0 0 1280 548" role="img" aria-labelledby="overview-title overview-desc" font-family="Geist, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" id="overview-root">
+<title id="overview-title">後端教材完成品架構</title>
+<desc id="overview-desc">帶 API key 的用戶端經 Render HTTPS 進到 FastAPI，再經服務層與資料存取層寫入 PostgreSQL；服務層呼叫技能比對，把分數與技能差異存成 JSONB 分析快照。</desc>
+<defs>
+      <style>#overview-root .diagram-container { width:100%;overflow-x:auto }</style><marker id="overview-overview-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#8a93a6"/></marker></defs>
+<rect width="1280" height="548" fill="#fbfcfe"/>
+<text x="40" y="56" font-size="32" font-weight="600" fill="#1f2430">完成品：一個請求走過的路</text>
+
+<!-- zone: Render -->
+<rect x="228" y="96" width="1028" height="176" rx="8" fill="#f3f5f9" stroke="#e6e8ef" stroke-dasharray="4,4"/>
+<text x="244" y="124" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.08em" fill="#5b6472">RENDER</text>
+
+<!-- connectors first -->
+<path d="M 220 188 H 242" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 424 188 H 446" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 628 188 H 650" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 832 188 H 854" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 1036 188 H 1058" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 740 236 V 342" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 628 392 H 650" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 832 392 H 1058" fill="none" stroke="#8a93a6" stroke-width="2" marker-end="url(#overview-overview-arrow)"/>
+<path d="M 1148 344 V 238" fill="none" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#overview-overview-arrow)"/>
+
+<!-- connector labels -->
+<rect x="748" y="280" width="40" height="20" rx="2" fill="#fbfcfe"/>
+<text x="752" y="296" font-size="16" fill="#5b6472">呼叫</text>
+<rect x="888" y="360" width="116" height="20" rx="2" fill="#fbfcfe"/>
+<text x="946" y="376" font-size="16" fill="#5b6472" text-anchor="middle">分數＋技能差異</text>
+<rect x="1156" y="280" width="40" height="20" rx="2" fill="#fbfcfe"/>
+<text x="1160" y="296" font-size="16" fill="#5b6472">存入</text>
+
+<!-- row 1 nodes -->
+<g data-node="client"><rect x="40" y="140" width="180" height="96" rx="6" fill="#f3f5f9" stroke="#bfc0c0"/>
+<text x="130" y="184" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">用戶端</text>
+<text x="130" y="212" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">Bearer API key</text></g>
+
+<g data-node="proxy"><rect x="244" y="140" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="334" y="184" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">Render 代理</text>
+<text x="334" y="212" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">HTTPS</text></g>
+
+<g data-node="fastapi"><rect x="448" y="140" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="538" y="184" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">FastAPI</text>
+<text x="538" y="212" font-size="16" font-family="'Geist Mono', 'Noto Sans Mono CJK TC', monospace" fill="#5b6472" text-anchor="middle">路由＋Pydantic</text></g>
+
+<g data-node="service"><rect x="652" y="140" width="180" height="96" rx="6" fill="#fff4ed" stroke="#b45309"/>
+<text x="742" y="184" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">服務層</text>
+<text x="742" y="212" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">AssistantService</text></g>
+
+<g data-node="repo"><rect x="856" y="140" width="180" height="96" rx="6" fill="#ffffff" stroke="#bfc0c0"/>
+<text x="946" y="184" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">資料存取層</text>
+<text x="946" y="212" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">SQLAlchemy</text></g>
+
+<g data-node="db"><rect x="1060" y="140" width="180" height="96" rx="6" fill="#f3f5f9" stroke="#8a93a6"/>
+<text x="1150" y="184" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">PostgreSQL</text>
+<text x="1150" y="212" font-size="16" font-family="'Geist Mono', 'Noto Sans Mono CJK TC', monospace" fill="#5b6472" text-anchor="middle">5 張表</text></g>
+
+<!-- row 2 nodes -->
+<g data-node="inputs"><rect x="448" y="344" width="180" height="96" rx="6" fill="#f3f5f9" stroke="#bfc0c0"/>
+<text x="538" y="398" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">履歷＋職缺</text></g>
+
+<g data-node="matching"><rect x="652" y="344" width="180" height="96" rx="6" fill="#fff4ed" stroke="#b45309"/>
+<text x="742" y="398" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">技能比對</text></g>
+
+<g data-node="analysis"><rect x="1060" y="344" width="180" height="96" rx="6" fill="#f3f5f9" stroke="#8a93a6"/>
+<text x="1150" y="388" font-size="20" font-weight="600" fill="#1f2430" text-anchor="middle">分析快照</text>
+<text x="1150" y="416" font-size="16" font-family="'Geist Mono', monospace" fill="#5b6472" text-anchor="middle">JSONB</text></g>
+
+<!-- legend -->
+<line x1="40" y1="476" x2="1240" y2="476" stroke="#e6e8ef" stroke-width="1"/>
+<text x="40" y="512" font-size="12" font-family="'Geist Mono', monospace" letter-spacing="0.14em" fill="#5b6472">LEGEND</text>
+<rect x="132" y="496" width="28" height="20" rx="4" fill="#fff4ed" stroke="#b45309"/><text x="172" y="512" font-size="16" fill="#5b6472">核心邏輯</text>
+<rect x="292" y="496" width="28" height="20" rx="4" fill="#f3f5f9" stroke="#8a93a6"/><text x="332" y="512" font-size="16" fill="#5b6472">資料存放</text>
+<path d="M 452 506 H 500" stroke="#8a93a6" stroke-width="2" stroke-dasharray="5,4"/><text x="512" y="512" font-size="16" fill="#5b6472">寫入資料庫</text>
+<rect x="632" y="496" width="28" height="20" rx="4" fill="#f3f5f9" stroke="#e6e8ef" stroke-dasharray="4,4"/><text x="672" y="512" font-size="16" fill="#5b6472">Render 託管範圍</text>
+</svg>
