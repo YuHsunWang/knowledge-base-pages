@@ -75,8 +75,11 @@ html:has([data-kbgalaxy]) .md-content__inner::before {
   margin: 0.8rem 0 2rem;
 }
 
-/* Only a fallback: once the galaxy renders, it is the navigation. */
-html.kb-galaxy-ready .kb-world-fallback { display: none; }
+/* Only a no-JS fallback. Hidden from first paint whenever scripts run, not
+   once the galaxy renders: hiding it late shifted everything below it up by
+   its height. With JS, the galaxy (or its failure link to #learning-paths)
+   is the navigation. */
+@media (scripting: enabled) { .kb-world-fallback { display: none; } }
 
 .kb-galaxy__fallback {
   position: absolute;
