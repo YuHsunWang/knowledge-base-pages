@@ -108,7 +108,8 @@
     "sepia-de-ai-writing-skill",
     "ponytail-lazy-senior-dev-skill",
     "claude-code-team-code-review",
-    "fixing-pr-bottleneck-ai-review"
+    "fixing-pr-bottleneck-ai-review",
+    "pr-review-beginner-guide"
    ]
   },
   {
@@ -512,7 +513,13 @@
     "days": 33,
     "label": "每季複查｜2026-10-19 更新｜59 天內有效"
    },
-   "backlinks": []
+   "backlinks": [
+    {
+     "label": "審 PR 入門：AI 寫程式時，你是最後一關",
+     "href": "pr-review-beginner-guide/",
+     "section": "ai"
+    }
+   ]
   },
   {
    "id": "claude-md-obsidian-llm-wiki-maintainer",
@@ -774,7 +781,13 @@
     "days": 32,
     "label": "每季複查｜2026-10-20 更新｜60 天內有效"
    },
-   "backlinks": []
+   "backlinks": [
+    {
+     "label": "審 PR 入門：AI 寫程式時，你是最後一關",
+     "href": "pr-review-beginner-guide/",
+     "section": "ai"
+    }
+   ]
   },
   {
    "id": "graphrag-knowledge-graph-retrieval",
@@ -1342,6 +1355,26 @@
    "backlinks": []
   },
   {
+   "id": "pr-review-beginner-guide",
+   "label": "審 PR 入門",
+   "href": "pr-review-beginner-guide/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-11-22"
+    ]
+   ],
+   "note": "給讓 AI 寫程式的人看的 PR 審查入門：6 個基本詞、整個流程、5 個審查步驟、不同 PR 的重點、常見的坑和常用 gh 指令。",
+   "fresh": {
+    "state": "fresh",
+    "days": -1,
+    "label": "每季複查｜2026-11-22 更新｜93 天內有效"
+   },
+   "backlinks": []
+  },
+  {
    "id": "prompt-caching-cost-latency",
    "label": "Prompt Caching",
    "href": "prompt-caching-cost-latency/",
@@ -1811,7 +1844,7 @@
     "label": "Claude Code / Skills / MCP",
     "href": "#claude-code-mcp",
     "description": "實際落地的工具鏈",
-    "count": 10,
+    "count": 11,
     "members": [
      "claude-code-coding-guidelines",
      "superpowers-claude-code-skills",
@@ -1822,7 +1855,8 @@
      "sepia-de-ai-writing-skill",
      "ponytail-lazy-senior-dev-skill",
      "claude-code-team-code-review",
-     "fixing-pr-bottleneck-ai-review"
+     "fixing-pr-bottleneck-ai-review",
+     "pr-review-beginner-guide"
     ],
     "x": 0.84,
     "y": 0.51,
