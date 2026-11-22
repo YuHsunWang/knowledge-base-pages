@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="介紹 Claude Code skill Caveman：用穴居人語氣壓縮 agent 輸出約 65% token，涵蓋機制、指令與安裝方式。">
+        <meta name="description" content="介紹 Caveman 4.x：從「穴居人語氣」skill 長成六件省 token 工具，說明各件做什麼、作者自己量到多少，以及舊版「省 65%」說法為什麼不能再用。">
       
       
       
@@ -24,7 +24,7 @@
     
     
       
-        <title>Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill - Shane's Knowledge Base</title>
+        <title>Caveman：讓 Agent 少說、少讀的省 Token 工具組 - Shane's Knowledge Base</title>
       
     
     
@@ -66,16 +66,16 @@
     
   
 <meta property="og:type" content="website">
-<meta property="og:title" content="Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill - Shane's Knowledge Base">
-<meta property="og:description" content="介紹 Claude Code skill Caveman：用穴居人語氣壓縮 agent 輸出約 65% token，涵蓋機制、指令與安裝方式。">
+<meta property="og:title" content="Caveman：讓 Agent 少說、少讀的省 Token 工具組 - Shane's Knowledge Base">
+<meta property="og:description" content="介紹 Caveman 4.x：從「穴居人語氣」skill 長成六件省 token 工具，說明各件做什麼、作者自己量到多少，以及舊版「省 65%」說法為什麼不能再用。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/caveman-token-compression-skill.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/caveman-token-compression-skill/">
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill - Shane's Knowledge Base">
-<meta property="twitter:description" content="介紹 Claude Code skill Caveman：用穴居人語氣壓縮 agent 輸出約 65% token，涵蓋機制、指令與安裝方式。">
+<meta property="twitter:title" content="Caveman：讓 Agent 少說、少讀的省 Token 工具組 - Shane's Knowledge Base">
+<meta property="twitter:description" content="介紹 Caveman 4.x：從「穴居人語氣」skill 長成六件省 token 工具，說明各件做什麼、作者自己量到多少，以及舊版「省 65%」說法為什麼不能再用。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/caveman-token-compression-skill.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#caveman-agent-65-token-claude-code-skill" class="md-skip">
+        <a href="#caveman-agent-token" class="md-skip">
           跳轉到
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill
+              Caveman：讓 Agent 少說、少讀的省 Token 工具組
             
           </span>
         </div>
@@ -2249,7 +2249,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一句話
+        摘要
       
     </span>
   </a>
@@ -2268,10 +2268,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#40" class="md-nav__link">
     <span class="md-ellipsis">
       
-        機制
+        六件工具（4.0 起）
       
     </span>
   </a>
@@ -2279,10 +2279,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-benchmark" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Token 節省（作者 benchmark 宣稱）
+        「少說」的規則
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        為什麼舊的「65%」不能用了
       
     </span>
   </a>
@@ -2326,7 +2337,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        為什麼對量化 / 個人開發工作流有用
+        和本庫其他工具的關係
       
     </span>
   </a>
@@ -5112,7 +5123,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一句話
+        摘要
       
     </span>
   </a>
@@ -5131,10 +5142,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#40" class="md-nav__link">
     <span class="md-ellipsis">
       
-        機制
+        六件工具（4.0 起）
       
     </span>
   </a>
@@ -5142,10 +5153,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-benchmark" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Token 節省（作者 benchmark 宣稱）
+        「少說」的規則
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        為什麼舊的「65%」不能用了
       
     </span>
   </a>
@@ -5189,7 +5211,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        為什麼對量化 / 個人開發工作流有用
+        和本庫其他工具的關係
       
     </span>
   </a>
@@ -5308,30 +5330,105 @@
 
 
 
-<h1 id="caveman-agent-65-token-claude-code-skill">Caveman：把 Agent 輸出壓掉約 65% Token 的 Claude Code Skill<a class="headerlink" href="#caveman-agent-65-token-claude-code-skill" title="Permanent link">¶</a></h1>
+<h1 id="caveman-agent-token">Caveman：讓 Agent 少說、少讀的省 Token 工具組<a class="headerlink" href="#caveman-agent-token" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>整理自官方 repo 與外部介紹（見文末），2026-06-19。</p>
-<p>⚠️ 文中 token 節省百分比皆為<strong>作者 repo 與第三方文章的 benchmark 宣稱值</strong>,非本庫獨立複現,當「量級參考」看。</p>
+<p>整理自官方 repo 與外部介紹（見文末）。資料基準 2026-11（Caveman v4.2.0）。</p>
+<p>⚠️ 文中百分比都是<strong>作者 repo 與第三方文章的宣稱值</strong>，不是本庫自己重測的結果，當「量級參考」看。</p>
 </blockquote>
-<h2 id="_1">一句話<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>Caveman 是一個 Claude Code skill（也相容 Codex、Gemini、Cursor、Windsurf、Cline、Copilot 等 30+ agent）,讓 agent <strong>講話像穴居人</strong>——丟掉客套與贅字、只留實質,藉此大幅砍掉 <strong>output token</strong>。標語:「why use many token when few token do trick」。</p>
+<h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>Caveman 原本是一個 Claude Code skill：叫 agent 講話像穴居人，丟掉客套、只留重點，藉此省下輸出 token。4.0 之後它變成六件工具，除了「少說」，還會壓縮工具輸出（log、JSON、測試結果），讓模型「少讀」。</p>
+<p><strong>本頁 2026-06 版寫的「輸出省約 65%」已經不成立。</strong> 作者在新模型上重測，跟一句「Answer concisely.」相比，<code>/caveman</code> 只再少 3%，<code>/ultracave</code> 再少 35%。現在比較大的省量來自「少讀」那一件。</p>
 <h2 id="_2">解決什麼痛點<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>Claude 預設語氣是給「人」看的:溫暖、有 hedging、結構化。但在 <strong>agent 對 agent、內部 pipeline、批次處理</strong> 這類「輸出是給程式讀」的場景,那種語氣是浪費——既燒額度又沒必要。Caveman 給模型「可以不客套、只留乾貨」的許可。</p>
-<h2 id="_3">機制<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>指示 agent:</p>
+<p>Claude 預設語氣是寫給「人」看的：溫暖、會保留、會整理。在 <strong>agent 對 agent、內部 pipeline、批次處理</strong>這類「輸出給程式讀」的場景，這種語氣會浪費額度。</p>
+<p>另一個更大的浪費在輸入端：<code>git diff</code>、測試輸出、大份 JSON 會整份塞進 context，每次呼叫都重算一次。</p>
+<h2 id="40">六件工具（4.0 起）<a class="headerlink" href="#40" title="Permanent link">¶</a></h2>
+<p>裝好後六件預設都開著，可以各自關掉（<code>caveman status</code> 看狀態，<code>caveman off browse</code> 關掉一件）。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>做什麼</th>
+<th>作者量到的數字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Say less</strong>（少說）</td>
+<td>回答變短，程式碼原樣保留</td>
+<td>比「Answer concisely.」再少 3%；<code>/ultracave</code> 再少 35%（n=10）</td>
+</tr>
+<tr>
+<td><strong>Read less</strong>（少讀）</td>
+<td>log、JSON、CSV、測試輸出先壓縮，再給模型讀</td>
+<td>整段 session 輸入 token 少 33.2%（6 個合成任務、18 組對照）</td>
+</tr>
+<tr>
+<td><strong>Auto</strong></td>
+<td>每個問題自動挑模型和 effort（思考力度）</td>
+<td>中期結果：成本是 Opus xhigh 的 0.46 倍，品質差距還沒定論</td>
+</tr>
+<tr>
+<td><strong>Blocks</strong></td>
+<td>agent 寫過的腳本留下來重複用</td>
+<td>一次測試執行 397 → 76 token</td>
+</tr>
+<tr>
+<td><strong>Waste fixes</strong></td>
+<td>找出 token 花在哪；暫停時讓 prompt cache 不過期</td>
+<td>還沒量</td>
+</tr>
+<tr>
+<td><strong>Browse</strong></td>
+<td>網頁內容壓縮後才回傳</td>
+<td>單一 200 列表格頁：121 對 15,704 token</td>
+</tr>
+</tbody>
+</table>
+<p>只有 Auto 需要帳號（免費）。作者另外推出桌面版 Caveman Code，本頁不涵蓋。</p>
+<h2 id="_3">「少說」的規則<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>新版不再追求「破碎文法」，改成一套固定句型：</p>
 <ul>
-<li>丟 filler、保留實質、用句子片段（fragments）</li>
-<li><strong>程式碼、指令、錯誤字串、語言原樣保留</strong>（不壓壞技術內容）</li>
-<li>拿掉冗長解釋,但維持正確性</li>
+<li><strong>先講答案</strong>：<code>[東西] [動作] [原因]. [下一步].</code> 不打招呼、不重述。</li>
+<li><strong>一句一個意思</strong>：參考飛機維修手冊的 ASD-STE100 受控英文，每句最多 20 字、主動語態。</li>
+<li><strong>意思不能丟</strong>：冠詞可以省，<em>not</em>、<em>never</em>、<em>only</em> 不能省；數字和單位照抄。</li>
+<li><strong>程式碼、指令、路徑、錯誤訊息逐字保留。</strong></li>
+<li><strong>該講完整就講完整</strong>：安全警告、不可逆操作、使用者看不懂時，改回完整句子。</li>
+<li><strong>不改寫你的 prompt。</strong></li>
 </ul>
-<p>對 Claude Code 還會在每個 session 寫一個 <strong>flag 檔</strong>,讓 agent 自動採用壓縮風格,不必每次下 <code>/caveman</code>。</p>
-<p>範例輸出風格:<code>Function take input. Return sorted list. Use quicksort. Fast. Done.</code></p>
-<h2 id="token-benchmark">Token 節省（作者 benchmark 宣稱）<a class="headerlink" href="#token-benchmark" title="Permanent link">¶</a></h2>
+<h2 id="65">為什麼舊的「65%」不能用了<a class="headerlink" href="#65" title="Permanent link">¶</a></h2>
+<p>舊數字是拿「什麼都不說」當基準。現在的模型只要一句「Answer concisely.」就會自己變短，那才是真正的基準。作者的重測（claude-opus-5-5，10 題）：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th style="text-align: right;">輸出 token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不加指令</td>
+<td style="text-align: right;">6,983</td>
+</tr>
+<tr>
+<td><code>Answer concisely.</code></td>
+<td style="text-align: right;">4,334</td>
+</tr>
+<tr>
+<td><code>/caveman</code></td>
+<td style="text-align: right;">4,119</td>
+</tr>
+<tr>
+<td><code>/ultracave</code></td>
+<td style="text-align: right;">2,693</td>
+</tr>
+</tbody>
+</table>
+<p>另外兩個要注意的成本：</p>
 <ul>
-<li><strong>output 平均 −65%</strong>（範圍 22–87%）</li>
-<li>重點澄清:<strong>只動 output token,thinking / reasoning token 不受影響</strong>——是讓「輸出」精簡,不是讓「推理」變笨</li>
-<li>記憶檔壓縮（<code>caveman-compress</code>）對 memory 檔約 −46%</li>
+<li>規則本身每次要吃約 1,160 個輸入 token。</li>
+<li>按「次數」計費的工具（例如 GitHub Copilot），回答變短一毛都不會省。</li>
 </ul>
+<p>第三方的結果也不一致：JetBrains 86 個真實任務 A/B 測試，品質沒有可量到的下降，但輸出只少 8.5%；Elastic 自己改寫的版本在 8 個 MCP 情境少 63.6%。</p>
 <h2 id="_4">指令<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -5342,35 +5439,53 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/caveman [lite\|full\|ultra\|wenyan]</code></td>
-<td>切換壓縮強度</td>
+<td><code>/caveman</code>、<code>/ultracave</code></td>
+<td>開啟「少說」，後者更短（Codex 用 <code>$caveman</code>）</td>
+</tr>
+<tr>
+<td><code>stop caveman</code></td>
+<td>回到正常語氣</td>
 </tr>
 <tr>
 <td><code>/caveman-commit</code></td>
-<td>精簡的 conventional commit</td>
+<td>一行式 Conventional Commit</td>
 </tr>
 <tr>
 <td><code>/caveman-review</code></td>
-<td>一行式 PR comment</td>
-</tr>
-<tr>
-<td><code>/caveman-stats</code></td>
-<td>追蹤 token 節省</td>
+<td>一行一個問題的審查意見，例如 <code>L42: 🔴 null deref. Guard it.</code></td>
 </tr>
 <tr>
 <td><code>/caveman-compress &lt;file&gt;</code></td>
-<td>重寫 / 壓縮記憶檔</td>
+<td>壓縮 <code>CLAUDE.md</code> 這類記憶檔並留備份；作者量到 5 個檔每檔少 22.8%–49.1%</td>
+</tr>
+<tr>
+<td><code>/caveman-stats</code></td>
+<td>看這個 Claude Code session 的實際 token 用量</td>
 </tr>
 </tbody>
 </table>
+<p><strong>哪些資料會送出去</strong>（依官方 README 的 Privacy 段落）：</p>
+<ul>
+<li><strong>只裝 skill</strong>：在本機跑，什麼都不送。唯一例外是 <code>/caveman-compress</code>，會把你壓縮的檔案送給你設定的模型供應商。</li>
+<li><strong>CLI</strong>：預設會送使用統計（指令、token 數、隨機安裝 ID、作業系統、IP），不送 prompt、程式碼和路徑。用 <code>caveman telemetry off</code> 或 <code>DO_NOT_TRACK=1</code> 關掉。</li>
+<li><strong>Auto</strong>：登入並選用後，每次提問會把最新的問題（連同 agent 附上的 <code>CLAUDE.md</code>、記憶、@ 提到的檔案）、上一個問題和上次回覆的結尾送到 Caveman Cloud。免費方案可能被留下來改進路由。</li>
+<li><strong>送到 Caveman Cloud 模型的請求</strong>：整份請求（system prompt、工具結果、程式碼）都會經過 Caveman Cloud。用 <code>caveman providers cloud off</code> 關掉。</li>
+</ul>
+<p>機密 repo 別開 Auto 和雲端路由。</p>
 <h2 id="_5">安裝<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># macOS / Linux / WSL</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 只裝「少說」skill</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>npx<span class="w"> </span>skills<span class="w"> </span>add<span class="w"> </span>JuliusBrussee/caveman<span class="w"> </span>-g
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Windows PowerShell</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>irm<span class="w"> </span>https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.ps1<span class="w"> </span><span class="p">|</span><span class="w"> </span>iex
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Claude Code plugin（每個互動 session 和 subagent 自動啟用）</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>claude<span class="w"> </span>plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>JuliusBrussee/caveman<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span>plugin<span class="w"> </span>install<span class="w"> </span>caveman@caveman
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 全部六件、本機所有 agent 一次裝（macOS / Linux / WSL，需 Node.js 22.13+）</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/JuliusBrussee/caveman/v4.2.0/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Windows PowerShell</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>irm<span class="w"> </span>https://raw.githubusercontent.com/JuliusBrussee/caveman/v4.2.0/install.ps1<span class="w"> </span><span class="p">|</span><span class="w"> </span>iex
 </span></code></pre></div>
-<p>需 Node ≥ 18,約 30 秒裝好。License:MIT。GitHub 約 74.6k★。</p>
+<p>npm 12 以後擋掉從 git 安裝；v3.1.0 以前的一行指令會失敗，請用上面的版本。License：MIT。GitHub 約 12.2 萬★（2026-11）。</p>
 <h2 id="_6">什麼時候用 / 不要用<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -5385,30 +5500,31 @@
 <td>面向客戶 / 使用者的輸出</td>
 </tr>
 <tr>
+<td>工具輸出很大的任務（log、測試、JSON）</td>
+<td>給新手的完整解釋、文件產生</td>
+</tr>
+<tr>
 <td>自動化 code review、CI/CD</td>
-<td>給新手的完整解釋、文件生成</td>
+<td>法律 / 醫療 / 合規等需要精確措辭</td>
 </tr>
 <tr>
-<td>批次處理、log / 錯誤 triage</td>
-<td>法律 / 醫療 / 合規等需精確措辭</td>
-</tr>
-<tr>
-<td>快速原型回饋迴圈</td>
-<td>需細膩、有保留語氣的對話</td>
+<td>按 token 計費的 API</td>
+<td>按次數計費的工具</td>
 </tr>
 </tbody>
 </table>
-<p>注意:壓縮偶爾會把「必要的限定條件 / context」一起剝掉,複雜推理的輸出要留意。</p>
-<h2 id="_7">為什麼對量化 / 個人開發工作流有用<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>注意：壓縮偶爾會把必要的限定條件一起拿掉，複雜推理的輸出要留意。作者另外整理了一份「Caveman 輸掉的情況」（<code>docs/HONEST-NUMBERS.md</code>），用之前值得看。</p>
+<h2 id="_7">和本庫其他工具的關係<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <ul>
-<li>直接打<strong>輸出端 token 成本</strong>,和本庫已收錄的 <a href="../9router-ai-router-token-saver/">9Router（token saver）</a> 是互補路線（9Router 砍 input + 路由;Caveman 砍 output style）。</li>
-<li>適合掛在「資料 pipeline、批次回測報告、agent 自動化」這種輸出被程式或自己快速掃過的場景;面向報告 / 對外內容則關掉。</li>
+<li><a href="../9router-ai-router-token-saver/">9Router</a> 和 <a href="../rtk-tokscale-token-tooling/">RTK＋tokscale</a> 也壓縮工具輸出，跟 Caveman 的「Read less」重疊，同時開要留意重複壓縮。</li>
+<li><a href="../prompt-caching-cost-latency/">Prompt Caching</a> 是另一條路：不減少內容，讓重複的前綴變便宜。</li>
 </ul>
 <h2 id="_8">參考來源<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="https://github.com/JuliusBrussee/caveman">JuliusBrussee/caveman — GitHub</a>（官方,數字與機制主要依據）</li>
-<li><a href="https://dev.to/onsen/caveman-claude-the-token-cutting-skill-thats-changing-ai-workflows-4hmc">Caveman Claude: The Token-Cutting Skill — DEV Community</a></li>
-<li><a href="https://www.claudedirectory.org/plugins/caveman">Install Caveman — Claude Directory</a></li>
+<li><a href="https://github.com/JuliusBrussee/caveman">JuliusBrussee/caveman — GitHub</a>（官方，v4.2.0 README，數字與機制主要依據）</li>
+<li><a href="https://blog.jetbrains.com/ai/2026/07/speak-to-ai-agents-like-cavemen-tosave-tokens/">Speak to AI agents like cavemen to save tokens — JetBrains AI Blog</a></li>
+<li><a href="https://www.elastic.co/search-labs/blog/elastic-caveman-ai-token-reduction">Elastic caveman AI token reduction — Elasticsearch Labs</a></li>
+<li><a href="https://dev.to/onsen/caveman-claude-the-token-cutting-skill-thats-changing-ai-workflows-4hmc">Caveman Claude: The Token-Cutting Skill — DEV Community</a>（2026-06 舊版介紹）</li>
 </ul>
 
 
@@ -5432,7 +5548,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     

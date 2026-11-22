@@ -1920,6 +1920,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2026-11-v7-brainstorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-11 更新：v7 重做 Brainstorm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5153,6 +5164,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2026-11-v7-brainstorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-11 更新：v7 重做 Brainstorm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5281,10 +5303,10 @@
 
 <h1 id="superpowers-markdown-claude-code-skill">Superpowers：把「資深工程師紀律」編碼成 Markdown 的 Claude Code Skill 框架<a class="headerlink" href="#superpowers-markdown-claude-code-skill" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>整理自官方 repo 與外部解析（見文末），2026-06-19。Superpowers 是 2026 年最紅的 Claude Code skills 框架之一,核心主張:<strong>AI coding agent 缺的不是能力,而是紀律,而紀律可以用純文字散佈。</strong></p>
+<p>整理自官方 repo 與外部解析（見文末），2026-06-19。資料基準 2026-11（v7.0.2 複核）。Superpowers 是 2026 年最紅的 Claude Code skills 框架之一,核心主張:<strong>AI coding agent 缺的不是能力,而是紀律,而紀律可以用純文字散佈。</strong></p>
 </blockquote>
 <h2 id="_1">一句話<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>由 Jesse Vincent（GitHub <code>obra</code>）與 Prime Radiant 團隊開發的 <strong>agentic skills 框架 + 軟體開發方法論</strong>。MIT 授權,GitHub 約 <strong>233k★</strong>(2026-06),自 2026-01-15 起被收進 <strong>Anthropic 官方 Claude Code plugin marketplace</strong>。相容 Claude Code、Cursor、Codex、Copilot CLI、Gemini CLI、OpenCode 等。</p>
+<p>由 Jesse Vincent（GitHub <code>obra</code>）與 Prime Radiant 團隊開發的 <strong>agentic skills 框架 + 軟體開發方法論</strong>。MIT 授權,GitHub 約 <strong>32.4 萬★</strong>（2026-11）,自 2026-01-15 起被收進 <strong>Anthropic 官方 Claude Code plugin marketplace</strong>。相容 Claude Code、Cursor、Codex、Copilot CLI、Gemini CLI、OpenCode、Antigravity、Hermes 等。</p>
 <h2 id="_2">解決什麼痛點<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>它針對 agent 反覆出現的失敗:</p>
 <ul>
@@ -5296,7 +5318,7 @@
 <h2 id="_3">七階段強制工作流<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>每個任務跑一輪:</p>
 <ol>
-<li><strong>Brainstorm</strong> — 先問清楚、提設計方案,<strong>未被接受前不准寫 code</strong></li>
+<li><strong>Brainstorm</strong> — 先問清楚、提設計方案,<strong>未被接受前不准寫 code</strong>（v7 起會先判斷工作大小，見下方「2026-11 更新」）</li>
 <li><strong>Git Worktree</strong> — 開隔離分支工作區、建立測試 baseline</li>
 <li><strong>Plan</strong> — 拆成 2–5 分鐘的小任務,寫死檔案路徑與驗證步驟</li>
 <li><strong>Subagent-Driven Dev</strong> — 派<strong>全新 subagent</strong>,只給它 plan 與 tests</li>
@@ -5306,7 +5328,7 @@
 </ol>
 <h2 id="skill-markdown">機制:skill 就是 Markdown<a class="headerlink" href="#skill-markdown" title="Permanent link">¶</a></h2>
 <ul>
-<li>14 個 skill,各是一個 <code>SKILL.md</code>（YAML frontmatter + 內文）。</li>
+<li>15 個 skill（2026-11）,各是一個 <code>SKILL.md</code>（YAML frontmatter + 內文）。</li>
 <li>每個 skill 有:</li>
 <li><strong>Iron Law（鐵律）</strong>:大寫、不可妥協的規則,例如 <code>NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST</code></li>
 <li><strong>Red flags 表</strong>:agent 常用來「合理化跳過規則」的藉口清單</li>
@@ -5315,6 +5337,15 @@
 </ul>
 <h2 id="subagent">Subagent 隔離為什麼重要<a class="headerlink" href="#subagent" title="Permanent link">¶</a></h2>
 <p>把實作派給<strong>只拿到 plan + tests 的全新 subagent</strong>,再派第二個 agent 審查結果。這種隔離讓 agent <strong>無法把前面累積的捷徑帶下去</strong>。</p>
+<h2 id="2026-11-v7-brainstorm">2026-11 更新：v7 重做 Brainstorm<a class="headerlink" href="#2026-11-v7-brainstorm" title="Permanent link">¶</a></h2>
+<p>v7.0.0（2026-10-10）把第一階段整個重寫，其他階段沒有大改：</p>
+<ul>
+<li><strong>先問你要什麼，再提方案。</strong> 第一句會讓你選擇跳過提問，接著只問一個開放問題。卡住時才給選單。</li>
+<li><strong>聽懂之後才決定流程大小。</strong> 小事直接做；小改動在對話裡講好就做；整個專案才寫設計文件。你可以推翻它的判斷，工作變大時它會升級流程。</li>
+<li><strong>「建造者檢查」取代規格審查員。</strong> 派一個全新 subagent，用「要動手做的人」的角度讀設計，列出還需要問的問題。小問題 Brainstorm 自己決定並標註，會改變做出來東西的問題，一次整理給你。</li>
+<li><strong>問你想自己決定哪些技術選擇。</strong> 平台、語言、套件，你有意見就討論；你交給它，它挑預設值並告訴你挑了什麼。起因是有一次設計 iOS app 卻沒問平台，最後做成了網頁版。</li>
+<li>新增 <code>diagnosing-superpowers</code> skill；Windows hook、Antigravity 原生 plugin、Hermes skill 描述也一起修了。</li>
+</ul>
 <h2 id="_4">已知限制<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>作者坦言:規模放大後浮現「<strong>agentic slop PR 問題</strong>」——單一任務層級的紀律已成立,但<strong>協調大量 subagent</strong> 成了下一個難題,需要額外的編排層。</p>
 <h2 id="_5">為什麼對你的工作流有用<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
@@ -5326,6 +5357,7 @@
 <h2 id="_6">參考來源<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://github.com/obra/superpowers">obra/superpowers — GitHub</a>（官方,機制與數字主要依據）</li>
+<li><a href="https://github.com/obra/superpowers/releases/tag/v7.0.0">Superpowers v7.0.0 release notes</a>（2026-11 更新段落依據）</li>
 <li><a href="https://blog.marcnuri.com/superpowers-claude-code-skills-framework">Superpowers: The Claude Code Skills Framework Shipped as Markdown — Marc Nuri</a>（機制解析）</li>
 <li><a href="https://blog.devgenius.io/superpowers-explained-the-claude-plugin-that-enforces-tdd-subagents-and-planning-c7fe698c3b82">Superpowers explained: TDD, subagents, planning — Dev Genius</a>（延伸）</li>
 </ul>
@@ -5351,7 +5383,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     

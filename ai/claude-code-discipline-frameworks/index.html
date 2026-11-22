@@ -1848,10 +1848,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gsdget-stuff-done-context-rot" class="md-nav__link">
+  <a href="#gsdget-stuff-done-context-context-rot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GSD（Get Stuff Done）：用「分段隔離」對抗 context rot
+        GSD（Get Stuff Done）：用「乾淨 context」對抗 context rot
       
     </span>
   </a>
@@ -5087,10 +5087,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gsdget-stuff-done-context-rot" class="md-nav__link">
+  <a href="#gsdget-stuff-done-context-context-rot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GSD（Get Stuff Done）：用「分段隔離」對抗 context rot
+        GSD（Get Stuff Done）：用「乾淨 context」對抗 context rot
       
     </span>
   </a>
@@ -5238,7 +5238,7 @@
 <h1 id="claude-code-superpowers-gsd-gstack">Claude Code 紀律框架對比：Superpowers / GSD / gstack<a class="headerlink" href="#claude-code-superpowers-gsd-gstack" title="Permanent link">¶</a></h1>
 <blockquote>
 <p>整理自官方 repo 與多篇解析（見文末），2026-06-19。2026 出現「紀律轉向」——三個開源框架用<strong>不同的軸</strong>約束 coding agent。本篇深入 GSD 與 gstack,Superpowers 另見 <a href="../superpowers-claude-code-skills/">專篇</a>。</p>
-<p>⚠️ 星數為對應來源於 2026-06 的數字,會變動,當量級看。</p>
+<p>⚠️ 資料基準 2026-11（重新對照三個官方 repo）。星數會變動，當量級看。</p>
 </blockquote>
 <h2 id="_1">一句話分工<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <table>
@@ -5270,24 +5270,31 @@
 <blockquote>
 <p>三者「幾乎不重疊、不是搶同一群用戶」:流程紀律（Superpowers）＋ 環境穩定（GSD）＋ 角色清晰（gstack）。</p>
 </blockquote>
-<h2 id="gsdget-stuff-done-context-rot">GSD（Get Stuff Done）：用「分段隔離」對抗 context rot<a class="headerlink" href="#gsdget-stuff-done-context-rot" title="Permanent link">¶</a></h2>
-<p>把建大型應用拆成<strong>三個獨立、各開全新 session</strong> 的階段,讓計畫文件「跨 session 存活」當唯一真相:</p>
+<h2 id="gsdget-stuff-done-context-context-rot">GSD（Get Stuff Done）：用「乾淨 context」對抗 context rot<a class="headerlink" href="#gsdget-stuff-done-context-context-rot" title="Permanent link">¶</a></h2>
+<blockquote>
+<p>2026-11 更新：原本的 <code>gsd-build/get-shit-done</code>（約 6.4 萬★）已經封存，開發搬到 <a href="https://github.com/open-gsd/gsd-core">open-gsd/gsd-core</a>（GSD Core，約 1.2 萬★，仍在更新）。本頁舊版說 GSD「偏向方法論、不是可安裝套件」是錯的，它一直有安裝包。</p>
+</blockquote>
+<p>GSD 要解決的是 <strong>context rot</strong>：對話越長、context 塞越滿，輸出品質就默默變差。它的做法是把重的工作（研究、規劃、實作）都丟給<strong>全新 context 的 subagent</strong>，主對話只留決策和結果。</p>
+<p>每個里程碑重複同一個五步迴圈，一次一個階段：</p>
 <ol>
-<li><strong>Plan</strong>：先寫規格文件（專案概觀、功能清單、資料模型、API 介面、auth、邊界案例、實作順序),不碰 code。</li>
-<li><strong>Execute</strong>：<strong>開全新 session</strong> 照計畫逐功能實作——刻意不延續規劃 session,避免把探索期累積的雜訊帶進來。</li>
-<li><strong>Verify</strong>：<strong>再開一個全新 session</strong>,把實作對照原計畫,抓漏的功能、矛盾、未處理邊界、資料模型落差。</li>
+<li><strong>Discuss</strong>：先把實作決定談清楚，才開始規劃。</li>
+<li><strong>Plan</strong>：研究、拆解，並檢查計畫放得進一個全新的 context。</li>
+<li><strong>Execute</strong>：計畫分批平行執行，每個執行者從乾淨的 200k-token context 開始。</li>
+<li><strong>Verify</strong>：逐項看做出來的東西，有問題先修好才算完成。</li>
+<li><strong>Ship</strong>：開 PR、封存這個階段，接著做下一個。</li>
 </ol>
-<p>核心招式:用分段隔離 + 持久計畫文件,防止對話史變長後的「<strong>context rot</strong>」(累積歷史拖垮輸出)。有解析指出它讓主對話維持在 30–40% context 容量。GSD 偏向<strong>方法論</strong>(非單一可安裝套件)。</p>
+<p>安裝：<code>npx @opengsd/gsd-core@latest</code>，會問你用哪個 agent（Claude Code、Codex、Cursor、Copilot 等）。新專案打 <code>/gsd-new-project</code>，既有 repo 打 <code>/gsd-onboard</code>。</p>
 <h2 id="gstack-claude-code">gstack：把 Claude Code 變成一支虛擬工程團隊<a class="headerlink" href="#gstack-claude-code" title="Permanent link">¶</a></h2>
-<p>YC 總裁 <strong>Garry Tan</strong> 開源的個人 Claude Code 設定。MIT,官方 repo 顯示約 <strong>111k★</strong>(2026-06)。前提:「單人配對工具,能比傳統團隊更快——但前提是 agent 被<strong>強制切換角色</strong>,而不是把產品/工程/品質混在一起做。」</p>
+<p>YC 總裁 <strong>Garry Tan</strong> 開源的個人 Claude Code 設定。MIT,官方 repo 約 <strong>14.2 萬★</strong>（2026-11）,更新很頻繁（v1.102,2026-11-21）。前提:「單人配對工具,能比傳統團隊更快——但前提是 agent 被<strong>強制切換角色</strong>,而不是把產品/工程/品質混在一起做。」</p>
 <ul>
 <li><strong>角色 personas</strong>:CEO/創辦人、Designer、Engineering Manager、Staff Engineer、QA Lead、Release Engineer、Chief Security Officer、Technical Writer。</li>
-<li><strong>指令</strong>:約 23 個角色 skill（slash command,如 <code>/office-hours</code>、<code>/review</code>、<code>/qa</code>）+ 8 個 power tool（<code>/careful</code>、<code>/freeze</code>、<code>/guard</code>、<code>/codex</code>、<code>/pair-agent</code>…）。</li>
+<li><strong>指令</strong>:2026-11 已長到約 39 個流程 skill（slash command,如 <code>/office-hours</code>、<code>/review</code>、<code>/qa</code>、<code>/autoplan</code>）+ 14 個 power tool（<code>/careful</code>、<code>/freeze</code>、<code>/guard</code>、<code>/codex</code>…）;<code>/careful</code> 的危險指令檢查現在預設在每個 Claude Code session 都會跑。</li>
 <li><strong>七階段 sprint</strong>:Think → Plan → Build → Review → Test → Ship → Reflect,每個 skill 的輸出餵給下一階段。</li>
-<li>相容 Claude Code、Codex、Cursor、Factory Droid、Kiro、Hermes 等;30 秒 git clone + setup 裝好。</li>
+<li>Claude Code 是完整支援;Codex、Cursor、Factory Droid、Kiro、Copilot CLI、Gemini CLI、Hermes 等標為 experimental。安裝要先有 Git 和 Bun,<code>git clone</code> 後跑 <code>./setup</code>;團隊共用 repo 可用 <code>./setup --team</code> 自動更新。</li>
 </ul>
 <h2 id="stack">怎麼疊（stack）<a class="headerlink" href="#stack" title="Permanent link">¶</a></h2>
 <p>理論上可分層:<strong>gstack 負責想/審 → Superpowers 在 build 時上 TDD → GSD 防長 session 的 context 衰退。</strong></p>
+<p>2026-11 補充:三者都各自長出了「先問清楚再做」的第一步（gstack <code>/office-hours</code>、Superpowers v7 Brainstorm、GSD Discuss）,疊用時第一步會重複,挑一個就好。</p>
 <p>但有實務摩擦:Superpowers 的互動式提問會在 build 中卡住 Claude Code 的輸入。作者建議:<strong>先挑你「最痛的點」對應的那一個用兩週,再考慮疊第二個</strong>,別一次全上。</p>
 <h2 id="_2">對你工作流的對應<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <ul>
@@ -5297,7 +5304,8 @@
 <h2 id="_3">參考來源<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://github.com/garrytan/gstack">garrytan/gstack — GitHub</a>（gstack 官方,角色/指令/星數依據）</li>
-<li><a href="https://www.mindstudio.ai/blog/gsd-framework-claude-code-plan-build-applications">GSD Framework for Claude Code — MindStudio</a>（GSD 三階段依據）</li>
+<li><a href="https://github.com/open-gsd/gsd-core">open-gsd/gsd-core — GitHub</a>（GSD 現行官方 repo,2026-11 更新依據）</li>
+<li><a href="https://www.mindstudio.ai/blog/gsd-framework-claude-code-plan-build-applications">GSD Framework for Claude Code — MindStudio</a>（2026-06 舊版三階段描述）</li>
 <li><a href="https://medium.com/@tentenco/superpowers-gsd-and-gstack-what-each-claude-code-framework-actually-constrains-12a1560960ad">Superpowers, GSD, and gstack: What Each Framework Constrains — Ewan Mak</a>（對比與疊用依據）</li>
 <li><a href="https://www.pulumi.com/blog/claude-code-orchestration-frameworks/">Picking the Right Framework for Your Coding Agent — Pulumi</a>（延伸）</li>
 </ul>
@@ -5323,7 +5331,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     

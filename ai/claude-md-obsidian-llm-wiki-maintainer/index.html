@@ -5603,6 +5603,16 @@
 <li>不把大型原始資料、private data、API keys、token、<code>.env</code>、資料庫檔放進 Git。</li>
 <li>GitHub Pages 只發布 MkDocs 從 <code>docs/</code> 產生的內容。</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">2026-11 現況：發布改由 CI 把關</p>
+<p>上面是 2026-05-28 的流程。現在多了三道自動檢查，並且公私分成兩個 repo：</p>
+<ol>
+<li><strong>lint 閘門</strong>：<code>scripts/kb_lint.py</code> 檢查 nav 和檔案對得上、每篇都列進該區 index、frontmatter 必填欄位、站內連結有效。有 FAIL 就不能發布；過期提醒（WARN）不擋。</li>
+<li><strong>strict build</strong>：<code>mkdocs build --strict</code> 必須成功。</li>
+<li><strong>測試</strong>：<code>scripts/tests</code> 跑 lint 和互動地圖的測試。</li>
+</ol>
+<p>三道都過，GitHub Actions 才把產出的網站推到另一個<strong>公開</strong>的 Pages repo；放完整 vault 的 repo 維持私人。提交時只 <code>git add</code> 這次要發布的 <code>docs/</code> 檔案，不用 <code>git add -A</code>，免得把私人筆記一起掃進去。</p>
+</div>
 <hr>
 <h2 id="coding-guidelines-vault-rules">為什麼要把 Coding Guidelines 與 Vault Rules 分開<a class="headerlink" href="#coding-guidelines-vault-rules" title="Permanent link">¶</a></h2>
 <p>這個分流設計是整個架構裡我最想強調的一個決策。</p>
@@ -5662,7 +5672,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 00:53:02 UTC">2026年11月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     

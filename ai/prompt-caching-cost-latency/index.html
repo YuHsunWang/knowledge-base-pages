@@ -2294,7 +2294,7 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        例子：手排車和自排車
+        例子：手自排車和自排車
       
     </span>
   </a>
@@ -5381,7 +5381,7 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        例子：手排車和自排車
+        例子：手自排車和自排車
       
     </span>
   </a>
@@ -5646,7 +5646,7 @@
 
 <h1 id="prompt-caching">Prompt Caching：用前綴快取砍掉成本與延遲<a class="headerlink" href="#prompt-caching" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>整理自 Anthropic 官方文件與廠商文件（見文末），2026-06-20 初版，2026-10-06 改成白話版。</p>
+<p>整理自 Anthropic 官方文件與廠商文件（見文末），2026-06-20 初版，2026-10-06 改成白話版，2026-11 對照官方文件更新（自動快取、新模型價格與門檻）。</p>
 <p><strong>實證標記</strong>：〔Anthropic〕= Anthropic 官方文件；〔廠商〕= 模型供應商文件；〔實務〕= 業界慣例或本人整理。數字依供應商而異，也會變。</p>
 </blockquote>
 <h2 id="_1">先講結論：三件事<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
@@ -5690,9 +5690,9 @@
 <li><strong>放最後（每天換的菜）</strong>：時間、每次請求的 ID、這次的問題。這些要放在最後一個快取標記之後。</li>
 </ul>
 <h2 id="_8">兩家供應商的做法<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<h3 id="_9">例子：手排車和自排車<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<h3 id="_9">例子：手自排車和自排車<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>Anthropic 像手排車</strong>：你要自己告訴它「快取到這裡」。這個標記叫 <code>cache_control</code> 斷點。麻煩一點，但你能精準控制。</li>
+<li><strong>Anthropic 像手自排車</strong>：可以自己告訴它「快取到這裡」，這個標記叫 <code>cache_control</code> 斷點，能精準控制。現在也有「自動」模式：在請求最外層放一個 <code>cache_control</code>，它會自動把斷點放在最後一個能快取的區塊，對話變長時斷點也會自己往後移。</li>
 <li><strong>OpenAI 像自排車</strong>：開頭夠長，它就自動幫你快取。省事，但你能調的地方少。</li>
 </ul>
 <table>
@@ -5706,7 +5706,7 @@
 <tbody>
 <tr>
 <td>怎麼開始</td>
-<td>你<strong>自己標記</strong> <code>cache_control</code> 斷點</td>
+<td>最外層放一個 <code>cache_control</code>（自動），或<strong>自己在區塊上標</strong>斷點</td>
 <td><strong>自動</strong>（超過最小長度就開）</td>
 </tr>
 <tr>
@@ -5770,12 +5770,12 @@
 <li><strong>選 1 小時</strong>：像月租。適合「隔一陣子才爆一波」的流量。但租金（寫入費）翻倍，要用比較多次才划算。</li>
 </ul>
 <blockquote>
-<p>2026-10 補充：新模型讀快取更便宜。Claude Fable 5.1 讀快取約 0.025 倍，Claude Opus 5.5 約 0.05 倍，回本也更快。</p>
+<p>新模型讀快取更便宜（資料基準 2026-11）：Claude Fable 5.2 / 5.1（和 Mythos 5.2 / 5.1）約 0.025 倍，Claude Opus 5.5 和 Sonnet 5.5 約 0.05 倍，其他模型照 0.1 倍。回本也更快。</p>
 </blockquote>
 <h3 id="_11">太短不給快取：像集點門檻<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
 <p>便利商店消費太少不給點數，<strong>而且不會告訴你</strong>。</p>
 <p>快取也有最小長度。開頭太短就不快取，<strong>也不會報錯</strong>。唯一線索是回應裡 <code>cache_creation_input_tokens</code> 等於 0。</p>
-<p>最小可快取長度（依模型，資料基準 2026-08）：</p>
+<p>最小可快取長度（依模型，資料基準 2026-11）：</p>
 <table>
 <thead>
 <tr>
@@ -5785,7 +5785,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Opus 5、Fable 5、Fable 5.1</td>
+<td>Fable 5.2 / 5.1 / 5、Opus 5.5 / 5、Sonnet 5.5、Haiku 5.5（含 Mythos 5.x）</td>
 <td><strong>512</strong></td>
 </tr>
 <tr>
@@ -5953,7 +5953,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月6日 05:45:20 UTC">2026年10月6日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     

@@ -5259,7 +5259,7 @@
 
 <h1 id="anthropic-agent-skills-document-skillspdf-docx-pptx-xlsx">Anthropic Agent Skills 與官方 Document Skills（PDF / DOCX / PPTX / XLSX）<a class="headerlink" href="#anthropic-agent-skills-document-skillspdf-docx-pptx-xlsx" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>整理自 Claude 官方文件與 <code>anthropics/skills</code> repo（見文末），2026-06-19。介紹 Agent Skills 的運作原理（漸進揭露架構）與最實用的官方 Document Skills。</p>
+<p>整理自 Claude 官方文件與 <code>anthropics/skills</code> repo（見文末），2026-06-19。資料基準 2026-11（重新對照官方文件）。介紹 Agent Skills 的運作原理（漸進揭露架構）與最實用的官方 Document Skills。</p>
 </blockquote>
 <h2 id="agent-skill">什麼是 Agent Skill<a class="headerlink" href="#agent-skill" title="Permanent link">¶</a></h2>
 <p><strong>Skill = 一個資料夾</strong>,內含指令、腳本、資源,Claude 在相關時<strong>按需載入</strong>,把通用 agent 變成特定領域的專家。標準見 <a href="https://agentskills.io">agentskills.io</a>。</p>
@@ -5338,15 +5338,16 @@
 <p>授權:<strong>Document skills 為 source-available（非開源)</strong>,作為複雜生產級 skill 的參考;repo 內多數其他 skill 為 Apache 2.0。</p>
 <h2 id="_1">各平台怎麼用（有差異,別搞混）<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Claude API</strong>：用 pre-built（<code>skill_id</code> 如 <code>pptx</code>/<code>xlsx</code>)需三個 beta header,跑在 code execution container,<strong>無網路、不能裝套件</strong>。</li>
-<li><strong>claude.ai</strong>：建立文件時 pre-built skills 已在背景運作;自訂 skill 以 zip 上傳（Pro/Max/Team/Enterprise）。</li>
-<li><strong>Claude Code</strong>：<strong>只吃 Custom Skills</strong>（檔案系統式,放 <code>~/.claude/skills/</code> 或專案 <code>.claude/skills/</code>,有完整網路權限)。官方 document skills 可經 plugin 安裝:
+<li><strong>Claude API</strong>：在 <code>container.skills</code> 列出 skill 的 <code>type</code> 和 <code>skill_id</code>（pre-built 如 <code>pptx</code>/<code>xlsx</code>/<code>docx</code>/<code>pdf</code>,自訂的經 <code>/v1/skills</code> 上傳),並開啟 code execution tool。跑在 code execution container,<strong>無網路、不能裝套件</strong>。上傳的自訂 skill 整個 workspace 共用。（2026-11：官方文件已不再列 beta header。）</li>
+<li><strong>claude.ai</strong>：建立文件時 pre-built skills 已在背景運作;自訂 skill 以 zip 上傳（Pro/Max/Ultra/Team/Enterprise,要開 code execution）。</li>
+<li><strong>Claude Code</strong>：<strong>只吃 Custom Skills</strong>（檔案系統式,放 <code>~/.claude/skills/</code> 或專案 <code>.claude/skills/</code>,有完整網路權限)。官方文件明說內建的 document skills 不在 Claude Code 裡（Claude Code 只內建 Claude API skill）;但 <code>anthropics/skills</code> repo 裡的版本可經 plugin 安裝:
   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/plugin marketplace add anthropics/skills
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/plugin install document-skills@anthropic-agent-skills
 </span></code></pre></div>
   之後直接喊:「用 PPTX skill 把這份大綱做成簡報」。</li>
 </ul>
-<p>⚠️ Custom skill <strong>不跨平台同步</strong>:claude.ai、API、Claude Code 各自管理上傳。</p>
+<p>⚠️ Custom skill <strong>不跨平台同步</strong>:claude.ai、API、Claude Code 各自管理上傳。Claude Code 的 skill 可以包成 plugin 分享。</p>
+<p><code>anthropics/skills</code> repo 在 2026-11 共有 19 個 skill,除了四個 document skills,還有 <code>mcp-builder</code>、<code>skill-creator</code>、<code>frontend-design</code>、<code>webapp-testing</code>、<code>claude-api</code> 等。</p>
 <h2 id="_2">安全提醒<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>只用<strong>可信來源</strong>的 skill（自製或 Anthropic 官方)。惡意 skill 能指使 Claude 執行與宣稱用途不符的工具/程式碼,造成資料外洩或未授權存取。用第三方 skill 前<strong>逐檔審查</strong>(SKILL.md、腳本、會不會對外連網)。把裝 skill 當成「裝軟體」看待。</p>
 <h2 id="_3">為什麼對你有用<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
@@ -5382,7 +5383,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     

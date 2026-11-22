@@ -5482,6 +5482,7 @@
 <h1 id="mcp-server-local-vs-remoteauth-security-boundary">MCP 生態系指南：Server 類型、Local vs Remote、Auth 與 Security Boundary<a class="headerlink" href="#mcp-server-local-vs-remoteauth-security-boundary" title="Permanent link">¶</a></h1>
 <blockquote>
 <p>整理自 MCP 官方規格與 Anthropic 文件（見文末），2026-06-20。本頁是「<strong>概念地圖</strong>」，幫你在接 MCP 時判斷：要接什麼類型的 server、放本地還是遠端、怎麼授權、信任邊界在哪。實作細節以官方規格為準。</p>
+<p><strong>資料基準 2026-11</strong>：已對照 MCP 規格 <strong>2026-07-28 版</strong>（目前最新）。這一版把協定改成無狀態，影響「Local vs Remote」和「Auth」兩節，改動處標了「2026-07-28」。</p>
 <p><strong>實證標記</strong>：〔規格〕= 出自 MCP 官方 spec；〔Anthropic〕= 出自 Anthropic 官方文件；〔實務〕= 業界慣例/本人整理，未必是規範。預設 under-claim，拿不準的地方會明講。</p>
 </blockquote>
 <h2 id="_1">一句話定義<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
@@ -5565,7 +5566,7 @@
 <tr>
 <td>傳輸</td>
 <td>Host 把 server 當<strong>子行程</strong>啟動，用 stdin/stdout 收發 JSON-RPC（換行分隔）</td>
-<td>server 是<strong>獨立行程</strong>，用 HTTP POST/GET，可選用 SSE 串流多則訊息</td>
+<td>server 是<strong>獨立行程</strong>，用 HTTP POST 收發；2026-07-28 起沒有 session、也沒有 GET 端點，要收變更通知改用 <code>subscriptions/listen</code></td>
 </tr>
 <tr>
 <td>部署</td>
@@ -5591,6 +5592,15 @@
 </table>
 <blockquote>
 <p>規格是 <strong>transport-agnostic</strong> 的：除 stdio 與 Streamable HTTP 外，client/server 也可自訂傳輸，只要支援雙向訊息交換即可。〔規格〕</p>
+<p><strong>2026-07-28 版的無狀態改動</strong>〔規格〕：</p>
+<ul>
+<li>拿掉 <code>initialize</code> 握手和 <code>Mcp-Session-Id</code>。每個請求自己在 <code>_meta</code> 帶協定版本和 client 能力。</li>
+<li>server 必須實作 <code>server/discover</code>，讓 client 事先查它支援哪些版本和能力。</li>
+<li>server 需要跨呼叫記住東西時，自己發一個 handle，當一般工具參數傳回來。</li>
+<li>回應串流斷掉不能續傳，client 要用新的 request ID 重送。</li>
+<li>舊的 HTTP+SSE 傳輸（2025-03-26 起就不建議）正式列為 Deprecated；Roots、Sampling、Logging 三個功能也列為 Deprecated。</li>
+</ul>
+<p>〔實務〕無狀態讓遠端 server 比較好水平擴充，負載平衡器不用再把同一個 session 黏在同一台機器。</p>
 <p>〔實務〕選型口訣：<strong>資料/工具只在本機、且只有你自己用 → local stdio；要跨人、跨機、跨團隊共用 → remote HTTP。</strong> 別為了「看起來專業」把單機工具硬包成遠端服務，徒增 auth 與維運成本。</p>
 </blockquote>
 <h2 id="security-boundary">Security Boundary（信任邊界）<a class="headerlink" href="#security-boundary" title="Permanent link">¶</a></h2>
@@ -5604,7 +5614,7 @@
 <p>在受管代理（如 Anthropic Managed Agents / vault 模式）的設計裡，<strong>MCP 憑證不放進 sandbox</strong>：沙箱內的程式（含模型寫的程式）看到的是占位符，真正的 secret 由平台側 proxy 在請求<strong>離開沙箱後（at egress）</strong>才注入。這讓 prompt injection 也偷不到金鑰。〔Anthropic〕</p>
 <p>→ 自建時的對應原則：<strong>別把 API key 寫進 system prompt 或對話訊息</strong>——那會被永久存進 session 歷史、被 <code>events.list</code> 讀到、被 compaction 摘要帶走。〔Anthropic〕</p>
 <h3 id="4-server-mix-up">4. 跨 server mix-up<a class="headerlink" href="#4-server-mix-up" title="Permanent link">¶</a></h3>
-<p>MCP 是「單一 client、多 server」型態，比一般 OAuth 場景更易遭 mix-up 攻擊。規格因此要求 client 依 <strong>RFC 9207</strong> 驗證授權回應中的 <code>iss</code> 參數，作為低成本緩解。〔規格〕</p>
+<p>MCP 是「單一 client、多 server」型態，比一般 OAuth 場景更易遭 mix-up 攻擊。規格因此建議授權伺服器依 <strong>RFC 9207</strong> 在授權回應帶 <code>iss</code> 參數；回應裡有 <code>iss</code> 時，client 必須先核對它跟記下的 issuer 一樣，才能兌換授權碼。〔規格〕</p>
 <h2 id="auth">Auth（授權）<a class="headerlink" href="#auth" title="Permanent link">¶</a></h2>
 <p>MCP 不綁單一身分系統，而是<strong>遵循 OAuth 2.1 的慣例</strong>。〔規格〕</p>
 <h3 id="_3">兩種授權粒度<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
@@ -5631,8 +5641,10 @@
 </table>
 <h3 id="_4">規格層面的硬性安全要求〔規格〕<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <ul>
-<li>Client 必須依 <strong>RFC 9207</strong> 驗證授權回應的 <code>iss</code>（緩解 mix-up）。</li>
+<li>授權回應有 <code>iss</code> 時，Client 必須依 <strong>RFC 9207</strong> 核對（緩解 mix-up）。</li>
 <li>Access token 應作為 <strong>JWT</strong> 對 IdP 的 <strong>JWKS</strong> 端點驗證。</li>
+<li>Client 憑證綁定發它的授權伺服器：要用 issuer 當 key 存，不能拿去別的授權伺服器用；授權伺服器換了就要重新註冊（2026-07-28）。</li>
+<li>Client 註冊方式改變：<strong>Dynamic Client Registration（RFC 7591）列為 Deprecated</strong>，改推 Client ID Metadata Documents；舊方式為了相容還能用（2026-07-28）。</li>
 <li>近期規格用多個 SEP 把授權對齊 OAuth 2.0 / OpenID Connect 的實務部署方式（含 client registration 演進、企業託管授權）。</li>
 </ul>
 <h3 id="mcp-token-api-keyanthropic">一個常見大坑：MCP token ≠ 服務的 API key〔Anthropic〕<a class="headerlink" href="#mcp-token-api-keyanthropic" title="Permanent link">¶</a></h3>
@@ -5653,7 +5665,8 @@
 </ul>
 <h2 id="_6">來源<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="https://modelcontextprotocol.io/specification/2025-03-26/basic/transports">Transports — Model Context Protocol</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/transports">Transports — Model Context Protocol（2026-07-28）</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/changelog">Key Changes — MCP 規格 2026-07-28 changelog</a></li>
 <li><a href="https://modelcontextprotocol.io/docs/tutorials/security/authorization">Understanding Authorization in MCP — Model Context Protocol</a></li>
 <li><a href="https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth/">Enterprise-Managed Authorization: Zero-touch OAuth for MCP（MCP Blog）</a></li>
 <li><a href="https://blog.modelcontextprotocol.io/posts/client_registration/">Evolving OAuth Client Registration in MCP（MCP Blog）</a></li>
@@ -5681,7 +5694,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 00:52:38 UTC">2026年11月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 09:16:07 UTC">2026年11月22日</span>
   </span>
 
     
