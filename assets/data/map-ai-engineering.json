@@ -100,16 +100,16 @@
    "desc": "實際落地的工具鏈",
    "items": [
     "claude-code-coding-guidelines",
-    "superpowers-claude-code-skills",
     "claude-code-discipline-frameworks",
+    "superpowers-claude-code-skills",
     "anthropic-document-skills",
     "mcp-ecosystem-guide",
     "mcp-builder-skill",
     "sepia-de-ai-writing-skill",
     "ponytail-lazy-senior-dev-skill",
-    "claude-code-team-code-review",
+    "pr-review-beginner-guide",
     "fixing-pr-bottleneck-ai-review",
-    "pr-review-beginner-guide"
+    "claude-code-team-code-review"
    ]
   },
   {
@@ -375,7 +375,7 @@
    "id": "anthropic-document-skills",
    "label": "Anthropic Agent Skills",
    "href": "anthropic-document-skills/",
-   "step": null,
+   "step": "4",
    "cluster": null,
    "meta": [
     [
@@ -442,7 +442,7 @@
    "id": "claude-code-coding-guidelines",
    "label": "Claude Code 寫程式準則",
    "href": "claude-code-coding-guidelines/",
-   "step": null,
+   "step": "1",
    "cluster": null,
    "meta": [
     [
@@ -468,7 +468,7 @@
    "id": "claude-code-discipline-frameworks",
    "label": "Claude Code 紀律框架對比",
    "href": "claude-code-discipline-frameworks/",
-   "step": null,
+   "step": "2",
    "cluster": null,
    "meta": [
     [
@@ -499,7 +499,7 @@
    "id": "claude-code-team-code-review",
    "label": "Claude Code 團隊的 Code Review",
    "href": "claude-code-team-code-review/",
-   "step": null,
+   "step": "11",
    "cluster": null,
    "meta": [
     [
@@ -767,7 +767,7 @@
    "id": "fixing-pr-bottleneck-ai-review",
    "label": "PR 審不完：三層煞車",
    "href": "fixing-pr-bottleneck-ai-review/",
-   "step": null,
+   "step": "10",
    "cluster": null,
    "meta": [
     [
@@ -908,7 +908,7 @@
    "id": "mcp-builder-skill",
    "label": "MCP Builder Skill",
    "href": "mcp-builder-skill/",
-   "step": null,
+   "step": "6",
    "cluster": null,
    "meta": [
     [
@@ -934,7 +934,7 @@
    "id": "mcp-ecosystem-guide",
    "label": "MCP 生態系指南",
    "href": "mcp-ecosystem-guide/",
-   "step": null,
+   "step": "5",
    "cluster": null,
    "meta": [
     [
@@ -1338,7 +1338,7 @@
    "id": "ponytail-lazy-senior-dev-skill",
    "label": "Ponytail 少寫程式碼 Plugin",
    "href": "ponytail-lazy-senior-dev-skill/",
-   "step": null,
+   "step": "8",
    "cluster": null,
    "meta": [
     [
@@ -1358,7 +1358,7 @@
    "id": "pr-review-beginner-guide",
    "label": "審 PR 入門",
    "href": "pr-review-beginner-guide/",
-   "step": null,
+   "step": "9",
    "cluster": null,
    "meta": [
     [
@@ -1599,7 +1599,7 @@
    "id": "sepia-de-ai-writing-skill",
    "label": "Sepia 去 AI 味 Skill",
    "href": "sepia-de-ai-writing-skill/",
-   "step": null,
+   "step": "7",
    "cluster": null,
    "meta": [
     [
@@ -1644,7 +1644,7 @@
    "id": "superpowers-claude-code-skills",
    "label": "Superpowers Skill 框架",
    "href": "superpowers-claude-code-skills/",
-   "step": null,
+   "step": "3",
    "cluster": null,
    "meta": [
     [
@@ -1847,16 +1847,16 @@
     "count": 11,
     "members": [
      "claude-code-coding-guidelines",
-     "superpowers-claude-code-skills",
      "claude-code-discipline-frameworks",
+     "superpowers-claude-code-skills",
      "anthropic-document-skills",
      "mcp-ecosystem-guide",
      "mcp-builder-skill",
      "sepia-de-ai-writing-skill",
      "ponytail-lazy-senior-dev-skill",
-     "claude-code-team-code-review",
+     "pr-review-beginner-guide",
      "fixing-pr-bottleneck-ai-review",
-     "pr-review-beginner-guide"
+     "claude-code-team-code-review"
     ],
     "x": 0.84,
     "y": 0.51,
