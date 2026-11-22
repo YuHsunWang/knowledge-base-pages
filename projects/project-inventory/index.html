@@ -5374,15 +5374,17 @@
 <h2 id="_1">摘要<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>同時跑七八個專案時，最常問自己的是：哪個 PR 還沒合併？哪份資料停了沒人發現？上個月那個專案到底做到哪？答案散在 Linear、Notion、GitHub、本機資料夾和資料檔裡，每次都要一個一個打開看。</p>
 <p>project-inventory 是一個 Claude Code skill。跟 Claude 說「幫我盤點專案」，它會把這些地方全部讀一遍，做成<strong>一個 HTML 檔</strong>：首頁列出所有在等你處理的事，每個專案有運作流程圖、待辦、每週進度和基本資料。</p>
-<p>它從我自己用的專案拆機台抽出來，改成別人也能裝的通用版（2026-10-02 起）。本文記錄它怎麼分工：能用腳本算出來的都交給腳本，Claude 只做需要判斷的部分。</p>
+<p>它從我自己用的專案拆機台抽出來，改成別人也能裝的通用版（2026-10-02 起）。2026-11 的 0.2.0 版多了兩件事：首頁直接說哪些 PR 現在可以合，每個專案多一行兩句話的現況。本文記錄它怎麼分工：能用腳本算出來的都交給腳本，Claude 只做需要判斷的部分。</p>
 <div class="admonition note">
 <p class="admonition-title">示範畫面</p>
-<p>下面的截圖是用兩個公開 repo（本專案和 <a href="../cvs-radar/">CVS Radar</a>）做的示範頁，資料基準 2026-10-03。</p>
+<p>下面的截圖是用兩個公開 repo（本專案和 <a href="../cvs-radar/">CVS Radar</a>）做的示範頁，資料基準 2026-10-03，所以還沒有 0.2.0 的 PR 標籤和現況行。只有假資料的線上示範頁在 <a href="https://yuhsunwang.github.io/project-inventory/">https://yuhsunwang.github.io/project-inventory/</a>。</p>
 </div>
 <hr>
 <h2 id="_2">主要畫面<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p><strong>首頁：要處理的事。</strong> 最上面是分類加總，下面是一列一件事：哪個專案有 PR 等你合併、哪個資料夾有改到一半沒存的檔、哪份資料過期了。點一列會跳到那個專案對應的分頁。</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/project-inventory/home.png" data-desc-position="bottom"><img alt="首頁：要處理的事和專案卡片" src="../../assets/screenshots/project-inventory/home.png"></a></p>
+<p>0.2.0 起，每個透過 <code>gh</code> 讀到的 PR 會掛一個標籤：可以合、要先合 #N、檢查沒過、有衝突。首頁那列也會算出「幾個可以合」。草稿、檢查還在跑、被分支規則擋住、或 GitHub 還沒算出能不能合的，就不掛標籤，免得猜錯。審查留言不算在內。</p>
+<p>每個專案另有一行兩句話的現況：卡在哪、下一步做什麼。它跟每週說明一樣由 Claude 寫，只有卡住的原因變了才重寫。</p>
 <p><strong>運作流程。</strong> 中間由上往下是主要步驟，兩邊是支線。方塊點開可以看說明、截圖、公式，或「進去什麼、出來什麼」的示意。下圖是這個 skill 自己的流程：</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/project-inventory/road.png" data-desc-position="bottom"><img alt="運作流程：collect.py 方塊點開後的說明和真實輸出" src="../../assets/screenshots/project-inventory/road.png"></a></p>
 <p>流程圖是 Claude 讀程式碼和 README 後畫的草稿，使用者確認過才存。說明裡的事實要對得上程式碼，對不上就改。</p>
@@ -5408,7 +5410,7 @@
 <td><code>git</code> 指令的輸出就是答案</td>
 </tr>
 <tr>
-<td>開著的 PR</td>
+<td>開著的 PR、能不能合</td>
 <td><code>collect.py</code>（<code>gh</code>）</td>
 <td>同上</td>
 </tr>
@@ -5416,6 +5418,11 @@
 <td>Linear 待辦</td>
 <td>有 <code>LINEAR_API_KEY</code> 時 <code>collect.py</code> 直接打 API；沒有才由 Claude 透過 MCP 抓</td>
 <td>腳本比較快，數字也一定一樣</td>
+</tr>
+<tr>
+<td>GitHub Issues、Obsidian 筆記裡的 <code>- [ ]</code></td>
+<td><code>collect.py</code></td>
+<td>Issues 只讀明確設定的 repo；Obsidian 同一來源內文字完全相同的任務只算一次</td>
 </tr>
 <tr>
 <td>Notion 待辦</td>
@@ -5438,14 +5445,14 @@
 <td>每個分頁 × 手機 390 px、桌機 1280 px，點開每個方塊</td>
 </tr>
 <tr>
-<td>流程圖、每週說明、待辦的「做完有什麼用」</td>
+<td>流程圖、每週說明、專案現況、待辦的「做完有什麼用」</td>
 <td>Claude</td>
 <td>要讀懂程式碼和 commit 才寫得出來</td>
 </tr>
 </tbody>
 </table>
-<p>這樣分有兩個好處。第一，腳本不靠 Claude 也能跑：用 cron 每天跑 <code>collect.py</code> 和 <code>build.py</code>，網頁照樣更新，只是 Notion 和新的週說明要等下次叫 Claude。第二，Claude 寫的東西範圍很小，容易檢查。</p>
-<p>一個實際踩到的坑：<code>collect.py</code> 只要有來源沒讀到（例如 cron 跑時沒人去抓 Notion）就回傳 1。如果排程寫 <code>collect.py &amp;&amp; build.py</code>，網頁就永遠不會更新。要用 <code>;</code> 接。</p>
+<p>這樣分有兩個好處。第一，腳本不靠 Claude 也能跑：<code>schedule.py install</code> 會裝一筆排程（預設 08:00–22:00 每 2 小時），網頁照樣更新，只是 Notion 要等下次叫 Claude。週說明可以選擇交給便宜的模型（Claude Haiku 或 Codex）在排程裡補寫，預設不呼叫任何模型。來源和日期都沒變時，整輪直接跳過。第二，Claude 寫的東西範圍很小，容易檢查。</p>
+<p>一個實際踩到的坑：<code>collect.py</code> 只要有來源沒讀到（例如排程跑時沒人去抓 Notion）就回傳 1。如果自己寫 <code>collect.py &amp;&amp; build.py</code>，網頁就永遠不會更新。現在的規則是：1 代表部分成功，照樣建網頁，頁面上標出哪個來源失敗；2 代表嚴重失敗，保留上一版網頁，不可發布。</p>
 <hr>
 <h2 id="_3">資料新不新鮮：讀資料裡的日期，不看檔案時間<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>判斷「資料是不是停了」最直覺的做法是看檔案修改時間，但這不準：複製、重建、<code>git checkout</code> 都會把修改時間改成現在，停了三天的資料看起來還是今天的。</p>
@@ -5467,6 +5474,8 @@
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="nt">"cvs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"2026-09-28"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"n"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"商品卡大改簡單：只留通路、品名和分數……"</span><span class="p">}}}</span>
 </span></code></pre></div>
 <p>說明只能根據那週列出來的 commit、待辦和 PR 寫，不能自己補沒寫在上面的事。</p>
+<p>0.2.0 再省一步：<code>build.py</code> 預設只要求每個專案最近 4 週的說明（要整段歷史就加 <code>--all-weeks</code>）。以前第一次跑一個老 repo，要把過去每一週都補寫一次，現在不用了。同一版也把 <code>SKILL.md</code> 瘦身：平常只載入快速開始和更新步驟，完整設定、發布、排程的規則放在 <code>reference/</code>，用到才讀，每次執行載入的內容少了一半。</p>
+<p>如果有設定寫作 skill（例如 sepia），對話中執行時會把週說明和流程文字交給它潤一次。潤完會核對事實、數字、日期、名稱和連結，有任何一項變了就丟掉這次潤稿。排程執行不潤稿。</p>
 <hr>
 <h2 id="_5">待辦趨勢第一次就畫得出來<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>「待辦數量變化」常見的做法是每天存一次快照，然後畫快照。缺點是第一次跑時只有一個點，要等好幾週才看得出趨勢。</p>
@@ -5488,15 +5497,15 @@
 </tr>
 <tr>
 <td>claude.ai Artifact</td>
-<td>只有自己</td>
+<td><code>build.py</code> 另外產一份 <code>out/artifact.html</code>，要自己手動匯入；權限和固定網址都還沒驗證</td>
 </tr>
 <tr>
 <td>Vercel</td>
-<td>只有登入自己 Vercel 帳號的人</td>
+<td>有權限的 Vercel 使用者（看團隊成員和保護設定）</td>
 </tr>
 <tr>
 <td>GitHub Pages</td>
-<td><strong>所有人</strong>（免費方案就算 repo 是私人的也一樣），第一次發布前會先問</td>
+<td><strong>所有人</strong>，第一次發布前會先問。免費方案的私人 repo 不能開 Pages，Pro／Team 方案可以，但網站一樣是公開的</td>
 </tr>
 </tbody>
 </table>
@@ -5504,11 +5513,15 @@
 <p>GitHub 的網址存進資料前，會先拿掉 <code>https://帳號:token@</code> 這種寫在網址裡的帳密，免得 token 跟著網頁被發布出去。</p>
 <hr>
 <h2 id="_7">怎麼裝<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>在 Claude Code 裡：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/plugin marketplace add YuHsunWang/project-inventory
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/plugin install project-inventory@project-inventory
+<p>最簡單的裝法：把這句貼給你的 agent，它會自己裝好並跑一次假資料自我檢查。</p>
+<blockquote>
+<p>Install project-inventory: read https://raw.githubusercontent.com/YuHsunWang/project-inventory/main/INSTALL.md and follow it.</p>
+</blockquote>
+<p>想自己打指令，在終端機：</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>claude<span class="w"> </span>plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>YuHsunWang/project-inventory
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>claude<span class="w"> </span>plugin<span class="w"> </span>install<span class="w"> </span>project-inventory@project-inventory<span class="w"> </span>--scope<span class="w"> </span>user
 </span></code></pre></div>
-<p>然後說「幫我盤點專案」。第一次會一題一題問：要放哪些專案、各自連到哪、要盯哪些資料、流程圖對不對。設定存在 <code>~/.project-inventory/inventory.json</code>。</p>
+<p>然後說「幫我盤點專案」。第一次走「快速開始」，只問一題：從腳本找到的本機和 GitHub 專案裡勾選要放哪些（近 90 天有 commit 的預設勾好）。其他都用預設值，先做出本機頁面和 AI 草稿流程圖；最後才問一次要不要接待辦來源、盯資料、截圖、排程或發布。說「完整設定」可以走原本八步問答。設定存在 <code>~/.project-inventory/inventory.json</code>。</p>
 <p>不需要 MCP server。skill 就是一個資料夾（<code>SKILL.md</code> 寫步驟，<code>scripts/</code> 是只用 Python 標準庫的腳本），所以 Codex 這類讀同樣格式的工具，把資料夾複製進去也能用。</p>
 <p>其他 agent 可以用 <a href="https://skills.sh">Skills CLI</a> 一行裝好（資料基準 2026-11）：</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npx<span class="w"> </span>skills<span class="w"> </span>add<span class="w"> </span>YuHsunWang/project-inventory<span class="w"> </span>-g
@@ -5516,9 +5529,9 @@
 <hr>
 <h2 id="_8">建議用法<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>每天看首頁一次，大約兩分鐘。</strong> 先看資料有沒有過期。資料錯了，後面算出來的都會錯，所以這個最先處理。再看哪些 PR 在等你。</li>
+<li><strong>每天看首頁一次，大約兩分鐘。</strong> 先看資料有沒有過期。資料錯了，後面算出來的都會錯，所以這個最先處理。再看哪些 PR 掛著「可以合」。</li>
 <li><strong>每週點進有動的專案一次。</strong> 讀每週說明，確認跟自己記得的一樣。對不上的地方，通常就是忘了的事。</li>
-<li><strong>交給排程，不要每次手動叫。</strong> 用 cron 每晚跑 <code>collect.py</code> 和 <code>build.py</code>，打開網頁時就已經是新的。Claude 只在要寫新的週說明時才叫。</li>
+<li><strong>交給排程，不要每次手動叫。</strong> 用 <code>schedule.py install</code> 裝好排程，打開網頁時就已經是新的。頁首會列出哪些事需要叫 Claude（例如重讀 Notion），每項附上完整指令。</li>
 <li><strong>想改畫面就直接跟 agent 說。</strong> 設定都在 <code>inventory.json</code>，不用自己改 HTML。</li>
 </ul>
 <div class="admonition tip">
@@ -5584,17 +5597,21 @@
 <td>Playwright（Chromium 無頭模式）</td>
 </tr>
 <tr>
+<td>排程</td>
+<td>macOS／Linux 用 cron，Windows 用 schtasks（<code>schedule.py</code>）</td>
+</tr>
+<tr>
 <td>測試</td>
-<td>一支 <code>tests/test_scripts.py</code>，只用標準庫，不連網</td>
+<td><code>tests/release_gate.py</code> 一次跑完回歸測試和網頁檢查，不連網；GitHub CI 跑同一支</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="_11">還沒做完的<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>GitHub Pages 發布、Notion 待辦還沒實際跑過。</strong> 步驟寫在 <code>SKILL.md</code> 裡，但到 2026-10-03 為止沒有在真的帳號上驗證。</li>
-<li><strong>Hermes 沒試過。</strong> Codex 試過：它自己找到 skill 資料夾，跑完整個盤點。</li>
-<li>第一次跑要補完以前每一週的說明，專案歷史長的話會很久。</li>
+<li><strong>Notion 只用假資料測過。</strong> 真的 workspace 還沒驗收（資料基準 2026-11-22）。</li>
+<li><strong>Artifact 發布還沒驗證。</strong> 目前只能手動匯入 <code>out/artifact.html</code>，不保證私人存取或固定網址。</li>
+<li><strong>宿主載入沒記版本。</strong> Claude Code 和 Codex 實際跑過盤點；Hermes 只測過檔案裝得上去，新工作階段能不能載入還要人工驗收。</li>
 </ul>
 <h2 id="_12">延伸閱讀（本站）<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
 <ul>
@@ -5602,7 +5619,7 @@
 </ul>
 <h2 id="_13">來源<a class="headerlink" href="#_13" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="https://github.com/YuHsunWang/project-inventory">project-inventory repository</a>（README、<code>說明書.md</code>、<code>skills/project-inventory/reference/schema.md</code>）</li>
+<li><a href="https://github.com/YuHsunWang/project-inventory">project-inventory repository</a>（README、<code>說明書.md</code>、<code>CHANGELOG.md</code>、<code>skills/project-inventory/reference/schema.md</code>；資料基準 2026-11-22，0.2.0 版）</li>
 </ul>
 
 
@@ -5626,7 +5643,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 04:46:38 UTC">2026年11月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 11:16:31 UTC">2026年11月22日</span>
   </span>
 
     
