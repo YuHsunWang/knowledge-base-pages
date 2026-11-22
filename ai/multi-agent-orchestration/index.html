@@ -5301,6 +5301,10 @@
 </tr>
 </tbody>
 </table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/multi-agent/01-supervisor-pipeline.png" data-desc-position="bottom"><img alt="Supervisor 與 Sequential Pipeline 編排拓撲" src="../../assets/diagrams/multi-agent/01-supervisor-pipeline.png"></a>
+<em>圖：Supervisor 由中央協調者動態指派 worker；Sequential Pipeline 由 agent 分階段接力處理。</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/multi-agent/02-mesh-event-swarm.png" data-desc-position="bottom"><img alt="Mesh、Event-Driven 與 Swarm 編排拓撲" src="../../assets/diagrams/multi-agent/02-mesh-event-swarm.png"></a>
+<em>圖：Mesh 經訊息匯流排互通，Event-Driven 對事件流反應，Swarm 靠局部互動與 handoff；箭頭示意各模式的訊息或控制傳遞。</em></p>
 <blockquote>
 <p>〔分析〕兩個極端的代價要記住：<strong>Supervisor</strong> 把風險集中在中央（掛了全停、所有流量過它）；<strong>Swarm</strong> 把風險分散但失去全局可見性（沒人知道整體走到哪）。多數生產系統落在中間：<strong>確定性的工作流引擎 + 少數 LLM 決策點</strong>，而不是讓 agent 全自由互推。</p>
 </blockquote>
@@ -5369,7 +5373,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 00:52:38 UTC">2026年11月22日</span>
   </span>
 
     

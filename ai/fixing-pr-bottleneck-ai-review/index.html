@@ -5438,6 +5438,8 @@
 <p>測試只打那個小介面，就碰不到內部細節，自然寫不出黏結構的測試。他有一個 skill 會掃 codebase，列出可以「加深」的模組，附改前改後的對照。另外他定義了一組團隊共用詞彙，例如 locality（相關程式碼放在一起的程度）、leverage（呼叫端用一個簡單函式就拿到很多價值）、seam（可以替換實作的接縫）。</p>
 <h2 id="ai-agent">第二層：AI 審查，跟寫程式的 agent 分開<a class="headerlink" href="#ai-agent" title="Permanent link">¶</a></h2>
 <p>這是整場最實用的一點：<strong>不要把 coding standards 塞給寫程式的 agent。</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/diagrams/pr-bottleneck/01-agent-human-swimlane.png" data-desc-position="bottom"><img alt="寫程式 agent、審查 agent 與人工審查的泳道及接手位置" src="../../assets/diagrams/pr-bottleneck/01-agent-human-swimlane.png"></a></p>
+<p><em>圖：寫程式與審查分開 context；審查 agent 直接 commit 修正，真有疑問才留言。人工依合併風險區分單向門與雙向門，決定審查力度。</em></p>
 <p>寫程式的 agent 在一個 context 裡要做三件事：找程式碼、改程式碼、跑檢查除錯。它已經很滿了，再塞一堆規範，表現會變差。</p>
 <p>審查的 agent 不一樣。它拿到 diff，知道改了哪裡，只需要做一點探索，不用實作也不用除錯。它的負擔輕，塞規範進去剛好。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>寫程式 agent（滿載）        審查 agent（輕載，子 agent）
@@ -5516,7 +5518,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月8日 08:14:13 UTC">2026年10月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 00:52:46 UTC">2026年11月22日</span>
   </span>
 
     
