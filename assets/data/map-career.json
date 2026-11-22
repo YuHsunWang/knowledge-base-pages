@@ -73,8 +73,8 @@
    "note": "使用 Render 部署 Docker FastAPI 與 managed PostgreSQL，完成秘密設定、PORT、migration、readiness、CI、更新與回復驗收。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -109,8 +109,8 @@
    "note": "逐行理解 Dockerfile，使用 Compose 啟動 app 與 postgres，處理 port、volume、環境變數、健康檢查與容器除錯。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -145,8 +145,8 @@
    "note": "建立使用者、履歷、職缺與申請 API，實作 Pydantic 驗證、service、記憶體 repository、API key、PATCH 與端到端測試。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -181,8 +181,8 @@
    "note": "用同一個求職助理專案練習 staging、分支、衝突、PR 與回復，修正髒工作目錄不能建分支的誤解。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -217,8 +217,8 @@
    "note": "用 AI Job Application Assistant 串起 Python 工程化、Git、FastAPI、PostgreSQL、Docker 與 Render 部署，逐章交付可驗證的成果。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -248,8 +248,8 @@
    "note": "完成五張表、主外鍵與跨使用者約束，透過 SQLAlchemy transaction、Alembic migration 與 repository 取代記憶體儲存。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -284,8 +284,8 @@
    "note": "從純函式、模組與 dataclass 建立求職助理核心，補齊型別、例外、logging、環境變數、依賴管理與測試。",
    "fresh": {
     "state": "fresh",
-    "days": 30,
-    "label": "每季複查｜2026-10-22 更新｜62 天內有效"
+    "days": 31,
+    "label": "每季複查｜2026-10-22 更新｜61 天內有效"
    },
    "backlinks": [
     {
@@ -320,8 +320,8 @@
    "note": "資料分析師轉資料工程師的學習路線：五階段技能與過關標準、資料管線專案、工具選擇、實務故障與台灣求職方向。",
    "fresh": {
     "state": "fresh",
-    "days": 38,
-    "label": "每季複查｜2026-10-14 更新｜54 天內有效"
+    "days": 39,
+    "label": "每季複查｜2026-10-14 更新｜53 天內有效"
    },
    "backlinks": []
   },
@@ -340,8 +340,8 @@
    "note": "給有經濟或計量背景的資料分析師的轉職路線：哪些不用重學、ML 與 Python 工程要補到什麼程度、七章學習手冊、零售題目地圖、實務踩雷清單與台灣市場現況。",
    "fresh": {
     "state": "fresh",
-    "days": 38,
-    "label": "每季複查｜2026-10-14 更新｜54 天內有效"
+    "days": 39,
+    "label": "每季複查｜2026-10-14 更新｜53 天內有效"
    },
    "backlinks": [
     {

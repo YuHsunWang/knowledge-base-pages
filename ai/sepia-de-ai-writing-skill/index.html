@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。">
+        <meta name="description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作、跟 humanizer 的同段對照與一次真實使用紀錄。">
       
       
       
@@ -67,7 +67,7 @@
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sepia：從敘事結構下手的去 AI 味 Skill - Shane's Knowledge Base">
-<meta property="og:description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。">
+<meta property="og:description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作、跟 humanizer 的同段對照與一次真實使用紀錄。">
 <meta property="og:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/sepia-de-ai-writing-skill.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -75,7 +75,7 @@
 <meta property="og:url" content="https://yuhsunwang.github.io/knowledge-base-pages/ai/sepia-de-ai-writing-skill/">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="Sepia：從敘事結構下手的去 AI 味 Skill - Shane's Knowledge Base">
-<meta property="twitter:description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作與一次真實使用紀錄。">
+<meta property="twitter:description" content="分享 Agent Skill Sepia 0.8.0：小說先修敘事架構、專業文件按文件類型配規則，附中文校準數字、四種操作、跟 humanizer 的同段對照與一次真實使用紀錄。">
 <meta property="twitter:image" content="https://yuhsunwang.github.io/knowledge-base-pages/assets/images/social/ai/sepia-de-ai-writing-skill.png">
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -2002,6 +2002,17 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
+        同一段話，三種寫法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         怎麼運作
       
     </span>
@@ -2011,7 +2022,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         先分路
@@ -2022,7 +2033,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         四種操作
@@ -2033,7 +2044,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         校準：別矯枉過正
@@ -2049,7 +2060,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         中文有專門的校準檔
@@ -2060,7 +2071,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         我用過一次
@@ -2082,7 +2093,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         安裝
@@ -2093,7 +2104,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考來源
@@ -5162,6 +5173,17 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
+        同一段話，三種寫法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         怎麼運作
       
     </span>
@@ -5171,7 +5193,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         先分路
@@ -5182,7 +5204,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         四種操作
@@ -5193,7 +5215,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         校準：別矯枉過正
@@ -5209,7 +5231,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         中文有專門的校準檔
@@ -5220,7 +5242,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         我用過一次
@@ -5242,7 +5264,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         安裝
@@ -5253,7 +5275,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         參考來源
@@ -5384,8 +5406,30 @@
 <li>結局一定是主角成長、學會接納</li>
 </ul>
 <p>字句換得再乾淨，架構沒動，一樣看得出來。</p>
-<h2 id="_3">怎麼運作<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<h3 id="_4">先分路<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h2 id="_3">同一段話，三種寫法<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>2026-10-22 我把幾份 ChatGPT 教學對話交給 Codex 整理成後端教材，想順便看清楚 Sepia 跟一般 humanizer 差在哪。拿教材裡講 email 要加 UNIQUE 的一段當例子。</p>
+<blockquote>
+<p>⚠️ 下面三段是我照各工具的做法手寫的示範，不是工具實際輸出。</p>
+</blockquote>
+<p><strong>原文（AI 直接寫的）</strong></p>
+<blockquote>
+<p>在現代後端開發中，資料完整性扮演著至關重要的角色。透過為 email 欄位加上 UNIQUE constraint，我們不僅能夠確保資料的一致性，更能有效提升系統的穩定性與可靠性。值得注意的是，僅依賴應用程式層的檢查是不夠的——這就是為什麼資料庫層的約束如此關鍵。總而言之，UNIQUE constraint 是保護資料品質不可或缺的一環。</p>
+</blockquote>
+<p>開頭繞一圈才到重點，「不僅…更」「值得注意的是」「總而言之」都是套路。最大的問題是它說了「不夠」，卻沒說為什麼不夠。</p>
+<p><strong>humanizer 版</strong>（照 AI 特徵清單逐條刪）</p>
+<blockquote>
+<p>資料庫裡的 email 應該加上 UNIQUE。這樣可以避免重複的資料，讓系統比較穩定。只在程式裡先檢查還不夠，所以資料庫這層也要擋。UNIQUE 是保護資料很基本的做法。</p>
+</blockquote>
+<p>讀起來不像 AI 了，資訊量卻跟原文一樣少。「為什麼不夠」還是空的。</p>
+<p><strong>Sepia 版</strong>（技術文章規則：先講結論，講出實際會發生的事）</p>
+<blockquote>
+<p>email 要靠資料庫的 UNIQUE 擋重複，不能只靠程式先查一次。</p>
+<p>兩個註冊請求可能同時進來。A 查了，沒重複；B 也查了，也沒重複。兩邊都寫進去，同一個 email 就有兩筆。</p>
+<p>UNIQUE 在寫入那一刻由資料庫檢查，第二筆一定會被擋下，程式接住錯誤就好。</p>
+</blockquote>
+<p>差別在第二段。Sepia 的技術文章規則要數字有條件、說法有出處，原文那句空的「不夠」過不了這關。不過同時寫進去的這個原因，原文本來就沒有。Sepia 有一條硬規定是不准自己編事實，所以實際跑 refactor 只會把這裡標成缺口，要作者自己補，我在示範裡直接替它補上了。humanizer 只管字句，連缺口都不會標。</p>
+<h2 id="_4">怎麼運作<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h3 id="_5">先分路<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -5421,7 +5465,7 @@
 </tbody>
 </table>
 <p>專業文件不走敘事那套，但最後都要過一次字句掃描和句長節奏檢查。</p>
-<h3 id="_5">四種操作<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h3 id="_6">四種操作<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -5456,10 +5500,10 @@
 <p>另外有 <code>/sepia-hemingway</code>，用內建的海明威聲音寫或改小說。總入口是 <code>/sepia</code>。</p>
 <p>refactor 一定分兩段：先列完整問題清單，再一條一條修。理由寫在 SKILL.md 裡：沒有清單就直接改寫，專家偵測器反而更容易看出 AI 指紋。</p>
 <p>修的時候偏向刪和換，少加字。它引的人類編輯比例是 74% 替換、18% 刪除、8% 新增。</p>
-<h3 id="_6">校準：別矯枉過正<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h3 id="_7">校準：別矯枉過正<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <p>這條我覺得最有價值。把每個 AI 特徵都反過來做，會變成另一種指紋。</p>
 <p>人類的數值多落在中間。所以 Sepia 每篇只挑 3–5 個手法，其餘留白。專業文件也一樣，正式場合維持正式語氣，硬裝口語騙不了懂行的讀者。</p>
-<h2 id="_7">中文有專門的校準檔<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<h2 id="_8">中文有專門的校準檔<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
 <p>中文文本會多載入 <code>references/languages/zh.md</code>。數字來自 HC3-Chinese 語料（2023，GPT-3.5 時代的 ChatGPT，簡體中文問答，人類與 AI 各 6,586 篇）：</p>
 <table>
 <thead>
@@ -5496,7 +5540,7 @@
 <p>它也列了<strong>不算訊號</strong>的東西：標點密度、段落數、句子長短本身。很多人以為 AI 愛寫一大坨，這份語料裡 ChatGPT 反而分了比較多段。</p>
 <p>「不是…而是…」、到處三段排比、段首「其實」這幾條，檔案標成台灣編輯的經驗談，沒有語料數字。</p>
 <p>限制它自己寫得很清楚：一份語料、一個模型世代、簡體問答。2024 年以後的模型在中文上沒有量測，台灣繁中也沒有學術研究。數字只能當方向看。</p>
-<h2 id="_8">我用過一次<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h2 id="_9">我用過一次<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <p>開頭那次履歷，跑的是 refactor（專業路線＋中文校準）。抓到的兩個問題，anti-ai-writing 理論上也抓得到，那次漏掉是因為根本沒對 PDF 跑。只有一次使用，談不上評測。</p>
 <h2 id="anti-ai-writing">跟 anti-ai-writing 怎麼分<a class="headerlink" href="#anti-ai-writing" title="Permanent link">¶</a></h2>
 <p>兩者在字句層重疊。Sepia 多出來的是：</p>
@@ -5506,13 +5550,13 @@
 <li>有研究出處的中文校準</li>
 </ul>
 <p>我的寫作 pipeline 第 4 步目前還是 anti-ai-writing。要不要換成 Sepia，還沒決定。</p>
-<h2 id="_9">安裝<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<h2 id="_10">安裝<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>claude<span class="w"> </span>plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>Nanako0129/sepia
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>claude<span class="w"> </span>plugin<span class="w"> </span>install<span class="w"> </span>sepia@sepia<span class="w"> </span>--scope<span class="w"> </span>user
 </span></code></pre></div>
 <p>其他 agent 可以用 Skills CLI：<code>npx skills add Nanako0129/sepia -g</code>（<code>-g</code> 才是裝到使用者層級）。Codex、Grok Build、Antigravity 也有原生 plugin，指令見 repo README。</p>
 <p>授權 MIT，免費。</p>
-<h2 id="_10">參考來源<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
+<h2 id="_11">參考來源<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://github.com/Nanako0129/sepia">Nanako0129/sepia — GitHub</a>（README.zh-TW.md、<code>skills/sepia/SKILL.md</code>、<code>references/languages/zh.md</code>）</li>
 <li>StoryScope：<a href="https://arxiv.org/abs/2604.03136">arXiv:2604.03136</a></li>
@@ -5540,7 +5584,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 16:35:19 UTC">2026年10月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 00:52:14 UTC">2026年11月22日</span>
   </span>
 
     
