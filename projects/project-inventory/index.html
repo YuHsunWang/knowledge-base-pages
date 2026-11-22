@@ -5009,7 +5009,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        技術棧
+        建議用法
       
     </span>
   </a>
@@ -5020,7 +5020,7 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        還沒做完的
+        怎麼分享
       
     </span>
   </a>
@@ -5031,7 +5031,7 @@
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        延伸閱讀（本站）
+        技術棧
       
     </span>
   </a>
@@ -5040,6 +5040,28 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        還沒做完的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         來源
@@ -5210,7 +5232,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        技術棧
+        建議用法
       
     </span>
   </a>
@@ -5221,7 +5243,7 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        還沒做完的
+        怎麼分享
       
     </span>
   </a>
@@ -5232,7 +5254,7 @@
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        延伸閱讀（本站）
+        技術棧
       
     </span>
   </a>
@@ -5241,6 +5263,28 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        還沒做完的
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延伸閱讀（本站）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       
         來源
@@ -5466,8 +5510,51 @@
 </span></code></pre></div>
 <p>然後說「幫我盤點專案」。第一次會一題一題問：要放哪些專案、各自連到哪、要盯哪些資料、流程圖對不對。設定存在 <code>~/.project-inventory/inventory.json</code>。</p>
 <p>不需要 MCP server。skill 就是一個資料夾（<code>SKILL.md</code> 寫步驟，<code>scripts/</code> 是只用 Python 標準庫的腳本），所以 Codex 這類讀同樣格式的工具，把資料夾複製進去也能用。</p>
+<p>其他 agent 可以用 <a href="https://skills.sh">Skills CLI</a> 一行裝好（資料基準 2026-11）：</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npx<span class="w"> </span>skills<span class="w"> </span>add<span class="w"> </span>YuHsunWang/project-inventory<span class="w"> </span>-g
+</span></code></pre></div>
 <hr>
-<h2 id="_8">技術棧<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h2 id="_8">建議用法<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>每天看首頁一次，大約兩分鐘。</strong> 先看資料有沒有過期。資料錯了，後面算出來的都會錯，所以這個最先處理。再看哪些 PR 在等你。</li>
+<li><strong>每週點進有動的專案一次。</strong> 讀每週說明，確認跟自己記得的一樣。對不上的地方，通常就是忘了的事。</li>
+<li><strong>交給排程，不要每次手動叫。</strong> 用 cron 每晚跑 <code>collect.py</code> 和 <code>build.py</code>，打開網頁時就已經是新的。Claude 只在要寫新的週說明時才叫。</li>
+<li><strong>想改畫面就直接跟 agent 說。</strong> 設定都在 <code>inventory.json</code>，不用自己改 HTML。</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">常見誤解／釐清</p>
+<p><strong>誤解：</strong> 盤點是專案出問題時才要做的事。</p>
+<p><strong>更正：</strong> 它的價值在平常。資料默默停掉、PR 放了三週沒合，這種事都不會自己報警，只有每天掃一眼的頁面才會被發現。</p>
+<p><strong>後果：</strong> 等到出問題才盤點，發現的時候通常已經停了好幾天。</p>
+</div>
+<hr>
+<h2 id="_9">怎麼分享<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<p>盤點頁裡有專案名稱、分支、路徑和待辦，所以<strong>不要直接公開自己的那一頁</strong>。依你想讓對方看到什麼，有三種做法：</p>
+<table>
+<thead>
+<tr>
+<th>想讓對方</th>
+<th>怎麼做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自己也有一頁</td>
+<td>給他 <a href="https://github.com/YuHsunWang/project-inventory">repo</a> 和上面的安裝指令。他裝好以後說「幫我盤點專案」就會做出自己的頁面。</td>
+</tr>
+<tr>
+<td>先看看長什麼樣</td>
+<td>給他<a href="https://yuhsunwang.github.io/project-inventory/">示範頁</a>。裡面只有假資料。</td>
+</tr>
+<tr>
+<td>看你的頁面</td>
+<td>截圖或錄影，傳之前先遮掉不想給人看的部分。要讓他登入看的話，用 Vercel 並把他加進團隊，他會看到全部內容。</td>
+</tr>
+</tbody>
+</table>
+<p>不要為了分享而改發到 GitHub Pages：免費方案就算 repo 是私人的，網頁還是所有人都看得到（見上面「網頁放哪裡」）。</p>
+<hr>
+<h2 id="_10">技術棧<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -5503,17 +5590,17 @@
 </tbody>
 </table>
 <hr>
-<h2 id="_9">還沒做完的<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<h2 id="_11">還沒做完的<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>GitHub Pages 發布、Notion 待辦還沒實際跑過。</strong> 步驟寫在 <code>SKILL.md</code> 裡，但到 2026-10-03 為止沒有在真的帳號上驗證。</li>
 <li><strong>Hermes 沒試過。</strong> Codex 試過：它自己找到 skill 資料夾，跑完整個盤點。</li>
 <li>第一次跑要補完以前每一週的說明，專案歷史長的話會很久。</li>
 </ul>
-<h2 id="_10">延伸閱讀（本站）<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
+<h2 id="_12">延伸閱讀（本站）<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../cvs-radar/">CVS Radar：超商商品評價雷達</a> — 示範畫面裡的另一個專案</li>
 </ul>
-<h2 id="_11">來源<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
+<h2 id="_13">來源<a class="headerlink" href="#_13" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://github.com/YuHsunWang/project-inventory">project-inventory repository</a>（README、<code>說明書.md</code>、<code>skills/project-inventory/reference/schema.md</code>）</li>
 </ul>
@@ -5539,7 +5626,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月3日 13:05:43 UTC">2026年10月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 04:46:38 UTC">2026年11月22日</span>
   </span>
 
     
