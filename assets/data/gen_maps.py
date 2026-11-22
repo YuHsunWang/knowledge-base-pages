@@ -19,8 +19,9 @@
 import datetime as dt
 import json
 import re
-import subprocess
 import sys
+
+import yaml
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -148,18 +149,32 @@ def href_from_section_index(section, rel):
 REVIEW_DAYS = {"monthly": 31, "quarterly": 92}
 
 
-def last_commit_date(path):
-    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
-                         capture_output=True, text=True, cwd=ROOT).stdout.strip()
-    return dt.date.fromisoformat(out) if out else None
+def review_baseline(fm):
+    """`date`（首發日）與 `reviewed`（最後實際複查日）較新者。
 
+    與 scripts/kb_lint.py 的 review_baseline 同一套判準；改這裡要一起改那裡
+    （scripts/tests/test_kb_lint.py 的 ReviewBaselineAgreementTest 會抓不一致）。
+    不看 git 提交日：改錯字、重排版不該重置計時（DEV-125、DEV-132）。
 
-def freshness(rel, review):
-    """回傳 {state, label, days}。與 kb_lint 同一套判準：git 最後提交日 + 週期。
-
-    注意這量的是「檔案多久沒被改」，不是「內容裡的資料多舊」——一次純排版的
-    提交也會讓計時重置。真正的資料基準日寫在各頁內文，不在這裡。
+    本檔的 frontmatter() 是逐行解析、只去掉雙引號，所以值再用 YAML 規則讀一次，
+    單引號與行尾 `# 註解` 才會跟 lint 讀到同一個日期。
     """
+    dates = []
+    for key in ("date", "reviewed"):
+        raw = fm.get(key)
+        if raw is None:
+            continue
+        try:
+            value = yaml.safe_load(raw)
+            dates.append(dt.date.fromisoformat(str(value)))
+        except (yaml.YAMLError, TypeError, ValueError):
+            pass
+    return max(dates) if dates else None
+
+
+def freshness(fm):
+    """回傳 {state, label, days}，基準日見 review_baseline。"""
+    review = fm.get("review")
     if review == "evergreen":
         return {"state": "evergreen", "label": "常青｜內容不隨時間失效"}
     if review == "archived":
@@ -167,9 +182,9 @@ def freshness(rel, review):
     limit = REVIEW_DAYS.get(review)
     if not limit:
         return None
-    d = last_commit_date(DOCS / (rel + ".md"))
+    d = review_baseline(fm)
     if not d:
-        return {"state": "unknown", "label": "尚未提交"}
+        return {"state": "unknown", "label": "缺日期"}
     days = (dt.date.today() - d).days
     cadence = {"monthly": "每月", "quarterly": "每季"}[review]
     if days > limit:
@@ -179,7 +194,7 @@ def freshness(rel, review):
     else:
         state, note = "fresh", f"{limit - days} 天內有效"
     return {"state": state, "days": days,
-            "label": f"{cadence}複查｜{d.isoformat()} 更新｜{note}"}
+            "label": f"{cadence}複查｜{d.isoformat()} 起算｜{note}"}
 
 
 def check(condition, message):
@@ -400,7 +415,7 @@ def build_section(section, nodes, edges, columns, out_name, hint, group_map, lay
         if fm.get("date"):
             meta.append(["首次發布", fm["date"]])
         sources = sorted(GRAPH.get(f"{section}/{stem}", set()))
-        fresh = freshness(f"{section}/{stem}", fm.get("review"))
+        fresh = freshness(fm)
         items.append({
             # 地圖掛在該區的 index 頁（URL 為 /<區>/），因此同區文章是相對於它的
             # 子路徑；寫成 ../ 會跳到站根。
