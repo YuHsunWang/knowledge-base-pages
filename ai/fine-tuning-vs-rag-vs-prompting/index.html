@@ -10,10 +10,10 @@
         <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/fine-tuning-vs-rag-vs-prompting/">
       
       
-        <link rel="prev" href="../reasoning-models-test-time-compute/">
+        <link rel="prev" href="../rag-retrieval-augmented-generation/">
       
       
-        <link rel="next" href="../rag-retrieval-augmented-generation/">
+        <link rel="next" href="../embeddings-and-vector-databases/">
       
       
         
@@ -817,6 +817,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag-retrieval-augmented-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 · RAG 完整指南（入門與總覽）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -836,7 +864,7 @@
   <span class="md-ellipsis">
     
   
-    0 · 該不該用 RAG：vs Fine-tuning / Prompting
+    2 · 該不該用 RAG：vs Fine-tuning / Prompting
   
 
     
@@ -854,7 +882,7 @@
   <span class="md-ellipsis">
     
   
-    0 · 該不該用 RAG：vs Fine-tuning / Prompting
+    2 · 該不該用 RAG：vs Fine-tuning / Prompting
   
 
     
@@ -972,34 +1000,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../rag-retrieval-augmented-generation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    1 · RAG 完整指南（入門與總覽）
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../embeddings-and-vector-databases/" class="md-nav__link">
         
   
@@ -1007,7 +1007,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Embeddings 與向量資料庫
+    3 · Embeddings 與向量資料庫
   
 
     
@@ -1035,7 +1035,7 @@
   <span class="md-ellipsis">
     
   
-    3 · RAG 進階技術：六個槓桿
+    4 · RAG 進階技術：六個槓桿
   
 
     
@@ -1063,7 +1063,7 @@
   <span class="md-ellipsis">
     
   
-    4 · GraphRAG：換索引標的
+    5a · GraphRAG：換索引標的
   
 
     
@@ -1091,7 +1091,7 @@
   <span class="md-ellipsis">
     
   
-    4 · Agentic RAG：換控制流
+    5b · Agentic RAG：換控制流
   
 
     
@@ -5284,7 +5284,7 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../rag-retrieval-augmented-generation/" class="md-path__link">
           
   <span class="md-ellipsis">
     RAG 與檢索系統
@@ -5328,7 +5328,7 @@
 <blockquote>
 <p>整理自業界技術分析（見文末），2026-06-20。這三個常被當成「競品」二選一，其實它們改的是<strong>不同的東西</strong>：prompting 改指令、RAG 改「模型當下知道什麼」、fine-tuning 改「模型怎麼行為」。本頁給一個能落地的決策框架。</p>
 <p><strong>實證標記</strong>：〔分析〕= 出自業界技術分析；〔實務〕= 業界慣例或本人整理。預設 under-claim；成本數字依來源/規模差異大，當量級參考。</p>
-<p><strong>系列位置</strong>：RAG 系列<strong>第 0 站</strong>——進門前先問「該不該進門」。若結論是要用 RAG，下一站是 <a href="../rag-retrieval-augmented-generation/">RAG 完整指南</a>，那裡有完整的五站閱讀路徑。</p>
+<p><strong>系列位置</strong>：RAG 系列<strong>第 2 站</strong>——知道 RAG 是什麼之後，先問「該不該用」。上一站 <a href="../rag-retrieval-augmented-generation/">RAG 完整指南</a> 建立骨架，也有完整的五站閱讀路徑；若結論是要用 RAG，下一站是 <a href="../embeddings-and-vector-databases/">Embeddings 與向量資料庫實務</a>。</p>
 </blockquote>
 <h2 id="_1">三者各改什麼<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <table>
@@ -5448,7 +5448,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月22日 00:53:02 UTC">2026年11月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月23日 09:17:04 UTC">2026年11月23日</span>
   </span>
 
     
@@ -5493,7 +5493,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../reasoning-models-test-time-compute/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Reasoning Models 與 Test-time Compute">
+          <a href="../rag-retrieval-augmented-generation/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 1 · RAG 完整指南（入門與總覽）">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -5503,20 +5503,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                Reasoning Models 與 Test-time Compute
+                1 · RAG 完整指南（入門與總覽）
               </div>
             </div>
           </a>
         
         
           
-          <a href="../rag-retrieval-augmented-generation/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 1 · RAG 完整指南（入門與總覽）">
+          <a href="../embeddings-and-vector-databases/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 3 · Embeddings 與向量資料庫">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                1 · RAG 完整指南（入門與總覽）
+                3 · Embeddings 與向量資料庫
               </div>
             </div>
             <div class="md-footer__button md-icon">

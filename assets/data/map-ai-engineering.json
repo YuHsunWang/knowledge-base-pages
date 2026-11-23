@@ -53,8 +53,8 @@
    "name": "RAG 與檢索系統",
    "desc": "讓模型讀到外部知識",
    "items": [
-    "fine-tuning-vs-rag-vs-prompting",
     "rag-retrieval-augmented-generation",
+    "fine-tuning-vs-rag-vs-prompting",
     "embeddings-and-vector-databases",
     "rag-advanced-techniques",
     "graphrag-knowledge-graph-retrieval",
@@ -232,9 +232,9 @@
   },
   {
    "id": "agentic-rag-2026",
-   "label": "Agentic RAG：換控制流",
+   "label": "5b · Agentic RAG：換控制流",
    "href": "agentic-rag-2026/",
-   "step": "4",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -691,7 +691,7 @@
    "id": "embeddings-and-vector-databases",
    "label": "Embeddings 與向量資料庫",
    "href": "embeddings-and-vector-databases/",
-   "step": "2",
+   "step": "3",
    "cluster": null,
    "meta": [
     [
@@ -737,7 +737,7 @@
    "id": "fine-tuning-vs-rag-vs-prompting",
    "label": "該不該用 RAG：vs Fine-tuning / Prompting",
    "href": "fine-tuning-vs-rag-vs-prompting/",
-   "step": "0",
+   "step": "2",
    "cluster": null,
    "meta": [
     [
@@ -754,6 +754,11 @@
     {
      "label": "Agentic RAG（2026）：從固定檢索到會規劃、自我修正的檢索迴圈",
      "href": "agentic-rag-2026/",
+     "section": "ai"
+    },
+    {
+     "label": "Embeddings 與向量資料庫實務：模型選型、ANN 索引與生產考量",
+     "href": "embeddings-and-vector-databases/",
      "section": "ai"
     },
     {
@@ -791,9 +796,9 @@
   },
   {
    "id": "graphrag-knowledge-graph-retrieval",
-   "label": "GraphRAG：換索引標的",
+   "label": "5a · GraphRAG：換索引標的",
    "href": "graphrag-knowledge-graph-retrieval/",
-   "step": "4",
+   "step": null,
    "cluster": null,
    "meta": [
     [
@@ -1458,7 +1463,7 @@
    "id": "rag-advanced-techniques",
    "label": "RAG 進階技術：六個槓桿",
    "href": "rag-advanced-techniques/",
-   "step": "3",
+   "step": "4",
    "cluster": null,
    "meta": [
     [
@@ -1785,8 +1790,8 @@
     "description": "讓模型讀到外部知識",
     "count": 6,
     "members": [
-     "fine-tuning-vs-rag-vs-prompting",
      "rag-retrieval-augmented-generation",
+     "fine-tuning-vs-rag-vs-prompting",
      "embeddings-and-vector-databases",
      "rag-advanced-techniques",
      "graphrag-knowledge-graph-retrieval",

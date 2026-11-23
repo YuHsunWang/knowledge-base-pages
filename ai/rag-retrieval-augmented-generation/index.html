@@ -10,10 +10,10 @@
         <link rel="canonical" href="https://yuhsunwang.github.io/knowledge-base-pages/ai/rag-retrieval-augmented-generation/">
       
       
-        <link rel="prev" href="../fine-tuning-vs-rag-vs-prompting/">
+        <link rel="prev" href="../reasoning-models-test-time-compute/">
       
       
-        <link rel="next" href="../embeddings-and-vector-databases/">
+        <link rel="next" href="../fine-tuning-vs-rag-vs-prompting/">
       
       
         
@@ -817,34 +817,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    0 · 該不該用 RAG：vs Fine-tuning / Prompting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1267,6 +1239,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 · 該不該用 RAG：vs Fine-tuning / Prompting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../embeddings-and-vector-databases/" class="md-nav__link">
         
   
@@ -1274,7 +1274,7 @@
   <span class="md-ellipsis">
     
   
-    2 · Embeddings 與向量資料庫
+    3 · Embeddings 與向量資料庫
   
 
     
@@ -1302,7 +1302,7 @@
   <span class="md-ellipsis">
     
   
-    3 · RAG 進階技術：六個槓桿
+    4 · RAG 進階技術：六個槓桿
   
 
     
@@ -1330,7 +1330,7 @@
   <span class="md-ellipsis">
     
   
-    4 · GraphRAG：換索引標的
+    5a · GraphRAG：換索引標的
   
 
     
@@ -1358,7 +1358,7 @@
   <span class="md-ellipsis">
     
   
-    4 · Agentic RAG：換控制流
+    5b · Agentic RAG：換控制流
   
 
     
@@ -5818,7 +5818,7 @@
     
     
       <li class="md-path__item">
-        <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
     RAG 與檢索系統
@@ -5904,36 +5904,60 @@
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td>我到底該用 RAG，還是 prompting / fine-tuning？</td>
-<td><a href="../fine-tuning-vs-rag-vs-prompting/">Fine-tuning vs RAG vs Prompting</a></td>
-</tr>
-<tr>
 <td><strong>1</strong></td>
 <td><strong>RAG 整條管線長什麼樣？</strong></td>
 <td><strong>本篇</strong></td>
 </tr>
 <tr>
 <td>2</td>
+<td>我到底該用 RAG，還是 prompting / fine-tuning？</td>
+<td><a href="../fine-tuning-vs-rag-vs-prompting/">Fine-tuning vs RAG vs Prompting</a></td>
+</tr>
+<tr>
+<td>3</td>
 <td>embedding 和向量庫怎麼選？</td>
 <td><a href="../embeddings-and-vector-databases/">Embeddings 與向量資料庫實務</a></td>
 </tr>
 <tr>
-<td>3</td>
+<td>4</td>
 <td>naive RAG 效果不好，怎麼推到生產級？</td>
 <td><a href="../rag-advanced-techniques/">RAG 進階系列</a></td>
 </tr>
 <tr>
-<td>4</td>
+<td>5</td>
 <td>加槓桿還不夠，要不要換架構？</td>
 <td><a href="../graphrag-knowledge-graph-retrieval/">GraphRAG</a>（換索引標的）／<a href="../agentic-rag-2026/">Agentic RAG</a>（換控制流）</td>
 </tr>
 </tbody>
 </table>
-<p>第 4 站的兩篇是<strong>平行的分岔，不是先後</strong>：GraphRAG 改的是「索引什麼」，Agentic RAG 改的是「誰決定何時檢索」。</p>
+<p>第 5 站的兩篇（5a、5b）是<strong>平行的分岔，不是先後</strong>：GraphRAG 改的是「索引什麼」，Agentic RAG 改的是「誰決定何時檢索」。</p>
 <blockquote>
-<p><strong>重要提醒</strong>：第 0 站其實該最先讀。很多 RAG 專案的失敗不是做得不好，而是<strong>根本不該做 RAG</strong>——靜態小語料直接塞長 context 更省事，要改的是模型行為就該 fine-tune。</p>
+<p><strong>讀完本篇先停一下</strong>：下一站（第 2 站）問的是「該不該用 RAG」。很多 RAG 專案的失敗不是做得不好，而是<strong>根本不該做 RAG</strong>——靜態小語料直接塞長 context 更省事，要改的是模型行為就該 fine-tune。</p>
 </blockquote>
+<p>系列裡會一直出現三個架構名稱，先記住它們的差別：</p>
+<table>
+<thead>
+<tr>
+<th>架構</th>
+<th>流程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naive RAG</strong></td>
+<td>query embed → 向量搜尋 → 生成</td>
+</tr>
+<tr>
+<td><strong>Advanced RAG</strong></td>
+<td>query 轉換 → 混合檢索 → 重排 → 合成</td>
+</tr>
+<tr>
+<td><strong>Agentic RAG</strong></td>
+<td>agent 規劃 → 檢索 → 評估足夠性 → 不足再檢索 → 合成</td>
+</tr>
+</tbody>
+</table>
+<p>含延遲、成本與 GraphRAG／Adaptive RAG 的完整版，見第 5b 站 <a href="../agentic-rag-2026/">Agentic RAG</a> 的「RAG 架構光譜」一節。</p>
 <hr>
 <h2 id="rag_1">為什麼需要 RAG<a class="headerlink" href="#rag_1" title="Permanent link">¶</a></h2>
 <p>LLM 在訓練後知識便固定下來。面對以下情境，單靠模型本身無法可靠回答：</p>
@@ -6100,31 +6124,31 @@
 <td>召回率低</td>
 <td>問題與文件語意差異大</td>
 <td>HyDE、Multi-Query、Hybrid Search</td>
-<td>加槓桿（第 3 站）</td>
+<td>加槓桿（第 4 站）</td>
 </tr>
 <tr>
 <td>精確度低</td>
 <td>Top-K 有雜訊</td>
 <td>Re-ranking</td>
-<td>加槓桿（第 3 站）</td>
+<td>加槓桿（第 4 站）</td>
 </tr>
 <tr>
 <td>答案用了舊資料</td>
 <td>索引過期</td>
 <td>Freshness 維運</td>
-<td>加槓桿（第 3 站）</td>
+<td>加槓桿（第 4 站）</td>
 </tr>
 <tr>
 <td>跨文件推理失敗</td>
 <td>資訊分散在多份文件</td>
 <td><a href="../graphrag-knowledge-graph-retrieval/">GraphRAG</a></td>
-<td>換架構（第 4 站）</td>
+<td>換架構（第 5 站）</td>
 </tr>
 <tr>
 <td>需要多輪自我修正</td>
 <td>一次檢索不足以判斷</td>
 <td><a href="../agentic-rag-2026/">Agentic RAG</a></td>
-<td>換架構（第 4 站）</td>
+<td>換架構（第 5 站）</td>
 </tr>
 <tr>
 <td>回答不忠實</td>
@@ -6221,7 +6245,7 @@
 <p>適合：含豐富視覺結構的文件（財報表格、技術規格書、網頁截圖）。GraphRAG 的建圖四階段與成本代價見 <a href="../graphrag-knowledge-graph-retrieval/">GraphRAG 專篇</a>。</p>
 <hr>
 <h2 id="rag_3">RAG 評估框架<a class="headerlink" href="#rag_3" title="Permanent link">¶</a></h2>
-<p>評估 RAG 系統需要同時衡量<strong>檢索品質</strong>與<strong>生成品質</strong>。沒有評估就沒有儀表板，後面所有調優都是盲調——這是進到第 3 站之前的前置條件。</p>
+<p>評估 RAG 系統需要同時衡量<strong>檢索品質</strong>與<strong>生成品質</strong>。沒有評估就沒有儀表板，後面所有調優都是盲調——這是進到第 4 站之前的前置條件。</p>
 <h3 id="ragas">RAGAS 指標<a class="headerlink" href="#ragas" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -6339,10 +6363,11 @@
 <p>上面的 <code>chunk_size=512, chunk_overlap=50</code> 只是<strong>讓程式跑起來的預設值，不是建議值</strong>——正式使用前務必對自己的語料實測。</p>
 <hr>
 <h2 id="_5">下一步<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>這一站建立了骨架。往下走的三個方向：</p>
+<p>這一站建立了骨架。往下走的四個方向：</p>
 <ul>
-<li><strong>底層選型還沒決定</strong> → <a href="../embeddings-and-vector-databases/">Embeddings 與向量資料庫實務</a>（第 2 站）</li>
-<li><strong>跑起來了但效果不好</strong> → <a href="../rag-advanced-techniques/">RAG 進階系列</a>（第 3 站，六個槓桿與落地優先序）</li>
+<li><strong>還沒確定該不該用 RAG</strong> → <a href="../fine-tuning-vs-rag-vs-prompting/">Fine-tuning vs RAG vs Prompting</a>（第 2 站）</li>
+<li><strong>底層選型還沒決定</strong> → <a href="../embeddings-and-vector-databases/">Embeddings 與向量資料庫實務</a>（第 3 站）</li>
+<li><strong>跑起來了但效果不好</strong> → <a href="../rag-advanced-techniques/">RAG 進階系列</a>（第 4 站，六個槓桿與落地優先序）</li>
 <li><strong>槓桿加滿仍不夠</strong> → <a href="../agentic-rag-2026/">Agentic RAG</a> 有完整的架構光譜比較（Naive / Advanced / Agentic / GraphRAG / Adaptive），含延遲與成本量級</li>
 </ul>
 <p><em>其他相關：<a href="../prompt-engineering-core-techniques/">Prompt Engineering 核心技術</a> ｜ <a href="../context-engineering/">Context Engineering</a> ｜ <a href="../ai-agent-harness-engineering/">AI Agent Harness Engineering</a></em></p>
@@ -6368,7 +6393,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月8日 15:52:02 UTC">2026年8月8日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月23日 09:17:04 UTC">2026年11月23日</span>
   </span>
 
     
@@ -6413,7 +6438,7 @@
       <nav class="md-footer__inner md-grid" aria-label="頁腳">
         
           
-          <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 0 · 該不該用 RAG：vs Fine-tuning / Prompting">
+          <a href="../reasoning-models-test-time-compute/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: Reasoning Models 與 Test-time Compute">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -6423,20 +6448,20 @@
                 上一頁
               </span>
               <div class="md-ellipsis">
-                0 · 該不該用 RAG：vs Fine-tuning / Prompting
+                Reasoning Models 與 Test-time Compute
               </div>
             </div>
           </a>
         
         
           
-          <a href="../embeddings-and-vector-databases/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 2 · Embeddings 與向量資料庫">
+          <a href="../fine-tuning-vs-rag-vs-prompting/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 2 · 該不該用 RAG：vs Fine-tuning / Prompting">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一頁
               </span>
               <div class="md-ellipsis">
-                2 · Embeddings 與向量資料庫
+                2 · 該不該用 RAG：vs Fine-tuning / Prompting
               </div>
             </div>
             <div class="md-footer__button md-icon">
