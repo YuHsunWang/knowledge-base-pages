@@ -5385,7 +5385,8 @@
 <p>關聯欄位保留明確型別與約束；分析結果的命中、缺漏清單放 JSONB。需要單獨查詢、更新與驗證的工作經歷拆表比較直接；JSONB 也能查詢與建索引，但不會自動提供欄位間的外鍵與文件內部完整性。</p>
 <p>我選擇先用 SQLAlchemy Core 的明確 SQL，讓資料庫行為可見；ORM 可以之後加，不必為了換儲存就先重寫 service。若採 ORM，<code>Session</code> 是一次工作單位，不能跨 request 分享；lazy relationship 在迴圈裡可能引發 N+1，應檢查實際 SQL，再依情況用 join 或 <code>selectinload()</code>。</p>
 <h2 id="_3">建立資料庫與連線設定<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>本機管理者以 <code>psql</code> 執行以下指令；密碼由 <code>\password</code> 互動設定，不留在 SQL history。這個教學帳號同時執行 migration 與應用，正式環境宜分離 migration owner 與只具必要 DML 權限的 runtime role。</p>
+<p>如果你是用下一章 Compose 的 postgres 服務啟動資料庫，<code>job_assistant</code> 角色和資料庫已經由 <code>POSTGRES_USER</code>／<code>POSTGRES_DB</code> 建好，密碼就是 <code>.env</code> 的 <code>POSTGRES_PASSWORD</code>。這時跳過下面的 SQL，直接接著設定連線；再執行一次會出現「已存在」錯誤。</p>
+<p>自己安裝 PostgreSQL 的讀者，由本機管理者以 <code>psql</code> 執行以下指令；密碼由 <code>\password</code> 互動設定，不留在 SQL history。這個教學帳號同時執行 migration 與應用，正式環境宜分離 migration owner 與只具必要 DML 權限的 runtime role。</p>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">job_assistant</span><span class="w"> </span><span class="n">LOGIN</span><span class="p">;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">\</span><span class="n">password</span><span class="w"> </span><span class="n">job_assistant</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">job_assistant</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="n">job_assistant</span><span class="p">;</span>
@@ -5715,7 +5716,7 @@
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月22日 08:34:06 UTC">2026年10月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月23日 05:38:08 UTC">2026年11月23日</span>
   </span>
 
     
