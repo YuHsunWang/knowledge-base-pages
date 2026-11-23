@@ -62,7 +62,8 @@
     "passive-components-stock-tracker",
     "passive-components-monthly-tracker",
     "passive-components-valuation-framework",
-    "passive-components-target-price"
+    "passive-components-target-price",
+    "passive-components-research-workbook"
    ]
   },
   {
@@ -370,6 +371,11 @@
      "section": "trading"
     },
     {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
+     "section": "trading"
+    },
+    {
      "label": "台灣被動元件個股追蹤",
      "href": "passive-components-stock-tracker/",
      "section": "trading"
@@ -423,6 +429,11 @@
     {
      "label": "被動元件研究結構圖與決策地圖",
      "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
      "section": "trading"
     },
     {
@@ -518,6 +529,11 @@
      "section": "trading"
     },
     {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
+     "section": "trading"
+    },
+    {
      "label": "台灣被動元件個股追蹤",
      "href": "passive-components-stock-tracker/",
      "section": "trading"
@@ -569,6 +585,11 @@
      "section": "trading"
     },
     {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
+     "section": "trading"
+    },
+    {
      "label": "台灣被動元件個股追蹤",
      "href": "passive-components-stock-tracker/",
      "section": "trading"
@@ -576,6 +597,57 @@
     {
      "label": "被動元件目標價評估",
      "href": "passive-components-target-price/",
+     "section": "trading"
+    }
+   ]
+  },
+  {
+   "id": "passive-components-research-workbook",
+   "label": "研究工作手冊",
+   "href": "passive-components-research-workbook/",
+   "step": "8",
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-06-06"
+    ]
+   ],
+   "note": "被動元件專題的例行工作：每月追蹤欄位、法說會必問問題、全專題研究缺口總表與資料來源入口。",
+   "fresh": {
+    "state": "overdue",
+    "days": 170,
+    "label": "每季複查｜2026-06-06 起算｜已逾期 78 天"
+   },
+   "backlinks": [
+    {
+     "label": "被動元件台股公司全圖",
+     "href": "passive-components-company-universe/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件產業研究總覽",
+     "href": "passive-components-industry-overview/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件市場量化",
+     "href": "passive-components-market-sizing/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究結構圖與決策地圖",
+     "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件目標價評估",
+     "href": "passive-components-target-price/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件估值框架",
+     "href": "passive-components-valuation-framework/",
      "section": "trading"
     }
    ]
@@ -612,6 +684,11 @@
     {
      "label": "被動元件月度追蹤表",
      "href": "passive-components-monthly-tracker/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
      "section": "trading"
     },
     {
@@ -658,6 +735,11 @@
     {
      "label": "被動元件研究結構圖與決策地圖",
      "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
      "section": "trading"
     },
     {
@@ -714,6 +796,11 @@
     {
      "label": "被動元件研究結構圖與決策地圖",
      "href": "passive-components-research-diagrams-decision-map/",
+     "section": "trading"
+    },
+    {
+     "label": "被動元件研究工作手冊",
+     "href": "passive-components-research-workbook/",
      "section": "trading"
     },
     {
@@ -1032,7 +1119,7 @@
     "label": "被動元件專題",
     "href": "#passive-components-topic",
     "description": "用被動元件走完產業研究流程",
-    "count": 8,
+    "count": 9,
     "members": [
      "passive-components-research-diagrams-decision-map",
      "passive-components-industry-overview",
@@ -1041,7 +1128,8 @@
      "passive-components-stock-tracker",
      "passive-components-monthly-tracker",
      "passive-components-valuation-framework",
-     "passive-components-target-price"
+     "passive-components-target-price",
+     "passive-components-research-workbook"
     ],
     "x": 0.55,
     "y": 0.75,

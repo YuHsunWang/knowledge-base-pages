@@ -51,7 +51,7 @@
     "x": 0.28,
     "y": 0.39
    },
-   "articles": 9,
+   "articles": 10,
    "sectionMap": "assets/data/map-career.json"
   },
   {
@@ -68,7 +68,7 @@
     "y": 0.62
    },
    "sectionMap": "assets/data/map-trading.json",
-   "articles": 23
+   "articles": 24
   },
   {
    "id": "projects",

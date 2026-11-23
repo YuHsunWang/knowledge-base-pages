@@ -38,7 +38,8 @@
    "name": "資料工程路線",
    "desc": "從資料建模走到可重跑的管線",
    "items": [
-    "da-to-de-roadmap"
+    "da-to-de-roadmap",
+    "data-pipeline-troubleshooting"
    ]
   },
   {
@@ -323,7 +324,13 @@
     "days": 40,
     "label": "每季複查｜2026-10-14 起算｜52 天內有效"
    },
-   "backlinks": []
+   "backlinks": [
+    {
+     "label": "零售資料管線排錯手冊",
+     "href": "data-pipeline-troubleshooting/",
+     "section": "career"
+    }
+   ]
   },
   {
    "id": "da-to-ds-roadmap",
@@ -342,6 +349,32 @@
     "state": "fresh",
     "days": 41,
     "label": "每季複查｜2026-10-13 起算｜51 天內有效"
+   },
+   "backlinks": [
+    {
+     "label": "從分析師走到資料工程師的水管地圖",
+     "href": "da-to-de-roadmap/",
+     "section": "career"
+    }
+   ]
+  },
+  {
+   "id": "data-pipeline-troubleshooting",
+   "label": "零售資料管線排錯手冊",
+   "href": "data-pipeline-troubleshooting/",
+   "step": null,
+   "cluster": null,
+   "meta": [
+    [
+     "首次發布",
+     "2026-10-14"
+    ]
+   ],
+   "note": "資料管線上線後常見的靜默錯誤：資料品質、可靠性、效能成本、組織治理四類情境，以及出事後怎麼沿 lineage 找根因。",
+   "fresh": {
+    "state": "fresh",
+    "days": 40,
+    "label": "每季複查｜2026-10-14 起算｜52 天內有效"
    },
    "backlinks": [
     {
@@ -387,9 +420,10 @@
     "label": "資料工程路線",
     "href": "#data-engineering-path",
     "description": "從資料建模走到可重跑的管線",
-    "count": 1,
+    "count": 2,
     "members": [
-     "da-to-de-roadmap"
+     "da-to-de-roadmap",
+     "data-pipeline-troubleshooting"
     ],
     "x": 0.75,
     "y": 0.65,
